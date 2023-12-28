@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
-| static class | [Drawing.DrawingMapInput](#drawingmapinput)<br> builder for Map payloads |
+| static class | [Drawing.DrawingMapBuilder](#drawingmapbuilder)<br> builder for Map payloads |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
-| static class | [Drawing.ShapesListInput](#shapeslistinput)<br> builder for List payloads |
+| static class | [Drawing.ShapesListBuilder](#shapeslistbuilder)<br> builder for List payloads |
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
 
 ## Drawing1
@@ -64,10 +64,10 @@ Drawing.DrawingMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [DrawingMap](#drawingmap) | validate([Map<?, ?>](#drawingmapinput) arg, SchemaConfiguration configuration) |
+| [DrawingMap](#drawingmap) | validate([Map<?, ?>](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## DrawingMapInput
-public class DrawingMapInput<br>
+## DrawingMapBuilder
+public class DrawingMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -90,7 +90,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DrawingMap](#drawingmap) | of([Map<String, ? extends @Nullable Object>](#drawingmapinput) arg, SchemaConfiguration configuration) |
+| static [DrawingMap](#drawingmap) | of([Map<String, ? extends @Nullable Object>](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | mainShape()<br>[optional] |
 | @Nullable Object | shapeOrNull()<br>[optional] |
 | @Nullable Object | nullableShape()<br>[optional] |
@@ -136,18 +136,29 @@ Drawing.ShapesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ShapesList](#shapeslist) | validate([List<?>](#shapeslistinput) arg, SchemaConfiguration configuration) |
+| [ShapesList](#shapeslist) | validate([List<?>](#shapeslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ShapesListInput
-public class ShapesListInput<br>
+## ShapesListBuilder
+public class ShapesListBuilder<br>
 builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ShapesListBuilder()<br>Creates an empty list |
+| ShapesListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Object |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| ? extends @Nullable Object |  | |
 
 ## ShapesList
 public class ShapesList<br>
@@ -158,6 +169,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ShapesList](#shapeslist) | of([List<? extends @Nullable Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
+| static [ShapesList](#shapeslist) | of([List<? extends @Nullable Object>](#shapeslistbuilder) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

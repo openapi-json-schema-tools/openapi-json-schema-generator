@@ -149,8 +149,66 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
-    public static class Schema5ListInput {
+    public static class Schema5ListBuilder {
         // class to build List<? extends @Nullable Object>
+        private final List<@Nullable Object> list;
+    
+        public Schema5ListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public Schema5ListBuilder(List<@Nullable Object> list) {
+            this.list = list;
+        }
+    
+        public Schema5ListBuilder add(Void item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema5ListBuilder add(boolean item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema5ListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema5ListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema5ListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema5ListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema5ListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema5ListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema5ListBuilder add(Map<String, ?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Object> build() {
+            return list;
+        }
     }
     
     

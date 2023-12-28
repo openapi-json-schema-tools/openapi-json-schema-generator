@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Name.Name1](#name1)<br> schema class |
-| static class | [Name.NameMapInput](#namemapinput)<br> builder for Map payloads |
+| static class | [Name.NameMapBuilder](#namemapbuilder)<br> builder for Map payloads |
 | static class | [Name.NameMap](#namemap)<br> output class for Map payloads |
 | static class | [Name.Property](#property)<br> schema class |
 | static class | [Name.SnakeCase](#snakecase)<br> schema class |
@@ -42,11 +42,11 @@ Model for testing model name same as property name
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [NameMap](#namemap) | validate([Map<?, ?>](#namemapinput) arg, SchemaConfiguration configuration) |
+| [NameMap](#namemap) | validate([Map<?, ?>](#namemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## NameMapInput
-public class NameMapInput<br>
+## NameMapBuilder
+public class NameMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -68,7 +68,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NameMap](#namemap) | of([Map<String, ? extends @Nullable Object>](#namemapinput) arg, SchemaConfiguration configuration) |
+| static [NameMap](#namemap) | of([Map<String, ? extends @Nullable Object>](#namemapbuilder) arg, SchemaConfiguration configuration) |
 | int | name()<br> value must be a 32 bit integer |
 | int | snake_case()<br>[optional] value must be a 32 bit integer |
 | String | property()<br>[optional] |

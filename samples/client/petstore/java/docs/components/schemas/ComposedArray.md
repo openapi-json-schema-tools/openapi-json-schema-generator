@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
-| static class | [ComposedArray.ComposedArrayListInput](#composedarraylistinput)<br> builder for List payloads |
+| static class | [ComposedArray.ComposedArrayListBuilder](#composedarraylistbuilder)<br> builder for List payloads |
 | static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
 | static class | [ComposedArray.Items](#items)<br> schema class |
 
@@ -54,18 +54,29 @@ ComposedArray.ComposedArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ComposedArrayList](#composedarraylist) | validate([List<?>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
+| [ComposedArrayList](#composedarraylist) | validate([List<?>](#composedarraylistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ComposedArrayListInput
-public class ComposedArrayListInput<br>
+## ComposedArrayListBuilder
+public class ComposedArrayListBuilder<br>
 builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedArrayListBuilder()<br>Creates an empty list |
+| ComposedArrayListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Object |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| ? extends @Nullable Object |  | |
 
 ## ComposedArrayList
 public class ComposedArrayList<br>
@@ -76,7 +87,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ComposedArrayList](#composedarraylist) | of([List<? extends @Nullable Object>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
+| static [ComposedArrayList](#composedarraylist) | of([List<? extends @Nullable Object>](#composedarraylistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

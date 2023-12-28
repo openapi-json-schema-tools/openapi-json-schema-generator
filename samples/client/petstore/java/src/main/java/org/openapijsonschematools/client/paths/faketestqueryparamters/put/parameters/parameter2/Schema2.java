@@ -43,8 +43,26 @@ public class Schema2 {
         }
     }
     
-    public static class SchemaListInput2 {
+    public static class SchemaListBuilder2 {
         // class to build List<String>
+        private final List<String> list;
+    
+        public SchemaListBuilder2() {
+            list = new ArrayList<>();
+        }
+    
+        public SchemaListBuilder2(List<String> list) {
+            this.list = list;
+        }
+    
+        public SchemaListBuilder2 add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     

@@ -76,8 +76,26 @@ public class Pet {
         }
     }
     
-    public static class PhotoUrlsListInput {
+    public static class PhotoUrlsListBuilder {
         // class to build List<String>
+        private final List<String> list;
+    
+        public PhotoUrlsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public PhotoUrlsListBuilder(List<String> list) {
+            this.list = list;
+        }
+    
+        public PhotoUrlsListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     
@@ -225,8 +243,22 @@ public class Pet {
         }
     }
     
-    public static class TagsListInput {
+    public static class TagsListBuilder {
         // class to build List<Map<String, ? extends @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public TagsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public TagsListBuilder(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        // items refed
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -376,7 +408,7 @@ public class Pet {
             return get(name);
         }
     }
-    public static class PetMapInput {
+    public static class PetMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AppleReq.AppleReq1](#applereq1)<br> schema class |
-| static class | [AppleReq.AppleReqMapInput](#applereqmapinput)<br> builder for Map payloads |
+| static class | [AppleReq.AppleReqMapBuilder](#applereqmapbuilder)<br> builder for Map payloads |
 | static class | [AppleReq.AppleReqMap](#applereqmap)<br> output class for Map payloads |
 | static class | [AppleReq.Mealy](#mealy)<br> schema class |
 | static class | [AppleReq.Cultivar](#cultivar)<br> schema class |
@@ -66,10 +66,10 @@ AppleReq.AppleReqMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AppleReqMap](#applereqmap) | validate([Map<?, ?>](#applereqmapinput) arg, SchemaConfiguration configuration) |
+| [AppleReqMap](#applereqmap) | validate([Map<?, ?>](#applereqmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AppleReqMapInput
-public class AppleReqMapInput<br>
+## AppleReqMapBuilder
+public class AppleReqMapBuilder<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -89,7 +89,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AppleReqMap](#applereqmap) | of([Map<String, Object>](#applereqmapinput) arg, SchemaConfiguration configuration) |
+| static [AppleReqMap](#applereqmap) | of([Map<String, Object>](#applereqmapbuilder) arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | boolean | mealy()<br>[optional] |
 

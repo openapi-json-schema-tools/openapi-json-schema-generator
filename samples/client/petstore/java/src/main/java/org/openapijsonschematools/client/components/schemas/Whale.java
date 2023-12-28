@@ -167,7 +167,7 @@ public class Whale {
             return get(name);
         }
     }
-    public static class WhaleMapInput {
+    public static class WhaleMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

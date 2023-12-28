@@ -83,7 +83,7 @@ public class ObjectWithDifficultlyNamedProps {
             return get(name);
         }
     }
-    public static class ObjectWithDifficultlyNamedPropsMapInput {
+    public static class ObjectWithDifficultlyNamedPropsMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

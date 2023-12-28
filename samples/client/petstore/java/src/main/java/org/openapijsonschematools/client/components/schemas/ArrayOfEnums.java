@@ -31,8 +31,22 @@ public class ArrayOfEnums {
         }
     }
     
-    public static class ArrayOfEnumsListInput {
+    public static class ArrayOfEnumsListBuilder {
         // class to build List<? extends @Nullable String>
+        private final List<@Nullable String> list;
+    
+        public ArrayOfEnumsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayOfEnumsListBuilder(List<@Nullable String> list) {
+            this.list = list;
+        }
+        // items refed
+    
+        public List<@Nullable String> build() {
+            return list;
+        }
     }
     
     

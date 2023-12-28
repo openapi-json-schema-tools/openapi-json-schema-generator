@@ -98,7 +98,7 @@ public class QueryParameters {
             return (Schema2.SchemaList2) value;
         }
     }
-    public static class QueryParametersMapInput {
+    public static class QueryParametersMapBuilder {
         // empty mapping
     }
     

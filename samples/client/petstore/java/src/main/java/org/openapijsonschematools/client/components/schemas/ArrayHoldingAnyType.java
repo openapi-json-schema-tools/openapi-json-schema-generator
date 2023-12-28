@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -43,8 +44,66 @@ public class ArrayHoldingAnyType {
         }
     }
     
-    public static class ArrayHoldingAnyTypeListInput {
+    public static class ArrayHoldingAnyTypeListBuilder {
         // class to build List<? extends @Nullable Object>
+        private final List<@Nullable Object> list;
+    
+        public ArrayHoldingAnyTypeListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder(List<@Nullable Object> list) {
+            this.list = list;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(Void item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(boolean item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayHoldingAnyTypeListBuilder add(Map<String, ?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Object> build() {
+            return list;
+        }
     }
     
     

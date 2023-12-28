@@ -164,7 +164,7 @@ public class Apple {
             return get(name);
         }
     }
-    public static class AppleMapInput {
+    public static class AppleMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

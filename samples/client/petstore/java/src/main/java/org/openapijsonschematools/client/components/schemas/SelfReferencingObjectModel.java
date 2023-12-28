@@ -57,7 +57,7 @@ public class SelfReferencingObjectModel {
             return (SelfReferencingObjectModelMap) value;
         }
     }
-    public static class SelfReferencingObjectModelMapInput {
+    public static class SelfReferencingObjectModelMapBuilder {
         // optionalProperties + additionalProperties
     }
     

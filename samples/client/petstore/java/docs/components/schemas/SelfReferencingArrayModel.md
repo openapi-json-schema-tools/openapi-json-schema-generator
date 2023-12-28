@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1](#selfreferencingarraymodel1)<br> schema class |
-| static class | [SelfReferencingArrayModel.SelfReferencingArrayModelListInput](#selfreferencingarraymodellistinput)<br> builder for List payloads |
+| static class | [SelfReferencingArrayModel.SelfReferencingArrayModelListBuilder](#selfreferencingarraymodellistbuilder)<br> builder for List payloads |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelList](#selfreferencingarraymodellist)<br> output class for List payloads |
 
 ## SelfReferencingArrayModel1
@@ -53,18 +53,29 @@ SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<?>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
+| [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<?>](#selfreferencingarraymodellistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SelfReferencingArrayModelListInput
-public class SelfReferencingArrayModelListInput<br>
+## SelfReferencingArrayModelListBuilder
+public class SelfReferencingArrayModelListBuilder<br>
 builder for `List<List<?>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SelfReferencingArrayModelListBuilder()<br>Creates an empty list |
+| SelfReferencingArrayModelListBuilder(List<List<?>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<List<?>> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<?> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| List<?> |  | |
 
 ## SelfReferencingArrayModelList
 public class SelfReferencingArrayModelList<br>
@@ -75,6 +86,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | of([List<List<?>>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
+| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | of([List<List<?>>](#selfreferencingarraymodellistbuilder) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

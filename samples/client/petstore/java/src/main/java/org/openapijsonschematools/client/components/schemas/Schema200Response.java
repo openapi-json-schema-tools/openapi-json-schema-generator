@@ -88,7 +88,7 @@ public class Schema200Response {
             return get(name);
         }
     }
-    public static class Schema200ResponseMapInput {
+    public static class Schema200ResponseMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

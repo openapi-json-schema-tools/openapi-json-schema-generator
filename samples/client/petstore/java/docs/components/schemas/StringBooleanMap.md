@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [StringBooleanMap.StringBooleanMap1](#stringbooleanmap1)<br> schema class |
-| static class | [StringBooleanMap.StringBooleanMapMapInput](#stringbooleanmapmapinput)<br> builder for Map payloads |
+| static class | [StringBooleanMap.StringBooleanMapMapBuilder](#stringbooleanmapmapbuilder)<br> builder for Map payloads |
 | static class | [StringBooleanMap.StringBooleanMapMap](#stringbooleanmapmap)<br> output class for Map payloads |
 | static class | [StringBooleanMap.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -54,10 +54,10 @@ StringBooleanMap.StringBooleanMapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [StringBooleanMapMap](#stringbooleanmapmap) | validate([Map<?, ?>](#stringbooleanmapmapinput) arg, SchemaConfiguration configuration) |
+| [StringBooleanMapMap](#stringbooleanmapmap) | validate([Map<?, ?>](#stringbooleanmapmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## StringBooleanMapMapInput
-public class StringBooleanMapMapInput<br>
+## StringBooleanMapMapBuilder
+public class StringBooleanMapMapBuilder<br>
 builder for `Map<String, Boolean>`
 
 A class that builds the Map input type
@@ -76,7 +76,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [StringBooleanMapMap](#stringbooleanmapmap) | of([Map<String, Boolean>](#stringbooleanmapmapinput) arg, SchemaConfiguration configuration) |
+| static [StringBooleanMapMap](#stringbooleanmapmap) | of([Map<String, Boolean>](#stringbooleanmapmapbuilder) arg, SchemaConfiguration configuration) |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties

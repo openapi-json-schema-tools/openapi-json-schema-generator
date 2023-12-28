@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
-| static class | [Schema.SchemaMapInput](#schemamapinput)<br> builder for Map payloads |
+| static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.Files](#files)<br> schema class |
-| static class | [Schema.FilesListInput](#fileslistinput)<br> builder for List payloads |
+| static class | [Schema.FilesListBuilder](#fileslistbuilder)<br> builder for List payloads |
 | static class | [Schema.FilesList](#fileslist)<br> output class for List payloads |
 | static class | [Schema.Items](#items)<br> schema class |
 
@@ -65,10 +65,10 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap](#schemamap) | validate([Map<?, ?>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| [SchemaMap](#schemamap) | validate([Map<?, ?>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaMapInput
-public class SchemaMapInput<br>
+## SchemaMapBuilder
+public class SchemaMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -88,7 +88,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | [FilesList](#fileslist) | files()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
@@ -132,18 +132,29 @@ Schema.FilesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FilesList](#fileslist) | validate([List<?>](#fileslistinput) arg, SchemaConfiguration configuration) |
+| [FilesList](#fileslist) | validate([List<?>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FilesListInput
-public class FilesListInput<br>
+## FilesListBuilder
+public class FilesListBuilder<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FilesListBuilder()<br>Creates an empty list |
+| FilesListBuilder(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| String |  | |
 
 ## FilesList
 public class FilesList<br>
@@ -154,7 +165,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | of([List<String>](#fileslistinput) arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | of([List<String>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

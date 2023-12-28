@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ClassModel.ClassModel1](#classmodel1)<br> schema class |
-| static class | [ClassModel.ClassModelMapInput](#classmodelmapinput)<br> builder for Map payloads |
+| static class | [ClassModel.ClassModelMapBuilder](#classmodelmapbuilder)<br> builder for Map payloads |
 | static class | [ClassModel.ClassModelMap](#classmodelmap)<br> output class for Map payloads |
 | static class | [ClassModel.ClassSchema](#classschema)<br> schema class |
 
@@ -39,11 +39,11 @@ Model for testing model with &quot;_class&quot; property
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [ClassModelMap](#classmodelmap) | validate([Map<?, ?>](#classmodelmapinput) arg, SchemaConfiguration configuration) |
+| [ClassModelMap](#classmodelmap) | validate([Map<?, ?>](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ClassModelMapInput
-public class ClassModelMapInput<br>
+## ClassModelMapBuilder
+public class ClassModelMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -63,7 +63,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ClassModelMap](#classmodelmap) | of([Map<String, ? extends @Nullable Object>](#classmodelmapinput) arg, SchemaConfiguration configuration) |
+| static [ClassModelMap](#classmodelmap) | of([Map<String, ? extends @Nullable Object>](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["_class"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

@@ -89,7 +89,7 @@ public class Schema {
             return get(name);
         }
     }
-    public static class SchemaMapInput {
+    public static class SchemaMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

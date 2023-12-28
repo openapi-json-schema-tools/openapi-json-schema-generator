@@ -13,23 +13,23 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayTest.ArrayTest1](#arraytest1)<br> schema class |
-| static class | [ArrayTest.ArrayTestMapInput](#arraytestmapinput)<br> builder for Map payloads |
+| static class | [ArrayTest.ArrayTestMapBuilder](#arraytestmapbuilder)<br> builder for Map payloads |
 | static class | [ArrayTest.ArrayTestMap](#arraytestmap)<br> output class for Map payloads |
 | static class | [ArrayTest.ArrayArrayOfModel](#arrayarrayofmodel)<br> schema class |
-| static class | [ArrayTest.ArrayArrayOfModelListInput](#arrayarrayofmodellistinput)<br> builder for List payloads |
+| static class | [ArrayTest.ArrayArrayOfModelListBuilder](#arrayarrayofmodellistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfModelList](#arrayarrayofmodellist)<br> output class for List payloads |
 | static class | [ArrayTest.Items3](#items3)<br> schema class |
-| static class | [ArrayTest.ItemsListInput1](#itemslistinput1)<br> builder for List payloads |
+| static class | [ArrayTest.ItemsListBuilder1](#itemslistbuilder1)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList1](#itemslist1)<br> output class for List payloads |
 | static class | [ArrayTest.ArrayArrayOfInteger](#arrayarrayofinteger)<br> schema class |
-| static class | [ArrayTest.ArrayArrayOfIntegerListInput](#arrayarrayofintegerlistinput)<br> builder for List payloads |
+| static class | [ArrayTest.ArrayArrayOfIntegerListBuilder](#arrayarrayofintegerlistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfIntegerList](#arrayarrayofintegerlist)<br> output class for List payloads |
 | static class | [ArrayTest.Items1](#items1)<br> schema class |
-| static class | [ArrayTest.ItemsListInput](#itemslistinput)<br> builder for List payloads |
+| static class | [ArrayTest.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [ArrayTest.Items2](#items2)<br> schema class |
 | static class | [ArrayTest.ArrayOfString](#arrayofstring)<br> schema class |
-| static class | [ArrayTest.ArrayOfStringListInput](#arrayofstringlistinput)<br> builder for List payloads |
+| static class | [ArrayTest.ArrayOfStringListBuilder](#arrayofstringlistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayOfStringList](#arrayofstringlist)<br> output class for List payloads |
 | static class | [ArrayTest.Items](#items)<br> schema class |
 
@@ -103,10 +103,10 @@ ArrayTest.ArrayTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayTestMap](#arraytestmap) | validate([Map<?, ?>](#arraytestmapinput) arg, SchemaConfiguration configuration) |
+| [ArrayTestMap](#arraytestmap) | validate([Map<?, ?>](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayTestMapInput
-public class ArrayTestMapInput<br>
+## ArrayTestMapBuilder
+public class ArrayTestMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -128,7 +128,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTestMap](#arraytestmap) | of([Map<String, ? extends @Nullable Object>](#arraytestmapinput) arg, SchemaConfiguration configuration) |
+| static [ArrayTestMap](#arraytestmap) | of([Map<String, ? extends @Nullable Object>](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayOfStringList](#arrayofstringlist) | array_of_string()<br>[optional] |
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | array_array_of_integer()<br>[optional] |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | array_array_of_model()<br>[optional] |
@@ -185,18 +185,29 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([List<?>](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
+| [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([List<?>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayArrayOfModelListInput
-public class ArrayArrayOfModelListInput<br>
+## ArrayArrayOfModelListBuilder
+public class ArrayArrayOfModelListBuilder<br>
 builder for `List<List<Map<String, ? extends @Nullable Object>>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayArrayOfModelListBuilder()<br>Creates an empty list |
+| ArrayArrayOfModelListBuilder(List<List<Map<String, @Nullable Object>>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<List<Map<String, ? extends @Nullable Object>>> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Map<String, ? extends @Nullable Object>> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| List<Map<String, ? extends @Nullable Object>> |  | |
 
 ## ArrayArrayOfModelList
 public class ArrayArrayOfModelList<br>
@@ -207,7 +218,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of([List<List<Map<String, ? extends @Nullable Object>>>](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of([List<List<Map<String, ? extends @Nullable Object>>>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items3
 public static class Items3<br>
@@ -258,18 +269,29 @@ ArrayTest.ItemsList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ItemsList1](#itemslist1) | validate([List<?>](#itemslistinput1) arg, SchemaConfiguration configuration) |
+| [ItemsList1](#itemslist1) | validate([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ItemsListInput1
-public class ItemsListInput1<br>
+## ItemsListBuilder1
+public class ItemsListBuilder1<br>
 builder for `List<Map<String, ? extends @Nullable Object>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsListBuilder1()<br>Creates an empty list |
+| ItemsListBuilder1(List<Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, ? extends @Nullable Object> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Map<String, ? extends @Nullable Object> |  | |
 
 ## ItemsList1
 public class ItemsList1<br>
@@ -280,7 +302,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>
@@ -324,18 +346,29 @@ ArrayTest.ArrayArrayOfIntegerList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate([List<?>](#arrayarrayofintegerlistinput) arg, SchemaConfiguration configuration) |
+| [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate([List<?>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayArrayOfIntegerListInput
-public class ArrayArrayOfIntegerListInput<br>
+## ArrayArrayOfIntegerListBuilder
+public class ArrayArrayOfIntegerListBuilder<br>
 builder for `List<List<Long>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayArrayOfIntegerListBuilder()<br>Creates an empty list |
+| ArrayArrayOfIntegerListBuilder(List<List<Long>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<List<Long>> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Long> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| List<Long> |  | |
 
 ## ArrayArrayOfIntegerList
 public class ArrayArrayOfIntegerList<br>
@@ -346,7 +379,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | of([List<List<Long>>](#arrayarrayofintegerlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | of([List<List<Long>>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>
@@ -388,18 +421,29 @@ ArrayTest.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ItemsList](#itemslist) | validate([List<?>](#itemslistinput) arg, SchemaConfiguration configuration) |
+| [ItemsList](#itemslist) | validate([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ItemsListInput
-public class ItemsListInput<br>
+## ItemsListBuilder
+public class ItemsListBuilder<br>
 builder for `List<Long>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsListBuilder()<br>Creates an empty list |
+| ItemsListBuilder(List<Long> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Long> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Long |  | value must be a 64 bit integer
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Long |  | value must be a 64 bit integer |
 
 ## ItemsList
 public class ItemsList<br>
@@ -410,7 +454,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of([List<Long>](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([List<Long>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>
@@ -462,18 +506,29 @@ ArrayTest.ArrayOfStringList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayOfStringList](#arrayofstringlist) | validate([List<?>](#arrayofstringlistinput) arg, SchemaConfiguration configuration) |
+| [ArrayOfStringList](#arrayofstringlist) | validate([List<?>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayOfStringListInput
-public class ArrayOfStringListInput<br>
+## ArrayOfStringListBuilder
+public class ArrayOfStringListBuilder<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayOfStringListBuilder()<br>Creates an empty list |
+| ArrayOfStringListBuilder(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| String |  | |
 
 ## ArrayOfStringList
 public class ArrayOfStringList<br>
@@ -484,7 +539,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfStringList](#arrayofstringlist) | of([List<String>](#arrayofstringlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfStringList](#arrayofstringlist) | of([List<String>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

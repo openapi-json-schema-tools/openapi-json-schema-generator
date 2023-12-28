@@ -89,7 +89,7 @@ public class Tag {
             return get(name);
         }
     }
-    public static class TagMapInput {
+    public static class TagMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

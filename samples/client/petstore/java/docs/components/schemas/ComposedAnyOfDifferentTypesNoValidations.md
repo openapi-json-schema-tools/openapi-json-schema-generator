@@ -18,7 +18,7 @@ A class that contains necessary nested
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema11](#schema11)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema10](#schema10)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9](#schema9)<br> schema class |
-| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9ListInput](#schema9listinput)<br> builder for List payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9ListBuilder](#schema9listbuilder)<br> builder for List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9List](#schema9list)<br> output class for List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Items](#items)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema8](#schema8)<br> schema class |
@@ -154,18 +154,29 @@ ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema9List](#schema9list) | validate([List<?>](#schema9listinput) arg, SchemaConfiguration configuration) |
+| [Schema9List](#schema9list) | validate([List<?>](#schema9listbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema9ListInput
-public class Schema9ListInput<br>
+## Schema9ListBuilder
+public class Schema9ListBuilder<br>
 builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema9ListBuilder()<br>Creates an empty list |
+| Schema9ListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Object |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| ? extends @Nullable Object |  | |
 
 ## Schema9List
 public class Schema9List<br>
@@ -176,7 +187,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | of([List<? extends @Nullable Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | of([List<? extends @Nullable Object>](#schema9listbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

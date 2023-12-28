@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumTest.EnumTest1](#enumtest1)<br> schema class |
-| static class | [EnumTest.EnumTestMapInput](#enumtestmapinput)<br> builder for Map payloads |
+| static class | [EnumTest.EnumTestMapBuilder](#enumtestmapbuilder)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
 | enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
@@ -83,10 +83,10 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## EnumTestMapInput
-public class EnumTestMapInput<br>
+## EnumTestMapBuilder
+public class EnumTestMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -114,7 +114,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | of([Map<String, ? extends @Nullable Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumTestMap](#enumtestmap) | of([Map<String, ? extends @Nullable Object>](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | String | enum_string_required()<br> must be one of ["UPPER", "lower", ""] |
 | String | enum_string()<br>[optional] must be one of ["UPPER", "lower", ""] |
 | int | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |

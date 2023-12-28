@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FromSchema.FromSchema1](#fromschema1)<br> schema class |
-| static class | [FromSchema.FromSchemaMapInput](#fromschemamapinput)<br> builder for Map payloads |
+| static class | [FromSchema.FromSchemaMapBuilder](#fromschemamapbuilder)<br> builder for Map payloads |
 | static class | [FromSchema.FromSchemaMap](#fromschemamap)<br> output class for Map payloads |
 | static class | [FromSchema.Id](#id)<br> schema class |
 | static class | [FromSchema.Data](#data)<br> schema class |
@@ -63,10 +63,10 @@ FromSchema.FromSchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FromSchemaMap](#fromschemamap) | validate([Map<?, ?>](#fromschemamapinput) arg, SchemaConfiguration configuration) |
+| [FromSchemaMap](#fromschemamap) | validate([Map<?, ?>](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FromSchemaMapInput
-public class FromSchemaMapInput<br>
+## FromSchemaMapBuilder
+public class FromSchemaMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -87,7 +87,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FromSchemaMap](#fromschemamap) | of([Map<String, ? extends @Nullable Object>](#fromschemamapinput) arg, SchemaConfiguration configuration) |
+| static [FromSchemaMap](#fromschemamap) | of([Map<String, ? extends @Nullable Object>](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
 | String | data()<br>[optional] |
 | long | id()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

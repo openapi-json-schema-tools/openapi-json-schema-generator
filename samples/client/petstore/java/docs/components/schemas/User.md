@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [User.User1](#user1)<br> schema class |
-| static class | [User.UserMapInput](#usermapinput)<br> builder for Map payloads |
+| static class | [User.UserMapBuilder](#usermapbuilder)<br> builder for Map payloads |
 | static class | [User.UserMap](#usermap)<br> output class for Map payloads |
 | static class | [User.AnyTypePropNullable](#anytypepropnullable)<br> schema class |
 | static class | [User.AnyTypeExceptNullProp](#anytypeexceptnullprop)<br> schema class |
@@ -103,10 +103,10 @@ User.UserMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserMap](#usermap) | validate([Map<?, ?>](#usermapinput) arg, SchemaConfiguration configuration) |
+| [UserMap](#usermap) | validate([Map<?, ?>](#usermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## UserMapInput
-public class UserMapInput<br>
+## UserMapBuilder
+public class UserMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -138,7 +138,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserMap](#usermap) | of([Map<String, ? extends @Nullable Object>](#usermapinput) arg, SchemaConfiguration configuration) |
+| static [UserMap](#usermap) | of([Map<String, ? extends @Nullable Object>](#usermapbuilder) arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | String | username()<br>[optional] |
 | String | firstName()<br>[optional] |

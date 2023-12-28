@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [MyObjectDto.MyObjectDto1](#myobjectdto1)<br> schema class |
-| static class | [MyObjectDto.MyObjectDtoMapInput](#myobjectdtomapinput)<br> builder for Map payloads |
+| static class | [MyObjectDto.MyObjectDtoMapBuilder](#myobjectdtomapbuilder)<br> builder for Map payloads |
 | static class | [MyObjectDto.MyObjectDtoMap](#myobjectdtomap)<br> output class for Map payloads |
 | static class | [MyObjectDto.Id](#id)<br> schema class |
 | static class | [MyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -60,10 +60,10 @@ MyObjectDto.MyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MyObjectDtoMap](#myobjectdtomap) | validate([Map<?, ?>](#myobjectdtomapinput) arg, SchemaConfiguration configuration) |
+| [MyObjectDtoMap](#myobjectdtomap) | validate([Map<?, ?>](#myobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## MyObjectDtoMapInput
-public class MyObjectDtoMapInput<br>
+## MyObjectDtoMapBuilder
+public class MyObjectDtoMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -82,7 +82,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MyObjectDtoMap](#myobjectdtomap) | of([Map<String, String>](#myobjectdtomapinput) arg, SchemaConfiguration configuration) |
+| static [MyObjectDtoMap](#myobjectdtomap) | of([Map<String, String>](#myobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | String | id()<br>[optional] value must be a uuid |
 
 ## Id

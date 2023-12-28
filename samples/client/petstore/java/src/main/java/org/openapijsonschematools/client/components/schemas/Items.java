@@ -45,8 +45,21 @@ public class Items {
         }
     }
     
-    public static class ItemsListInput {
+    public static class ItemsListBuilder {
         // class to build List<Map<String, ? extends @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public ItemsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ItemsListBuilder(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     

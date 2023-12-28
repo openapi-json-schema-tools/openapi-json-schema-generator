@@ -60,7 +60,7 @@ public class AdditionalPropertiesSchema {
             return getOrThrow(name);
         }
     }
-    public static class Schema0MapInput {
+    public static class Schema0MapBuilder {
         // Map<String, Object> because additionalProperties == true
     }
     
@@ -342,7 +342,7 @@ public class AdditionalPropertiesSchema {
             return getOrThrow(name);
         }
     }
-    public static class Schema1MapInput {
+    public static class Schema1MapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -624,7 +624,7 @@ public class AdditionalPropertiesSchema {
             return getOrThrow(name);
         }
     }
-    public static class Schema2MapInput {
+    public static class Schema2MapBuilder {
         // Map<String, additionalProperties>
     }
     

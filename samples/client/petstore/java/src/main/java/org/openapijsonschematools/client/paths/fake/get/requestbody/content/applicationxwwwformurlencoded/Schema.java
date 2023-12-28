@@ -108,8 +108,26 @@ public class Schema {
         }
     }
     
-    public static class EnumFormStringArrayListInput {
+    public static class EnumFormStringArrayListBuilder {
         // class to build List<String>
+        private final List<String> list;
+    
+        public EnumFormStringArrayListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public EnumFormStringArrayListBuilder(List<String> list) {
+            this.list = list;
+        }
+    
+        public EnumFormStringArrayListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     
@@ -287,7 +305,7 @@ public class Schema {
             return get(name);
         }
     }
-    public static class SchemaMapInput {
+    public static class SchemaMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

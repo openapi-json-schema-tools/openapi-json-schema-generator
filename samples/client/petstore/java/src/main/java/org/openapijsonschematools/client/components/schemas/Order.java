@@ -241,7 +241,7 @@ public class Order {
             return get(name);
         }
     }
-    public static class OrderMapInput {
+    public static class OrderMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

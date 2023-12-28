@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FileSchemaTestClass.FileSchemaTestClass1](#fileschematestclass1)<br> schema class |
-| static class | [FileSchemaTestClass.FileSchemaTestClassMapInput](#fileschematestclassmapinput)<br> builder for Map payloads |
+| static class | [FileSchemaTestClass.FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder)<br> builder for Map payloads |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMap](#fileschematestclassmap)<br> output class for Map payloads |
 | static class | [FileSchemaTestClass.Files](#files)<br> schema class |
-| static class | [FileSchemaTestClass.FilesListInput](#fileslistinput)<br> builder for List payloads |
+| static class | [FileSchemaTestClass.FilesListBuilder](#fileslistbuilder)<br> builder for List payloads |
 | static class | [FileSchemaTestClass.FilesList](#fileslist)<br> output class for List payloads |
 
 ## FileSchemaTestClass1
@@ -63,10 +63,10 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map<?, ?>](#fileschematestclassmapinput) arg, SchemaConfiguration configuration) |
+| [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map<?, ?>](#fileschematestclassmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FileSchemaTestClassMapInput
-public class FileSchemaTestClassMapInput<br>
+## FileSchemaTestClassMapBuilder
+public class FileSchemaTestClassMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -87,7 +87,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FileSchemaTestClassMap](#fileschematestclassmap) | of([Map<String, ? extends @Nullable Object>](#fileschematestclassmapinput) arg, SchemaConfiguration configuration) |
+| static [FileSchemaTestClassMap](#fileschematestclassmap) | of([Map<String, ? extends @Nullable Object>](#fileschematestclassmapbuilder) arg, SchemaConfiguration configuration) |
 | [File.FileMap](../../components/schemas/File.md#filemap) | file()<br>[optional] |
 | [FilesList](#fileslist) | files()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
@@ -131,18 +131,29 @@ FileSchemaTestClass.FilesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FilesList](#fileslist) | validate([List<?>](#fileslistinput) arg, SchemaConfiguration configuration) |
+| [FilesList](#fileslist) | validate([List<?>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FilesListInput
-public class FilesListInput<br>
+## FilesListBuilder
+public class FilesListBuilder<br>
 builder for `List<Map<String, ? extends @Nullable Object>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FilesListBuilder()<br>Creates an empty list |
+| FilesListBuilder(List<Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, ? extends @Nullable Object> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Map<String, ? extends @Nullable Object> |  | |
 
 ## FilesList
 public class FilesList<br>
@@ -153,6 +164,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | of([List<Map<String, ? extends @Nullable Object>>](#fileslistinput) arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | of([List<Map<String, ? extends @Nullable Object>>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

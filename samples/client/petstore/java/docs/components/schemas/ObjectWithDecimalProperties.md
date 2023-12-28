@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1](#objectwithdecimalproperties1)<br> schema class |
-| static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMapInput](#objectwithdecimalpropertiesmapinput)<br> builder for Map payloads |
+| static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap)<br> output class for Map payloads |
 | static class | [ObjectWithDecimalProperties.Width](#width)<br> schema class |
 
@@ -75,10 +75,10 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map<?, ?>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map<?, ?>](#objectwithdecimalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithDecimalPropertiesMapInput
-public class ObjectWithDecimalPropertiesMapInput<br>
+## ObjectWithDecimalPropertiesMapBuilder
+public class ObjectWithDecimalPropertiesMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -100,7 +100,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithdecimalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | String | length()<br>[optional] |
 | String | width()<br>[optional] value must be int or float numeric |
 | [Money.MoneyMap](../../components/schemas/Money.md#moneymap) | cost()<br>[optional] |

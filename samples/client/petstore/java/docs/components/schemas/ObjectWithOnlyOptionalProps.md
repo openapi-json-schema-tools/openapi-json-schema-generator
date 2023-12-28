@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1](#objectwithonlyoptionalprops1)<br> schema class |
-| static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMapInput](#objectwithonlyoptionalpropsmapinput)<br> builder for Map payloads |
+| static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMapBuilder](#objectwithonlyoptionalpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap)<br> output class for Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.B](#b)<br> schema class |
 | static class | [ObjectWithOnlyOptionalProps.A](#a)<br> schema class |
@@ -65,10 +65,10 @@ ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | validate([Map<?, ?>](#objectwithonlyoptionalpropsmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | validate([Map<?, ?>](#objectwithonlyoptionalpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithOnlyOptionalPropsMapInput
-public class ObjectWithOnlyOptionalPropsMapInput<br>
+## ObjectWithOnlyOptionalPropsMapBuilder
+public class ObjectWithOnlyOptionalPropsMapBuilder<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -88,7 +88,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | of([Map<String, Object>](#objectwithonlyoptionalpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | of([Map<String, Object>](#objectwithonlyoptionalpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | String | a()<br>[optional] |
 | Number | b()<br>[optional] |
 

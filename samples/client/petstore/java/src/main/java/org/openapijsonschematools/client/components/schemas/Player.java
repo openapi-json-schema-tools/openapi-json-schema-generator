@@ -77,7 +77,7 @@ public class Player {
             return get(name);
         }
     }
-    public static class PlayerMapInput {
+    public static class PlayerMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

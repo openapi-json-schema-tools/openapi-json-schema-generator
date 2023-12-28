@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1](#arrayofnumberonly1)<br> schema class |
-| static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMapInput](#arrayofnumberonlymapinput)<br> builder for Map payloads |
+| static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder)<br> builder for Map payloads |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMap](#arrayofnumberonlymap)<br> output class for Map payloads |
 | static class | [ArrayOfNumberOnly.ArrayNumber](#arraynumber)<br> schema class |
-| static class | [ArrayOfNumberOnly.ArrayNumberListInput](#arraynumberlistinput)<br> builder for List payloads |
+| static class | [ArrayOfNumberOnly.ArrayNumberListBuilder](#arraynumberlistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfNumberOnly.ArrayNumberList](#arraynumberlist)<br> output class for List payloads |
 | static class | [ArrayOfNumberOnly.Items](#items)<br> schema class |
 
@@ -65,10 +65,10 @@ ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | validate([Map<?, ?>](#arrayofnumberonlymapinput) arg, SchemaConfiguration configuration) |
+| [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | validate([Map<?, ?>](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayOfNumberOnlyMapInput
-public class ArrayOfNumberOnlyMapInput<br>
+## ArrayOfNumberOnlyMapBuilder
+public class ArrayOfNumberOnlyMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -88,7 +88,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | of([Map<String, ? extends @Nullable Object>](#arrayofnumberonlymapinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | of([Map<String, ? extends @Nullable Object>](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayNumberList](#arraynumberlist) | ArrayNumber()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
@@ -132,18 +132,29 @@ ArrayOfNumberOnly.ArrayNumberList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayNumberList](#arraynumberlist) | validate([List<?>](#arraynumberlistinput) arg, SchemaConfiguration configuration) |
+| [ArrayNumberList](#arraynumberlist) | validate([List<?>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayNumberListInput
-public class ArrayNumberListInput<br>
+## ArrayNumberListBuilder
+public class ArrayNumberListBuilder<br>
 builder for `List<Number>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayNumberListBuilder()<br>Creates an empty list |
+| ArrayNumberListBuilder(List<Number> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Number> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Number |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Number |  | |
 
 ## ArrayNumberList
 public class ArrayNumberList<br>
@@ -154,7 +165,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayNumberList](#arraynumberlist) | of([List<Number>](#arraynumberlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayNumberList](#arraynumberlist) | of([List<Number>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

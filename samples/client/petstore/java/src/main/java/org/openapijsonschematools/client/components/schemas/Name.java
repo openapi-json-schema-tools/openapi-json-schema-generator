@@ -119,7 +119,7 @@ public class Name {
             return get(name);
         }
     }
-    public static class NameMapInput {
+    public static class NameMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

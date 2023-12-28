@@ -13,7 +13,7 @@ A class that contains necessary nested
 | ----------------- | ---------------------- |
 | static class | [ComplexQuadrilateral.ComplexQuadrilateral1](#complexquadrilateral1)<br> schema class |
 | static class | [ComplexQuadrilateral.Schema1](#schema1)<br> schema class |
-| static class | [ComplexQuadrilateral.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
+| static class | [ComplexQuadrilateral.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ComplexQuadrilateral.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [ComplexQuadrilateral.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | enum | [ComplexQuadrilateral.StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums)<br>String enum |
@@ -85,10 +85,10 @@ ComplexQuadrilateral.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema1MapInput
-public class Schema1MapInput<br>
+## Schema1MapBuilder
+public class Schema1MapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -108,7 +108,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | String | quadrilateralType()<br>[optional] must be one of ["ComplexQuadrilateral"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

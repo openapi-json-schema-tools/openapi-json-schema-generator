@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [QuadrilateralInterface.QuadrilateralInterface1](#quadrilateralinterface1)<br> schema class |
-| static class | [QuadrilateralInterface.QuadrilateralInterfaceMapInput](#quadrilateralinterfacemapinput)<br> builder for Map payloads |
+| static class | [QuadrilateralInterface.QuadrilateralInterfaceMapBuilder](#quadrilateralinterfacemapbuilder)<br> builder for Map payloads |
 | static class | [QuadrilateralInterface.QuadrilateralInterfaceMap](#quadrilateralinterfacemap)<br> output class for Map payloads |
 | static class | [QuadrilateralInterface.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | static class | [QuadrilateralInterface.ShapeType](#shapetype)<br> schema class |
@@ -40,11 +40,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | validate([Map<?, ?>](#quadrilateralinterfacemapinput) arg, SchemaConfiguration configuration) |
+| [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | validate([Map<?, ?>](#quadrilateralinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## QuadrilateralInterfaceMapInput
-public class QuadrilateralInterfaceMapInput<br>
+## QuadrilateralInterfaceMapBuilder
+public class QuadrilateralInterfaceMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -65,7 +65,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | of([Map<String, ? extends @Nullable Object>](#quadrilateralinterfacemapinput) arg, SchemaConfiguration configuration) |
+| static [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | of([Map<String, ? extends @Nullable Object>](#quadrilateralinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | String | quadrilateralType()<br> |
 | String | shapeType()<br> must be one of ["Quadrilateral"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

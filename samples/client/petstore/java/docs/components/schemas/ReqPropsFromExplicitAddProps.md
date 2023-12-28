@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1](#reqpropsfromexplicitaddprops1)<br> schema class |
-| static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMapInput](#reqpropsfromexplicitaddpropsmapinput)<br> builder for Map payloads |
+| static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMapBuilder](#reqpropsfromexplicitaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap)<br> output class for Map payloads |
 | static class | [ReqPropsFromExplicitAddProps.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -59,10 +59,10 @@ ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map<?, ?>](#reqpropsfromexplicitaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map<?, ?>](#reqpropsfromexplicitaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ReqPropsFromExplicitAddPropsMapInput
-public class ReqPropsFromExplicitAddPropsMapInput<br>
+## ReqPropsFromExplicitAddPropsMapBuilder
+public class ReqPropsFromExplicitAddPropsMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -83,7 +83,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | of([Map<String, String>](#reqpropsfromexplicitaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | of([Map<String, String>](#reqpropsfromexplicitaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | String | validName()<br> |
 | String | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |

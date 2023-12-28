@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [PublicKey.PublicKey1](#publickey1)<br> schema class |
-| static class | [PublicKey.PublicKeyMapInput](#publickeymapinput)<br> builder for Map payloads |
+| static class | [PublicKey.PublicKeyMapBuilder](#publickeymapbuilder)<br> builder for Map payloads |
 | static class | [PublicKey.PublicKeyMap](#publickeymap)<br> output class for Map payloads |
 | static class | [PublicKey.Key](#key)<br> schema class |
 
@@ -61,10 +61,10 @@ PublicKey.PublicKeyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PublicKeyMap](#publickeymap) | validate([Map<?, ?>](#publickeymapinput) arg, SchemaConfiguration configuration) |
+| [PublicKeyMap](#publickeymap) | validate([Map<?, ?>](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## PublicKeyMapInput
-public class PublicKeyMapInput<br>
+## PublicKeyMapBuilder
+public class PublicKeyMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -84,7 +84,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PublicKeyMap](#publickeymap) | of([Map<String, ? extends @Nullable Object>](#publickeymapinput) arg, SchemaConfiguration configuration) |
+| static [PublicKeyMap](#publickeymap) | of([Map<String, ? extends @Nullable Object>](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
 | String | key()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

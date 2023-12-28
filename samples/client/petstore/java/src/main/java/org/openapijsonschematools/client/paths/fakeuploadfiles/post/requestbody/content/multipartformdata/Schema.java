@@ -50,8 +50,26 @@ public class Schema {
         }
     }
     
-    public static class FilesListInput {
+    public static class FilesListBuilder {
         // class to build List<String>
+        private final List<String> list;
+    
+        public FilesListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public FilesListBuilder(List<String> list) {
+            this.list = list;
+        }
+    
+        public FilesListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     
@@ -149,7 +167,7 @@ public class Schema {
             return get(name);
         }
     }
-    public static class SchemaMapInput {
+    public static class SchemaMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

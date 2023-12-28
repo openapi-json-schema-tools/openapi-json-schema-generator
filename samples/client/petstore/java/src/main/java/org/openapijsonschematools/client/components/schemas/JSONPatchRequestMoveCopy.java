@@ -163,7 +163,7 @@ public class JSONPatchRequestMoveCopy {
             return getOrThrow("path");
         }
     }
-    public static class JSONPatchRequestMoveCopyMapInput {
+    public static class JSONPatchRequestMoveCopyMapBuilder {
         // empty mapping
     }
     

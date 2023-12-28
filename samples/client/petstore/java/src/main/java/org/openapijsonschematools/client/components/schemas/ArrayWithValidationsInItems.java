@@ -98,8 +98,41 @@ public class ArrayWithValidationsInItems {
         }
     }
     
-    public static class ArrayWithValidationsInItemsListInput {
+    public static class ArrayWithValidationsInItemsListBuilder {
         // class to build List<Long>
+        private final List<Long> list;
+    
+        public ArrayWithValidationsInItemsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayWithValidationsInItemsListBuilder(List<Long> list) {
+            this.list = list;
+        }
+    
+        public ArrayWithValidationsInItemsListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayWithValidationsInItemsListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayWithValidationsInItemsListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayWithValidationsInItemsListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Long> build() {
+            return list;
+        }
     }
     
     

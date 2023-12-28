@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReturnSchema.ReturnSchema1](#returnschema1)<br> schema class |
-| static class | [ReturnSchema.ReturnMapInput](#returnmapinput)<br> builder for Map payloads |
+| static class | [ReturnSchema.ReturnMapBuilder](#returnmapbuilder)<br> builder for Map payloads |
 | static class | [ReturnSchema.ReturnMap](#returnmap)<br> output class for Map payloads |
 | static class | [ReturnSchema.ReturnSchema2](#returnschema2)<br> schema class |
 
@@ -39,11 +39,11 @@ Model for testing reserved words
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [ReturnMap](#returnmap) | validate([Map<?, ?>](#returnmapinput) arg, SchemaConfiguration configuration) |
+| [ReturnMap](#returnmap) | validate([Map<?, ?>](#returnmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ReturnMapInput
-public class ReturnMapInput<br>
+## ReturnMapBuilder
+public class ReturnMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -63,7 +63,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReturnMap](#returnmap) | of([Map<String, ? extends @Nullable Object>](#returnmapinput) arg, SchemaConfiguration configuration) |
+| static [ReturnMap](#returnmap) | of([Map<String, ? extends @Nullable Object>](#returnmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["return"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

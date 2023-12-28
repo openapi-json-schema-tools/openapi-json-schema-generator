@@ -121,7 +121,7 @@ public class BasquePig {
             return get(name);
         }
     }
-    public static class BasquePigMapInput {
+    public static class BasquePigMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

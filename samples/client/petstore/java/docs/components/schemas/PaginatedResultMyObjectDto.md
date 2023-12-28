@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1](#paginatedresultmyobjectdto1)<br> schema class |
-| static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapInput](#paginatedresultmyobjectdtomapinput)<br> builder for Map payloads |
+| static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapBuilder](#paginatedresultmyobjectdtomapbuilder)<br> builder for Map payloads |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap)<br> output class for Map payloads |
 | static class | [PaginatedResultMyObjectDto.Results](#results)<br> schema class |
-| static class | [PaginatedResultMyObjectDto.ResultsListInput](#resultslistinput)<br> builder for List payloads |
+| static class | [PaginatedResultMyObjectDto.ResultsListBuilder](#resultslistbuilder)<br> builder for List payloads |
 | static class | [PaginatedResultMyObjectDto.ResultsList](#resultslist)<br> output class for List payloads |
 | static class | [PaginatedResultMyObjectDto.Count](#count)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -71,10 +71,10 @@ PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map<?, ?>](#paginatedresultmyobjectdtomapinput) arg, SchemaConfiguration configuration) |
+| [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map<?, ?>](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## PaginatedResultMyObjectDtoMapInput
-public class PaginatedResultMyObjectDtoMapInput<br>
+## PaginatedResultMyObjectDtoMapBuilder
+public class PaginatedResultMyObjectDtoMapBuilder<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -94,7 +94,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | of([Map<String, Object>](#paginatedresultmyobjectdtomapinput) arg, SchemaConfiguration configuration) |
+| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | of([Map<String, Object>](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | long | count()<br> |
 | [ResultsList](#resultslist) | results()<br> |
 
@@ -137,18 +137,29 @@ PaginatedResultMyObjectDto.ResultsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ResultsList](#resultslist) | validate([List<?>](#resultslistinput) arg, SchemaConfiguration configuration) |
+| [ResultsList](#resultslist) | validate([List<?>](#resultslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ResultsListInput
-public class ResultsListInput<br>
+## ResultsListBuilder
+public class ResultsListBuilder<br>
 builder for `List<Map<String, String>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ResultsListBuilder()<br>Creates an empty list |
+| ResultsListBuilder(List<Map<String, String>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Map<String, String>> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, String> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Map<String, String> |  | |
 
 ## ResultsList
 public class ResultsList<br>
@@ -159,7 +170,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ResultsList](#resultslist) | of([List<Map<String, String>>](#resultslistinput) arg, SchemaConfiguration configuration) |
+| static [ResultsList](#resultslist) | of([List<Map<String, String>>](#resultslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Count
 public static class Count<br>

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayOfEnums.ArrayOfEnums1](#arrayofenums1)<br> schema class |
-| static class | [ArrayOfEnums.ArrayOfEnumsListInput](#arrayofenumslistinput)<br> builder for List payloads |
+| static class | [ArrayOfEnums.ArrayOfEnumsListBuilder](#arrayofenumslistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfEnums.ArrayOfEnumsList](#arrayofenumslist)<br> output class for List payloads |
 
 ## ArrayOfEnums1
@@ -54,18 +54,29 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayOfEnumsList](#arrayofenumslist) | validate([List<?>](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
+| [ArrayOfEnumsList](#arrayofenumslist) | validate([List<?>](#arrayofenumslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayOfEnumsListInput
-public class ArrayOfEnumsListInput<br>
+## ArrayOfEnumsListBuilder
+public class ArrayOfEnumsListBuilder<br>
 builder for `List<? extends @Nullable String>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayOfEnumsListBuilder()<br>Creates an empty list |
+| ArrayOfEnumsListBuilder(List<@Nullable String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<? extends @Nullable String> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable String |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| ? extends @Nullable String |  | |
 
 ## ArrayOfEnumsList
 public class ArrayOfEnumsList<br>
@@ -76,6 +87,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfEnumsList](#arrayofenumslist) | of([List<? extends @Nullable String>](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfEnumsList](#arrayofenumslist) | of([List<? extends @Nullable String>](#arrayofenumslistbuilder) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -150,7 +150,7 @@ public class QuadrilateralInterface {
             return get(name);
         }
     }
-    public static class QuadrilateralInterfaceMapInput {
+    public static class QuadrilateralInterfaceMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

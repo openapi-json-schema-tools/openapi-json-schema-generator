@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [File.File1](#file1)<br> schema class |
-| static class | [File.FileMapInput](#filemapinput)<br> builder for Map payloads |
+| static class | [File.FileMapBuilder](#filemapbuilder)<br> builder for Map payloads |
 | static class | [File.FileMap](#filemap)<br> output class for Map payloads |
 | static class | [File.SourceURI](#sourceuri)<br> schema class |
 
@@ -61,10 +61,10 @@ File.FileMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FileMap](#filemap) | validate([Map<?, ?>](#filemapinput) arg, SchemaConfiguration configuration) |
+| [FileMap](#filemap) | validate([Map<?, ?>](#filemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FileMapInput
-public class FileMapInput<br>
+## FileMapBuilder
+public class FileMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -84,7 +84,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FileMap](#filemap) | of([Map<String, ? extends @Nullable Object>](#filemapinput) arg, SchemaConfiguration configuration) |
+| static [FileMap](#filemap) | of([Map<String, ? extends @Nullable Object>](#filemapbuilder) arg, SchemaConfiguration configuration) |
 | String | sourceURI()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema200Response.Schema200Response1](#schema200response1)<br> schema class |
-| static class | [Schema200Response.Schema200ResponseMapInput](#schema200responsemapinput)<br> builder for Map payloads |
+| static class | [Schema200Response.Schema200ResponseMapBuilder](#schema200responsemapbuilder)<br> builder for Map payloads |
 | static class | [Schema200Response.Schema200ResponseMap](#schema200responsemap)<br> output class for Map payloads |
 | static class | [Schema200Response.ClassSchema](#classschema)<br> schema class |
 | static class | [Schema200Response.Name](#name)<br> schema class |
@@ -40,11 +40,11 @@ model with an invalid class name for python, starts with a number
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [Schema200ResponseMap](#schema200responsemap) | validate([Map<?, ?>](#schema200responsemapinput) arg, SchemaConfiguration configuration) |
+| [Schema200ResponseMap](#schema200responsemap) | validate([Map<?, ?>](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema200ResponseMapInput
-public class Schema200ResponseMapInput<br>
+## Schema200ResponseMapBuilder
+public class Schema200ResponseMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -65,7 +65,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema200ResponseMap](#schema200responsemap) | of([Map<String, ? extends @Nullable Object>](#schema200responsemapinput) arg, SchemaConfiguration configuration) |
+| static [Schema200ResponseMap](#schema200responsemap) | of([Map<String, ? extends @Nullable Object>](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | int | name()<br>[optional] value must be a 32 bit integer |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["class"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

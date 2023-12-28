@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ApiResponseSchema.ApiResponseSchema1](#apiresponseschema1)<br> schema class |
-| static class | [ApiResponseSchema.ApiResponseMapInput](#apiresponsemapinput)<br> builder for Map payloads |
+| static class | [ApiResponseSchema.ApiResponseMapBuilder](#apiresponsemapbuilder)<br> builder for Map payloads |
 | static class | [ApiResponseSchema.ApiResponseMap](#apiresponsemap)<br> output class for Map payloads |
 | static class | [ApiResponseSchema.Message](#message)<br> schema class |
 | static class | [ApiResponseSchema.Type](#type)<br> schema class |
@@ -68,10 +68,10 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApiResponseMap](#apiresponsemap) | validate([Map<?, ?>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
+| [ApiResponseMap](#apiresponsemap) | validate([Map<?, ?>](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ApiResponseMapInput
-public class ApiResponseMapInput<br>
+## ApiResponseMapBuilder
+public class ApiResponseMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -93,7 +93,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ApiResponseMap](#apiresponsemap) | of([Map<String, ? extends @Nullable Object>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
+| static [ApiResponseMap](#apiresponsemap) | of([Map<String, ? extends @Nullable Object>](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
 | int | code()<br>[optional] value must be a 32 bit integer |
 | String | type()<br>[optional] |
 | String | message()<br>[optional] |

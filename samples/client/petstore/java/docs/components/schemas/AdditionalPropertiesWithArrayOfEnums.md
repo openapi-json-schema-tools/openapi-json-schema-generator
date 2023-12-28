@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1](#additionalpropertieswitharrayofenums1)<br> schema class |
-| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMapInput](#additionalpropertieswitharrayofenumsmapinput)<br> builder for Map payloads |
+| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMapBuilder](#additionalpropertieswitharrayofenumsmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalProperties](#additionalproperties)<br> schema class |
-| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListInput](#additionalpropertieslistinput)<br> builder for List payloads |
+| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListBuilder](#additionalpropertieslistbuilder)<br> builder for List payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList](#additionalpropertieslist)<br> output class for List payloads |
 
 ## AdditionalPropertiesWithArrayOfEnums1
@@ -58,10 +58,10 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap val
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate([Map<?, ?>](#additionalpropertieswitharrayofenumsmapinput) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate([Map<?, ?>](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AdditionalPropertiesWithArrayOfEnumsMapInput
-public class AdditionalPropertiesWithArrayOfEnumsMapInput<br>
+## AdditionalPropertiesWithArrayOfEnumsMapBuilder
+public class AdditionalPropertiesWithArrayOfEnumsMapBuilder<br>
 builder for `Map<String, List<String>>`
 
 A class that builds the Map input type
@@ -80,7 +80,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | of([Map<String, List<String>>](#additionalpropertieswitharrayofenumsmapinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | of([Map<String, List<String>>](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesList](#additionalpropertieslist) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
@@ -123,18 +123,29 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesList](#additionalpropertieslist) | validate([List<?>](#additionalpropertieslistinput) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesList](#additionalpropertieslist) | validate([List<?>](#additionalpropertieslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AdditionalPropertiesListInput
-public class AdditionalPropertiesListInput<br>
+## AdditionalPropertiesListBuilder
+public class AdditionalPropertiesListBuilder<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesListBuilder()<br>Creates an empty list |
+| AdditionalPropertiesListBuilder(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| String |  | |
 
 ## AdditionalPropertiesList
 public class AdditionalPropertiesList<br>
@@ -145,6 +156,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesList](#additionalpropertieslist) | of([List<String>](#additionalpropertieslistinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesList](#additionalpropertieslist) | of([List<String>](#additionalpropertieslistbuilder) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

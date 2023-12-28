@@ -95,7 +95,7 @@ public class AppleReq {
             return (boolean) value;
         }
     }
-    public static class AppleReqMapInput {
+    public static class AppleReqMapBuilder {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
     

@@ -518,7 +518,7 @@ public class EnumTest {
             return get(name);
         }
     }
-    public static class EnumTestMapInput {
+    public static class EnumTestMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

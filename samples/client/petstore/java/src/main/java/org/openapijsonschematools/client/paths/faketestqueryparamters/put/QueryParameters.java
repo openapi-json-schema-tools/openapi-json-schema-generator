@@ -110,7 +110,7 @@ public class QueryParameters {
             return (Schema3.SchemaList3) value;
         }
     }
-    public static class QueryParametersMapInput {
+    public static class QueryParametersMapBuilder {
         // empty mapping
     }
     

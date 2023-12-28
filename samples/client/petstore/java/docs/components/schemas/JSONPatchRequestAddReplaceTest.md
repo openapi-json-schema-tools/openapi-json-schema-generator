@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1](#jsonpatchrequestaddreplacetest1)<br> schema class |
-| static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapInput](#jsonpatchrequestaddreplacetestmapinput)<br> builder for Map payloads |
+| static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapBuilder](#jsonpatchrequestaddreplacetestmapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestAddReplaceTest.StringOpEnums](#stringopenums)<br>String enum |
@@ -69,10 +69,10 @@ JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map<?, ?>](#jsonpatchrequestaddreplacetestmapinput) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map<?, ?>](#jsonpatchrequestaddreplacetestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## JSONPatchRequestAddReplaceTestMapInput
-public class JSONPatchRequestAddReplaceTestMapInput<br>
+## JSONPatchRequestAddReplaceTestMapBuilder
+public class JSONPatchRequestAddReplaceTestMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -93,7 +93,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | of([Map<String, ? extends @Nullable Object>](#jsonpatchrequestaddreplacetestmapinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | of([Map<String, ? extends @Nullable Object>](#jsonpatchrequestaddreplacetestmapbuilder) arg, SchemaConfiguration configuration) |
 | String | op()<br> must be one of ["add", "replace", "test"] |
 | String | path()<br> |
 | @Nullable Object | value()<br> |

@@ -88,7 +88,7 @@ public class ObjectWithDecimalProperties {
             return get(name);
         }
     }
-    public static class ObjectWithDecimalPropertiesMapInput {
+    public static class ObjectWithDecimalPropertiesMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

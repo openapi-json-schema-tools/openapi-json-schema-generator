@@ -175,8 +175,26 @@ public class EnumArrays {
         }
     }
     
-    public static class ArrayEnumListInput {
+    public static class ArrayEnumListBuilder {
         // class to build List<String>
+        private final List<String> list;
+    
+        public ArrayEnumListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayEnumListBuilder(List<String> list) {
+            this.list = list;
+        }
+    
+        public ArrayEnumListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     
@@ -285,7 +303,7 @@ public class EnumArrays {
             return get(name);
         }
     }
-    public static class EnumArraysMapInput {
+    public static class EnumArraysMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

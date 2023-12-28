@@ -84,7 +84,7 @@ public class NoAdditionalProperties {
             return getOrThrow("petId");
         }
     }
-    public static class NoAdditionalPropertiesMapInput {
+    public static class NoAdditionalPropertiesMapBuilder {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
     

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReadOnlyFirst.ReadOnlyFirst1](#readonlyfirst1)<br> schema class |
-| static class | [ReadOnlyFirst.ReadOnlyFirstMapInput](#readonlyfirstmapinput)<br> builder for Map payloads |
+| static class | [ReadOnlyFirst.ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder)<br> builder for Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMap](#readonlyfirstmap)<br> output class for Map payloads |
 | static class | [ReadOnlyFirst.Baz](#baz)<br> schema class |
 | static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
@@ -63,10 +63,10 @@ ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map<?, ?>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
+| [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map<?, ?>](#readonlyfirstmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ReadOnlyFirstMapInput
-public class ReadOnlyFirstMapInput<br>
+## ReadOnlyFirstMapBuilder
+public class ReadOnlyFirstMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -87,7 +87,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReadOnlyFirstMap](#readonlyfirstmap) | of([Map<String, ? extends @Nullable Object>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
+| static [ReadOnlyFirstMap](#readonlyfirstmap) | of([Map<String, ? extends @Nullable Object>](#readonlyfirstmapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | baz()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

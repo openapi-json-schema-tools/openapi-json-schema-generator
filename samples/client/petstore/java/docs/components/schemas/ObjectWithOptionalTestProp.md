@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1](#objectwithoptionaltestprop1)<br> schema class |
-| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapInput](#objectwithoptionaltestpropmapinput)<br> builder for Map payloads |
+| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap)<br> output class for Map payloads |
 | static class | [ObjectWithOptionalTestProp.Test](#test)<br> schema class |
 
@@ -58,10 +58,10 @@ ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map<?, ?>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map<?, ?>](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithOptionalTestPropMapInput
-public class ObjectWithOptionalTestPropMapInput<br>
+## ObjectWithOptionalTestPropMapBuilder
+public class ObjectWithOptionalTestPropMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -81,7 +81,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | of([Map<String, ? extends @Nullable Object>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | of([Map<String, ? extends @Nullable Object>](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
 | String | test()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

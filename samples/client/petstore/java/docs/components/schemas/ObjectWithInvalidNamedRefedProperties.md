@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1](#objectwithinvalidnamedrefedproperties1)<br> schema class |
-| static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMapInput](#objectwithinvalidnamedrefedpropertiesmapinput)<br> builder for Map payloads |
+| static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMapBuilder](#objectwithinvalidnamedrefedpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap)<br> output class for Map payloads |
 
 ## ObjectWithInvalidNamedRefedProperties1
@@ -73,10 +73,10 @@ ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap v
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate([Map<?, ?>](#objectwithinvalidnamedrefedpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate([Map<?, ?>](#objectwithinvalidnamedrefedpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithInvalidNamedRefedPropertiesMapInput
-public class ObjectWithInvalidNamedRefedPropertiesMapInput<br>
+## ObjectWithInvalidNamedRefedPropertiesMapBuilder
+public class ObjectWithInvalidNamedRefedPropertiesMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -97,7 +97,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithinvalidnamedrefedpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithinvalidnamedrefedpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | [FromSchema.FromSchemaMap](../../components/schemas/FromSchema.md#fromschemamap) | from()<br> |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["!reference"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -594,7 +594,7 @@ public class User {
             return get(name);
         }
     }
-    public static class UserMapInput {
+    public static class UserMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

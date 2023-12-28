@@ -56,7 +56,7 @@ public class Headers {
             return getOrThrow("location");
         }
     }
-    public static class HeadersMapInput {
+    public static class HeadersMapBuilder {
         // empty mapping
     }
     

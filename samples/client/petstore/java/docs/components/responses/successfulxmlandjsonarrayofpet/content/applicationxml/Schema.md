@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
-| static class | [Schema.SchemaListInput](#schemalistinput)<br> builder for List payloads |
+| static class | [Schema.SchemaListBuilder](#schemalistbuilder)<br> builder for List payloads |
 | static class | [Schema.SchemaList](#schemalist)<br> output class for List payloads |
 
 ## Schema1
@@ -97,18 +97,29 @@ Schema.SchemaList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaList](#schemalist) | validate([List<?>](#schemalistinput) arg, SchemaConfiguration configuration) |
+| [SchemaList](#schemalist) | validate([List<?>](#schemalistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaListInput
-public class SchemaListInput<br>
+## SchemaListBuilder
+public class SchemaListBuilder<br>
 builder for `List<Map<String, ? extends @Nullable Object>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaListBuilder()<br>Creates an empty list |
+| SchemaListBuilder(List<Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, ? extends @Nullable Object> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Map<String, ? extends @Nullable Object> |  | |
 
 ## SchemaList
 public class SchemaList<br>
@@ -119,4 +130,4 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList](#schemalist) | of([List<Map<String, ? extends @Nullable Object>>](#schemalistinput) arg, SchemaConfiguration configuration) |
+| static [SchemaList](#schemalist) | of([List<Map<String, ? extends @Nullable Object>>](#schemalistbuilder) arg, SchemaConfiguration configuration) |

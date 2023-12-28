@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequest.JSONPatchRequest1](#jsonpatchrequest1)<br> schema class |
-| static class | [JSONPatchRequest.JSONPatchRequestListInput](#jsonpatchrequestlistinput)<br> builder for List payloads |
+| static class | [JSONPatchRequest.JSONPatchRequestListBuilder](#jsonpatchrequestlistbuilder)<br> builder for List payloads |
 | static class | [JSONPatchRequest.JSONPatchRequestList](#jsonpatchrequestlist)<br> output class for List payloads |
 | static class | [JSONPatchRequest.Items](#items)<br> schema class |
 
@@ -54,18 +54,29 @@ JSONPatchRequest.JSONPatchRequestList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [JSONPatchRequestList](#jsonpatchrequestlist) | validate([List<?>](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestList](#jsonpatchrequestlist) | validate([List<?>](#jsonpatchrequestlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## JSONPatchRequestListInput
-public class JSONPatchRequestListInput<br>
+## JSONPatchRequestListBuilder
+public class JSONPatchRequestListBuilder<br>
 builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestListBuilder()<br>Creates an empty list |
+| JSONPatchRequestListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Object |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| ? extends @Nullable Object |  | |
 
 ## JSONPatchRequestList
 public class JSONPatchRequestList<br>
@@ -76,7 +87,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestList](#jsonpatchrequestlist) | of([List<? extends @Nullable Object>](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestList](#jsonpatchrequestlist) | of([List<? extends @Nullable Object>](#jsonpatchrequestlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

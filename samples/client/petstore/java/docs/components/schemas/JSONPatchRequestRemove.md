@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemove1](#jsonpatchrequestremove1)<br> schema class |
-| static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMapInput](#jsonpatchrequestremovemapinput)<br> builder for Map payloads |
+| static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMapBuilder](#jsonpatchrequestremovemapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestRemove.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestRemove.StringOpEnums](#stringopenums)<br>String enum |
@@ -68,10 +68,10 @@ JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<?, ?>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<?, ?>](#jsonpatchrequestremovemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## JSONPatchRequestRemoveMapInput
-public class JSONPatchRequestRemoveMapInput<br>
+## JSONPatchRequestRemoveMapBuilder
+public class JSONPatchRequestRemoveMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -91,7 +91,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | of([Map<String, String>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | of([Map<String, String>](#jsonpatchrequestremovemapbuilder) arg, SchemaConfiguration configuration) |
 | String | op()<br> must be one of ["remove"] |
 | String | path()<br> |
 

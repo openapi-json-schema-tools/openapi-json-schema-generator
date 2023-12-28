@@ -64,7 +64,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapMapInput {
+    public static class MapMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -170,7 +170,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return get(name);
         }
     }
-    public static class MixedPropertiesAndAdditionalPropertiesClassMapInput {
+    public static class MixedPropertiesAndAdditionalPropertiesClassMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

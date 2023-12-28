@@ -62,8 +62,22 @@ public class PaginatedResultMyObjectDto {
         }
     }
     
-    public static class ResultsListInput {
+    public static class ResultsListBuilder {
         // class to build List<Map<String, String>>
+        private final List<Map<String, String>> list;
+    
+        public ResultsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ResultsListBuilder(List<Map<String, String>> list) {
+            this.list = list;
+        }
+        // items refed
+    
+        public List<Map<String, String>> build() {
+            return list;
+        }
     }
     
     
@@ -162,7 +176,7 @@ public class PaginatedResultMyObjectDto {
             return (ResultsList) value;
         }
     }
-    public static class PaginatedResultMyObjectDtoMapInput {
+    public static class PaginatedResultMyObjectDtoMapBuilder {
         // empty mapping
     }
     

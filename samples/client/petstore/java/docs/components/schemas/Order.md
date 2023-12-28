@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Order.Order1](#order1)<br> schema class |
-| static class | [Order.OrderMapInput](#ordermapinput)<br> builder for Map payloads |
+| static class | [Order.OrderMapBuilder](#ordermapbuilder)<br> builder for Map payloads |
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
 | static class | [Order.Complete](#complete)<br> schema class |
 | static class | [Order.Status](#status)<br> schema class |
@@ -85,10 +85,10 @@ Order.OrderMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [OrderMap](#ordermap) | validate([Map<?, ?>](#ordermapinput) arg, SchemaConfiguration configuration) |
+| [OrderMap](#ordermap) | validate([Map<?, ?>](#ordermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## OrderMapInput
-public class OrderMapInput<br>
+## OrderMapBuilder
+public class OrderMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -113,7 +113,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | of([Map<String, ? extends @Nullable Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
+| static [OrderMap](#ordermap) | of([Map<String, ? extends @Nullable Object>](#ordermapbuilder) arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | long | petId()<br>[optional] value must be a 64 bit integer |
 | int | quantity()<br>[optional] value must be a 32 bit integer |

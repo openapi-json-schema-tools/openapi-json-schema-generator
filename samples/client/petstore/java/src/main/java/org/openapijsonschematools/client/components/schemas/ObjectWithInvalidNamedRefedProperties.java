@@ -53,7 +53,7 @@ public class ObjectWithInvalidNamedRefedProperties {
             return get(name);
         }
     }
-    public static class ObjectWithInvalidNamedRefedPropertiesMapInput {
+    public static class ObjectWithInvalidNamedRefedPropertiesMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

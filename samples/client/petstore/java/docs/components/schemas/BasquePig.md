@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [BasquePig.BasquePig1](#basquepig1)<br> schema class |
-| static class | [BasquePig.BasquePigMapInput](#basquepigmapinput)<br> builder for Map payloads |
+| static class | [BasquePig.BasquePigMapBuilder](#basquepigmapbuilder)<br> builder for Map payloads |
 | static class | [BasquePig.BasquePigMap](#basquepigmap)<br> output class for Map payloads |
 | static class | [BasquePig.ClassName](#classname)<br> schema class |
 | enum | [BasquePig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
@@ -61,10 +61,10 @@ BasquePig.BasquePigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BasquePigMap](#basquepigmap) | validate([Map<?, ?>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
+| [BasquePigMap](#basquepigmap) | validate([Map<?, ?>](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## BasquePigMapInput
-public class BasquePigMapInput<br>
+## BasquePigMapBuilder
+public class BasquePigMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -84,7 +84,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BasquePigMap](#basquepigmap) | of([Map<String, ? extends @Nullable Object>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
+| static [BasquePigMap](#basquepigmap) | of([Map<String, ? extends @Nullable Object>](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["BasquePig"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

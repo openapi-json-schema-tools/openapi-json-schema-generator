@@ -65,7 +65,7 @@ public class ClassModel {
             return get(name);
         }
     }
-    public static class ClassModelMapInput {
+    public static class ClassModelMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

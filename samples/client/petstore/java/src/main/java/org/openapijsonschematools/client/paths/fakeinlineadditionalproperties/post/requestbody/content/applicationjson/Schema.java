@@ -51,7 +51,7 @@ public class Schema {
             return getOrThrow(name);
         }
     }
-    public static class SchemaMapInput {
+    public static class SchemaMapBuilder {
         // Map<String, additionalProperties>
     }
     

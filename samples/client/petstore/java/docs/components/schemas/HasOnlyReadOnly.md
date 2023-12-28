@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnly1](#hasonlyreadonly1)<br> schema class |
-| static class | [HasOnlyReadOnly.HasOnlyReadOnlyMapInput](#hasonlyreadonlymapinput)<br> builder for Map payloads |
+| static class | [HasOnlyReadOnly.HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder)<br> builder for Map payloads |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnlyMap](#hasonlyreadonlymap)<br> output class for Map payloads |
 | static class | [HasOnlyReadOnly.Foo](#foo)<br> schema class |
 | static class | [HasOnlyReadOnly.Bar](#bar)<br> schema class |
@@ -63,10 +63,10 @@ HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map<?, ?>](#hasonlyreadonlymapinput) arg, SchemaConfiguration configuration) |
+| [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map<?, ?>](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## HasOnlyReadOnlyMapInput
-public class HasOnlyReadOnlyMapInput<br>
+## HasOnlyReadOnlyMapBuilder
+public class HasOnlyReadOnlyMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -87,7 +87,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | of([Map<String, ? extends @Nullable Object>](#hasonlyreadonlymapinput) arg, SchemaConfiguration configuration) |
+| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | of([Map<String, ? extends @Nullable Object>](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

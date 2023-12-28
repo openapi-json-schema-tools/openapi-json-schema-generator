@@ -37,8 +37,22 @@ public class Drawing {
         }
     }
     
-    public static class ShapesListInput {
+    public static class ShapesListBuilder {
         // class to build List<? extends @Nullable Object>
+        private final List<@Nullable Object> list;
+    
+        public ShapesListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ShapesListBuilder(List<@Nullable Object> list) {
+            this.list = list;
+        }
+        // items refed
+    
+        public List<@Nullable Object> build() {
+            return list;
+        }
     }
     
     
@@ -172,7 +186,7 @@ public class Drawing {
             return (@Nullable Object) value;
         }
     }
-    public static class DrawingMapInput {
+    public static class DrawingMapBuilder {
         // optionalProperties + additionalProperties
     }
     

@@ -176,7 +176,7 @@ public class Capitalization {
             return get(name);
         }
     }
-    public static class CapitalizationMapInput {
+    public static class CapitalizationMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

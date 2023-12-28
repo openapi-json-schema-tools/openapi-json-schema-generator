@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema1.Schema11](#schema11)<br> schema class |
-| static class | [Schema1.SchemaListInput1](#schemalistinput1)<br> builder for List payloads |
+| static class | [Schema1.SchemaListBuilder1](#schemalistbuilder1)<br> builder for List payloads |
 | static class | [Schema1.SchemaList1](#schemalist1)<br> output class for List payloads |
 | static class | [Schema1.Items1](#items1)<br> schema class |
 
@@ -55,18 +55,29 @@ Schema1.SchemaList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaList1](#schemalist1) | validate([List<?>](#schemalistinput1) arg, SchemaConfiguration configuration) |
+| [SchemaList1](#schemalist1) | validate([List<?>](#schemalistbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaListInput1
-public class SchemaListInput1<br>
+## SchemaListBuilder1
+public class SchemaListBuilder1<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaListBuilder1()<br>Creates an empty list |
+| SchemaListBuilder1(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| String |  | |
 
 ## SchemaList1
 public class SchemaList1<br>
@@ -77,7 +88,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList1](#schemalist1) | of([List<String>](#schemalistinput1) arg, SchemaConfiguration configuration) |
+| static [SchemaList1](#schemalist1) | of([List<String>](#schemalistbuilder1) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1](#arraywithvalidationsinitems1)<br> schema class |
-| static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsListInput](#arraywithvalidationsinitemslistinput)<br> builder for List payloads |
+| static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsListBuilder](#arraywithvalidationsinitemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist)<br> output class for List payloads |
 | static class | [ArrayWithValidationsInItems.Items](#items)<br> schema class |
 
@@ -56,18 +56,29 @@ ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate([List<?>](#arraywithvalidationsinitemslistinput) arg, SchemaConfiguration configuration) |
+| [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate([List<?>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayWithValidationsInItemsListInput
-public class ArrayWithValidationsInItemsListInput<br>
+## ArrayWithValidationsInItemsListBuilder
+public class ArrayWithValidationsInItemsListBuilder<br>
 builder for `List<Long>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayWithValidationsInItemsListBuilder()<br>Creates an empty list |
+| ArrayWithValidationsInItemsListBuilder(List<Long> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Long> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Long |  | value must be a 64 bit integer
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Long |  | value must be a 64 bit integer |
 
 ## ArrayWithValidationsInItemsList
 public class ArrayWithValidationsInItemsList<br>
@@ -78,7 +89,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of([List<Long>](#arraywithvalidationsinitemslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of([List<Long>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

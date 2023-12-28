@@ -64,7 +64,7 @@ public class ObjWithRequiredProps {
             return get(name);
         }
     }
-    public static class ObjWithRequiredPropsMapInput {
+    public static class ObjWithRequiredPropsMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

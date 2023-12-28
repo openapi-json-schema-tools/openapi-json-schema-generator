@@ -150,7 +150,7 @@ public class TriangleInterface {
             return get(name);
         }
     }
-    public static class TriangleInterfaceMapInput {
+    public static class TriangleInterfaceMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

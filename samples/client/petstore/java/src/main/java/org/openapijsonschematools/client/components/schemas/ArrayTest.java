@@ -50,8 +50,26 @@ public class ArrayTest {
         }
     }
     
-    public static class ArrayOfStringListInput {
+    public static class ArrayOfStringListBuilder {
         // class to build List<String>
+        private final List<String> list;
+    
+        public ArrayOfStringListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayOfStringListBuilder(List<String> list) {
+            this.list = list;
+        }
+    
+        public ArrayOfStringListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     
@@ -141,8 +159,41 @@ public class ArrayTest {
         }
     }
     
-    public static class ItemsListInput {
+    public static class ItemsListBuilder {
         // class to build List<Long>
+        private final List<Long> list;
+    
+        public ItemsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ItemsListBuilder(List<Long> list) {
+            this.list = list;
+        }
+    
+        public ItemsListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ItemsListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ItemsListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ItemsListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Long> build() {
+            return list;
+        }
     }
     
     
@@ -221,8 +272,21 @@ public class ArrayTest {
         }
     }
     
-    public static class ArrayArrayOfIntegerListInput {
+    public static class ArrayArrayOfIntegerListBuilder {
         // class to build List<List<Long>>
+        private final List<List<Long>> list;
+    
+        public ArrayArrayOfIntegerListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayArrayOfIntegerListBuilder(List<List<Long>> list) {
+            this.list = list;
+        }
+    
+        public List<List<Long>> build() {
+            return list;
+        }
     }
     
     
@@ -301,8 +365,22 @@ public class ArrayTest {
         }
     }
     
-    public static class ItemsListInput1 {
+    public static class ItemsListBuilder1 {
         // class to build List<Map<String, ? extends @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public ItemsListBuilder1() {
+            list = new ArrayList<>();
+        }
+    
+        public ItemsListBuilder1(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        // items refed
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -381,8 +459,21 @@ public class ArrayTest {
         }
     }
     
-    public static class ArrayArrayOfModelListInput {
+    public static class ArrayArrayOfModelListBuilder {
         // class to build List<List<Map<String, ? extends @Nullable Object>>>
+        private final List<List<Map<String, @Nullable Object>>> list;
+    
+        public ArrayArrayOfModelListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayArrayOfModelListBuilder(List<List<Map<String, @Nullable Object>>> list) {
+            this.list = list;
+        }
+    
+        public List<List<Map<String, @Nullable Object>>> build() {
+            return list;
+        }
     }
     
     
@@ -502,7 +593,7 @@ public class ArrayTest {
             return get(name);
         }
     }
-    public static class ArrayTestMapInput {
+    public static class ArrayTestMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

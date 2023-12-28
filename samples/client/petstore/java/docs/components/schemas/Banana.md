@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Banana.Banana1](#banana1)<br> schema class |
-| static class | [Banana.BananaMapInput](#bananamapinput)<br> builder for Map payloads |
+| static class | [Banana.BananaMapBuilder](#bananamapbuilder)<br> builder for Map payloads |
 | static class | [Banana.BananaMap](#bananamap)<br> output class for Map payloads |
 | static class | [Banana.LengthCm](#lengthcm)<br> schema class |
 
@@ -59,10 +59,10 @@ Banana.BananaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BananaMap](#bananamap) | validate([Map<?, ?>](#bananamapinput) arg, SchemaConfiguration configuration) |
+| [BananaMap](#bananamap) | validate([Map<?, ?>](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## BananaMapInput
-public class BananaMapInput<br>
+## BananaMapBuilder
+public class BananaMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -82,7 +82,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BananaMap](#bananamap) | of([Map<String, ? extends @Nullable Object>](#bananamapinput) arg, SchemaConfiguration configuration) |
+| static [BananaMap](#bananamap) | of([Map<String, ? extends @Nullable Object>](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

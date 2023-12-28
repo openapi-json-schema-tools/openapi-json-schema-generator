@@ -88,7 +88,7 @@ public class ObjectWithCollidingProperties {
             return get(name);
         }
     }
-    public static class ObjectWithCollidingPropertiesMapInput {
+    public static class ObjectWithCollidingPropertiesMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

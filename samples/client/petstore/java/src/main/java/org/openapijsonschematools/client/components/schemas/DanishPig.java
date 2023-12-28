@@ -121,7 +121,7 @@ public class DanishPig {
             return get(name);
         }
     }
-    public static class DanishPigMapInput {
+    public static class DanishPigMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

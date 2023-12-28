@@ -167,8 +167,66 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }
     
-    public static class Schema9ListInput {
+    public static class Schema9ListBuilder {
         // class to build List<? extends @Nullable Object>
+        private final List<@Nullable Object> list;
+    
+        public Schema9ListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public Schema9ListBuilder(List<@Nullable Object> list) {
+            this.list = list;
+        }
+    
+        public Schema9ListBuilder add(Void item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema9ListBuilder add(boolean item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema9ListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema9ListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema9ListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema9ListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema9ListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema9ListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public Schema9ListBuilder add(Map<String, ?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Object> build() {
+            return list;
+        }
     }
     
     

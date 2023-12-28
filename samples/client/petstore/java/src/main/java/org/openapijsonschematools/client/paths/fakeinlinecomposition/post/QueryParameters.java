@@ -74,7 +74,7 @@ public class QueryParameters {
             return (Schema1.SchemaMap1) value;
         }
     }
-    public static class QueryParametersMapInput {
+    public static class QueryParametersMapBuilder {
         // empty mapping
     }
     

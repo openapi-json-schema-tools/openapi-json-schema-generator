@@ -547,8 +547,21 @@ public class NullableClass {
         }
     }
     
-    public static class ArrayNullablePropListInput {
+    public static class ArrayNullablePropListBuilder {
         // class to build List<Map<String, ? extends @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public ArrayNullablePropListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayNullablePropListBuilder(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -729,8 +742,26 @@ public class NullableClass {
         }
     }
     
-    public static class ArrayAndItemsNullablePropListInput {
+    public static class ArrayAndItemsNullablePropListBuilder {
         // class to build List<? extends @Nullable Map<String, ? extends @Nullable Object>>
+        private final List<@Nullable Map<String, @Nullable Object>> list;
+    
+        public ArrayAndItemsNullablePropListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayAndItemsNullablePropListBuilder(List<@Nullable Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+    
+        public ArrayAndItemsNullablePropListBuilder add(Void item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -911,8 +942,26 @@ public class NullableClass {
         }
     }
     
-    public static class ArrayItemsNullableListInput {
+    public static class ArrayItemsNullableListBuilder {
         // class to build List<? extends @Nullable Map<String, ? extends @Nullable Object>>
+        private final List<@Nullable Map<String, @Nullable Object>> list;
+    
+        public ArrayItemsNullableListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayItemsNullableListBuilder(List<@Nullable Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+    
+        public ArrayItemsNullableListBuilder add(Void item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -1007,7 +1056,7 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectNullablePropMapInput {
+    public static class ObjectNullablePropMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -1198,7 +1247,7 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectAndItemsNullablePropMapInput {
+    public static class ObjectAndItemsNullablePropMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -1389,7 +1438,7 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectItemsNullableMapInput {
+    public static class ObjectItemsNullableMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -1617,7 +1666,7 @@ public class NullableClass {
             return (@Nullable FrozenMap<?>) value;
         }
     }
-    public static class NullableClassMapInput {
+    public static class NullableClassMapBuilder {
         // optionalProperties + additionalProperties
     }
     

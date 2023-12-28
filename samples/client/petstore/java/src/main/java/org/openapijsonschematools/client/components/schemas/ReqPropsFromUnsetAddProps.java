@@ -48,7 +48,7 @@ public class ReqPropsFromUnsetAddProps {
             return get(name);
         }
     }
-    public static class ReqPropsFromUnsetAddPropsMapInput {
+    public static class ReqPropsFromUnsetAddPropsMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

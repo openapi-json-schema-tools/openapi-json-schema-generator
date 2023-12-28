@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Address.Address1](#address1)<br> schema class |
-| static class | [Address.AddressMapInput](#addressmapinput)<br> builder for Map payloads |
+| static class | [Address.AddressMapBuilder](#addressmapbuilder)<br> builder for Map payloads |
 | static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -54,10 +54,10 @@ Address.AddressMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AddressMap](#addressmap) | validate([Map<?, ?>](#addressmapinput) arg, SchemaConfiguration configuration) |
+| [AddressMap](#addressmap) | validate([Map<?, ?>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AddressMapInput
-public class AddressMapInput<br>
+## AddressMapBuilder
+public class AddressMapBuilder<br>
 builder for `Map<String, Long>`
 
 A class that builds the Map input type
@@ -76,7 +76,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AddressMap](#addressmap) | of([Map<String, Long>](#addressmapinput) arg, SchemaConfiguration configuration) |
+| static [AddressMap](#addressmap) | of([Map<String, Long>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
 | long | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties

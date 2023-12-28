@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1](#objectwithnonintersectingvalues1)<br> schema class |
-| static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMapInput](#objectwithnonintersectingvaluesmapinput)<br> builder for Map payloads |
+| static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap)<br> output class for Map payloads |
 | static class | [ObjectWithNonIntersectingValues.A](#a)<br> schema class |
 | static class | [ObjectWithNonIntersectingValues.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -60,10 +60,10 @@ ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayl
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map<?, ?>](#objectwithnonintersectingvaluesmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map<?, ?>](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithNonIntersectingValuesMapInput
-public class ObjectWithNonIntersectingValuesMapInput<br>
+## ObjectWithNonIntersectingValuesMapBuilder
+public class ObjectWithNonIntersectingValuesMapBuilder<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -83,7 +83,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | of([Map<String, Object>](#objectwithnonintersectingvaluesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | of([Map<String, Object>](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
 | Number | a()<br>[optional] |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

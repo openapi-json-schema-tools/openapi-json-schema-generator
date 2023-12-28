@@ -74,7 +74,7 @@ public class HeaderParameters {
             return (Schema0.SchemaList0) value;
         }
     }
-    public static class HeaderParametersMapInput {
+    public static class HeaderParametersMapBuilder {
         // empty mapping
     }
     

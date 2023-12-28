@@ -86,7 +86,7 @@ public class Headers {
             return (String) value;
         }
     }
-    public static class HeadersMapInput {
+    public static class HeadersMapBuilder {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
     

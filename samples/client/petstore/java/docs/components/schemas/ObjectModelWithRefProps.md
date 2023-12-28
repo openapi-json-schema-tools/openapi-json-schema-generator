@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectModelWithRefProps.ObjectModelWithRefProps1](#objectmodelwithrefprops1)<br> schema class |
-| static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMapInput](#objectmodelwithrefpropsmapinput)<br> builder for Map payloads |
+| static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap)<br> output class for Map payloads |
 
 ## ObjectModelWithRefProps1
@@ -56,10 +56,10 @@ ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map<?, ?>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map<?, ?>](#objectmodelwithrefpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectModelWithRefPropsMapInput
-public class ObjectModelWithRefPropsMapInput<br>
+## ObjectModelWithRefPropsMapBuilder
+public class ObjectModelWithRefPropsMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -81,7 +81,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | of([Map<String, ? extends @Nullable Object>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | of([Map<String, ? extends @Nullable Object>](#objectmodelwithrefpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | Number | myNumber()<br>[optional] |
 | String | myString()<br>[optional] |
 | boolean | myBoolean()<br>[optional] |

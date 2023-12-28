@@ -90,7 +90,7 @@ public class QueryParameters {
             return (String) value;
         }
     }
-    public static class QueryParametersMapInput {
+    public static class QueryParametersMapBuilder {
         // empty mapping
     }
     

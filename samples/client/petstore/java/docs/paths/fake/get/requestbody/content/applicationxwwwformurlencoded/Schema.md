@@ -14,12 +14,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
-| static class | [Schema.SchemaMapInput](#schemamapinput)<br> builder for Map payloads |
+| static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.EnumFormString](#enumformstring)<br> schema class |
 | enum | [Schema.StringEnumFormStringEnums](#stringenumformstringenums)<br>String enum |
 | static class | [Schema.EnumFormStringArray](#enumformstringarray)<br> schema class |
-| static class | [Schema.EnumFormStringArrayListInput](#enumformstringarraylistinput)<br> builder for List payloads |
+| static class | [Schema.EnumFormStringArrayListBuilder](#enumformstringarraylistbuilder)<br> builder for List payloads |
 | static class | [Schema.EnumFormStringArrayList](#enumformstringarraylist)<br> output class for List payloads |
 | static class | [Schema.Items](#items)<br> schema class |
 | enum | [Schema.StringItemsEnums](#stringitemsenums)<br>String enum |
@@ -73,10 +73,10 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap](#schemamap) | validate([Map<?, ?>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| [SchemaMap](#schemamap) | validate([Map<?, ?>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaMapInput
-public class SchemaMapInput<br>
+## SchemaMapBuilder
+public class SchemaMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -97,7 +97,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | [EnumFormStringArrayList](#enumformstringarraylist) | enum_form_string_array()<br>[optional] |
 | String | enum_form_string()<br>[optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
@@ -201,18 +201,29 @@ Schema.EnumFormStringArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumFormStringArrayList](#enumformstringarraylist) | validate([List<?>](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
+| [EnumFormStringArrayList](#enumformstringarraylist) | validate([List<?>](#enumformstringarraylistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## EnumFormStringArrayListInput
-public class EnumFormStringArrayListInput<br>
+## EnumFormStringArrayListBuilder
+public class EnumFormStringArrayListBuilder<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumFormStringArrayListBuilder()<br>Creates an empty list |
+| EnumFormStringArrayListBuilder(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  | must be one of [">", "$"] if omitted the server will use the default value of $
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| String |  | must be one of [">", "$"] if omitted the server will use the default value of $ |
 
 ## EnumFormStringArrayList
 public class EnumFormStringArrayList<br>
@@ -223,7 +234,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumFormStringArrayList](#enumformstringarraylist) | of([List<String>](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
+| static [EnumFormStringArrayList](#enumformstringarraylist) | of([List<String>](#enumformstringarraylistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

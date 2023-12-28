@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1](#objectmodelwithargandargsproperties1)<br> schema class |
-| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapInput](#objectmodelwithargandargspropertiesmapinput)<br> builder for Map payloads |
+| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapBuilder](#objectmodelwithargandargspropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap)<br> output class for Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Args](#args)<br> schema class |
 | static class | [ObjectModelWithArgAndArgsProperties.Arg](#arg)<br> schema class |
@@ -64,10 +64,10 @@ ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap valid
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map<?, ?>](#objectmodelwithargandargspropertiesmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map<?, ?>](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectModelWithArgAndArgsPropertiesMapInput
-public class ObjectModelWithArgAndArgsPropertiesMapInput<br>
+## ObjectModelWithArgAndArgsPropertiesMapBuilder
+public class ObjectModelWithArgAndArgsPropertiesMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -88,7 +88,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectmodelwithargandargspropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | String | arg()<br> |
 | String | args()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -12,7 +12,7 @@ A class that contains necessary nested
 | ----------------- | ---------------------- |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1](#objectwithallofwithreqtestpropfromunsetaddprop1)<br> schema class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1](#schema1)<br> schema class |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Name](#name)<br> schema class |
 
@@ -84,10 +84,10 @@ ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema1MapInput
-public class Schema1MapInput<br>
+## Schema1MapBuilder
+public class Schema1MapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -108,7 +108,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | test()<br> |
 | String | name()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

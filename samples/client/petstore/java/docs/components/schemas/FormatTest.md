@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FormatTest.FormatTest1](#formattest1)<br> schema class |
-| static class | [FormatTest.FormatTestMapInput](#formattestmapinput)<br> builder for Map payloads |
+| static class | [FormatTest.FormatTestMapBuilder](#formattestmapbuilder)<br> builder for Map payloads |
 | static class | [FormatTest.FormatTestMap](#formattestmap)<br> output class for Map payloads |
 | static class | [FormatTest.NoneProp](#noneprop)<br> schema class |
 | static class | [FormatTest.PatternWithDigitsAndDelimiter](#patternwithdigitsanddelimiter)<br> schema class |
@@ -27,7 +27,7 @@ A class that contains necessary nested
 | static class | [FormatTest.ByteSchema](#byteschema)<br> schema class |
 | static class | [FormatTest.StringSchema](#stringschema)<br> schema class |
 | static class | [FormatTest.ArrayWithUniqueItems](#arraywithuniqueitems)<br> schema class |
-| static class | [FormatTest.ArrayWithUniqueItemsListInput](#arraywithuniqueitemslistinput)<br> builder for List payloads |
+| static class | [FormatTest.ArrayWithUniqueItemsListBuilder](#arraywithuniqueitemslistbuilder)<br> builder for List payloads |
 | static class | [FormatTest.ArrayWithUniqueItemsList](#arraywithuniqueitemslist)<br> output class for List payloads |
 | static class | [FormatTest.Items](#items)<br> schema class |
 | static class | [FormatTest.Float64](#float64)<br> schema class |
@@ -166,10 +166,10 @@ FormatTest.FormatTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap](#formattestmap) | validate([Map<?, ?>](#formattestmapinput) arg, SchemaConfiguration configuration) |
+| [FormatTestMap](#formattestmap) | validate([Map<?, ?>](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FormatTestMapInput
-public class FormatTestMapInput<br>
+## FormatTestMapBuilder
+public class FormatTestMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -209,7 +209,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FormatTestMap](#formattestmap) | of([Map<String, ? extends @Nullable Object>](#formattestmapinput) arg, SchemaConfiguration configuration) |
+| static [FormatTestMap](#formattestmap) | of([Map<String, ? extends @Nullable Object>](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | String | date()<br> value must conform to RFC-3339 full-date YYYY-MM-DD |
 | String | password()<br> |
 | int | int32()<br>[optional] value must be a 32 bit integer |
@@ -494,18 +494,29 @@ FormatTest.ArrayWithUniqueItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([List<?>](#arraywithuniqueitemslistinput) arg, SchemaConfiguration configuration) |
+| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayWithUniqueItemsListInput
-public class ArrayWithUniqueItemsListInput<br>
+## ArrayWithUniqueItemsListBuilder
+public class ArrayWithUniqueItemsListBuilder<br>
 builder for `List<Number>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayWithUniqueItemsListBuilder()<br>Creates an empty list |
+| ArrayWithUniqueItemsListBuilder(List<Number> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Number> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Number |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Number |  | |
 
 ## ArrayWithUniqueItemsList
 public class ArrayWithUniqueItemsList<br>
@@ -516,7 +527,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([List<Number>](#arraywithuniqueitemslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([List<Number>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

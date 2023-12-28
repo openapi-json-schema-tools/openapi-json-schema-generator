@@ -66,7 +66,7 @@ public class PublicKey {
             return get(name);
         }
     }
-    public static class PublicKeyMapInput {
+    public static class PublicKeyMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

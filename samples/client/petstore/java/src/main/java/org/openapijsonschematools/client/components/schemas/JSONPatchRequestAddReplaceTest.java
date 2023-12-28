@@ -169,7 +169,7 @@ public class JSONPatchRequestAddReplaceTest {
             return getOrThrow("value");
         }
     }
-    public static class JSONPatchRequestAddReplaceTestMapInput {
+    public static class JSONPatchRequestAddReplaceTestMapBuilder {
         // empty mapping
     }
     

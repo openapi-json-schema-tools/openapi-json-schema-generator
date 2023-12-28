@@ -51,7 +51,7 @@ public class Address {
             return getOrThrow(name);
         }
     }
-    public static class AddressMapInput {
+    public static class AddressMapBuilder {
         // Map<String, additionalProperties>
     }
     

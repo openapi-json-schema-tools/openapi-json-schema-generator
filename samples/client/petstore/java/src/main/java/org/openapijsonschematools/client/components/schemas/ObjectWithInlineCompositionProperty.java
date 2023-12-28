@@ -300,7 +300,7 @@ public class ObjectWithInlineCompositionProperty {
             return get(name);
         }
     }
-    public static class ObjectWithInlineCompositionPropertyMapInput {
+    public static class ObjectWithInlineCompositionPropertyMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

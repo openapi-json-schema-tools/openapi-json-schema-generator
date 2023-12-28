@@ -407,8 +407,41 @@ public class FormatTest {
         }
     }
     
-    public static class ArrayWithUniqueItemsListInput {
+    public static class ArrayWithUniqueItemsListBuilder {
         // class to build List<Number>
+        private final List<Number> list;
+    
+        public ArrayWithUniqueItemsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayWithUniqueItemsListBuilder(List<Number> list) {
+            this.list = list;
+        }
+    
+        public ArrayWithUniqueItemsListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayWithUniqueItemsListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayWithUniqueItemsListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayWithUniqueItemsListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Number> build() {
+            return list;
+        }
     }
     
     
@@ -926,7 +959,7 @@ public class FormatTest {
             return get(name);
         }
     }
-    public static class FormatTestMapInput {
+    public static class FormatTestMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

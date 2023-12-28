@@ -111,7 +111,7 @@ public class ApiResponseSchema {
             return get(name);
         }
     }
-    public static class ApiResponseMapInput {
+    public static class ApiResponseMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

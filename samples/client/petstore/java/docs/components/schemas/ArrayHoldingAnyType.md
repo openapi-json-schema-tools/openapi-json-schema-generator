@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1](#arrayholdinganytype1)<br> schema class |
-| static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeListInput](#arrayholdinganytypelistinput)<br> builder for List payloads |
+| static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeListBuilder](#arrayholdinganytypelistbuilder)<br> builder for List payloads |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeList](#arrayholdinganytypelist)<br> output class for List payloads |
 | static class | [ArrayHoldingAnyType.Items](#items)<br> schema class |
 
@@ -54,18 +54,29 @@ ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate([List<?>](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
+| [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate([List<?>](#arrayholdinganytypelistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayHoldingAnyTypeListInput
-public class ArrayHoldingAnyTypeListInput<br>
+## ArrayHoldingAnyTypeListBuilder
+public class ArrayHoldingAnyTypeListBuilder<br>
 builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayHoldingAnyTypeListBuilder()<br>Creates an empty list |
+| ArrayHoldingAnyTypeListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Object | any type can be stored here |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| ? extends @Nullable Object | any type can be stored here | |
 
 ## ArrayHoldingAnyTypeList
 public class ArrayHoldingAnyTypeList<br>
@@ -76,7 +87,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of([List<? extends @Nullable Object>](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of([List<? extends @Nullable Object>](#arrayholdinganytypelistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

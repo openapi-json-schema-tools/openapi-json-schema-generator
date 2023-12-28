@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [TriangleInterface.TriangleInterface1](#triangleinterface1)<br> schema class |
-| static class | [TriangleInterface.TriangleInterfaceMapInput](#triangleinterfacemapinput)<br> builder for Map payloads |
+| static class | [TriangleInterface.TriangleInterfaceMapBuilder](#triangleinterfacemapbuilder)<br> builder for Map payloads |
 | static class | [TriangleInterface.TriangleInterfaceMap](#triangleinterfacemap)<br> output class for Map payloads |
 | static class | [TriangleInterface.TriangleType](#triangletype)<br> schema class |
 | static class | [TriangleInterface.ShapeType](#shapetype)<br> schema class |
@@ -40,11 +40,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [TriangleInterfaceMap](#triangleinterfacemap) | validate([Map<?, ?>](#triangleinterfacemapinput) arg, SchemaConfiguration configuration) |
+| [TriangleInterfaceMap](#triangleinterfacemap) | validate([Map<?, ?>](#triangleinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## TriangleInterfaceMapInput
-public class TriangleInterfaceMapInput<br>
+## TriangleInterfaceMapBuilder
+public class TriangleInterfaceMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -65,7 +65,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TriangleInterfaceMap](#triangleinterfacemap) | of([Map<String, ? extends @Nullable Object>](#triangleinterfacemapinput) arg, SchemaConfiguration configuration) |
+| static [TriangleInterfaceMap](#triangleinterfacemap) | of([Map<String, ? extends @Nullable Object>](#triangleinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | String | shapeType()<br> must be one of ["Triangle"] |
 | String | triangleType()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

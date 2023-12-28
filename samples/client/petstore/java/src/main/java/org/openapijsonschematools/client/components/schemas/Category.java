@@ -122,7 +122,7 @@ public class Category {
             return get(name);
         }
     }
-    public static class CategoryMapInput {
+    public static class CategoryMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

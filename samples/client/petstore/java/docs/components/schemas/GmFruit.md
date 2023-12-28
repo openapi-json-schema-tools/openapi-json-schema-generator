@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [GmFruit.GmFruit1](#gmfruit1)<br> schema class |
-| static class | [GmFruit.GmFruitMapInput](#gmfruitmapinput)<br> builder for Map payloads |
+| static class | [GmFruit.GmFruitMapBuilder](#gmfruitmapbuilder)<br> builder for Map payloads |
 | static class | [GmFruit.GmFruitMap](#gmfruitmap)<br> output class for Map payloads |
 | static class | [GmFruit.Color](#color)<br> schema class |
 
@@ -37,11 +37,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [GmFruitMap](#gmfruitmap) | validate([Map<?, ?>](#gmfruitmapinput) arg, SchemaConfiguration configuration) |
+| [GmFruitMap](#gmfruitmap) | validate([Map<?, ?>](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## GmFruitMapInput
-public class GmFruitMapInput<br>
+## GmFruitMapBuilder
+public class GmFruitMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -61,7 +61,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [GmFruitMap](#gmfruitmap) | of([Map<String, ? extends @Nullable Object>](#gmfruitmapinput) arg, SchemaConfiguration configuration) |
+| static [GmFruitMap](#gmfruitmap) | of([Map<String, ? extends @Nullable Object>](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
 | String | color()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

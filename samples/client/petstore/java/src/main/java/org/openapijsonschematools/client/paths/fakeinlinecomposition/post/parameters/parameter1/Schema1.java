@@ -300,7 +300,7 @@ public class Schema1 {
             return get(name);
         }
     }
-    public static class SchemaMapInput1 {
+    public static class SchemaMapBuilder1 {
         // Map<String, Object> because addProps is unset
     }
     
