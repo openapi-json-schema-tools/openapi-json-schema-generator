@@ -65,6 +65,13 @@ A class that builds the List input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
+| ArrayTypeMatchesArraysListBuilder()<br>Creates an empty list |
+| ArrayTypeMatchesArraysListBuilder(List<? extends @Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
 | List Item Type | Description | Notes |

@@ -81,6 +81,13 @@ A class that builds the List input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
+| NestedItemsListBuilder()<br>Creates an empty list |
+| NestedItemsListBuilder(List<List<List<List<Number>>>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<List<List<List<Number>>>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
 | List Item Type | Description | Notes |
@@ -153,6 +160,13 @@ A class that builds the List input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
+| ItemsListBuilder2()<br>Creates an empty list |
+| ItemsListBuilder2(List<List<List<Number>>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<List<List<Number>>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
 | List Item Type | Description | Notes |
@@ -223,6 +237,13 @@ A class that builds the List input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
+| ItemsListBuilder1()<br>Creates an empty list |
+| ItemsListBuilder1(List<List<Number>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<List<Number>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
 | List Item Type | Description | Notes |
@@ -291,6 +312,13 @@ A class that builds the List input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
+| ItemsListBuilder()<br>Creates an empty list |
+| ItemsListBuilder(List<Number> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| List<Number> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
 | List Item Type | Description | Notes |
