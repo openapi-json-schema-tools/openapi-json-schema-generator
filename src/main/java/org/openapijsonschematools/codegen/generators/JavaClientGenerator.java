@@ -48,6 +48,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.NotNull;
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Matcher;
@@ -1987,23 +1988,20 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description);
                 addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
             } else if (value instanceof Long) {
-                addToTypeToValue(typeToValues, enumValue, "Long", usedName);
-                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description);
-                addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
-                if ((Long) value >= -2147483648L && (Long) value <= 2147483647L) {
-                    EnumValue integerEnumValue = getEnumValue(Integer.valueOf(value.toString()), description);
-                    addToTypeToValue(typeToValues, integerEnumValue, "Integer", usedName);
-                    EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description);
-                    addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
-                }
+                addLongEnum(typeToValues, enumValue, (Long) value, usedName);
             } else if (value instanceof Float) {
                 addToTypeToValue(typeToValues, enumValue, "Float", usedName);
                 EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()), description);
                 addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
             } else if (value instanceof Double) {
-                if ((Double) value >= -3.4028234663852886e+38d && (Double) value <= 3.4028234663852886e+38d) {
-                    EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()), description);
-                    addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
+                addDoubleEnum(typeToValues, enumValue, (Double) value, usedName);
+            } else if (value instanceof BigDecimal) {
+                BigDecimal casValue = (BigDecimal) value;
+                boolean isInteger = casValue.signum() == 0 || casValue.scale() <= 0 || casValue.stripTrailingZeros().scale() <= 0;
+                if (isInteger) {
+                    addLongEnum(typeToValues, enumValue, casValue.longValue(), usedName);
+                } else {
+                    addDoubleEnum(typeToValues, enumValue, casValue.doubleValue(), usedName);
                 }
             }
             i += 1;
@@ -2015,5 +2013,25 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
 
         return new EnumInfo(enumValueToName, typeToValues, jsonPathPiece);
+    }
+
+    private void addLongEnum(LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, EnumValue enumValue, Long value, String usedName) {
+        addToTypeToValue(typeToValues, enumValue, "Long", usedName);
+        EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), enumValue.description);
+        addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
+        if (value >= -2147483648L && value <= 2147483647L) {
+            EnumValue integerEnumValue = getEnumValue(Integer.valueOf(value.toString()), enumValue.description);
+            addToTypeToValue(typeToValues, integerEnumValue, "Integer", usedName);
+            EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), enumValue.description);
+            addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
+        }
+    }
+
+    private void addDoubleEnum(LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, EnumValue enumValue, Double value, String usedName) {
+        addToTypeToValue(typeToValues, enumValue, "Double", usedName);
+        if (value >= -3.4028234663852886e+38d && value <= 3.4028234663852886e+38d) {
+            EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()), enumValue.description);
+            addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
+        }
     }
 }

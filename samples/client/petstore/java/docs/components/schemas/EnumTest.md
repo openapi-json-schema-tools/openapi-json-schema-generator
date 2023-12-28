@@ -15,6 +15,8 @@ A class that contains necessary nested
 | static class | [EnumTest.EnumTestMapInput](#enumtestmapinput)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
+| enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
+| enum | [EnumTest.FloatEnumNumberEnums](#floatenumnumberenums)<br>Float enum |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
 | enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>Integer enum |
 | enum | [EnumTest.LongEnumIntegerEnums](#longenumintegerenums)<br>Long enum |
@@ -164,6 +166,30 @@ double validatedPayload = EnumTest.EnumNumber.validate(
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DoubleEnumNumberEnums
+public enum DoubleEnumNumberEnums<br>
+extends `Enum<DoubleEnumNumberEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1_PT_1 | value = 1.1d |
+| NEGATIVE_1_PT_2 | value = -1.2d |
+
+## FloatEnumNumberEnums
+public enum FloatEnumNumberEnums<br>
+extends `Enum<FloatEnumNumberEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1_PT_1 | value = 1.1f |
+| NEGATIVE_1_PT_2 | value = -1.2f |
+
 ## EnumInteger
 public static class EnumInteger<br>
 extends JsonSchema

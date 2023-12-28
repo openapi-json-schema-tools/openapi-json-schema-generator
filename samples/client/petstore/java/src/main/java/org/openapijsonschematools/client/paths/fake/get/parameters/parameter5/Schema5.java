@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.paths.fake.get.parameters.parameter5;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -10,6 +11,10 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.DoubleEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.DoubleValueMethod;
+import org.openapijsonschematools.client.schemas.validation.FloatEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.FloatValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
@@ -19,8 +24,34 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema5 {
     // nest classes so all schemas and input/output classes can be public
     
+    public enum DoubleSchemaEnums5 implements DoubleValueMethod {
+        POSITIVE_1_PT_1(1.1d),
+        NEGATIVE_1_PT_2(-1.2d);
+        private final double value;
     
-    public static class Schema51 extends JsonSchema implements NumberSchemaValidator {
+        DoubleSchemaEnums5(double value) {
+            this.value = value;
+        }
+        public double value() {
+            return this.value;
+        }
+    }
+    
+    public enum FloatSchemaEnums5 implements FloatValueMethod {
+        POSITIVE_1_PT_1(1.1f),
+        NEGATIVE_1_PT_2(-1.2f);
+        private final float value;
+    
+        FloatSchemaEnums5(float value) {
+            this.value = value;
+        }
+        public float value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class Schema51 extends JsonSchema implements FloatEnumValidator<FloatSchemaEnums5>, DoubleEnumValidator<DoubleSchemaEnums5>, NumberSchemaValidator {
         private static @Nullable Schema51 instance = null;
     
         protected Schema51() {
@@ -58,6 +89,16 @@ public class Schema5 {
         }
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
+        }
+        
+        @Override
+        public float validate(FloatSchemaEnums5 arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public double validate(DoubleSchemaEnums5 arg,SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg.value(), configuration);
         }
         
         @Override

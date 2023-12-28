@@ -310,8 +310,34 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public enum DoubleEnumNumberEnums implements DoubleValueMethod {
+        POSITIVE_1_PT_1(1.1d),
+        NEGATIVE_1_PT_2(-1.2d);
+        private final double value;
     
-    public static class EnumNumber extends JsonSchema implements NumberSchemaValidator {
+        DoubleEnumNumberEnums(double value) {
+            this.value = value;
+        }
+        public double value() {
+            return this.value;
+        }
+    }
+    
+    public enum FloatEnumNumberEnums implements FloatValueMethod {
+        POSITIVE_1_PT_1(1.1f),
+        NEGATIVE_1_PT_2(-1.2f);
+        private final float value;
+    
+        FloatEnumNumberEnums(float value) {
+            this.value = value;
+        }
+        public float value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class EnumNumber extends JsonSchema implements FloatEnumValidator<FloatEnumNumberEnums>, DoubleEnumValidator<DoubleEnumNumberEnums>, NumberSchemaValidator {
         private static @Nullable EnumNumber instance = null;
     
         protected EnumNumber() {
@@ -349,6 +375,16 @@ public class EnumTest {
         }
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
+        }
+        
+        @Override
+        public float validate(FloatEnumNumberEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public double validate(DoubleEnumNumberEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg.value(), configuration);
         }
         
         @Override
