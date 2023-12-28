@@ -32,7 +32,7 @@ public class NumberTypeMatchesNumbersTest {
         // an integer is a number
         final var schema = NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

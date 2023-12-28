@@ -23,7 +23,7 @@ public class AnyofWithBaseSchemaTest {
         final var schema = AnyofWithBaseSchema.AnyofWithBaseSchema1.getInstance();
         try {
             schema.validate(
-                3L,
+                3,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

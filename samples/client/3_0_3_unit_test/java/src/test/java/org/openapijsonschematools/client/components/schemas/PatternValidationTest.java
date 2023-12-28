@@ -57,7 +57,7 @@ public class PatternValidationTest {
         // ignores integers
         final var schema = PatternValidation.PatternValidation1.getInstance();
         schema.validate(
-            123L,
+            123,
             configuration
         );
     }

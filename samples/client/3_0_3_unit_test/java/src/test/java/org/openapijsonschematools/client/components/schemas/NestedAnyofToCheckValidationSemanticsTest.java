@@ -33,7 +33,7 @@ public class NestedAnyofToCheckValidationSemanticsTest {
         final var schema = NestedAnyofToCheckValidationSemantics.NestedAnyofToCheckValidationSemantics1.getInstance();
         try {
             schema.validate(
-                123L,
+                123,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

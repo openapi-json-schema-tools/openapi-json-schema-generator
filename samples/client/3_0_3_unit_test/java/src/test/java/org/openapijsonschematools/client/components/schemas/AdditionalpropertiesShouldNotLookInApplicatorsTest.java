@@ -26,7 +26,7 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<String, Object>(
                         "foo",
-                        1L
+                        1
                     ),
                     new AbstractMap.SimpleEntry<String, Object>(
                         "bar",

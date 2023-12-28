@@ -26,7 +26,7 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        1L
+                        1
                     )
                 ),
                 configuration

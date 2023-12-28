@@ -37,7 +37,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
         // valid integer with multipleOf float
         final var schema = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.getInstance();
         schema.validate(
-            123456789L,
+            123456789,
             configuration
         );
     }

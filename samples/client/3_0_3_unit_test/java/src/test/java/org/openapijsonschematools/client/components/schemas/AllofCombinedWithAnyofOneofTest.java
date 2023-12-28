@@ -23,7 +23,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         try {
             schema.validate(
-                5L,
+                5,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -38,7 +38,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         try {
             schema.validate(
-                3L,
+                3,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -53,7 +53,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         try {
             schema.validate(
-                15L,
+                15,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -68,7 +68,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         try {
             schema.validate(
-                2L,
+                2,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -82,7 +82,7 @@ public class AllofCombinedWithAnyofOneofTest {
         // allOf: true, anyOf: true, oneOf: true
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         schema.validate(
-            30L,
+            30,
             configuration
         );
     }
@@ -93,7 +93,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         try {
             schema.validate(
-                1L,
+                1,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -108,7 +108,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         try {
             schema.validate(
-                10L,
+                10,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -123,7 +123,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         try {
             schema.validate(
-                6L,
+                6,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

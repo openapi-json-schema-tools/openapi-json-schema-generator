@@ -70,7 +70,7 @@ public class AllofTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "bar",
-                        2L
+                        2
                     )
                 ),
                 configuration
@@ -93,7 +93,7 @@ public class AllofTest {
                 ),
                 new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
-                    2L
+                    2
                 )
             ),
             configuration

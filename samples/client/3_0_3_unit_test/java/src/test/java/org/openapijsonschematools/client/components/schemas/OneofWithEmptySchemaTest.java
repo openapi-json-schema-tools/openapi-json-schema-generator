@@ -33,7 +33,7 @@ public class OneofWithEmptySchemaTest {
         final var schema = OneofWithEmptySchema.OneofWithEmptySchema1.getInstance();
         try {
             schema.validate(
-                123L,
+                123,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

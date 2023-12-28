@@ -47,7 +47,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
         // boundary point integer is valid
         final var schema = MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.getInstance();
         schema.validate(
-            300L,
+            300,
             configuration
         );
     }

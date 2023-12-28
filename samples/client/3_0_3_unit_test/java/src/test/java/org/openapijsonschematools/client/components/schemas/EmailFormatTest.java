@@ -22,7 +22,7 @@ public class EmailFormatTest {
         // all string formats ignore integers
         final var schema = EmailFormat.EmailFormat1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }

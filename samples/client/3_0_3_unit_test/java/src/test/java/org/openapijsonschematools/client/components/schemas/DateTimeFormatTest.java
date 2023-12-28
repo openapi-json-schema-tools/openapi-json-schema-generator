@@ -22,7 +22,7 @@ public class DateTimeFormatTest {
         // all string formats ignore integers
         final var schema = DateTimeFormat.DateTimeFormat1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }

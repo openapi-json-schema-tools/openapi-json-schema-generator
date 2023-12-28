@@ -27,7 +27,13 @@ public class {{containerJsonPathPiece.camelCase}}Test {
         {{#if valid}}
         schema.validate(
             {{#with data}}
+                {{#and (eq type "array") ../arrayInputJsonPathPiece }}
+            new {{../containerJsonPathPiece.camelCase}}.{{../arrayInputJsonPathPiece.camelCase}}(
+                {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
+            ).build(),
+                {{else}}
             {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+                {{/and}}
             {{/with}}
             configuration
         );

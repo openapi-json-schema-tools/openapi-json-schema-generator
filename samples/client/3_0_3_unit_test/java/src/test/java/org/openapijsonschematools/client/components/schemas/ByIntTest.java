@@ -23,7 +23,7 @@ public class ByIntTest {
         final var schema = ByInt.ByInt1.getInstance();
         try {
             schema.validate(
-                7L,
+                7,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -37,7 +37,7 @@ public class ByIntTest {
         // int by int
         final var schema = ByInt.ByInt1.getInstance();
         schema.validate(
-            10L,
+            10,
             configuration
         );
     }

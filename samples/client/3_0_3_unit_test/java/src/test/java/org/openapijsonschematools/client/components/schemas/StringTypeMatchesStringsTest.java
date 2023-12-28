@@ -33,7 +33,7 @@ public class StringTypeMatchesStringsTest {
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         try {
             schema.validate(
-                1L,
+                1,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

@@ -22,7 +22,7 @@ public class Ipv6FormatTest {
         // all string formats ignore integers
         final var schema = Ipv6Format.Ipv6Format1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }

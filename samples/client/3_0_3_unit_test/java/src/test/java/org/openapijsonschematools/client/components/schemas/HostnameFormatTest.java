@@ -22,7 +22,7 @@ public class HostnameFormatTest {
         // all string formats ignore integers
         final var schema = HostnameFormat.HostnameFormat1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }

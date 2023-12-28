@@ -23,13 +23,13 @@ public class OneofWithRequiredTest {
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "bar",
-                    2L
+                    2
                 )
             ),
             configuration
@@ -43,17 +43,17 @@ public class OneofWithRequiredTest {
         try {
             schema.validate(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "foo",
-                        1L
+                        1
                     ),
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "bar",
-                        2L
+                        2
                     ),
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "baz",
-                        3L
+                        3
                     )
                 ),
                 configuration
@@ -70,13 +70,13 @@ public class OneofWithRequiredTest {
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "baz",
-                    3L
+                    3
                 )
             ),
             configuration
@@ -92,7 +92,7 @@ public class OneofWithRequiredTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "bar",
-                        2L
+                        2
                     )
                 ),
                 configuration

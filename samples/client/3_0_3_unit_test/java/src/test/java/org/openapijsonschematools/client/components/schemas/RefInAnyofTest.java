@@ -41,7 +41,7 @@ public class RefInAnyofTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "$ref",
-                        2L
+                        2
                     )
                 ),
                 configuration

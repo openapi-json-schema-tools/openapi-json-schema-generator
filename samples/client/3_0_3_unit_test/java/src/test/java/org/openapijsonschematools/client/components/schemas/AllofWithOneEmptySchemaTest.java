@@ -22,7 +22,7 @@ public class AllofWithOneEmptySchemaTest {
         // any data is valid
         final var schema = AllofWithOneEmptySchema.AllofWithOneEmptySchema1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

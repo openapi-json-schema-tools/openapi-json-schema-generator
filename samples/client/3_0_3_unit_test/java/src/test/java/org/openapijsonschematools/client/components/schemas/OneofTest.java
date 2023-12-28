@@ -23,7 +23,7 @@ public class OneofTest {
         final var schema = Oneof.Oneof1.getInstance();
         try {
             schema.validate(
-                3L,
+                3,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -62,7 +62,7 @@ public class OneofTest {
         // first oneOf valid
         final var schema = Oneof.Oneof1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

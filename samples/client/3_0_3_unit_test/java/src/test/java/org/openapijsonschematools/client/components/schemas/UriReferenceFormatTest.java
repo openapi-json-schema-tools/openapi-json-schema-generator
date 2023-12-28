@@ -22,7 +22,7 @@ public class UriReferenceFormatTest {
         // all string formats ignore integers
         final var schema = UriReferenceFormat.UriReferenceFormat1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }

@@ -22,7 +22,7 @@ public class Ipv4FormatTest {
         // all string formats ignore integers
         final var schema = Ipv4Format.Ipv4Format1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }

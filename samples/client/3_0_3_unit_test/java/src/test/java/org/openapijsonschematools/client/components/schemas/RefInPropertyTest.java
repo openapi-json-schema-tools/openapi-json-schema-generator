@@ -49,7 +49,7 @@ public class RefInPropertyTest {
                         MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "$ref",
-                                2L
+                                2
                             )
                         )
                     )

@@ -25,7 +25,7 @@ public class MinpropertiesValidationTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
-                    1L
+                    1
                 )
             ),
             configuration
@@ -37,7 +37,7 @@ public class MinpropertiesValidationTest {
         // ignores other non-objects
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }
@@ -48,13 +48,13 @@ public class MinpropertiesValidationTest {
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "bar",
-                    2L
+                    2
                 )
             ),
             configuration

@@ -22,7 +22,7 @@ public class AnyofTest {
         // both anyOf valid
         final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
-            3L,
+            3,
             configuration
         );
     }
@@ -47,7 +47,7 @@ public class AnyofTest {
         // first anyOf valid
         final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

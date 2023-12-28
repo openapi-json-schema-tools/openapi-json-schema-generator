@@ -23,7 +23,7 @@ public class MinitemsValidationTest {
         final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L
+                1
             ),
             configuration
         );
@@ -45,8 +45,8 @@ public class MinitemsValidationTest {
         final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L,
-                2L
+                1,
+                2
             ),
             configuration
         );

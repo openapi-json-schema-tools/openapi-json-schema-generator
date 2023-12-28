@@ -22,7 +22,7 @@ public class AnyofWithOneEmptySchemaTest {
         // number is valid
         final var schema = AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.getInstance();
         schema.validate(
-            123L,
+            123,
             configuration
         );
     }
