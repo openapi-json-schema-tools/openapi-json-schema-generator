@@ -152,3 +152,90 @@ public {{builderClass}} add(Map<String, ?> item) {
 }
     {{/if}}
 {{/each}}
+{{#with enumInfo}}
+    {{#each typeToValues }}
+        {{#eq @key "null"}}
+            {{#if forDocs }}
+| {{builderClass}} | add(Null{{../jsonPathPiece.camelCase}} item) |
+            {{else}}
+
+public {{builderClass}} add(Null{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+            {{/if}}
+        {{else}}
+            {{#eq @key "boolean"}}
+                {{#if forDocs }}
+| {{builderClass}} | add(Boolean{{../jsonPathPiece.camelCase}} item) |
+                {{else}}
+
+public {{builderClass}} add(Boolean{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                {{/if}}
+            {{else}}
+                {{#eq @key "string"}}
+                    {{#if forDocs }}
+| {{builderClass}} | add(String{{../jsonPathPiece.camelCase}} item) |
+                    {{else}}
+
+public {{builderClass}} add(String{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                    {{/if}}
+                {{else}}
+                    {{#eq @key "Integer"}}
+                        {{#if forDocs }}
+| {{builderClass}} | add(Integer{{../jsonPathPiece.camelCase}} item) |
+                        {{else}}
+
+public {{builderClass}} add(Integer{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                        {{/if}}
+                    {{else}}
+                        {{#eq @key "Long"}}
+                            {{#if forDocs }}
+| {{builderClass}} | add(Long{{../jsonPathPiece.camelCase}} item) |
+                            {{else}}
+
+public {{builderClass}} add(Long{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                            {{/if}}
+                        {{else}}
+                            {{#eq @key "Float"}}
+                                {{#if forDocs }}
+| {{builderClass}} | add(Float{{../jsonPathPiece.camelCase}} item) |
+                                {{else}}
+
+public {{builderClass}} add(Float{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                                {{/if}}
+                            {{else}}
+                                {{#eq @key "Double"}}
+                                    {{#if forDocs }}
+| {{builderClass}} | add(Double{{../jsonPathPiece.camelCase}} item) |
+                                    {{else}}
+
+public {{builderClass}} add(Double{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                                    {{/if}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/each}}
+{{/with}}
