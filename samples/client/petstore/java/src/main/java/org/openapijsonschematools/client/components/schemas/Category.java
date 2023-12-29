@@ -106,14 +106,14 @@ public class Category {
             return (String) value;
         }
         
-        public long id() throws UnsetPropertyException {
+        public Number id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

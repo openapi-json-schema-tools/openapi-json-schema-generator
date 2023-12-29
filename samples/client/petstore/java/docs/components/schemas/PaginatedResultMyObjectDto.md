@@ -95,7 +95,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | of([Map<String, Object>](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
-| long | count()<br> |
+| Number | count()<br> |
 | [ResultsList](#resultslist) | results()<br> |
 
 ## Results

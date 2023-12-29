@@ -88,7 +88,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [TagMap](#tagmap) | of([Map<String, ? extends @Nullable Object>](#tagmapbuilder) arg, SchemaConfiguration configuration) |
-| long | id()<br>[optional] value must be a 64 bit integer |
+| Number | id()<br>[optional] value must be a 64 bit integer |
 | String | name()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

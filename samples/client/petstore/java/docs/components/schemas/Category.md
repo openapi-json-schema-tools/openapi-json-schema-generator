@@ -90,7 +90,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [CategoryMap](#categorymap) | of([Map<String, ? extends @Nullable Object>](#categorymapbuilder) arg, SchemaConfiguration configuration) |
 | String | name()<br> if omitted the server will use the default value of default-name |
-| long | id()<br>[optional] value must be a 64 bit integer |
+| Number | id()<br>[optional] value must be a 64 bit integer |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Name

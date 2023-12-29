@@ -144,7 +144,7 @@ A class to store validated Map payloads
 | static [PetMap](#petmap) | of([Map<String, ? extends @Nullable Object>](#petmapbuilder) arg, SchemaConfiguration configuration) |
 | String | name()<br> |
 | [PhotoUrlsList](#photourlslist) | photoUrls()<br> |
-| long | id()<br>[optional] value must be a 64 bit integer |
+| Number | id()<br>[optional] value must be a 64 bit integer |
 | [Category.CategoryMap](../../components/schemas/Category.md#categorymap) | category()<br>[optional] |
 | [TagsList](#tagslist) | tags()<br>[optional] |
 | String | status()<br>[optional] must be one of ["available", "pending", "sold"] |

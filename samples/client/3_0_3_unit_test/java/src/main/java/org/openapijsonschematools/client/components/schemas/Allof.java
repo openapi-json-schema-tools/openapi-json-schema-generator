@@ -60,12 +60,12 @@ public class Allof {
             return Schema0.getInstance().validate(arg, configuration);
         }
         
-        public long bar() {
+        public Number bar() {
                         @Nullable Object value = get("bar");
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for bar");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

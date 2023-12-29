@@ -150,8 +150,8 @@ public class ArrayTest {
     }
     
     
-    public static class ItemsList extends FrozenList<Long> {
-        protected ItemsList(FrozenList<Long> m) {
+    public static class ItemsList extends FrozenList<Number> {
+        protected ItemsList(FrozenList<Number> m) {
             super(m);
         }
         public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -216,7 +216,7 @@ public class ArrayTest {
         
         @Override
         public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<Long> items = new ArrayList<>();
+            List<Number> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -227,13 +227,13 @@ public class ArrayTest {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof Long)) {
+                if (!(itemInstance instanceof Number)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((Long) itemInstance);
+                items.add((Number) itemInstance);
                 i += 1;
             }
-            FrozenList<Long> newInstanceItems = new FrozenList<>(items);
+            FrozenList<Number> newInstanceItems = new FrozenList<>(items);
             return new ItemsList(newInstanceItems);
         }
         

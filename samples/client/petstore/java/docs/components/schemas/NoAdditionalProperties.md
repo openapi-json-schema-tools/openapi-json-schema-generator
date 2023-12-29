@@ -82,7 +82,7 @@ A class that builds the Map input type
 
 ## NoAdditionalPropertiesMap
 public static class NoAdditionalPropertiesMap<br>
-extends FrozenMap<String, Long>
+extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
 
@@ -90,8 +90,8 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | of([Map<String, Number>](#noadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
-| long | id()<br> value must be a 64 bit integer |
-| long | petId()<br>[optional] value must be a 64 bit integer |
+| Number | id()<br> value must be a 64 bit integer |
+| Number | petId()<br>[optional] value must be a 64 bit integer |
 
 ## PetId
 public static class PetId<br>

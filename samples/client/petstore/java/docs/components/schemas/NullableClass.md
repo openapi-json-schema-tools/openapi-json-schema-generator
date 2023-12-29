@@ -173,7 +173,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [NullableClassMap](#nullableclassmap) | of([Map<String, ? extends @Nullable Object>](#nullableclassmapbuilder) arg, SchemaConfiguration configuration) |
-| @Nullable Long | integer_prop()<br>[optional] |
+| @Nullable Number | integer_prop()<br>[optional] |
 | @Nullable Number | number_prop()<br>[optional] |
 | @Nullable Boolean | boolean_prop()<br>[optional] |
 | @Nullable String | string_prop()<br>[optional] |

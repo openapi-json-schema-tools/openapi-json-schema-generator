@@ -1552,14 +1552,14 @@ public class NullableClass {
             return NullableClass1.getInstance().validate(arg, configuration);
         }
         
-        public @Nullable Long integer_prop() throws UnsetPropertyException {
+        public @Nullable Number integer_prop() throws UnsetPropertyException {
             String key = "integer_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value == null || value instanceof Long)) {
+            if (!(value == null || value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for integer_prop");
             }
-            return (@Nullable Long) value;
+            return (@Nullable Number) value;
         }
         
         public @Nullable Number number_prop() throws UnsetPropertyException {

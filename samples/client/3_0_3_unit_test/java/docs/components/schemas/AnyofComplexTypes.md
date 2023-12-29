@@ -151,7 +151,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
-| long | bar()<br> |
+| Number | bar()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar

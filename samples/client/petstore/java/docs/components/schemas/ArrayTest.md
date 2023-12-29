@@ -447,7 +447,7 @@ A class that builds the List input type
 
 ## ItemsList
 public class ItemsList<br>
-extends `FrozenList<Long>`
+extends `FrozenList<Number>`
 
 A class to store validated List payloads
 

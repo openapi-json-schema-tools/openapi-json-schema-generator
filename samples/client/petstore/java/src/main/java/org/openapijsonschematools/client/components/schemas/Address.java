@@ -37,8 +37,8 @@ public class Address {
     }
     
     
-    public static class AddressMap extends FrozenMap<Long> {
-        protected AddressMap(FrozenMap<Long> m) {
+    public static class AddressMap extends FrozenMap<Number> {
+        protected AddressMap(FrozenMap<Number> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -47,7 +47,7 @@ public class Address {
             return Address1.getInstance().validate(arg, configuration);
         }
         
-        public long getAdditionalProperty(String name) throws UnsetPropertyException {
+        public Number getAdditionalProperty(String name) throws UnsetPropertyException {
             return getOrThrow(name);
         }
     }
@@ -80,7 +80,7 @@ public class Address {
         }
         
         public AddressMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Long> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
@@ -96,12 +96,12 @@ public class Address {
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                if (!(propertyInstance instanceof Long)) {
+                if (!(propertyInstance instanceof Number)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                properties.put(propertyName, (Long) propertyInstance);
+                properties.put(propertyName, (Number) propertyInstance);
             }
-            FrozenMap<Long> castProperties = new FrozenMap<>(properties);
+            FrozenMap<Number> castProperties = new FrozenMap<>(properties);
             return new AddressMap(castProperties);
         }
         

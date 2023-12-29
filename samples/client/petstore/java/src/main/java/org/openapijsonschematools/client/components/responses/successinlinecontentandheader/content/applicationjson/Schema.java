@@ -37,8 +37,8 @@ public class Schema {
     }
     
     
-    public static class SchemaMap extends FrozenMap<Integer> {
-        protected SchemaMap(FrozenMap<Integer> m) {
+    public static class SchemaMap extends FrozenMap<Number> {
+        protected SchemaMap(FrozenMap<Number> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -47,7 +47,7 @@ public class Schema {
             return Schema1.getInstance().validate(arg, configuration);
         }
         
-        public int getAdditionalProperty(String name) throws UnsetPropertyException {
+        public Number getAdditionalProperty(String name) throws UnsetPropertyException {
             return getOrThrow(name);
         }
     }
@@ -74,7 +74,7 @@ public class Schema {
         }
         
         public SchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Integer> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
@@ -90,12 +90,12 @@ public class Schema {
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                if (!(propertyInstance instanceof Integer)) {
+                if (!(propertyInstance instanceof Number)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                properties.put(propertyName, (Integer) propertyInstance);
+                properties.put(propertyName, (Number) propertyInstance);
             }
-            FrozenMap<Integer> castProperties = new FrozenMap<>(properties);
+            FrozenMap<Number> castProperties = new FrozenMap<>(properties);
             return new SchemaMap(castProperties);
         }
         

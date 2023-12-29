@@ -476,14 +476,14 @@ public class User {
             return User1.getInstance().validate(arg, configuration);
         }
         
-        public long id() throws UnsetPropertyException {
+        public Number id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public String username() throws UnsetPropertyException {
@@ -546,14 +546,14 @@ public class User {
             return (String) value;
         }
         
-        public int userStatus() throws UnsetPropertyException {
+        public Number userStatus() throws UnsetPropertyException {
             String key = "userStatus";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for userStatus");
             }
-            return (int) value;
+            return (Number) value;
         }
         
         public FrozenMap<?> objectWithNoDeclaredProps() throws UnsetPropertyException {

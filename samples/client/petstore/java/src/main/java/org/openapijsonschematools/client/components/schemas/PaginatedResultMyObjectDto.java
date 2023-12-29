@@ -164,12 +164,12 @@ public class PaginatedResultMyObjectDto {
             return PaginatedResultMyObjectDto1.getInstance().validate(arg, configuration);
         }
         
-        public long count() {
+        public Number count() {
                         Object value = get("count");
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for count");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public ResultsList results() {

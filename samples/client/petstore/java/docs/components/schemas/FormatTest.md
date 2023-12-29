@@ -212,11 +212,11 @@ A class to store validated Map payloads
 | static [FormatTestMap](#formattestmap) | of([Map<String, ? extends @Nullable Object>](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | String | date()<br> value must conform to RFC-3339 full-date YYYY-MM-DD |
 | String | password()<br> |
-| int | int32()<br>[optional] value must be a 32 bit integer |
-| int | int32withValidations()<br>[optional] value must be a 32 bit integer |
-| long | int64()<br>[optional] value must be a 64 bit integer |
-| float | float32()<br>[optional] value must be a 32 bit float |
-| double | float64()<br>[optional] value must be a 64 bit float |
+| Number | int32()<br>[optional] value must be a 32 bit integer |
+| Number | int32withValidations()<br>[optional] value must be a 32 bit integer |
+| Number | int64()<br>[optional] value must be a 64 bit integer |
+| Number | float32()<br>[optional] value must be a 32 bit float |
+| Number | float64()<br>[optional] value must be a 64 bit float |
 | [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | arrayWithUniqueItems()<br>[optional] |
 | String | binary()<br>[optional] |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |

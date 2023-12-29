@@ -69,7 +69,7 @@ A class that builds the Map input type
 
 ## AddressMap
 public static class AddressMap<br>
-extends FrozenMap<String, Long>
+extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
 
@@ -77,7 +77,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [AddressMap](#addressmap) | of([Map<String, Number>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
-| long | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

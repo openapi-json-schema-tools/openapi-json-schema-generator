@@ -69,7 +69,7 @@ A class that builds the Map input type
 
 ## SchemaMap
 public static class SchemaMap<br>
-extends FrozenMap<String, Integer>
+extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
 
@@ -77,7 +77,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaMap](#schemamap) | of([Map<String, Number>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
-| int | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

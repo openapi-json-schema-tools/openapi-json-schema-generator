@@ -162,8 +162,8 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | String | pattern_without_delimiter()<br> |
-| int | int32()<br>[optional] value must be a 32 bit integer |
-| long | int64()<br>[optional] value must be a 64 bit integer |
+| Number | int32()<br>[optional] value must be a 32 bit integer |
+| Number | int64()<br>[optional] value must be a 64 bit integer |
 | String | binary()<br>[optional] |
 | String | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
 | String | dateTime()<br>[optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time |

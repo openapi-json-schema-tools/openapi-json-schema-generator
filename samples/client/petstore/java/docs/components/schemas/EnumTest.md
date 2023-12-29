@@ -117,13 +117,13 @@ A class to store validated Map payloads
 | static [EnumTestMap](#enumtestmap) | of([Map<String, ? extends @Nullable Object>](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | String | enum_string_required()<br> must be one of ["UPPER", "lower", ""] |
 | String | enum_string()<br>[optional] must be one of ["UPPER", "lower", ""] |
-| int | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |
-| double | enum_number()<br>[optional] must be one of [1.1, -1.2] value must be a 64 bit float |
+| Number | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |
+| Number | enum_number()<br>[optional] must be one of [1.1, -1.2] value must be a 64 bit float |
 | @Nullable String | stringEnum()<br>[optional] |
-| long | IntegerEnum()<br>[optional] |
+| Number | IntegerEnum()<br>[optional] |
 | String | StringEnumWithDefaultValue()<br>[optional] |
-| long | IntegerEnumWithDefaultValue()<br>[optional] |
-| long | IntegerEnumOneValue()<br>[optional] |
+| Number | IntegerEnumWithDefaultValue()<br>[optional] |
+| Number | IntegerEnumOneValue()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## EnumNumber

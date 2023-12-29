@@ -72,14 +72,14 @@ public class Schema200Response {
             return Schema200Response1.getInstance().validate(arg, configuration);
         }
         
-        public int name() throws UnsetPropertyException {
+        public Number name() throws UnsetPropertyException {
             String key = "name";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for name");
             }
-            return (int) value;
+            return (Number) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

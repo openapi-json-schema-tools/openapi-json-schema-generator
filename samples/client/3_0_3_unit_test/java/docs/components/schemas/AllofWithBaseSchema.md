@@ -71,7 +71,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [AllofWithBaseSchemaMap](#allofwithbaseschemamap) | of([Map<String, ? extends @Nullable Object>](#allofwithbaseschemamapbuilder) arg, SchemaConfiguration configuration) |
-| long | bar()<br> |
+| Number | bar()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar

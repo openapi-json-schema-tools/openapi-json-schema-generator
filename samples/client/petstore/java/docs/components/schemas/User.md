@@ -139,14 +139,14 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [UserMap](#usermap) | of([Map<String, ? extends @Nullable Object>](#usermapbuilder) arg, SchemaConfiguration configuration) |
-| long | id()<br>[optional] value must be a 64 bit integer |
+| Number | id()<br>[optional] value must be a 64 bit integer |
 | String | username()<br>[optional] |
 | String | firstName()<br>[optional] |
 | String | lastName()<br>[optional] |
 | String | email()<br>[optional] |
 | String | password()<br>[optional] |
 | String | phone()<br>[optional] |
-| int | userStatus()<br>[optional] value must be a 32 bit integer |
+| Number | userStatus()<br>[optional] value must be a 32 bit integer |
 | FrozenMap<?> | objectWithNoDeclaredProps()<br>[optional] |
 | @Nullable FrozenMap<?> | objectWithNoDeclaredPropsNullable()<br>[optional] |
 | @Nullable Object | anyTypeProp()<br>[optional] |

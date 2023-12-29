@@ -58,14 +58,14 @@ public class QueryParameters {
             return QueryParameters1.getInstance().validate(arg, configuration);
         }
         
-        public double enum_query_double() throws UnsetPropertyException {
+        public Number enum_query_double() throws UnsetPropertyException {
             String key = "enum_query_double";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Double)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for enum_query_double");
             }
-            return (double) value;
+            return (Number) value;
         }
         
         public String enum_query_string() throws UnsetPropertyException {
@@ -78,14 +78,14 @@ public class QueryParameters {
             return (String) value;
         }
         
-        public int enum_query_integer() throws UnsetPropertyException {
+        public Number enum_query_integer() throws UnsetPropertyException {
             String key = "enum_query_integer";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for enum_query_integer");
             }
-            return (int) value;
+            return (Number) value;
         }
         
         public Schema2.SchemaList2 enum_query_string_array() throws UnsetPropertyException {

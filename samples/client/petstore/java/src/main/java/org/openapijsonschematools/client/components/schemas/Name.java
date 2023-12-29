@@ -85,22 +85,22 @@ public class Name {
             return Name1.getInstance().validate(arg, configuration);
         }
         
-        public int name() {
+        public Number name() {
                         @Nullable Object value = get("name");
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for name");
             }
-            return (int) value;
+            return (Number) value;
         }
         
-        public int snake_case() throws UnsetPropertyException {
+        public Number snake_case() throws UnsetPropertyException {
             String key = "snake_case";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for snake_case");
             }
-            return (int) value;
+            return (Number) value;
         }
         
         public String property() throws UnsetPropertyException {

@@ -114,9 +114,9 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [OrderMap](#ordermap) | of([Map<String, ? extends @Nullable Object>](#ordermapbuilder) arg, SchemaConfiguration configuration) |
-| long | id()<br>[optional] value must be a 64 bit integer |
-| long | petId()<br>[optional] value must be a 64 bit integer |
-| int | quantity()<br>[optional] value must be a 32 bit integer |
+| Number | id()<br>[optional] value must be a 64 bit integer |
+| Number | petId()<br>[optional] value must be a 64 bit integer |
+| Number | quantity()<br>[optional] value must be a 32 bit integer |
 | String | shipDate()<br>[optional] value must conform to RFC-3339 date-time |
 | String | status()<br>[optional] must be one of ["placed", "approved", "delivered"] |
 | boolean | complete()<br>[optional] if omitted the server will use the default value of false |

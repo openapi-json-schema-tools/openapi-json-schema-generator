@@ -69,8 +69,8 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [NameMap](#namemap) | of([Map<String, ? extends @Nullable Object>](#namemapbuilder) arg, SchemaConfiguration configuration) |
-| int | name()<br> value must be a 32 bit integer |
-| int | snake_case()<br>[optional] value must be a 32 bit integer |
+| Number | name()<br> value must be a 32 bit integer |
+| Number | snake_case()<br>[optional] value must be a 32 bit integer |
 | String | property()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
