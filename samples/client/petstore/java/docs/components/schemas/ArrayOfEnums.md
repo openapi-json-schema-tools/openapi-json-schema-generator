@@ -71,12 +71,11 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayOfEnumsListBuilder | add(Void item) |
+| ArrayOfEnumsListBuilder | add(String item) |
+| ArrayOfEnumsListBuilder | add(StringStringEnumEnums item) |
+| ArrayOfEnumsListBuilder | add(NullStringEnumEnums item) |
 | List<? extends @Nullable String> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| ? extends @Nullable String |  | |
 
 ## ArrayOfEnumsList
 public class ArrayOfEnumsList<br>

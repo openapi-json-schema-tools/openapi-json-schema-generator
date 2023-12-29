@@ -118,6 +118,11 @@ public class Schema0 {
             list.add(item);
             return this;
         }
+        
+        public SchemaListBuilder0 add(StringItemsEnums0 item) {
+            list.add(item.value());
+            return this;
+        }
     
         public List<String> build() {
             return list;

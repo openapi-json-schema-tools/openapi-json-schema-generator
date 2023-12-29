@@ -71,12 +71,16 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ComposedArrayListBuilder | add(Void item) |
+| ComposedArrayListBuilder | add(boolean item) |
+| ComposedArrayListBuilder | add(String item) |
+| ComposedArrayListBuilder | add(int item) |
+| ComposedArrayListBuilder | add(float item) |
+| ComposedArrayListBuilder | add(long item) |
+| ComposedArrayListBuilder | add(double item) |
+| ComposedArrayListBuilder | add(List<?> item) |
+| ComposedArrayListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| ? extends @Nullable Object |  | |
 
 ## ComposedArrayList
 public class ComposedArrayList<br>

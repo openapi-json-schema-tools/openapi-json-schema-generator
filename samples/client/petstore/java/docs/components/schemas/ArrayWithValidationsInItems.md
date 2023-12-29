@@ -73,12 +73,11 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayWithValidationsInItemsListBuilder | add(int item) |
+| ArrayWithValidationsInItemsListBuilder | add(float item) |
+| ArrayWithValidationsInItemsListBuilder | add(long item) |
+| ArrayWithValidationsInItemsListBuilder | add(double item) |
 | List<Number> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| Number |  | value must be a 64 bit integer |
 
 ## ArrayWithValidationsInItemsList
 public class ArrayWithValidationsInItemsList<br>

@@ -72,12 +72,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| SchemaListBuilder3 | add(String item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| String |  | |
 
 ## SchemaList3
 public class SchemaList3<br>

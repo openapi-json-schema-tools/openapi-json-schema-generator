@@ -140,12 +140,9 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| AdditionalPropertiesListBuilder | add(String item) |
+| AdditionalPropertiesListBuilder | add(StringEnumClassEnums item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| String |  | |
 
 ## AdditionalPropertiesList
 public class AdditionalPropertiesList<br>

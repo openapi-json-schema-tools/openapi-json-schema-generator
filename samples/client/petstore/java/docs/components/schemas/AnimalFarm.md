@@ -80,12 +80,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| AnimalFarmListBuilder | add(Map<String, @Nullable Object> item) |
 | List<Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| Map<String, ? extends @Nullable Object> |  | |
 
 ## AnimalFarmList
 public class AnimalFarmList<br>

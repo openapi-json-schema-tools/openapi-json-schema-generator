@@ -124,6 +124,11 @@ public class Schema {
             list.add(item);
             return this;
         }
+        
+        public EnumFormStringArrayListBuilder add(StringItemsEnums item) {
+            list.add(item.value());
+            return this;
+        }
     
         public List<String> build() {
             return list;

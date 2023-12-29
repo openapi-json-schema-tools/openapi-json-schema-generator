@@ -191,6 +191,11 @@ public class EnumArrays {
             list.add(item);
             return this;
         }
+        
+        public ArrayEnumListBuilder add(StringItemsEnums item) {
+            list.add(item.value());
+            return this;
+        }
     
         public List<String> build() {
             return list;

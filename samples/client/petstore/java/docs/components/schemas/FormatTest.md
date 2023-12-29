@@ -511,12 +511,11 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayWithUniqueItemsListBuilder | add(int item) |
+| ArrayWithUniqueItemsListBuilder | add(float item) |
+| ArrayWithUniqueItemsListBuilder | add(long item) |
+| ArrayWithUniqueItemsListBuilder | add(double item) |
 | List<Number> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| Number |  | |
 
 ## ArrayWithUniqueItemsList
 public class ArrayWithUniqueItemsList<br>

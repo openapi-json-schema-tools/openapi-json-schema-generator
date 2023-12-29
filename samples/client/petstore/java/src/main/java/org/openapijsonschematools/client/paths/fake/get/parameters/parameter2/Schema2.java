@@ -118,6 +118,11 @@ public class Schema2 {
             list.add(item);
             return this;
         }
+        
+        public SchemaListBuilder2 add(StringItemsEnums2 item) {
+            list.add(item.value());
+            return this;
+        }
     
         public List<String> build() {
             return list;

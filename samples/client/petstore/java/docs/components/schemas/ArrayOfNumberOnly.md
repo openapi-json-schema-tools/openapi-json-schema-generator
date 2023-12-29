@@ -149,12 +149,11 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayNumberListBuilder | add(int item) |
+| ArrayNumberListBuilder | add(float item) |
+| ArrayNumberListBuilder | add(long item) |
+| ArrayNumberListBuilder | add(double item) |
 | List<Number> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| Number |  | |
 
 ## ArrayNumberList
 public class ArrayNumberList<br>

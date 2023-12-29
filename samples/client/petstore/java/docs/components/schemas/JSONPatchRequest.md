@@ -71,12 +71,16 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| JSONPatchRequestListBuilder | add(Void item) |
+| JSONPatchRequestListBuilder | add(boolean item) |
+| JSONPatchRequestListBuilder | add(String item) |
+| JSONPatchRequestListBuilder | add(int item) |
+| JSONPatchRequestListBuilder | add(float item) |
+| JSONPatchRequestListBuilder | add(long item) |
+| JSONPatchRequestListBuilder | add(double item) |
+| JSONPatchRequestListBuilder | add(List<?> item) |
+| JSONPatchRequestListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| ? extends @Nullable Object |  | |
 
 ## JSONPatchRequestList
 public class JSONPatchRequestList<br>

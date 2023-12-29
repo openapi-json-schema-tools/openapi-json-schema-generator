@@ -153,12 +153,16 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ShapesListBuilder | add(Void item) |
+| ShapesListBuilder | add(boolean item) |
+| ShapesListBuilder | add(String item) |
+| ShapesListBuilder | add(int item) |
+| ShapesListBuilder | add(float item) |
+| ShapesListBuilder | add(long item) |
+| ShapesListBuilder | add(double item) |
+| ShapesListBuilder | add(List<?> item) |
+| ShapesListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| ? extends @Nullable Object |  | |
 
 ## ShapesList
 public class ShapesList<br>

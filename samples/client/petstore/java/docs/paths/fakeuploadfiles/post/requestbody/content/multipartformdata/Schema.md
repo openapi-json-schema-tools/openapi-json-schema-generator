@@ -149,12 +149,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| FilesListBuilder | add(String item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| String |  | |
 
 ## FilesList
 public class FilesList<br>

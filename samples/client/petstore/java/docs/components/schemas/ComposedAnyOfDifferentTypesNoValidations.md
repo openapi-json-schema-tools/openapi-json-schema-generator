@@ -171,12 +171,16 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Schema9ListBuilder | add(Void item) |
+| Schema9ListBuilder | add(boolean item) |
+| Schema9ListBuilder | add(String item) |
+| Schema9ListBuilder | add(int item) |
+| Schema9ListBuilder | add(float item) |
+| Schema9ListBuilder | add(long item) |
+| Schema9ListBuilder | add(double item) |
+| Schema9ListBuilder | add(List<?> item) |
+| Schema9ListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| ? extends @Nullable Object |  | |
 
 ## Schema9List
 public class Schema9List<br>

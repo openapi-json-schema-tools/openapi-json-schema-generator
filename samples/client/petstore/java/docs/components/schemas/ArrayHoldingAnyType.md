@@ -71,12 +71,16 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayHoldingAnyTypeListBuilder | add(Void item) |
+| ArrayHoldingAnyTypeListBuilder | add(boolean item) |
+| ArrayHoldingAnyTypeListBuilder | add(String item) |
+| ArrayHoldingAnyTypeListBuilder | add(int item) |
+| ArrayHoldingAnyTypeListBuilder | add(float item) |
+| ArrayHoldingAnyTypeListBuilder | add(long item) |
+| ArrayHoldingAnyTypeListBuilder | add(double item) |
+| ArrayHoldingAnyTypeListBuilder | add(List<?> item) |
+| ArrayHoldingAnyTypeListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| ? extends @Nullable Object | any type can be stored here | |
 
 ## ArrayHoldingAnyTypeList
 public class ArrayHoldingAnyTypeList<br>

@@ -218,12 +218,9 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| EnumFormStringArrayListBuilder | add(String item) |
+| EnumFormStringArrayListBuilder | add(StringItemsEnums item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| String |  | must be one of [">", "$"] if omitted the server will use the default value of $ |
 
 ## EnumFormStringArrayList
 public class EnumFormStringArrayList<br>

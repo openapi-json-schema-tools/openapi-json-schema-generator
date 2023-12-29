@@ -156,12 +156,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayArrayNumberListBuilder | add(List<Number> item) |
 | List<List<Number>> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| List<Number> |  | |
 
 ## ArrayArrayNumberList
 public class ArrayArrayNumberList<br>
@@ -231,12 +227,11 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ItemsListBuilder | add(int item) |
+| ItemsListBuilder | add(float item) |
+| ItemsListBuilder | add(long item) |
+| ItemsListBuilder | add(double item) |
 | List<Number> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| Number |  | |
 
 ## ItemsList
 public class ItemsList<br>

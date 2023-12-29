@@ -52,6 +52,16 @@ public class ArrayOfEnums {
             list.add(item);
             return this;
         }
+        
+        public ArrayOfEnumsListBuilder add(StringStringEnumEnums item) {
+            list.add(item.value());
+            return this;
+        }
+        
+        public ArrayOfEnumsListBuilder add(NullStringEnumEnums item) {
+            list.add(item.value());
+            return this;
+        }
     
         public List<@Nullable String> build() {
             return list;

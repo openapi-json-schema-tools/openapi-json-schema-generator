@@ -70,12 +70,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| SelfReferencingArrayModelListBuilder | add(List<?> item) |
 | List<List<?>> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| List<?> |  | |
 
 ## SelfReferencingArrayModelList
 public class SelfReferencingArrayModelList<br>

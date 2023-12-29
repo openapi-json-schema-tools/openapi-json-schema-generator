@@ -202,12 +202,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayArrayOfModelListBuilder | add(List<Map<String, @Nullable Object>> item) |
 | List<List<Map<String, ? extends @Nullable Object>>> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| List<Map<String, ? extends @Nullable Object>> |  | |
 
 ## ArrayArrayOfModelList
 public class ArrayArrayOfModelList<br>
@@ -286,12 +282,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ItemsListBuilder1 | add(Map<String, @Nullable Object> item) |
 | List<Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| Map<String, ? extends @Nullable Object> |  | |
 
 ## ItemsList1
 public class ItemsList1<br>
@@ -363,12 +355,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayArrayOfIntegerListBuilder | add(List<Number> item) |
 | List<List<Number>> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| List<Number> |  | |
 
 ## ArrayArrayOfIntegerList
 public class ArrayArrayOfIntegerList<br>
@@ -438,12 +426,11 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ItemsListBuilder | add(int item) |
+| ItemsListBuilder | add(float item) |
+| ItemsListBuilder | add(long item) |
+| ItemsListBuilder | add(double item) |
 | List<Number> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| Number |  | value must be a 64 bit integer |
 
 ## ItemsList
 public class ItemsList<br>
@@ -523,12 +510,8 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayOfStringListBuilder | add(String item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| String |  | |
 
 ## ArrayOfStringList
 public class ArrayOfStringList<br>

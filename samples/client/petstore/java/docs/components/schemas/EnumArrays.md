@@ -159,12 +159,9 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayEnumListBuilder | add(String item) |
+| ArrayEnumListBuilder | add(StringItemsEnums item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| String |  | must be one of ["fish", "crab"] |
 
 ## ArrayEnumList
 public class ArrayEnumList<br>
