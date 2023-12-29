@@ -71,6 +71,15 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ArrayTypeMatchesArraysListBuilder | add(Void item) |
+| ArrayTypeMatchesArraysListBuilder | add(boolean item) |
+| ArrayTypeMatchesArraysListBuilder | add(String item) |
+| ArrayTypeMatchesArraysListBuilder | add(int item) |
+| ArrayTypeMatchesArraysListBuilder | add(float item) |
+| ArrayTypeMatchesArraysListBuilder | add(long item) |
+| ArrayTypeMatchesArraysListBuilder | add(double item) |
+| ArrayTypeMatchesArraysListBuilder | add(List<?> item) |
+| ArrayTypeMatchesArraysListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items

@@ -87,6 +87,7 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| NestedItemsListBuilder | add(List<List<List<Number>>> item) |
 | List<List<List<List<Number>>>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
@@ -166,6 +167,7 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ItemsListBuilder2 | add(List<List<Number>> item) |
 | List<List<List<Number>>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
@@ -243,6 +245,7 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ItemsListBuilder1 | add(List<Number> item) |
 | List<List<Number>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
@@ -318,6 +321,10 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| ItemsListBuilder | add(int item) |
+| ItemsListBuilder | add(float item) |
+| ItemsListBuilder | add(long item) |
+| ItemsListBuilder | add(double item) |
 | List<Number> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items

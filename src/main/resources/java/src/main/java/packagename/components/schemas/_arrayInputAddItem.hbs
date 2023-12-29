@@ -1,26 +1,46 @@
 {{#each types}}
     {{#eq this "null"}}
+        {{#if forDocs }}
+| {{builderClass}} | add(Void item) |
+        {{else}}
 
 public {{builderClass}} add(Void item) {
     list.add(null);
     return this;
 }
+        {{/if}}
     {{else}}
         {{#eq this "boolean"}}
+            {{#if forDocs }}
+| {{builderClass}} | add(boolean item) |
+            {{else}}
 
 public {{builderClass}} add(boolean item) {
     list.add(item);
     return this;
 }
+            {{/if}}
         {{else}}
             {{#eq this "string"}}
+                {{#if forDocs }}
+| {{builderClass}} | add(String item) |
+                {{else}}
 
 public {{builderClass}} add(String item) {
     list.add(item);
     return this;
 }
+                {{/if}}
             {{else}}
                 {{#or (eq this "integer") (eq this "number") }}
+                    {{#if forDocs }}
+| {{builderClass}} | add(int item) |
+| {{builderClass}} | add(float item) |
+                        {{#neq ../format "int32"}}
+| {{builderClass}} | add(long item) |
+| {{builderClass}} | add(double item) |
+                        {{/neq}}
+                    {{else}}
 
 public {{builderClass}} add(int item) {
     list.add(item);
@@ -31,7 +51,7 @@ public {{builderClass}} add(float item) {
     list.add(item);
     return this;
 }
-                    {{#neq ../format "int32"}}
+                        {{#neq ../format "int32"}}
 
 public {{builderClass}} add(long item) {
     list.add(item);
@@ -42,21 +62,30 @@ public {{builderClass}} add(double item) {
     list.add(item);
     return this;
 }
-                    {{/neq}}
+                        {{/neq}}
+                    {{/if}}
                 {{else}}
                     {{#eq this "array"}}
+                        {{#if forDocs }}
+| {{builderClass}} | add(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) |
+                        {{else}}
 
 public {{builderClass}} add(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
     list.add(item);
     return this;
 }
+                        {{/if}}
                     {{else}}
                         {{#eq this "object"}}
+                            {{#if forDocs }}
+| {{builderClass}} | add(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) |
+                            {{else}}
 
 public {{builderClass}} add(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
     list.add(item);
     return this;
 }
+                            {{/if}}
                         {{/eq}}
                     {{/eq}}
                 {{/or}}
@@ -65,6 +94,17 @@ public {{builderClass}} add(Map<String, {{#with mapValueSchema}}{{> src/main/jav
     {{/eq}}
 {{else}}
     {{! no type defined }}
+    {{#if forDocs }}
+| {{builderClass}} | add(Void item) |
+| {{builderClass}} | add(boolean item) |
+| {{builderClass}} | add(String item) |
+| {{builderClass}} | add(int item) |
+| {{builderClass}} | add(float item) |
+| {{builderClass}} | add(long item) |
+| {{builderClass}} | add(double item) |
+| {{builderClass}} | add(List<?> item) |
+| {{builderClass}} | add(Map<String, ?> item) |
+    {{else}}
 
 public {{builderClass}} add(Void item) {
     list.add(null);
@@ -110,4 +150,5 @@ public {{builderClass}} add(Map<String, ?> item) {
     list.add(item);
     return this;
 }
+    {{/if}}
 {{/each}}

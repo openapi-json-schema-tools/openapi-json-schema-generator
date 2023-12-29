@@ -70,6 +70,15 @@ A class that builds the List input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| RefInItemsListBuilder | add(Void item) |
+| RefInItemsListBuilder | add(boolean item) |
+| RefInItemsListBuilder | add(String item) |
+| RefInItemsListBuilder | add(int item) |
+| RefInItemsListBuilder | add(float item) |
+| RefInItemsListBuilder | add(long item) |
+| RefInItemsListBuilder | add(double item) |
+| RefInItemsListBuilder | add(List<?> item) |
+| RefInItemsListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
