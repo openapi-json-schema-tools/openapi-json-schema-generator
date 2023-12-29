@@ -31,10 +31,3 @@ A class that builds the List input type
 {{! todo handle this, 3.1.0 document use-case }}
 {{/with}}
 | List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> | build()<br>Returns list input that should be used with Schema.validate |
-
-{{headerSize}}# Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-                    {{#with items}}
-| {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
-                    {{/with}}

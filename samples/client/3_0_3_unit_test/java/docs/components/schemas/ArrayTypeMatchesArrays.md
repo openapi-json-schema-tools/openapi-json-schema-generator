@@ -82,11 +82,6 @@ A class that builds the List input type
 | ArrayTypeMatchesArraysListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| ? extends @Nullable Object |  | |
-
 ## ArrayTypeMatchesArraysList
 public class ArrayTypeMatchesArraysList<br>
 extends `FrozenList<@Nullable Object>`

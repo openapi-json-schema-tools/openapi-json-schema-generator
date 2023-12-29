@@ -90,11 +90,6 @@ A class that builds the List input type
 | NestedItemsListBuilder | add(List<List<List<Number>>> item) |
 | List<List<List<List<Number>>>> | build()<br>Returns list input that should be used with Schema.validate |
 
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| List<List<List<Number>>> |  | |
-
 ## NestedItemsList
 public class NestedItemsList<br>
 extends `FrozenList<ItemsList2>`
@@ -170,11 +165,6 @@ A class that builds the List input type
 | ItemsListBuilder2 | add(List<List<Number>> item) |
 | List<List<List<Number>>> | build()<br>Returns list input that should be used with Schema.validate |
 
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| List<List<Number>> |  | |
-
 ## ItemsList2
 public class ItemsList2<br>
 extends `FrozenList<ItemsList1>`
@@ -247,11 +237,6 @@ A class that builds the List input type
 | ----------------- | ---------------------- |
 | ItemsListBuilder1 | add(List<Number> item) |
 | List<List<Number>> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| List<Number> |  | |
 
 ## ItemsList1
 public class ItemsList1<br>
@@ -326,11 +311,6 @@ A class that builds the List input type
 | ItemsListBuilder | add(long item) |
 | ItemsListBuilder | add(double item) |
 | List<Number> | build()<br>Returns list input that should be used with Schema.validate |
-
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| Number |  | |
 
 ## ItemsList
 public class ItemsList<br>

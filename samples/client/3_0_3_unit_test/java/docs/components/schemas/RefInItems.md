@@ -81,11 +81,6 @@ A class that builds the List input type
 | RefInItemsListBuilder | add(Map<String, ?> item) |
 | List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
-## Input List Items
-| List Item Type | Description | Notes |
-| -------------- | ----------- | ----- |
-| ? extends @Nullable Object |  | |
-
 ## RefInItemsList
 public class RefInItemsList<br>
 extends `FrozenList<@Nullable Object>`
