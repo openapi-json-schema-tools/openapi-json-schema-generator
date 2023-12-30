@@ -30,7 +30,7 @@ public class ListBuilderTest {
             return this;
         }
 
-        public List<? extends @Nullable List<Number>> build() {
+        public List<@Nullable List<Number>> build() {
             return list;
         }
     }
@@ -40,6 +40,22 @@ public class ListBuilderTest {
         List<@Nullable List<Number>> inList = new ArrayList<>();
         inList.add(null);
         var builder = new NullableListWithNullableItemsListBuilder(inList);
+        Assert.assertEquals(inList, builder.build());
+
+        builder = new NullableListWithNullableItemsListBuilder();
+        builder.add((Void) null);
+        Assert.assertEquals(inList, builder.build());
+    }
+
+    @Test
+    public void testSucceedsWithNonNullInput() {
+        List<List<Number>> inList = new ArrayList<>();
+        inList.add(List.of(1));
+        var builder = new NullableListWithNullableItemsListBuilder(inList);
+        Assert.assertEquals(inList, builder.build());
+
+        builder = new NullableListWithNullableItemsListBuilder();
+        builder.add(List.of(1));
         Assert.assertEquals(inList, builder.build());
     }
 }
