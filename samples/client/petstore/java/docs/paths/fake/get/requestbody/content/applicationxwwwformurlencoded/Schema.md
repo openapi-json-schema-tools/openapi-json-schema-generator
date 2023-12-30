@@ -219,7 +219,7 @@ A class that builds the List input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | EnumFormStringArrayListBuilder | add(String item) |
-| EnumFormStringArrayListBuilder | add(StringItemsEnums item) |
+| EnumFormStringArrayListBuilder | add([StringItemsEnums](#stringitemsenums) item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## EnumFormStringArrayList

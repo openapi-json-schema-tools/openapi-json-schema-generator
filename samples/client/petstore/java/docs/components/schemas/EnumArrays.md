@@ -160,7 +160,7 @@ A class that builds the List input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | ArrayEnumListBuilder | add(String item) |
-| ArrayEnumListBuilder | add(StringItemsEnums item) |
+| ArrayEnumListBuilder | add([StringItemsEnums](#stringitemsenums) item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayEnumList

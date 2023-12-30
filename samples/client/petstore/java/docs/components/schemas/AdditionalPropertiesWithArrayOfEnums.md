@@ -141,7 +141,7 @@ A class that builds the List input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | AdditionalPropertiesListBuilder | add(String item) |
-| AdditionalPropertiesListBuilder | add(StringEnumClassEnums item) |
+| AdditionalPropertiesListBuilder | add([StringEnumClassEnums](#stringenumclassenums) item) |
 | List<String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## AdditionalPropertiesList
