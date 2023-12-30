@@ -57,7 +57,7 @@ public class MapTest {
             return getOrThrow(name);
         }
     }
-    public static class AdditionalPropertiesMapInput {
+    public static class AdditionalPropertiesMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -147,7 +147,7 @@ public class MapTest {
             return getOrThrow(name);
         }
     }
-    public static class MapMapOfStringMapInput {
+    public static class MapMapOfStringMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -304,7 +304,7 @@ public class MapTest {
             return getOrThrow(name);
         }
     }
-    public static class MapOfEnumStringMapInput {
+    public static class MapOfEnumStringMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -410,7 +410,7 @@ public class MapTest {
             return (boolean) value;
         }
     }
-    public static class DirectMapMapInput {
+    public static class DirectMapMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -547,7 +547,7 @@ public class MapTest {
             return get(name);
         }
     }
-    public static class MapTestMapInput {
+    public static class MapTestMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

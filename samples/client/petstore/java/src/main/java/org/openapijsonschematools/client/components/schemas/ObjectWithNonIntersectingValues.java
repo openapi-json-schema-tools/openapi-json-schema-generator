@@ -81,7 +81,7 @@ public class ObjectWithNonIntersectingValues {
             return (String) value;
         }
     }
-    public static class ObjectWithNonIntersectingValuesMapInput {
+    public static class ObjectWithNonIntersectingValuesMapBuilder {
         // optionalProperties + additionalProperties
     }
     

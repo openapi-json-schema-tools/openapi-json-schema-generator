@@ -78,7 +78,7 @@ public class HeaderParameters {
             return (String) value;
         }
     }
-    public static class HeaderParametersMapInput {
+    public static class HeaderParametersMapBuilder {
         // empty mapping
     }
     

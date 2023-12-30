@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Address.Address1](#address1)<br> schema class |
-| static class | [Address.AddressMapInput](#addressmapinput)<br> builder for Map payloads |
+| static class | [Address.AddressMapBuilder](#addressmapbuilder)<br> builder for Map payloads |
 | static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -54,30 +54,30 @@ Address.AddressMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AddressMap](#addressmap) | validate([Map<?, ?>](#addressmapinput) arg, SchemaConfiguration configuration) |
+| [AddressMap](#addressmap) | validate([Map<?, ?>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AddressMapInput
-public class AddressMapInput<br>
-builder for `Map<String, Long>`
+## AddressMapBuilder
+public class AddressMapBuilder<br>
+builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **anyStringName** | long | any string name can be used but the value must be the correct type | [optional] |
+| **anyStringName** | Number | any string name can be used but the value must be the correct type | [optional] |
 
 ## AddressMap
 public static class AddressMap<br>
-extends FrozenMap<String, Long>
+extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AddressMap](#addressmap) | of([Map<String, Long>](#addressmapinput) arg, SchemaConfiguration configuration) |
-| long | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| static [AddressMap](#addressmap) | of([Map<String, Number>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
+| Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

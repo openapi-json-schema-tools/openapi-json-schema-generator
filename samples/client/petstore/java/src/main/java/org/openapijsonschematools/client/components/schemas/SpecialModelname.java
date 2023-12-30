@@ -66,7 +66,7 @@ public class SpecialModelname {
             return get(name);
         }
     }
-    public static class SpecialModelnameMapInput {
+    public static class SpecialModelnameMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

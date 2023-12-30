@@ -66,7 +66,7 @@ public class File {
             return get(name);
         }
     }
-    public static class FileMapInput {
+    public static class FileMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

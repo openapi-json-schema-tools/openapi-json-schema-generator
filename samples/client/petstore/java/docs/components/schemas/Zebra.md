@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Zebra.Zebra1](#zebra1)<br> schema class |
-| static class | [Zebra.ZebraMapInput](#zebramapinput)<br> builder for Map payloads |
+| static class | [Zebra.ZebraMapBuilder](#zebramapbuilder)<br> builder for Map payloads |
 | static class | [Zebra.ZebraMap](#zebramap)<br> output class for Map payloads |
 | static class | [Zebra.ClassName](#classname)<br> schema class |
 | enum | [Zebra.StringClassNameEnums](#stringclassnameenums)<br>String enum |
@@ -69,10 +69,10 @@ Zebra.ZebraMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ZebraMap](#zebramap) | validate([Map<?, ?>](#zebramapinput) arg, SchemaConfiguration configuration) |
+| [ZebraMap](#zebramap) | validate([Map<?, ?>](#zebramapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ZebraMapInput
-public class ZebraMapInput<br>
+## ZebraMapBuilder
+public class ZebraMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -93,7 +93,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ZebraMap](#zebramap) | of([Map<String, ? extends @Nullable Object>](#zebramapinput) arg, SchemaConfiguration configuration) |
+| static [ZebraMap](#zebramap) | of([Map<String, ? extends @Nullable Object>](#zebramapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["zebra"] |
 | String | type()<br>[optional] must be one of ["plains", "mountain", "grevys"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -84,7 +84,7 @@ public class ObjectModelWithArgAndArgsProperties {
             return get(name);
         }
     }
-    public static class ObjectModelWithArgAndArgsPropertiesMapInput {
+    public static class ObjectModelWithArgAndArgsPropertiesMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

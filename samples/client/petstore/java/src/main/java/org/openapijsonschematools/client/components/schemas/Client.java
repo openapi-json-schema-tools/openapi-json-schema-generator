@@ -66,7 +66,7 @@ public class Client {
             return get(name);
         }
     }
-    public static class ClientMapInput {
+    public static class ClientMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

@@ -13,7 +13,7 @@ A class that contains necessary nested
 | static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](#composedoneofdifferenttypes1)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema6](#schema6)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema5](#schema5)<br> schema class |
-| static class | [ComposedOneOfDifferentTypes.Schema5ListInput](#schema5listinput)<br> builder for List payloads |
+| static class | [ComposedOneOfDifferentTypes.Schema5ListBuilder](#schema5listbuilder)<br> builder for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema5List](#schema5list)<br> output class for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Items](#items)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema4](#schema4)<br> schema class |
@@ -111,8 +111,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ComposedOneOfDifferentTypes.Schema5List validatedPayload =
     ComposedOneOfDifferentTypes.Schema5.validate(
-    Arrays.asList(
-    ),
+    new .Schema5ListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```
@@ -128,18 +130,33 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema5List](#schema5list) | validate([List<?>](#schema5listinput) arg, SchemaConfiguration configuration) |
+| [Schema5List](#schema5list) | validate([List<?>](#schema5listbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema5ListInput
-public class Schema5ListInput<br>
-builder for `List<? extends @Nullable Object>`
+## Schema5ListBuilder
+public class Schema5ListBuilder<br>
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Object |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema5ListBuilder()<br>Creates an empty list |
+| Schema5ListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Schema5ListBuilder | add(Void item) |
+| Schema5ListBuilder | add(boolean item) |
+| Schema5ListBuilder | add(String item) |
+| Schema5ListBuilder | add(int item) |
+| Schema5ListBuilder | add(float item) |
+| Schema5ListBuilder | add(long item) |
+| Schema5ListBuilder | add(double item) |
+| Schema5ListBuilder | add(List<?> item) |
+| Schema5ListBuilder | add(Map<String, ?> item) |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Schema5List
 public class Schema5List<br>
@@ -150,7 +167,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | of([List<? extends @Nullable Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | of([List<? extends @Nullable Object>](#schema5listbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [GrandparentAnimal.GrandparentAnimal1](#grandparentanimal1)<br> schema class |
-| static class | [GrandparentAnimal.GrandparentAnimalMapInput](#grandparentanimalmapinput)<br> builder for Map payloads |
+| static class | [GrandparentAnimal.GrandparentAnimalMapBuilder](#grandparentanimalmapbuilder)<br> builder for Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimalMap](#grandparentanimalmap)<br> output class for Map payloads |
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
 
@@ -59,10 +59,10 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map<?, ?>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
+| [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map<?, ?>](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## GrandparentAnimalMapInput
-public class GrandparentAnimalMapInput<br>
+## GrandparentAnimalMapBuilder
+public class GrandparentAnimalMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -82,7 +82,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [GrandparentAnimalMap](#grandparentanimalmap) | of([Map<String, ? extends @Nullable Object>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
+| static [GrandparentAnimalMap](#grandparentanimalmap) | of([Map<String, ? extends @Nullable Object>](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | String | pet_type()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

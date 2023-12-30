@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1](#objwithrequiredpropsbase1)<br> schema class |
-| static class | [ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMapInput](#objwithrequiredpropsbasemapinput)<br> builder for Map payloads |
+| static class | [ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMapBuilder](#objwithrequiredpropsbasemapbuilder)<br> builder for Map payloads |
 | static class | [ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap)<br> output class for Map payloads |
 | static class | [ObjWithRequiredPropsBase.B](#b)<br> schema class |
 
@@ -59,10 +59,10 @@ ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map<?, ?>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
+| [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map<?, ?>](#objwithrequiredpropsbasemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjWithRequiredPropsBaseMapInput
-public class ObjWithRequiredPropsBaseMapInput<br>
+## ObjWithRequiredPropsBaseMapBuilder
+public class ObjWithRequiredPropsBaseMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -82,7 +82,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | of([Map<String, ? extends @Nullable Object>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
+| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | of([Map<String, ? extends @Nullable Object>](#objwithrequiredpropsbasemapbuilder) arg, SchemaConfiguration configuration) |
 | String | b()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

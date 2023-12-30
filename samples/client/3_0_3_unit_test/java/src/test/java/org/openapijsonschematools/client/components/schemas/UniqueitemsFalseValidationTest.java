@@ -25,7 +25,7 @@ public class UniqueitemsFalseValidationTest {
             Arrays.asList(
                 1.0d,
                 1.0d,
-                1L
+                1
             ),
             configuration
         );
@@ -37,8 +37,8 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L,
-                1L
+                1,
+                1
             ),
             configuration
         );
@@ -90,7 +90,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L,
+                1,
                 true
             ),
             configuration
@@ -163,7 +163,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L,
+                1,
                 true
             ),
             configuration
@@ -179,13 +179,13 @@ public class UniqueitemsFalseValidationTest {
                 MapMaker.makeMap(
                 ),
                 Arrays.asList(
-                    1L
+                    1
                 ),
                 true,
                 null,
                 MapMaker.makeMap(
                 ),
-                1L
+                1
             ),
             configuration
         );
@@ -197,7 +197,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                0L,
+                0,
                 false
             ),
             configuration
@@ -210,8 +210,8 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L,
-                2L
+                1,
+                2
             ),
             configuration
         );
@@ -223,7 +223,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                0L,
+                0,
                 false
             ),
             configuration
@@ -239,11 +239,11 @@ public class UniqueitemsFalseValidationTest {
                 MapMaker.makeMap(
                 ),
                 Arrays.asList(
-                    1L
+                    1
                 ),
                 true,
                 null,
-                1L
+                1
             ),
             configuration
         );

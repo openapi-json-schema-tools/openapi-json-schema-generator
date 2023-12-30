@@ -45,7 +45,7 @@ public class OneofComplexTypesTest {
                     ),
                     new AbstractMap.SimpleEntry<String, Object>(
                         "bar",
-                        2L
+                        2
                     )
                 ),
                 configuration
@@ -64,7 +64,7 @@ public class OneofComplexTypesTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
-                    2L
+                    2
                 )
             ),
             configuration
@@ -80,7 +80,7 @@ public class OneofComplexTypesTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<String, Object>(
                         "foo",
-                        2L
+                        2
                     ),
                     new AbstractMap.SimpleEntry<String, Object>(
                         "bar",

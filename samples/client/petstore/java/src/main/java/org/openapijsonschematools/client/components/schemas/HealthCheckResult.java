@@ -117,7 +117,7 @@ public class HealthCheckResult {
             return get(name);
         }
     }
-    public static class HealthCheckResultMapInput {
+    public static class HealthCheckResultMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

@@ -65,7 +65,7 @@ public class PropertyNamedRefThatIsNotAReference {
             return get(name);
         }
     }
-    public static class PropertyNamedRefThatIsNotAReferenceMapInput {
+    public static class PropertyNamedRefThatIsNotAReferenceMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

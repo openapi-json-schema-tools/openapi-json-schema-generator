@@ -1,0 +1,33 @@
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}
+public class {{arrayInputJsonPathPiece.camelCase}}<br>
+builder for `List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>`
+
+A class that builds the List input type
+
+{{headerSize}}# Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{arrayInputJsonPathPiece.camelCase}}()<br>Creates an empty list |
+| {{arrayInputJsonPathPiece.camelCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> items)<br>Stores the items in a list |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+{{#with items}}
+    {{#if refInfo }}
+        {{#if refInfo.refModule}}
+            {{#with getDeepestRef }}
+{{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.camelCase forDocs=true useContainer=true }}
+            {{/with}}
+        {{else}}
+            {{! self reference} }}
+| {{../arrayInputJsonPathPiece.camelCase}} | add(List<?> item) |
+        {{/if}}
+    {{else}}
+{{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../arrayInputJsonPathPiece.camelCase forDocs=true }}
+    {{/if}}
+{{else}}
+{{! todo handle this, 3.1.0 document use-case }}
+{{/with}}
+| List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> | build()<br>Returns list input that should be used with Schema.validate |

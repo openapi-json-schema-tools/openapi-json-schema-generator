@@ -61,12 +61,12 @@ public class Headers {
             return Headers1.getInstance().validate(arg, configuration);
         }
         
-        public int int32() {
+        public Number int32() {
                         @Nullable Object value = get("int32");
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for int32");
             }
-            return (int) value;
+            return (Number) value;
         }
         
         public String numberHeader() throws UnsetPropertyException {
@@ -79,7 +79,7 @@ public class Headers {
             return (String) value;
         }
     }
-    public static class HeadersMapInput {
+    public static class HeadersMapBuilder {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
     

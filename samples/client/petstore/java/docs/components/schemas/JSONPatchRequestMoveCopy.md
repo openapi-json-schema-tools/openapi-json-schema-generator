@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1](#jsonpatchrequestmovecopy1)<br> schema class |
-| static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMapInput](#jsonpatchrequestmovecopymapinput)<br> builder for Map payloads |
+| static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMapBuilder](#jsonpatchrequestmovecopymapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestMoveCopy.StringOpEnums](#stringopenums)<br>String enum |
@@ -73,10 +73,10 @@ JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<?, ?>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<?, ?>](#jsonpatchrequestmovecopymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## JSONPatchRequestMoveCopyMapInput
-public class JSONPatchRequestMoveCopyMapInput<br>
+## JSONPatchRequestMoveCopyMapBuilder
+public class JSONPatchRequestMoveCopyMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -97,7 +97,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | of([Map<String, String>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | of([Map<String, String>](#jsonpatchrequestmovecopymapbuilder) arg, SchemaConfiguration configuration) |
 | String | from()<br> |
 | String | op()<br> must be one of ["move", "copy"] |
 | String | path()<br> |

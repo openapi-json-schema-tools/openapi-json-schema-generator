@@ -729,6 +729,7 @@ src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeyword
 src/test/java/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/BooleanSchemaTest.java
+src/test/java/org/openapijsonschematools/client/schemas/ListBuilderTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ListSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/MapSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/NullSchemaTest.java

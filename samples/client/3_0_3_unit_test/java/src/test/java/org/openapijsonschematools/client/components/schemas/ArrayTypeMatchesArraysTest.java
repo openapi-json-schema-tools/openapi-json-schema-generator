@@ -52,8 +52,10 @@ public class ArrayTypeMatchesArraysTest {
         // an array is an array
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         schema.validate(
-            Arrays.asList(
-            ),
+            new ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListBuilder(
+                Arrays.asList(
+                )
+            ).build(),
             configuration
         );
     }
@@ -94,7 +96,7 @@ public class ArrayTypeMatchesArraysTest {
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         try {
             schema.validate(
-                1L,
+                1,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

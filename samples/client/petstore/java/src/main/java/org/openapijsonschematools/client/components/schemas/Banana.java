@@ -64,7 +64,7 @@ public class Banana {
             return get(name);
         }
     }
-    public static class BananaMapInput {
+    public static class BananaMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

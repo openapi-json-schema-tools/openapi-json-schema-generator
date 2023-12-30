@@ -145,7 +145,7 @@ public class JSONPatchRequestRemove {
             return getOrThrow("path");
         }
     }
-    public static class JSONPatchRequestRemoveMapInput {
+    public static class JSONPatchRequestRemoveMapBuilder {
         // empty mapping
     }
     

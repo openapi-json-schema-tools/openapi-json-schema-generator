@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Animal.Animal1](#animal1)<br> schema class |
-| static class | [Animal.AnimalMapInput](#animalmapinput)<br> builder for Map payloads |
+| static class | [Animal.AnimalMapBuilder](#animalmapbuilder)<br> builder for Map payloads |
 | static class | [Animal.AnimalMap](#animalmap)<br> output class for Map payloads |
 | static class | [Animal.Color](#color)<br> schema class |
 | static class | [Animal.ClassName](#classname)<br> schema class |
@@ -64,10 +64,10 @@ Animal.AnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnimalMap](#animalmap) | validate([Map<?, ?>](#animalmapinput) arg, SchemaConfiguration configuration) |
+| [AnimalMap](#animalmap) | validate([Map<?, ?>](#animalmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AnimalMapInput
-public class AnimalMapInput<br>
+## AnimalMapBuilder
+public class AnimalMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -88,7 +88,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnimalMap](#animalmap) | of([Map<String, ? extends @Nullable Object>](#animalmapinput) arg, SchemaConfiguration configuration) |
+| static [AnimalMap](#animalmap) | of([Map<String, ? extends @Nullable Object>](#animalmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> |
 | String | color()<br>[optional] if omitted the server will use the default value of red |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

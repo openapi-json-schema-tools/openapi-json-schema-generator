@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NumberOnly.NumberOnly1](#numberonly1)<br> schema class |
-| static class | [NumberOnly.NumberOnlyMapInput](#numberonlymapinput)<br> builder for Map payloads |
+| static class | [NumberOnly.NumberOnlyMapBuilder](#numberonlymapbuilder)<br> builder for Map payloads |
 | static class | [NumberOnly.NumberOnlyMap](#numberonlymap)<br> output class for Map payloads |
 | static class | [NumberOnly.JustNumber](#justnumber)<br> schema class |
 
@@ -58,10 +58,10 @@ NumberOnly.NumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NumberOnlyMap](#numberonlymap) | validate([Map<?, ?>](#numberonlymapinput) arg, SchemaConfiguration configuration) |
+| [NumberOnlyMap](#numberonlymap) | validate([Map<?, ?>](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## NumberOnlyMapInput
-public class NumberOnlyMapInput<br>
+## NumberOnlyMapBuilder
+public class NumberOnlyMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -81,7 +81,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NumberOnlyMap](#numberonlymap) | of([Map<String, ? extends @Nullable Object>](#numberonlymapinput) arg, SchemaConfiguration configuration) |
+| static [NumberOnlyMap](#numberonlymap) | of([Map<String, ? extends @Nullable Object>](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | Number | JustNumber()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

@@ -23,7 +23,7 @@ public class MaxitemsValidationTest {
         final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L
+                1
             ),
             configuration
         );
@@ -35,8 +35,8 @@ public class MaxitemsValidationTest {
         final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L,
-                2L
+                1,
+                2
             ),
             configuration
         );
@@ -49,9 +49,9 @@ public class MaxitemsValidationTest {
         try {
             schema.validate(
                 Arrays.asList(
-                    1L,
-                    2L,
-                    3L
+                    1,
+                    2,
+                    3
                 ),
                 configuration
             );

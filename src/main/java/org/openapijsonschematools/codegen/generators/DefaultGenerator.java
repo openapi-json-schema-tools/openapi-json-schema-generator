@@ -345,6 +345,7 @@ public class DefaultGenerator implements Generator {
     protected boolean deepestRefSchemaImportNeeded = false;
     protected String objectIOClassNamePiece = "Dict";
     protected String arrayIOClassNamePiece = "Tuple";
+    protected String arrayObjectInputClassNameSuffix = "Input";
 
     @Override
     public List<CliOption> cliOptions() {
@@ -2702,7 +2703,7 @@ public class DefaultGenerator implements Generator {
                     case "00":
                         if (property.additionalProperties != null) {
                             // only addProps
-                            property.mapInputJsonPathPiece = getKey(currentName + objectIOClassNamePiece + "Input", "schemaProperty", sourceJsonPath);
+                            property.mapInputJsonPathPiece = getKey(currentName + objectIOClassNamePiece + arrayObjectInputClassNameSuffix, "schemaProperty", sourceJsonPath);
                             // even though the definition is the same, mapOutputJsonPathPiece needs to be different
                             // so an implementing class can be written
                             property.mapOutputJsonPathPiece = getKey(currentName + objectIOClassNamePiece, "schemaProperty", sourceJsonPath);
@@ -2710,7 +2711,7 @@ public class DefaultGenerator implements Generator {
                         break;
                     case "11":
                         // optional + required
-                        property.mapInputJsonPathPiece = getKey(currentName + objectIOClassNamePiece + "Input", "schemaProperty", sourceJsonPath);
+                        property.mapInputJsonPathPiece = getKey(currentName + objectIOClassNamePiece + arrayObjectInputClassNameSuffix, "schemaProperty", sourceJsonPath);
                         property.mapOutputJsonPathPiece = getKey(currentName + objectIOClassNamePiece, "schemaProperty", sourceJsonPath);
                         break;
                     case "10":
@@ -2727,7 +2728,7 @@ public class DefaultGenerator implements Generator {
             }
             if ((property.types == null || property.types.contains("array")) && sourceJsonPath != null && property.items != null) {
                 property.arrayOutputJsonPathPiece = getKey(currentName + arrayIOClassNamePiece, "schemaProperty", sourceJsonPath);
-                property.arrayInputJsonPathPiece = getKey(currentName + arrayIOClassNamePiece+"Input", "schemaProperty", sourceJsonPath);
+                property.arrayInputJsonPathPiece = getKey(currentName + arrayIOClassNamePiece+arrayObjectInputClassNameSuffix, "schemaProperty", sourceJsonPath);
             }
         }
         Schema propertyNamesSchema = p.getPropertyNames();
@@ -3972,7 +3973,7 @@ public class DefaultGenerator implements Generator {
             optionalProperties.putAll(properties);
             optionalProperties.setAllAreInline(properties.allAreInline());
             CodegenKey jsonPathPiece;
-            jsonPathPiece = getKey(currentName + objectIOClassNamePiece + "Input", "schemaProperty", sourceJsonPath);
+            jsonPathPiece = getKey(currentName + objectIOClassNamePiece + arrayObjectInputClassNameSuffix, "schemaProperty", sourceJsonPath);
             optionalProperties.setJsonPathPiece(jsonPathPiece);
             return optionalProperties;
         }
@@ -3996,7 +3997,7 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         optionalProperties.setAllAreInline(allAreInline);
-        CodegenKey jsonPathPiece = getKey(currentName + "Optional" + objectIOClassNamePiece + "Input", "schemaProperty", sourceJsonPath);
+        CodegenKey jsonPathPiece = getKey(currentName + "Optional" + objectIOClassNamePiece + arrayObjectInputClassNameSuffix, "schemaProperty", sourceJsonPath);
         optionalProperties.setJsonPathPiece(jsonPathPiece);
         return optionalProperties;
     }
@@ -5395,9 +5396,9 @@ public class DefaultGenerator implements Generator {
         boolean onlyReqPropsCase2 = (requiredPropsWithDefAllFromAddProp && properties == null);
         boolean onlyReqPropsCase3 = (propReqProps != 0 && addPropReqProps != 0 && propReqProps + addPropReqProps == reqPropsWithDef && schemaProperties != null && required.containsAll(schemaProperties.keySet()));
         if (onlyReqPropsCase1 || onlyReqPropsCase2 || onlyReqPropsCase3) {
-            keyName = currentName + objectIOClassNamePiece + "Input";
+            keyName = currentName + objectIOClassNamePiece + arrayObjectInputClassNameSuffix;
         } else {
-            keyName = currentName + "Required" + objectIOClassNamePiece + "Input";
+            keyName = currentName + "Required" + objectIOClassNamePiece + arrayObjectInputClassNameSuffix;
         }
         requiredProperties.setAllAreInline(allAreInline);
         CodegenKey jsonPathPiece = getKey(keyName, "schemaProperty", sourceJsonPath);

@@ -57,7 +57,7 @@ public class MaxlengthValidationTest {
         // ignores non-strings
         final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(
-            100L,
+            100,
             configuration
         );
     }

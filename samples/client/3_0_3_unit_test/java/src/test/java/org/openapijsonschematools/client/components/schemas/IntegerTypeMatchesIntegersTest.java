@@ -124,7 +124,7 @@ public class IntegerTypeMatchesIntegersTest {
         // an integer is an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

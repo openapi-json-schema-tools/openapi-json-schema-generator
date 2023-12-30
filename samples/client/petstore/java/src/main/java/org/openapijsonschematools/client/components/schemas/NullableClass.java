@@ -547,8 +547,26 @@ public class NullableClass {
         }
     }
     
-    public static class ArrayNullablePropListInput {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+    public static class ArrayNullablePropListBuilder {
+        // class to build List<Map<String, @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public ArrayNullablePropListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayNullablePropListBuilder(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        
+        public ArrayNullablePropListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -729,8 +747,31 @@ public class NullableClass {
         }
     }
     
-    public static class ArrayAndItemsNullablePropListInput {
-        // class to build List<? extends @Nullable Map<String, ? extends @Nullable Object>>
+    public static class ArrayAndItemsNullablePropListBuilder {
+        // class to build List<@Nullable Map<String, @Nullable Object>>
+        private final List<@Nullable Map<String, @Nullable Object>> list;
+    
+        public ArrayAndItemsNullablePropListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayAndItemsNullablePropListBuilder(List<@Nullable Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        
+        public ArrayAndItemsNullablePropListBuilder add(Void item) {
+            list.add(null);
+            return this;
+        }
+        
+        public ArrayAndItemsNullablePropListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -911,8 +952,31 @@ public class NullableClass {
         }
     }
     
-    public static class ArrayItemsNullableListInput {
-        // class to build List<? extends @Nullable Map<String, ? extends @Nullable Object>>
+    public static class ArrayItemsNullableListBuilder {
+        // class to build List<@Nullable Map<String, @Nullable Object>>
+        private final List<@Nullable Map<String, @Nullable Object>> list;
+    
+        public ArrayItemsNullableListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayItemsNullableListBuilder(List<@Nullable Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        
+        public ArrayItemsNullableListBuilder add(Void item) {
+            list.add(null);
+            return this;
+        }
+        
+        public ArrayItemsNullableListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -1007,7 +1071,7 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectNullablePropMapInput {
+    public static class ObjectNullablePropMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -1198,7 +1262,7 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectAndItemsNullablePropMapInput {
+    public static class ObjectAndItemsNullablePropMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -1389,7 +1453,7 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectItemsNullableMapInput {
+    public static class ObjectItemsNullableMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -1488,14 +1552,14 @@ public class NullableClass {
             return NullableClass1.getInstance().validate(arg, configuration);
         }
         
-        public @Nullable Long integer_prop() throws UnsetPropertyException {
+        public @Nullable Number integer_prop() throws UnsetPropertyException {
             String key = "integer_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value == null || value instanceof Long)) {
+            if (!(value == null || value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for integer_prop");
             }
-            return (@Nullable Long) value;
+            return (@Nullable Number) value;
         }
         
         public @Nullable Number number_prop() throws UnsetPropertyException {
@@ -1617,7 +1681,7 @@ public class NullableClass {
             return (@Nullable FrozenMap<?>) value;
         }
     }
-    public static class NullableClassMapInput {
+    public static class NullableClassMapBuilder {
         // optionalProperties + additionalProperties
     }
     

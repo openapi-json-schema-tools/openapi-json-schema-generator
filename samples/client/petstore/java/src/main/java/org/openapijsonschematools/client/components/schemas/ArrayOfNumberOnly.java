@@ -49,8 +49,41 @@ public class ArrayOfNumberOnly {
         }
     }
     
-    public static class ArrayNumberListInput {
+    public static class ArrayNumberListBuilder {
         // class to build List<Number>
+        private final List<Number> list;
+    
+        public ArrayNumberListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayNumberListBuilder(List<Number> list) {
+            this.list = list;
+        }
+        
+        public ArrayNumberListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ArrayNumberListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ArrayNumberListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ArrayNumberListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Number> build() {
+            return list;
+        }
     }
     
     
@@ -148,7 +181,7 @@ public class ArrayOfNumberOnly {
             return get(name);
         }
     }
-    public static class ArrayOfNumberOnlyMapInput {
+    public static class ArrayOfNumberOnlyMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

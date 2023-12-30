@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Order.Order1](#order1)<br> schema class |
-| static class | [Order.OrderMapInput](#ordermapinput)<br> builder for Map payloads |
+| static class | [Order.OrderMapBuilder](#ordermapbuilder)<br> builder for Map payloads |
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
 | static class | [Order.Complete](#complete)<br> schema class |
 | static class | [Order.Status](#status)<br> schema class |
@@ -85,10 +85,10 @@ Order.OrderMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [OrderMap](#ordermap) | validate([Map<?, ?>](#ordermapinput) arg, SchemaConfiguration configuration) |
+| [OrderMap](#ordermap) | validate([Map<?, ?>](#ordermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## OrderMapInput
-public class OrderMapInput<br>
+## OrderMapBuilder
+public class OrderMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -96,9 +96,9 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **id** | long |  | [optional] value must be a 64 bit integer |
-| **petId** | long |  | [optional] value must be a 64 bit integer |
-| **quantity** | int |  | [optional] value must be a 32 bit integer |
+| **id** | Number |  | [optional] value must be a 64 bit integer |
+| **petId** | Number |  | [optional] value must be a 64 bit integer |
+| **quantity** | Number |  | [optional] value must be a 32 bit integer |
 | **shipDate** | String |  | [optional] value must conform to RFC-3339 date-time |
 | **status** | String | Order Status | [optional] must be one of ["placed", "approved", "delivered"] |
 | **complete** | boolean |  | [optional] if omitted the server will use the default value of false |
@@ -113,10 +113,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | of([Map<String, ? extends @Nullable Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
-| long | id()<br>[optional] value must be a 64 bit integer |
-| long | petId()<br>[optional] value must be a 64 bit integer |
-| int | quantity()<br>[optional] value must be a 32 bit integer |
+| static [OrderMap](#ordermap) | of([Map<String, ? extends @Nullable Object>](#ordermapbuilder) arg, SchemaConfiguration configuration) |
+| Number | id()<br>[optional] value must be a 64 bit integer |
+| Number | petId()<br>[optional] value must be a 64 bit integer |
+| Number | quantity()<br>[optional] value must be a 32 bit integer |
 | String | shipDate()<br>[optional] value must conform to RFC-3339 date-time |
 | String | status()<br>[optional] must be one of ["placed", "approved", "delivered"] |
 | boolean | complete()<br>[optional] if omitted the server will use the default value of false |

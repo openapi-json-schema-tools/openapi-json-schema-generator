@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Apple.Apple1](#apple1)<br> schema class |
-| static class | [Apple.AppleMapInput](#applemapinput)<br> builder for Map payloads |
+| static class | [Apple.AppleMapBuilder](#applemapbuilder)<br> builder for Map payloads |
 | static class | [Apple.AppleMap](#applemap)<br> output class for Map payloads |
 | static class | [Apple.Origin](#origin)<br> schema class |
 | static class | [Apple.Cultivar](#cultivar)<br> schema class |
@@ -71,10 +71,10 @@ Apple.AppleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [AppleMap](#applemap) | validate([Map<?, ?>](#applemapinput) arg, SchemaConfiguration configuration) |
+| [AppleMap](#applemap) | validate([Map<?, ?>](#applemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AppleMapInput
-public class AppleMapInput<br>
+## AppleMapBuilder
+public class AppleMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -95,7 +95,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AppleMap](#applemap) | of([Map<String, ? extends @Nullable Object>](#applemapinput) arg, SchemaConfiguration configuration) |
+| static [AppleMap](#applemap) | of([Map<String, ? extends @Nullable Object>](#applemapbuilder) arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | String | origin()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

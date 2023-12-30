@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
-| static class | [ComposedArray.ComposedArrayListInput](#composedarraylistinput)<br> builder for List payloads |
+| static class | [ComposedArray.ComposedArrayListBuilder](#composedarraylistbuilder)<br> builder for List payloads |
 | static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
 | static class | [ComposedArray.Items](#items)<br> schema class |
 
@@ -39,8 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ComposedArray.ComposedArrayList validatedPayload =
     ComposedArray.ComposedArray1.validate(
-    Arrays.asList(
-    ),
+    new ComposedArray.ComposedArrayListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```
@@ -54,18 +56,33 @@ ComposedArray.ComposedArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ComposedArrayList](#composedarraylist) | validate([List<?>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
+| [ComposedArrayList](#composedarraylist) | validate([List<?>](#composedarraylistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ComposedArrayListInput
-public class ComposedArrayListInput<br>
-builder for `List<? extends @Nullable Object>`
+## ComposedArrayListBuilder
+public class ComposedArrayListBuilder<br>
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Object |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedArrayListBuilder()<br>Creates an empty list |
+| ComposedArrayListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| ComposedArrayListBuilder | add(Void item) |
+| ComposedArrayListBuilder | add(boolean item) |
+| ComposedArrayListBuilder | add(String item) |
+| ComposedArrayListBuilder | add(int item) |
+| ComposedArrayListBuilder | add(float item) |
+| ComposedArrayListBuilder | add(long item) |
+| ComposedArrayListBuilder | add(double item) |
+| ComposedArrayListBuilder | add(List<?> item) |
+| ComposedArrayListBuilder | add(Map<String, ?> item) |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ComposedArrayList
 public class ComposedArrayList<br>
@@ -76,7 +93,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ComposedArrayList](#composedarraylist) | of([List<? extends @Nullable Object>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
+| static [ComposedArrayList](#composedarraylist) | of([List<? extends @Nullable Object>](#composedarraylistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -75,7 +75,7 @@ public class Fruit {
             return get(name);
         }
     }
-    public static class FruitMapInput {
+    public static class FruitMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

@@ -60,12 +60,12 @@ public class OneofComplexTypes {
             return Schema0.getInstance().validate(arg, configuration);
         }
         
-        public long bar() {
+        public Number bar() {
                         @Nullable Object value = get("bar");
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for bar");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -74,7 +74,7 @@ public class OneofComplexTypes {
             return get(name);
         }
     }
-    public static class Schema0MapInput {
+    public static class Schema0MapBuilder {
         // Map<String, Object> because addProps is unset
     }
     
@@ -316,7 +316,7 @@ public class OneofComplexTypes {
             return get(name);
         }
     }
-    public static class Schema1MapInput {
+    public static class Schema1MapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

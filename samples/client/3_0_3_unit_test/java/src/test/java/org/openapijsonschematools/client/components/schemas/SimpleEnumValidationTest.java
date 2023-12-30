@@ -23,7 +23,7 @@ public class SimpleEnumValidationTest {
         final var schema = SimpleEnumValidation.SimpleEnumValidation1.getInstance();
         try {
             schema.validate(
-                4L,
+                4,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -37,7 +37,7 @@ public class SimpleEnumValidationTest {
         // one of the enum is valid
         final var schema = SimpleEnumValidation.SimpleEnumValidation1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

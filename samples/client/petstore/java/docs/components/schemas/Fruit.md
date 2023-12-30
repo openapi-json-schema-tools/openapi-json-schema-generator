@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Fruit.Fruit1](#fruit1)<br> schema class |
-| static class | [Fruit.FruitMapInput](#fruitmapinput)<br> builder for Map payloads |
+| static class | [Fruit.FruitMapBuilder](#fruitmapbuilder)<br> builder for Map payloads |
 | static class | [Fruit.FruitMap](#fruitmap)<br> output class for Map payloads |
 | static class | [Fruit.Color](#color)<br> schema class |
 
@@ -37,11 +37,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [FruitMap](#fruitmap) | validate([Map<?, ?>](#fruitmapinput) arg, SchemaConfiguration configuration) |
+| [FruitMap](#fruitmap) | validate([Map<?, ?>](#fruitmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FruitMapInput
-public class FruitMapInput<br>
+## FruitMapBuilder
+public class FruitMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -61,7 +61,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FruitMap](#fruitmap) | of([Map<String, ? extends @Nullable Object>](#fruitmapinput) arg, SchemaConfiguration configuration) |
+| static [FruitMap](#fruitmap) | of([Map<String, ? extends @Nullable Object>](#fruitmapbuilder) arg, SchemaConfiguration configuration) |
 | String | color()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

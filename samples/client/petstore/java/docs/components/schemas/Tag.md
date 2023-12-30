@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Tag.Tag1](#tag1)<br> schema class |
-| static class | [Tag.TagMapInput](#tagmapinput)<br> builder for Map payloads |
+| static class | [Tag.TagMapBuilder](#tagmapbuilder)<br> builder for Map payloads |
 | static class | [Tag.TagMap](#tagmap)<br> output class for Map payloads |
 | static class | [Tag.Name](#name)<br> schema class |
 | static class | [Tag.Id](#id)<br> schema class |
@@ -63,10 +63,10 @@ Tag.TagMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [TagMap](#tagmap) | validate([Map<?, ?>](#tagmapinput) arg, SchemaConfiguration configuration) |
+| [TagMap](#tagmap) | validate([Map<?, ?>](#tagmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## TagMapInput
-public class TagMapInput<br>
+## TagMapBuilder
+public class TagMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -74,7 +74,7 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **id** | long |  | [optional] value must be a 64 bit integer |
+| **id** | Number |  | [optional] value must be a 64 bit integer |
 | **name** | String |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
@@ -87,8 +87,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagMap](#tagmap) | of([Map<String, ? extends @Nullable Object>](#tagmapinput) arg, SchemaConfiguration configuration) |
-| long | id()<br>[optional] value must be a 64 bit integer |
+| static [TagMap](#tagmap) | of([Map<String, ? extends @Nullable Object>](#tagmapbuilder) arg, SchemaConfiguration configuration) |
+| Number | id()<br>[optional] value must be a 64 bit integer |
 | String | name()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

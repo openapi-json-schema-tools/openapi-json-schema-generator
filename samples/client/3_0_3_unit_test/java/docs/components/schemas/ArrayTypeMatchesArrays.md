@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1](#arraytypematchesarrays1)<br> schema class |
-| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListInput](#arraytypematchesarrayslistinput)<br> builder for List payloads |
+| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListBuilder](#arraytypematchesarrayslistbuilder)<br> builder for List payloads |
 | static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList](#arraytypematchesarrayslist)<br> output class for List payloads |
 | static class | [ArrayTypeMatchesArrays.Items](#items)<br> schema class |
 
@@ -39,8 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
     ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
-    Arrays.asList(
-    ),
+    new ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```
@@ -54,18 +56,33 @@ ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate([List<?>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
+| [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate([List<?>](#arraytypematchesarrayslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayTypeMatchesArraysListInput
-public class ArrayTypeMatchesArraysListInput<br>
-builder for `List<? extends @Nullable Object>`
+## ArrayTypeMatchesArraysListBuilder
+public class ArrayTypeMatchesArraysListBuilder<br>
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Object |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayTypeMatchesArraysListBuilder()<br>Creates an empty list |
+| ArrayTypeMatchesArraysListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| ArrayTypeMatchesArraysListBuilder | add(Void item) |
+| ArrayTypeMatchesArraysListBuilder | add(boolean item) |
+| ArrayTypeMatchesArraysListBuilder | add(String item) |
+| ArrayTypeMatchesArraysListBuilder | add(int item) |
+| ArrayTypeMatchesArraysListBuilder | add(float item) |
+| ArrayTypeMatchesArraysListBuilder | add(long item) |
+| ArrayTypeMatchesArraysListBuilder | add(double item) |
+| ArrayTypeMatchesArraysListBuilder | add(List<?> item) |
+| ArrayTypeMatchesArraysListBuilder | add(Map<String, ?> item) |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayTypeMatchesArraysList
 public class ArrayTypeMatchesArraysList<br>
@@ -76,7 +93,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([List<? extends @Nullable Object>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([List<? extends @Nullable Object>](#arraytypematchesarrayslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

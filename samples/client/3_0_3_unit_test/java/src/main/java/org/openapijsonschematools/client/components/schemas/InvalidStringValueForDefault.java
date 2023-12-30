@@ -109,7 +109,7 @@ public class InvalidStringValueForDefault {
             return get(name);
         }
     }
-    public static class InvalidStringValueForDefaultMapInput {
+    public static class InvalidStringValueForDefaultMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

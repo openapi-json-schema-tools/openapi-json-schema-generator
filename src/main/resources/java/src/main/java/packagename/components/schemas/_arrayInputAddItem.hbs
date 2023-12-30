@@ -1,0 +1,269 @@
+{{#each types}}
+    {{#eq this "null"}}
+        {{#if forDocs }}
+| {{builderClass}} | add(Void item) |
+        {{else}}
+
+public {{builderClass}} add(Void item) {
+    list.add(null);
+    return this;
+}
+        {{/if}}
+    {{else}}
+        {{#eq this "boolean"}}
+            {{#if forDocs }}
+| {{builderClass}} | add(boolean item) |
+            {{else}}
+
+public {{builderClass}} add(boolean item) {
+    list.add(item);
+    return this;
+}
+            {{/if}}
+        {{else}}
+            {{#eq this "string"}}
+                {{#if forDocs }}
+| {{builderClass}} | add(String item) |
+                {{else}}
+
+public {{builderClass}} add(String item) {
+    list.add(item);
+    return this;
+}
+                {{/if}}
+            {{else}}
+                {{#or (eq this "integer") (eq this "number") }}
+                    {{#if forDocs }}
+| {{builderClass}} | add(int item) |
+| {{builderClass}} | add(float item) |
+                        {{#neq ../format "int32"}}
+| {{builderClass}} | add(long item) |
+| {{builderClass}} | add(double item) |
+                        {{/neq}}
+                    {{else}}
+
+public {{builderClass}} add(int item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(float item) {
+    list.add(item);
+    return this;
+}
+                        {{#neq ../format "int32"}}
+
+public {{builderClass}} add(long item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(double item) {
+    list.add(item);
+    return this;
+}
+                        {{/neq}}
+                    {{/if}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#if forDocs }}
+| {{builderClass}} | add(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) |
+                        {{else}}
+
+public {{builderClass}} add(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
+    list.add(item);
+    return this;
+}
+                        {{/if}}
+                    {{else}}
+                        {{#eq this "object"}}
+                            {{#if forDocs }}
+| {{builderClass}} | add(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) |
+                            {{else}}
+
+public {{builderClass}} add(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
+    list.add(item);
+    return this;
+}
+                            {{/if}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/or}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{else}}
+    {{! no type defined }}
+    {{#if forDocs }}
+| {{builderClass}} | add(Void item) |
+| {{builderClass}} | add(boolean item) |
+| {{builderClass}} | add(String item) |
+| {{builderClass}} | add(int item) |
+| {{builderClass}} | add(float item) |
+| {{builderClass}} | add(long item) |
+| {{builderClass}} | add(double item) |
+| {{builderClass}} | add(List<?> item) |
+| {{builderClass}} | add(Map<String, ?> item) |
+    {{else}}
+
+public {{builderClass}} add(Void item) {
+    list.add(null);
+    return this;
+}
+
+public {{builderClass}} add(boolean item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(String item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(int item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(float item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(long item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(double item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(List<?> item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(Map<String, ?> item) {
+    list.add(item);
+    return this;
+}
+    {{/if}}
+{{/each}}
+{{#with enumInfo}}
+    {{#each typeToValues }}
+        {{#eq @key "null"}}
+            {{#if forDocs }}
+                {{#if useContainer }}
+| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.anchorPiece}}) item) |
+                {{else}}
+| {{builderClass}} | add([Null{{../jsonPathPiece.camelCase}}](#null{{../jsonPathPiece.anchorPiece}}) item) |
+                {{/if}}
+            {{else}}
+
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Null{{../jsonPathPiece.camelCase}} item) {
+    list.add(null);
+    return this;
+}
+            {{/if}}
+        {{else}}
+            {{#eq @key "boolean"}}
+                {{#if forDocs }}
+                    {{#if useContainer }}
+| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.anchorPiece}}) item) |
+                    {{else}}
+| {{builderClass}} | add([Boolean{{../jsonPathPiece.camelCase}}](#boolean{{../jsonPathPiece.anchorPiece}}) item) |
+                    {{/if}}
+                {{else}}
+
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Boolean{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                {{/if}}
+            {{else}}
+                {{#eq @key "string"}}
+                    {{#if forDocs }}
+                        {{#if useContainer }}
+| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.anchorPiece}}) item) |
+                        {{else}}
+| {{builderClass}} | add([String{{../jsonPathPiece.camelCase}}](#string{{../jsonPathPiece.anchorPiece}}) item) |
+                        {{/if}}
+                    {{else}}
+
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}String{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                    {{/if}}
+                {{else}}
+                    {{#eq @key "Integer"}}
+                        {{#if forDocs }}
+                            {{#if useContainer }}
+| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.anchorPiece}}) item) |
+                            {{else}}
+| {{builderClass}} | add([Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}}) item) |
+                            {{/if}}
+                        {{else}}
+
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Integer{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                        {{/if}}
+                    {{else}}
+                        {{#eq @key "Long"}}
+                            {{#if forDocs }}
+                                {{#if useContainer }}
+| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Long{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.anchorPiece}}) item) |
+                                {{else}}
+| {{builderClass}} | add([Long{{../jsonPathPiece.camelCase}}](#long{{../jsonPathPiece.anchorPiece}}) item) |
+                                {{/if}}
+                            {{else}}
+
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Long{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                            {{/if}}
+                        {{else}}
+                            {{#eq @key "Float"}}
+                                {{#if forDocs }}
+                                    {{#if useContainer }}
+| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Float{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.anchorPiece}}) item) |
+                                    {{else}}
+| {{builderClass}} | add([Float{{../jsonPathPiece.camelCase}}](#float{{../jsonPathPiece.anchorPiece}}) item) |
+                                    {{/if}}
+                                {{else}}
+
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Float{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                                {{/if}}
+                            {{else}}
+                                {{#eq @key "Double"}}
+                                    {{#if forDocs }}
+                                        {{#if useContainer }}
+| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Double{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.anchorPiece}}) item) |
+                                        {{else}}
+| {{builderClass}} | add([Double{{../jsonPathPiece.camelCase}}](#double{{../jsonPathPiece.anchorPiece}}) item) |
+                                        {{/if}}
+                                    {{else}}
+
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Double{{../jsonPathPiece.camelCase}} item) {
+    list.add(item.value());
+    return this;
+}
+                                    {{/if}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/each}}
+{{/with}}

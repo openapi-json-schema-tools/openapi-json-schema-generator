@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1](#objectwithinlinecompositionproperty1)<br> schema class |
-| static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMapInput](#objectwithinlinecompositionpropertymapinput)<br> builder for Map payloads |
+| static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap)<br> output class for Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.SomeProp](#someprop)<br> schema class |
 | static class | [ObjectWithInlineCompositionProperty.Schema0](#schema0)<br> schema class |
@@ -55,10 +55,10 @@ ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap valid
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map<?, ?>](#objectwithinlinecompositionpropertymapinput) arg, SchemaConfiguration configuration) |
+| [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map<?, ?>](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithInlineCompositionPropertyMapInput
-public class ObjectWithInlineCompositionPropertyMapInput<br>
+## ObjectWithInlineCompositionPropertyMapBuilder
+public class ObjectWithInlineCompositionPropertyMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -78,7 +78,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | of([Map<String, ? extends @Nullable Object>](#objectwithinlinecompositionpropertymapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | of([Map<String, ? extends @Nullable Object>](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | someProp()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

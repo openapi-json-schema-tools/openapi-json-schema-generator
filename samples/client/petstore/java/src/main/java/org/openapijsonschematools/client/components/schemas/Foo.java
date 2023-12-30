@@ -54,7 +54,7 @@ public class Foo {
             return get(name);
         }
     }
-    public static class FooMapInput {
+    public static class FooMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

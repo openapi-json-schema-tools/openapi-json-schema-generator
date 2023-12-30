@@ -25,7 +25,7 @@ public class MaxpropertiesValidationTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
-                    1L
+                    1
                 )
             ),
             configuration
@@ -38,13 +38,13 @@ public class MaxpropertiesValidationTest {
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "bar",
-                    2L
+                    2
                 )
             ),
             configuration
@@ -58,17 +58,17 @@ public class MaxpropertiesValidationTest {
         try {
             schema.validate(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "foo",
-                        1L
+                        1
                     ),
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "bar",
-                        2L
+                        2
                     ),
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "baz",
-                        3L
+                        3
                     )
                 ),
                 configuration
@@ -84,7 +84,7 @@ public class MaxpropertiesValidationTest {
         // ignores other non-objects
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }
@@ -95,9 +95,9 @@ public class MaxpropertiesValidationTest {
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1L,
-                2L,
-                3L
+                1,
+                2,
+                3
             ),
             configuration
         );

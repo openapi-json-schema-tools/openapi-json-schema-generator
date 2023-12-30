@@ -42,7 +42,7 @@ public class MinlengthValidationTest {
         // ignores non-strings
         final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

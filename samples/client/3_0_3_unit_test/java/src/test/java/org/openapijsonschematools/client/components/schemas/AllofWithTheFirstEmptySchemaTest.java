@@ -37,7 +37,7 @@ public class AllofWithTheFirstEmptySchemaTest {
         // number is valid
         final var schema = AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

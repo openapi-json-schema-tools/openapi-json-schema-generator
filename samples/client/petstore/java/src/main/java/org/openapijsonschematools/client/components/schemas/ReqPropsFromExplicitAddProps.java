@@ -59,7 +59,7 @@ public class ReqPropsFromExplicitAddProps {
             return getOrThrow(name);
         }
     }
-    public static class ReqPropsFromExplicitAddPropsMapInput {
+    public static class ReqPropsFromExplicitAddPropsMapBuilder {
         // requiredProperties + additionalProperties
     }
     

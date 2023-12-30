@@ -62,8 +62,26 @@ public class PaginatedResultMyObjectDto {
         }
     }
     
-    public static class ResultsListInput {
+    public static class ResultsListBuilder {
         // class to build List<Map<String, String>>
+        private final List<Map<String, String>> list;
+    
+        public ResultsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ResultsListBuilder(List<Map<String, String>> list) {
+            this.list = list;
+        }
+        
+        public ResultsListBuilder add(Map<String, String> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Map<String, String>> build() {
+            return list;
+        }
     }
     
     
@@ -146,12 +164,12 @@ public class PaginatedResultMyObjectDto {
             return PaginatedResultMyObjectDto1.getInstance().validate(arg, configuration);
         }
         
-        public long count() {
+        public Number count() {
                         Object value = get("count");
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for count");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public ResultsList results() {
@@ -162,7 +180,7 @@ public class PaginatedResultMyObjectDto {
             return (ResultsList) value;
         }
     }
-    public static class PaginatedResultMyObjectDtoMapInput {
+    public static class PaginatedResultMyObjectDtoMapBuilder {
         // empty mapping
     }
     

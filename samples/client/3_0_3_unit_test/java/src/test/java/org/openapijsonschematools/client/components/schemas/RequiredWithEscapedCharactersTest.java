@@ -47,29 +47,29 @@ public class RequiredWithEscapedCharactersTest {
         final var schema = RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo\nbar",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo\"bar",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo\\bar",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo\rbar",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo\tbar",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo\fbar",
-                    1L
+                    1
                 )
             ),
             configuration

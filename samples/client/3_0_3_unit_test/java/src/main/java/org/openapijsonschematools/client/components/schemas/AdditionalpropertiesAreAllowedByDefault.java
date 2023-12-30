@@ -85,7 +85,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return get(name);
         }
     }
-    public static class AdditionalpropertiesAreAllowedByDefaultMapInput {
+    public static class AdditionalpropertiesAreAllowedByDefaultMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

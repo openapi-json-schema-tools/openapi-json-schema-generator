@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
-| static class | [Schema.SchemaListInput](#schemalistinput)<br> builder for List payloads |
+| static class | [Schema.SchemaListBuilder](#schemalistbuilder)<br> builder for List payloads |
 | static class | [Schema.SchemaList](#schemalist)<br> output class for List payloads |
 
 ## Schema1
@@ -38,46 +38,48 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema.SchemaList validatedPayload =
     Schema.Schema1.validate(
-    Arrays.asList(
-        MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "id",
-                1L
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "username",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "firstName",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "lastName",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "email",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "password",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "phone",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "userStatus",
-                1
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "objectWithNoDeclaredPropsNullable",
-                null
+    new Schema.SchemaListBuilder(
+        Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "id",
+                    1L
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "username",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "firstName",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "lastName",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "email",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "password",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "phone",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "userStatus",
+                    1
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "objectWithNoDeclaredPropsNullable",
+                    null
+                )
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```
@@ -91,18 +93,25 @@ Schema.SchemaList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaList](#schemalist) | validate([List<?>](#schemalistinput) arg, SchemaConfiguration configuration) |
+| [SchemaList](#schemalist) | validate([List<?>](#schemalistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaListInput
-public class SchemaListInput<br>
-builder for `List<Map<String, ? extends @Nullable Object>>`
+## SchemaListBuilder
+public class SchemaListBuilder<br>
+builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, ? extends @Nullable Object> |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaListBuilder()<br>Creates an empty list |
+| SchemaListBuilder(List<Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| SchemaListBuilder | add(Map<String, @Nullable Object> item) |
+| List<Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## SchemaList
 public class SchemaList<br>
@@ -113,4 +122,4 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList](#schemalist) | of([List<Map<String, ? extends @Nullable Object>>](#schemalistinput) arg, SchemaConfiguration configuration) |
+| static [SchemaList](#schemalist) | of([List<Map<String, ? extends @Nullable Object>>](#schemalistbuilder) arg, SchemaConfiguration configuration) |

@@ -96,7 +96,7 @@ public class ObjectWithOnlyOptionalProps {
             return (Number) value;
         }
     }
-    public static class ObjectWithOnlyOptionalPropsMapInput {
+    public static class ObjectWithOnlyOptionalPropsMapBuilder {
         // empty mapping
     }
     

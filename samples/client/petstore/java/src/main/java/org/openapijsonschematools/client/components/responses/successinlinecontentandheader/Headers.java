@@ -56,7 +56,7 @@ public class Headers {
             return getOrThrow("someHeader");
         }
     }
-    public static class HeadersMapInput {
+    public static class HeadersMapBuilder {
         // empty mapping
     }
     

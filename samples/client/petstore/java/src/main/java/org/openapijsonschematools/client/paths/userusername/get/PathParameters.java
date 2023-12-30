@@ -56,7 +56,7 @@ public class PathParameters {
             return getOrThrow("username");
         }
     }
-    public static class PathParametersMapInput {
+    public static class PathParametersMapBuilder {
         // empty mapping
     }
     

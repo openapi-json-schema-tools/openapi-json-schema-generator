@@ -25,7 +25,7 @@ public class RequiredValidationTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
-                    1L
+                    1
                 )
             ),
             configuration
@@ -37,7 +37,7 @@ public class RequiredValidationTest {
         // ignores other non-objects
         final var schema = RequiredValidation.RequiredValidation1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }
@@ -72,7 +72,7 @@ public class RequiredValidationTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "bar",
-                        1L
+                        1
                     )
                 ),
                 configuration

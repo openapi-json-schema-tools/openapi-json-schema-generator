@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AnimalFarm.AnimalFarm1](#animalfarm1)<br> schema class |
-| static class | [AnimalFarm.AnimalFarmListInput](#animalfarmlistinput)<br> builder for List payloads |
+| static class | [AnimalFarm.AnimalFarmListBuilder](#animalfarmlistbuilder)<br> builder for List payloads |
 | static class | [AnimalFarm.AnimalFarmList](#animalfarmlist)<br> output class for List payloads |
 
 ## AnimalFarm1
@@ -38,18 +38,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 AnimalFarm.AnimalFarmList validatedPayload =
     AnimalFarm.AnimalFarm1.validate(
-    Arrays.asList(
-        MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<String, String>(
-                "className",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, String>(
-                "color",
-                "a"
+    new AnimalFarm.AnimalFarmListBuilder(
+        Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, String>(
+                    "className",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, String>(
+                    "color",
+                    "a"
+                )
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```
@@ -63,18 +65,25 @@ AnimalFarm.AnimalFarmList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnimalFarmList](#animalfarmlist) | validate([List<?>](#animalfarmlistinput) arg, SchemaConfiguration configuration) |
+| [AnimalFarmList](#animalfarmlist) | validate([List<?>](#animalfarmlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AnimalFarmListInput
-public class AnimalFarmListInput<br>
-builder for `List<Map<String, ? extends @Nullable Object>>`
+## AnimalFarmListBuilder
+public class AnimalFarmListBuilder<br>
+builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, ? extends @Nullable Object> |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnimalFarmListBuilder()<br>Creates an empty list |
+| AnimalFarmListBuilder(List<Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| AnimalFarmListBuilder | add(Map<String, @Nullable Object> item) |
+| List<Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## AnimalFarmList
 public class AnimalFarmList<br>
@@ -85,6 +94,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnimalFarmList](#animalfarmlist) | of([List<Map<String, ? extends @Nullable Object>>](#animalfarmlistinput) arg, SchemaConfiguration configuration) |
+| static [AnimalFarmList](#animalfarmlist) | of([List<Map<String, ? extends @Nullable Object>>](#animalfarmlistbuilder) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

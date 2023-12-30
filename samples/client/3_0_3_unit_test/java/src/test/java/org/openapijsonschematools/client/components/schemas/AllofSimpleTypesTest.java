@@ -23,7 +23,7 @@ public class AllofSimpleTypesTest {
         final var schema = AllofSimpleTypes.AllofSimpleTypes1.getInstance();
         try {
             schema.validate(
-                35L,
+                35,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -37,7 +37,7 @@ public class AllofSimpleTypesTest {
         // valid
         final var schema = AllofSimpleTypes.AllofSimpleTypes1.getInstance();
         schema.validate(
-            25L,
+            25,
             configuration
         );
     }

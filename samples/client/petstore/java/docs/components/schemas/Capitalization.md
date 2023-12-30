@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Capitalization.Capitalization1](#capitalization1)<br> schema class |
-| static class | [Capitalization.CapitalizationMapInput](#capitalizationmapinput)<br> builder for Map payloads |
+| static class | [Capitalization.CapitalizationMapBuilder](#capitalizationmapbuilder)<br> builder for Map payloads |
 | static class | [Capitalization.CapitalizationMap](#capitalizationmap)<br> output class for Map payloads |
 | static class | [Capitalization.ATTNAME](#attname)<br> schema class |
 | static class | [Capitalization.SCAETHFlowPoints](#scaethflowpoints)<br> schema class |
@@ -83,10 +83,10 @@ Capitalization.CapitalizationMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CapitalizationMap](#capitalizationmap) | validate([Map<?, ?>](#capitalizationmapinput) arg, SchemaConfiguration configuration) |
+| [CapitalizationMap](#capitalizationmap) | validate([Map<?, ?>](#capitalizationmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## CapitalizationMapInput
-public class CapitalizationMapInput<br>
+## CapitalizationMapBuilder
+public class CapitalizationMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -111,7 +111,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CapitalizationMap](#capitalizationmap) | of([Map<String, ? extends @Nullable Object>](#capitalizationmapinput) arg, SchemaConfiguration configuration) |
+| static [CapitalizationMap](#capitalizationmap) | of([Map<String, ? extends @Nullable Object>](#capitalizationmapbuilder) arg, SchemaConfiguration configuration) |
 | String | smallCamel()<br>[optional] |
 | String | CapitalCamel()<br>[optional] |
 | String | small_Snake()<br>[optional] |

@@ -36,7 +36,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "alpha",
-                    1L
+                    1
                 )
             ),
             configuration
@@ -52,7 +52,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "alpha",
-                        5L
+                        5
                     )
                 ),
                 configuration

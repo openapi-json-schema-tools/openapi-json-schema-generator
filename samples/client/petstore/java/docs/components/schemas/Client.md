@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Client.Client1](#client1)<br> schema class |
-| static class | [Client.ClientMapInput](#clientmapinput)<br> builder for Map payloads |
+| static class | [Client.ClientMapBuilder](#clientmapbuilder)<br> builder for Map payloads |
 | static class | [Client.ClientMap](#clientmap)<br> output class for Map payloads |
 | static class | [Client.Client2](#client2)<br> schema class |
 
@@ -58,10 +58,10 @@ Client.ClientMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ClientMap](#clientmap) | validate([Map<?, ?>](#clientmapinput) arg, SchemaConfiguration configuration) |
+| [ClientMap](#clientmap) | validate([Map<?, ?>](#clientmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ClientMapInput
-public class ClientMapInput<br>
+## ClientMapBuilder
+public class ClientMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -81,7 +81,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ClientMap](#clientmap) | of([Map<String, ? extends @Nullable Object>](#clientmapinput) arg, SchemaConfiguration configuration) |
+| static [ClientMap](#clientmap) | of([Map<String, ? extends @Nullable Object>](#clientmapbuilder) arg, SchemaConfiguration configuration) |
 | String | client()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

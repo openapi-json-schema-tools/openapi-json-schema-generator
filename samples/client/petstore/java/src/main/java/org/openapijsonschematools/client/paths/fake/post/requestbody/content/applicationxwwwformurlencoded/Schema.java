@@ -612,24 +612,24 @@ public class Schema {
             return (String) value;
         }
         
-        public int int32() throws UnsetPropertyException {
+        public Number int32() throws UnsetPropertyException {
             String key = "int32";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for int32");
             }
-            return (int) value;
+            return (Number) value;
         }
         
-        public long int64() throws UnsetPropertyException {
+        public Number int64() throws UnsetPropertyException {
             String key = "int64";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for int64");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public String binary() throws UnsetPropertyException {
@@ -688,7 +688,7 @@ public class Schema {
             return get(name);
         }
     }
-    public static class SchemaMapInput {
+    public static class SchemaMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

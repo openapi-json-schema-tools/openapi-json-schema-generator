@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1](#objectwithdifficultlynamedprops1)<br> schema class |
-| static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMapInput](#objectwithdifficultlynamedpropsmapinput)<br> builder for Map payloads |
+| static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMapBuilder](#objectwithdifficultlynamedpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap)<br> output class for Map payloads |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123Number](#schema123number)<br> schema class |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123list](#schema123list)<br> schema class |
@@ -72,10 +72,10 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map<?, ?>](#objectwithdifficultlynamedpropsmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map<?, ?>](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithDifficultlyNamedPropsMapInput
-public class ObjectWithDifficultlyNamedPropsMapInput<br>
+## ObjectWithDifficultlyNamedPropsMapBuilder
+public class ObjectWithDifficultlyNamedPropsMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -84,8 +84,8 @@ A class that builds the Map input type
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **123-list** | String |  | |
-| **$special[property.name]** | long |  | [optional] value must be a 64 bit integer |
-| **123Number** | long |  | [optional] |
+| **$special[property.name]** | Number |  | [optional] value must be a 64 bit integer |
+| **123Number** | Number |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectWithDifficultlyNamedPropsMap
@@ -97,7 +97,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | of([Map<String, ? extends @Nullable Object>](#objectwithdifficultlynamedpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | of([Map<String, ? extends @Nullable Object>](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["123-list"], instance["$special[property.name]"], instance["123Number"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

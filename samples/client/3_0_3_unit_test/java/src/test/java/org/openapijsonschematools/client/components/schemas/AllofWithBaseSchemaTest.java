@@ -48,11 +48,11 @@ public class AllofWithBaseSchemaTest {
         try {
             schema.validate(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, @Nullable Long>(
+                    new AbstractMap.SimpleEntry<String, @Nullable Number>(
                         "bar",
-                        2L
+                        2
                     ),
-                    new AbstractMap.SimpleEntry<String, @Nullable Long>(
+                    new AbstractMap.SimpleEntry<String, @Nullable Number>(
                         "baz",
                         null
                     )
@@ -77,7 +77,7 @@ public class AllofWithBaseSchemaTest {
                 ),
                 new AbstractMap.SimpleEntry<String, @Nullable Object>(
                     "bar",
-                    2L
+                    2
                 ),
                 new AbstractMap.SimpleEntry<String, @Nullable Object>(
                     "baz",
@@ -97,7 +97,7 @@ public class AllofWithBaseSchemaTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "bar",
-                        2L
+                        2
                     )
                 ),
                 configuration
@@ -121,7 +121,7 @@ public class AllofWithBaseSchemaTest {
                     ),
                     new AbstractMap.SimpleEntry<String, Object>(
                         "bar",
-                        2L
+                        2
                     )
                 ),
                 configuration

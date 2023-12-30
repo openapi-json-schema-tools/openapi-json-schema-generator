@@ -198,7 +198,7 @@ public class EnumsInProperties {
             return get(name);
         }
     }
-    public static class EnumsInPropertiesMapInput {
+    public static class EnumsInPropertiesMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

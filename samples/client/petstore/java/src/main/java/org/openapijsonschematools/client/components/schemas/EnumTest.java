@@ -442,24 +442,24 @@ public class EnumTest {
             return (String) value;
         }
         
-        public int enum_integer() throws UnsetPropertyException {
+        public Number enum_integer() throws UnsetPropertyException {
             String key = "enum_integer";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for enum_integer");
             }
-            return (int) value;
+            return (Number) value;
         }
         
-        public double enum_number() throws UnsetPropertyException {
+        public Number enum_number() throws UnsetPropertyException {
             String key = "enum_number";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Double)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for enum_number");
             }
-            return (double) value;
+            return (Number) value;
         }
         
         public @Nullable String stringEnum() throws UnsetPropertyException {
@@ -472,14 +472,14 @@ public class EnumTest {
             return (@Nullable String) value;
         }
         
-        public long IntegerEnum() throws UnsetPropertyException {
+        public Number IntegerEnum() throws UnsetPropertyException {
             String key = "IntegerEnum";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for IntegerEnum");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public String StringEnumWithDefaultValue() throws UnsetPropertyException {
@@ -492,24 +492,24 @@ public class EnumTest {
             return (String) value;
         }
         
-        public long IntegerEnumWithDefaultValue() throws UnsetPropertyException {
+        public Number IntegerEnumWithDefaultValue() throws UnsetPropertyException {
             String key = "IntegerEnumWithDefaultValue";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for IntegerEnumWithDefaultValue");
             }
-            return (long) value;
+            return (Number) value;
         }
         
-        public long IntegerEnumOneValue() throws UnsetPropertyException {
+        public Number IntegerEnumOneValue() throws UnsetPropertyException {
             String key = "IntegerEnumOneValue";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for IntegerEnumOneValue");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -518,7 +518,7 @@ public class EnumTest {
             return get(name);
         }
     }
-    public static class EnumTestMapInput {
+    public static class EnumTestMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

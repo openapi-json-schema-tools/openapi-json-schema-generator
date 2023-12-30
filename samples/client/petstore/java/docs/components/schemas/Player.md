@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Player.Player1](#player1)<br> schema class |
-| static class | [Player.PlayerMapInput](#playermapinput)<br> builder for Map payloads |
+| static class | [Player.PlayerMapBuilder](#playermapbuilder)<br> builder for Map payloads |
 | static class | [Player.PlayerMap](#playermap)<br> output class for Map payloads |
 | static class | [Player.Name](#name)<br> schema class |
 
@@ -61,10 +61,10 @@ Player.PlayerMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PlayerMap](#playermap) | validate([Map<?, ?>](#playermapinput) arg, SchemaConfiguration configuration) |
+| [PlayerMap](#playermap) | validate([Map<?, ?>](#playermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## PlayerMapInput
-public class PlayerMapInput<br>
+## PlayerMapBuilder
+public class PlayerMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -85,7 +85,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PlayerMap](#playermap) | of([Map<String, ? extends @Nullable Object>](#playermapinput) arg, SchemaConfiguration configuration) |
+| static [PlayerMap](#playermap) | of([Map<String, ? extends @Nullable Object>](#playermapbuilder) arg, SchemaConfiguration configuration) |
 | String | name()<br>[optional] |
 | [PlayerMap](#playermap) | enemyPlayer()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

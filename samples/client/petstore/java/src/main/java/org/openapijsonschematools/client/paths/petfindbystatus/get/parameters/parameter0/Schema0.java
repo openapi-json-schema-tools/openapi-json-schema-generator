@@ -104,8 +104,31 @@ public class Schema0 {
         }
     }
     
-    public static class SchemaListInput0 {
+    public static class SchemaListBuilder0 {
         // class to build List<String>
+        private final List<String> list;
+    
+        public SchemaListBuilder0() {
+            list = new ArrayList<>();
+        }
+    
+        public SchemaListBuilder0(List<String> list) {
+            this.list = list;
+        }
+        
+        public SchemaListBuilder0 add(String item) {
+            list.add(item);
+            return this;
+        }
+        
+        public SchemaListBuilder0 add(StringItemsEnums0 item) {
+            list.add(item.value());
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     

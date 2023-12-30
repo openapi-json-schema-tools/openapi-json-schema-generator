@@ -59,7 +59,7 @@ public class ReqPropsFromTrueAddProps {
             return getOrThrow(name);
         }
     }
-    public static class ReqPropsFromTrueAddPropsMapInput {
+    public static class ReqPropsFromTrueAddPropsMapBuilder {
         // Map<String, Object> because additionalProperties == true
     }
     

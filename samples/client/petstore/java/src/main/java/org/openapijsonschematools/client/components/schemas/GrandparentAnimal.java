@@ -64,7 +64,7 @@ public class GrandparentAnimal {
             return get(name);
         }
     }
-    public static class GrandparentAnimalMapInput {
+    public static class GrandparentAnimalMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

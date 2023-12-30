@@ -55,7 +55,7 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapPropertyMapInput {
+    public static class MapPropertyMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -156,7 +156,7 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class AdditionalPropertiesMapInput {
+    public static class AdditionalPropertiesMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -246,7 +246,7 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapOfMapPropertyMapInput {
+    public static class MapOfMapPropertyMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -380,7 +380,7 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapWithUndeclaredPropertiesAnytype3MapInput {
+    public static class MapWithUndeclaredPropertiesAnytype3MapBuilder {
         // Map<String, Object> because additionalProperties == true
     }
     
@@ -476,7 +476,7 @@ public class AdditionalPropertiesClass {
             return EmptyMap.getInstance().validate(arg, configuration);
         }
     }
-    public static class EmptyMapMapInput {
+    public static class EmptyMapMapBuilder {
         // empty mapping
     }
     
@@ -574,7 +574,7 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapWithUndeclaredPropertiesStringMapInput {
+    public static class MapWithUndeclaredPropertiesStringMapBuilder {
         // Map<String, additionalProperties>
     }
     
@@ -749,7 +749,7 @@ public class AdditionalPropertiesClass {
             return get(name);
         }
     }
-    public static class AdditionalPropertiesClassMapInput {
+    public static class AdditionalPropertiesClassMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

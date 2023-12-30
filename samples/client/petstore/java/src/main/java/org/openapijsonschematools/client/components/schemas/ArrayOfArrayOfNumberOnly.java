@@ -49,8 +49,41 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }
     
-    public static class ItemsListInput {
+    public static class ItemsListBuilder {
         // class to build List<Number>
+        private final List<Number> list;
+    
+        public ItemsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ItemsListBuilder(List<Number> list) {
+            this.list = list;
+        }
+        
+        public ItemsListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ItemsListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ItemsListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ItemsListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Number> build() {
+            return list;
+        }
     }
     
     
@@ -129,8 +162,26 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }
     
-    public static class ArrayArrayNumberListInput {
+    public static class ArrayArrayNumberListBuilder {
         // class to build List<List<Number>>
+        private final List<List<Number>> list;
+    
+        public ArrayArrayNumberListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayArrayNumberListBuilder(List<List<Number>> list) {
+            this.list = list;
+        }
+        
+        public ArrayArrayNumberListBuilder add(List<Number> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<List<Number>> build() {
+            return list;
+        }
     }
     
     
@@ -228,7 +279,7 @@ public class ArrayOfArrayOfNumberOnly {
             return get(name);
         }
     }
-    public static class ArrayOfArrayOfNumberOnlyMapInput {
+    public static class ArrayOfArrayOfNumberOnlyMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

@@ -33,8 +33,26 @@ public class AnimalFarm {
         }
     }
     
-    public static class AnimalFarmListInput {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+    public static class AnimalFarmListBuilder {
+        // class to build List<Map<String, @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public AnimalFarmListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public AnimalFarmListBuilder(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        
+        public AnimalFarmListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     

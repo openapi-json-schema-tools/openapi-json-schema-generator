@@ -32,7 +32,7 @@ public class MinimumValidationWithSignedIntegerTest {
         // boundary point is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
-            -2L,
+            -2,
             configuration
         );
     }
@@ -43,7 +43,7 @@ public class MinimumValidationWithSignedIntegerTest {
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         try {
             schema.validate(
-                -3L,
+                -3,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -57,7 +57,7 @@ public class MinimumValidationWithSignedIntegerTest {
         // positive above the minimum is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
-            0L,
+            0,
             configuration
         );
     }
@@ -67,7 +67,7 @@ public class MinimumValidationWithSignedIntegerTest {
         // negative above the minimum is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
-            -1L,
+            -1,
             configuration
         );
     }

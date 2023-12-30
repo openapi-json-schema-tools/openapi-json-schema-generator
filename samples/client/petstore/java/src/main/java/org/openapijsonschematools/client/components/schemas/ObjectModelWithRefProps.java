@@ -76,7 +76,7 @@ public class ObjectModelWithRefProps {
             return get(name);
         }
     }
-    public static class ObjectModelWithRefPropsMapInput {
+    public static class ObjectModelWithRefPropsMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

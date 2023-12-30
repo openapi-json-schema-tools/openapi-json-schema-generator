@@ -67,7 +67,7 @@ public class MyObjectDto {
             return getOrThrow("id");
         }
     }
-    public static class MyObjectDtoMapInput {
+    public static class MyObjectDtoMapBuilder {
         // empty mapping
     }
     

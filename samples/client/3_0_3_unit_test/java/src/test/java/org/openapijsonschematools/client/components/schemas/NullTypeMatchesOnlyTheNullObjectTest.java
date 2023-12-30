@@ -23,7 +23,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         try {
             schema.validate(
-                0L,
+                0,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -125,7 +125,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         try {
             schema.validate(
-                1L,
+                1,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

@@ -56,7 +56,7 @@ public class StringBooleanMap {
             return (boolean) value;
         }
     }
-    public static class StringBooleanMapMapInput {
+    public static class StringBooleanMapMapBuilder {
         // Map<String, additionalProperties>
     }
     

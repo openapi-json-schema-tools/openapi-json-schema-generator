@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
-| static class | [Schema4.SchemaListInput4](#schemalistinput4)<br> builder for List payloads |
+| static class | [Schema4.SchemaListBuilder4](#schemalistbuilder4)<br> builder for List payloads |
 | static class | [Schema4.SchemaList4](#schemalist4)<br> output class for List payloads |
 | static class | [Schema4.Items4](#items4)<br> schema class |
 
@@ -39,9 +39,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema4.SchemaList4 validatedPayload =
     Schema4.Schema41.validate(
-    Arrays.asList(
-        "a"
-    ),
+    new Schema4.SchemaListBuilder4(
+        Arrays.asList(
+            "a"
+        )
+    ).build(),
     configuration
 );
 ```
@@ -55,18 +57,25 @@ Schema4.SchemaList4 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaList4](#schemalist4) | validate([List<?>](#schemalistinput4) arg, SchemaConfiguration configuration) |
+| [SchemaList4](#schemalist4) | validate([List<?>](#schemalistbuilder4) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaListInput4
-public class SchemaListInput4<br>
+## SchemaListBuilder4
+public class SchemaListBuilder4<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaListBuilder4()<br>Creates an empty list |
+| SchemaListBuilder4(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| SchemaListBuilder4 | add(String item) |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## SchemaList4
 public class SchemaList4<br>
@@ -77,7 +86,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList4](#schemalist4) | of([List<String>](#schemalistinput4) arg, SchemaConfiguration configuration) |
+| static [SchemaList4](#schemalist4) | of([List<String>](#schemalistbuilder4) arg, SchemaConfiguration configuration) |
 
 ## Items4
 public static class Items4<br>

@@ -62,8 +62,8 @@ public class NoAdditionalProperties {
     }
     
     
-    public static class NoAdditionalPropertiesMap extends FrozenMap<Long> {
-        protected NoAdditionalPropertiesMap(FrozenMap<Long> m) {
+    public static class NoAdditionalPropertiesMap extends FrozenMap<Number> {
+        protected NoAdditionalPropertiesMap(FrozenMap<Number> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -72,19 +72,19 @@ public class NoAdditionalProperties {
         public static final Set<String> optionalKeys = Set.of(
             "petId"
         );
-        public static NoAdditionalPropertiesMap of(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static NoAdditionalPropertiesMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return NoAdditionalProperties1.getInstance().validate(arg, configuration);
         }
         
-        public long id() {
+        public Number id() {
             return getOrThrow("id");
         }
         
-        public long petId() throws UnsetPropertyException {
+        public Number petId() throws UnsetPropertyException {
             return getOrThrow("petId");
         }
     }
-    public static class NoAdditionalPropertiesMapInput {
+    public static class NoAdditionalPropertiesMapBuilder {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
     
@@ -120,7 +120,7 @@ public class NoAdditionalProperties {
         }
         
         public NoAdditionalPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Long> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
@@ -136,12 +136,12 @@ public class NoAdditionalProperties {
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                if (!(propertyInstance instanceof Long)) {
+                if (!(propertyInstance instanceof Number)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                properties.put(propertyName, (Long) propertyInstance);
+                properties.put(propertyName, (Number) propertyInstance);
             }
-            FrozenMap<Long> castProperties = new FrozenMap<>(properties);
+            FrozenMap<Number> castProperties = new FrozenMap<>(properties);
             return new NoAdditionalPropertiesMap(castProperties);
         }
         

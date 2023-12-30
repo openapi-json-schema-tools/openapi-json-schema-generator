@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AbstractStepMessage.AbstractStepMessage1](#abstractstepmessage1)<br> schema class |
-| static class | [AbstractStepMessage.AbstractStepMessageMapInput](#abstractstepmessagemapinput)<br> builder for Map payloads |
+| static class | [AbstractStepMessage.AbstractStepMessageMapBuilder](#abstractstepmessagemapbuilder)<br> builder for Map payloads |
 | static class | [AbstractStepMessage.AbstractStepMessageMap](#abstractstepmessagemap)<br> output class for Map payloads |
 | static class | [AbstractStepMessage.Discriminator](#discriminator)<br> schema class |
 
@@ -63,10 +63,10 @@ AbstractStepMessage.AbstractStepMessageMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AbstractStepMessageMap](#abstractstepmessagemap) | validate([Map<?, ?>](#abstractstepmessagemapinput) arg, SchemaConfiguration configuration) |
+| [AbstractStepMessageMap](#abstractstepmessagemap) | validate([Map<?, ?>](#abstractstepmessagemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AbstractStepMessageMapInput
-public class AbstractStepMessageMapInput<br>
+## AbstractStepMessageMapBuilder
+public class AbstractStepMessageMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -88,7 +88,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AbstractStepMessageMap](#abstractstepmessagemap) | of([Map<String, ? extends @Nullable Object>](#abstractstepmessagemapinput) arg, SchemaConfiguration configuration) |
+| static [AbstractStepMessageMap](#abstractstepmessagemap) | of([Map<String, ? extends @Nullable Object>](#abstractstepmessagemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | description()<br> |
 | String | discriminator()<br> |
 | @Nullable Object | sequenceNumber()<br> |

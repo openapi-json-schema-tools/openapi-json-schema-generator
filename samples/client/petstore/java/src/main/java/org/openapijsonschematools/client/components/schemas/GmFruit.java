@@ -75,7 +75,7 @@ public class GmFruit {
             return get(name);
         }
     }
-    public static class GmFruitMapInput {
+    public static class GmFruitMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

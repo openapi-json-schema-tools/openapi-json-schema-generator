@@ -122,7 +122,7 @@ public class Animal {
             return get(name);
         }
     }
-    public static class AnimalMapInput {
+    public static class AnimalMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

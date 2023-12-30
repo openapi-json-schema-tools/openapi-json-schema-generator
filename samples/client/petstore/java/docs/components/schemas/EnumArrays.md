@@ -14,10 +14,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumArrays.EnumArrays1](#enumarrays1)<br> schema class |
-| static class | [EnumArrays.EnumArraysMapInput](#enumarraysmapinput)<br> builder for Map payloads |
+| static class | [EnumArrays.EnumArraysMapBuilder](#enumarraysmapbuilder)<br> builder for Map payloads |
 | static class | [EnumArrays.EnumArraysMap](#enumarraysmap)<br> output class for Map payloads |
 | static class | [EnumArrays.ArrayEnum](#arrayenum)<br> schema class |
-| static class | [EnumArrays.ArrayEnumListInput](#arrayenumlistinput)<br> builder for List payloads |
+| static class | [EnumArrays.ArrayEnumListBuilder](#arrayenumlistbuilder)<br> builder for List payloads |
 | static class | [EnumArrays.ArrayEnumList](#arrayenumlist)<br> output class for List payloads |
 | static class | [EnumArrays.Items](#items)<br> schema class |
 | enum | [EnumArrays.StringItemsEnums](#stringitemsenums)<br>String enum |
@@ -73,10 +73,10 @@ EnumArrays.EnumArraysMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumArraysMap](#enumarraysmap) | validate([Map<?, ?>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
+| [EnumArraysMap](#enumarraysmap) | validate([Map<?, ?>](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## EnumArraysMapInput
-public class EnumArraysMapInput<br>
+## EnumArraysMapBuilder
+public class EnumArraysMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -97,7 +97,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumArraysMap](#enumarraysmap) | of([Map<String, ? extends @Nullable Object>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumArraysMap](#enumarraysmap) | of([Map<String, ? extends @Nullable Object>](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
 | String | just_symbol()<br>[optional] must be one of [">=", "$"] |
 | [ArrayEnumList](#arrayenumlist) | array_enum()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
@@ -126,9 +126,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 EnumArrays.ArrayEnumList validatedPayload =
     EnumArrays.ArrayEnum.validate(
-    Arrays.asList(
-        "fish"
-    ),
+    new .ArrayEnumListBuilder(
+        Arrays.asList(
+            "fish"
+        )
+    ).build(),
     configuration
 );
 ```
@@ -142,18 +144,26 @@ EnumArrays.ArrayEnumList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistinput) arg, SchemaConfiguration configuration) |
+| [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayEnumListInput
-public class ArrayEnumListInput<br>
+## ArrayEnumListBuilder
+public class ArrayEnumListBuilder<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  | must be one of ["fish", "crab"]
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayEnumListBuilder()<br>Creates an empty list |
+| ArrayEnumListBuilder(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| ArrayEnumListBuilder | add(String item) |
+| ArrayEnumListBuilder | add([StringItemsEnums](#stringitemsenums) item) |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayEnumList
 public class ArrayEnumList<br>
@@ -164,7 +174,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayEnumList](#arrayenumlist) | of([List<String>](#arrayenumlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayEnumList](#arrayenumlist) | of([List<String>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -56,7 +56,7 @@ public class QueryParameters {
             return getOrThrow("query");
         }
     }
-    public static class QueryParametersMapInput {
+    public static class QueryParametersMapBuilder {
         // empty mapping
     }
     

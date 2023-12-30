@@ -65,7 +65,7 @@ public class ReturnSchema {
             return get(name);
         }
     }
-    public static class ReturnMapInput {
+    public static class ReturnMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

@@ -36,8 +36,31 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
     }
     
-    public static class AdditionalPropertiesListInput {
+    public static class AdditionalPropertiesListBuilder {
         // class to build List<String>
+        private final List<String> list;
+    
+        public AdditionalPropertiesListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public AdditionalPropertiesListBuilder(List<String> list) {
+            this.list = list;
+        }
+        
+        public AdditionalPropertiesListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+        
+        public AdditionalPropertiesListBuilder add(EnumClass.StringEnumClassEnums item) {
+            list.add(item.value());
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     
@@ -125,7 +148,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return (AdditionalPropertiesList) value;
         }
     }
-    public static class AdditionalPropertiesWithArrayOfEnumsMapInput {
+    public static class AdditionalPropertiesWithArrayOfEnumsMapBuilder {
         // Map<String, additionalProperties>
     }
     

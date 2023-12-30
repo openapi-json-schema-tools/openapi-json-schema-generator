@@ -72,14 +72,14 @@ public class ObjectPropertiesValidation {
             return ObjectPropertiesValidation1.getInstance().validate(arg, configuration);
         }
         
-        public long foo() throws UnsetPropertyException {
+        public Number foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for foo");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public String bar() throws UnsetPropertyException {
@@ -98,7 +98,7 @@ public class ObjectPropertiesValidation {
             return get(name);
         }
     }
-    public static class ObjectPropertiesValidationMapInput {
+    public static class ObjectPropertiesValidationMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

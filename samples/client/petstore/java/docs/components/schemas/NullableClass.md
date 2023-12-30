@@ -13,30 +13,30 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NullableClass.NullableClass1](#nullableclass1)<br> schema class |
-| static class | [NullableClass.NullableClassMapInput](#nullableclassmapinput)<br> builder for Map payloads |
+| static class | [NullableClass.NullableClassMapBuilder](#nullableclassmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.NullableClassMap](#nullableclassmap)<br> output class for Map payloads |
 | static class | [NullableClass.ObjectItemsNullable](#objectitemsnullable)<br> schema class |
-| static class | [NullableClass.ObjectItemsNullableMapInput](#objectitemsnullablemapinput)<br> builder for Map payloads |
+| static class | [NullableClass.ObjectItemsNullableMapBuilder](#objectitemsnullablemapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectItemsNullableMap](#objectitemsnullablemap)<br> output class for Map payloads |
 | static class | [NullableClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | static class | [NullableClass.ObjectAndItemsNullableProp](#objectanditemsnullableprop)<br> schema class |
-| static class | [NullableClass.ObjectAndItemsNullablePropMapInput](#objectanditemsnullablepropmapinput)<br> builder for Map payloads |
+| static class | [NullableClass.ObjectAndItemsNullablePropMapBuilder](#objectanditemsnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap)<br> output class for Map payloads |
 | static class | [NullableClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
 | static class | [NullableClass.ObjectNullableProp](#objectnullableprop)<br> schema class |
-| static class | [NullableClass.ObjectNullablePropMapInput](#objectnullablepropmapinput)<br> builder for Map payloads |
+| static class | [NullableClass.ObjectNullablePropMapBuilder](#objectnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectNullablePropMap](#objectnullablepropmap)<br> output class for Map payloads |
 | static class | [NullableClass.AdditionalProperties](#additionalproperties)<br> schema class |
 | static class | [NullableClass.ArrayItemsNullable](#arrayitemsnullable)<br> schema class |
-| static class | [NullableClass.ArrayItemsNullableListInput](#arrayitemsnullablelistinput)<br> builder for List payloads |
+| static class | [NullableClass.ArrayItemsNullableListBuilder](#arrayitemsnullablelistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayItemsNullableList](#arrayitemsnullablelist)<br> output class for List payloads |
 | static class | [NullableClass.Items2](#items2)<br> schema class |
 | static class | [NullableClass.ArrayAndItemsNullableProp](#arrayanditemsnullableprop)<br> schema class |
-| static class | [NullableClass.ArrayAndItemsNullablePropListInput](#arrayanditemsnullableproplistinput)<br> builder for List payloads |
+| static class | [NullableClass.ArrayAndItemsNullablePropListBuilder](#arrayanditemsnullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist)<br> output class for List payloads |
 | static class | [NullableClass.Items1](#items1)<br> schema class |
 | static class | [NullableClass.ArrayNullableProp](#arraynullableprop)<br> schema class |
-| static class | [NullableClass.ArrayNullablePropListInput](#arraynullableproplistinput)<br> builder for List payloads |
+| static class | [NullableClass.ArrayNullablePropListBuilder](#arraynullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayNullablePropList](#arraynullableproplist)<br> output class for List payloads |
 | static class | [NullableClass.Items](#items)<br> schema class |
 | static class | [NullableClass.DatetimeProp](#datetimeprop)<br> schema class |
@@ -138,10 +138,10 @@ NullableClass.NullableClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NullableClassMap](#nullableclassmap) | validate([Map<?, ?>](#nullableclassmapinput) arg, SchemaConfiguration configuration) |
+| [NullableClassMap](#nullableclassmap) | validate([Map<?, ?>](#nullableclassmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## NullableClassMapInput
-public class NullableClassMapInput<br>
+## NullableClassMapBuilder
+public class NullableClassMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -149,7 +149,7 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **integer_prop** | ? extends @Nullable Long |  | [optional] |
+| **integer_prop** | ? extends @Nullable Number |  | [optional] |
 | **number_prop** | ? extends @Nullable Number |  | [optional] |
 | **boolean_prop** | ? extends @Nullable Boolean |  | [optional] |
 | **string_prop** | ? extends @Nullable String |  | [optional] |
@@ -172,8 +172,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NullableClassMap](#nullableclassmap) | of([Map<String, ? extends @Nullable Object>](#nullableclassmapinput) arg, SchemaConfiguration configuration) |
-| @Nullable Long | integer_prop()<br>[optional] |
+| static [NullableClassMap](#nullableclassmap) | of([Map<String, ? extends @Nullable Object>](#nullableclassmapbuilder) arg, SchemaConfiguration configuration) |
+| @Nullable Number | integer_prop()<br>[optional] |
 | @Nullable Number | number_prop()<br>[optional] |
 | @Nullable Boolean | boolean_prop()<br>[optional] |
 | @Nullable String | string_prop()<br>[optional] |
@@ -226,10 +226,10 @@ NullableClass.ObjectItemsNullableMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map<?, ?>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
+| [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map<?, ?>](#objectitemsnullablemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectItemsNullableMapInput
-public class ObjectItemsNullableMapInput<br>
+## ObjectItemsNullableMapBuilder
+public class ObjectItemsNullableMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>`
 
 A class that builds the Map input type
@@ -248,7 +248,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectItemsNullableMap](#objectitemsnullablemap) | of([Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectItemsNullableMap](#objectitemsnullablemap) | of([Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>](#objectitemsnullablemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties2
@@ -336,10 +336,10 @@ NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map<?, ?>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map<?, ?>](#objectanditemsnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectAndItemsNullablePropMapInput
-public class ObjectAndItemsNullablePropMapInput<br>
+## ObjectAndItemsNullablePropMapBuilder
+public class ObjectAndItemsNullablePropMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>`
 
 A class that builds the Map input type
@@ -358,7 +358,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | of([Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | of([Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>](#objectanditemsnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties1
@@ -446,10 +446,10 @@ NullableClass.ObjectNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map<?, ?>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map<?, ?>](#objectnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectNullablePropMapInput
-public class ObjectNullablePropMapInput<br>
+## ObjectNullablePropMapBuilder
+public class ObjectNullablePropMapBuilder<br>
 builder for `Map<String, Map<String, ? extends @Nullable Object>>`
 
 A class that builds the Map input type
@@ -468,7 +468,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectNullablePropMap](#objectnullablepropmap) | of([Map<String, Map<String, ? extends @Nullable Object>>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectNullablePropMap](#objectnullablepropmap) | of([Map<String, Map<String, ? extends @Nullable Object>>](#objectnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
@@ -505,9 +505,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NullableClass.ArrayItemsNullableList validatedPayload =
     NullableClass.ArrayItemsNullable.validate(
-    Arrays.asList(
-        null
-    ),
+    new .ArrayItemsNullableListBuilder(
+        Arrays.asList(
+            null
+        )
+    ).build(),
     configuration
 );
 ```
@@ -521,18 +523,26 @@ NullableClass.ArrayItemsNullableList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayItemsNullableList](#arrayitemsnullablelist) | validate([List<?>](#arrayitemsnullablelistinput) arg, SchemaConfiguration configuration) |
+| [ArrayItemsNullableList](#arrayitemsnullablelist) | validate([List<?>](#arrayitemsnullablelistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayItemsNullableListInput
-public class ArrayItemsNullableListInput<br>
-builder for `List<? extends @Nullable Map<String, ? extends @Nullable Object>>`
+## ArrayItemsNullableListBuilder
+public class ArrayItemsNullableListBuilder<br>
+builder for `List<@Nullable Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Map<String, ? extends @Nullable Object> |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayItemsNullableListBuilder()<br>Creates an empty list |
+| ArrayItemsNullableListBuilder(List<@Nullable Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| ArrayItemsNullableListBuilder | add(Void item) |
+| ArrayItemsNullableListBuilder | add(Map<String, @Nullable Object> item) |
+| List<@Nullable Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayItemsNullableList
 public class ArrayItemsNullableList<br>
@@ -543,7 +553,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayItemsNullableList](#arrayitemsnullablelist) | of([List<? extends @Nullable Map<String, ? extends @Nullable Object>>](#arrayitemsnullablelistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayItemsNullableList](#arrayitemsnullablelist) | of([List<? extends @Nullable Map<String, ? extends @Nullable Object>>](#arrayitemsnullablelistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>
@@ -614,9 +624,11 @@ Void validatedPayload = NullableClass.ArrayAndItemsNullableProp.validate(
 // List validation
 NullableClass.ArrayAndItemsNullablePropList validatedPayload =
     NullableClass.ArrayAndItemsNullableProp.validate(
-    Arrays.asList(
-        null
-    ),
+    new .ArrayAndItemsNullablePropListBuilder(
+        Arrays.asList(
+            null
+        )
+    ).build(),
     configuration
 );
 ```
@@ -631,18 +643,26 @@ NullableClass.ArrayAndItemsNullablePropList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | validate([List<?>](#arrayanditemsnullableproplistinput) arg, SchemaConfiguration configuration) |
+| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | validate([List<?>](#arrayanditemsnullableproplistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayAndItemsNullablePropListInput
-public class ArrayAndItemsNullablePropListInput<br>
-builder for `List<? extends @Nullable Map<String, ? extends @Nullable Object>>`
+## ArrayAndItemsNullablePropListBuilder
+public class ArrayAndItemsNullablePropListBuilder<br>
+builder for `List<@Nullable Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-? extends @Nullable Map<String, ? extends @Nullable Object> |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayAndItemsNullablePropListBuilder()<br>Creates an empty list |
+| ArrayAndItemsNullablePropListBuilder(List<@Nullable Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| ArrayAndItemsNullablePropListBuilder | add(Void item) |
+| ArrayAndItemsNullablePropListBuilder | add(Map<String, @Nullable Object> item) |
+| List<@Nullable Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayAndItemsNullablePropList
 public class ArrayAndItemsNullablePropList<br>
@@ -653,7 +673,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | of([List<? extends @Nullable Map<String, ? extends @Nullable Object>>](#arrayanditemsnullableproplistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | of([List<? extends @Nullable Map<String, ? extends @Nullable Object>>](#arrayanditemsnullableproplistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>
@@ -724,8 +744,10 @@ Void validatedPayload = NullableClass.ArrayNullableProp.validate(
 // List validation
 NullableClass.ArrayNullablePropList validatedPayload =
     NullableClass.ArrayNullableProp.validate(
-    Arrays.asList(
-    ),
+    new .ArrayNullablePropListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```
@@ -740,18 +762,25 @@ NullableClass.ArrayNullablePropList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [ArrayNullablePropList](#arraynullableproplist) | validate([List<?>](#arraynullableproplistinput) arg, SchemaConfiguration configuration) |
+| [ArrayNullablePropList](#arraynullableproplist) | validate([List<?>](#arraynullableproplistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayNullablePropListInput
-public class ArrayNullablePropListInput<br>
-builder for `List<Map<String, ? extends @Nullable Object>>`
+## ArrayNullablePropListBuilder
+public class ArrayNullablePropListBuilder<br>
+builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, ? extends @Nullable Object> |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayNullablePropListBuilder()<br>Creates an empty list |
+| ArrayNullablePropListBuilder(List<Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| ArrayNullablePropListBuilder | add(Map<String, @Nullable Object> item) |
+| List<Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayNullablePropList
 public class ArrayNullablePropList<br>
@@ -762,7 +791,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayNullablePropList](#arraynullableproplist) | of([List<Map<String, ? extends @Nullable Object>>](#arraynullableproplistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayNullablePropList](#arraynullableproplist) | of([List<Map<String, ? extends @Nullable Object>>](#arraynullableproplistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

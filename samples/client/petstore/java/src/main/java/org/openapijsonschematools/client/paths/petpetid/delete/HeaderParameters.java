@@ -56,7 +56,7 @@ public class HeaderParameters {
             return getOrThrow("api_key");
         }
     }
-    public static class HeaderParametersMapInput {
+    public static class HeaderParametersMapBuilder {
         // empty mapping
     }
     

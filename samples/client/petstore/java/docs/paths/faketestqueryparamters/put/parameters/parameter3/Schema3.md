@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema3.Schema31](#schema31)<br> schema class |
-| static class | [Schema3.SchemaListInput3](#schemalistinput3)<br> builder for List payloads |
+| static class | [Schema3.SchemaListBuilder3](#schemalistbuilder3)<br> builder for List payloads |
 | static class | [Schema3.SchemaList3](#schemalist3)<br> output class for List payloads |
 | static class | [Schema3.Items3](#items3)<br> schema class |
 
@@ -39,9 +39,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema3.SchemaList3 validatedPayload =
     Schema3.Schema31.validate(
-    Arrays.asList(
-        "a"
-    ),
+    new Schema3.SchemaListBuilder3(
+        Arrays.asList(
+            "a"
+        )
+    ).build(),
     configuration
 );
 ```
@@ -55,18 +57,25 @@ Schema3.SchemaList3 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaList3](#schemalist3) | validate([List<?>](#schemalistinput3) arg, SchemaConfiguration configuration) |
+| [SchemaList3](#schemalist3) | validate([List<?>](#schemalistbuilder3) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaListInput3
-public class SchemaListInput3<br>
+## SchemaListBuilder3
+public class SchemaListBuilder3<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaListBuilder3()<br>Creates an empty list |
+| SchemaListBuilder3(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| SchemaListBuilder3 | add(String item) |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## SchemaList3
 public class SchemaList3<br>
@@ -77,7 +86,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList3](#schemalist3) | of([List<String>](#schemalistinput3) arg, SchemaConfiguration configuration) |
+| static [SchemaList3](#schemalist3) | of([List<String>](#schemalistbuilder3) arg, SchemaConfiguration configuration) |
 
 ## Items3
 public static class Items3<br>

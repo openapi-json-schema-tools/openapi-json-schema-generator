@@ -23,7 +23,7 @@ public class ByNumberTest {
         final var schema = ByNumber.ByNumber1.getInstance();
         try {
             schema.validate(
-                35L,
+                35,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");
@@ -47,7 +47,7 @@ public class ByNumberTest {
         // zero is multiple of anything
         final var schema = ByNumber.ByNumber1.getInstance();
         schema.validate(
-            0L,
+            0,
             configuration
         );
     }

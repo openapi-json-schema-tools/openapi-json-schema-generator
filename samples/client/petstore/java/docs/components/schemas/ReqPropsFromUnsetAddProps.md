@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1](#reqpropsfromunsetaddprops1)<br> schema class |
-| static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMapInput](#reqpropsfromunsetaddpropsmapinput)<br> builder for Map payloads |
+| static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMapBuilder](#reqpropsfromunsetaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap)<br> output class for Map payloads |
 
 ## ReqPropsFromUnsetAddProps1
@@ -53,10 +53,10 @@ ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<?, ?>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<?, ?>](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ReqPropsFromUnsetAddPropsMapInput
-public class ReqPropsFromUnsetAddPropsMapInput<br>
+## ReqPropsFromUnsetAddPropsMapBuilder
+public class ReqPropsFromUnsetAddPropsMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -77,7 +77,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | of([Map<String, ? extends @Nullable Object>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | of([Map<String, ? extends @Nullable Object>](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validName()<br> |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

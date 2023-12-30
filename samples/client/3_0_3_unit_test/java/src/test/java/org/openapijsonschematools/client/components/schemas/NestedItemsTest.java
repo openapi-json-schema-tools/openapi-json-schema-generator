@@ -32,23 +32,23 @@ public class NestedItemsTest {
                         ),
                         Arrays.asList(
                             Arrays.asList(
-                                2L
+                                2
                             ),
                             Arrays.asList(
-                                3L
+                                3
                             )
                         )
                     ),
                     Arrays.asList(
                         Arrays.asList(
                             Arrays.asList(
-                                4L
+                                4
                             ),
                             Arrays.asList(
-                                5L
+                                5
                             ),
                             Arrays.asList(
-                                6L
+                                6
                             )
                         )
                     )
@@ -70,24 +70,24 @@ public class NestedItemsTest {
                 Arrays.asList(
                     Arrays.asList(
                         Arrays.asList(
-                            1L
+                            1
                         ),
                         Arrays.asList(
-                            2L
+                            2
                         ),
                         Arrays.asList(
-                            3L
+                            3
                         )
                     ),
                     Arrays.asList(
                         Arrays.asList(
-                            4L
+                            4
                         ),
                         Arrays.asList(
-                            5L
+                            5
                         ),
                         Arrays.asList(
-                            6L
+                            6
                         )
                     )
                 ),
@@ -104,36 +104,38 @@ public class NestedItemsTest {
         // valid nested array
         final var schema = NestedItems.NestedItems1.getInstance();
         schema.validate(
-            Arrays.asList(
+            new NestedItems.NestedItemsListBuilder(
                 Arrays.asList(
                     Arrays.asList(
                         Arrays.asList(
-                            1L
+                            Arrays.asList(
+                                1
+                            )
+                        ),
+                        Arrays.asList(
+                            Arrays.asList(
+                                2
+                            ),
+                            Arrays.asList(
+                                3
+                            )
                         )
                     ),
                     Arrays.asList(
                         Arrays.asList(
-                            2L
-                        ),
-                        Arrays.asList(
-                            3L
-                        )
-                    )
-                ),
-                Arrays.asList(
-                    Arrays.asList(
-                        Arrays.asList(
-                            4L
-                        ),
-                        Arrays.asList(
-                            5L
-                        ),
-                        Arrays.asList(
-                            6L
+                            Arrays.asList(
+                                4
+                            ),
+                            Arrays.asList(
+                                5
+                            ),
+                            Arrays.asList(
+                                6
+                            )
                         )
                     )
                 )
-            ),
+            ).build(),
             configuration
         );
     }

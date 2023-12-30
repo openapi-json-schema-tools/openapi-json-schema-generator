@@ -90,7 +90,7 @@ public class CookieParameters {
             return (String) value;
         }
     }
-    public static class CookieParametersMapInput {
+    public static class CookieParametersMapBuilder {
         // empty mapping
     }
     

@@ -48,7 +48,7 @@ public class EnumWithFalseDoesNotMatch0Test {
         final var schema = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.getInstance();
         try {
             schema.validate(
-                0L,
+                0,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

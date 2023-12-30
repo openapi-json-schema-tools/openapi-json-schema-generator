@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
-| static class | [Schema0.SchemaMapInput0](#schemamapinput0)<br> builder for Map payloads |
+| static class | [Schema0.SchemaMapBuilder0](#schemamapbuilder0)<br> builder for Map payloads |
 | static class | [Schema0.SchemaMap0](#schemamap0)<br> output class for Map payloads |
 | static class | [Schema0.Keyword0](#keyword0)<br> schema class |
 
@@ -58,10 +58,10 @@ Schema0.SchemaMap0 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap0](#schemamap0) | validate([Map<?, ?>](#schemamapinput0) arg, SchemaConfiguration configuration) |
+| [SchemaMap0](#schemamap0) | validate([Map<?, ?>](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaMapInput0
-public class SchemaMapInput0<br>
+## SchemaMapBuilder0
+public class SchemaMapBuilder0<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -81,7 +81,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap0](#schemamap0) | of([Map<String, ? extends @Nullable Object>](#schemamapinput0) arg, SchemaConfiguration configuration) |
+| static [SchemaMap0](#schemamap0) | of([Map<String, ? extends @Nullable Object>](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
 | String | keyword()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

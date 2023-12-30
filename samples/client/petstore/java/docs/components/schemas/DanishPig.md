@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [DanishPig.DanishPig1](#danishpig1)<br> schema class |
-| static class | [DanishPig.DanishPigMapInput](#danishpigmapinput)<br> builder for Map payloads |
+| static class | [DanishPig.DanishPigMapBuilder](#danishpigmapbuilder)<br> builder for Map payloads |
 | static class | [DanishPig.DanishPigMap](#danishpigmap)<br> output class for Map payloads |
 | static class | [DanishPig.ClassName](#classname)<br> schema class |
 | enum | [DanishPig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
@@ -61,10 +61,10 @@ DanishPig.DanishPigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [DanishPigMap](#danishpigmap) | validate([Map<?, ?>](#danishpigmapinput) arg, SchemaConfiguration configuration) |
+| [DanishPigMap](#danishpigmap) | validate([Map<?, ?>](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## DanishPigMapInput
-public class DanishPigMapInput<br>
+## DanishPigMapBuilder
+public class DanishPigMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -84,7 +84,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DanishPigMap](#danishpigmap) | of([Map<String, ? extends @Nullable Object>](#danishpigmapinput) arg, SchemaConfiguration configuration) |
+| static [DanishPigMap](#danishpigmap) | of([Map<String, ? extends @Nullable Object>](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["DanishPig"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

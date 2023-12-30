@@ -25,7 +25,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
-                    1L
+                    1
                 )
             ),
             configuration
@@ -40,11 +40,11 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
-                    1L
+                    1
                 ),
                 new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
-                    2L
+                    2
                 ),
                 new AbstractMap.SimpleEntry<String, Object>(
                     "quux",
@@ -62,17 +62,17 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
         try {
             schema.validate(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "foo",
-                        1L
+                        1
                     ),
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "bar",
-                        2L
+                        2
                     ),
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "quux",
-                        12L
+                        12
                     )
                 ),
                 configuration

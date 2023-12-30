@@ -25,11 +25,11 @@ public class AdditionalpropertiesAreAllowedByDefaultTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
-                    1L
+                    1
                 ),
                 new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
-                    2L
+                    2
                 ),
                 new AbstractMap.SimpleEntry<String, Object>(
                     "quux",

@@ -242,8 +242,66 @@ public class JSONPatchRequest {
         }
     }
     
-    public static class JSONPatchRequestListInput {
-        // class to build List<? extends @Nullable Object>
+    public static class JSONPatchRequestListBuilder {
+        // class to build List<@Nullable Object>
+        private final List<@Nullable Object> list;
+    
+        public JSONPatchRequestListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public JSONPatchRequestListBuilder(List<@Nullable Object> list) {
+            this.list = list;
+        }
+        
+        public JSONPatchRequestListBuilder add(Void item) {
+            list.add(null);
+            return this;
+        }
+        
+        public JSONPatchRequestListBuilder add(boolean item) {
+            list.add(item);
+            return this;
+        }
+        
+        public JSONPatchRequestListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+        
+        public JSONPatchRequestListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+        
+        public JSONPatchRequestListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+        
+        public JSONPatchRequestListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+        
+        public JSONPatchRequestListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+        
+        public JSONPatchRequestListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
+        
+        public JSONPatchRequestListBuilder add(Map<String, ?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Object> build() {
+            return list;
+        }
     }
     
     

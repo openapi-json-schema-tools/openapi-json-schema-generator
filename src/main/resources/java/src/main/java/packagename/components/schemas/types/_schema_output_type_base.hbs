@@ -20,67 +20,11 @@ String
                         {{~/eq}}
                     {{else}}
                         {{#eq this "number"}}
-                            {{#eq ../format null}}
+Number
+                        {{~else}}
+                            {{#eq this "integer"}}
 Number
                             {{~else}}
-                                {{#eq ../format "float"}}
-                                    {{#if forceNull}}
-Float
-                                    {{~else}}
-float
-                                    {{~/if}}
-                                {{else}}
-                                    {{#eq ../format "double"}}
-                                        {{#if forceNull}}
-Double
-                                        {{~else}}
-double
-                                        {{~/if}}
-                                    {{else}}
-                                        {{#eq ../format "int32"}}
-                                            {{#if forceNull}}
-Integer
-                                            {{~else}}
-int
-                                            {{~/if}}
-                                        {{else}}
-                                            {{#eq ../format "int64"}}
-                                                {{#if forceNull}}
-Long
-                                                {{~else}}
-long
-                                                {{~/if}}
-                                            {{/eq}}
-                                        {{/eq}}
-                                    {{/eq}}
-                                {{/eq}}
-                            {{/eq}}
-                        {{else}}
-                            {{#eq this "integer"}}
-                                {{#eq ../format null}}
-                                    {{#if forceNull}}
-Long
-                                    {{~else}}
-long
-                                    {{~/if}}
-                                {{else}}
-                                    {{#eq ../format "int32"}}
-                                        {{#if forceNull}}
-Integer
-                                        {{~else}}
-int
-                                        {{~/if}}
-                                    {{else}}
-                                        {{#eq ../format "int64"}}
-                                            {{#if forceNull}}
-Long
-                                            {{~else}}
-long
-                                            {{~/if}}
-                                        {{/eq}}
-                                    {{/eq}}
-                                {{/eq}}
-                            {{else}}
                                 {{#eq this "array"}}
                                     {{#if arrayOutputJsonPathPiece}}
                                         {{#if useLink}}
@@ -143,39 +87,11 @@ FrozenMap<?>
                             {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
-                                {{#eq ../format null}}
+{{#unless noAnnotations}}@Nullable {{/unless}}Number
+                            {{~else}}
+                                {{#eq this "integer"}}
 {{#unless noAnnotations}}@Nullable {{/unless}}Number
                                 {{~else}}
-                                    {{#eq ../format "float"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Float
-                                    {{~else}}
-                                        {{#eq ../format "double"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Double
-                                        {{~else}}
-                                            {{#eq ../format "int32"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Integer
-                                            {{~else}}
-                                                {{#eq ../format "int64"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Long
-                                                {{~/eq}}
-                                            {{/eq}}
-                                        {{/eq}}
-                                    {{/eq}}
-                                {{/eq}}
-                            {{else}}
-                                {{#eq this "integer"}}
-                                    {{#eq ../format null}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Long
-                                    {{~else}}
-                                        {{#eq ../format "int32"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Integer
-                                        {{~else}}
-                                            {{#eq ../format "int64"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Long
-                                            {{~/eq}}
-                                        {{/eq}}
-                                    {{/eq}}
-                                {{else}}
                                     {{#eq this "array"}}
                                         {{#if arrayOutputJsonPathPiece}}
                                             {{#if useLink}}

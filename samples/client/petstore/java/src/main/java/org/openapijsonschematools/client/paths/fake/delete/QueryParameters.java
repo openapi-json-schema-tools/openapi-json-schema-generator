@@ -59,12 +59,12 @@ public class QueryParameters {
             return QueryParameters1.getInstance().validate(arg, configuration);
         }
         
-        public long required_int64_group() {
+        public Number required_int64_group() {
                         @Nullable Object value = get("required_int64_group");
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for required_int64_group");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public String required_string_group() {
@@ -75,14 +75,14 @@ public class QueryParameters {
             return (String) value;
         }
         
-        public long int64_group() throws UnsetPropertyException {
+        public Number int64_group() throws UnsetPropertyException {
             String key = "int64_group";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for int64_group");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public String string_group() throws UnsetPropertyException {
@@ -95,7 +95,7 @@ public class QueryParameters {
             return (String) value;
         }
     }
-    public static class QueryParametersMapInput {
+    public static class QueryParametersMapBuilder {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
     

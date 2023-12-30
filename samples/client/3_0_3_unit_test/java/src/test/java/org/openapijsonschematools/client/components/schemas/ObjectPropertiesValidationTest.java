@@ -25,7 +25,7 @@ public class ObjectPropertiesValidationTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
-                    1L
+                    1
                 ),
                 new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
@@ -57,7 +57,7 @@ public class ObjectPropertiesValidationTest {
         // ignores other non-objects
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
-            12L,
+            12,
             configuration
         );
     }
@@ -108,7 +108,7 @@ public class ObjectPropertiesValidationTest {
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<String, Object>(
                         "foo",
-                        1L
+                        1
                     ),
                     new AbstractMap.SimpleEntry<String, Object>(
                         "bar",

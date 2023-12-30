@@ -74,7 +74,7 @@ public class AbstractStepMessage {
             return get(name);
         }
     }
-    public static class AbstractStepMessageMapInput {
+    public static class AbstractStepMessageMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Items.Items1](#items1)<br> schema class |
-| static class | [Items.ItemsListInput](#itemslistinput)<br> builder for List payloads |
+| static class | [Items.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [Items.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [Items.Items2](#items2)<br> schema class |
 
@@ -42,8 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Items.ItemsList validatedPayload =
     Items.Items1.validate(
-    Arrays.asList(
-    ),
+    new Items.ItemsListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```
@@ -57,18 +59,25 @@ Items.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ItemsList](#itemslist) | validate([List<?>](#itemslistinput) arg, SchemaConfiguration configuration) |
+| [ItemsList](#itemslist) | validate([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ItemsListInput
-public class ItemsListInput<br>
-builder for `List<Map<String, ? extends @Nullable Object>>`
+## ItemsListBuilder
+public class ItemsListBuilder<br>
+builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, ? extends @Nullable Object> |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsListBuilder()<br>Creates an empty list |
+| ItemsListBuilder(List<Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| ItemsListBuilder | add(Map<String, @Nullable Object> item) |
+| List<Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ItemsList
 public class ItemsList<br>
@@ -79,7 +88,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>

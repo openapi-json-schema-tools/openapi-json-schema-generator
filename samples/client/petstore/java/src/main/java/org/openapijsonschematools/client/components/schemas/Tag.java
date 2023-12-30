@@ -63,14 +63,14 @@ public class Tag {
             return Tag1.getInstance().validate(arg, configuration);
         }
         
-        public long id() throws UnsetPropertyException {
+        public Number id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public String name() throws UnsetPropertyException {
@@ -89,7 +89,7 @@ public class Tag {
             return get(name);
         }
     }
-    public static class TagMapInput {
+    public static class TagMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

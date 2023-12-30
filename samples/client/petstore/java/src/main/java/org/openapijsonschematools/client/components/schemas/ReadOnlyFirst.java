@@ -88,7 +88,7 @@ public class ReadOnlyFirst {
             return get(name);
         }
     }
-    public static class ReadOnlyFirstMapInput {
+    public static class ReadOnlyFirstMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

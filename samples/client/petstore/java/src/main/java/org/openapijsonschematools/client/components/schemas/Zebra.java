@@ -213,7 +213,7 @@ public class Zebra {
             return getOrThrow(name);
         }
     }
-    public static class ZebraMapInput {
+    public static class ZebraMapBuilder {
         // Map<String, Object> because additionalProperties == true
     }
     

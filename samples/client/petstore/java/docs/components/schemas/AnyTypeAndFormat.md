@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1](#anytypeandformat1)<br> schema class |
-| static class | [AnyTypeAndFormat.AnyTypeAndFormatMapInput](#anytypeandformatmapinput)<br> builder for Map payloads |
+| static class | [AnyTypeAndFormat.AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder)<br> builder for Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMap](#anytypeandformatmap)<br> output class for Map payloads |
 | static class | [AnyTypeAndFormat.FloatSchema](#floatschema)<br> schema class |
 | static class | [AnyTypeAndFormat.DoubleSchema](#doubleschema)<br> schema class |
@@ -62,10 +62,10 @@ AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map<?, ?>](#anytypeandformatmapinput) arg, SchemaConfiguration configuration) |
+| [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map<?, ?>](#anytypeandformatmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AnyTypeAndFormatMapInput
-public class AnyTypeAndFormatMapInput<br>
+## AnyTypeAndFormatMapBuilder
+public class AnyTypeAndFormatMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -93,7 +93,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnyTypeAndFormatMap](#anytypeandformatmap) | of([Map<String, ? extends @Nullable Object>](#anytypeandformatmapinput) arg, SchemaConfiguration configuration) |
+| static [AnyTypeAndFormatMap](#anytypeandformatmap) | of([Map<String, ? extends @Nullable Object>](#anytypeandformatmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
 | @Nullable Object | binary()<br>[optional] |
 | @Nullable Object | int32()<br>[optional] value must be a 32 bit integer |

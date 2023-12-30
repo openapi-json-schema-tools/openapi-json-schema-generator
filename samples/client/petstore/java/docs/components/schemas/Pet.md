@@ -14,15 +14,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Pet.Pet1](#pet1)<br> schema class |
-| static class | [Pet.PetMapInput](#petmapinput)<br> builder for Map payloads |
+| static class | [Pet.PetMapBuilder](#petmapbuilder)<br> builder for Map payloads |
 | static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
 | static class | [Pet.Tags](#tags)<br> schema class |
-| static class | [Pet.TagsListInput](#tagslistinput)<br> builder for List payloads |
+| static class | [Pet.TagsListBuilder](#tagslistbuilder)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
 | static class | [Pet.Status](#status)<br> schema class |
 | enum | [Pet.StringStatusEnums](#stringstatusenums)<br>String enum |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
-| static class | [Pet.PhotoUrlsListInput](#photourlslistinput)<br> builder for List payloads |
+| static class | [Pet.PhotoUrlsListBuilder](#photourlslistbuilder)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
 | static class | [Pet.Items](#items)<br> schema class |
 | static class | [Pet.Name](#name)<br> schema class |
@@ -113,10 +113,10 @@ Pet.PetMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetMap](#petmap) | validate([Map<?, ?>](#petmapinput) arg, SchemaConfiguration configuration) |
+| [PetMap](#petmap) | validate([Map<?, ?>](#petmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## PetMapInput
-public class PetMapInput<br>
+## PetMapBuilder
+public class PetMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -126,7 +126,7 @@ A class that builds the Map input type
 | --- | ---- | ------------ | ----- |
 | **name** | String |  | |
 | **photoUrls** | List<String> |  | |
-| **id** | long |  | [optional] value must be a 64 bit integer |
+| **id** | Number |  | [optional] value must be a 64 bit integer |
 | **category** | Map<String, ? extends @Nullable Object> |  | [optional] |
 | **tags** | List<Map<String, ? extends @Nullable Object>> |  | [optional] |
 | **status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"] |
@@ -141,10 +141,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PetMap](#petmap) | of([Map<String, ? extends @Nullable Object>](#petmapinput) arg, SchemaConfiguration configuration) |
+| static [PetMap](#petmap) | of([Map<String, ? extends @Nullable Object>](#petmapbuilder) arg, SchemaConfiguration configuration) |
 | String | name()<br> |
 | [PhotoUrlsList](#photourlslist) | photoUrls()<br> |
-| long | id()<br>[optional] value must be a 64 bit integer |
+| Number | id()<br>[optional] value must be a 64 bit integer |
 | [Category.CategoryMap](../../components/schemas/Category.md#categorymap) | category()<br>[optional] |
 | [TagsList](#tagslist) | tags()<br>[optional] |
 | String | status()<br>[optional] must be one of ["available", "pending", "sold"] |
@@ -174,18 +174,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Pet.TagsList validatedPayload =
     Pet.Tags.validate(
-    Arrays.asList(
-        MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<String, Object>(
-                "id",
-                1L
-            ),
-            new AbstractMap.SimpleEntry<String, Object>(
-                "name",
-                "a"
+    new .TagsListBuilder(
+        Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "id",
+                    1L
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "name",
+                    "a"
+                )
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```
@@ -199,18 +201,25 @@ Pet.TagsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [TagsList](#tagslist) | validate([List<?>](#tagslistinput) arg, SchemaConfiguration configuration) |
+| [TagsList](#tagslist) | validate([List<?>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## TagsListInput
-public class TagsListInput<br>
-builder for `List<Map<String, ? extends @Nullable Object>>`
+## TagsListBuilder
+public class TagsListBuilder<br>
+builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, ? extends @Nullable Object> |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TagsListBuilder()<br>Creates an empty list |
+| TagsListBuilder(List<Map<String, @Nullable Object>> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| TagsListBuilder | add(Map<String, @Nullable Object> item) |
+| List<Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## TagsList
 public class TagsList<br>
@@ -221,7 +230,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | of([List<Map<String, ? extends @Nullable Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | of([List<Map<String, ? extends @Nullable Object>>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Status
 public static class Status<br>
@@ -303,9 +312,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Pet.PhotoUrlsList validatedPayload =
     Pet.PhotoUrls.validate(
-    Arrays.asList(
-        "a"
-    ),
+    new .PhotoUrlsListBuilder(
+        Arrays.asList(
+            "a"
+        )
+    ).build(),
     configuration
 );
 ```
@@ -319,18 +330,25 @@ Pet.PhotoUrlsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PhotoUrlsList](#photourlslist) | validate([List<?>](#photourlslistinput) arg, SchemaConfiguration configuration) |
+| [PhotoUrlsList](#photourlslist) | validate([List<?>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## PhotoUrlsListInput
-public class PhotoUrlsListInput<br>
+## PhotoUrlsListBuilder
+public class PhotoUrlsListBuilder<br>
 builder for `List<String>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PhotoUrlsListBuilder()<br>Creates an empty list |
+| PhotoUrlsListBuilder(List<String> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| PhotoUrlsListBuilder | add(String item) |
+| List<String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## PhotoUrlsList
 public class PhotoUrlsList<br>
@@ -341,7 +359,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PhotoUrlsList](#photourlslist) | of([List<String>](#photourlslistinput) arg, SchemaConfiguration configuration) |
+| static [PhotoUrlsList](#photourlslist) | of([List<String>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

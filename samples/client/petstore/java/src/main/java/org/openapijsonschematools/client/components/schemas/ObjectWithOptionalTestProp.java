@@ -66,7 +66,7 @@ public class ObjectWithOptionalTestProp {
             return get(name);
         }
     }
-    public static class ObjectWithOptionalTestPropMapInput {
+    public static class ObjectWithOptionalTestPropMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

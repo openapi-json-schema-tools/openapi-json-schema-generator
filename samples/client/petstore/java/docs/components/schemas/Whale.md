@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Whale.Whale1](#whale1)<br> schema class |
-| static class | [Whale.WhaleMapInput](#whalemapinput)<br> builder for Map payloads |
+| static class | [Whale.WhaleMapBuilder](#whalemapbuilder)<br> builder for Map payloads |
 | static class | [Whale.WhaleMap](#whalemap)<br> output class for Map payloads |
 | static class | [Whale.ClassName](#classname)<br> schema class |
 | enum | [Whale.StringClassNameEnums](#stringclassnameenums)<br>String enum |
@@ -71,10 +71,10 @@ Whale.WhaleMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [WhaleMap](#whalemap) | validate([Map<?, ?>](#whalemapinput) arg, SchemaConfiguration configuration) |
+| [WhaleMap](#whalemap) | validate([Map<?, ?>](#whalemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## WhaleMapInput
-public class WhaleMapInput<br>
+## WhaleMapBuilder
+public class WhaleMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -96,7 +96,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [WhaleMap](#whalemap) | of([Map<String, ? extends @Nullable Object>](#whalemapinput) arg, SchemaConfiguration configuration) |
+| static [WhaleMap](#whalemap) | of([Map<String, ? extends @Nullable Object>](#whalemapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["whale"] |
 | boolean | hasBaleen()<br>[optional] |
 | boolean | hasTeeth()<br>[optional] |

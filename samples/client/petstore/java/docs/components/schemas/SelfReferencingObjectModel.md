@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1](#selfreferencingobjectmodel1)<br> schema class |
-| static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMapInput](#selfreferencingobjectmodelmapinput)<br> builder for Map payloads |
+| static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder)<br> builder for Map payloads |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap)<br> output class for Map payloads |
 
 ## SelfReferencingObjectModel1
@@ -54,10 +54,10 @@ SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map<?, ?>](#selfreferencingobjectmodelmapinput) arg, SchemaConfiguration configuration) |
+| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map<?, ?>](#selfreferencingobjectmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SelfReferencingObjectModelMapInput
-public class SelfReferencingObjectModelMapInput<br>
+## SelfReferencingObjectModelMapBuilder
+public class SelfReferencingObjectModelMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -77,7 +77,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | of([Map<String, ? extends @Nullable Object>](#selfreferencingobjectmodelmapinput) arg, SchemaConfiguration configuration) |
+| static [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | of([Map<String, ? extends @Nullable Object>](#selfreferencingobjectmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | selfRef()<br>[optional] |
 | [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

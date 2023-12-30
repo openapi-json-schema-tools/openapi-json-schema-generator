@@ -95,7 +95,7 @@ public class BananaReq {
             return (boolean) value;
         }
     }
-    public static class BananaReqMapInput {
+    public static class BananaReqMapBuilder {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
     

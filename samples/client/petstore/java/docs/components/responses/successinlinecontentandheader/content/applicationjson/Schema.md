@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
-| static class | [Schema.SchemaMapInput](#schemamapinput)<br> builder for Map payloads |
+| static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -54,30 +54,30 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap](#schemamap) | validate([Map<?, ?>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| [SchemaMap](#schemamap) | validate([Map<?, ?>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaMapInput
-public class SchemaMapInput<br>
-builder for `Map<String, Integer>`
+## SchemaMapBuilder
+public class SchemaMapBuilder<br>
+builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **anyStringName** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer |
+| **anyStringName** | Number | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer |
 
 ## SchemaMap
 public static class SchemaMap<br>
-extends FrozenMap<String, Integer>
+extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | of([Map<String, Integer>](#schemamapinput) arg, SchemaConfiguration configuration) |
-| int | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| static [SchemaMap](#schemamap) | of([Map<String, Number>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
+| Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

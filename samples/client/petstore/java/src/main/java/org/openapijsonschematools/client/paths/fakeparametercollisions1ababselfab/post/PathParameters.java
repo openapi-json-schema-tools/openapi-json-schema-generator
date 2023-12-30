@@ -84,7 +84,7 @@ public class PathParameters {
             return (String) value;
         }
     }
-    public static class PathParametersMapInput {
+    public static class PathParametersMapBuilder {
         // empty mapping
     }
     

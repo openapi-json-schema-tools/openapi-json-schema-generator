@@ -22,14 +22,16 @@ public class RefInItemsTest {
         // property named $ref valid
         final var schema = RefInItems.RefInItems1.getInstance();
         schema.validate(
-            Arrays.asList(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
-                        "$ref",
-                        "a"
+            new RefInItems.RefInItemsListBuilder(
+                Arrays.asList(
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "$ref",
+                            "a"
+                        )
                     )
                 )
-            ),
+            ).build(),
             configuration
         );
     }
@@ -44,7 +46,7 @@ public class RefInItemsTest {
                     MapMaker.makeMap(
                         new AbstractMap.SimpleEntry<>(
                             "$ref",
-                            2L
+                            2
                         )
                     )
                 ),

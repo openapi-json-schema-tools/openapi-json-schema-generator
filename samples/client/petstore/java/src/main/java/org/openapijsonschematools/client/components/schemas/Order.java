@@ -175,34 +175,34 @@ public class Order {
             return Order1.getInstance().validate(arg, configuration);
         }
         
-        public long id() throws UnsetPropertyException {
+        public Number id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
-            return (long) value;
+            return (Number) value;
         }
         
-        public long petId() throws UnsetPropertyException {
+        public Number petId() throws UnsetPropertyException {
             String key = "petId";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for petId");
             }
-            return (long) value;
+            return (Number) value;
         }
         
-        public int quantity() throws UnsetPropertyException {
+        public Number quantity() throws UnsetPropertyException {
             String key = "quantity";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for quantity");
             }
-            return (int) value;
+            return (Number) value;
         }
         
         public String shipDate() throws UnsetPropertyException {
@@ -241,7 +241,7 @@ public class Order {
             return get(name);
         }
     }
-    public static class OrderMapInput {
+    public static class OrderMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

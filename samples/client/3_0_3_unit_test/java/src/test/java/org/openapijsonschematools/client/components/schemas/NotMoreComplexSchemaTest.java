@@ -25,7 +25,7 @@ public class NotMoreComplexSchemaTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
-                    1L
+                    1
                 )
             ),
             configuration
@@ -57,7 +57,7 @@ public class NotMoreComplexSchemaTest {
         // match
         final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(
-            1L,
+            1,
             configuration
         );
     }

@@ -24,13 +24,13 @@ public class ForbiddenPropertyTest {
         try {
             schema.validate(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "foo",
-                        1L
+                        1
                     ),
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "bar",
-                        2L
+                        2
                     )
                 ),
                 configuration
@@ -47,13 +47,13 @@ public class ForbiddenPropertyTest {
         final var schema = ForbiddenProperty.ForbiddenProperty1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "bar",
-                    1L
+                    1
                 ),
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "baz",
-                    2L
+                    2
                 )
             ),
             configuration

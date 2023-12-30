@@ -50,7 +50,7 @@ public class ObjectTypeMatchesObjectsTest {
         final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         try {
             schema.validate(
-                1L,
+                1,
                 configuration
             );
             throw new RuntimeException("A different exception must be thrown");

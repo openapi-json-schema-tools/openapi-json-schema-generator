@@ -75,7 +75,7 @@ public class Dog {
             return get(name);
         }
     }
-    public static class Schema1MapInput {
+    public static class Schema1MapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

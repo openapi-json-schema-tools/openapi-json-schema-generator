@@ -47,7 +47,7 @@ public class EnumWith0DoesNotMatchFalseTest {
         // integer zero is valid
         final var schema = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.getInstance();
         schema.validate(
-            0L,
+            0,
             configuration
         );
     }

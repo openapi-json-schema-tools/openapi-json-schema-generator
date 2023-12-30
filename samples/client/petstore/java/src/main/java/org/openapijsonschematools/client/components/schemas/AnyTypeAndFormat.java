@@ -1832,7 +1832,7 @@ public class AnyTypeAndFormat {
             return get(name);
         }
     }
-    public static class AnyTypeAndFormatMapInput {
+    public static class AnyTypeAndFormatMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [User.User1](#user1)<br> schema class |
-| static class | [User.UserMapInput](#usermapinput)<br> builder for Map payloads |
+| static class | [User.UserMapBuilder](#usermapbuilder)<br> builder for Map payloads |
 | static class | [User.UserMap](#usermap)<br> output class for Map payloads |
 | static class | [User.AnyTypePropNullable](#anytypepropnullable)<br> schema class |
 | static class | [User.AnyTypeExceptNullProp](#anytypeexceptnullprop)<br> schema class |
@@ -103,10 +103,10 @@ User.UserMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserMap](#usermap) | validate([Map<?, ?>](#usermapinput) arg, SchemaConfiguration configuration) |
+| [UserMap](#usermap) | validate([Map<?, ?>](#usermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## UserMapInput
-public class UserMapInput<br>
+## UserMapBuilder
+public class UserMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -114,14 +114,14 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **id** | long |  | [optional] value must be a 64 bit integer |
+| **id** | Number |  | [optional] value must be a 64 bit integer |
 | **username** | String |  | [optional] |
 | **firstName** | String |  | [optional] |
 | **lastName** | String |  | [optional] |
 | **email** | String |  | [optional] |
 | **password** | String |  | [optional] |
 | **phone** | String |  | [optional] |
-| **userStatus** | int | User Status | [optional] value must be a 32 bit integer |
+| **userStatus** | Number | User Status | [optional] value must be a 32 bit integer |
 | **objectWithNoDeclaredProps** | Map<String, ? extends @Nullable Object> | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional] |
 | **objectWithNoDeclaredPropsNullable** | ? extends @Nullable Map<String, ? extends @Nullable Object> | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional] |
 | **anyTypeProp** | ? extends @Nullable Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional] |
@@ -138,15 +138,15 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserMap](#usermap) | of([Map<String, ? extends @Nullable Object>](#usermapinput) arg, SchemaConfiguration configuration) |
-| long | id()<br>[optional] value must be a 64 bit integer |
+| static [UserMap](#usermap) | of([Map<String, ? extends @Nullable Object>](#usermapbuilder) arg, SchemaConfiguration configuration) |
+| Number | id()<br>[optional] value must be a 64 bit integer |
 | String | username()<br>[optional] |
 | String | firstName()<br>[optional] |
 | String | lastName()<br>[optional] |
 | String | email()<br>[optional] |
 | String | password()<br>[optional] |
 | String | phone()<br>[optional] |
-| int | userStatus()<br>[optional] value must be a 32 bit integer |
+| Number | userStatus()<br>[optional] value must be a 32 bit integer |
 | FrozenMap<?> | objectWithNoDeclaredProps()<br>[optional] |
 | @Nullable FrozenMap<?> | objectWithNoDeclaredPropsNullable()<br>[optional] |
 | @Nullable Object | anyTypeProp()<br>[optional] |

@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Money.Money1](#money1)<br> schema class |
-| static class | [Money.MoneyMapInput](#moneymapinput)<br> builder for Map payloads |
+| static class | [Money.MoneyMapBuilder](#moneymapbuilder)<br> builder for Map payloads |
 | static class | [Money.MoneyMap](#moneymap)<br> output class for Map payloads |
 | static class | [Money.Amount](#amount)<br> schema class |
 | static class | [Money.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -65,10 +65,10 @@ Money.MoneyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MoneyMap](#moneymap) | validate([Map<?, ?>](#moneymapinput) arg, SchemaConfiguration configuration) |
+| [MoneyMap](#moneymap) | validate([Map<?, ?>](#moneymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## MoneyMapInput
-public class MoneyMapInput<br>
+## MoneyMapBuilder
+public class MoneyMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -88,7 +88,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MoneyMap](#moneymap) | of([Map<String, ? extends @Nullable Object>](#moneymapinput) arg, SchemaConfiguration configuration) |
+| static [MoneyMap](#moneymap) | of([Map<String, ? extends @Nullable Object>](#moneymapbuilder) arg, SchemaConfiguration configuration) |
 | String | amount()<br> value must be int or float numeric |
 | String | currency()<br> |
 

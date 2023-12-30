@@ -76,8 +76,26 @@ public class Pet {
         }
     }
     
-    public static class PhotoUrlsListInput {
+    public static class PhotoUrlsListBuilder {
         // class to build List<String>
+        private final List<String> list;
+    
+        public PhotoUrlsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public PhotoUrlsListBuilder(List<String> list) {
+            this.list = list;
+        }
+        
+        public PhotoUrlsListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<String> build() {
+            return list;
+        }
     }
     
     
@@ -225,8 +243,26 @@ public class Pet {
         }
     }
     
-    public static class TagsListInput {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+    public static class TagsListBuilder {
+        // class to build List<Map<String, @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public TagsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public TagsListBuilder(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        
+        public TagsListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -330,14 +366,14 @@ public class Pet {
             return (PhotoUrlsList) value;
         }
         
-        public long id() throws UnsetPropertyException {
+        public Number id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
-            return (long) value;
+            return (Number) value;
         }
         
         public Category.CategoryMap category() throws UnsetPropertyException {
@@ -376,7 +412,7 @@ public class Pet {
             return get(name);
         }
     }
-    public static class PetMapInput {
+    public static class PetMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

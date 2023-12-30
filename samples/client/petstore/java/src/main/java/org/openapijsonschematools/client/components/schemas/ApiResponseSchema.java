@@ -75,14 +75,14 @@ public class ApiResponseSchema {
             return ApiResponseSchema1.getInstance().validate(arg, configuration);
         }
         
-        public int code() throws UnsetPropertyException {
+        public Number code() throws UnsetPropertyException {
             String key = "code";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for code");
             }
-            return (int) value;
+            return (Number) value;
         }
         
         public String type() throws UnsetPropertyException {
@@ -111,7 +111,7 @@ public class ApiResponseSchema {
             return get(name);
         }
     }
-    public static class ApiResponseMapInput {
+    public static class ApiResponseMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

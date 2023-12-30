@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -31,8 +32,26 @@ public class SelfReferencingArrayModel {
         }
     }
     
-    public static class SelfReferencingArrayModelListInput {
+    public static class SelfReferencingArrayModelListBuilder {
         // class to build List<List<?>>
+        private final List<List<?>> list;
+    
+        public SelfReferencingArrayModelListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public SelfReferencingArrayModelListBuilder(List<List<?>> list) {
+            this.list = list;
+        }
+    
+        public SelfReferencingArrayModelListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<List<?>> build() {
+            return list;
+        }
     }
     
     

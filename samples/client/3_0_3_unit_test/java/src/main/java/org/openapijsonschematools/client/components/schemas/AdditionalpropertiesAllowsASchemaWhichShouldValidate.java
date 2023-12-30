@@ -91,7 +91,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return (boolean) value;
         }
     }
-    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput {
+    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder {
         // optionalProperties + additionalProperties
     }
     

@@ -12,7 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumTest.EnumTest1](#enumtest1)<br> schema class |
-| static class | [EnumTest.EnumTestMapInput](#enumtestmapinput)<br> builder for Map payloads |
+| static class | [EnumTest.EnumTestMapBuilder](#enumtestmapbuilder)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
 | enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
@@ -83,10 +83,10 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## EnumTestMapInput
-public class EnumTestMapInput<br>
+## EnumTestMapBuilder
+public class EnumTestMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -96,13 +96,13 @@ A class that builds the Map input type
 | --- | ---- | ------------ | ----- |
 | **enum_string_required** | String |  | must be one of ["UPPER", "lower", ""] |
 | **enum_string** | String |  | [optional] must be one of ["UPPER", "lower", ""] |
-| **enum_integer** | int |  | [optional] must be one of [1, -1] value must be a 32 bit integer |
-| **enum_number** | double |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float |
+| **enum_integer** | Number |  | [optional] must be one of [1, -1] value must be a 32 bit integer |
+| **enum_number** | Number |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float |
 | **stringEnum** | ? extends @Nullable String |  | [optional] |
-| **IntegerEnum** | long |  | [optional] |
+| **IntegerEnum** | Number |  | [optional] |
 | **StringEnumWithDefaultValue** | String |  | [optional] |
-| **IntegerEnumWithDefaultValue** | long |  | [optional] |
-| **IntegerEnumOneValue** | long |  | [optional] |
+| **IntegerEnumWithDefaultValue** | Number |  | [optional] |
+| **IntegerEnumOneValue** | Number |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## EnumTestMap
@@ -114,16 +114,16 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | of([Map<String, ? extends @Nullable Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumTestMap](#enumtestmap) | of([Map<String, ? extends @Nullable Object>](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | String | enum_string_required()<br> must be one of ["UPPER", "lower", ""] |
 | String | enum_string()<br>[optional] must be one of ["UPPER", "lower", ""] |
-| int | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |
-| double | enum_number()<br>[optional] must be one of [1.1, -1.2] value must be a 64 bit float |
+| Number | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |
+| Number | enum_number()<br>[optional] must be one of [1.1, -1.2] value must be a 64 bit float |
 | @Nullable String | stringEnum()<br>[optional] |
-| long | IntegerEnum()<br>[optional] |
+| Number | IntegerEnum()<br>[optional] |
 | String | StringEnumWithDefaultValue()<br>[optional] |
-| long | IntegerEnumWithDefaultValue()<br>[optional] |
-| long | IntegerEnumOneValue()<br>[optional] |
+| Number | IntegerEnumWithDefaultValue()<br>[optional] |
+| Number | IntegerEnumOneValue()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## EnumNumber

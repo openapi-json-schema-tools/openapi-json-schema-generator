@@ -66,7 +66,7 @@ public class NumberOnly {
             return get(name);
         }
     }
-    public static class NumberOnlyMapInput {
+    public static class NumberOnlyMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

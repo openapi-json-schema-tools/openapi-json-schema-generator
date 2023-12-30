@@ -34,8 +34,26 @@ public class Schema {
         }
     }
     
-    public static class SchemaListInput {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+    public static class SchemaListBuilder {
+        // class to build List<Map<String, @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public SchemaListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public SchemaListBuilder(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        
+        public SchemaListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     

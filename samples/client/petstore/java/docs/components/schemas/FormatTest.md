@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FormatTest.FormatTest1](#formattest1)<br> schema class |
-| static class | [FormatTest.FormatTestMapInput](#formattestmapinput)<br> builder for Map payloads |
+| static class | [FormatTest.FormatTestMapBuilder](#formattestmapbuilder)<br> builder for Map payloads |
 | static class | [FormatTest.FormatTestMap](#formattestmap)<br> output class for Map payloads |
 | static class | [FormatTest.NoneProp](#noneprop)<br> schema class |
 | static class | [FormatTest.PatternWithDigitsAndDelimiter](#patternwithdigitsanddelimiter)<br> schema class |
@@ -27,7 +27,7 @@ A class that contains necessary nested
 | static class | [FormatTest.ByteSchema](#byteschema)<br> schema class |
 | static class | [FormatTest.StringSchema](#stringschema)<br> schema class |
 | static class | [FormatTest.ArrayWithUniqueItems](#arraywithuniqueitems)<br> schema class |
-| static class | [FormatTest.ArrayWithUniqueItemsListInput](#arraywithuniqueitemslistinput)<br> builder for List payloads |
+| static class | [FormatTest.ArrayWithUniqueItemsListBuilder](#arraywithuniqueitemslistbuilder)<br> builder for List payloads |
 | static class | [FormatTest.ArrayWithUniqueItemsList](#arraywithuniqueitemslist)<br> output class for List payloads |
 | static class | [FormatTest.Items](#items)<br> schema class |
 | static class | [FormatTest.Float64](#float64)<br> schema class |
@@ -166,10 +166,10 @@ FormatTest.FormatTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap](#formattestmap) | validate([Map<?, ?>](#formattestmapinput) arg, SchemaConfiguration configuration) |
+| [FormatTestMap](#formattestmap) | validate([Map<?, ?>](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FormatTestMapInput
-public class FormatTestMapInput<br>
+## FormatTestMapBuilder
+public class FormatTestMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -181,14 +181,14 @@ A class that builds the Map input type
 | **date** | String |  | value must conform to RFC-3339 full-date YYYY-MM-DD |
 | **number** | Number |  | |
 | **password** | String |  | |
-| **integer** | long |  | [optional] |
-| **int32** | int |  | [optional] value must be a 32 bit integer |
-| **int32withValidations** | int |  | [optional] value must be a 32 bit integer |
-| **int64** | long |  | [optional] value must be a 64 bit integer |
-| **float** | float | this is a reserved python keyword | [optional] value must be a 32 bit float |
-| **float32** | float |  | [optional] value must be a 32 bit float |
-| **double** | double |  | [optional] value must be a 64 bit float |
-| **float64** | double |  | [optional] value must be a 64 bit float |
+| **integer** | Number |  | [optional] |
+| **int32** | Number |  | [optional] value must be a 32 bit integer |
+| **int32withValidations** | Number |  | [optional] value must be a 32 bit integer |
+| **int64** | Number |  | [optional] value must be a 64 bit integer |
+| **float** | Number | this is a reserved python keyword | [optional] value must be a 32 bit float |
+| **float32** | Number |  | [optional] value must be a 32 bit float |
+| **double** | Number |  | [optional] value must be a 64 bit float |
+| **float64** | Number |  | [optional] value must be a 64 bit float |
 | **arrayWithUniqueItems** | List<Number> |  | [optional] |
 | **string** | String |  | [optional] |
 | **binary** | String |  | [optional] |
@@ -209,14 +209,14 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FormatTestMap](#formattestmap) | of([Map<String, ? extends @Nullable Object>](#formattestmapinput) arg, SchemaConfiguration configuration) |
+| static [FormatTestMap](#formattestmap) | of([Map<String, ? extends @Nullable Object>](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | String | date()<br> value must conform to RFC-3339 full-date YYYY-MM-DD |
 | String | password()<br> |
-| int | int32()<br>[optional] value must be a 32 bit integer |
-| int | int32withValidations()<br>[optional] value must be a 32 bit integer |
-| long | int64()<br>[optional] value must be a 64 bit integer |
-| float | float32()<br>[optional] value must be a 32 bit float |
-| double | float64()<br>[optional] value must be a 64 bit float |
+| Number | int32()<br>[optional] value must be a 32 bit integer |
+| Number | int32withValidations()<br>[optional] value must be a 32 bit integer |
+| Number | int64()<br>[optional] value must be a 64 bit integer |
+| Number | float32()<br>[optional] value must be a 32 bit float |
+| Number | float64()<br>[optional] value must be a 64 bit float |
 | [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | arrayWithUniqueItems()<br>[optional] |
 | String | binary()<br>[optional] |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
@@ -477,9 +477,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 FormatTest.ArrayWithUniqueItemsList validatedPayload =
     FormatTest.ArrayWithUniqueItems.validate(
-    Arrays.asList(
-        1
-    ),
+    new .ArrayWithUniqueItemsListBuilder(
+        Arrays.asList(
+            1
+        )
+    ).build(),
     configuration
 );
 ```
@@ -494,18 +496,28 @@ FormatTest.ArrayWithUniqueItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([List<?>](#arraywithuniqueitemslistinput) arg, SchemaConfiguration configuration) |
+| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayWithUniqueItemsListInput
-public class ArrayWithUniqueItemsListInput<br>
+## ArrayWithUniqueItemsListBuilder
+public class ArrayWithUniqueItemsListBuilder<br>
 builder for `List<Number>`
 
 A class that builds the List input type
 
-## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Number |  |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayWithUniqueItemsListBuilder()<br>Creates an empty list |
+| ArrayWithUniqueItemsListBuilder(List<Number> items)<br>Stores the items in a list |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| ArrayWithUniqueItemsListBuilder | add(int item) |
+| ArrayWithUniqueItemsListBuilder | add(float item) |
+| ArrayWithUniqueItemsListBuilder | add(long item) |
+| ArrayWithUniqueItemsListBuilder | add(double item) |
+| List<Number> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayWithUniqueItemsList
 public class ArrayWithUniqueItemsList<br>
@@ -516,7 +528,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([List<Number>](#arraywithuniqueitemslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([List<Number>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

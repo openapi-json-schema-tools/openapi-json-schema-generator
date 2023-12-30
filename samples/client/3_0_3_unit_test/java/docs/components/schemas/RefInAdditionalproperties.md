@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RefInAdditionalproperties.RefInAdditionalproperties1](#refinadditionalproperties1)<br> schema class |
-| static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMapInput](#refinadditionalpropertiesmapinput)<br> builder for Map payloads |
+| static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap)<br> output class for Map payloads |
 
 ## RefInAdditionalproperties1
@@ -53,10 +53,10 @@ RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<?, ?>](#refinadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<?, ?>](#refinadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## RefInAdditionalpropertiesMapInput
-public class RefInAdditionalpropertiesMapInput<br>
+## RefInAdditionalpropertiesMapBuilder
+public class RefInAdditionalpropertiesMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -75,7 +75,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#refinadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#refinadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

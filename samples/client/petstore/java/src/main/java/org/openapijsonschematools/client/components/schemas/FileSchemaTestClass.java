@@ -37,8 +37,26 @@ public class FileSchemaTestClass {
         }
     }
     
-    public static class FilesListInput {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+    public static class FilesListBuilder {
+        // class to build List<Map<String, @Nullable Object>>
+        private final List<Map<String, @Nullable Object>> list;
+    
+        public FilesListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public FilesListBuilder(List<Map<String, @Nullable Object>> list) {
+            this.list = list;
+        }
+        
+        public FilesListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Map<String, @Nullable Object>> build() {
+            return list;
+        }
     }
     
     
@@ -147,7 +165,7 @@ public class FileSchemaTestClass {
             return get(name);
         }
     }
-    public static class FileSchemaTestClassMapInput {
+    public static class FileSchemaTestClassMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

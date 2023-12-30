@@ -75,7 +75,7 @@ public class NotMoreComplexSchema {
             return get(name);
         }
     }
-    public static class NotMapInput {
+    public static class NotMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

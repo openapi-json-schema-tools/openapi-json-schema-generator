@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NoAdditionalProperties.NoAdditionalProperties1](#noadditionalproperties1)<br> schema class |
-| static class | [NoAdditionalProperties.NoAdditionalPropertiesMapInput](#noadditionalpropertiesmapinput)<br> builder for Map payloads |
+| static class | [NoAdditionalProperties.NoAdditionalPropertiesMapBuilder](#noadditionalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [NoAdditionalProperties.NoAdditionalPropertiesMap](#noadditionalpropertiesmap)<br> output class for Map payloads |
 | static class | [NoAdditionalProperties.PetId](#petid)<br> schema class |
 | static class | [NoAdditionalProperties.Id](#id)<br> schema class |
@@ -42,11 +42,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
     NoAdditionalProperties.NoAdditionalProperties1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Long>(
+        new AbstractMap.SimpleEntry<String, Number>(
             "id",
             1L
         ),
-        new AbstractMap.SimpleEntry<String, Long>(
+        new AbstractMap.SimpleEntry<String, Number>(
             "petId",
             1L
         )
@@ -66,32 +66,32 @@ NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | validate([Map<?, ?>](#noadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | validate([Map<?, ?>](#noadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## NoAdditionalPropertiesMapInput
-public class NoAdditionalPropertiesMapInput<br>
-builder for `Map<String, Long>`
+## NoAdditionalPropertiesMapBuilder
+public class NoAdditionalPropertiesMapBuilder<br>
+builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **id** | long |  | value must be a 64 bit integer |
-| **petId** | long |  | [optional] value must be a 64 bit integer |
+| **id** | Number |  | value must be a 64 bit integer |
+| **petId** | Number |  | [optional] value must be a 64 bit integer |
 
 ## NoAdditionalPropertiesMap
 public static class NoAdditionalPropertiesMap<br>
-extends FrozenMap<String, Long>
+extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | of([Map<String, Long>](#noadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| long | id()<br> value must be a 64 bit integer |
-| long | petId()<br>[optional] value must be a 64 bit integer |
+| static [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | of([Map<String, Number>](#noadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| Number | id()<br> value must be a 64 bit integer |
+| Number | petId()<br>[optional] value must be a 64 bit integer |
 
 ## PetId
 public static class PetId<br>

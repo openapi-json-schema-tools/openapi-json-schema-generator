@@ -80,7 +80,7 @@ public class Money {
             return (String) value;
         }
     }
-    public static class MoneyMapInput {
+    public static class MoneyMapBuilder {
         // empty mapping
     }
     

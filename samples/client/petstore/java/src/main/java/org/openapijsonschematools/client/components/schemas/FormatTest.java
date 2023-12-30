@@ -407,8 +407,41 @@ public class FormatTest {
         }
     }
     
-    public static class ArrayWithUniqueItemsListInput {
+    public static class ArrayWithUniqueItemsListBuilder {
         // class to build List<Number>
+        private final List<Number> list;
+    
+        public ArrayWithUniqueItemsListBuilder() {
+            list = new ArrayList<>();
+        }
+    
+        public ArrayWithUniqueItemsListBuilder(List<Number> list) {
+            this.list = list;
+        }
+        
+        public ArrayWithUniqueItemsListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ArrayWithUniqueItemsListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ArrayWithUniqueItemsListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ArrayWithUniqueItemsListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<Number> build() {
+            return list;
+        }
     }
     
     
@@ -800,54 +833,54 @@ public class FormatTest {
             return (String) value;
         }
         
-        public int int32() throws UnsetPropertyException {
+        public Number int32() throws UnsetPropertyException {
             String key = "int32";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for int32");
             }
-            return (int) value;
+            return (Number) value;
         }
         
-        public int int32withValidations() throws UnsetPropertyException {
+        public Number int32withValidations() throws UnsetPropertyException {
             String key = "int32withValidations";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Integer)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for int32withValidations");
             }
-            return (int) value;
+            return (Number) value;
         }
         
-        public long int64() throws UnsetPropertyException {
+        public Number int64() throws UnsetPropertyException {
             String key = "int64";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for int64");
             }
-            return (long) value;
+            return (Number) value;
         }
         
-        public float float32() throws UnsetPropertyException {
+        public Number float32() throws UnsetPropertyException {
             String key = "float32";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Float)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for float32");
             }
-            return (float) value;
+            return (Number) value;
         }
         
-        public double float64() throws UnsetPropertyException {
+        public Number float64() throws UnsetPropertyException {
             String key = "float64";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Double)) {
+            if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for float64");
             }
-            return (double) value;
+            return (Number) value;
         }
         
         public ArrayWithUniqueItemsList arrayWithUniqueItems() throws UnsetPropertyException {
@@ -926,7 +959,7 @@ public class FormatTest {
             return get(name);
         }
     }
-    public static class FormatTestMapInput {
+    public static class FormatTestMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     
