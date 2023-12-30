@@ -53,13 +53,13 @@ public class ArrayOfEnums {
             return this;
         }
         
-        public ArrayOfEnumsListBuilder add(StringStringEnumEnums item) {
+        public ArrayOfEnumsListBuilder add(StringEnum.StringStringEnumEnums item) {
             list.add(item.value());
             return this;
         }
         
-        public ArrayOfEnumsListBuilder add(NullStringEnumEnums item) {
-            list.add(item.value());
+        public ArrayOfEnumsListBuilder add(StringEnum.NullStringEnumEnums item) {
+            list.add(null);
             return this;
         }
     

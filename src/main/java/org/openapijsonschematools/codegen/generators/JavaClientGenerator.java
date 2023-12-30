@@ -378,6 +378,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaTestSupportingFiles.add("AnyTypeSchemaTest");
         schemaTestSupportingFiles.add("ArrayTypeSchemaTest");
         schemaTestSupportingFiles.add("BooleanSchemaTest");
+        schemaTestSupportingFiles.add("ListBuilderTest");
         schemaTestSupportingFiles.add("ListSchemaTest");
         schemaTestSupportingFiles.add("MapSchemaTest");
         schemaTestSupportingFiles.add("NullSchemaTest");

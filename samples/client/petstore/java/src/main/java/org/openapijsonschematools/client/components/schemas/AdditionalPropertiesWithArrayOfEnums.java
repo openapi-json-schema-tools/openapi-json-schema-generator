@@ -53,7 +53,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return this;
         }
         
-        public AdditionalPropertiesListBuilder add(StringEnumClassEnums item) {
+        public AdditionalPropertiesListBuilder add(EnumClass.StringEnumClassEnums item) {
             list.add(item.value());
             return this;
         }

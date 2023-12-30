@@ -15,7 +15,7 @@ public static class {{arrayInputJsonPathPiece.camelCase}} {
         {{#if refInfo }}
             {{#if refInfo.refModule}}
                 {{#with getDeepestRef }}
-    {{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.camelCase }}
+    {{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.camelCase useContainer=true }}
                 {{/with}}
             {{else}}
                 {{! self reference} }}
