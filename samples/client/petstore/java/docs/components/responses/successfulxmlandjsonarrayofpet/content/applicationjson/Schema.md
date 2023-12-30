@@ -101,7 +101,7 @@ Schema.SchemaList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListBuilder
 public class SchemaListBuilder<br>
-builder for `List<Map<String, ? extends @Nullable Object>>`
+builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
@@ -115,7 +115,7 @@ A class that builds the List input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | SchemaListBuilder | add(Map<String, @Nullable Object> item) |
-| List<Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
+| List<Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## SchemaList
 public class SchemaList<br>

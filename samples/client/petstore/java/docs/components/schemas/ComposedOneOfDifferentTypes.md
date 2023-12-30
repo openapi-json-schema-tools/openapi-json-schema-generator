@@ -132,7 +132,7 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema5ListBuilder
 public class Schema5ListBuilder<br>
-builder for `List<? extends @Nullable Object>`
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
@@ -154,7 +154,7 @@ A class that builds the List input type
 | Schema5ListBuilder | add(double item) |
 | Schema5ListBuilder | add(List<?> item) |
 | Schema5ListBuilder | add(Map<String, ?> item) |
-| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Schema5List
 public class Schema5List<br>

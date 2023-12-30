@@ -58,7 +58,7 @@ ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayTypeMatchesArraysListBuilder
 public class ArrayTypeMatchesArraysListBuilder<br>
-builder for `List<? extends @Nullable Object>`
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
@@ -80,7 +80,7 @@ A class that builds the List input type
 | ArrayTypeMatchesArraysListBuilder | add(double item) |
 | ArrayTypeMatchesArraysListBuilder | add(List<?> item) |
 | ArrayTypeMatchesArraysListBuilder | add(Map<String, ?> item) |
-| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayTypeMatchesArraysList
 public class ArrayTypeMatchesArraysList<br>

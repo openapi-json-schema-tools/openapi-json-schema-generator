@@ -140,7 +140,7 @@ Drawing.ShapesList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ShapesListBuilder
 public class ShapesListBuilder<br>
-builder for `List<? extends @Nullable Object>`
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
@@ -162,7 +162,7 @@ A class that builds the List input type
 | ShapesListBuilder | add(double item) |
 | ShapesListBuilder | add(List<?> item) |
 | ShapesListBuilder | add(Map<String, ?> item) |
-| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ShapesList
 public class ShapesList<br>

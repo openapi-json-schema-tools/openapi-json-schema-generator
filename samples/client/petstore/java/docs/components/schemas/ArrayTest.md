@@ -189,7 +189,7 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayArrayOfModelListBuilder
 public class ArrayArrayOfModelListBuilder<br>
-builder for `List<List<Map<String, ? extends @Nullable Object>>>`
+builder for `List<List<Map<String, @Nullable Object>>>`
 
 A class that builds the List input type
 
@@ -203,7 +203,7 @@ A class that builds the List input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | ArrayArrayOfModelListBuilder | add(List<Map<String, @Nullable Object>> item) |
-| List<List<Map<String, ? extends @Nullable Object>>> | build()<br>Returns list input that should be used with Schema.validate |
+| List<List<Map<String, @Nullable Object>>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayArrayOfModelList
 public class ArrayArrayOfModelList<br>
@@ -269,7 +269,7 @@ ArrayTest.ItemsList1 validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder1
 public class ItemsListBuilder1<br>
-builder for `List<Map<String, ? extends @Nullable Object>>`
+builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
@@ -283,7 +283,7 @@ A class that builds the List input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | ItemsListBuilder1 | add(Map<String, @Nullable Object> item) |
-| List<Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
+| List<Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ItemsList1
 public class ItemsList1<br>

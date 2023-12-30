@@ -58,7 +58,7 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfEnumsListBuilder
 public class ArrayOfEnumsListBuilder<br>
-builder for `List<? extends @Nullable String>`
+builder for `List<@Nullable String>`
 
 A class that builds the List input type
 
@@ -75,7 +75,7 @@ A class that builds the List input type
 | ArrayOfEnumsListBuilder | add(String item) |
 | ArrayOfEnumsListBuilder | add([StringEnum.StringStringEnumEnums](../../components/schemas/StringEnum.md#stringstringenumenums) item) |
 | ArrayOfEnumsListBuilder | add([StringEnum.NullStringEnumEnums](../../components/schemas/StringEnum.md#nullstringenumenums) item) |
-| List<? extends @Nullable String> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayOfEnumsList
 public class ArrayOfEnumsList<br>

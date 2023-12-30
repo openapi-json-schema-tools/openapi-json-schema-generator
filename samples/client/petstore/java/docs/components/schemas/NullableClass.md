@@ -525,7 +525,7 @@ NullableClass.ArrayItemsNullableList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayItemsNullableListBuilder
 public class ArrayItemsNullableListBuilder<br>
-builder for `List<? extends @Nullable Map<String, ? extends @Nullable Object>>`
+builder for `List<@Nullable Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
@@ -540,7 +540,7 @@ A class that builds the List input type
 | ----------------- | ---------------------- |
 | ArrayItemsNullableListBuilder | add(Void item) |
 | ArrayItemsNullableListBuilder | add(Map<String, @Nullable Object> item) |
-| List<? extends @Nullable Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayItemsNullableList
 public class ArrayItemsNullableList<br>
@@ -643,7 +643,7 @@ NullableClass.ArrayAndItemsNullablePropList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayAndItemsNullablePropListBuilder
 public class ArrayAndItemsNullablePropListBuilder<br>
-builder for `List<? extends @Nullable Map<String, ? extends @Nullable Object>>`
+builder for `List<@Nullable Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
@@ -658,7 +658,7 @@ A class that builds the List input type
 | ----------------- | ---------------------- |
 | ArrayAndItemsNullablePropListBuilder | add(Void item) |
 | ArrayAndItemsNullablePropListBuilder | add(Map<String, @Nullable Object> item) |
-| List<? extends @Nullable Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayAndItemsNullablePropList
 public class ArrayAndItemsNullablePropList<br>
@@ -760,7 +760,7 @@ NullableClass.ArrayNullablePropList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNullablePropListBuilder
 public class ArrayNullablePropListBuilder<br>
-builder for `List<Map<String, ? extends @Nullable Object>>`
+builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
@@ -774,7 +774,7 @@ A class that builds the List input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | ArrayNullablePropListBuilder | add(Map<String, @Nullable Object> item) |
-| List<Map<String, ? extends @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
+| List<Map<String, @Nullable Object>> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayNullablePropList
 public class ArrayNullablePropList<br>

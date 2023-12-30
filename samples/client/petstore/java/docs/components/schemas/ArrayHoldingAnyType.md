@@ -58,7 +58,7 @@ ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayHoldingAnyTypeListBuilder
 public class ArrayHoldingAnyTypeListBuilder<br>
-builder for `List<? extends @Nullable Object>`
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
@@ -80,7 +80,7 @@ A class that builds the List input type
 | ArrayHoldingAnyTypeListBuilder | add(double item) |
 | ArrayHoldingAnyTypeListBuilder | add(List<?> item) |
 | ArrayHoldingAnyTypeListBuilder | add(Map<String, ?> item) |
-| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayHoldingAnyTypeList
 public class ArrayHoldingAnyTypeList<br>

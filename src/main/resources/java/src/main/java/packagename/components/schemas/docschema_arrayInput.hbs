@@ -1,7 +1,7 @@
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}
 public class {{arrayInputJsonPathPiece.camelCase}}<br>
-builder for `List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>`
+builder for `List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>`
 
 A class that builds the List input type
 
@@ -30,4 +30,4 @@ A class that builds the List input type
 {{else}}
 {{! todo handle this, 3.1.0 document use-case }}
 {{/with}}
-| List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> | build()<br>Returns list input that should be used with Schema.validate |
+| List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> | build()<br>Returns list input that should be used with Schema.validate |

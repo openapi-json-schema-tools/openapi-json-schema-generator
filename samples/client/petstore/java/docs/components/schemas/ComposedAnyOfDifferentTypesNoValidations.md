@@ -158,7 +158,7 @@ ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema9ListBuilder
 public class Schema9ListBuilder<br>
-builder for `List<? extends @Nullable Object>`
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
@@ -180,7 +180,7 @@ A class that builds the List input type
 | Schema9ListBuilder | add(double item) |
 | Schema9ListBuilder | add(List<?> item) |
 | Schema9ListBuilder | add(Map<String, ?> item) |
-| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Schema9List
 public class Schema9List<br>

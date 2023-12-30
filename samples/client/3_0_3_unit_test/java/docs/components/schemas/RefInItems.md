@@ -57,7 +57,7 @@ RefInItems.RefInItemsList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RefInItemsListBuilder
 public class RefInItemsListBuilder<br>
-builder for `List<? extends @Nullable Object>`
+builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
@@ -79,7 +79,7 @@ A class that builds the List input type
 | RefInItemsListBuilder | add(double item) |
 | RefInItemsListBuilder | add(List<?> item) |
 | RefInItemsListBuilder | add(Map<String, ?> item) |
-| List<? extends @Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
+| List<@Nullable Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## RefInItemsList
 public class RefInItemsList<br>
