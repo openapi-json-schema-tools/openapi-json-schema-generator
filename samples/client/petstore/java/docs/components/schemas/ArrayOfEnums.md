@@ -73,8 +73,8 @@ A class that builds the List input type
 | ----------------- | ---------------------- |
 | ArrayOfEnumsListBuilder | add(Void item) |
 | ArrayOfEnumsListBuilder | add(String item) |
-| ArrayOfEnumsListBuilder | add([StringStringEnumEnums](#stringstringenumenums) item) |
-| ArrayOfEnumsListBuilder | add([NullStringEnumEnums](#nullstringenumenums) item) |
+| ArrayOfEnumsListBuilder | add([StringEnum.StringStringEnumEnums](../../components/schemas/StringEnum.md#stringstringenumenums) item) |
+| ArrayOfEnumsListBuilder | add([StringEnum.NullStringEnumEnums](../../components/schemas/StringEnum.md#nullstringenumenums) item) |
 | List<? extends @Nullable String> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## ArrayOfEnumsList

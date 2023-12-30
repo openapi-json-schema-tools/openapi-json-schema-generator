@@ -18,7 +18,7 @@ A class that builds the List input type
     {{#if refInfo }}
         {{#if refInfo.refModule}}
             {{#with getDeepestRef }}
-{{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.camelCase forDocs=true }}
+{{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.camelCase forDocs=true useContainer=true }}
             {{/with}}
         {{else}}
             {{! self reference} }}
