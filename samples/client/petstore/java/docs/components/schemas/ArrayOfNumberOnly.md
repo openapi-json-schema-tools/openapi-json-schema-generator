@@ -116,9 +116,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfNumberOnly.ArrayNumberList validatedPayload =
     ArrayOfNumberOnly.ArrayNumber.validate(
-    Arrays.asList(
-        1
-    ),
+    new .ArrayNumberListBuilder(
+        Arrays.asList(
+            1
+        )
+    ).build(),
     configuration
 );
 ```

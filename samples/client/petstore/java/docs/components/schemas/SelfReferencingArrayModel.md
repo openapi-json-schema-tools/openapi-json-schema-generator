@@ -38,8 +38,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
     SelfReferencingArrayModel.SelfReferencingArrayModel1.validate(
-    Arrays.asList(
-    ),
+    new SelfReferencingArrayModel.SelfReferencingArrayModelListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

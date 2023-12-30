@@ -38,52 +38,54 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema.SchemaList validatedPayload =
     Schema.Schema1.validate(
-    Arrays.asList(
-        MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<String, Object>(
-                "name",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, Object>(
-                "photoUrls",
-                Arrays.asList(
+    new Schema.SchemaListBuilder(
+        Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "name",
                     "a"
-                )
-            ),
-            new AbstractMap.SimpleEntry<String, Object>(
-                "id",
-                1L
-            ),
-            new AbstractMap.SimpleEntry<String, Object>(
-                "category",
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Object>(
-                        "name",
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "photoUrls",
+                    Arrays.asList(
                         "a"
-                    ),
-                    new AbstractMap.SimpleEntry<String, Object>(
-                        "id",
-                        1L
                     )
-                )
-            ),
-            new AbstractMap.SimpleEntry<String, Object>(
-                "tags",
-                Arrays.asList(
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "id",
+                    1L
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "category",
                     MapMaker.makeMap(
-                        new AbstractMap.SimpleEntry<>(
+                        new AbstractMap.SimpleEntry<String, Object>(
                             "name",
                             "a"
+                        ),
+                        new AbstractMap.SimpleEntry<String, Object>(
+                            "id",
+                            1L
                         )
                     )
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "tags",
+                    Arrays.asList(
+                        MapMaker.makeMap(
+                            new AbstractMap.SimpleEntry<>(
+                                "name",
+                                "a"
+                            )
+                        )
+                    )
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "status",
+                    "available"
                 )
-            ),
-            new AbstractMap.SimpleEntry<String, Object>(
-                "status",
-                "available"
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```

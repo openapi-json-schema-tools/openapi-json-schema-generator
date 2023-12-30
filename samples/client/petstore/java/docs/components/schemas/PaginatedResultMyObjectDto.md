@@ -122,8 +122,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 PaginatedResultMyObjectDto.ResultsList validatedPayload =
     PaginatedResultMyObjectDto.Results.validate(
-    Arrays.asList(
-    ),
+    new .ResultsListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

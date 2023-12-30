@@ -139,8 +139,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
     ComposedAnyOfDifferentTypesNoValidations.Schema9.validate(
-    Arrays.asList(
-    ),
+    new .Schema9ListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

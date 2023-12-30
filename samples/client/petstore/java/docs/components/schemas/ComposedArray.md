@@ -39,8 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ComposedArray.ComposedArrayList validatedPayload =
     ComposedArray.ComposedArray1.validate(
-    Arrays.asList(
-    ),
+    new ComposedArray.ComposedArrayListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

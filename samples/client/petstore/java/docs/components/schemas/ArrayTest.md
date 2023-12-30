@@ -158,20 +158,22 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayArrayOfModelList validatedPayload =
     ArrayTest.ArrayArrayOfModel.validate(
-    Arrays.asList(
+    new .ArrayArrayOfModelListBuilder(
         Arrays.asList(
-            MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
-                    "bar",
-                    "a"
-                ),
-                new AbstractMap.SimpleEntry<String, String>(
-                    "baz",
-                    "a"
+            Arrays.asList(
+                MapMaker.makeMap(
+                    new AbstractMap.SimpleEntry<String, String>(
+                        "bar",
+                        "a"
+                    ),
+                    new AbstractMap.SimpleEntry<String, String>(
+                        "baz",
+                        "a"
+                    )
                 )
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```
@@ -240,18 +242,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ItemsList1 validatedPayload =
     ArrayTest.Items3.validate(
-    Arrays.asList(
-        MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<String, String>(
-                "bar",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, String>(
-                "baz",
-                "a"
+    new .ItemsListBuilder1(
+        Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, String>(
+                    "bar",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, String>(
+                    "baz",
+                    "a"
+                )
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```
@@ -320,11 +324,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayArrayOfIntegerList validatedPayload =
     ArrayTest.ArrayArrayOfInteger.validate(
-    Arrays.asList(
+    new .ArrayArrayOfIntegerListBuilder(
         Arrays.asList(
-            1L
+            Arrays.asList(
+                1L
+            )
         )
-    ),
+    ).build(),
     configuration
 );
 ```
@@ -393,9 +399,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ItemsList validatedPayload =
     ArrayTest.Items1.validate(
-    Arrays.asList(
-        1L
-    ),
+    new .ItemsListBuilder(
+        Arrays.asList(
+            1L
+        )
+    ).build(),
     configuration
 );
 ```
@@ -477,9 +485,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayOfStringList validatedPayload =
     ArrayTest.ArrayOfString.validate(
-    Arrays.asList(
-        "a"
-    ),
+    new .ArrayOfStringListBuilder(
+        Arrays.asList(
+            "a"
+        )
+    ).build(),
     configuration
 );
 ```

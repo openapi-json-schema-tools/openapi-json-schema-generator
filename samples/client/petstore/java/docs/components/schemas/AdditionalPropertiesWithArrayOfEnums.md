@@ -107,9 +107,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
     AdditionalPropertiesWithArrayOfEnums.AdditionalProperties.validate(
-    Arrays.asList(
-        "_abc"
-    ),
+    new .AdditionalPropertiesListBuilder(
+        Arrays.asList(
+            "_abc"
+        )
+    ).build(),
     configuration
 );
 ```

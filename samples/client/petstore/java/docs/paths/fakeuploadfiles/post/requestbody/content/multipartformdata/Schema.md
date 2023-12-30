@@ -116,9 +116,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema.FilesList validatedPayload =
     Schema.Files.validate(
-    Arrays.asList(
-        "a"
-    ),
+    new .FilesListBuilder(
+        Arrays.asList(
+            "a"
+        )
+    ).build(),
     configuration
 );
 ```

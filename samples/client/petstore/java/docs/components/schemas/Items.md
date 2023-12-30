@@ -42,8 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Items.ItemsList validatedPayload =
     Items.Items1.validate(
-    Arrays.asList(
-    ),
+    new Items.ItemsListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

@@ -126,9 +126,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 EnumArrays.ArrayEnumList validatedPayload =
     EnumArrays.ArrayEnum.validate(
-    Arrays.asList(
-        "fish"
-    ),
+    new .ArrayEnumListBuilder(
+        Arrays.asList(
+            "fish"
+        )
+    ).build(),
     configuration
 );
 ```

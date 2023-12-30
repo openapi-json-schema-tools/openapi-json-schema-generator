@@ -81,7 +81,13 @@ boolean validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../js
     {{/eq}}
 {{/eq}}
             {{#with this}}
+                {{#and (eq type "array") ../arrayInputJsonPathPiece.camelCase }}
+    new {{../containerJsonPathPiece.camelCase}}.{{../arrayInputJsonPathPiece.camelCase}}(
+        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
+    ).build(),
+                {{else}}
     {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+                {{/and}}
             {{/with}}
     configuration
 );

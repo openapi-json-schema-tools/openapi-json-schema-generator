@@ -38,46 +38,48 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema.SchemaList validatedPayload =
     Schema.Schema1.validate(
-    Arrays.asList(
-        MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "id",
-                1L
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "username",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "firstName",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "lastName",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "email",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "password",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "phone",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "userStatus",
-                1
-            ),
-            new AbstractMap.SimpleEntry<String, @Nullable Object>(
-                "objectWithNoDeclaredPropsNullable",
-                null
+    new Schema.SchemaListBuilder(
+        Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "id",
+                    1L
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "username",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "firstName",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "lastName",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "email",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "password",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "phone",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "userStatus",
+                    1
+                ),
+                new AbstractMap.SimpleEntry<String, @Nullable Object>(
+                    "objectWithNoDeclaredPropsNullable",
+                    null
+                )
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```

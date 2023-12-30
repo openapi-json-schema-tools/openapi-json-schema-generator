@@ -111,8 +111,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ComposedOneOfDifferentTypes.Schema5List validatedPayload =
     ComposedOneOfDifferentTypes.Schema5.validate(
-    Arrays.asList(
-    ),
+    new .Schema5ListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

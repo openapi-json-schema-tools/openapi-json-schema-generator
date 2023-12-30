@@ -38,8 +38,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 RefInItems.RefInItemsList validatedPayload =
     RefInItems.RefInItems1.validate(
-    Arrays.asList(
-    ),
+    new RefInItems.RefInItemsListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

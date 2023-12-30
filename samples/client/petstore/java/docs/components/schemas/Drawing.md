@@ -121,8 +121,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Drawing.ShapesList validatedPayload =
     Drawing.Shapes.validate(
-    Arrays.asList(
-    ),
+    new .ShapesListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

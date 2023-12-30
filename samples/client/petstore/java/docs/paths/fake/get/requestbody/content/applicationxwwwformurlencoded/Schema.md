@@ -185,9 +185,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema.EnumFormStringArrayList validatedPayload =
     Schema.EnumFormStringArray.validate(
-    Arrays.asList(
-        ">"
-    ),
+    new .EnumFormStringArrayListBuilder(
+        Arrays.asList(
+            ">"
+        )
+    ).build(),
     configuration
 );
 ```

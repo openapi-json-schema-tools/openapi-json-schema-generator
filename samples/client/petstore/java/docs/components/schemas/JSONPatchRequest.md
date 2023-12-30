@@ -39,8 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 JSONPatchRequest.JSONPatchRequestList validatedPayload =
     JSONPatchRequest.JSONPatchRequest1.validate(
-    Arrays.asList(
-    ),
+    new JSONPatchRequest.JSONPatchRequestListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

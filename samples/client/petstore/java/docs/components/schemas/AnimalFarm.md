@@ -38,18 +38,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 AnimalFarm.AnimalFarmList validatedPayload =
     AnimalFarm.AnimalFarm1.validate(
-    Arrays.asList(
-        MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<String, String>(
-                "className",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, String>(
-                "color",
-                "a"
+    new AnimalFarm.AnimalFarmListBuilder(
+        Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, String>(
+                    "className",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, String>(
+                    "color",
+                    "a"
+                )
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```

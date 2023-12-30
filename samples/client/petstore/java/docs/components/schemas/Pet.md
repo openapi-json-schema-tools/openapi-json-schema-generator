@@ -174,18 +174,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Pet.TagsList validatedPayload =
     Pet.Tags.validate(
-    Arrays.asList(
-        MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<String, Object>(
-                "id",
-                1L
-            ),
-            new AbstractMap.SimpleEntry<String, Object>(
-                "name",
-                "a"
+    new .TagsListBuilder(
+        Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "id",
+                    1L
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "name",
+                    "a"
+                )
             )
         )
-    ),
+    ).build(),
     configuration
 );
 ```
@@ -310,9 +312,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Pet.PhotoUrlsList validatedPayload =
     Pet.PhotoUrls.validate(
-    Arrays.asList(
-        "a"
-    ),
+    new .PhotoUrlsListBuilder(
+        Arrays.asList(
+            "a"
+        )
+    ).build(),
     configuration
 );
 ```

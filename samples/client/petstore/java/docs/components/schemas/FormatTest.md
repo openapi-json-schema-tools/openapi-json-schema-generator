@@ -477,9 +477,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 FormatTest.ArrayWithUniqueItemsList validatedPayload =
     FormatTest.ArrayWithUniqueItems.validate(
-    Arrays.asList(
-        1
-    ),
+    new .ArrayWithUniqueItemsListBuilder(
+        Arrays.asList(
+            1
+        )
+    ).build(),
     configuration
 );
 ```

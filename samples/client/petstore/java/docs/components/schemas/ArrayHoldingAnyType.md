@@ -39,8 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
     ArrayHoldingAnyType.ArrayHoldingAnyType1.validate(
-    Arrays.asList(
-    ),
+    new ArrayHoldingAnyType.ArrayHoldingAnyTypeListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```

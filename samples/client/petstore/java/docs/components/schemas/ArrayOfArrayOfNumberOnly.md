@@ -121,11 +121,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
     ArrayOfArrayOfNumberOnly.ArrayArrayNumber.validate(
-    Arrays.asList(
+    new .ArrayArrayNumberListBuilder(
         Arrays.asList(
-            1
+            Arrays.asList(
+                1
+            )
         )
-    ),
+    ).build(),
     configuration
 );
 ```
@@ -194,9 +196,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
     ArrayOfArrayOfNumberOnly.Items.validate(
-    Arrays.asList(
-        1
-    ),
+    new .ItemsListBuilder(
+        Arrays.asList(
+            1
+        )
+    ).build(),
     configuration
 );
 ```

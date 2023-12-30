@@ -39,9 +39,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema4.SchemaList4 validatedPayload =
     Schema4.Schema41.validate(
-    Arrays.asList(
-        "a"
-    ),
+    new Schema4.SchemaListBuilder4(
+        Arrays.asList(
+            "a"
+        )
+    ).build(),
     configuration
 );
 ```

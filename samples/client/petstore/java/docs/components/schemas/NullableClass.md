@@ -505,9 +505,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NullableClass.ArrayItemsNullableList validatedPayload =
     NullableClass.ArrayItemsNullable.validate(
-    Arrays.asList(
-        null
-    ),
+    new .ArrayItemsNullableListBuilder(
+        Arrays.asList(
+            null
+        )
+    ).build(),
     configuration
 );
 ```
@@ -622,9 +624,11 @@ Void validatedPayload = NullableClass.ArrayAndItemsNullableProp.validate(
 // List validation
 NullableClass.ArrayAndItemsNullablePropList validatedPayload =
     NullableClass.ArrayAndItemsNullableProp.validate(
-    Arrays.asList(
-        null
-    ),
+    new .ArrayAndItemsNullablePropListBuilder(
+        Arrays.asList(
+            null
+        )
+    ).build(),
     configuration
 );
 ```
@@ -740,8 +744,10 @@ Void validatedPayload = NullableClass.ArrayNullableProp.validate(
 // List validation
 NullableClass.ArrayNullablePropList validatedPayload =
     NullableClass.ArrayNullableProp.validate(
-    Arrays.asList(
-    ),
+    new .ArrayNullablePropListBuilder(
+        Arrays.asList(
+        )
+    ).build(),
     configuration
 );
 ```
