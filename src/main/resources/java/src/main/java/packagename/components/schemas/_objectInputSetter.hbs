@@ -1,0 +1,294 @@
+{{#each types}}
+    {{#eq this "null"}}
+        {{#if forDocs }}
+| {{builderClass}} | {{methodName}}(Void value) |
+        {{else}}
+
+default T {{methodName}}(Void value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", null);
+    return {{getBuilderMethod}}(instance);
+}
+        {{/if}}
+    {{else}}
+        {{#eq this "boolean"}}
+            {{#if forDocs }}
+| {{builderClass}} | {{methodName}}(boolean value) |
+            {{else}}
+
+default T {{methodName}}(boolean value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+            {{/if}}
+        {{else}}
+            {{#eq this "string"}}
+                {{#if forDocs }}
+| {{builderClass}} | {{methodName}}(String value) |
+                {{else}}
+
+default T {{methodName}}(String value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+                {{/if}}
+            {{else}}
+                {{#or (eq this "integer") (eq this "number") }}
+                    {{#if forDocs }}
+| {{builderClass}} | {{methodName}}(int value) |
+| {{builderClass}} | {{methodName}}(float value) |
+                        {{#neq ../format "int32"}}
+| {{builderClass}} | {{methodName}}(long value) |
+| {{builderClass}} | {{methodName}}(double value) |
+                        {{/neq}}
+                    {{else}}
+
+default T {{methodName}}(int value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(float value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+                        {{#neq ../format "int32"}}
+
+default T {{methodName}}(long value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(double value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+                        {{/neq}}
+                    {{/if}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#if forDocs }}
+| {{builderClass}} | {{methodName}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) |
+                        {{else}}
+
+default T {{methodName}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+                        {{/if}}
+                    {{else}}
+                        {{#eq this "object"}}
+                            {{#if forDocs }}
+| {{builderClass}} | {{methodName}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) |
+                            {{else}}
+
+default T {{methodName}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+                            {{/if}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/or}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{else}}
+    {{! no type defined }}
+    {{#if forDocs }}
+| {{builderClass}} | {{methodName}}(Void value) |
+| {{builderClass}} | {{methodName}}(boolean value) |
+| {{builderClass}} | {{methodName}}(String value) |
+| {{builderClass}} | {{methodName}}(int value) |
+| {{builderClass}} | {{methodName}}(float value) |
+| {{builderClass}} | {{methodName}}(long value) |
+| {{builderClass}} | {{methodName}}(double value) |
+| {{builderClass}} | {{methodName}}(List<?> value) |
+| {{builderClass}} | {{methodName}}(Map<String, ?> value) |
+    {{else}}
+
+default T {{methodName}}(Void value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", null);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(boolean value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(String value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(int value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(float value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(long value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(double value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(List<?> value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+
+default T {{methodName}}(Map<String, ?> value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value);
+    return {{getBuilderMethod}}(instance);
+}
+    {{/if}}
+{{/each}}
+{{#with enumInfo}}
+    {{#each typeToValues }}
+        {{#eq @key "null"}}
+            {{#if forDocs }}
+                {{#if useContainer }}
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.anchorPiece}}) value) |
+                {{else}}
+| {{builderClass}} | {{methodName}}([Null{{../jsonPathPiece.camelCase}}](#null{{../jsonPathPiece.anchorPiece}}) value) |
+                {{/if}}
+            {{else}}
+
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Null{{../jsonPathPiece.camelCase}} value) {
+    var instance = getInstance();
+    list.{{methodName}}(null);
+    return {{getBuilderMethod}}(instance);
+}
+            {{/if}}
+        {{else}}
+            {{#eq @key "boolean"}}
+                {{#if forDocs }}
+                    {{#if useContainer }}
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.anchorPiece}}) value) |
+                    {{else}}
+| {{builderClass}} | {{methodName}}([Boolean{{../jsonPathPiece.camelCase}}](#boolean{{../jsonPathPiece.anchorPiece}}) value) |
+                    {{/if}}
+                {{else}}
+
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Boolean{{../jsonPathPiece.camelCase}} value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value.value());
+    return {{getBuilderMethod}}(instance);
+}
+                {{/if}}
+            {{else}}
+                {{#eq @key "string"}}
+                    {{#if forDocs }}
+                        {{#if useContainer }}
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.anchorPiece}}) value) |
+                        {{else}}
+| {{builderClass}} | {{methodName}}([String{{../jsonPathPiece.camelCase}}](#string{{../jsonPathPiece.anchorPiece}}) value) |
+                        {{/if}}
+                    {{else}}
+
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}String{{../jsonPathPiece.camelCase}} value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value.value());
+    return {{getBuilderMethod}}(instance);
+}
+                    {{/if}}
+                {{else}}
+                    {{#eq @key "Integer"}}
+                        {{#if forDocs }}
+                            {{#if useContainer }}
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.anchorPiece}}) value) |
+                            {{else}}
+| {{builderClass}} | {{methodName}}([Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}}) value) |
+                            {{/if}}
+                        {{else}}
+
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Integer{{../jsonPathPiece.camelCase}} value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value.value());
+    return {{getBuilderMethod}}(instance);
+}
+                        {{/if}}
+                    {{else}}
+                        {{#eq @key "Long"}}
+                            {{#if forDocs }}
+                                {{#if useContainer }}
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Long{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.anchorPiece}}) value) |
+                                {{else}}
+| {{builderClass}} | {{methodName}}([Long{{../jsonPathPiece.camelCase}}](#long{{../jsonPathPiece.anchorPiece}}) value) |
+                                {{/if}}
+                            {{else}}
+
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Long{{../jsonPathPiece.camelCase}} value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value.value());
+    return {{getBuilderMethod}}(instance);
+}
+                            {{/if}}
+                        {{else}}
+                            {{#eq @key "Float"}}
+                                {{#if forDocs }}
+                                    {{#if useContainer }}
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Float{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.anchorPiece}}) value) |
+                                    {{else}}
+| {{builderClass}} | {{methodName}}([Float{{../jsonPathPiece.camelCase}}](#float{{../jsonPathPiece.anchorPiece}}) value) |
+                                    {{/if}}
+                                {{else}}
+
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Float{{../jsonPathPiece.camelCase}} value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value.value());
+    return {{getBuilderMethod}}(instance);
+}
+                                {{/if}}
+                            {{else}}
+                                {{#eq @key "Double"}}
+                                    {{#if forDocs }}
+                                        {{#if useContainer }}
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Double{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.anchorPiece}}) value) |
+                                        {{else}}
+| {{builderClass}} | {{methodName}}([Double{{../jsonPathPiece.camelCase}}](#double{{../jsonPathPiece.anchorPiece}}) value) |
+                                        {{/if}}
+                                    {{else}}
+
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Double{{../jsonPathPiece.camelCase}} value) {
+    var instance = getInstance();
+    instance.put("{{{@key.original}}}", value.value());
+    return {{getBuilderMethod}}(instance);
+}
+                                    {{/if}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/each}}
+{{/with}}

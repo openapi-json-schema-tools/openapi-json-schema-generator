@@ -75,7 +75,56 @@ public class OneofWithRequired {
     public interface SetterForBar <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterBar(Map<String, @Nullable Object> instance);
-        default T bar(@Nullable Object value) {
+        
+        default T bar(Void value) {
+            var instance = getInstance();
+            instance.put("bar", null);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(boolean value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(String value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(int value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(float value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(long value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(double value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(List<?> value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("bar", value);
             return getBuilderAfterBar(instance);
@@ -85,7 +134,56 @@ public class OneofWithRequired {
     public interface SetterForFoo <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
-        default T foo(@Nullable Object value) {
+        
+        default T foo(Void value) {
+            var instance = getInstance();
+            instance.put("foo", null);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(boolean value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(int value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(float value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(long value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(double value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo", value);
             return getBuilderAfterFoo(instance);
@@ -334,7 +432,56 @@ public class OneofWithRequired {
     public interface SetterForBaz <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterBaz(Map<String, @Nullable Object> instance);
-        default T baz(@Nullable Object value) {
+        
+        default T baz(Void value) {
+            var instance = getInstance();
+            instance.put("baz", null);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(boolean value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(String value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(int value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(float value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(long value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(double value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(List<?> value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("baz", value);
             return getBuilderAfterBaz(instance);
@@ -344,7 +491,56 @@ public class OneofWithRequired {
     public interface SetterForFoo1 <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoo1(Map<String, @Nullable Object> instance);
-        default T foo(@Nullable Object value) {
+        
+        default T foo(Void value) {
+            var instance = getInstance();
+            instance.put("foo", null);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(boolean value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(int value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(float value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(long value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(double value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo", value);
             return getBuilderAfterFoo1(instance);

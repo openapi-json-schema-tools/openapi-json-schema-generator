@@ -212,9 +212,16 @@ public class EnumsInProperties {
     public interface SetterForBar <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterBar(Map<String, @Nullable Object> instance);
-        default T bar(@Nullable Object value) {
+        
+        default T bar(String value) {
             var instance = getInstance();
-            instance.put("bar", value);
+            instance.put("", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(StringBarEnums value) {
+            var instance = getInstance();
+            instance.put("", value.value());
             return getBuilderAfterBar(instance);
         }
     }

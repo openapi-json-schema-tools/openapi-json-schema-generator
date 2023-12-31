@@ -87,9 +87,28 @@ public class AnyofComplexTypes {
     public interface SetterForBar <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterBar(Map<String, @Nullable Object> instance);
-        default T bar(@Nullable Object value) {
+        
+        default T bar(int value) {
             var instance = getInstance();
-            instance.put("bar", value);
+            instance.put("", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(float value) {
+            var instance = getInstance();
+            instance.put("", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(long value) {
+            var instance = getInstance();
+            instance.put("", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(double value) {
+            var instance = getInstance();
+            instance.put("", value);
             return getBuilderAfterBar(instance);
         }
     }
@@ -348,9 +367,10 @@ public class AnyofComplexTypes {
     public interface SetterForFoo <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
-        default T foo(@Nullable Object value) {
+        
+        default T foo(String value) {
             var instance = getInstance();
-            instance.put("foo", value);
+            instance.put("", value);
             return getBuilderAfterFoo(instance);
         }
     }

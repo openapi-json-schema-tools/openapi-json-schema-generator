@@ -70,7 +70,56 @@ public class RequiredWithEscapedCharacters {
     public interface SetterForFootbar <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFootbar(Map<String, @Nullable Object> instance);
-        default T todoHandleThis(@Nullable Object value) {
+        
+        default T todoFixThis(Void value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", null);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T todoFixThis(boolean value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T todoFixThis(String value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T todoFixThis(int value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T todoFixThis(float value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T todoFixThis(long value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T todoFixThis(double value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T todoFixThis(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T todoFixThis(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
@@ -80,7 +129,56 @@ public class RequiredWithEscapedCharacters {
     public interface SetterForFoonbar <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoonbar(Map<String, @Nullable Object> instance);
-        default T todoHandleThis(@Nullable Object value) {
+        
+        default T todoFixThis(Void value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", null);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T todoFixThis(boolean value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T todoFixThis(String value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T todoFixThis(int value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T todoFixThis(float value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T todoFixThis(long value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T todoFixThis(double value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T todoFixThis(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T todoFixThis(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
@@ -90,7 +188,56 @@ public class RequiredWithEscapedCharacters {
     public interface SetterForFoofbar <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoofbar(Map<String, @Nullable Object> instance);
-        default T todoHandleThis(@Nullable Object value) {
+        
+        default T todoFixThis(Void value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", null);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T todoFixThis(boolean value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T todoFixThis(String value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T todoFixThis(int value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T todoFixThis(float value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T todoFixThis(long value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T todoFixThis(double value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T todoFixThis(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T todoFixThis(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
@@ -100,7 +247,56 @@ public class RequiredWithEscapedCharacters {
     public interface SetterForFoorbar <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoorbar(Map<String, @Nullable Object> instance);
-        default T todoHandleThis(@Nullable Object value) {
+        
+        default T todoFixThis(Void value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", null);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T todoFixThis(boolean value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T todoFixThis(String value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T todoFixThis(int value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T todoFixThis(float value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T todoFixThis(long value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T todoFixThis(double value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T todoFixThis(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T todoFixThis(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
@@ -110,7 +306,56 @@ public class RequiredWithEscapedCharacters {
     public interface SetterForFoobar <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoobar(Map<String, @Nullable Object> instance);
-        default T todoHandleThis(@Nullable Object value) {
+        
+        default T todoFixThis(Void value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", null);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T todoFixThis(boolean value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T todoFixThis(String value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T todoFixThis(int value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T todoFixThis(float value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T todoFixThis(long value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T todoFixThis(double value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T todoFixThis(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T todoFixThis(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
@@ -120,7 +365,56 @@ public class RequiredWithEscapedCharacters {
     public interface SetterForFoobar1 <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoobar1(Map<String, @Nullable Object> instance);
-        default T todoHandleThis(@Nullable Object value) {
+        
+        default T todoFixThis(Void value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", null);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T todoFixThis(boolean value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T todoFixThis(String value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T todoFixThis(int value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T todoFixThis(float value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T todoFixThis(long value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T todoFixThis(double value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T todoFixThis(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T todoFixThis(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);

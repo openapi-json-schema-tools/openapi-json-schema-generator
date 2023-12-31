@@ -14,11 +14,11 @@ public static class {{className}} implements BaseBuilder<{{#with mapValueSchema}
 public interface SetterFor{{@key.camelCase}} <T> {
     Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance();
     T getBuilderAfter{{@key.camelCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
-    default T {{#if @key.isValid}}{{{@key.original}}}{{else}}todoHandleThis{{/if}}({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}} value) {
-        var instance = getInstance();
-        instance.put("{{{@key.original}}}", value);
-        return getBuilderAfter{{@key.camelCase}}(instance);
-    }
+    {{#if @key.isValid}}
+    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.camelCase "") @key=@key }}
+    {{else}}
+    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName="todoFixThis" getBuilderMethod=(join "getBuilderAfter" @key.camelCase "") @key=@key }}
+    {{/if}}
 }
 {{/each}}
 {{#if additionalProperties}}
