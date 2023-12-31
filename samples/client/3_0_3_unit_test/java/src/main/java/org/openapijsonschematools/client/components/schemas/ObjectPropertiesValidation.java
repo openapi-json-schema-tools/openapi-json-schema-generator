@@ -101,8 +101,8 @@ public class ObjectPropertiesValidation {
     
     public static class ObjectPropertiesValidationReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public ObjectPropertiesValidationReqPropsBuilder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public ObjectPropertiesValidationReqPropsBuilder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;

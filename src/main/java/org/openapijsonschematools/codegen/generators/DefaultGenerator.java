@@ -2870,8 +2870,9 @@ public class DefaultGenerator implements Generator {
             }
             String builderClassName = getSchemaCamelCaseName(schemaName + "ReqProps" + bitStr + "Builder", sourceJsonPath);
             MapBuilder builder;
+            boolean isFirstBuilder = i == qtyBuilders - 1;
             if (i == 0) {
-                builder = new MapBuilder(builderClassName, null);
+                builder = new MapBuilder(builderClassName, null, isFirstBuilder);
             } else {
                 LinkedHashMap<CodegenKey, MapBuilder> keyToBuilder = new LinkedHashMap<>();
                 for (int c=0; c < reqPropsSize; c++) {
@@ -2889,7 +2890,7 @@ public class DefaultGenerator implements Generator {
                         keyToBuilder.put(key, nextBuilder);
                     }
                 }
-                builder = new MapBuilder(builderClassName, keyToBuilder);
+                builder = new MapBuilder(builderClassName, keyToBuilder, isFirstBuilder);
             }
             bitStrToBuilder.put(bitStr, builder);
             builders.add(builder);

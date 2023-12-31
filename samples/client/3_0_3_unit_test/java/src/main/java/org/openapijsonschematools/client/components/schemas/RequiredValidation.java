@@ -156,10 +156,16 @@ public class RequiredValidation {
         }
     }
     
-    public static class RequiredValidationReqProps1Builder {
+    public static class RequiredValidationReqProps1Builder implements SetterForFoo<RequiredValidationReqProps0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredValidationReqProps1Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public RequiredValidationReqProps1Builder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public RequiredValidationReqProps0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new RequiredValidationReqProps0Builder(instance);
         }
     }
     public static class RequiredValidationMapBuilder {

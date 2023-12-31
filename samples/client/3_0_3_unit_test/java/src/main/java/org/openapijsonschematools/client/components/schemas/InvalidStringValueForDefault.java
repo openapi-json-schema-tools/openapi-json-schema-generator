@@ -112,8 +112,8 @@ public class InvalidStringValueForDefault {
     
     public static class InvalidStringValueForDefaultReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public InvalidStringValueForDefaultReqPropsBuilder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public InvalidStringValueForDefaultReqPropsBuilder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;

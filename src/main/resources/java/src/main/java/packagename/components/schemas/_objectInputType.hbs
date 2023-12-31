@@ -15,16 +15,31 @@ public interface SetterFor{{@key.camelCase}} <T> {
     {{#eq keyToBuilder null}}
 public static class {{className}} implements BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> {
     {{else}}
-public static class {{className}} {
+public static class {{className}} implements {{#each keyToBuilder}}SetterFor{{@key.camelCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}} {
     {{/eq}}
     private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
+    {{#if isFirstBuilder}}
+    public {{className}}() {
+        this.instance = new LinkedHashMap<>();
+    }
+    {{else}}
     public {{className}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
         this.instance = instance;
     }
+    {{/if}}
     {{#eq keyToBuilder null}}
     public Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> build() {
         return instance;
     }
+    {{else}}
+    public Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance() {
+        return instance;
+    }
+    {{#each keyToBuilder}}
+    public {{className}} getBuilderAfter{{@key.camelCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+        return new {{className}}(instance);
+    }
+    {{/each}}
     {{/eq}}
 }
 {{/each}}

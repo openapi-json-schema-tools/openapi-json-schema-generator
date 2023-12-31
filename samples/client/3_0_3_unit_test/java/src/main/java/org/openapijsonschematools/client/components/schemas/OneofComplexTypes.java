@@ -114,10 +114,16 @@ public class OneofComplexTypes {
         }
     }
     
-    public static class Schema0ReqProps1Builder {
+    public static class Schema0ReqProps1Builder implements SetterForBar<Schema0ReqProps0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema0ReqProps1Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public Schema0ReqProps1Builder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0ReqProps0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new Schema0ReqProps0Builder(instance);
         }
     }
     public static class Schema0MapBuilder {
@@ -384,10 +390,16 @@ public class OneofComplexTypes {
         }
     }
     
-    public static class Schema1ReqProps1Builder {
+    public static class Schema1ReqProps1Builder implements SetterForFoo<Schema1ReqProps0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema1ReqProps1Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public Schema1ReqProps1Builder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1ReqProps0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new Schema1ReqProps0Builder(instance);
         }
     }
     public static class Schema1MapBuilder {

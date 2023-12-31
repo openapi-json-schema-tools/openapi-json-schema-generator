@@ -79,8 +79,8 @@ public class NotMoreComplexSchema {
     
     public static class NotReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public NotReqPropsBuilder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public NotReqPropsBuilder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;

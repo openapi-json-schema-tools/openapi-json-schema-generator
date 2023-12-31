@@ -124,8 +124,8 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     
     public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingReqPropsBuilder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingReqPropsBuilder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;

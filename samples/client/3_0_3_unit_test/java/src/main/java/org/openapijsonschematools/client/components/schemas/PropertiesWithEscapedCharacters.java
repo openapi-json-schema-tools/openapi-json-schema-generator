@@ -128,8 +128,8 @@ public class PropertiesWithEscapedCharacters {
     
     public static class PropertiesWithEscapedCharactersReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public PropertiesWithEscapedCharactersReqPropsBuilder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public PropertiesWithEscapedCharactersReqPropsBuilder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;

@@ -95,8 +95,8 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
