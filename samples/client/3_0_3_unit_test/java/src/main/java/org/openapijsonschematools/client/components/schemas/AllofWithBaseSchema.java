@@ -91,7 +91,7 @@ public class AllofWithBaseSchema {
         
         default T foo(String value) {
             var instance = getInstance();
-            instance.put("", value);
+            instance.put("foo", value);
             return getBuilderAfterFoo(instance);
         }
     }
@@ -353,7 +353,7 @@ public class AllofWithBaseSchema {
         
         default T baz(Void value) {
             var instance = getInstance();
-            instance.put("", null);
+            instance.put("baz", null);
             return getBuilderAfterBaz(instance);
         }
     }
@@ -615,25 +615,25 @@ public class AllofWithBaseSchema {
         
         default T bar(int value) {
             var instance = getInstance();
-            instance.put("", value);
+            instance.put("bar", value);
             return getBuilderAfterBar(instance);
         }
         
         default T bar(float value) {
             var instance = getInstance();
-            instance.put("", value);
+            instance.put("bar", value);
             return getBuilderAfterBar(instance);
         }
         
         default T bar(long value) {
             var instance = getInstance();
-            instance.put("", value);
+            instance.put("bar", value);
             return getBuilderAfterBar(instance);
         }
         
         default T bar(double value) {
             var instance = getInstance();
-            instance.put("", value);
+            instance.put("bar", value);
             return getBuilderAfterBar(instance);
         }
     }

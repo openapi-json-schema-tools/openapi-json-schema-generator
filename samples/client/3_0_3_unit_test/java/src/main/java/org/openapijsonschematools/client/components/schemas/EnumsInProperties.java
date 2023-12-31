@@ -215,13 +215,13 @@ public class EnumsInProperties {
         
         default T bar(String value) {
             var instance = getInstance();
-            instance.put("", value);
+            instance.put("bar", value);
             return getBuilderAfterBar(instance);
         }
         
         default T bar(StringBarEnums value) {
             var instance = getInstance();
-            instance.put("", value.value());
+            instance.put("bar", value.value());
             return getBuilderAfterBar(instance);
         }
     }

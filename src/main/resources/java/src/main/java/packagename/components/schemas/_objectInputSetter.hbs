@@ -6,7 +6,7 @@
 
 default T {{methodName}}(Void value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", null);
+    instance.put("{{{key}}}", null);
     return {{getBuilderMethod}}(instance);
 }
         {{/if}}
@@ -18,7 +18,7 @@ default T {{methodName}}(Void value) {
 
 default T {{methodName}}(boolean value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
             {{/if}}
@@ -30,7 +30,7 @@ default T {{methodName}}(boolean value) {
 
 default T {{methodName}}(String value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
                 {{/if}}
@@ -47,26 +47,26 @@ default T {{methodName}}(String value) {
 
 default T {{methodName}}(int value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(float value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
                         {{#neq ../format "int32"}}
 
 default T {{methodName}}(long value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(double value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
                         {{/neq}}
@@ -79,7 +79,7 @@ default T {{methodName}}(double value) {
 
 default T {{methodName}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
                         {{/if}}
@@ -91,7 +91,7 @@ default T {{methodName}}(List<{{#with items}}{{> src/main/java/packagename/compo
 
 default T {{methodName}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
                             {{/if}}
@@ -117,55 +117,55 @@ default T {{methodName}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/p
 
 default T {{methodName}}(Void value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", null);
+    instance.put("{{{key}}}", null);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(boolean value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(int value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(float value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(long value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(double value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(List<?> value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(Map<String, ?> value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value);
+    instance.put("{{{key}}}", value);
     return {{getBuilderMethod}}(instance);
 }
     {{/if}}
@@ -199,7 +199,7 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
 
 default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Boolean{{../jsonPathPiece.camelCase}} value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value.value());
+    instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
 }
                 {{/if}}
@@ -215,7 +215,7 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
 
 default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}String{{../jsonPathPiece.camelCase}} value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value.value());
+    instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
 }
                     {{/if}}
@@ -231,7 +231,7 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
 
 default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Integer{{../jsonPathPiece.camelCase}} value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value.value());
+    instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
 }
                         {{/if}}
@@ -247,7 +247,7 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
 
 default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Long{{../jsonPathPiece.camelCase}} value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value.value());
+    instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
 }
                             {{/if}}
@@ -263,7 +263,7 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
 
 default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Float{{../jsonPathPiece.camelCase}} value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value.value());
+    instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
 }
                                 {{/if}}
@@ -279,7 +279,7 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
 
 default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Double{{../jsonPathPiece.camelCase}} value) {
     var instance = getInstance();
-    instance.put("{{{@key.original}}}", value.value());
+    instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
 }
                                     {{/if}}
