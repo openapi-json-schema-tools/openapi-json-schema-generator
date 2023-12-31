@@ -2868,7 +2868,7 @@ public class DefaultGenerator implements Generator {
             if (reqPropsSize != 0) {
                 bitStr = String.format("%"+reqPropsSize+"s", Integer.toBinaryString(i)).replace(' ', '0');
             }
-            String builderClassName = getSchemaCamelCaseName(schemaName + "ReqProps" + bitStr + "Builder", sourceJsonPath);
+            String builderClassName = getSchemaCamelCaseName(schemaName + bitStr + "Builder", sourceJsonPath);
             MapBuilder builder;
             boolean isFirstBuilder = i == qtyBuilders - 1;
             if (i == 0) {

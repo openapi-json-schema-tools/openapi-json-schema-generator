@@ -72,9 +72,9 @@ public class ForbiddenProperty {
         }
     }
     
-    public static class ForbiddenPropertyReqPropsBuilder implements BaseBuilder<@Nullable Object> {
+    public static class ForbiddenPropertyBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public ForbiddenPropertyReqPropsBuilder() {
+        public ForbiddenPropertyBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {

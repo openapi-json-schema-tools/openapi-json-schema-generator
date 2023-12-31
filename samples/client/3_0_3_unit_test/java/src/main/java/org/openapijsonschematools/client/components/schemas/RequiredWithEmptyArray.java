@@ -70,9 +70,9 @@ public class RequiredWithEmptyArray {
         }
     }
     
-    public static class RequiredWithEmptyArrayReqPropsBuilder implements BaseBuilder<@Nullable Object> {
+    public static class RequiredWithEmptyArrayBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEmptyArrayReqPropsBuilder() {
+        public RequiredWithEmptyArrayBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {

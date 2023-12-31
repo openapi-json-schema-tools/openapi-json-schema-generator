@@ -70,9 +70,9 @@ public class RequiredDefaultValidation {
         }
     }
     
-    public static class RequiredDefaultValidationReqPropsBuilder implements BaseBuilder<@Nullable Object> {
+    public static class RequiredDefaultValidationBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredDefaultValidationReqPropsBuilder() {
+        public RequiredDefaultValidationBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {

@@ -217,9 +217,9 @@ public class EnumsInProperties {
         }
     }
     
-    public static class EnumsInPropertiesReqProps0Builder implements BaseBuilder<@Nullable Object> {
+    public static class EnumsInProperties0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public EnumsInPropertiesReqProps0Builder(Map<String, @Nullable Object> instance) {
+        public EnumsInProperties0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -227,16 +227,16 @@ public class EnumsInProperties {
         }
     }
     
-    public static class EnumsInPropertiesReqProps1Builder implements SetterForBar<EnumsInPropertiesReqProps0Builder> {
+    public static class EnumsInProperties1Builder implements SetterForBar<EnumsInProperties0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public EnumsInPropertiesReqProps1Builder() {
+        public EnumsInProperties1Builder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public EnumsInPropertiesReqProps0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new EnumsInPropertiesReqProps0Builder(instance);
+        public EnumsInProperties0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new EnumsInProperties0Builder(instance);
         }
     }
     public static class EnumsInPropertiesMapBuilder {

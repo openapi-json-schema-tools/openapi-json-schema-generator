@@ -58,9 +58,9 @@ public class AdditionalpropertiesCanExistByItself {
         }
     }
     
-    public static class AdditionalpropertiesCanExistByItselfReqPropsBuilder implements BaseBuilder<Boolean> {
+    public static class AdditionalpropertiesCanExistByItselfBuilder implements BaseBuilder<Boolean> {
         private final Map<String, Boolean> instance;
-        public AdditionalpropertiesCanExistByItselfReqPropsBuilder() {
+        public AdditionalpropertiesCanExistByItselfBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Boolean> build() {

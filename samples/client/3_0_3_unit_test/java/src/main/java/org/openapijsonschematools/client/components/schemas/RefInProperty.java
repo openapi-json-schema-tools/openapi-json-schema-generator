@@ -64,9 +64,9 @@ public class RefInProperty {
         }
     }
     
-    public static class RefInPropertyReqPropsBuilder implements BaseBuilder<@Nullable Object> {
+    public static class RefInPropertyBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public RefInPropertyReqPropsBuilder() {
+        public RefInPropertyBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {

@@ -93,9 +93,9 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         }
     }
     
-    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder implements BaseBuilder<@Nullable Object> {
+    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder() {
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {

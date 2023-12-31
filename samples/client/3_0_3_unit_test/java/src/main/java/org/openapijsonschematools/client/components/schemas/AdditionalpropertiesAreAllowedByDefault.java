@@ -86,9 +86,9 @@ public class AdditionalpropertiesAreAllowedByDefault {
         }
     }
     
-    public static class AdditionalpropertiesAreAllowedByDefaultReqPropsBuilder implements BaseBuilder<@Nullable Object> {
+    public static class AdditionalpropertiesAreAllowedByDefaultBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public AdditionalpropertiesAreAllowedByDefaultReqPropsBuilder() {
+        public AdditionalpropertiesAreAllowedByDefaultBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {

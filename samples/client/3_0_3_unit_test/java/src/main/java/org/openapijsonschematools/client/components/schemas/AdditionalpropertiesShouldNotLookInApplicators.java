@@ -82,9 +82,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public static class Schema0ReqPropsBuilder implements BaseBuilder<@Nullable Object> {
+    public static class Schema0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public Schema0ReqPropsBuilder() {
+        public Schema0Builder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -313,9 +313,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public static class AdditionalpropertiesShouldNotLookInApplicatorsReqPropsBuilder implements BaseBuilder<Boolean> {
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsBuilder implements BaseBuilder<Boolean> {
         private final Map<String, Boolean> instance;
-        public AdditionalpropertiesShouldNotLookInApplicatorsReqPropsBuilder() {
+        public AdditionalpropertiesShouldNotLookInApplicatorsBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Boolean> build() {
