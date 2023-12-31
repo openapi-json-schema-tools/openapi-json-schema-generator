@@ -1,14 +1,3 @@
-{{#each mapBuilders}}
-public static class {{className}} implements BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> {
-    private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
-    public {{className}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
-        this.instance = instance;
-    }
-    public Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> build() {
-        return instance;
-    }
-}
-{{/each}}
 {{#each requiredProperties}}
 
 public interface SetterFor{{@key.camelCase}} <T> {
@@ -19,6 +8,24 @@ public interface SetterFor{{@key.camelCase}} <T> {
     {{else}}
     {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName="todoFixThis" getBuilderMethod=(join "getBuilderAfter" @key.camelCase "") key=@key.original }}
     {{/if}}
+}
+{{/each}}
+{{#each mapBuilders}}
+
+    {{#eq keyToBuilder null}}
+public static class {{className}} implements BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> {
+    {{else}}
+public static class {{className}} {
+    {{/eq}}
+    private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
+    public {{className}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+        this.instance = instance;
+    }
+    {{#eq keyToBuilder null}}
+    public Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> build() {
+        return instance;
+    }
+    {{/eq}}
 }
 {{/each}}
 {{#if additionalProperties}}

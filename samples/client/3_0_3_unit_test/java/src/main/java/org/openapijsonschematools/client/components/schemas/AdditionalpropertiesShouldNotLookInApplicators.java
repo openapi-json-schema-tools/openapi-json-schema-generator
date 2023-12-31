@@ -81,6 +81,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return get(name);
         }
     }
+    
     public static class Schema0ReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public Schema0ReqPropsBuilder(Map<String, @Nullable Object> instance) {
@@ -311,6 +312,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return (boolean) value;
         }
     }
+    
     public static class AdditionalpropertiesShouldNotLookInApplicatorsReqPropsBuilder implements BaseBuilder<Boolean> {
         private final Map<String, Boolean> instance;
         public AdditionalpropertiesShouldNotLookInApplicatorsReqPropsBuilder(Map<String, Boolean> instance) {

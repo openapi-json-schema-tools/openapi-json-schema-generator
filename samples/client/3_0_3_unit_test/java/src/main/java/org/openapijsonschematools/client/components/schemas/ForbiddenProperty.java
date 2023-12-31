@@ -71,6 +71,7 @@ public class ForbiddenProperty {
             return get(name);
         }
     }
+    
     public static class ForbiddenPropertyReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public ForbiddenPropertyReqPropsBuilder(Map<String, @Nullable Object> instance) {

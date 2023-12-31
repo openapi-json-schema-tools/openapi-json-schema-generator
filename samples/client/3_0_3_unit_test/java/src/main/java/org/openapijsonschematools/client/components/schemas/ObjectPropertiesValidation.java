@@ -98,6 +98,7 @@ public class ObjectPropertiesValidation {
             return get(name);
         }
     }
+    
     public static class ObjectPropertiesValidationReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public ObjectPropertiesValidationReqPropsBuilder(Map<String, @Nullable Object> instance) {

@@ -102,6 +102,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Stability
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Console;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.*;
@@ -2851,14 +2852,48 @@ public class DefaultGenerator implements Generator {
         }
         String schemaName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
         schemaName = ModelUtils.decodeSlashes(schemaName);
-        String propertiesSuffix = "";
+        int qtyBuilders = 1;
+        int reqPropsSize = 0;
         if (requiredProperties != null) {
-            propertiesSuffix = "0".repeat(requiredProperties.size());
+            qtyBuilders = (int) Math.pow(2, requiredProperties.size());
+            reqPropsSize = requiredProperties.size();
         }
-        String builderClassName = getSchemaCamelCaseName(schemaName + "ReqProps" + propertiesSuffix + "Builder", sourceJsonPath);
-        builders.add(
-                new MapBuilder(builderClassName, null, null)
-        );
+        Map<String, MapBuilder> bitStrToBuilder = new HashMap<>();
+        List<CodegenKey> reqPropKeys = new ArrayList<>();
+        if (requiredProperties != null) {
+            reqPropKeys.addAll(requiredProperties.keySet());
+        }
+        for (int i=0; i < qtyBuilders; i++) {
+            String bitStr = "";
+            if (reqPropsSize != 0) {
+                bitStr = String.format("%"+reqPropsSize+"s", Integer.toBinaryString(i)).replace(' ', '0');
+            }
+            String builderClassName = getSchemaCamelCaseName(schemaName + "ReqProps" + bitStr + "Builder", sourceJsonPath);
+            MapBuilder builder;
+            if (i == 0) {
+                builder = new MapBuilder(builderClassName, null);
+            } else {
+                LinkedHashMap<CodegenKey, MapBuilder> keyToBuilder = new LinkedHashMap<>();
+                for (int c=0; c < reqPropsSize; c++) {
+                    if (bitStr.charAt(c) == '1') {
+                        StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
+                        nextBuilderBitStr.setCharAt(c, '0');
+                        CodegenKey key = reqPropKeys.get(c);
+                        if (key == null) {
+                            throw new RuntimeException("key must exist at c="+c);
+                        }
+                        MapBuilder nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
+                        if (nextBuilder == null) {
+                            throw new RuntimeException("Next builder must exist for bitStr="+nextBuilderBitStr.toString());
+                        }
+                        keyToBuilder.put(key, nextBuilder);
+                    }
+                }
+                builder = new MapBuilder(builderClassName, keyToBuilder);
+            }
+            bitStrToBuilder.put(bitStr, builder);
+            builders.add(builder);
+        }
         return builders;
     }
 

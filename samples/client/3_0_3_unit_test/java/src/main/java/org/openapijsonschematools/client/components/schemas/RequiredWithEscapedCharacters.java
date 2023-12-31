@@ -57,15 +57,6 @@ public class RequiredWithEscapedCharacters {
             return get(name);
         }
     }
-    public static class RequiredWithEscapedCharactersReqProps000000Builder implements BaseBuilder<@Nullable Object> {
-        private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharactersReqProps000000Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
-        }
-        public Map<String, @Nullable Object> build() {
-            return instance;
-        }
-    }
     
     public interface SetterForFootbar <T> {
         Map<String, @Nullable Object> getInstance();
@@ -418,6 +409,457 @@ public class RequiredWithEscapedCharacters {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps000000Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps000000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps000001Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps000001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps000010Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps000010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps000011Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps000011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps000100Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps000100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps000101Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps000101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps000110Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps000110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps000111Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps000111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps001000Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps001000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps001001Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps001001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps001010Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps001010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps001011Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps001011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps001100Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps001100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps001101Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps001101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps001110Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps001110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps001111Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps001111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps010000Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps010000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps010001Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps010001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps010010Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps010010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps010011Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps010011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps010100Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps010100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps010101Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps010101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps010110Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps010110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps010111Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps010111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps011000Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps011000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps011001Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps011001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps011010Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps011010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps011011Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps011011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps011100Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps011100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps011101Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps011101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps011110Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps011110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps011111Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps011111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps100000Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps100000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps100001Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps100001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps100010Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps100010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps100011Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps100011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps100100Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps100100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps100101Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps100101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps100110Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps100110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps100111Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps100111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps101000Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps101000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps101001Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps101001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps101010Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps101010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps101011Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps101011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps101100Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps101100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps101101Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps101101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps101110Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps101110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps101111Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps101111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps110000Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps110000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps110001Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps110001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps110010Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps110010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps110011Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps110011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps110100Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps110100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps110101Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps110101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps110110Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps110110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps110111Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps110111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps111000Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps111000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps111001Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps111001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps111010Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps111010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps111011Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps111011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps111100Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps111100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps111101Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps111101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps111110Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps111110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class RequiredWithEscapedCharactersReqProps111111Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEscapedCharactersReqProps111111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
     }
     public static class RequiredWithEscapedCharactersMapBuilder {

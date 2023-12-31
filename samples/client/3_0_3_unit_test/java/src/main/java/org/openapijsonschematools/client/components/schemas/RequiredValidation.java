@@ -86,15 +86,6 @@ public class RequiredValidation {
             return get(name);
         }
     }
-    public static class RequiredValidationReqProps0Builder implements BaseBuilder<@Nullable Object> {
-        private final Map<String, @Nullable Object> instance;
-        public RequiredValidationReqProps0Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
-        }
-        public Map<String, @Nullable Object> build() {
-            return instance;
-        }
-    }
     
     public interface SetterForFoo <T> {
         Map<String, @Nullable Object> getInstance();
@@ -152,6 +143,23 @@ public class RequiredValidation {
             var instance = getInstance();
             instance.put("foo", value);
             return getBuilderAfterFoo(instance);
+        }
+    }
+    
+    public static class RequiredValidationReqProps0Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredValidationReqProps0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class RequiredValidationReqProps1Builder {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredValidationReqProps1Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
     }
     public static class RequiredValidationMapBuilder {

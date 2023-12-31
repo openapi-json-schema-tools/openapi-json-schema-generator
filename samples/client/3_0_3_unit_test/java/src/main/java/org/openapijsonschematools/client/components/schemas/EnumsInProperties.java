@@ -199,15 +199,6 @@ public class EnumsInProperties {
             return get(name);
         }
     }
-    public static class EnumsInPropertiesReqProps0Builder implements BaseBuilder<@Nullable Object> {
-        private final Map<String, @Nullable Object> instance;
-        public EnumsInPropertiesReqProps0Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
-        }
-        public Map<String, @Nullable Object> build() {
-            return instance;
-        }
-    }
     
     public interface SetterForBar <T> {
         Map<String, @Nullable Object> getInstance();
@@ -223,6 +214,23 @@ public class EnumsInProperties {
             var instance = getInstance();
             instance.put("bar", value.value());
             return getBuilderAfterBar(instance);
+        }
+    }
+    
+    public static class EnumsInPropertiesReqProps0Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        public EnumsInPropertiesReqProps0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class EnumsInPropertiesReqProps1Builder {
+        private final Map<String, @Nullable Object> instance;
+        public EnumsInPropertiesReqProps1Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
     }
     public static class EnumsInPropertiesMapBuilder {

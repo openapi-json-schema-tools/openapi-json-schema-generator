@@ -63,6 +63,7 @@ public class RefInProperty {
             return get(name);
         }
     }
+    
     public static class RefInPropertyReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public RefInPropertyReqPropsBuilder(Map<String, @Nullable Object> instance) {

@@ -76,6 +76,7 @@ public class NotMoreComplexSchema {
             return get(name);
         }
     }
+    
     public static class NotReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public NotReqPropsBuilder(Map<String, @Nullable Object> instance) {

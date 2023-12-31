@@ -57,6 +57,7 @@ public class AdditionalpropertiesCanExistByItself {
             return (boolean) value;
         }
     }
+    
     public static class AdditionalpropertiesCanExistByItselfReqPropsBuilder implements BaseBuilder<Boolean> {
         private final Map<String, Boolean> instance;
         public AdditionalpropertiesCanExistByItselfReqPropsBuilder(Map<String, Boolean> instance) {

@@ -125,6 +125,7 @@ public class PropertiesWithEscapedCharacters {
             return get(name);
         }
     }
+    
     public static class PropertiesWithEscapedCharactersReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public PropertiesWithEscapedCharactersReqPropsBuilder(Map<String, @Nullable Object> instance) {

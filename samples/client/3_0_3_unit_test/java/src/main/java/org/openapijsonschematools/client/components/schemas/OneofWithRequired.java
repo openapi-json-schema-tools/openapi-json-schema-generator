@@ -62,15 +62,6 @@ public class OneofWithRequired {
             return get(name);
         }
     }
-    public static class Schema0ReqProps00Builder implements BaseBuilder<@Nullable Object> {
-        private final Map<String, @Nullable Object> instance;
-        public Schema0ReqProps00Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
-        }
-        public Map<String, @Nullable Object> build() {
-            return instance;
-        }
-    }
     
     public interface SetterForBar <T> {
         Map<String, @Nullable Object> getInstance();
@@ -187,6 +178,37 @@ public class OneofWithRequired {
             var instance = getInstance();
             instance.put("foo", value);
             return getBuilderAfterFoo(instance);
+        }
+    }
+    
+    public static class Schema0ReqProps00Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0ReqProps00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class Schema0ReqProps01Builder {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0ReqProps01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class Schema0ReqProps10Builder {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0ReqProps10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class Schema0ReqProps11Builder {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0ReqProps11Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
     }
     public static class Schema0MapBuilder {
@@ -419,15 +441,6 @@ public class OneofWithRequired {
             return get(name);
         }
     }
-    public static class Schema1ReqProps00Builder implements BaseBuilder<@Nullable Object> {
-        private final Map<String, @Nullable Object> instance;
-        public Schema1ReqProps00Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
-        }
-        public Map<String, @Nullable Object> build() {
-            return instance;
-        }
-    }
     
     public interface SetterForBaz <T> {
         Map<String, @Nullable Object> getInstance();
@@ -544,6 +557,37 @@ public class OneofWithRequired {
             var instance = getInstance();
             instance.put("foo", value);
             return getBuilderAfterFoo1(instance);
+        }
+    }
+    
+    public static class Schema1ReqProps00Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1ReqProps00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class Schema1ReqProps01Builder {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1ReqProps01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class Schema1ReqProps10Builder {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1ReqProps10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+    }
+    
+    public static class Schema1ReqProps11Builder {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1ReqProps11Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
     }
     public static class Schema1MapBuilder {

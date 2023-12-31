@@ -75,6 +75,18 @@ public class AllofWithBaseSchema {
             return get(name);
         }
     }
+    
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
     public static class Schema0ReqProps0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public Schema0ReqProps0Builder(Map<String, @Nullable Object> instance) {
@@ -85,14 +97,10 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public interface SetterForFoo <T> {
-        Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
-        
-        default T foo(String value) {
-            var instance = getInstance();
-            instance.put("foo", value);
-            return getBuilderAfterFoo(instance);
+    public static class Schema0ReqProps1Builder {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0ReqProps1Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
     }
     public static class Schema0MapBuilder {
@@ -337,6 +345,18 @@ public class AllofWithBaseSchema {
             return get(name);
         }
     }
+    
+    public interface SetterForBaz <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBaz(Map<String, @Nullable Object> instance);
+        
+        default T baz(Void value) {
+            var instance = getInstance();
+            instance.put("baz", null);
+            return getBuilderAfterBaz(instance);
+        }
+    }
+    
     public static class Schema1ReqProps0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public Schema1ReqProps0Builder(Map<String, @Nullable Object> instance) {
@@ -347,14 +367,10 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public interface SetterForBaz <T> {
-        Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterBaz(Map<String, @Nullable Object> instance);
-        
-        default T baz(Void value) {
-            var instance = getInstance();
-            instance.put("baz", null);
-            return getBuilderAfterBaz(instance);
+    public static class Schema1ReqProps1Builder {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1ReqProps1Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
     }
     public static class Schema1MapBuilder {
@@ -599,15 +615,6 @@ public class AllofWithBaseSchema {
             return get(name);
         }
     }
-    public static class AllofWithBaseSchemaReqProps0Builder implements BaseBuilder<@Nullable Object> {
-        private final Map<String, @Nullable Object> instance;
-        public AllofWithBaseSchemaReqProps0Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
-        }
-        public Map<String, @Nullable Object> build() {
-            return instance;
-        }
-    }
     
     public interface SetterForBar <T> {
         Map<String, @Nullable Object> getInstance();
@@ -635,6 +642,23 @@ public class AllofWithBaseSchema {
             var instance = getInstance();
             instance.put("bar", value);
             return getBuilderAfterBar(instance);
+        }
+    }
+    
+    public static class AllofWithBaseSchemaReqProps0Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        public AllofWithBaseSchemaReqProps0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class AllofWithBaseSchemaReqProps1Builder {
+        private final Map<String, @Nullable Object> instance;
+        public AllofWithBaseSchemaReqProps1Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
     }
     public static class AllofWithBaseSchemaMapBuilder {
