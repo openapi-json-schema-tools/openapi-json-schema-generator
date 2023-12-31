@@ -79,6 +79,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenXml;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.LinkedHashMapWithContext;
+import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.ParameterCollection;
 import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCase;
@@ -2740,6 +2741,7 @@ public class DefaultGenerator implements Generator {
             }
             property.propertyNames = fromSchema(propertyNamesSchema, sourceJsonPath, currentJsonPath + "/propertyNames");
         }
+        property.mapBuilders = getMapBuilders(property.requiredProperties, currentJsonPath, sourceJsonPath);
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
         CodegenSchema additionalProperties = property.additionalProperties;
         LinkedHashMapWithContext<CodegenSchema> properties = property.properties;
@@ -2840,6 +2842,24 @@ public class DefaultGenerator implements Generator {
 
         LOGGER.debug("debugging fromSchema return: {}", property);
         return property;
+    }
+
+    private List<MapBuilder> getMapBuilders(LinkedHashMapWithContext<CodegenSchema> requiredProperties, String currentJsonPath, String sourceJsonPath) {
+        List<MapBuilder> builders = new ArrayList<>();
+        if (sourceJsonPath == null) {
+            return builders;
+        }
+        String schemaName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+        schemaName = ModelUtils.decodeSlashes(schemaName);
+        String propertiesSuffix = "";
+        if (requiredProperties != null) {
+            propertiesSuffix = "0".repeat(requiredProperties.size());
+        }
+        String builderClassName = getSchemaCamelCaseName(schemaName + "ReqProps" + propertiesSuffix + "Builder", sourceJsonPath);
+        builders.add(
+                new MapBuilder(builderClassName, null, null)
+        );
+        return builders;
     }
 
     @Override

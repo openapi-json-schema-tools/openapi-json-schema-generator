@@ -123,6 +123,7 @@ public class CodegenSchema {
     public String subpackage;  // the current schema's subpackage, needed by java
     public CodegenKey containerJsonPathPiece; // needed by java, outer classs that has inner nested schema classes
     public Map<String, EnumValue> typeToExample = null;
+    public List<MapBuilder> mapBuilders = null;
 
     /*
     Remove this in the 4.0.0 release because it is unused

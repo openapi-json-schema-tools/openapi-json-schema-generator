@@ -127,7 +127,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NestedItems.ItemsList2 validatedPayload =
     NestedItems.Items.validate(
-    new .ItemsListBuilder2(
+    new NestedItems.ItemsListBuilder2(
         Arrays.asList(
             Arrays.asList(
                 Arrays.asList(
@@ -204,7 +204,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NestedItems.ItemsList1 validatedPayload =
     NestedItems.Items1.validate(
-    new .ItemsListBuilder1(
+    new NestedItems.ItemsListBuilder1(
         Arrays.asList(
             Arrays.asList(
                 1
@@ -279,7 +279,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NestedItems.ItemsList validatedPayload =
     NestedItems.Items2.validate(
-    new .ItemsListBuilder(
+    new NestedItems.ItemsListBuilder(
         Arrays.asList(
             1
         )
