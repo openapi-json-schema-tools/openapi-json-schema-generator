@@ -86,11 +86,11 @@ public class OneofComplexTypes {
     
     public interface SetterForBar <T> {
         Map<String, @Nullable Object> getInstance();
-        T getNextBuilder(Map<String, @Nullable Object> instance);
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
         default T bar(@Nullable Object value) {
             var instance = getInstance();
             instance.put("bar", value);
-            return getNextBuilder(instance);
+            return getBuilderAfterBar(instance);
         }
     }
     public static class Schema0MapBuilder {
@@ -347,11 +347,11 @@ public class OneofComplexTypes {
     
     public interface SetterForFoo <T> {
         Map<String, @Nullable Object> getInstance();
-        T getNextBuilder(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
         default T foo(@Nullable Object value) {
             var instance = getInstance();
             instance.put("foo", value);
-            return getNextBuilder(instance);
+            return getBuilderAfterFoo(instance);
         }
     }
     public static class Schema1MapBuilder {

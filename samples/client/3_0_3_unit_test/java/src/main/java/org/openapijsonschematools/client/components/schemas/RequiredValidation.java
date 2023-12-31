@@ -98,11 +98,11 @@ public class RequiredValidation {
     
     public interface SetterForFoo <T> {
         Map<String, @Nullable Object> getInstance();
-        T getNextBuilder(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
         default T foo(@Nullable Object value) {
             var instance = getInstance();
             instance.put("foo", value);
-            return getNextBuilder(instance);
+            return getBuilderAfterFoo(instance);
         }
     }
     public static class RequiredValidationMapBuilder {

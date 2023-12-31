@@ -211,11 +211,11 @@ public class EnumsInProperties {
     
     public interface SetterForBar <T> {
         Map<String, @Nullable Object> getInstance();
-        T getNextBuilder(Map<String, @Nullable Object> instance);
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
         default T bar(@Nullable Object value) {
             var instance = getInstance();
             instance.put("bar", value);
-            return getNextBuilder(instance);
+            return getBuilderAfterBar(instance);
         }
     }
     public static class EnumsInPropertiesMapBuilder {
