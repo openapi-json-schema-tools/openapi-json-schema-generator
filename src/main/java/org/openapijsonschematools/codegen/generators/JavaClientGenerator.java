@@ -356,7 +356,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("DecimalJsonSchema");
         schemaSupportingFiles.add("DoubleJsonSchema");
         schemaSupportingFiles.add("FloatJsonSchema");
-        schemaSupportingFiles.add("InstanceGetter");
         schemaSupportingFiles.add("Int32JsonSchema");
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");

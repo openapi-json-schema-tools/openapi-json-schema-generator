@@ -189,7 +189,6 @@ src/main/java/org/openapijsonschematools/client/schemas/DateTimeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DecimalJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DoubleJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/FloatJsonSchema.java
-src/main/java/org/openapijsonschematools/client/schemas/InstanceGetter.java
 src/main/java/org/openapijsonschematools/client/schemas/Int32JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/Int64JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/IntJsonSchema.java
