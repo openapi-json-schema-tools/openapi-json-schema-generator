@@ -109,7 +109,7 @@ public class InvalidStringValueForDefault {
             return get(name);
         }
     }
-    public static class InvalidStringValueForDefaultReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class InvalidStringValueForDefaultReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public InvalidStringValueForDefaultReqPropsBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;

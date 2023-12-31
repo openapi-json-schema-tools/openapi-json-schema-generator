@@ -199,7 +199,7 @@ public class EnumsInProperties {
             return get(name);
         }
     }
-    public static class EnumsInPropertiesReqProps0Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class EnumsInPropertiesReqProps0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public EnumsInPropertiesReqProps0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;

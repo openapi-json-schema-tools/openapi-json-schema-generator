@@ -62,7 +62,7 @@ public class OneofWithRequired {
             return get(name);
         }
     }
-    public static class Schema0ReqProps00Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class Schema0ReqProps00Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public Schema0ReqProps00Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -301,7 +301,7 @@ public class OneofWithRequired {
             return get(name);
         }
     }
-    public static class Schema1ReqProps00Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class Schema1ReqProps00Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public Schema1ReqProps00Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;

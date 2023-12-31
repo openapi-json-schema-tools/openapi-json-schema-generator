@@ -40,7 +40,7 @@ public class RefInAdditionalproperties {
             return getOrThrow(name);
         }
     }
-    public static class RefInAdditionalpropertiesReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class RefInAdditionalpropertiesReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public RefInAdditionalpropertiesReqPropsBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;

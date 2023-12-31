@@ -57,7 +57,7 @@ public class RequiredWithEscapedCharacters {
             return get(name);
         }
     }
-    public static class RequiredWithEscapedCharactersReqProps000000Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class RequiredWithEscapedCharactersReqProps000000Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public RequiredWithEscapedCharactersReqProps000000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;

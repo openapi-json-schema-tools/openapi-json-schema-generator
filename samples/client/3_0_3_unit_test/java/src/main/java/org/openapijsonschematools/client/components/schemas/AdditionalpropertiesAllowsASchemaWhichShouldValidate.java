@@ -92,7 +92,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return (boolean) value;
         }
     }
-    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;

@@ -74,7 +74,7 @@ public class OneofComplexTypes {
             return get(name);
         }
     }
-    public static class Schema0ReqProps0Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class Schema0ReqProps0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public Schema0ReqProps0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -325,7 +325,7 @@ public class OneofComplexTypes {
             return get(name);
         }
     }
-    public static class Schema1ReqProps0Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class Schema1ReqProps0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public Schema1ReqProps0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;

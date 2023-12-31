@@ -2742,6 +2742,11 @@ public class DefaultGenerator implements Generator {
             property.propertyNames = fromSchema(propertyNamesSchema, sourceJsonPath, currentJsonPath + "/propertyNames");
         }
         property.mapBuilders = getMapBuilders(property.requiredProperties, currentJsonPath, sourceJsonPath);
+        if (sourceJsonPath != null) {
+            String schemaName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+            schemaName = ModelUtils.decodeSlashes(schemaName);
+            property.interfaceClassName = getSchemaCamelCaseName("SetterFor" + schemaName, sourceJsonPath);
+        }
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
         CodegenSchema additionalProperties = property.additionalProperties;
         LinkedHashMapWithContext<CodegenSchema> properties = property.properties;

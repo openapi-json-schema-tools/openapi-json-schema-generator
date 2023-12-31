@@ -69,7 +69,7 @@ public class RequiredDefaultValidation {
             return get(name);
         }
     }
-    public static class RequiredDefaultValidationReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class RequiredDefaultValidationReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public RequiredDefaultValidationReqPropsBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;

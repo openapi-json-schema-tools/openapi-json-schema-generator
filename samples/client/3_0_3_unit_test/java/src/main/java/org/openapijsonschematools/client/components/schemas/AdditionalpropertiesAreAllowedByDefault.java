@@ -85,7 +85,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return get(name);
         }
     }
-    public static class AdditionalpropertiesAreAllowedByDefaultReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+    public static class AdditionalpropertiesAreAllowedByDefaultReqPropsBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public AdditionalpropertiesAreAllowedByDefaultReqPropsBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
