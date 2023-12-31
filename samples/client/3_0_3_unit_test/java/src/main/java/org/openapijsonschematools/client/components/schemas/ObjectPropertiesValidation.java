@@ -98,6 +98,15 @@ public class ObjectPropertiesValidation {
             return get(name);
         }
     }
+    public static class ObjectPropertiesValidationReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjectPropertiesValidationReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class ObjectPropertiesValidationMapBuilder {
         // Map<String, Object> because addProps is unset
     }

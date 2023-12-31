@@ -69,6 +69,15 @@ public class RequiredWithEmptyArray {
             return get(name);
         }
     }
+    public static class RequiredWithEmptyArrayReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public RequiredWithEmptyArrayReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class RequiredWithEmptyArrayMapBuilder {
         // Map<String, Object> because addProps is unset
     }

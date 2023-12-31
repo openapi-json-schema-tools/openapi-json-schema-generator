@@ -1680,6 +1680,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.MapSchemaValidator;");
         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
+        imports.add("import "+packageName + ".schemas.BaseBuilder;");
         imports.add("import java.util.Map;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
         imports.add("import java.util.LinkedHashMap;");

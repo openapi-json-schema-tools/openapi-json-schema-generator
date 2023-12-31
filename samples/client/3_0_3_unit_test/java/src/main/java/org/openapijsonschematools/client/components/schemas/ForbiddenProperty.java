@@ -71,6 +71,15 @@ public class ForbiddenProperty {
             return get(name);
         }
     }
+    public static class ForbiddenPropertyReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public ForbiddenPropertyReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class ForbiddenPropertyMapBuilder {
         // Map<String, Object> because addProps is unset
     }

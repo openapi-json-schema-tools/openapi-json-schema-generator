@@ -15,6 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -89,6 +90,15 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
                 throw new InvalidTypeException("Invalid value stored for " + name);
             }
             return (boolean) value;
+        }
+    }
+    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
         }
     }
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder {

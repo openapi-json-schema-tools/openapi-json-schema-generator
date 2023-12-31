@@ -81,6 +81,15 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return get(name);
         }
     }
+    public static class Schema0ReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0ReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class Schema0MapBuilder {
         // Map<String, Object> because addProps is unset
     }
@@ -300,6 +309,15 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
                 throw new InvalidTypeException("Value may not be null");
             }
             return (boolean) value;
+        }
+    }
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsReqPropsBuilder implements BaseBuilder<Map<String, Boolean>> {
+        private final Map<String, Boolean> instance;
+        public AdditionalpropertiesShouldNotLookInApplicatorsReqPropsBuilder(Map<String, Boolean> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Boolean> build() {
+            return instance;
         }
     }
     public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder {

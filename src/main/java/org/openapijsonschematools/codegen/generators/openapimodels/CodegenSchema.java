@@ -716,6 +716,7 @@ public class CodegenSchema {
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapIn.mapValueSchema = mapValueSchema;
+            mapIn.mapBuilders = mapBuilders;
             mapIn.jsonPath = jsonPath;
 
             CodegenSchema mapOut = new CodegenSchema();
@@ -756,6 +757,7 @@ public class CodegenSchema {
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapIn.mapValueSchema = mapValueSchema;
+            mapIn.mapBuilders = mapBuilders;
             mapIn.jsonPath = jsonPath;
 
             CodegenSchema mapOut = new CodegenSchema();
@@ -790,6 +792,7 @@ public class CodegenSchema {
             mapIn.requiredProperties = requiredProperties;
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapIn.mapBuilders = mapBuilders;
             mapIn.mapValueSchema = mapValueSchema;
             boolean allAreInline;
             boolean addPropsHasAnyRefs = false;

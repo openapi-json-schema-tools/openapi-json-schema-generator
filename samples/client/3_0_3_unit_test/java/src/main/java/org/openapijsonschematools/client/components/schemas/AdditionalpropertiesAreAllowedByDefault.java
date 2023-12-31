@@ -85,6 +85,15 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return get(name);
         }
     }
+    public static class AdditionalpropertiesAreAllowedByDefaultReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public AdditionalpropertiesAreAllowedByDefaultReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class AdditionalpropertiesAreAllowedByDefaultMapBuilder {
         // Map<String, Object> because addProps is unset
     }

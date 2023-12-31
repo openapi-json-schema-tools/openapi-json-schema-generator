@@ -1,3 +1,14 @@
+{{#each mapBuilders}}
+public static class {{className}} implements BaseBuilder<Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>> {
+    private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
+    public {{className}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+        this.instance = instance;
+    }
+    public Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> build() {
+        return instance;
+    }
+}
+{{/each}}
 {{#if additionalProperties}}
     {{#if additionalProperties.isBooleanSchemaFalse}}
         {{! TypedDict use case }}

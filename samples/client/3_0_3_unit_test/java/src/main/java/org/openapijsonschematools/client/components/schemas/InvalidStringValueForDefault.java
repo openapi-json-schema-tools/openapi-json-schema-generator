@@ -109,6 +109,15 @@ public class InvalidStringValueForDefault {
             return get(name);
         }
     }
+    public static class InvalidStringValueForDefaultReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public InvalidStringValueForDefaultReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class InvalidStringValueForDefaultMapBuilder {
         // Map<String, Object> because addProps is unset
     }

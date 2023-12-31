@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -118,6 +119,15 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
+        }
+    }
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
         }
     }
     public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder {

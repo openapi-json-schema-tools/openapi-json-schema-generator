@@ -75,6 +75,15 @@ public class AllofWithBaseSchema {
             return get(name);
         }
     }
+    public static class Schema0ReqProps0Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0ReqProps0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class Schema0MapBuilder {
         // Map<String, Object> because addProps is unset
     }
@@ -317,6 +326,15 @@ public class AllofWithBaseSchema {
             return get(name);
         }
     }
+    public static class Schema1ReqProps0Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1ReqProps0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class Schema1MapBuilder {
         // Map<String, Object> because addProps is unset
     }
@@ -557,6 +575,15 @@ public class AllofWithBaseSchema {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
+        }
+    }
+    public static class AllofWithBaseSchemaReqProps0Builder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public AllofWithBaseSchemaReqProps0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
         }
     }
     public static class AllofWithBaseSchemaMapBuilder {

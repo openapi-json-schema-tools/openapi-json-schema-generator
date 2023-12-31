@@ -65,6 +65,15 @@ public class PropertyNamedRefThatIsNotAReference {
             return get(name);
         }
     }
+    public static class PropertyNamedRefThatIsNotAReferenceReqPropsBuilder implements BaseBuilder<Map<String, @Nullable Object>> {
+        private final Map<String, @Nullable Object> instance;
+        public PropertyNamedRefThatIsNotAReferenceReqPropsBuilder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
     public static class PropertyNamedRefThatIsNotAReferenceMapBuilder {
         // Map<String, Object> because addProps is unset
     }
