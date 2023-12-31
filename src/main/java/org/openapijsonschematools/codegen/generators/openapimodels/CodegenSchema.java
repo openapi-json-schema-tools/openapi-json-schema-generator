@@ -124,7 +124,6 @@ public class CodegenSchema {
     public CodegenKey containerJsonPathPiece; // needed by java, outer classs that has inner nested schema classes
     public Map<String, EnumValue> typeToExample = null;
     public List<MapBuilder> mapBuilders = null; // used by java
-    public String interfaceClassName = null; // used by java map builders
 
     /*
     Remove this in the 4.0.0 release because it is unused

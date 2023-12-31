@@ -95,6 +95,16 @@ public class RequiredValidation {
             return instance;
         }
     }
+    
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T foo(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getNextBuilder(instance);
+        }
+    }
     public static class RequiredValidationMapBuilder {
         // Map<String, Object> because addProps is unset
     }

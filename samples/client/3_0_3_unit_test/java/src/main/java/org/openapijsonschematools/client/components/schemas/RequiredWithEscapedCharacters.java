@@ -66,6 +66,66 @@ public class RequiredWithEscapedCharacters {
             return instance;
         }
     }
+    
+    public interface SetterForFootbar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T todoHandleThis(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getNextBuilder(instance);
+        }
+    }
+    
+    public interface SetterForFoonbar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T todoHandleThis(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getNextBuilder(instance);
+        }
+    }
+    
+    public interface SetterForFoofbar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T todoHandleThis(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getNextBuilder(instance);
+        }
+    }
+    
+    public interface SetterForFoorbar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T todoHandleThis(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getNextBuilder(instance);
+        }
+    }
+    
+    public interface SetterForFoobar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T todoHandleThis(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getNextBuilder(instance);
+        }
+    }
+    
+    public interface SetterForFoobar1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T todoHandleThis(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getNextBuilder(instance);
+        }
+    }
     public static class RequiredWithEscapedCharactersMapBuilder {
         // Map<String, Object> because addProps is unset
     }

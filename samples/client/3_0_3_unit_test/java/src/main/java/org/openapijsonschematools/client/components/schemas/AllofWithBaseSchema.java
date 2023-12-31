@@ -84,6 +84,16 @@ public class AllofWithBaseSchema {
             return instance;
         }
     }
+    
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T foo(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getNextBuilder(instance);
+        }
+    }
     public static class Schema0MapBuilder {
         // Map<String, Object> because addProps is unset
     }
@@ -335,6 +345,16 @@ public class AllofWithBaseSchema {
             return instance;
         }
     }
+    
+    public interface SetterForBaz <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T baz(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getNextBuilder(instance);
+        }
+    }
     public static class Schema1MapBuilder {
         // Map<String, Object> because addProps is unset
     }
@@ -584,6 +604,16 @@ public class AllofWithBaseSchema {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+    }
+    
+    public interface SetterForBar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getNextBuilder(Map<String, @Nullable Object> instance);
+        default T bar(@Nullable Object value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getNextBuilder(instance);
         }
     }
     public static class AllofWithBaseSchemaMapBuilder {
