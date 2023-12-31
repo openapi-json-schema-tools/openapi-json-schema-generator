@@ -349,12 +349,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
         schemaSupportingFiles.add("AnyTypeJsonSchema");
+        schemaSupportingFiles.add("BaseBuilder");
         schemaSupportingFiles.add("BooleanJsonSchema");
         schemaSupportingFiles.add("DateJsonSchema");
         schemaSupportingFiles.add("DateTimeJsonSchema");
         schemaSupportingFiles.add("DecimalJsonSchema");
         schemaSupportingFiles.add("DoubleJsonSchema");
         schemaSupportingFiles.add("FloatJsonSchema");
+        schemaSupportingFiles.add("InstanceGetter");
         schemaSupportingFiles.add("Int32JsonSchema");
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
