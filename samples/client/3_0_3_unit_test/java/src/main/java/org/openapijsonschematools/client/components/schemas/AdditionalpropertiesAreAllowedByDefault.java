@@ -87,6 +87,124 @@ public class AdditionalpropertiesAreAllowedByDefault {
         }
     }
     
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(Void value) {
+            var instance = getInstance();
+            instance.put("foo", null);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(boolean value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(int value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(float value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(long value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(double value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
+    public interface SetterForBar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
+        
+        default T bar(Void value) {
+            var instance = getInstance();
+            instance.put("bar", null);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(boolean value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(String value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(int value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(float value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(long value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(double value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(List<?> value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+    }
+    
     public static class AdditionalpropertiesAreAllowedByDefaultBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public AdditionalpropertiesAreAllowedByDefaultBuilder() {

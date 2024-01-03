@@ -127,6 +127,180 @@ public class PropertiesWithEscapedCharacters {
         }
     }
     
+    public interface SetterForFoonbar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoonbar(Map<String, @Nullable Object> instance);
+        
+        default T setFooReverseSolidusNbar(int value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T setFooReverseSolidusNbar(float value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T setFooReverseSolidusNbar(long value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+        
+        default T setFooReverseSolidusNbar(double value) {
+            var instance = getInstance();
+            instance.put("foo\nbar", value);
+            return getBuilderAfterFoonbar(instance);
+        }
+    }
+    
+    public interface SetterForFoobar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoobar(Map<String, @Nullable Object> instance);
+        
+        default T setFooReverseSolidusQuotationMarkBar(int value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T setFooReverseSolidusQuotationMarkBar(float value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T setFooReverseSolidusQuotationMarkBar(long value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+        
+        default T setFooReverseSolidusQuotationMarkBar(double value) {
+            var instance = getInstance();
+            instance.put("foo\"bar", value);
+            return getBuilderAfterFoobar(instance);
+        }
+    }
+    
+    public interface SetterForFoobar1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoobar1(Map<String, @Nullable Object> instance);
+        
+        default T setFooReverseSolidusReverseSolidusBar(int value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T setFooReverseSolidusReverseSolidusBar(float value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T setFooReverseSolidusReverseSolidusBar(long value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+        
+        default T setFooReverseSolidusReverseSolidusBar(double value) {
+            var instance = getInstance();
+            instance.put("foo\\bar", value);
+            return getBuilderAfterFoobar1(instance);
+        }
+    }
+    
+    public interface SetterForFoorbar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoorbar(Map<String, @Nullable Object> instance);
+        
+        default T setFooReverseSolidusRbar(int value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T setFooReverseSolidusRbar(float value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T setFooReverseSolidusRbar(long value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+        
+        default T setFooReverseSolidusRbar(double value) {
+            var instance = getInstance();
+            instance.put("foo\rbar", value);
+            return getBuilderAfterFoorbar(instance);
+        }
+    }
+    
+    public interface SetterForFootbar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFootbar(Map<String, @Nullable Object> instance);
+        
+        default T setFooReverseSolidusTbar(int value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T setFooReverseSolidusTbar(float value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T setFooReverseSolidusTbar(long value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+        
+        default T setFooReverseSolidusTbar(double value) {
+            var instance = getInstance();
+            instance.put("foo\tbar", value);
+            return getBuilderAfterFootbar(instance);
+        }
+    }
+    
+    public interface SetterForFoofbar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoofbar(Map<String, @Nullable Object> instance);
+        
+        default T setFooReverseSolidusFbar(int value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T setFooReverseSolidusFbar(float value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T setFooReverseSolidusFbar(long value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+        
+        default T setFooReverseSolidusFbar(double value) {
+            var instance = getInstance();
+            instance.put("foo\fbar", value);
+            return getBuilderAfterFoofbar(instance);
+        }
+    }
+    
     public static class PropertiesWithEscapedCharactersBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public PropertiesWithEscapedCharactersBuilder() {

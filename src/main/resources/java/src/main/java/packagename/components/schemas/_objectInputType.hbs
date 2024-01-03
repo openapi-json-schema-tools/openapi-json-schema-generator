@@ -10,6 +10,18 @@ public interface SetterFor{{@key.pascalCase}} <T> {
     {{/if}}
 }
 {{/each}}
+{{#each optionalProperties}}
+
+public interface SetterFor{{@key.pascalCase}} <T> {
+    Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance();
+    T getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
+    {{#if @key.isValid}}
+    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{else}}
+    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.camelCase getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{/if}}
+}
+{{/each}}
 {{#each mapBuilders}}
 
     {{#eq keyToBuilder null}}

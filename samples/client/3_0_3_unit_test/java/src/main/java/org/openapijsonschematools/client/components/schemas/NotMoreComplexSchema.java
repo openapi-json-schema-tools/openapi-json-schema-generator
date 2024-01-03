@@ -77,6 +77,17 @@ public class NotMoreComplexSchema {
         }
     }
     
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
     public static class NotBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public NotBuilder() {

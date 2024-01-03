@@ -100,6 +100,46 @@ public class ObjectPropertiesValidation {
         }
     }
     
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(int value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(float value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(long value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(double value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
+    public interface SetterForBar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
+        
+        default T bar(String value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+    }
+    
     public static class ObjectPropertiesValidationBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public ObjectPropertiesValidationBuilder() {

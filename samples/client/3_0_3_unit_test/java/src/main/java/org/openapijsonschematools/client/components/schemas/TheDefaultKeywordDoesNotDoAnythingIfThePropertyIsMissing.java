@@ -122,6 +122,35 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         }
     }
     
+    public interface SetterForAlpha <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAlpha(Map<String, @Nullable Object> instance);
+        
+        default T alpha(int value) {
+            var instance = getInstance();
+            instance.put("alpha", value);
+            return getBuilderAfterAlpha(instance);
+        }
+        
+        default T alpha(float value) {
+            var instance = getInstance();
+            instance.put("alpha", value);
+            return getBuilderAfterAlpha(instance);
+        }
+        
+        default T alpha(long value) {
+            var instance = getInstance();
+            instance.put("alpha", value);
+            return getBuilderAfterAlpha(instance);
+        }
+        
+        default T alpha(double value) {
+            var instance = getInstance();
+            instance.put("alpha", value);
+            return getBuilderAfterAlpha(instance);
+        }
+    }
+    
     public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder() {

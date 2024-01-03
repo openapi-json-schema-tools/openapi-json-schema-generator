@@ -67,6 +67,17 @@ public class PropertyNamedRefThatIsNotAReference {
         }
     }
     
+    public interface SetterForRef <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterRef(Map<String, @Nullable Object> instance);
+        
+        default T setDollarSignRef(String value) {
+            var instance = getInstance();
+            instance.put("$ref", value);
+            return getBuilderAfterRef(instance);
+        }
+    }
+    
     public static class PropertyNamedRefThatIsNotAReferenceBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public PropertyNamedRefThatIsNotAReferenceBuilder() {

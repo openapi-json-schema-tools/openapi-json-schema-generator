@@ -217,6 +217,23 @@ public class EnumsInProperties {
         }
     }
     
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(StringFooEnums value) {
+            var instance = getInstance();
+            instance.put("foo", value.value());
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
     public static class EnumsInProperties0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public EnumsInProperties0Builder(Map<String, @Nullable Object> instance) {

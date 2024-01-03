@@ -65,6 +65,65 @@ public class RefInProperty {
         }
     }
     
+    public interface SetterForA <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterA(Map<String, @Nullable Object> instance);
+        
+        default T a(Void value) {
+            var instance = getInstance();
+            instance.put("a", null);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(boolean value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(String value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(int value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(float value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(long value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(double value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(List<?> value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+    }
+    
     public static class RefInPropertyBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public RefInPropertyBuilder() {

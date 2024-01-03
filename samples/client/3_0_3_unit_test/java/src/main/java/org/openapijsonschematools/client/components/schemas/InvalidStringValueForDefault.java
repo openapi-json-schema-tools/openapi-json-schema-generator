@@ -111,6 +111,17 @@ public class InvalidStringValueForDefault {
         }
     }
     
+    public interface SetterForBar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
+        
+        default T bar(String value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+    }
+    
     public static class InvalidStringValueForDefaultBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public InvalidStringValueForDefaultBuilder() {

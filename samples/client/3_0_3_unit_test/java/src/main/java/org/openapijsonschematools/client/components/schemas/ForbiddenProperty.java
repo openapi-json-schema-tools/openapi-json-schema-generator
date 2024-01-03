@@ -73,6 +73,65 @@ public class ForbiddenProperty {
         }
     }
     
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(Void value) {
+            var instance = getInstance();
+            instance.put("foo", null);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(boolean value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(int value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(float value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(long value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(double value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
     public static class ForbiddenPropertyBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         public ForbiddenPropertyBuilder() {
