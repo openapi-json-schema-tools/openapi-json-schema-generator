@@ -142,6 +142,11 @@ public class ObjectPropertiesValidation {
     
     public static class ObjectPropertiesValidationBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationBuilder>, SetterForBar<ObjectPropertiesValidationBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "foo",
+            "bar"
+        );
         public ObjectPropertiesValidationBuilder() {
             this.instance = new LinkedHashMap<>();
         }

@@ -415,6 +415,15 @@ public class RequiredWithEscapedCharacters {
     
     public static class RequiredWithEscapedCharacters000000Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of(
+            "foo\tbar",
+            "foo\nbar",
+            "foo\fbar",
+            "foo\rbar",
+            "foo\"bar",
+            "foo\\bar"
+        );
+        private static final Set<String> optionalKeys = Set.of();
         public RequiredWithEscapedCharacters000000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }

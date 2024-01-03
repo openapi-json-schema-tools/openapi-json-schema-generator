@@ -132,6 +132,10 @@ public class RequiredDefaultValidation {
     
     public static class RequiredDefaultValidationBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredDefaultValidationBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "foo"
+        );
         public RequiredDefaultValidationBuilder() {
             this.instance = new LinkedHashMap<>();
         }

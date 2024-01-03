@@ -303,6 +303,15 @@ public class PropertiesWithEscapedCharacters {
     
     public static class PropertiesWithEscapedCharactersBuilder implements BaseBuilder<@Nullable Object>, SetterForFoonbar<PropertiesWithEscapedCharactersBuilder>, SetterForFoobar<PropertiesWithEscapedCharactersBuilder>, SetterForFoobar1<PropertiesWithEscapedCharactersBuilder>, SetterForFoorbar<PropertiesWithEscapedCharactersBuilder>, SetterForFootbar<PropertiesWithEscapedCharactersBuilder>, SetterForFoofbar<PropertiesWithEscapedCharactersBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "foo\nbar",
+            "foo\"bar",
+            "foo\\bar",
+            "foo\rbar",
+            "foo\tbar",
+            "foo\fbar"
+        );
         public PropertiesWithEscapedCharactersBuilder() {
             this.instance = new LinkedHashMap<>();
         }

@@ -207,6 +207,11 @@ public class AdditionalpropertiesAreAllowedByDefault {
     
     public static class AdditionalpropertiesAreAllowedByDefaultBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAreAllowedByDefaultBuilder>, SetterForBar<AdditionalpropertiesAreAllowedByDefaultBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "foo",
+            "bar"
+        );
         public AdditionalpropertiesAreAllowedByDefaultBuilder() {
             this.instance = new LinkedHashMap<>();
         }

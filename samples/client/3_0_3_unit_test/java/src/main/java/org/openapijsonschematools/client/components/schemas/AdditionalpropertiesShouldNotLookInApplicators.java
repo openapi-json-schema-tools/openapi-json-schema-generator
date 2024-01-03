@@ -144,6 +144,10 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     public static class Schema0Builder implements BaseBuilder<@Nullable Object>, SetterForFoo<Schema0Builder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "foo"
+        );
         public Schema0Builder() {
             this.instance = new LinkedHashMap<>();
         }
@@ -392,6 +396,8 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     public static class AdditionalpropertiesShouldNotLookInApplicatorsBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesShouldNotLookInApplicatorsBuilder> {
         private final Map<String, Boolean> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of();
         public AdditionalpropertiesShouldNotLookInApplicatorsBuilder() {
             this.instance = new LinkedHashMap<>();
         }

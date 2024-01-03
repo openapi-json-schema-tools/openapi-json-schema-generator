@@ -236,6 +236,12 @@ public class EnumsInProperties {
     
     public static class EnumsInProperties0Builder implements BaseBuilder<@Nullable Object>, SetterForFoo<EnumsInProperties0Builder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of(
+            "bar"
+        );
+        private static final Set<String> optionalKeys = Set.of(
+            "foo"
+        );
         public EnumsInProperties0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }

@@ -224,6 +224,11 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForBar<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForAdditionalProperties<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "foo",
+            "bar"
+        );
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder() {
             this.instance = new LinkedHashMap<>();
         }

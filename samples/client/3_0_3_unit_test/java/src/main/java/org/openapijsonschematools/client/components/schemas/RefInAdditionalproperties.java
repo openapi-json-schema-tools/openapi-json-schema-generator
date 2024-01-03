@@ -102,6 +102,8 @@ public class RefInAdditionalproperties {
     
     public static class RefInAdditionalpropertiesBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties<RefInAdditionalpropertiesBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of();
         public RefInAdditionalpropertiesBuilder() {
             this.instance = new LinkedHashMap<>();
         }

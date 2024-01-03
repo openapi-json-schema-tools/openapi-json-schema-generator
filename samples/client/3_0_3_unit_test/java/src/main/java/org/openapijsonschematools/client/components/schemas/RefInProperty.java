@@ -126,6 +126,10 @@ public class RefInProperty {
     
     public static class RefInPropertyBuilder implements BaseBuilder<@Nullable Object>, SetterForA<RefInPropertyBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "a"
+        );
         public RefInPropertyBuilder() {
             this.instance = new LinkedHashMap<>();
         }

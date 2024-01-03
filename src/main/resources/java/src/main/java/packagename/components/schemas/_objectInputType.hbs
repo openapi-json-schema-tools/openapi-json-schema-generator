@@ -36,6 +36,26 @@ public interface SetterFor{{jsonPathPiece.pascalCase}}<T> {
 
 public static class {{className}} implements {{#if @first}}BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>{{#if ../optionalProperties}}, {{/if}}{{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}}{{#and ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}, SetterFor{{../additionalProperties.jsonPathPiece.pascalCase}}<{{className}}>{{/and}} {
     private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
+    {{#if @first}}
+        {{#if ../requiredProperties}}
+    private static final Set<String> requiredKeys = Set.of(
+        {{#each ../requiredProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
+        {{else}}
+    private static final Set<String> requiredKeys = Set.of();
+        {{/if}}
+        {{#if ../optionalProperties}}
+    private static final Set<String> optionalKeys = Set.of(
+        {{#each ../optionalProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
+        {{else}}
+    private static final Set<String> optionalKeys = Set.of();
+        {{/if}}
+    {{/if}}
     {{#if @last }}
     public {{className}}() {
         this.instance = new LinkedHashMap<>();

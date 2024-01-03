@@ -124,6 +124,10 @@ public class InvalidStringValueForDefault {
     
     public static class InvalidStringValueForDefaultBuilder implements BaseBuilder<@Nullable Object>, SetterForBar<InvalidStringValueForDefaultBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "bar"
+        );
         public InvalidStringValueForDefaultBuilder() {
             this.instance = new LinkedHashMap<>();
         }

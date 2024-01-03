@@ -90,6 +90,10 @@ public class AllofWithBaseSchema {
     
     public static class Schema00Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of(
+            "foo"
+        );
+        private static final Set<String> optionalKeys = Set.of();
         public Schema00Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
@@ -366,6 +370,10 @@ public class AllofWithBaseSchema {
     
     public static class Schema10Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of(
+            "baz"
+        );
+        private static final Set<String> optionalKeys = Set.of();
         public Schema10Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
@@ -660,6 +668,10 @@ public class AllofWithBaseSchema {
     
     public static class AllofWithBaseSchema0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of(
+            "bar"
+        );
+        private static final Set<String> optionalKeys = Set.of();
         public AllofWithBaseSchema0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }

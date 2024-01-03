@@ -71,6 +71,8 @@ public class AdditionalpropertiesCanExistByItself {
     
     public static class AdditionalpropertiesCanExistByItselfBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesCanExistByItselfBuilder> {
         private final Map<String, Boolean> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of();
         public AdditionalpropertiesCanExistByItselfBuilder() {
             this.instance = new LinkedHashMap<>();
         }

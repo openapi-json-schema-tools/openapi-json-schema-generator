@@ -132,6 +132,10 @@ public class RequiredWithEmptyArray {
     
     public static class RequiredWithEmptyArrayBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredWithEmptyArrayBuilder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of();
+        private static final Set<String> optionalKeys = Set.of(
+            "foo"
+        );
         public RequiredWithEmptyArrayBuilder() {
             this.instance = new LinkedHashMap<>();
         }

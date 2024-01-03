@@ -208,6 +208,12 @@ public class RequiredValidation {
     
     public static class RequiredValidation0Builder implements BaseBuilder<@Nullable Object>, SetterForBar<RequiredValidation0Builder> {
         private final Map<String, @Nullable Object> instance;
+        private static final Set<String> requiredKeys = Set.of(
+            "foo"
+        );
+        private static final Set<String> optionalKeys = Set.of(
+            "bar"
+        );
         public RequiredValidation0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
