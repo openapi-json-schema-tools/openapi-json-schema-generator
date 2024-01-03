@@ -90,8 +90,8 @@ public class AllofWithBaseSchema {
     
     public static class Schema00Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public Schema00Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public Schema00Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
@@ -100,8 +100,8 @@ public class AllofWithBaseSchema {
     
     public static class Schema01Builder implements SetterForFoo<Schema00Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema01Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
@@ -366,8 +366,8 @@ public class AllofWithBaseSchema {
     
     public static class Schema10Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public Schema10Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public Schema10Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
@@ -376,8 +376,8 @@ public class AllofWithBaseSchema {
     
     public static class Schema11Builder implements SetterForBaz<Schema10Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema11Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema11Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
@@ -660,8 +660,8 @@ public class AllofWithBaseSchema {
     
     public static class AllofWithBaseSchema0Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public AllofWithBaseSchema0Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public AllofWithBaseSchema0Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
@@ -670,8 +670,8 @@ public class AllofWithBaseSchema {
     
     public static class AllofWithBaseSchema1Builder implements SetterForBar<AllofWithBaseSchema0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public AllofWithBaseSchema1Builder() {
-            this.instance = new LinkedHashMap<>();
+        public AllofWithBaseSchema1Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
