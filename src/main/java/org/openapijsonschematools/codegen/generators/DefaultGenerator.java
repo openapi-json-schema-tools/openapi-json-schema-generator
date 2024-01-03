@@ -2741,7 +2741,7 @@ public class DefaultGenerator implements Generator {
             }
             property.propertyNames = fromSchema(propertyNamesSchema, sourceJsonPath, currentJsonPath + "/propertyNames");
         }
-        property.mapBuilders = getMapBuilders(property.requiredProperties, property.optionalProperties, currentJsonPath, sourceJsonPath);
+        property.mapBuilders = getMapBuilders(property, currentJsonPath, sourceJsonPath);
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
         CodegenSchema additionalProperties = property.additionalProperties;
         LinkedHashMapWithContext<CodegenSchema> properties = property.properties;
@@ -2844,7 +2844,7 @@ public class DefaultGenerator implements Generator {
         return property;
     }
 
-    private List<MapBuilder> getMapBuilders(LinkedHashMapWithContext<CodegenSchema> requiredProperties, LinkedHashMapWithContext<CodegenSchema> optionalProperties, String currentJsonPath, String sourceJsonPath) {
+    private List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
         List<MapBuilder> builders = new ArrayList<>();
         if (sourceJsonPath == null) {
             return builders;
@@ -2853,14 +2853,14 @@ public class DefaultGenerator implements Generator {
         schemaName = ModelUtils.decodeSlashes(schemaName);
         int qtyBuilders = 1;
         int reqPropsSize = 0;
-        if (requiredProperties != null) {
-            qtyBuilders = (int) Math.pow(2, requiredProperties.size());
-            reqPropsSize = requiredProperties.size();
+        if (schema.requiredProperties != null) {
+            qtyBuilders = (int) Math.pow(2, schema.requiredProperties.size());
+            reqPropsSize = schema.requiredProperties.size();
         }
         Map<String, MapBuilder> bitStrToBuilder = new HashMap<>();
         List<CodegenKey> reqPropKeys = new ArrayList<>();
-        if (requiredProperties != null) {
-            reqPropKeys.addAll(requiredProperties.keySet());
+        if (schema.requiredProperties != null) {
+            reqPropKeys.addAll(schema.requiredProperties.keySet());
         }
         MapBuilder lastBuilder = null;
         // builders are built last to first, last builder has build method
@@ -2896,8 +2896,8 @@ public class DefaultGenerator implements Generator {
             bitStrToBuilder.put(bitStr, builder);
             builders.add(builder);
         }
-        if (optionalProperties != null && lastBuilder != null) {
-            for (CodegenKey optionalKey: optionalProperties.keySet()) {
+        if (lastBuilder != null && schema.optionalProperties != null) {
+            for (CodegenKey optionalKey: schema.optionalProperties.keySet()) {
                 lastBuilder.keyToBuilder.put(optionalKey, lastBuilder);
             }
         }

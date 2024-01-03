@@ -379,6 +379,16 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
+    public interface SetterForAdditionalProperty <T> {
+        Map<String, Boolean> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
+        
+        default T additionalProperty(String key, boolean value) {
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    
     public static class AdditionalpropertiesShouldNotLookInApplicatorsBuilder implements BaseBuilder<Boolean> {
         private final Map<String, Boolean> instance;
         public AdditionalpropertiesShouldNotLookInApplicatorsBuilder() {

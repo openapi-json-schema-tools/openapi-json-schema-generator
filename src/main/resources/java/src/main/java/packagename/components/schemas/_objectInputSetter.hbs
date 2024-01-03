@@ -183,7 +183,7 @@ default T {{methodName}}(Map<String, ?> value) {
 
 default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}} value) {
     var instance = getInstance();
-    list.{{methodName}}(null);
+    instance.put("{{{key}}}", null);
     return {{getBuilderMethod}}(instance);
 }
             {{/if}}
