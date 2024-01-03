@@ -67,6 +67,7 @@ public class AdditionalpropertiesCanExistByItself {
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
+    }
     
     public static class AdditionalpropertiesCanExistByItselfBuilder implements BaseBuilder<Boolean> {
         private final Map<String, Boolean> instance;
@@ -75,6 +76,9 @@ public class AdditionalpropertiesCanExistByItself {
         }
         public Map<String, Boolean> build() {
             return instance;
+        }
+        public AdditionalpropertiesCanExistByItselfBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
+            return this;
         }
     }
     public static class AdditionalpropertiesCanExistByItselfMapBuilder {

@@ -29,6 +29,7 @@ public interface SetterForAdditionalProperty <T> {
     Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance();
     T getBuilderAfterAdditionalProperty(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
     {{> src/main/java/packagename/components/schemas/_objectInputAddPropSetter methodName="additionalProperty" getBuilderMethod="getBuilderAfterAdditionalProperty" }}
+}
     {{/eq}}
 {{/with}}
 {{#each mapBuilders}}
@@ -64,6 +65,11 @@ public static class {{className}} implements {{#if @first}}BaseBuilder<{{#with m
         {{/eq}}
     }
     {{/each}}
+    {{#and @first ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}
+    public {{className}} getBuilderAfterAdditionalProperty(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+        return this;
+    }
+    {{/and}}
 }
 {{/each}}
 {{#if additionalProperties}}

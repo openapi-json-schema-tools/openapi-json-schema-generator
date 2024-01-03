@@ -220,6 +220,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
+    }
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForBar<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder> {
         private final Map<String, @Nullable Object> instance;
@@ -236,6 +237,9 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return this;
         }
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

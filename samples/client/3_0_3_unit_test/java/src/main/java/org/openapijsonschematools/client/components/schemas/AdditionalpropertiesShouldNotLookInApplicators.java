@@ -388,6 +388,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
+    }
     
     public static class AdditionalpropertiesShouldNotLookInApplicatorsBuilder implements BaseBuilder<Boolean> {
         private final Map<String, Boolean> instance;
@@ -396,6 +397,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
         public Map<String, Boolean> build() {
             return instance;
+        }
+        public AdditionalpropertiesShouldNotLookInApplicatorsBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
+            return this;
         }
     }
     public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder {

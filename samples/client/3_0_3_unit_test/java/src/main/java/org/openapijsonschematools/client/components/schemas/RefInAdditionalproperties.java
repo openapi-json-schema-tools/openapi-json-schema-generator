@@ -98,6 +98,7 @@ public class RefInAdditionalproperties {
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
+    }
     
     public static class RefInAdditionalpropertiesBuilder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
@@ -106,6 +107,9 @@ public class RefInAdditionalproperties {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public RefInAdditionalpropertiesBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class RefInAdditionalpropertiesMapBuilder {
