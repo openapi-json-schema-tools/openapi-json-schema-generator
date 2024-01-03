@@ -861,7 +861,7 @@ public class DefaultGenerator implements Generator {
 
     public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
-    public String getCamelCaseResponse(String componentName) { return toModelName(componentName, null); }
+    public String getPascalCaseResponse(String componentName) { return toModelName(componentName, null); }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
@@ -1140,11 +1140,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String getCamelCaseServer(String basename) {
+    public String getPascalCaseServer(String basename) {
         return toModelName(basename, null);
     }
 
-    public String getCamelCaseParameter(String basename) {
+    public String getPascalCaseParameter(String basename) {
         return toModelName(basename, null);
     }
 
@@ -2867,7 +2867,7 @@ public class DefaultGenerator implements Generator {
             if (reqPropsSize != 0) {
                 bitStr = String.format("%"+reqPropsSize+"s", Integer.toBinaryString(i)).replace(' ', '0');
             }
-            String builderClassName = getSchemaCamelCaseName(schemaName + bitStr + "Builder", sourceJsonPath);
+            String builderClassName = getSchemaPascalCaseName(schemaName + bitStr + "Builder", sourceJsonPath);
             MapBuilder builder;
             boolean isFirstBuilder = i == qtyBuilders - 1;
             if (i == 0) {
@@ -2929,14 +2929,14 @@ public class DefaultGenerator implements Generator {
             }
         }
         String pascalCaseName = toModelName(operationId, null);
-        String anchorPiece = pascalCaseName.toLowerCase(Locale.ROOT);
+        String kebabCase = pascalCaseName.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 operationId,
                 isValid(operationId),
                 getOperationIdSnakeCase(operationId),
-                null,
-                anchorPiece,
-                pascalCaseName
+                pascalCaseName,
+                kebabCase,
+                null
         );
     }
 
@@ -5261,7 +5261,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
         String usedKey = escapeUnsafeCharacters(name);
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
@@ -5297,7 +5297,7 @@ public class DefaultGenerator implements Generator {
         return usedKey;
     }
 
-    protected String getFallback(String key) {
+    protected String getCamelCaseName(String key) {
         String usedName = toEnumVarName(key, new StringSchema());
         usedName = camelize("set_"+ usedName.toLowerCase(Locale.ROOT), true);
         return usedName;
@@ -5306,7 +5306,7 @@ public class DefaultGenerator implements Generator {
     public CodegenKey getKey(String key, String keyType, String sourceJsonPath) {
         String snakeCaseName = null;
         String camelCaseName = null;
-        String anchorPiece = null;
+        String kebabCase = null;
         String usedKey = null;
         String pascalCaseName = null;
         boolean isValid = true;
@@ -5316,9 +5316,9 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getSchemaCamelCaseName(key, sourceJsonPath);
-                if (isValid == false) {
-                    camelCaseName = getFallback(usedKey);
+                pascalCaseName = getSchemaPascalCaseName(key, sourceJsonPath);
+                if (!isValid) {
+                    camelCaseName = getCamelCaseName(usedKey);
                 }
                 break;
             case "paths":
@@ -5338,7 +5338,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getCamelCaseParameter(usedKey);
+                pascalCaseName = getPascalCaseParameter(usedKey);
                 break;
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);
@@ -5356,7 +5356,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
-                pascalCaseName = getCamelCaseResponse(usedKey);
+                pascalCaseName = getPascalCaseResponse(usedKey);
                 break;
             case "securitySchemes":
                 usedKey = escapeUnsafeCharacters(key);
@@ -5368,19 +5368,19 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getCamelCaseServer(usedKey);
+                pascalCaseName = getPascalCaseServer(usedKey);
                 break;
         }
-        if (camelCaseName != null) {
-            anchorPiece = camelCaseName.toLowerCase(Locale.ROOT);
+        if (pascalCaseName != null) {
+            kebabCase = pascalCaseName.toLowerCase(Locale.ROOT);
         }
         return new CodegenKey(
                 usedKey,
                 isValid,
                 snakeCaseName,
-                camelCaseName,
-                anchorPiece,
-                pascalCaseName
+                pascalCaseName,
+                kebabCase,
+                camelCaseName
         );
     }
 

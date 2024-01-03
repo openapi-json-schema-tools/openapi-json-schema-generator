@@ -999,8 +999,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
-    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
-        return getSchemaCamelCaseName(name, sourceJsonPath, true);
+    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
+        return getSchemaPascalCaseName(name, sourceJsonPath, true);
     }
 
     @Override
@@ -1038,7 +1038,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return stringValue;
     }
 
-    private String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath, boolean useCache) {
+    private String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath, boolean useCache) {
         String usedKey = escapeUnsafeCharacters(name);
         usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9_]+");
         /*
@@ -1132,7 +1132,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         String modelName = schemaJsonPathToModelName.get(jsonPath);
         if (modelName == null) {
             String[] pathPieces = jsonPath.split("/");
-            return getSchemaCamelCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
+            return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
         }
         return modelName;
     }

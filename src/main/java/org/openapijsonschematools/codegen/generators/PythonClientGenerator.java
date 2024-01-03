@@ -1888,12 +1888,12 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     }
 
     @Override
-    public String getCamelCaseServer(String basename) {
+    public String getPascalCaseServer(String basename) {
         return "Server" + basename;
     }
 
     @Override
-    public String getCamelCaseParameter(String name) {
+    public String getPascalCaseParameter(String name) {
         try {
             Integer.parseInt(name);
             // for parameters in path, or an endpoint
@@ -1904,7 +1904,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         }
     }
 
-    public String getCamelCaseResponse(String name) {
+    public String getPascalCaseResponse(String name) {
         if (name.matches("^\\d[X\\d]{2}$")) {
             // 200 or 2XX
             return "ResponseFor" + name;
@@ -2120,7 +2120,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     }
 
     @Override
-    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
         String usedKey = escapeUnsafeCharacters(name);
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {

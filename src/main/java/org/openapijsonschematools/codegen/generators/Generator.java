@@ -117,7 +117,7 @@ public interface Generator {
 
     String getSchemaFilename(String jsonPath);
 
-    String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath);
+    String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath);
     Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
     String toContentTypeFilename(String name);
 
@@ -223,7 +223,7 @@ public interface Generator {
 
     String toSecurityRequirementObjectFilename(String baseName, String jsonPath);
 
-    String getCamelCaseServer(String baseName);
+    String getPascalCaseServer(String baseName);
 
     String toModelImport(String refClass);
 

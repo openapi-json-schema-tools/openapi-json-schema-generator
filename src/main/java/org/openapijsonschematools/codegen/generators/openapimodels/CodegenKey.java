@@ -10,13 +10,13 @@ public class CodegenKey implements Comparable<CodegenKey> {
     public final String camelCase;
     public final String kebabCase;
 
-    public CodegenKey(String original, boolean isValid, String snakeCase, String camelCase, String kebabCase, String pascalCase) {
+    public CodegenKey(String original, boolean isValid, String snakeCase, String pascalCase, String kebabCase, String camelCase) {
         this.original = original;
         this.isValid = isValid;
         this.snakeCase = snakeCase;
-        this.camelCase = camelCase;
-        this.kebabCase = kebabCase;
         this.pascalCase = pascalCase;
+        this.kebabCase = kebabCase;
+        this.camelCase = camelCase;
     }
 
     @Override
@@ -38,9 +38,9 @@ public class CodegenKey implements Comparable<CodegenKey> {
         sb.append("original=").append(original);
         sb.append(", isValid=").append(isValid);
         sb.append(", snakeCase=").append(snakeCase);
-        sb.append(", camelCase=").append(camelCase);
-        sb.append(", kebabCase=").append(kebabCase);
         sb.append(", pascalCase=").append(pascalCase);
+        sb.append(", kebabCase=").append(kebabCase);
+        sb.append(", camelCase=").append(camelCase);
         sb.append('}');
         return sb.toString();
     }
