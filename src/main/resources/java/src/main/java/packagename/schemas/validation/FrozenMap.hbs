@@ -3,6 +3,7 @@ package {{{packageName}}}.schemas.validation;
 import org.checkerframework.checker.nullness.qual.KeyFor;
 import {{{packageName}}}.exceptions.UnsetPropertyException;
 import {{{packageName}}}.exceptions.InvalidAdditionalPropertyException;
+import {{{packageName}}}.schemas.validation.MapMaker;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -37,9 +38,7 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
     }
 
     protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws InvalidAdditionalPropertyException {
-        if (requiredKeys.contains(key) || optionalKeys.contains(key)) {
-            throw new InvalidAdditionalPropertyException ("The known key " + key + " may not be passed in when getting an additional property");
-        }
+        MapMaker.throwIfKeyKnown(key, requiredKeys, optionalKeys, false);
     }
 
     @Override
