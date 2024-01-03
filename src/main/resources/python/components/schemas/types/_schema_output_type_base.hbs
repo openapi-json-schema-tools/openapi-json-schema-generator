@@ -47,22 +47,22 @@ typing.Literal[{{#each ../enumInfo.typeToValues.integer}}{{@key.value}}{{#unless
                                 {{#if arrayOutputJsonPathPiece}}
                                     {{#if fullRefModule}}
                                         {{#if optional}}
-typing.Union[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{endChar}}
+typing.Union[{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}, schemas.Unset]{{endChar}}
                                         {{else}}
-{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}{{endChar}}
                                         {{/if}}
                                     {{else}}
                                         {{#if selfReference}}
                                             {{#if optional}}
-typing.Union['{{arrayOutputJsonPathPiece.camelCase}}', schemas.Unset]{{endChar}}
+typing.Union['{{arrayOutputJsonPathPiece.pascalCase}}', schemas.Unset]{{endChar}}
                                             {{else}}
-'{{arrayOutputJsonPathPiece.camelCase}}'{{endChar}}
+'{{arrayOutputJsonPathPiece.pascalCase}}'{{endChar}}
                                             {{/if}}
                                         {{else}}
                                             {{#if optional}}
-typing.Union[{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{endChar}}
+typing.Union[{{arrayOutputJsonPathPiece.pascalCase}}, schemas.Unset]{{endChar}}
                                             {{else}}
-{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+{{arrayOutputJsonPathPiece.pascalCase}}{{endChar}}
                                             {{/if}}
                                         {{/if}}
                                     {{/if}}
@@ -77,9 +77,9 @@ typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{endChar}}
                                 {{#eq this "object"}}
                                     {{#if mapOutputJsonPathPiece}}
                                         {{#if optional}}
-typing.Union[{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}, schemas.Unset]{{endChar}}
+typing.Union[{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.pascalCase}}, schemas.Unset]{{endChar}}
                                         {{else}}
-{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{endChar}}
+{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.pascalCase}}{{endChar}}
                                         {{/if}}
                                     {{else}}
                                         {{#if optional}}

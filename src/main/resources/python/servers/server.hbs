@@ -9,29 +9,29 @@ from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [
 from {{packageName}}.shared_imports.server_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{#if variables}}
         {{#with variables}}
-{{> components/schemas/schema_getschemas identifierPieces=(append identifierPieces jsonPathPiece.camelCase) }}
+{{> components/schemas/schema_getschemas identifierPieces=(append identifierPieces jsonPathPiece.pascalCase) }}
         {{/with}}
     {{/if}}
 
 
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(server.Server{{#if variables}}With{{else}}Without{{/if}}Variables):
+class {{jsonPathPiece.pascalCase}}(server.Server{{#if variables}}With{{else}}Without{{/if}}Variables):
     {{#if description}}
     '''
     {{description.original}}
     '''
     {{/if}}
     {{#if variables}}
-    variables: {{variables.mapOutputJsonPathPiece.camelCase}} = dataclasses.field(
-        default_factory=lambda: {{variables.jsonPathPiece.camelCase}}.validate({
+    variables: {{variables.mapOutputJsonPathPiece.pascalCase}} = dataclasses.field(
+        default_factory=lambda: {{variables.jsonPathPiece.pascalCase}}.validate({
             {{#with variables}}
                 {{#each properties}}
-            "{{{@key.original}}}": {{jsonPathPiece.camelCase}}.default,
+            "{{{@key.original}}}": {{jsonPathPiece.pascalCase}}.default,
                 {{/each}}
             {{/with}}
         })
     )
-    variables_schema: typing.Type[{{variables.jsonPathPiece.camelCase}}] = {{variables.jsonPathPiece.camelCase}}
+    variables_schema: typing.Type[{{variables.jsonPathPiece.pascalCase}}] = {{variables.jsonPathPiece.pascalCase}}
     _url: str = "{{url}}"
     {{else}}
     url: str = "{{url}}"

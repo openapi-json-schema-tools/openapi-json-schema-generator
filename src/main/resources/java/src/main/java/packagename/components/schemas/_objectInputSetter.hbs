@@ -175,13 +175,13 @@ default T {{methodName}}(Map<String, ?> value) {
         {{#eq @key "null"}}
             {{#if forDocs }}
                 {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.kebabCase}}) value) |
                 {{else}}
-| {{builderClass}} | {{methodName}}([Null{{../jsonPathPiece.camelCase}}](#null{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}}) value) |
                 {{/if}}
             {{else}}
 
-default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Null{{../jsonPathPiece.camelCase}} value) {
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}} value) {
     var instance = getInstance();
     list.{{methodName}}(null);
     return {{getBuilderMethod}}(instance);
@@ -191,13 +191,13 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
             {{#eq @key "boolean"}}
                 {{#if forDocs }}
                     {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.kebabCase}}) value) |
                     {{else}}
-| {{builderClass}} | {{methodName}}([Boolean{{../jsonPathPiece.camelCase}}](#boolean{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}}) value) |
                     {{/if}}
                 {{else}}
 
-default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Boolean{{../jsonPathPiece.camelCase}} value) {
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}} value) {
     var instance = getInstance();
     instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
@@ -207,13 +207,13 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
                 {{#eq @key "string"}}
                     {{#if forDocs }}
                         {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.kebabCase}}) value) |
                         {{else}}
-| {{builderClass}} | {{methodName}}([String{{../jsonPathPiece.camelCase}}](#string{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}}) value) |
                         {{/if}}
                     {{else}}
 
-default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}String{{../jsonPathPiece.camelCase}} value) {
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}} value) {
     var instance = getInstance();
     instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
@@ -223,13 +223,13 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
                     {{#eq @key "Integer"}}
                         {{#if forDocs }}
                             {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.kebabCase}}) value) |
                             {{else}}
-| {{builderClass}} | {{methodName}}([Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}}) value) |
                             {{/if}}
                         {{else}}
 
-default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Integer{{../jsonPathPiece.camelCase}} value) {
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}} value) {
     var instance = getInstance();
     instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
@@ -239,13 +239,13 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
                         {{#eq @key "Long"}}
                             {{#if forDocs }}
                                 {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Long{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.kebabCase}}) value) |
                                 {{else}}
-| {{builderClass}} | {{methodName}}([Long{{../jsonPathPiece.camelCase}}](#long{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}}) value) |
                                 {{/if}}
                             {{else}}
 
-default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Long{{../jsonPathPiece.camelCase}} value) {
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}} value) {
     var instance = getInstance();
     instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
@@ -255,13 +255,13 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
                             {{#eq @key "Float"}}
                                 {{#if forDocs }}
                                     {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Float{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.kebabCase}}) value) |
                                     {{else}}
-| {{builderClass}} | {{methodName}}([Float{{../jsonPathPiece.camelCase}}](#float{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}}) value) |
                                     {{/if}}
                                 {{else}}
 
-default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Float{{../jsonPathPiece.camelCase}} value) {
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}} value) {
     var instance = getInstance();
     instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);
@@ -271,13 +271,13 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.came
                                 {{#eq @key "Double"}}
                                     {{#if forDocs }}
                                         {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.camelCase}}.Double{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.kebabCase}}) value) |
                                         {{else}}
-| {{builderClass}} | {{methodName}}([Double{{../jsonPathPiece.camelCase}}](#double{{../jsonPathPiece.anchorPiece}}) value) |
+| {{builderClass}} | {{methodName}}([Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}}) value) |
                                         {{/if}}
                                     {{else}}
 
-default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Double{{../jsonPathPiece.camelCase}} value) {
+default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}} value) {
     var instance = getInstance();
     instance.put("{{{key}}}", value.value());
     return {{getBuilderMethod}}(instance);

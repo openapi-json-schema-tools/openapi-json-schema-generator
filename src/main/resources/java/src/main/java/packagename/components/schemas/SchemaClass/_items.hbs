@@ -2,16 +2,16 @@
     {{#with items}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-items = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})
+items = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
             {{~else}}
-items = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}})
+items = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}})
             {{~/if}}
         {{else}}
-items = [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}})
+items = [{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}})
         {{~/if}}
     {{/with}}
 {{else}}
     {{#with items}}
-.items({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}.class)
+.items({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.class)
     {{/with}}
 {{/if}}

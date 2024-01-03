@@ -1,7 +1,7 @@
 {{! array and object output classes need this new method to ensure that validation is run when making instances }}
 {{#eq instanceType "arrayOutputType" }}
-def __new__(cls, arg: typing.Union[{{arrayInputJsonPathPiece.camelCase}}, {{arrayOutputJsonPathPiece.camelCase}}], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-    return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
+def __new__(cls, arg: typing.Union[{{arrayInputJsonPathPiece.pascalCase}}, {{arrayOutputJsonPathPiece.pascalCase}}], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    return {{jsonPathPiece.pascalCase}}.validate(arg, configuration=configuration)
 {{else}}
     {{#eq instanceType "propertiesOutputType" }}
         {{#or requiredProperties optionalProperties}}
@@ -65,14 +65,14 @@ def __new__(
             {{else}}
     arg_.update(kwargs)
             {{/if}}
-    used_arg_ = typing.cast({{mapInputJsonPathPiece.camelCase}}, arg_)
-    return {{jsonPathPiece.camelCase}}.validate(used_arg_, configuration=configuration_)
+    used_arg_ = typing.cast({{mapInputJsonPathPiece.pascalCase}}, arg_)
+    return {{jsonPathPiece.pascalCase}}.validate(used_arg_, configuration=configuration_)
         {{else}}
             {{! only addProps}}
 def __new__(
     cls,
             {{#and additionalProperties additionalProperties.isBooleanSchemaFalse}}
-    arg: {{mapInputJsonPathPiece.camelCase}},
+    arg: {{mapInputJsonPathPiece.pascalCase}},
             {{/and}}
     configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
             {{#if additionalProperties}}
@@ -91,14 +91,14 @@ def __new__(
 ):
             {{#if additionalProperties}}
                 {{#if additionalProperties.isBooleanSchemaFalse}}
-    return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration_)
+    return {{jsonPathPiece.pascalCase}}.validate(arg, configuration=configuration_)
                 {{else}}
-    used_kwargs = typing.cast({{mapInputJsonPathPiece.camelCase}}, kwargs)
-    return {{jsonPathPiece.camelCase}}.validate(used_kwargs, configuration=configuration_)
+    used_kwargs = typing.cast({{mapInputJsonPathPiece.pascalCase}}, kwargs)
+    return {{jsonPathPiece.pascalCase}}.validate(used_kwargs, configuration=configuration_)
                 {{/if}}
             {{else}}
-    used_kwargs = typing.cast({{mapInputJsonPathPiece.camelCase}}, kwargs)
-    return {{jsonPathPiece.camelCase}}.validate(used_kwargs, configuration=configuration_)
+    used_kwargs = typing.cast({{mapInputJsonPathPiece.pascalCase}}, kwargs)
+    return {{jsonPathPiece.pascalCase}}.validate(used_kwargs, configuration=configuration_)
             {{/if}}
         {{/or}}
         {{#or mapInputJsonPathPiece mapOutputJsonPathPiece}}
@@ -107,15 +107,15 @@ def __new__(
 def from_dict_(
             {{#and mapInputJsonPathPiece mapOutputJsonPathPiece}}
     arg: typing.Union[
-        {{mapInputJsonPathPiece.camelCase}},
-        {{mapOutputJsonPathPiece.camelCase}}
+        {{mapInputJsonPathPiece.pascalCase}},
+        {{mapOutputJsonPathPiece.pascalCase}}
     ],
             {{else}}
-    arg: {{#if mapInputJsonPathPiece}}{{mapInputJsonPathPiece.camelCase}}{{else}}{{mapOutputJsonPathPiece.camelCase}}{{/if}},
+    arg: {{#if mapInputJsonPathPiece}}{{mapInputJsonPathPiece.pascalCase}}{{else}}{{mapOutputJsonPathPiece.pascalCase}}{{/if}},
             {{/and}}
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> {{mapOutputJsonPathPiece.camelCase}}:
-    return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
+) -> {{mapOutputJsonPathPiece.pascalCase}}:
+    return {{jsonPathPiece.pascalCase}}.validate(arg, configuration=configuration)
         {{/or}}
     {{/eq}}
 {{/eq}}

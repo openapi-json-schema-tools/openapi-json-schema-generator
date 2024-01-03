@@ -3277,7 +3277,7 @@ public class DefaultGeneratorTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "UsersGetAll");
+        assertEquals(co.operationId.pascalCase, "UsersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
@@ -3286,7 +3286,7 @@ public class DefaultGeneratorTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "GetAll");
+        assertEquals(co.operationId.pascalCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
@@ -3295,7 +3295,7 @@ public class DefaultGeneratorTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "GetAll");
+        assertEquals(co.operationId.pascalCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3304,7 +3304,7 @@ public class DefaultGeneratorTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "UsersGetAll");
+        assertEquals(co.operationId.pascalCase, "UsersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3313,7 +3313,7 @@ public class DefaultGeneratorTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "GetAll");
+        assertEquals(co.operationId.pascalCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3322,7 +3322,7 @@ public class DefaultGeneratorTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "GetAll");
+        assertEquals(co.operationId.pascalCase, "GetAll");
     }
 
     @Test

@@ -4,14 +4,14 @@ package {{packageName}}.{{subpackage}};
 
 {{> _helper_imports }}
 
-public class {{containerJsonPathPiece.camelCase}} extends {{refInfo.refModule}} {
+public class {{containerJsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
     // $refed class
     {{> src/main/java/packagename/components/schemas/SchemaClass/SchemaClass identifierPieces=(append identifierPieces jsonPathPiece) simpleRef=true }}
 }
     {{else}}
 {{> _helper_imports }}
 
-public class {{containerJsonPathPiece.camelCase}} {
+public class {{containerJsonPathPiece.pascalCase}} {
     // nest classes so all schemas and input/output classes can be public
     {{> src/main/java/packagename/components/schemas/Schema_getSchemas }}
 

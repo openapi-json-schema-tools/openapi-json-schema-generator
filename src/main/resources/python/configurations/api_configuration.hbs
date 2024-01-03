@@ -51,7 +51,7 @@ SecuritySchemeInfo = typing.TypedDict(
     'SecuritySchemeInfo',
     {
 {{#each securitySchemes}}
-        "{{{@key}}}": {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        "{{{@key}}}": {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
     },
     total=False
@@ -95,19 +95,19 @@ ServerInfo = typing.TypedDict(
     'ServerInfo',
     {
 {{#each servers}}
-        'servers/{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        'servers/{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 {{#each paths}}
     {{#if servers}}
         {{#each servers}}
-        "paths/{{../@key.original}}/servers/{{@key}}": {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        "paths/{{../@key.original}}/servers/{{@key}}": {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
         {{/each}}
     {{/if}}
     {{#if operations}}
         {{#each operations}}
             {{#if servers}}
                 {{#each servers}}
-        "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+        "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
                 {{/each}}
             {{/if}}
         {{/each}}
@@ -197,19 +197,19 @@ class ApiConfiguration(object):
 {{#if hasServers}}
         self.server_info: ServerInfo = server_info or {
     {{#each servers}}
-            'servers/{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}(),
+            'servers/{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}}(),
     {{/each}}
     {{#each paths}}
         {{#if servers}}
             {{#each servers}}
-            "paths/{{../@key.original}}/servers/{{@key}}": {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}(),
+            "paths/{{../@key.original}}/servers/{{@key}}": {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}}(),
             {{/each}}
         {{/if}}
         {{#if operations}}
             {{#each operations}}
                 {{#if servers}}
                     {{#each servers}}
-            "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}(),
+            "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}": {{../../@key.snakeCase}}_{{../@key.original}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}}(),
                     {{/each}}
                 {{/if}}
             {{/each}}

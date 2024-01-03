@@ -11,7 +11,7 @@
 {{moduleLocation}}.java
     {{/unless}}
 {{/if}}
-public class {{containerJsonPathPiece.camelCase}}
+public class {{containerJsonPathPiece.pascalCase}}
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
@@ -32,43 +32,43 @@ A class that contains necessary nested
 | ----------------- | ---------------------- |
 {{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
-| static class | [{{../containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }})<br> schema class |
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }})<br> schema class |
         {{else}}
         {{#eq instanceType "propertiesOutputType"}}
-| static class | [{{../containerJsonPathPiece.camelCase}}.{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }})<br> output class for Map payloads |
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }})<br> output class for Map payloads |
         {{else}}
             {{#eq instanceType "arrayOutputType"}}
-| static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }})<br> output class for List payloads |
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }})<br> output class for List payloads |
             {{else}}
                 {{#eq instanceType "arrayInputType"}}
-| static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }})<br> builder for List payloads |
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{arrayInputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }})<br> builder for List payloads |
                 {{else}}
                     {{#or (eq instanceType "propertiesInputType") (eq instanceType "requiredPropertiesInputType") (eq instanceType "optionalPropertiesInputType") }}
-| static class | [{{../containerJsonPathPiece.camelCase}}.{{mapInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }})<br> builder for Map payloads |
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{mapInputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }})<br> builder for Map payloads |
                     {{else}}
                         {{#eq instanceType "enumClass"}}
                             {{#with enumInfo}}
                                 {{#each typeToValues}}
                                     {{#eq @key "null"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}](#null{{../jsonPathPiece.anchorPiece}})<br>null enum |
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}})<br>null enum |
                                     {{else}}
                                         {{#eq @key "boolean"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}](#boolean{{../jsonPathPiece.anchorPiece}})<br>boolean enum |
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}})<br>boolean enum |
                                         {{else}}
                                             {{#eq @key "string"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}](#string{{../jsonPathPiece.anchorPiece}})<br>String enum |
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}})<br>String enum |
                                             {{else}}
                                                 {{#eq @key "Integer"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}})<br>Integer enum |
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}})<br>Integer enum |
                                                 {{else}}
                                                     {{#eq @key "Long"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Long{{../jsonPathPiece.camelCase}}](#long{{../jsonPathPiece.anchorPiece}})<br>Long enum |
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}})<br>Long enum |
                                                     {{else}}
                                                         {{#eq @key "Float"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Float{{../jsonPathPiece.camelCase}}](#float{{../jsonPathPiece.anchorPiece}})<br>Float enum |
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}})<br>Float enum |
                                                         {{else}}
                                                             {{#eq @key "Double"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Double{{../jsonPathPiece.camelCase}}](#double{{../jsonPathPiece.anchorPiece}})<br>Double enum |
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}})<br>Double enum |
                                                             {{/eq}}
                                                         {{/eq}}
                                                     {{/eq}}
@@ -89,7 +89,7 @@ A class that contains necessary nested
     {{#eq instanceType "schema"}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
-public static class {{jsonPathPiece.camelCase}}<br>
+public static class {{jsonPathPiece.pascalCase}}<br>
 {{> src/main/java/packagename/components/schemas/docschema_extends }}
 
 A schema class that validates payloads
@@ -120,7 +120,7 @@ A schema class that validates payloads
         {{#eq instanceType "propertiesOutputType"}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
-public static class {{mapOutputJsonPathPiece.camelCase}}<br>
+public static class {{mapOutputJsonPathPiece.pascalCase}}<br>
 extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
 
 A class to store validated Map payloads
@@ -128,7 +128,7 @@ A class to store validated Map payloads
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of([Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| static [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of([Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
 | {{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
@@ -157,7 +157,7 @@ A class to store validated Map payloads
             {{#eq instanceType "arrayOutputType"}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
-public class {{arrayOutputJsonPathPiece.camelCase}}<br>
+public class {{arrayOutputJsonPathPiece.pascalCase}}<br>
 extends `FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>`
 
 A class to store validated List payloads
@@ -165,7 +165,7 @@ A class to store validated List payloads
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | of([List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| static [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | of([List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
             {{else}}
                 {{#eq instanceType "arrayInputType"}}
 {{> src/main/java/packagename/components/schemas/docschema_arrayInput }}
@@ -173,7 +173,7 @@ A class to store validated List payloads
                     {{#or (eq instanceType "propertiesInputType") (eq instanceType "requiredPropertiesInputType") (eq instanceType "optionalPropertiesInputType") }}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}
-public class {{mapInputJsonPathPiece.camelCase}}<br>
+public class {{mapInputJsonPathPiece.pascalCase}}<br>
                         {{#if mapValueSchema}}
 builder for `Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>`
                         {{else}}
@@ -208,51 +208,51 @@ A class that builds the Map input type
                                 {{#each typeToValues}}
 
                                     {{#eq @key "null"}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Null" ../jsonPathPiece.camelCase "") ) }}
-public enum Null{{../jsonPathPiece.camelCase}}<br>
-extends `Enum<Null{{../jsonPathPiece.camelCase}}>`
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Null" ../jsonPathPiece.pascalCase "") ) }}
+public enum Null{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Null{{../jsonPathPiece.pascalCase}}>`
 
 A class that stores null enum values
                                     {{else}}
                                         {{#eq @key "boolean"}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Boolean" ../jsonPathPiece.camelCase "") ) }}
-public enum Boolean{{../jsonPathPiece.camelCase}}<br>
-extends `Enum<Boolean{{../jsonPathPiece.camelCase}}>`
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Boolean" ../jsonPathPiece.pascalCase "") ) }}
+public enum Boolean{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Boolean{{../jsonPathPiece.pascalCase}}>`
 
 A class that stores boolean enum values
                                         {{else}}
                                             {{#eq @key "string"}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "String" ../jsonPathPiece.camelCase "") ) }}
-public enum String{{../jsonPathPiece.camelCase}}<br>
-extends `Enum<String{{../jsonPathPiece.camelCase}}>`
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "String" ../jsonPathPiece.pascalCase "") ) }}
+public enum String{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<String{{../jsonPathPiece.pascalCase}}>`
 
 A class that stores String enum values
                                             {{else}}
                                                 {{#eq @key "Integer"}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Integer" ../jsonPathPiece.camelCase "") ) }}
-public enum Integer{{../jsonPathPiece.camelCase}}<br>
-extends `Enum<Integer{{../jsonPathPiece.camelCase}}>`
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Integer" ../jsonPathPiece.pascalCase "") ) }}
+public enum Integer{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Integer{{../jsonPathPiece.pascalCase}}>`
 
 A class that stores Integer enum values
                                                 {{else}}
                                                     {{#eq @key "Long"}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Long" ../jsonPathPiece.camelCase "") ) }}
-public enum Long{{../jsonPathPiece.camelCase}}<br>
-extends `Enum<Long{{../jsonPathPiece.camelCase}}>`
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Long" ../jsonPathPiece.pascalCase "") ) }}
+public enum Long{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Long{{../jsonPathPiece.pascalCase}}>`
 
 A class that stores Long enum values
                                                     {{else}}
                                                         {{#eq @key "Float"}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Float" ../jsonPathPiece.camelCase "") ) }}
-public enum Float{{../jsonPathPiece.camelCase}}<br>
-extends `Enum<Float{{../jsonPathPiece.camelCase}}>`
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Float" ../jsonPathPiece.pascalCase "") ) }}
+public enum Float{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Float{{../jsonPathPiece.pascalCase}}>`
 
 A class that stores Float enum values
                                                         {{else}}
                                                             {{#eq @key "Double"}}
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Double" ../jsonPathPiece.camelCase "") ) }}
-public enum Double{{../jsonPathPiece.camelCase}}<br>
-extends `Enum<Double{{../jsonPathPiece.camelCase}}>`
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Double" ../jsonPathPiece.pascalCase "") ) }}
+public enum Double{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Double{{../jsonPathPiece.pascalCase}}>`
 
 A class that stores Double enum values
                                                             {{/eq}}

@@ -1,34 +1,34 @@
 {{#if enumInfo}}
 
 
-class {{enumInfo.jsonPathPiece.camelCase}}:
+class {{enumInfo.jsonPathPiece.pascalCase}}:
     {{#each enumInfo.valueToName}}
 
     @schemas.classproperty
         {{#eq @key.type "string"}}
     def {{this}}(cls) -> typing.Literal["{{{@key.value}}}"]:
-        return {{jsonPathPiece.camelCase}}.validate("{{{@key.value}}}")
+        return {{jsonPathPiece.pascalCase}}.validate("{{{@key.value}}}")
         {{/eq}}
         {{#eq @key.type "number"}}
     def {{this}}(cls) -> typing.Union[int, float]:
-        return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
+        return {{jsonPathPiece.pascalCase}}.validate({{{@key.value}}})
         {{/eq}}
         {{#eq @key.type "integer"}}
     def {{this}}(cls) -> typing.Literal[{{{@key.value}}}]:
-        return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
+        return {{jsonPathPiece.pascalCase}}.validate({{{@key.value}}})
         {{/eq}}
         {{#eq @key.type "boolean"}}
             {{#if @key.value}}
     def {{this}}(cls) -> typing.Literal[True]:
-        return {{jsonPathPiece.camelCase}}.validate(True)
+        return {{jsonPathPiece.pascalCase}}.validate(True)
             {{else}}
     def {{this}}(cls) -> typing.Literal[False]:
-        return {{jsonPathPiece.camelCase}}.validate(False)
+        return {{jsonPathPiece.pascalCase}}.validate(False)
             {{/if}}
         {{/eq}}
         {{#eq @key.type "null"}}
     def {{this}}(cls) -> typing.Literal[None]:
-        return {{jsonPathPiece.camelCase}}.validate(None)
+        return {{jsonPathPiece.pascalCase}}.validate(None)
         {{/eq}}
     {{/each}}
 {{/if}}

@@ -17,6 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -62,55 +63,55 @@ public class RequiredWithEscapedCharacters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFootbar(Map<String, @Nullable Object> instance);
         
-        default T todoFixThis(Void value) {
+        default T setFooReverseSolidusTbar(Void value) {
             var instance = getInstance();
             instance.put("foo\tbar", null);
             return getBuilderAfterFootbar(instance);
         }
         
-        default T todoFixThis(boolean value) {
+        default T setFooReverseSolidusTbar(boolean value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
         }
         
-        default T todoFixThis(String value) {
+        default T setFooReverseSolidusTbar(String value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
         }
         
-        default T todoFixThis(int value) {
+        default T setFooReverseSolidusTbar(int value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
         }
         
-        default T todoFixThis(float value) {
+        default T setFooReverseSolidusTbar(float value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
         }
         
-        default T todoFixThis(long value) {
+        default T setFooReverseSolidusTbar(long value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
         }
         
-        default T todoFixThis(double value) {
+        default T setFooReverseSolidusTbar(double value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
         }
         
-        default T todoFixThis(List<?> value) {
+        default T setFooReverseSolidusTbar(List<?> value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
         }
         
-        default T todoFixThis(Map<String, ?> value) {
+        default T setFooReverseSolidusTbar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\tbar", value);
             return getBuilderAfterFootbar(instance);
@@ -121,55 +122,55 @@ public class RequiredWithEscapedCharacters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoonbar(Map<String, @Nullable Object> instance);
         
-        default T todoFixThis(Void value) {
+        default T setFooReverseSolidusNbar(Void value) {
             var instance = getInstance();
             instance.put("foo\nbar", null);
             return getBuilderAfterFoonbar(instance);
         }
         
-        default T todoFixThis(boolean value) {
+        default T setFooReverseSolidusNbar(boolean value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
         }
         
-        default T todoFixThis(String value) {
+        default T setFooReverseSolidusNbar(String value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
         }
         
-        default T todoFixThis(int value) {
+        default T setFooReverseSolidusNbar(int value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
         }
         
-        default T todoFixThis(float value) {
+        default T setFooReverseSolidusNbar(float value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
         }
         
-        default T todoFixThis(long value) {
+        default T setFooReverseSolidusNbar(long value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
         }
         
-        default T todoFixThis(double value) {
+        default T setFooReverseSolidusNbar(double value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
         }
         
-        default T todoFixThis(List<?> value) {
+        default T setFooReverseSolidusNbar(List<?> value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
         }
         
-        default T todoFixThis(Map<String, ?> value) {
+        default T setFooReverseSolidusNbar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\nbar", value);
             return getBuilderAfterFoonbar(instance);
@@ -180,55 +181,55 @@ public class RequiredWithEscapedCharacters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoofbar(Map<String, @Nullable Object> instance);
         
-        default T todoFixThis(Void value) {
+        default T setFooReverseSolidusFbar(Void value) {
             var instance = getInstance();
             instance.put("foo\fbar", null);
             return getBuilderAfterFoofbar(instance);
         }
         
-        default T todoFixThis(boolean value) {
+        default T setFooReverseSolidusFbar(boolean value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
         }
         
-        default T todoFixThis(String value) {
+        default T setFooReverseSolidusFbar(String value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
         }
         
-        default T todoFixThis(int value) {
+        default T setFooReverseSolidusFbar(int value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
         }
         
-        default T todoFixThis(float value) {
+        default T setFooReverseSolidusFbar(float value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
         }
         
-        default T todoFixThis(long value) {
+        default T setFooReverseSolidusFbar(long value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
         }
         
-        default T todoFixThis(double value) {
+        default T setFooReverseSolidusFbar(double value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
         }
         
-        default T todoFixThis(List<?> value) {
+        default T setFooReverseSolidusFbar(List<?> value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
         }
         
-        default T todoFixThis(Map<String, ?> value) {
+        default T setFooReverseSolidusFbar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\fbar", value);
             return getBuilderAfterFoofbar(instance);
@@ -239,55 +240,55 @@ public class RequiredWithEscapedCharacters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoorbar(Map<String, @Nullable Object> instance);
         
-        default T todoFixThis(Void value) {
+        default T setFooReverseSolidusRbar(Void value) {
             var instance = getInstance();
             instance.put("foo\rbar", null);
             return getBuilderAfterFoorbar(instance);
         }
         
-        default T todoFixThis(boolean value) {
+        default T setFooReverseSolidusRbar(boolean value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
         }
         
-        default T todoFixThis(String value) {
+        default T setFooReverseSolidusRbar(String value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
         }
         
-        default T todoFixThis(int value) {
+        default T setFooReverseSolidusRbar(int value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
         }
         
-        default T todoFixThis(float value) {
+        default T setFooReverseSolidusRbar(float value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
         }
         
-        default T todoFixThis(long value) {
+        default T setFooReverseSolidusRbar(long value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
         }
         
-        default T todoFixThis(double value) {
+        default T setFooReverseSolidusRbar(double value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
         }
         
-        default T todoFixThis(List<?> value) {
+        default T setFooReverseSolidusRbar(List<?> value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
         }
         
-        default T todoFixThis(Map<String, ?> value) {
+        default T setFooReverseSolidusRbar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\rbar", value);
             return getBuilderAfterFoorbar(instance);
@@ -298,55 +299,55 @@ public class RequiredWithEscapedCharacters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoobar(Map<String, @Nullable Object> instance);
         
-        default T todoFixThis(Void value) {
+        default T setFooReverseSolidusQuotationMarkBar(Void value) {
             var instance = getInstance();
             instance.put("foo\"bar", null);
             return getBuilderAfterFoobar(instance);
         }
         
-        default T todoFixThis(boolean value) {
+        default T setFooReverseSolidusQuotationMarkBar(boolean value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
         }
         
-        default T todoFixThis(String value) {
+        default T setFooReverseSolidusQuotationMarkBar(String value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
         }
         
-        default T todoFixThis(int value) {
+        default T setFooReverseSolidusQuotationMarkBar(int value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
         }
         
-        default T todoFixThis(float value) {
+        default T setFooReverseSolidusQuotationMarkBar(float value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
         }
         
-        default T todoFixThis(long value) {
+        default T setFooReverseSolidusQuotationMarkBar(long value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
         }
         
-        default T todoFixThis(double value) {
+        default T setFooReverseSolidusQuotationMarkBar(double value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
         }
         
-        default T todoFixThis(List<?> value) {
+        default T setFooReverseSolidusQuotationMarkBar(List<?> value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
         }
         
-        default T todoFixThis(Map<String, ?> value) {
+        default T setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\"bar", value);
             return getBuilderAfterFoobar(instance);
@@ -357,55 +358,55 @@ public class RequiredWithEscapedCharacters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFoobar1(Map<String, @Nullable Object> instance);
         
-        default T todoFixThis(Void value) {
+        default T setFooReverseSolidusReverseSolidusBar(Void value) {
             var instance = getInstance();
             instance.put("foo\\bar", null);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T todoFixThis(boolean value) {
+        default T setFooReverseSolidusReverseSolidusBar(boolean value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T todoFixThis(String value) {
+        default T setFooReverseSolidusReverseSolidusBar(String value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T todoFixThis(int value) {
+        default T setFooReverseSolidusReverseSolidusBar(int value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T todoFixThis(float value) {
+        default T setFooReverseSolidusReverseSolidusBar(float value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T todoFixThis(long value) {
+        default T setFooReverseSolidusReverseSolidusBar(long value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T todoFixThis(double value) {
+        default T setFooReverseSolidusReverseSolidusBar(double value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T todoFixThis(List<?> value) {
+        default T setFooReverseSolidusReverseSolidusBar(List<?> value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);
         }
         
-        default T todoFixThis(Map<String, ?> value) {
+        default T setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("foo\\bar", value);
             return getBuilderAfterFoobar1(instance);

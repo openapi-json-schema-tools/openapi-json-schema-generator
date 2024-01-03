@@ -1,9 +1,9 @@
 
 
 {{#if types}}
-public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements {{#with enumInfo}}{{#if typeToValues.null}}NullEnumValidator<Null{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.boolean}}BooleanEnumValidator<Boolean{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.string}}StringEnumValidator<String{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.Integer}}IntegerEnumValidator<Integer{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.Long}}LongEnumValidator<Long{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.Float}}FloatEnumValidator<Float{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.Double}}DoubleEnumValidator<Double{{jsonPathPiece.camelCase}}>, {{/if}}{{/with}}{{#each types}}{{#eq this "null"}}NullSchemaValidator{{else}}{{#eq this "boolean"}}BooleanSchemaValidator{{else}}{{#or (eq this "number") (eq this "integer")}}NumberSchemaValidator{{else}}{{#eq this "string"}}StringSchemaValidator{{else}}{{#eq this "array"}}ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<@Nullable Object>{{/if}}>{{else}}{{#eq this "object"}}MapSchemaValidator<{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}}>{{/eq}}{{/eq}}{{/eq}}{{/or}}{{/eq}}{{/eq}}{{#unless @last}}, {{/unless}}{{/each}} {
+public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {{#with enumInfo}}{{#if typeToValues.null}}NullEnumValidator<Null{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.boolean}}BooleanEnumValidator<Boolean{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.string}}StringEnumValidator<String{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Integer}}IntegerEnumValidator<Integer{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Long}}LongEnumValidator<Long{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Float}}FloatEnumValidator<Float{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Double}}DoubleEnumValidator<Double{{jsonPathPiece.pascalCase}}>, {{/if}}{{/with}}{{#each types}}{{#eq this "null"}}NullSchemaValidator{{else}}{{#eq this "boolean"}}BooleanSchemaValidator{{else}}{{#or (eq this "number") (eq this "integer")}}NumberSchemaValidator{{else}}{{#eq this "string"}}StringSchemaValidator{{else}}{{#eq this "array"}}ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}}>{{else}}{{#eq this "object"}}MapSchemaValidator<{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}}>{{/eq}}{{/eq}}{{/eq}}{{/or}}{{/eq}}{{/eq}}{{#unless @last}}, {{/unless}}{{/each}} {
 {{else}}
-public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements {{#with enumInfo}}{{#if typeToValues.null}}NullEnumValidator<Null{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.boolean}}BooleanEnumValidator<Boolean{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.string}}StringEnumValidator<String{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.Integer}}IntegerEnumValidator<Integer{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.Long}}LongEnumValidator<Long{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.Float}}FloatEnumValidator<Float{{jsonPathPiece.camelCase}}>, {{/if}}{{#if typeToValues.Double}}DoubleEnumValidator<Double{{jsonPathPiece.camelCase}}>, {{/if}}{{/with}}NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<@Nullable Object>{{/if}}>, MapSchemaValidator<{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}}> {
+public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {{#with enumInfo}}{{#if typeToValues.null}}NullEnumValidator<Null{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.boolean}}BooleanEnumValidator<Boolean{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.string}}StringEnumValidator<String{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Integer}}IntegerEnumValidator<Integer{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Long}}LongEnumValidator<Long{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Float}}FloatEnumValidator<Float{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Double}}DoubleEnumValidator<Double{{jsonPathPiece.pascalCase}}>, {{/if}}{{/with}}NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}}>, MapSchemaValidator<{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}}> {
 {{/if}}
 {{#if componentModule}}
     /*
@@ -17,9 +17,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements {{
     {{/if}}
     */
 {{/if}}
-    private static @Nullable {{jsonPathPiece.camelCase}} instance = null;
+    private static @Nullable {{jsonPathPiece.pascalCase}} instance = null;
 
-    protected {{../jsonPathPiece.camelCase}}() {
+    protected {{../jsonPathPiece.pascalCase}}() {
         super(new JsonSchemaInfo()
         {{#if types}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
@@ -96,9 +96,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements {{
         );
     }
 
-    public static {{jsonPathPiece.camelCase}} getInstance() {
+    public static {{jsonPathPiece.pascalCase}} getInstance() {
         if (instance == null) {
-            instance = new {{jsonPathPiece.camelCase}}();
+            instance = new {{jsonPathPiece.pascalCase}}();
         }
         return instance;
     }

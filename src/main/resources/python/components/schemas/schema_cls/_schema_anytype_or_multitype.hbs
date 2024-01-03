@@ -1,14 +1,14 @@
 
 
 @dataclasses.dataclass(frozen=True)
-class {{jsonPathPiece.camelCase}}(
+class {{jsonPathPiece.pascalCase}}(
 {{#eq types null}}
-    schemas.AnyTypeSchema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}, {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}],
+    schemas.AnyTypeSchema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}, {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}],
 {{else}}
     {{#eq types.size 1}}
     {{> components/schemas/schema_cls/__xbase_one_type }}
     {{else}}
-    schemas.Schema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}, {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}],
+    schemas.Schema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}, {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}],
     {{/eq}}
 {{/eq}}
 ):
@@ -142,10 +142,10 @@ class {{jsonPathPiece.camelCase}}(
     ] = dataclasses.field(
         default_factory=lambda: {
     {{#if mapOutputJsonPathPiece}}
-            schemas.immutabledict: {{mapOutputJsonPathPiece.camelCase}},
+            schemas.immutabledict: {{mapOutputJsonPathPiece.pascalCase}},
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
-            tuple: {{arrayOutputJsonPathPiece.camelCase}},
+            tuple: {{arrayOutputJsonPathPiece.pascalCase}},
     {{/if}}
         }
     )

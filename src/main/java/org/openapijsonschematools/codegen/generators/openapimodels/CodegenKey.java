@@ -6,15 +6,17 @@ public class CodegenKey implements Comparable<CodegenKey> {
     public final String original;
     public final boolean isValid;
     public final String snakeCase;
+    public final String pascalCase;
     public final String camelCase;
-    public final String anchorPiece;
+    public final String kebabCase;
 
-    public CodegenKey(String original, boolean isValid, String snakeCase, String camelCase, String anchorPiece) {
+    public CodegenKey(String original, boolean isValid, String snakeCase, String camelCase, String kebabCase, String pascalCase) {
         this.original = original;
         this.isValid = isValid;
         this.snakeCase = snakeCase;
         this.camelCase = camelCase;
-        this.anchorPiece = anchorPiece;
+        this.kebabCase = kebabCase;
+        this.pascalCase = pascalCase;
     }
 
     @Override
@@ -26,7 +28,8 @@ public class CodegenKey implements Comparable<CodegenKey> {
                 Objects.equals(isValid, that.isValid) &&
                 Objects.equals(snakeCase, that.snakeCase) &&
                 Objects.equals(camelCase, that.camelCase) &&
-                Objects.equals(anchorPiece, that.anchorPiece);
+                Objects.equals(kebabCase, that.kebabCase) &&
+                Objects.equals(pascalCase, that.pascalCase);
     }
 
     @Override
@@ -36,14 +39,15 @@ public class CodegenKey implements Comparable<CodegenKey> {
         sb.append(", isValid=").append(isValid);
         sb.append(", snakeCase=").append(snakeCase);
         sb.append(", camelCase=").append(camelCase);
-        sb.append(", anchorPiece=").append(anchorPiece);
+        sb.append(", kebabCase=").append(kebabCase);
+        sb.append(", pascalCase=").append(pascalCase);
         sb.append('}');
         return sb.toString();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(original, isValid, snakeCase, camelCase, anchorPiece);
+        return Objects.hash(original, isValid, snakeCase, camelCase, kebabCase, pascalCase);
     }
 
     @Override

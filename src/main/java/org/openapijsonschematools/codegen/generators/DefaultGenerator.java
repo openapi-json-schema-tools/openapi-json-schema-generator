@@ -102,7 +102,6 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Stability
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.Console;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.*;
@@ -2929,14 +2928,15 @@ public class DefaultGenerator implements Generator {
                 operationId = String.join(removeOperationIdPrefixDelimiter, Arrays.copyOfRange(components, component_number, components.length));
             }
         }
-        String camelCase = toModelName(operationId, null);
-        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
+        String pascalCaseName = toModelName(operationId, null);
+        String anchorPiece = pascalCaseName.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 operationId,
                 isValid(operationId),
                 getOperationIdSnakeCase(operationId),
-                camelCase,
-                anchorPiece
+                null,
+                anchorPiece,
+                pascalCaseName
         );
     }
 
@@ -5297,11 +5297,18 @@ public class DefaultGenerator implements Generator {
         return usedKey;
     }
 
+    protected String getFallback(String key) {
+        String usedName = toEnumVarName(key, new StringSchema());
+        usedName = camelize("set_"+ usedName.toLowerCase(Locale.ROOT), true);
+        return usedName;
+    }
+
     public CodegenKey getKey(String key, String keyType, String sourceJsonPath) {
         String snakeCaseName = null;
         String camelCaseName = null;
         String anchorPiece = null;
         String usedKey = null;
+        String pascalCaseName = null;
         boolean isValid = true;
         switch (keyType) {
             case "schemaProperty":
@@ -5309,56 +5316,59 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = getSchemaCamelCaseName(key, sourceJsonPath);
+                pascalCaseName = getSchemaCamelCaseName(key, sourceJsonPath);
+                if (isValid == false) {
+                    camelCaseName = getFallback(usedKey);
+                }
                 break;
             case "paths":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = camelize(toPathFilename(usedKey, null));;
+                pascalCaseName = camelize(toPathFilename(usedKey, null));;
                 break;
             case "misc":
             case "verb":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
-                camelCaseName = getCamelCaseParameter(usedKey);
+                pascalCaseName = getCamelCaseParameter(usedKey);
                 break;
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toRequestBodyFilename(usedKey);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "responses":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
-                camelCaseName = getCamelCaseResponse(usedKey);
+                pascalCaseName = getCamelCaseResponse(usedKey);
                 break;
             case "securitySchemes":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "servers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
-                camelCaseName = getCamelCaseServer(usedKey);
+                pascalCaseName = getCamelCaseServer(usedKey);
                 break;
         }
         if (camelCaseName != null) {
@@ -5369,7 +5379,8 @@ public class DefaultGenerator implements Generator {
                 isValid,
                 snakeCaseName,
                 camelCaseName,
-                anchorPiece
+                anchorPiece,
+                pascalCaseName
         );
     }
 

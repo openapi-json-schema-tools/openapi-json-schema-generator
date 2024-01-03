@@ -1,32 +1,32 @@
 {{#if items}}
 
-public static class {{arrayInputJsonPathPiece.camelCase}} {
+public static class {{arrayInputJsonPathPiece.pascalCase}} {
     // class to build List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}>
     private final List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list;
 
-    public {{arrayInputJsonPathPiece.camelCase}}() {
+    public {{arrayInputJsonPathPiece.pascalCase}}() {
         list = new ArrayList<>();
     }
 
-    public {{arrayInputJsonPathPiece.camelCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list) {
+    public {{arrayInputJsonPathPiece.pascalCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list) {
         this.list = list;
     }
     {{#with items}}
         {{#if refInfo }}
             {{#if refInfo.refModule}}
                 {{#with getDeepestRef }}
-    {{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.camelCase useContainer=true }}
+    {{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.pascalCase useContainer=true }}
                 {{/with}}
             {{else}}
                 {{! self reference} }}
 
-    public {{../arrayInputJsonPathPiece.camelCase}} add(List<?> item) {
+    public {{../arrayInputJsonPathPiece.pascalCase}} add(List<?> item) {
         list.add(item);
         return this;
     }
             {{/if}}
         {{else}}
-    {{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../arrayInputJsonPathPiece.camelCase }}
+    {{> src/main/java/packagename/components/schemas/_arrayInputAddItem builderClass=../arrayInputJsonPathPiece.pascalCase }}
         {{/if}}
     {{else}}
     {{! todo handle this, 3.1.0 document use-case }}

@@ -1,4 +1,4 @@
-{{oneOf.jsonPathPiece.camelCase}} = typing.Tuple[
+{{oneOf.jsonPathPiece.pascalCase}} = typing.Tuple[
         {{#each oneOf}}
             {{#if refInfo.refClass}}
                 {{#eq refInfo.refModule null}}
@@ -8,7 +8,7 @@
     typing.Type[{{refInfo.refModule}}.{{refInfo.refClass}}],
                 {{/eq}}
             {{else}}
-    typing.Type[{{jsonPathPiece.camelCase}}],
+    typing.Type[{{jsonPathPiece.pascalCase}}],
             {{/if}}
         {{/each}}
 ]

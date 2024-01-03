@@ -1,12 +1,12 @@
 {{#each requiredProperties}}
 
-public interface SetterFor{{@key.camelCase}} <T> {
+public interface SetterFor{{@key.pascalCase}} <T> {
     Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance();
-    T getBuilderAfter{{@key.camelCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
+    T getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
     {{#if @key.isValid}}
-    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.camelCase "") key=@key.original }}
+    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
     {{else}}
-    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName="todoFixThis" getBuilderMethod=(join "getBuilderAfter" @key.camelCase "") key=@key.original }}
+    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.fallback getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
     {{/if}}
 }
 {{/each}}
@@ -15,7 +15,7 @@ public interface SetterFor{{@key.camelCase}} <T> {
     {{#eq keyToBuilder null}}
 public static class {{className}} implements BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> {
     {{else}}
-public static class {{className}} implements {{#each keyToBuilder}}SetterFor{{@key.camelCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}} {
+public static class {{className}} implements {{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}} {
     {{/eq}}
     private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
     {{#if isFirstBuilder}}
@@ -36,7 +36,7 @@ public static class {{className}} implements {{#each keyToBuilder}}SetterFor{{@k
         return instance;
     }
     {{#each keyToBuilder}}
-    public {{className}} getBuilderAfter{{@key.camelCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+    public {{className}} getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
         return new {{className}}(instance);
     }
     {{/each}}
@@ -47,12 +47,12 @@ public static class {{className}} implements {{#each keyToBuilder}}SetterFor{{@k
     {{#if additionalProperties.isBooleanSchemaFalse}}
         {{! TypedDict use case }}
         {{#and requiredProperties optionalProperties}}
-public static class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.pascalCase}} {
     // requiredProperties, optionalProperties, NO additionalProperties
 }
         {{else}}
             {{! empty mapping }}
-public static class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.pascalCase}} {
     // empty mapping
 }
         {{/and}}
@@ -60,31 +60,31 @@ public static class {{mapInputJsonPathPiece.camelCase}} {
         {{! addProps True/schema }}
         {{#if additionalProperties.isBooleanSchemaTrue }}
             {{! addProps True, does not matter what properties are because they are always covered by base types }}
-public static class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.pascalCase}} {
     // Map<String, Object> because additionalProperties == true
 }
         {{else}}
             {{! addProps schema }}
             {{#and requiredProperties optionalProperties}}
-public static class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.pascalCase}} {
     // requiredProperties + optionalProperties + additionalProperties
 }
             {{else}}
                 {{! no requiredProperties or optionalProperties or just one of them }}
                 {{#if requiredProperties}}
                     {{! requiredProperties + addProp }}
-public static class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.pascalCase}} {
     // requiredProperties + additionalProperties
 }
                 {{else}}
                     {{#if optionalProperties}}
                         {{! optionalProperties + addProp }}
-public static class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.pascalCase}} {
     // optionalProperties + additionalProperties
 }
                     {{else}}
                         {{! only addProp }}
-public static class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.pascalCase}} {
     // Map<String, additionalProperties>
 }
                     {{/if}}
@@ -94,7 +94,7 @@ public static class {{mapInputJsonPathPiece.camelCase}} {
     {{/if}}
 {{else}}
     {{! addProps unset, does not matter what required and optional props are }}
-public static class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.pascalCase}} {
     // Map<String, Object> because addProps is unset
 }
 {{/if}}

@@ -7,7 +7,7 @@
 def validate(
     {{> components/schemas/schema_cls/validate/_validate_args }}
                 {{#if ../mapOutputJsonPathPiece}}
-) -> {{../mapOutputJsonPathPiece.camelCase}}: ...
+) -> {{../mapOutputJsonPathPiece.pascalCase}}: ...
                 {{else}}
 ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
                 {{/if}}
@@ -40,14 +40,14 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/schema_cls/validate/_validate_args }}
-) -> {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}: ...
+) -> {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}: ...
                                     {{else}}
                                         {{#eq this "object"}}
 @typing.overload
 @classmethod
 def validate(
     {{> components/schemas/schema_cls/validate/_validate_args }}
-) -> {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
+) -> {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
                                         {{/eq}}
                                     {{/eq}}
                                 {{/eq}}
@@ -103,7 +103,7 @@ def validate(
         {{#each types}}
             {{#eq this "object"}}
                 {{#if mapOutputJsonPathPiece}}
-) -> {{mapOutputJsonPathPiece.camelCase}}:
+) -> {{mapOutputJsonPathPiece.pascalCase}}:
                 {{else}}
 ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
                 {{/if}}
@@ -173,7 +173,7 @@ def validate(
                                 {{else}}
                                     {{#eq this "array"}}
                                         {{#if arrayOutputJsonPathPiece}}
-) -> {{arrayOutputJsonPathPiece.camelCase}}:
+) -> {{arrayOutputJsonPathPiece.pascalCase}}:
                                         {{else}}
 ) -> typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]:
                                         {{/if}}

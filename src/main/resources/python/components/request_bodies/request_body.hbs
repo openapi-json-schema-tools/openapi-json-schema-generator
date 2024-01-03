@@ -8,7 +8,7 @@
 
     {{/if}}
 {{> _helper_imports }}
-{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{jsonPathPiece.pascalCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 from {{packageName}}.shared_imports.header_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
@@ -19,11 +19,11 @@ from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@
     {{/each}}
 
 
-class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
+class {{jsonPathPiece.pascalCase}}(api_client.RequestBody):
     {{#each content}}
 
 
-    class {{@key.camelCase}}MediaType(api_client.MediaType):
+    class {{@key.pascalCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
         {{> components/_helper_content_schema_type paramName="schema" contentTypeModule=../@key.snakeCase }}
@@ -32,7 +32,7 @@ class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{/each}}
     content = {
     {{#each content}}
-        '{{{@key.original}}}': {{@key.camelCase}}MediaType,
+        '{{{@key.original}}}': {{@key.pascalCase}}MediaType,
     {{/each}}
     }
     {{#if required}}

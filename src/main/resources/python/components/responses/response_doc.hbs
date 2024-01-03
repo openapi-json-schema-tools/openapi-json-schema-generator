@@ -17,7 +17,7 @@
 {{headerSize}}# Ref Response Info
 Ref Response | ApiResponse
 ------------ | -----------
-[{{refInfo.refModule}}.{{refInfo.refClass}}]({{#with refInfo.ref}}{{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.anchorPiece}}{{/with}}) | [{{refInfo.refModule}}.ApiResponse]({{#with refInfo.ref}}{{docRoot}}{{pathFromDocRoot}}.md#apiresponse{{/with}})
+[{{refInfo.refModule}}.{{refInfo.refClass}}]({{#with refInfo.ref}}{{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}{{/with}}) | [{{refInfo.refModule}}.ApiResponse]({{#with refInfo.ref}}{{docRoot}}{{pathFromDocRoot}}.md#apiresponse{{/with}})
 {{else}}
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "ApiResponse") }}
 Name | Type | Description  | Notes
@@ -39,7 +39,7 @@ headers | Unset | headers were not defined |
 Content-Type | Schema
 ------------ | -------
         {{#each content}}
-"{{@key.original}}" | {{#if this.schema}}[content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}no schema defined{{/if}}
+"{{@key.original}}" | {{#if this.schema}}[content.{{@key.snakeCase}}.{{this.schema.jsonPathPiece.pascalCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" @key this.schema.jsonPathPiece) }}){{else}}no schema defined{{/if}}
         {{/each}}
     {{/if}}
     {{#and content hasContentSchema}}

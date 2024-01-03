@@ -4,31 +4,31 @@
         {{#and requiredProperties optionalProperties}}
 
 
-class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.camelCase}}, {{optionalProperties.jsonPathPiece.camelCase}}):
+class {{mapInputJsonPathPiece.pascalCase}}({{requiredProperties.jsonPathPiece.pascalCase}}, {{optionalProperties.jsonPathPiece.pascalCase}}):
     pass
         {{else}}
             {{! empty mapping }}
-{{mapInputJsonPathPiece.camelCase}} = typing.Mapping # mapping must be empty
+{{mapInputJsonPathPiece.pascalCase}} = typing.Mapping # mapping must be empty
         {{/and}}
     {{else}}
         {{! addProps True/schema }}
         {{#if additionalProperties.isBooleanSchemaTrue }}
             {{! addProps True, does not matter what properties are because they are always covered by base types }}
-{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+{{mapInputJsonPathPiece.pascalCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
         {{else}}
             {{! addProps schema }}
             {{#and requiredProperties optionalProperties}}
-{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+{{mapInputJsonPathPiece.pascalCase}} = typing.Mapping[
     str,
     typing.Union[
                 {{#each requiredProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                 {{/each}}
                 {{#each optionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                 {{/each}}
                 {{#with additionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                 {{/with}}
     ]
 ]
@@ -36,37 +36,37 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
                 {{! no requiredProperties or optionalProperties or just one of them }}
                 {{#if requiredProperties}}
                     {{! requiredProperties + addProp }}
-{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+{{mapInputJsonPathPiece.pascalCase}} = typing.Mapping[
     str,
     typing.Union[
                     {{#each requiredProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                     {{/each}}
                     {{#with additionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                     {{/with}}
     ]
 ]
                 {{else}}
                     {{#if optionalProperties}}
                         {{! optionalProperties + addProp }}
-{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+{{mapInputJsonPathPiece.pascalCase}} = typing.Mapping[
     str,
     typing.Union[
                         {{#each optionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                         {{/each}}
                         {{#with additionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                         {{/with}}
     ]
 ]
                     {{else}}
                         {{! only addProp }}
-{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+{{mapInputJsonPathPiece.pascalCase}} = typing.Mapping[
     str,
                         {{#with additionalProperties}}
-    {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+    {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                         {{/with}}
 ]
                     {{/if}}
@@ -76,5 +76,5 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
     {{/if}}
 {{else}}
     {{! addProps unset, does not matter what required and optional props are }}
-{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+{{mapInputJsonPathPiece.pascalCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 {{/if}}

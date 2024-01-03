@@ -1,13 +1,13 @@
 
 
 {{#if mapValueSchema}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> {
-    protected {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> m) {
+public static class {{mapOutputJsonPathPiece.pascalCase}} extends FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> {
+    protected {{mapOutputJsonPathPiece.pascalCase}}(FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> m) {
         super(m);
     }
 {{else}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<@Nullable Object> {
-    protected {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<@Nullable Object> m) {
+public static class {{mapOutputJsonPathPiece.pascalCase}} extends FrozenMap<@Nullable Object> {
+    protected {{mapOutputJsonPathPiece.pascalCase}}(FrozenMap<@Nullable Object> m) {
         super(m);
     }
 {{/if}}
@@ -39,12 +39,12 @@ public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<@Null
         {{/eq}}
     {{/eq}}
         {{#if mapValueSchema}}
-    public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
-        return {{jsonPathPiece.camelCase}}.getInstance().validate(arg, configuration);
+    public static {{mapOutputJsonPathPiece.pascalCase}} of(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
+        return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration);
     }
         {{else}}
-    public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
-        return {{jsonPathPiece.camelCase}}.getInstance().validate(arg, configuration);
+    public static {{mapOutputJsonPathPiece.pascalCase}} of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration);
     }
         {{/if}}
     {{> src/main/java/packagename/components/schemas/_objectOutputProperties }}

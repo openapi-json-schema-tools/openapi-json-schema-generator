@@ -2,12 +2,12 @@
 
 {{#if mapValueSchema}}
     {{#if mapValueSchema.refInfo.refClass}}
-class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="]):" }}{{/with}}
+class {{mapOutputJsonPathPiece.pascalCase}}(schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="]):" }}{{/with}}
     {{else}}
-class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}
+class {{mapOutputJsonPathPiece.pascalCase}}(schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}
     {{/if}}
 {{else}}
-class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class {{mapOutputJsonPathPiece.pascalCase}}(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 {{/if}}
     __required_keys__: typing.FrozenSet[str] = frozenset({
         {{#each requiredProperties}}

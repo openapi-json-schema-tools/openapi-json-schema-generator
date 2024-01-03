@@ -8,7 +8,7 @@
 
     {{/if}}
 {{> _helper_imports }}
-{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{jsonPathPiece.pascalCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
 from {{packageName}}.shared_imports.header_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{#if schema}}

@@ -16,63 +16,63 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 {{#eq @key "null"}}
 // null validation
-Void validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+Void validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
 {{else}}
     {{#eq @key "object"}}
         {{#if ../mapOutputJsonPathPiece}}
 // Map validation
-{{../../../containerJsonPathPiece.camelCase}}.{{../mapOutputJsonPathPiece.camelCase}} validatedPayload =
-    {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+{{../../../containerJsonPathPiece.pascalCase}}.{{../mapOutputJsonPathPiece.pascalCase}} validatedPayload =
+    {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
         {{else}}
 // Map validation
-FrozenMap<String, Object> validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+FrozenMap<String, Object> validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
         {{/if}}
     {{else}}
         {{#eq @key "array"}}
             {{#if ../arrayOutputJsonPathPiece}}
 // List validation
-{{../../../containerJsonPathPiece.camelCase}}.{{../arrayOutputJsonPathPiece.camelCase}} validatedPayload =
-    {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+{{../../../containerJsonPathPiece.pascalCase}}.{{../arrayOutputJsonPathPiece.pascalCase}} validatedPayload =
+    {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
             {{else}}
 // List validation
-FrozenList<Object> validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+FrozenList<Object> validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
             {{/if}}
         {{else}}
             {{#eq @key "string" }}
 // String validation
-String validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+String validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
             {{else}}
                 {{#eq @key "integer"}}
                     {{#or (eq ../format null) (eq ../format "int64") }}
 // long validation
-long validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+long validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                     {{else}}
 // int validation
-int validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+int validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                     {{/or}}
                 {{else}}
                     {{#eq @key "number"}}
                         {{#eq ../format "int64"}}
 // long validation
-long validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+long validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                         {{else}}
                             {{#eq ../format "float"}}
 // float validation
-float validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+float validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                             {{else}}
                                 {{#eq ../format "double"}}
 // double validation
-double validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+double validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                                 {{else}}
 // int validation
-int validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+int validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}
                     {{else}}
                         {{#eq @key "boolean"}}
 // boolean validation
-boolean validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+boolean validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
@@ -81,8 +81,8 @@ boolean validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../js
     {{/eq}}
 {{/eq}}
             {{#with this}}
-                {{#and (eq type "array") ../arrayInputJsonPathPiece.camelCase }}
-    new {{../../../containerJsonPathPiece.camelCase}}.{{../arrayInputJsonPathPiece.camelCase}}(
+                {{#and (eq type "array") ../arrayInputJsonPathPiece.pascalCase }}
+    new {{../../../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}(
         {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
     ).build(),
                 {{else}}

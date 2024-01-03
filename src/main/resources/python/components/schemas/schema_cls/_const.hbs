@@ -23,4 +23,4 @@ const_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, 
 {{/each}}
     }
 )
-const = {{constInfo.jsonPathPiece.camelCase}}
+const = {{constInfo.jsonPathPiece.pascalCase}}

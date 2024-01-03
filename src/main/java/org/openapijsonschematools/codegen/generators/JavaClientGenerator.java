@@ -1610,6 +1610,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             imports.add("import java.util.Map;");
             imports.add("import java.util.Set;");
             imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
+            imports.add("import "+packageName + ".schemas.BaseBuilder;");
         }
     }
 
@@ -1634,6 +1635,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addRequiredValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.requiredProperties != null) {
             imports.add("import java.util.Set;");
+            imports.add("import "+packageName + ".schemas.BaseBuilder;");
         }
     }
 
@@ -1679,7 +1681,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.MapSchemaValidator;");
         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
-        imports.add("import "+packageName + ".schemas.BaseBuilder;");
         imports.add("import java.util.Map;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
         imports.add("import java.util.LinkedHashMap;");

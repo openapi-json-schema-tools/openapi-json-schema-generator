@@ -7,8 +7,8 @@
     {{#each tags}}
 | {{../operationId.snakeCase}} | [{{className}}](../../apis/tags/{{moduleName}}.md) | This api is only for tag={{{name}}} |
     {{/each}}
-| {{httpMethod.original}} | ApiFor{{httpMethod.camelCase}} | This api is only for this endpoint |
-| {{httpMethod.original}} | {{path.camelCase}} | This api is only for path={{{path.original}}} |
+| {{httpMethod.original}} | ApiFor{{httpMethod.pascalCase}} | This api is only for this endpoint |
+| {{httpMethod.original}} | {{path.pascalCase}} | This api is only for path={{{path.original}}} |
 
 {{headerSize}}# Table of Contents
 - [General Info](#general-info)
@@ -131,7 +131,7 @@ n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization
         {{#if refInfo}}
 default | [{{refInfo.refClass}}.ApiResponse](../../components/responses/{{refInfo.refModule}}.md#apiresponse) | {{#with getDeepestRef}}{{description.originalWithBr}}{{/with}}
         {{else}}
-default | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece}}-apiresponse) | {{description.originalWithBr}}
+default | [{{jsonPathPiece.pascalCase}}.ApiResponse](#{{jsonPathPiece.kebabCase}}-apiresponse) | {{description.originalWithBr}}
         {{/if}}
     {{/with}}
 {{/if}}
@@ -139,7 +139,7 @@ default | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece
     {{#if refInfo}}
 {{@key}} | [{{refInfo.refClass}}.ApiResponse](../../components/responses/{{refInfo.refModule}}.md#apiresponse) | {{#with getDeepestRef}}{{description.originalWithBr}}{{/with}}
     {{else}}
-{{@key}} | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece}}-apiresponse) | {{description.originalWithBr}}
+{{@key}} | [{{jsonPathPiece.pascalCase}}.ApiResponse](#{{jsonPathPiece.kebabCase}}-apiresponse) | {{description.originalWithBr}}
     {{/if}}
 {{/each}}
 {{#each responses}}
@@ -220,16 +220,16 @@ server_index | Class | Description
 ------------ | ----- | ------------
 {{#if servers}}
     {{#each servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description.originalWithBr}}{{/if}}
+{{@key}} | [{{jsonPathPiece.pascalCase}}](#{{jsonPathPiece.kebabCase}}) |{{#if description}} {{description.originalWithBr}}{{/if}}
     {{/each}}
 {{else}}
     {{#if pathItem.servers}}
         {{#each pathItem.servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description.originalWithBr}}{{/if}}
+{{@key}} | [{{jsonPathPiece.pascalCase}}](#{{jsonPathPiece.kebabCase}}) |{{#if description}} {{description.originalWithBr}}{{/if}}
         {{/each}}
     {{else}}
         {{#each ../servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](../../servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
+{{@key}} | [{{jsonPathPiece.pascalCase}}](../../servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
         {{/each}}
     {{/if}}
 {{/if}}

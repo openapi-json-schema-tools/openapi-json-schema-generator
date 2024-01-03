@@ -1,11 +1,11 @@
 {{#eq types null}}
 | String | validate(String arg, SchemaConfiguration configuration) |
     {{#and enumInfo enumInfo.typeToValues.string}}
-| String | validate([String{{enumInfo.jsonPathPiece.camelCase}}](#string{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+| String | validate([String{{enumInfo.jsonPathPiece.pascalCase}}](#string{{enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
     {{/and}}
 | Void | validate(Void arg, SchemaConfiguration configuration) |
     {{#and enumInfo enumInfo.typeToValues.null}}
-| Void | validate([Null{{enumInfo.jsonPathPiece.camelCase}}](#null{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+| Void | validate([Null{{enumInfo.jsonPathPiece.pascalCase}}](#null{{enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
     {{/and}}
 | int | validate(int arg, SchemaConfiguration configuration) |
 | long | validate(long arg, SchemaConfiguration configuration) |
@@ -13,15 +13,15 @@
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
     {{#and enumInfo enumInfo.typeToValues.boolean}}
-| boolean | validate([Boolean{{enumInfo.jsonPathPiece.camelCase}}](#boolean{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+| boolean | validate([Boolean{{enumInfo.jsonPathPiece.pascalCase}}](#boolean{{enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
     {{/and}}
     {{#if mapOutputJsonPathPiece }}
-| [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
     {{else}}
 | FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
-| [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
     {{else}}
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
     {{/if}}
@@ -30,13 +30,13 @@
         {{#eq this "boolean"}}
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
             {{#and ../enumInfo enumInfo.typeToValues.boolean}}
-| boolean | validate([Boolean{{../enumInfo.jsonPathPiece.camelCase}}](#boolean{{../enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+| boolean | validate([Boolean{{../enumInfo.jsonPathPiece.pascalCase}}](#boolean{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
             {{/and}}
         {{else}}
             {{#eq this "null"}}
 | Void | validate(Void arg, SchemaConfiguration configuration) |
                 {{#and ../enumInfo ../enumInfo.typeToValues.null}}
-| Void | validate([Null{{../enumInfo.jsonPathPiece.camelCase}}](#null{{../enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+| Void | validate([Null{{../enumInfo.jsonPathPiece.pascalCase}}](#null{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
                 {{/and}}
             {{else}}
                 {{#eq this "string"}}
@@ -46,7 +46,7 @@
                     {{else}}
 | String | validate(String arg, SchemaConfiguration configuration) |
                         {{#and ../enumInfo ../enumInfo.typeToValues.string}}
-| String | validate([String{{../enumInfo.jsonPathPiece.camelCase}}](#string{{../enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+| String | validate([String{{../enumInfo.jsonPathPiece.pascalCase}}](#string{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
                         {{/and}}
                     {{/eq}}
                 {{else}}
@@ -84,14 +84,14 @@
                         {{else}}
                             {{#eq this "array"}}
                                 {{#if ../arrayOutputJsonPathPiece}}
-| [{{../arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{../arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
                                 {{else}}
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
                                 {{/if}}
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#if ../mapOutputJsonPathPiece}}
-| [{{../mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{../mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
                                     {{else}}
 | FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
                                     {{/if}}

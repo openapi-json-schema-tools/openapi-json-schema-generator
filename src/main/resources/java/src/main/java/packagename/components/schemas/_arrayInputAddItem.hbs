@@ -157,13 +157,13 @@ public {{builderClass}} add(Map<String, ?> item) {
         {{#eq @key "null"}}
             {{#if forDocs }}
                 {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.kebabCase}}) item) |
                 {{else}}
-| {{builderClass}} | add([Null{{../jsonPathPiece.camelCase}}](#null{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}}) item) |
                 {{/if}}
             {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Null{{../jsonPathPiece.camelCase}} item) {
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}} item) {
     list.add(null);
     return this;
 }
@@ -172,13 +172,13 @@ public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.c
             {{#eq @key "boolean"}}
                 {{#if forDocs }}
                     {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.kebabCase}}) item) |
                     {{else}}
-| {{builderClass}} | add([Boolean{{../jsonPathPiece.camelCase}}](#boolean{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}}) item) |
                     {{/if}}
                 {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Boolean{{../jsonPathPiece.camelCase}} item) {
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}} item) {
     list.add(item.value());
     return this;
 }
@@ -187,13 +187,13 @@ public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.c
                 {{#eq @key "string"}}
                     {{#if forDocs }}
                         {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.kebabCase}}) item) |
                         {{else}}
-| {{builderClass}} | add([String{{../jsonPathPiece.camelCase}}](#string{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}}) item) |
                         {{/if}}
                     {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}String{{../jsonPathPiece.camelCase}} item) {
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}} item) {
     list.add(item.value());
     return this;
 }
@@ -202,13 +202,13 @@ public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.c
                     {{#eq @key "Integer"}}
                         {{#if forDocs }}
                             {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.kebabCase}}) item) |
                             {{else}}
-| {{builderClass}} | add([Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}}) item) |
                             {{/if}}
                         {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Integer{{../jsonPathPiece.camelCase}} item) {
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}} item) {
     list.add(item.value());
     return this;
 }
@@ -217,13 +217,13 @@ public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.c
                         {{#eq @key "Long"}}
                             {{#if forDocs }}
                                 {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Long{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.kebabCase}}) item) |
                                 {{else}}
-| {{builderClass}} | add([Long{{../jsonPathPiece.camelCase}}](#long{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}}) item) |
                                 {{/if}}
                             {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Long{{../jsonPathPiece.camelCase}} item) {
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}} item) {
     list.add(item.value());
     return this;
 }
@@ -232,13 +232,13 @@ public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.c
                             {{#eq @key "Float"}}
                                 {{#if forDocs }}
                                     {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Float{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.kebabCase}}) item) |
                                     {{else}}
-| {{builderClass}} | add([Float{{../jsonPathPiece.camelCase}}](#float{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}}) item) |
                                     {{/if}}
                                 {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Float{{../jsonPathPiece.camelCase}} item) {
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}} item) {
     list.add(item.value());
     return this;
 }
@@ -247,13 +247,13 @@ public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.c
                                 {{#eq @key "Double"}}
                                     {{#if forDocs }}
                                         {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.camelCase}}.Double{{../jsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.kebabCase}}) item) |
                                         {{else}}
-| {{builderClass}} | add([Double{{../jsonPathPiece.camelCase}}](#double{{../jsonPathPiece.anchorPiece}}) item) |
+| {{builderClass}} | add([Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}}) item) |
                                         {{/if}}
                                     {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.camelCase}}.{{/if}}Double{{../jsonPathPiece.camelCase}} item) {
+public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}} item) {
     list.add(item.value());
     return this;
 }
