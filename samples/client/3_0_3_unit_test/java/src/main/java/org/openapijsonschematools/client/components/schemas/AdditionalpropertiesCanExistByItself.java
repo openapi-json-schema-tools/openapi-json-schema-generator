@@ -58,7 +58,7 @@ public class AdditionalpropertiesCanExistByItself {
         }
     }
     
-    public interface SetterForAdditionalProperty <T> {
+    public interface SetterForAdditionalProperties<T> {
         Map<String, Boolean> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
         
@@ -69,7 +69,7 @@ public class AdditionalpropertiesCanExistByItself {
         }
     }
     
-    public static class AdditionalpropertiesCanExistByItselfBuilder implements BaseBuilder<Boolean> {
+    public static class AdditionalpropertiesCanExistByItselfBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesCanExistByItselfBuilder> {
         private final Map<String, Boolean> instance;
         public AdditionalpropertiesCanExistByItselfBuilder() {
             this.instance = new LinkedHashMap<>();

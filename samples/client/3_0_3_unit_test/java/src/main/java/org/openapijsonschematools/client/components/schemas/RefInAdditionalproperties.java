@@ -41,7 +41,7 @@ public class RefInAdditionalproperties {
         }
     }
     
-    public interface SetterForAdditionalProperty <T> {
+    public interface SetterForAdditionalProperties<T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
         
@@ -100,7 +100,7 @@ public class RefInAdditionalproperties {
         }
     }
     
-    public static class RefInAdditionalpropertiesBuilder implements BaseBuilder<@Nullable Object> {
+    public static class RefInAdditionalpropertiesBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties<RefInAdditionalpropertiesBuilder> {
         private final Map<String, @Nullable Object> instance;
         public RefInAdditionalpropertiesBuilder() {
             this.instance = new LinkedHashMap<>();

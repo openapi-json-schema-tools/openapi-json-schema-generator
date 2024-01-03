@@ -379,7 +379,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public interface SetterForAdditionalProperty <T> {
+    public interface SetterForAdditionalProperties<T> {
         Map<String, Boolean> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
         
@@ -390,7 +390,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public static class AdditionalpropertiesShouldNotLookInApplicatorsBuilder implements BaseBuilder<Boolean> {
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesShouldNotLookInApplicatorsBuilder> {
         private final Map<String, Boolean> instance;
         public AdditionalpropertiesShouldNotLookInApplicatorsBuilder() {
             this.instance = new LinkedHashMap<>();

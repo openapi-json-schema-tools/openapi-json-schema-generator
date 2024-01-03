@@ -25,7 +25,7 @@ public interface SetterFor{{@key.pascalCase}} <T> {
 {{#with additionalProperties }}
     {{#eq isBooleanSchemaFalse false}}
 
-public interface SetterForAdditionalProperty <T> {
+public interface SetterFor{{jsonPathPiece.pascalCase}}<T> {
     Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance();
     T getBuilderAfterAdditionalProperty(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
     {{> src/main/java/packagename/components/schemas/_objectInputAddPropSetter methodName="additionalProperty" getBuilderMethod="getBuilderAfterAdditionalProperty" }}
@@ -34,7 +34,7 @@ public interface SetterForAdditionalProperty <T> {
 {{/with}}
 {{#each mapBuilders}}
 
-public static class {{className}} implements {{#if @first}}BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>{{#eq keyToBuilder.isEmpty false}}, {{/eq}}{{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}} {
+public static class {{className}} implements {{#if @first}}BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>{{#if ../optionalProperties}}, {{/if}}{{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}}{{#and ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}, SetterFor{{../additionalProperties.jsonPathPiece.pascalCase}}<{{className}}>{{/and}} {
     private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
     {{#if @last }}
     public {{className}}() {

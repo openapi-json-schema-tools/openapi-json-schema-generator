@@ -211,7 +211,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         }
     }
     
-    public interface SetterForAdditionalProperty <T> {
+    public interface SetterForAdditionalProperties<T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
         
@@ -222,7 +222,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         }
     }
     
-    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForBar<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder> {
+    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForBar<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForAdditionalProperties<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder> {
         private final Map<String, @Nullable Object> instance;
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder() {
             this.instance = new LinkedHashMap<>();
