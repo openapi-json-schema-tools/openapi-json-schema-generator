@@ -122,13 +122,19 @@ public class InvalidStringValueForDefault {
         }
     }
     
-    public static class InvalidStringValueForDefaultBuilder implements BaseBuilder<@Nullable Object> {
+    public static class InvalidStringValueForDefaultBuilder implements BaseBuilder<@Nullable Object>, SetterForBar<InvalidStringValueForDefaultBuilder> {
         private final Map<String, @Nullable Object> instance;
         public InvalidStringValueForDefaultBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public InvalidStringValueForDefaultBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class InvalidStringValueForDefaultMapBuilder {

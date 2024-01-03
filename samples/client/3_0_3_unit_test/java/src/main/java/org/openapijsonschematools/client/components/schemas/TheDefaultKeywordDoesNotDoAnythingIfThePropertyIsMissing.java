@@ -151,13 +151,19 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         }
     }
     
-    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder implements BaseBuilder<@Nullable Object> {
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder implements BaseBuilder<@Nullable Object>, SetterForAlpha<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder> {
         private final Map<String, @Nullable Object> instance;
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder getBuilderAfterAlpha(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder {

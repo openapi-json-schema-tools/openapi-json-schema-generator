@@ -301,13 +301,34 @@ public class PropertiesWithEscapedCharacters {
         }
     }
     
-    public static class PropertiesWithEscapedCharactersBuilder implements BaseBuilder<@Nullable Object> {
+    public static class PropertiesWithEscapedCharactersBuilder implements BaseBuilder<@Nullable Object>, SetterForFoonbar<PropertiesWithEscapedCharactersBuilder>, SetterForFoobar<PropertiesWithEscapedCharactersBuilder>, SetterForFoobar1<PropertiesWithEscapedCharactersBuilder>, SetterForFoorbar<PropertiesWithEscapedCharactersBuilder>, SetterForFootbar<PropertiesWithEscapedCharactersBuilder>, SetterForFoofbar<PropertiesWithEscapedCharactersBuilder> {
         private final Map<String, @Nullable Object> instance;
         public PropertiesWithEscapedCharactersBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PropertiesWithEscapedCharactersBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PropertiesWithEscapedCharactersBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PropertiesWithEscapedCharactersBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PropertiesWithEscapedCharactersBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PropertiesWithEscapedCharactersBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PropertiesWithEscapedCharactersBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class PropertiesWithEscapedCharactersMapBuilder {

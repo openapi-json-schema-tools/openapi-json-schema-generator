@@ -211,13 +211,22 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         }
     }
     
-    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder implements BaseBuilder<@Nullable Object> {
+    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForBar<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder> {
         private final Map<String, @Nullable Object> instance;
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder {

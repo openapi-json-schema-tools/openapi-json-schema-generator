@@ -78,13 +78,19 @@ public class PropertyNamedRefThatIsNotAReference {
         }
     }
     
-    public static class PropertyNamedRefThatIsNotAReferenceBuilder implements BaseBuilder<@Nullable Object> {
+    public static class PropertyNamedRefThatIsNotAReferenceBuilder implements BaseBuilder<@Nullable Object>, SetterForRef<PropertyNamedRefThatIsNotAReferenceBuilder> {
         private final Map<String, @Nullable Object> instance;
         public PropertyNamedRefThatIsNotAReferenceBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PropertyNamedRefThatIsNotAReferenceBuilder getBuilderAfterRef(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class PropertyNamedRefThatIsNotAReferenceMapBuilder {

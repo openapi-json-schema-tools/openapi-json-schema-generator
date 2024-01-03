@@ -132,13 +132,19 @@ public class ForbiddenProperty {
         }
     }
     
-    public static class ForbiddenPropertyBuilder implements BaseBuilder<@Nullable Object> {
+    public static class ForbiddenPropertyBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<ForbiddenPropertyBuilder> {
         private final Map<String, @Nullable Object> instance;
         public ForbiddenPropertyBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ForbiddenPropertyBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class ForbiddenPropertyMapBuilder {

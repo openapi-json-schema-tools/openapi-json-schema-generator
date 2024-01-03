@@ -88,13 +88,19 @@ public class NotMoreComplexSchema {
         }
     }
     
-    public static class NotBuilder implements BaseBuilder<@Nullable Object> {
+    public static class NotBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<NotBuilder> {
         private final Map<String, @Nullable Object> instance;
         public NotBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public NotBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class NotMapBuilder {

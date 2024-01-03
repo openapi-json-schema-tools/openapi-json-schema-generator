@@ -124,13 +124,19 @@ public class RefInProperty {
         }
     }
     
-    public static class RefInPropertyBuilder implements BaseBuilder<@Nullable Object> {
+    public static class RefInPropertyBuilder implements BaseBuilder<@Nullable Object>, SetterForA<RefInPropertyBuilder> {
         private final Map<String, @Nullable Object> instance;
         public RefInPropertyBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public RefInPropertyBuilder getBuilderAfterA(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class RefInPropertyMapBuilder {

@@ -234,20 +234,26 @@ public class EnumsInProperties {
         }
     }
     
-    public static class EnumsInProperties0Builder implements BaseBuilder<@Nullable Object> {
+    public static class EnumsInProperties0Builder implements BaseBuilder<@Nullable Object>, SetterForFoo<EnumsInProperties0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public EnumsInProperties0Builder() {
-            this.instance = new LinkedHashMap<>();
+        public EnumsInProperties0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public EnumsInProperties0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     
     public static class EnumsInProperties1Builder implements SetterForBar<EnumsInProperties0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public EnumsInProperties1Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public EnumsInProperties1Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;

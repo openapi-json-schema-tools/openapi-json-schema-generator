@@ -183,8 +183,8 @@ public class OneofWithRequired {
     
     public static class Schema000Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public Schema000Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
             return instance;
@@ -193,8 +193,8 @@ public class OneofWithRequired {
     
     public static class Schema001Builder implements SetterForFoo<Schema000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema001Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
@@ -206,8 +206,8 @@ public class OneofWithRequired {
     
     public static class Schema010Builder implements SetterForBar<Schema000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema010Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
@@ -219,8 +219,8 @@ public class OneofWithRequired {
     
     public static class Schema011Builder implements SetterForBar<Schema001Builder>, SetterForFoo<Schema010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema011Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public Schema011Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
@@ -583,8 +583,8 @@ public class OneofWithRequired {
     
     public static class Schema100Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public Schema100Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
             return instance;
@@ -593,8 +593,8 @@ public class OneofWithRequired {
     
     public static class Schema101Builder implements SetterForFoo1<Schema100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema101Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
@@ -606,8 +606,8 @@ public class OneofWithRequired {
     
     public static class Schema110Builder implements SetterForBaz<Schema100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema110Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
@@ -619,8 +619,8 @@ public class OneofWithRequired {
     
     public static class Schema111Builder implements SetterForBaz<Schema101Builder>, SetterForFoo1<Schema110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema111Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public Schema111Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;

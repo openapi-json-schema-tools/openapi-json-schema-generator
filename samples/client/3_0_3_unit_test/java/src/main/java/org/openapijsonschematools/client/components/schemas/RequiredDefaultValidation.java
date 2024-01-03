@@ -130,13 +130,19 @@ public class RequiredDefaultValidation {
         }
     }
     
-    public static class RequiredDefaultValidationBuilder implements BaseBuilder<@Nullable Object> {
+    public static class RequiredDefaultValidationBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredDefaultValidationBuilder> {
         private final Map<String, @Nullable Object> instance;
         public RequiredDefaultValidationBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public RequiredDefaultValidationBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class RequiredDefaultValidationMapBuilder {

@@ -205,13 +205,22 @@ public class AdditionalpropertiesAreAllowedByDefault {
         }
     }
     
-    public static class AdditionalpropertiesAreAllowedByDefaultBuilder implements BaseBuilder<@Nullable Object> {
+    public static class AdditionalpropertiesAreAllowedByDefaultBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAreAllowedByDefaultBuilder>, SetterForBar<AdditionalpropertiesAreAllowedByDefaultBuilder> {
         private final Map<String, @Nullable Object> instance;
         public AdditionalpropertiesAreAllowedByDefaultBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AdditionalpropertiesAreAllowedByDefaultBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AdditionalpropertiesAreAllowedByDefaultBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class AdditionalpropertiesAreAllowedByDefaultMapBuilder {

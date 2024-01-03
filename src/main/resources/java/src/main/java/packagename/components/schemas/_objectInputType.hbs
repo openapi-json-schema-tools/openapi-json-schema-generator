@@ -24,41 +24,37 @@ public interface SetterFor{{@key.pascalCase}} <T> {
 {{/each}}
 {{#each mapBuilders}}
 
-    {{#eq keyToBuilder null}}
-public static class {{className}} implements BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> {
-    {{else}}
-public static class {{className}} implements {{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}} {
-    {{/eq}}
+public static class {{className}} implements {{#if @first}}BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>{{#eq keyToBuilder.isEmpty false}}, {{/eq}}{{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}} {
     private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
-    {{#or @last (eq @first false) }}
-        {{#if @first}}
+    {{#if @last }}
     public {{className}}() {
         this.instance = new LinkedHashMap<>();
     }
-        {{else}}
+    {{else}}
     public {{className}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
         this.instance = instance;
     }
-        {{/if}}
-    {{else}}
-    public {{className}}() {
-        this.instance = new LinkedHashMap<>();
-    }
-    {{/or}}
-    {{#eq keyToBuilder null}}
+    {{/if}}
+    {{#if @first}}
     public Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> build() {
         return instance;
     }
-    {{else}}
+    {{/if}}
+    {{#eq keyToBuilder.isEmpty false}}
     public Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance() {
         return instance;
     }
+    {{/eq}}
     {{#each keyToBuilder}}
     public {{className}} getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+        {{#eq this ../this}}
+            {{! optional property }}
+        return this;
+        {{else}}
         return new {{className}}(instance);
+        {{/eq}}
     }
     {{/each}}
-    {{/eq}}
 }
 {{/each}}
 {{#if additionalProperties}}

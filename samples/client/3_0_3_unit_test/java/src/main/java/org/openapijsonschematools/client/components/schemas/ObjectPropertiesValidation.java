@@ -140,13 +140,22 @@ public class ObjectPropertiesValidation {
         }
     }
     
-    public static class ObjectPropertiesValidationBuilder implements BaseBuilder<@Nullable Object> {
+    public static class ObjectPropertiesValidationBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationBuilder>, SetterForBar<ObjectPropertiesValidationBuilder> {
         private final Map<String, @Nullable Object> instance;
         public ObjectPropertiesValidationBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectPropertiesValidationBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectPropertiesValidationBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     public static class ObjectPropertiesValidationMapBuilder {

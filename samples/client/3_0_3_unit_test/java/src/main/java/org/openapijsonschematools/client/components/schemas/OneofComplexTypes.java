@@ -107,8 +107,8 @@ public class OneofComplexTypes {
     
     public static class Schema00Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public Schema00Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
             return instance;
@@ -117,8 +117,8 @@ public class OneofComplexTypes {
     
     public static class Schema01Builder implements SetterForBar<Schema00Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema01Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public Schema01Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
@@ -383,8 +383,8 @@ public class OneofComplexTypes {
     
     public static class Schema10Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        public Schema10Builder() {
-            this.instance = new LinkedHashMap<>();
+        public Schema10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
             return instance;
@@ -393,8 +393,8 @@ public class OneofComplexTypes {
     
     public static class Schema11Builder implements SetterForFoo<Schema10Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema11Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public Schema11Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;

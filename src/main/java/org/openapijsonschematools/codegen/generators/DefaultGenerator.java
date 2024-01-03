@@ -2741,7 +2741,7 @@ public class DefaultGenerator implements Generator {
             }
             property.propertyNames = fromSchema(propertyNamesSchema, sourceJsonPath, currentJsonPath + "/propertyNames");
         }
-        property.mapBuilders = getMapBuilders(property.requiredProperties, currentJsonPath, sourceJsonPath);
+        property.mapBuilders = getMapBuilders(property.requiredProperties, property.optionalProperties, currentJsonPath, sourceJsonPath);
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
         CodegenSchema additionalProperties = property.additionalProperties;
         LinkedHashMapWithContext<CodegenSchema> properties = property.properties;
@@ -2844,7 +2844,7 @@ public class DefaultGenerator implements Generator {
         return property;
     }
 
-    private List<MapBuilder> getMapBuilders(LinkedHashMapWithContext<CodegenSchema> requiredProperties, String currentJsonPath, String sourceJsonPath) {
+    private List<MapBuilder> getMapBuilders(LinkedHashMapWithContext<CodegenSchema> requiredProperties, LinkedHashMapWithContext<CodegenSchema> optionalProperties, String currentJsonPath, String sourceJsonPath) {
         List<MapBuilder> builders = new ArrayList<>();
         if (sourceJsonPath == null) {
             return builders;
@@ -2862,6 +2862,8 @@ public class DefaultGenerator implements Generator {
         if (requiredProperties != null) {
             reqPropKeys.addAll(requiredProperties.keySet());
         }
+        MapBuilder lastBuilder = null;
+        // builders are built last to first, last builder has build method
         for (int i=0; i < qtyBuilders; i++) {
             String bitStr = "";
             if (reqPropsSize != 0) {
@@ -2870,7 +2872,8 @@ public class DefaultGenerator implements Generator {
             String builderClassName = getSchemaPascalCaseName(schemaName + bitStr + "Builder", sourceJsonPath);
             MapBuilder builder;
             if (i == 0) {
-                builder = new MapBuilder(builderClassName, null);
+                builder = new MapBuilder(builderClassName, new LinkedHashMap<>());
+                lastBuilder = builder;
             } else {
                 LinkedHashMap<CodegenKey, MapBuilder> keyToBuilder = new LinkedHashMap<>();
                 for (int c=0; c < reqPropsSize; c++) {
@@ -2892,6 +2895,11 @@ public class DefaultGenerator implements Generator {
             }
             bitStrToBuilder.put(bitStr, builder);
             builders.add(builder);
+        }
+        if (optionalProperties != null && lastBuilder != null) {
+            for (CodegenKey optionalKey: optionalProperties.keySet()) {
+                lastBuilder.keyToBuilder.put(optionalKey, lastBuilder);
+            }
         }
         return builders;
     }

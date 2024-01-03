@@ -206,20 +206,26 @@ public class RequiredValidation {
         }
     }
     
-    public static class RequiredValidation0Builder implements BaseBuilder<@Nullable Object> {
+    public static class RequiredValidation0Builder implements BaseBuilder<@Nullable Object>, SetterForBar<RequiredValidation0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredValidation0Builder() {
-            this.instance = new LinkedHashMap<>();
+        public RequiredValidation0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public RequiredValidation0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     
     public static class RequiredValidation1Builder implements SetterForFoo<RequiredValidation0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredValidation1Builder(Map<String, @Nullable Object> instance) {
-            this.instance = instance;
+        public RequiredValidation1Builder() {
+            this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
