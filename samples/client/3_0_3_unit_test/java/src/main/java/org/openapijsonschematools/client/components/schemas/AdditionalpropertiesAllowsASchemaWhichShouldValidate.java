@@ -17,6 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -212,10 +213,12 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     }
     
     public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
         
         default T additionalProperty(String key, boolean value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
@@ -229,6 +232,12 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             "foo",
             "bar"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder() {
             this.instance = new LinkedHashMap<>();
         }

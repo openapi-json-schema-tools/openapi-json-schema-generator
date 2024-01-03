@@ -312,6 +312,12 @@ public class PropertiesWithEscapedCharacters {
             "foo\tbar",
             "foo\fbar"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public PropertiesWithEscapedCharactersBuilder() {
             this.instance = new LinkedHashMap<>();
         }

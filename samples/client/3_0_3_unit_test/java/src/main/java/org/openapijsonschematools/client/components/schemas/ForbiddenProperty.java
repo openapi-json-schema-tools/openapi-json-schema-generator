@@ -138,6 +138,12 @@ public class ForbiddenProperty {
         private static final Set<String> optionalKeys = Set.of(
             "foo"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public ForbiddenPropertyBuilder() {
             this.instance = new LinkedHashMap<>();
         }

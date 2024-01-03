@@ -1640,6 +1640,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         if (schema.additionalProperties != null) {
             imports.add("import "+packageName + ".schemas.BaseBuilder;");
+            imports.add("import "+packageName + ".schemas.MapMaker;");
         }
     }
 

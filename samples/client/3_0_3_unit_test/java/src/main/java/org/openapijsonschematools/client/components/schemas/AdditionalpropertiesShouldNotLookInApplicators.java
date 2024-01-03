@@ -20,6 +20,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -148,6 +149,12 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         private static final Set<String> optionalKeys = Set.of(
             "foo"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public Schema0Builder() {
             this.instance = new LinkedHashMap<>();
         }
@@ -384,10 +391,12 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     }
     
     public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
         Map<String, Boolean> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
         
         default T additionalProperty(String key, boolean value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
@@ -398,10 +407,19 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         private final Map<String, Boolean> instance;
         private static final Set<String> requiredKeys = Set.of();
         private static final Set<String> optionalKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public AdditionalpropertiesShouldNotLookInApplicatorsBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Boolean> build() {
+            return instance;
+        }
+        public Map<String, Boolean> getInstance() {
             return instance;
         }
         public AdditionalpropertiesShouldNotLookInApplicatorsBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {

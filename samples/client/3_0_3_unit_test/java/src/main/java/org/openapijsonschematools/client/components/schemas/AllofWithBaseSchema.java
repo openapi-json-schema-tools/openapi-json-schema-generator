@@ -94,6 +94,12 @@ public class AllofWithBaseSchema {
             "foo"
         );
         private static final Set<String> optionalKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public Schema00Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
@@ -374,6 +380,12 @@ public class AllofWithBaseSchema {
             "baz"
         );
         private static final Set<String> optionalKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public Schema10Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
@@ -672,6 +684,12 @@ public class AllofWithBaseSchema {
             "bar"
         );
         private static final Set<String> optionalKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public AllofWithBaseSchema0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }

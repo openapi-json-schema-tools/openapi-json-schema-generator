@@ -212,6 +212,12 @@ public class AdditionalpropertiesAreAllowedByDefault {
             "foo",
             "bar"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public AdditionalpropertiesAreAllowedByDefaultBuilder() {
             this.instance = new LinkedHashMap<>();
         }

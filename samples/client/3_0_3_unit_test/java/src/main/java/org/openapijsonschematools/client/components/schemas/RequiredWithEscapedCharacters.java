@@ -424,6 +424,12 @@ public class RequiredWithEscapedCharacters {
             "foo\\bar"
         );
         private static final Set<String> optionalKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public RequiredWithEscapedCharacters000000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }

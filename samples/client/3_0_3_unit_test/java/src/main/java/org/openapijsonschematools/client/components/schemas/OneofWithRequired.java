@@ -188,6 +188,12 @@ public class OneofWithRequired {
             "foo"
         );
         private static final Set<String> optionalKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public Schema000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
@@ -593,6 +599,12 @@ public class OneofWithRequired {
             "foo"
         );
         private static final Set<String> optionalKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public Schema100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }

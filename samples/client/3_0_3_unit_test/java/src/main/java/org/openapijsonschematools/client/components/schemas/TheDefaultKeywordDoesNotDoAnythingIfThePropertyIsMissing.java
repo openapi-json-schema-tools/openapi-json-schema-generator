@@ -157,6 +157,12 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         private static final Set<String> optionalKeys = Set.of(
             "alpha"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder() {
             this.instance = new LinkedHashMap<>();
         }

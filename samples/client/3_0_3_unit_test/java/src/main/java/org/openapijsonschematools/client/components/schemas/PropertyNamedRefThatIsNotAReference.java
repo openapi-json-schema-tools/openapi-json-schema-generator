@@ -84,6 +84,12 @@ public class PropertyNamedRefThatIsNotAReference {
         private static final Set<String> optionalKeys = Set.of(
             "$ref"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public PropertyNamedRefThatIsNotAReferenceBuilder() {
             this.instance = new LinkedHashMap<>();
         }

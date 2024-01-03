@@ -15,6 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -42,58 +43,68 @@ public class RefInAdditionalproperties {
     }
     
     public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
         
         default T additionalProperty(String key, Void value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, null);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
         default T additionalProperty(String key, boolean value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
         default T additionalProperty(String key, String value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
         default T additionalProperty(String key, int value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
         default T additionalProperty(String key, float value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
         default T additionalProperty(String key, long value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
         default T additionalProperty(String key, double value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
         default T additionalProperty(String key, List<?> value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
         default T additionalProperty(String key, Map<String, ?> value) {
+            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
@@ -104,10 +115,19 @@ public class RefInAdditionalproperties {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> requiredKeys = Set.of();
         private static final Set<String> optionalKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public RefInAdditionalpropertiesBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
         public RefInAdditionalpropertiesBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {

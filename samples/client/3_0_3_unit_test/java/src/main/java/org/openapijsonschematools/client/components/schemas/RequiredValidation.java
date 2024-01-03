@@ -214,6 +214,12 @@ public class RequiredValidation {
         private static final Set<String> optionalKeys = Set.of(
             "bar"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public RequiredValidation0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }

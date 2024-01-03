@@ -147,6 +147,12 @@ public class ObjectPropertiesValidation {
             "foo",
             "bar"
         );
+        public Set<String> getKnownKeys() {
+            Set<String> knownKeys = new HashSet<>();
+            knownKeys.addAll(requiredKeys);
+            knownKeys.addAll(optionalKeys);
+            return knownKeys;
+        }
         public ObjectPropertiesValidationBuilder() {
             this.instance = new LinkedHashMap<>();
         }

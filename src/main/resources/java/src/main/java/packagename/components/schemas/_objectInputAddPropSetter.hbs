@@ -5,6 +5,7 @@
         {{else}}
 
 default T {{methodName}}(String key, Void value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, null);
     return {{getBuilderMethod}}(instance);
@@ -17,6 +18,7 @@ default T {{methodName}}(String key, Void value) {
             {{else}}
 
 default T {{methodName}}(String key, boolean value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
@@ -29,6 +31,7 @@ default T {{methodName}}(String key, boolean value) {
                 {{else}}
 
 default T {{methodName}}(String key, String value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
@@ -46,12 +49,14 @@ default T {{methodName}}(String key, String value) {
                     {{else}}
 
 default T {{methodName}}(String key, int value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, float value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
@@ -59,12 +64,14 @@ default T {{methodName}}(String key, float value) {
                         {{#neq ../format "int32"}}
 
 default T {{methodName}}(String key, long value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, double value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
@@ -78,6 +85,7 @@ default T {{methodName}}(String key, double value) {
                         {{else}}
 
 default T {{methodName}}(String key, List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
@@ -90,6 +98,7 @@ default T {{methodName}}(String key, List<{{#with items}}{{> src/main/java/packa
                             {{else}}
 
 default T {{methodName}}(String key, Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
@@ -116,54 +125,63 @@ default T {{methodName}}(String key, Map<String, {{#with mapValueSchema}}{{> src
     {{else}}
 
 default T {{methodName}}(String key, Void value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, null);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, boolean value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, String value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, int value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, float value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, long value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, double value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, List<?> value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
 default T {{methodName}}(String key, Map<String, ?> value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
@@ -182,6 +200,7 @@ default T {{methodName}}(String key, Map<String, ?> value) {
             {{else}}
 
 default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}} value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, null);
     return {{getBuilderMethod}}(instance);
@@ -198,6 +217,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                 {{else}}
 
 default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}} value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
     return {{getBuilderMethod}}(instance);
@@ -214,6 +234,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                     {{else}}
 
 default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}} value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
     return {{getBuilderMethod}}(instance);
@@ -230,6 +251,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                         {{else}}
 
 default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}} value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
     return {{getBuilderMethod}}(instance);
@@ -246,6 +268,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                             {{else}}
 
 default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}} value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
     return {{getBuilderMethod}}(instance);
@@ -262,6 +285,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                                 {{else}}
 
 default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}} value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
     return {{getBuilderMethod}}(instance);
@@ -278,6 +302,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                                     {{else}}
 
 default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}} value) {
+    MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
     return {{getBuilderMethod}}(instance);

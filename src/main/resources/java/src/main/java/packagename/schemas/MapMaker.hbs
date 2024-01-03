@@ -21,8 +21,8 @@ public class MapMaker {
         return map;
     }
 
-    public static void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys, boolean setting) throws InvalidAdditionalPropertyException {
-        if (requiredKeys.contains(key) || optionalKeys.contains(key)) {
+    public static void throwIfKeyKnown(String key, Set<String> knownKeys, boolean setting) throws InvalidAdditionalPropertyException {
+        if (knownKeys.contains(key)) {
             String verb = "getting";
             if (setting) {
                 verb = "setting";
