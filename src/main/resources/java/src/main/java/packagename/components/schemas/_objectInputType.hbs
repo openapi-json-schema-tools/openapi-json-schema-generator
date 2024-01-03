@@ -6,7 +6,7 @@ public interface SetterFor{{@key.pascalCase}} <T> {
     {{#if @key.isValid}}
     {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
     {{else}}
-    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.fallback getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{> src/main/java/packagename/components/schemas/_objectInputSetter methodName=@key.camelCase getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
     {{/if}}
 }
 {{/each}}
