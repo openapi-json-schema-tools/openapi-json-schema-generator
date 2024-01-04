@@ -1,16 +1,20 @@
-package {{{packageName}}}.schemas;
+package org.openapijsonschematools.client.schemas.validation;
 
-import {{{packageName}}}.exceptions.InvalidAdditionalPropertyException;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * A builder for maps that allows in null values
- * Schema tests + doc code samples need it
- */
 public class MapMaker {
+    /**
+     * A builder for maps that allows in null values
+     * Schema tests + doc code samples need it
+     * @param entries items to add
+     * @return the output map
+     * @param <K> key type
+     * @param <V> value type
+     */
     @SafeVarargs
     @SuppressWarnings("varargs")
     public static <K, V> Map<K, V> makeMap(Map.Entry<K, V>... entries) {

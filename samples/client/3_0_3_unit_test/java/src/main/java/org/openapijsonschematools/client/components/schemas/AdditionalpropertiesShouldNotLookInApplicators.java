@@ -20,7 +20,6 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
-import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -29,6 +28,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -396,7 +396,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
         
         default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
-            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);

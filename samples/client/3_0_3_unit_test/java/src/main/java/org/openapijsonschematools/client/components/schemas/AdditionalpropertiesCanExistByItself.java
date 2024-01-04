@@ -16,11 +16,11 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
-import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -65,7 +65,7 @@ public class AdditionalpropertiesCanExistByItself {
         T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
         
         default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
-            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);

@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.checkerframework.checker.nullness.qual.KeyFor;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
-import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -42,7 +41,7 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
         Set<String> knownKeys = new HashSet<>();
         knownKeys.addAll(requiredKeys);
         knownKeys.addAll(optionalKeys);
-        MapMaker.throwIfKeyKnown(key, knownKeys, false);
+        MapUtils.throwIfKeyKnown(key, knownKeys, false);
     }
 
     @Override

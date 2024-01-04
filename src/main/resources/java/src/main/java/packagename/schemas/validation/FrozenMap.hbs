@@ -3,7 +3,6 @@ package {{{packageName}}}.schemas.validation;
 import org.checkerframework.checker.nullness.qual.KeyFor;
 import {{{packageName}}}.exceptions.UnsetPropertyException;
 import {{{packageName}}}.exceptions.InvalidAdditionalPropertyException;
-import {{{packageName}}}.schemas.MapMaker;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -42,7 +41,7 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
         Set<String> knownKeys = new HashSet<>();
         knownKeys.addAll(requiredKeys);
         knownKeys.addAll(optionalKeys);
-        MapMaker.throwIfKeyKnown(key, knownKeys, false);
+        MapUtils.throwIfKeyKnown(key, knownKeys, false);
     }
 
     @Override

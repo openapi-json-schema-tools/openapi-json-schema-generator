@@ -17,11 +17,11 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
-import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -218,7 +218,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
         
         default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
-            MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);

@@ -360,7 +360,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
         schemaSupportingFiles.add("ListJsonSchema");
-        schemaSupportingFiles.add("MapMaker");
         schemaSupportingFiles.add("MapJsonSchema");
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
@@ -428,6 +427,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("LongEnumValidator");
         keywordValidatorFiles.add("LongValueMethod");
         keywordValidatorFiles.add("MapSchemaValidator");
+        keywordValidatorFiles.add("MapUtils");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
@@ -1641,7 +1641,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         if (schema.additionalProperties != null) {
             imports.add("import "+packageName + ".schemas.BaseBuilder;");
-            imports.add("import "+packageName + ".schemas.MapMaker;");
+            imports.add("import "+packageName + ".schemas.validation.MapUtils;");
         } else {
             imports.add("import "+packageName + ".schemas.UnsetAddPropsSetter;");
         }

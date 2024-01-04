@@ -194,7 +194,6 @@ src/main/java/org/openapijsonschematools/client/schemas/Int64JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/IntJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/ListJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/MapJsonSchema.java
-src/main/java/org/openapijsonschematools/client/schemas/MapMaker.java
 src/main/java/org/openapijsonschematools/client/schemas/NotAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NullJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NumberJsonSchema.java
@@ -234,6 +233,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ListSchemaVal
 src/main/java/org/openapijsonschematools/client/schemas/validation/LongEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/LongValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MapSchemaValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/MapUtils.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxLengthValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxPropertiesValidator.java
