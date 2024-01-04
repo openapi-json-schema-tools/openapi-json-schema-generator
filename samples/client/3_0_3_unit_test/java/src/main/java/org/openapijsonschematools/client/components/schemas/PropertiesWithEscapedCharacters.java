@@ -346,9 +346,6 @@ public class PropertiesWithEscapedCharacters {
             return this;
         }
     }
-    public static class PropertiesWithEscapedCharactersMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class PropertiesWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<PropertiesWithEscapedCharactersMap> {

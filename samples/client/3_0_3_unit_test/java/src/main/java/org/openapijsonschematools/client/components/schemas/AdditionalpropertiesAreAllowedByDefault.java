@@ -234,9 +234,6 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return this;
         }
     }
-    public static class AdditionalpropertiesAreAllowedByDefaultMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class AdditionalpropertiesAreAllowedByDefault1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<AdditionalpropertiesAreAllowedByDefaultMap> {

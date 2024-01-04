@@ -123,9 +123,6 @@ public class AllofWithBaseSchema {
             return new Schema00MapBuilder(instance);
         }
     }
-    public static class Schema0MapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<Schema0Map> {
@@ -410,9 +407,6 @@ public class AllofWithBaseSchema {
         public Schema10MapBuilder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
             return new Schema10MapBuilder(instance);
         }
-    }
-    public static class Schema1MapBuilder {
-        // Map<String, Object> because addProps is unset
     }
     
     
@@ -716,9 +710,6 @@ public class AllofWithBaseSchema {
         public AllofWithBaseSchema0MapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
             return new AllofWithBaseSchema0MapBuilder(instance);
         }
-    }
-    public static class AllofWithBaseSchemaMapBuilder {
-        // Map<String, Object> because addProps is unset
     }
     
     

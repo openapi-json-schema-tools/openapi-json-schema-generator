@@ -168,9 +168,6 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return this;
         }
     }
-    public static class Schema0MapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<Schema0Map> {
@@ -421,9 +418,6 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         public AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
             return this;
         }
-    }
-    public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder {
-        // Map<String, additionalProperties>
     }
     
     

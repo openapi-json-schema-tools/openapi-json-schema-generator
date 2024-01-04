@@ -176,9 +176,6 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             return this;
         }
     }
-    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1 extends JsonSchema implements MapSchemaValidator<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap> {

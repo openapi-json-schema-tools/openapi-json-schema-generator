@@ -253,9 +253,6 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return this;
         }
     }
-    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder {
-        // optionalProperties + additionalProperties
-    }
     
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidate1 extends JsonSchema implements MapSchemaValidator<AdditionalpropertiesAllowsASchemaWhichShouldValidateMap> {

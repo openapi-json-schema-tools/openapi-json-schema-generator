@@ -169,9 +169,6 @@ public class ObjectPropertiesValidation {
             return this;
         }
     }
-    public static class ObjectPropertiesValidationMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class ObjectPropertiesValidation1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<ObjectPropertiesValidationMap> {

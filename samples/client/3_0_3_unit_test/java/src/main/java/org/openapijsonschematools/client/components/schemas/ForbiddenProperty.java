@@ -157,9 +157,6 @@ public class ForbiddenProperty {
             return this;
         }
     }
-    public static class ForbiddenPropertyMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class ForbiddenProperty1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<ForbiddenPropertyMap> {

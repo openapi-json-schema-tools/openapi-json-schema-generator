@@ -245,9 +245,6 @@ public class RequiredValidation {
             return new RequiredValidation0MapBuilder(instance);
         }
     }
-    public static class RequiredValidationMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class RequiredValidation1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<RequiredValidationMap> {

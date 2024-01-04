@@ -273,9 +273,6 @@ public class EnumsInProperties {
             return new EnumsInProperties0MapBuilder(instance);
         }
     }
-    public static class EnumsInPropertiesMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class EnumsInProperties1 extends JsonSchema implements MapSchemaValidator<EnumsInPropertiesMap> {

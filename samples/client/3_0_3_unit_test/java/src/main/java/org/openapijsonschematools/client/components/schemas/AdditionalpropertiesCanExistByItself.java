@@ -91,9 +91,6 @@ public class AdditionalpropertiesCanExistByItself {
             return this;
         }
     }
-    public static class AdditionalpropertiesCanExistByItselfMapBuilder {
-        // Map<String, additionalProperties>
-    }
     
     
     public static class AdditionalpropertiesCanExistByItself1 extends JsonSchema implements MapSchemaValidator<AdditionalpropertiesCanExistByItselfMap> {

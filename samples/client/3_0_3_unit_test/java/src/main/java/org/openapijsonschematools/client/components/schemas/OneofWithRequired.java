@@ -246,9 +246,6 @@ public class OneofWithRequired {
             return new Schema010MapBuilder(instance);
         }
     }
-    public static class Schema0MapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<Schema0Map> {
@@ -658,9 +655,6 @@ public class OneofWithRequired {
         public Schema110MapBuilder getBuilderAfterFoo1(Map<String, @Nullable Object> instance) {
             return new Schema110MapBuilder(instance);
         }
-    }
-    public static class Schema1MapBuilder {
-        // Map<String, Object> because addProps is unset
     }
     
     

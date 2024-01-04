@@ -130,9 +130,6 @@ public class RefInAdditionalproperties {
             return this;
         }
     }
-    public static class RefInAdditionalpropertiesMapBuilder {
-        // Map<String, additionalProperties>
-    }
     
     
     public static class RefInAdditionalproperties1 extends JsonSchema implements MapSchemaValidator<RefInAdditionalpropertiesMap> {

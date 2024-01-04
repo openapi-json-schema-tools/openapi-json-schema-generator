@@ -149,9 +149,6 @@ public class RefInProperty {
             return this;
         }
     }
-    public static class RefInPropertyMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class RefInProperty1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<RefInPropertyMap> {

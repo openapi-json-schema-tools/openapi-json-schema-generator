@@ -1646,9 +1646,6 @@ public class RequiredWithEscapedCharacters {
             return new RequiredWithEscapedCharacters111110MapBuilder(instance);
         }
     }
-    public static class RequiredWithEscapedCharactersMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class RequiredWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<RequiredWithEscapedCharactersMap> {

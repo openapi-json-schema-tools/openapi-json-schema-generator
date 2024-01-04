@@ -113,9 +113,6 @@ public class NotMoreComplexSchema {
             return this;
         }
     }
-    public static class NotMapBuilder {
-        // Map<String, Object> because addProps is unset
-    }
     
     
     public static class Not extends JsonSchema implements MapSchemaValidator<NotMap> {
