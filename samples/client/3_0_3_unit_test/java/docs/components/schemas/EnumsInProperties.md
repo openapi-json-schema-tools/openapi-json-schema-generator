@@ -43,16 +43,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 EnumsInProperties.EnumsInPropertiesMap validatedPayload =
     EnumsInProperties.EnumsInProperties1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "bar",
-            "bar"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "foo",
-            "foo"
-        )
-    ),
+    new EnumsInProperties.EnumsInPropertiesMapBuilder()
+        .bar("bar")
+
+        .foo("foo")
+
+    .build(),
     configuration
 );
 ```

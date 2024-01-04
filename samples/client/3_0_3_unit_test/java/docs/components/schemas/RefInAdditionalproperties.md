@@ -38,8 +38,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
     RefInAdditionalproperties.RefInAdditionalproperties1.validate(
-    MapUtils.makeMap(
-    ),
+    new RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder()
+    .build(),
     configuration
 );
 ```
