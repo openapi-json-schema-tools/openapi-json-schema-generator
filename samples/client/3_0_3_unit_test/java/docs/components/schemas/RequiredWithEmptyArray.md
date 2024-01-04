@@ -75,7 +75,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | of([Map<String, ? extends @Nullable Object>](#requiredwithemptyarraymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo
 public static class Foo<br>

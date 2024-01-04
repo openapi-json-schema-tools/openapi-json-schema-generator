@@ -244,10 +244,10 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return instance;
         }
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder(instance);
+            return this;
         }
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder(instance);
+            return this;
         }
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

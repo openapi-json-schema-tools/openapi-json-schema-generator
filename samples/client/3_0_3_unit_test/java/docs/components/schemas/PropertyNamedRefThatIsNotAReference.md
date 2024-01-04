@@ -67,7 +67,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | of([Map<String, ? extends @Nullable Object>](#propertynamedrefthatisnotareferencemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["$ref"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Ref
 public static class Ref<br>

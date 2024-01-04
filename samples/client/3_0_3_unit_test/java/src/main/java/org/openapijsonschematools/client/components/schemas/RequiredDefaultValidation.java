@@ -149,7 +149,7 @@ public class RequiredDefaultValidation {
             return instance;
         }
         public RequiredDefaultValidationMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new RequiredDefaultValidationMapBuilder(instance);
+            return this;
         }
         public RequiredDefaultValidationMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

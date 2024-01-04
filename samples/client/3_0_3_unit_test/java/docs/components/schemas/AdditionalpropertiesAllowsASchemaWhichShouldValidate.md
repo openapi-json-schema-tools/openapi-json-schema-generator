@@ -57,7 +57,7 @@ AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsA
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map<?, ?>](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map&lt;?, ?&gt;](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder
 public class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder<br>
@@ -92,6 +92,7 @@ A class that builds the Map input type
 | [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(double value) |
 | [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(List<?> value) |
 | [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(Map<String, ?> value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | additionalProperty(String key, boolean value) |
 
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateMap
 public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMap<br>

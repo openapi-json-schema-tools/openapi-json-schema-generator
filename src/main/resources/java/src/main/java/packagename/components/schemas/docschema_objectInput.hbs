@@ -34,4 +34,10 @@ A class that builds the Map input type
             {{/if}}
         {{/with}}
     {{/each}}
+    {{! todo handle addProps unset }}
+    {{#and ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}
+        {{#with ../additionalProperties }}
+{{> src/main/java/packagename/components/schemas/_objectInputAddPropSetter forDocs=true builderClass=../className methodName="additionalProperty" getBuilderMethod="getBuilderAfterAdditionalProperty" }}
+        {{/with}}
+    {{/and}}
 {{/each}}

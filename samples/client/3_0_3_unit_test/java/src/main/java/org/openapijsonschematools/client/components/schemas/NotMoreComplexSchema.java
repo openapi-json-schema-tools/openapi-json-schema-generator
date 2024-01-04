@@ -107,7 +107,7 @@ public class NotMoreComplexSchema {
             return instance;
         }
         public NotMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new NotMapBuilder(instance);
+            return this;
         }
         public NotMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -151,7 +151,7 @@ public class ForbiddenProperty {
             return instance;
         }
         public ForbiddenPropertyMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new ForbiddenPropertyMapBuilder(instance);
+            return this;
         }
         public ForbiddenPropertyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

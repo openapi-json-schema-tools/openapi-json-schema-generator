@@ -59,6 +59,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Boolean> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder](#additionalpropertiesshouldnotlookinapplicatorsmapbuilder) | additionalProperty(String key, boolean value) |
 
 ## AdditionalpropertiesShouldNotLookInApplicatorsMap
 public static class AdditionalpropertiesShouldNotLookInApplicatorsMap<br>
@@ -132,7 +133,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo
 public static class Foo<br>

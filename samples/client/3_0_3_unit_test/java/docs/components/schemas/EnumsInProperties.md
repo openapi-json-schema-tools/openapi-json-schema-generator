@@ -67,7 +67,7 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<?, ?>](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map&lt;?, ?&gt;](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumsInPropertiesMap0Builder
 public class EnumsInPropertiesMap0Builder<br>
@@ -115,7 +115,7 @@ A class to store validated Map payloads
 | static [EnumsInPropertiesMap](#enumsinpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br> must be one of ["bar"] |
 | String | foo()<br>[optional] must be one of ["foo"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar
 public static class Bar<br>

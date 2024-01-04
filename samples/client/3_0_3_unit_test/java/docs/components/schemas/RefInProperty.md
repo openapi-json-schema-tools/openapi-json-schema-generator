@@ -74,6 +74,6 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [RefInPropertyMap](#refinpropertymap) | of([Map<String, ? extends @Nullable Object>](#refinpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | a()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

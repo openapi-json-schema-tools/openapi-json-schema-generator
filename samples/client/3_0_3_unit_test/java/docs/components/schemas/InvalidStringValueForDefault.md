@@ -67,7 +67,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | of([Map<String, ? extends @Nullable Object>](#invalidstringvaluefordefaultmapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] if omitted the server will use the default value of bad |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar
 public static class Bar<br>

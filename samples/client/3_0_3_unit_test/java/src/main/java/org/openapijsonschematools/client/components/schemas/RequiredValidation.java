@@ -226,7 +226,7 @@ public class RequiredValidation {
             return instance;
         }
         public RequiredValidationMap0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new RequiredValidationMap0Builder(instance);
+            return this;
         }
         public RequiredValidationMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

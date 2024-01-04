@@ -101,7 +101,7 @@ A class to store validated Map payloads
 | static [RequiredValidationMap](#requiredvalidationmap) | of([Map<String, ? extends @Nullable Object>](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br> |
 | @Nullable Object | bar()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar
 public static class Bar<br>

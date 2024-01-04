@@ -225,10 +225,10 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return instance;
         }
         public AdditionalpropertiesAreAllowedByDefaultMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new AdditionalpropertiesAreAllowedByDefaultMapBuilder(instance);
+            return this;
         }
         public AdditionalpropertiesAreAllowedByDefaultMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new AdditionalpropertiesAreAllowedByDefaultMapBuilder(instance);
+            return this;
         }
         public AdditionalpropertiesAreAllowedByDefaultMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

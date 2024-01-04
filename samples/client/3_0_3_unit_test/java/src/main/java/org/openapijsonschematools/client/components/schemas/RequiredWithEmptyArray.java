@@ -149,7 +149,7 @@ public class RequiredWithEmptyArray {
             return instance;
         }
         public RequiredWithEmptyArrayMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEmptyArrayMapBuilder(instance);
+            return this;
         }
         public RequiredWithEmptyArrayMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

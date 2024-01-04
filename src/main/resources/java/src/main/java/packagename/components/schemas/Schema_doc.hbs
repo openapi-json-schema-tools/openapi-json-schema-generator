@@ -145,13 +145,13 @@ A class to store validated Map payloads
             {{#with additionalProperties}}
                 {{#unless isBooleanSchemaFalse}}
                     {{#if isBooleanSchemaTrue}}
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
                 {{else}}
 | {{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | getAdditionalProperty(String name)<br>provides type safety for additional properties |
                     {{/if}}
                 {{/unless}}
             {{else}}
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
             {{/with}}
         {{else}}
             {{#eq instanceType "arrayOutputType"}}

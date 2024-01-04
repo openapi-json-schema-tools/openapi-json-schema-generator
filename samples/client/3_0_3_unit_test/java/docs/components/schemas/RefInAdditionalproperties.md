@@ -53,7 +53,7 @@ RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<?, ?>](#refinadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#refinadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RefInAdditionalpropertiesMapBuilder
 public class RefInAdditionalpropertiesMapBuilder<br>
@@ -70,6 +70,15 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, Void value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, boolean value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, String value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, int value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, float value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, long value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, double value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, List<?> value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## RefInAdditionalpropertiesMap
 public static class RefInAdditionalpropertiesMap<br>

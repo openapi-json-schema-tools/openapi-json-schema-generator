@@ -111,7 +111,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | String | foo()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo
 public static class Foo<br>
@@ -193,7 +193,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | Number | bar()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar
 public static class Bar<br>
