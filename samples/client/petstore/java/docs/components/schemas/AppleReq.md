@@ -66,7 +66,7 @@ AppleReq.AppleReqMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AppleReqMap](#applereqmap) | validate([Map<?, ?>](#applereqmapbuilder) arg, SchemaConfiguration configuration) |
+| [AppleReqMap](#applereqmap) | validate([Map&lt;?, ?&gt;>](#applereqmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AppleReqMap0Builder
 public class AppleReqMap0Builder<br>

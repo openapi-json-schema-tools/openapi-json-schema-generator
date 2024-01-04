@@ -64,7 +64,7 @@ Animal.AnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnimalMap](#animalmap) | validate([Map<?, ?>](#animalmapbuilder) arg, SchemaConfiguration configuration) |
+| [AnimalMap](#animalmap) | validate([Map&lt;?, ?&gt;>](#animalmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AnimalMap0Builder
 public class AnimalMap0Builder<br>

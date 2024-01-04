@@ -85,7 +85,7 @@ MapTest.MapTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapTestMap](#maptestmap) | validate([Map<?, ?>](#maptestmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapTestMap](#maptestmap) | validate([Map&lt;?, ?&gt;>](#maptestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapTestMapBuilder
 public class MapTestMapBuilder<br>
@@ -170,7 +170,7 @@ MapTest.DirectMapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [DirectMapMap](#directmapmap) | validate([Map<?, ?>](#directmapmapbuilder) arg, SchemaConfiguration configuration) |
+| [DirectMapMap](#directmapmap) | validate([Map&lt;?, ?&gt;>](#directmapmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DirectMapMapBuilder
 public class DirectMapMapBuilder<br>
@@ -249,7 +249,7 @@ MapTest.MapOfEnumStringMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapOfEnumStringMap](#mapofenumstringmap) | validate([Map<?, ?>](#mapofenumstringmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapOfEnumStringMap](#mapofenumstringmap) | validate([Map&lt;?, ?&gt;>](#mapofenumstringmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapOfEnumStringMapBuilder
 public class MapOfEnumStringMapBuilder<br>
@@ -370,7 +370,7 @@ MapTest.MapMapOfStringMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapMapOfStringMap](#mapmapofstringmap) | validate([Map<?, ?>](#mapmapofstringmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapMapOfStringMap](#mapmapofstringmap) | validate([Map&lt;?, ?&gt;>](#mapmapofstringmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapMapOfStringMapBuilder
 public class MapMapOfStringMapBuilder<br>
@@ -439,7 +439,7 @@ MapTest.AdditionalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<?, ?>](#additionalpropertiesmapbuilder1) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map&lt;?, ?&gt;>](#additionalpropertiesmapbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesMapBuilder1
 public class AdditionalPropertiesMapBuilder1<br>

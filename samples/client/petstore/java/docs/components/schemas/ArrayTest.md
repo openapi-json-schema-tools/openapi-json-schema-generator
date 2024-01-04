@@ -103,7 +103,7 @@ ArrayTest.ArrayTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayTestMap](#arraytestmap) | validate([Map<?, ?>](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayTestMap](#arraytestmap) | validate([Map&lt;?, ?&gt;>](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayTestMapBuilder
 public class ArrayTestMapBuilder<br>

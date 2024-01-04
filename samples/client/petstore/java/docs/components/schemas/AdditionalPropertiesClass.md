@@ -104,7 +104,7 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate([Map<?, ?>](#additionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate([Map&lt;?, ?&gt;>](#additionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesClassMapBuilder
 public class AdditionalPropertiesClassMapBuilder<br>
@@ -197,7 +197,7 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap validatedPayload 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate([Map<?, ?>](#mapwithundeclaredpropertiesstringmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate([Map&lt;?, ?&gt;>](#mapwithundeclaredpropertiesstringmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapWithUndeclaredPropertiesStringMapBuilder
 public class MapWithUndeclaredPropertiesStringMapBuilder<br>
@@ -279,7 +279,7 @@ AdditionalPropertiesClass.EmptyMapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EmptyMapMap](#emptymapmap) | validate([Map<?, ?>](#emptymapmapbuilder) arg, SchemaConfiguration configuration) |
+| [EmptyMapMap](#emptymapmap) | validate([Map&lt;?, ?&gt;>](#emptymapmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EmptyMapMapBuilder
 public class EmptyMapMapBuilder<br>
@@ -357,7 +357,7 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate([Map<?, ?>](#mapwithundeclaredpropertiesanytype3mapbuilder) arg, SchemaConfiguration configuration) |
+| [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate([Map&lt;?, ?&gt;>](#mapwithundeclaredpropertiesanytype3mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapWithUndeclaredPropertiesAnytype3MapBuilder
 public class MapWithUndeclaredPropertiesAnytype3MapBuilder<br>
@@ -466,7 +466,7 @@ AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapOfMapPropertyMap](#mapofmappropertymap) | validate([Map<?, ?>](#mapofmappropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [MapOfMapPropertyMap](#mapofmappropertymap) | validate([Map&lt;?, ?&gt;>](#mapofmappropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapOfMapPropertyMapBuilder
 public class MapOfMapPropertyMapBuilder<br>
@@ -535,7 +535,7 @@ AdditionalPropertiesClass.AdditionalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<?, ?>](#additionalpropertiesmapbuilder2) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map&lt;?, ?&gt;>](#additionalpropertiesmapbuilder2) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesMapBuilder2
 public class AdditionalPropertiesMapBuilder2<br>
@@ -614,7 +614,7 @@ AdditionalPropertiesClass.MapPropertyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapPropertyMap](#mappropertymap) | validate([Map<?, ?>](#mappropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [MapPropertyMap](#mappropertymap) | validate([Map&lt;?, ?&gt;>](#mappropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapPropertyMapBuilder
 public class MapPropertyMapBuilder<br>

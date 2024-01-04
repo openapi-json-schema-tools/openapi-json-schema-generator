@@ -71,7 +71,7 @@ Whale.WhaleMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [WhaleMap](#whalemap) | validate([Map<?, ?>](#whalemapbuilder) arg, SchemaConfiguration configuration) |
+| [WhaleMap](#whalemap) | validate([Map&lt;?, ?&gt;>](#whalemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## WhaleMap0Builder
 public class WhaleMap0Builder<br>

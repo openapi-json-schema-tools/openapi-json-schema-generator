@@ -69,7 +69,7 @@ Zebra.ZebraMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ZebraMap](#zebramap) | validate([Map<?, ?>](#zebramapbuilder) arg, SchemaConfiguration configuration) |
+| [ZebraMap](#zebramap) | validate([Map&lt;?, ?&gt;>](#zebramapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ZebraMap0Builder
 public class ZebraMap0Builder<br>

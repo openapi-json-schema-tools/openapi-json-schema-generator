@@ -71,7 +71,7 @@ PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map<?, ?>](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
+| [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map&lt;?, ?&gt;>](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PaginatedResultMyObjectDtoMap00Builder
 public class PaginatedResultMyObjectDtoMap00Builder<br>

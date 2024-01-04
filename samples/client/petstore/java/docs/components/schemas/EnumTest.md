@@ -83,7 +83,7 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumTestMap](#enumtestmap) | validate([Map&lt;?, ?&gt;>](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumTestMap0Builder
 public class EnumTestMap0Builder<br>

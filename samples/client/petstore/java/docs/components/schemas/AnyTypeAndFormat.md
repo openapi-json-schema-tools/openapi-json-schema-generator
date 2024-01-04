@@ -62,7 +62,7 @@ AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map<?, ?>](#anytypeandformatmapbuilder) arg, SchemaConfiguration configuration) |
+| [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map&lt;?, ?&gt;>](#anytypeandformatmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AnyTypeAndFormatMapBuilder
 public class AnyTypeAndFormatMapBuilder<br>

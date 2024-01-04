@@ -72,7 +72,7 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map<?, ?>](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map&lt;?, ?&gt;>](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithDifficultlyNamedPropsMap0Builder
 public class ObjectWithDifficultlyNamedPropsMap0Builder<br>

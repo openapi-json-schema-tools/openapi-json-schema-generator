@@ -103,7 +103,7 @@ User.UserMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserMap](#usermap) | validate([Map<?, ?>](#usermapbuilder) arg, SchemaConfiguration configuration) |
+| [UserMap](#usermap) | validate([Map&lt;?, ?&gt;>](#usermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UserMapBuilder
 public class UserMapBuilder<br>
@@ -291,7 +291,7 @@ Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>

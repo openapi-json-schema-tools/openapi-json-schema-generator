@@ -65,7 +65,7 @@ Money.MoneyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MoneyMap](#moneymap) | validate([Map<?, ?>](#moneymapbuilder) arg, SchemaConfiguration configuration) |
+| [MoneyMap](#moneymap) | validate([Map&lt;?, ?&gt;>](#moneymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MoneyMap00Builder
 public class MoneyMap00Builder<br>

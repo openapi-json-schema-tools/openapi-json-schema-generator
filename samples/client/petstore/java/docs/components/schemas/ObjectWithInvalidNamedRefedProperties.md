@@ -73,7 +73,7 @@ ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap v
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate([Map<?, ?>](#objectwithinvalidnamedrefedpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate([Map&lt;?, ?&gt;>](#objectwithinvalidnamedrefedpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithInvalidNamedRefedPropertiesMap00Builder
 public class ObjectWithInvalidNamedRefedPropertiesMap00Builder<br>

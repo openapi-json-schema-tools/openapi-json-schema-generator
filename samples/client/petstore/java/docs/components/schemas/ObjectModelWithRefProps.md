@@ -56,7 +56,7 @@ ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map<?, ?>](#objectmodelwithrefpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map&lt;?, ?&gt;>](#objectmodelwithrefpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectModelWithRefPropsMapBuilder
 public class ObjectModelWithRefPropsMapBuilder<br>

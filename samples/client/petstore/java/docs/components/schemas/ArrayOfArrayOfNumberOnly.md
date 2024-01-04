@@ -70,7 +70,7 @@ ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | validate([Map<?, ?>](#arrayofarrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | validate([Map&lt;?, ?&gt;>](#arrayofarrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfArrayOfNumberOnlyMapBuilder
 public class ArrayOfArrayOfNumberOnlyMapBuilder<br>

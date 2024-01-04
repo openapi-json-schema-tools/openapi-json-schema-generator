@@ -54,7 +54,7 @@ StringBooleanMap.StringBooleanMapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [StringBooleanMapMap](#stringbooleanmapmap) | validate([Map<?, ?>](#stringbooleanmapmapbuilder) arg, SchemaConfiguration configuration) |
+| [StringBooleanMapMap](#stringbooleanmapmap) | validate([Map&lt;?, ?&gt;>](#stringbooleanmapmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringBooleanMapMapBuilder
 public class StringBooleanMapMapBuilder<br>

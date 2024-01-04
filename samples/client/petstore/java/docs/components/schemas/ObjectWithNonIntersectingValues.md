@@ -60,7 +60,7 @@ ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayl
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map<?, ?>](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map&lt;?, ?&gt;>](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNonIntersectingValuesMapBuilder
 public class ObjectWithNonIntersectingValuesMapBuilder<br>

@@ -71,7 +71,7 @@ MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalProperti
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate([Map<?, ?>](#mixedpropertiesandadditionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
+| [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate([Map&lt;?, ?&gt;>](#mixedpropertiesandadditionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MixedPropertiesAndAdditionalPropertiesClassMapBuilder
 public class MixedPropertiesAndAdditionalPropertiesClassMapBuilder<br>
@@ -145,7 +145,7 @@ MixedPropertiesAndAdditionalPropertiesClass.MapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MapMap](#mapmap) | validate([Map<?, ?>](#mapmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapMap](#mapmap) | validate([Map&lt;?, ?&gt;>](#mapmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapMapBuilder
 public class MapMapBuilder<br>
