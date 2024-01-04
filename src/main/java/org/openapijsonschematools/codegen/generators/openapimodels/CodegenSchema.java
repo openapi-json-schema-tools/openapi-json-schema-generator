@@ -122,7 +122,7 @@ public class CodegenSchema {
     public boolean isInline = false;
     public String subpackage;  // the current schema's subpackage, needed by java
     public CodegenKey containerJsonPathPiece; // needed by java, outer classs that has inner nested schema classes
-    public Map<String, EnumValue> typeToExample = null;
+    public LinkedHashMap<String, EnumValue> typeToExample = null;
     public List<MapBuilder> mapBuilders = null; // used by java
 
     /*

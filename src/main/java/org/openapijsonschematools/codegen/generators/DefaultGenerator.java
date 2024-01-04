@@ -2472,7 +2472,7 @@ public class DefaultGenerator implements Generator {
         return mapVal;
     }
 
-    private Map<String, EnumValue> getTypeToExample(CodegenSchema schema, Set<CodegenSchema> seenSchemas) {
+    private LinkedHashMap<String, EnumValue> getTypeToExample(CodegenSchema schema, Set<CodegenSchema> seenSchemas) {
         if (schema == null) {
             return null;
         }
@@ -2489,7 +2489,7 @@ public class DefaultGenerator implements Generator {
             }
             seenSchemas.add(usedSchema);
         }
-        Map<String, EnumValue> typeToExample = new LinkedHashMap<>();
+        LinkedHashMap<String, EnumValue> typeToExample = new LinkedHashMap<>();
         if (usedSchema.types != null) {
             for (String type: usedSchema.types) {
                 switch(type) {
