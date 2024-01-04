@@ -152,7 +152,7 @@ public class DefaultGenerator implements Generator {
     protected String securitySchemesIdentifier = "security_schemes";
     protected String requestBodyIdentifier = "request_body";
     private final Pattern patternRegex = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
-    private CodegenKey additionalPropertySampleKey = new CodegenKey("additionalProperty", true, "additional_property", "AdditionalProperty", "additional-property", "additionalProperty", true);
+    private final CodegenKey additionalPropertySampleKey = new CodegenKey("someAdditionalProperty", true, "additional_property", "AdditionalProperty", "additional-property", "additionalProperty", true);
 
 
 

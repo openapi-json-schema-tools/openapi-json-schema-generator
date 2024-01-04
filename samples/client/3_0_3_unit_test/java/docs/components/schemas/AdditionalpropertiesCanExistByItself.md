@@ -40,7 +40,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap validatedPayload =
     AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
     new AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMapBuilder()
-        .additionalProperty("additionalProperty", true)
+        .additionalProperty("someAdditionalProperty", true)
 
     .build(),
     configuration

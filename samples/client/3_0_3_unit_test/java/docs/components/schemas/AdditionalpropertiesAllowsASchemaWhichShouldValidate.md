@@ -42,7 +42,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMap validatedPayload =
     AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.validate(
     new AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder()
-        .additionalProperty("additionalProperty", true)
+        .additionalProperty("someAdditionalProperty", true)
 
     .build(),
     configuration
