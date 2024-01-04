@@ -213,7 +213,7 @@ public class ArrayOfNumberOnly {
             return instance;
         }
         public ArrayOfNumberOnlyMapBuilder getBuilderAfterArrayNumber(Map<String, @Nullable Object> instance) {
-            return new ArrayOfNumberOnlyMapBuilder(instance);
+            return this;
         }
         public ArrayOfNumberOnlyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

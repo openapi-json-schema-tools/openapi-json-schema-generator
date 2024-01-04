@@ -139,7 +139,7 @@ public class AppleReq {
             return instance;
         }
         public AppleReqMap0Builder getBuilderAfterMealy(Map<String, Object> instance) {
-            return new AppleReqMap0Builder(instance);
+            return this;
         }
     }
     

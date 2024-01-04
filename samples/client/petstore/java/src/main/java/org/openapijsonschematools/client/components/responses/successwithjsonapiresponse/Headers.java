@@ -172,7 +172,7 @@ public class Headers {
             return instance;
         }
         public HeadersMap0000Builder getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance) {
-            return new HeadersMap0000Builder(instance);
+            return this;
         }
     }
     

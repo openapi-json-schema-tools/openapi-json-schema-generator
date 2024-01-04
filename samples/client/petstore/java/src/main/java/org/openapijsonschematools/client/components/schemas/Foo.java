@@ -86,7 +86,7 @@ public class Foo {
             return instance;
         }
         public FooMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new FooMapBuilder(instance);
+            return this;
         }
         public FooMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

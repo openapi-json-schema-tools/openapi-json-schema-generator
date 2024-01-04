@@ -103,7 +103,7 @@ public class ReturnSchema {
             return instance;
         }
         public ReturnMapBuilder1 getBuilderAfterReturnSchema2(Map<String, @Nullable Object> instance) {
-            return new ReturnMapBuilder1(instance);
+            return this;
         }
         public ReturnMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

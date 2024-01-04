@@ -170,19 +170,19 @@ public class QueryParameters {
             return instance;
         }
         public QueryParametersMapBuilder getBuilderAfterSchema1(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
         public QueryParametersMapBuilder getBuilderAfterAB(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
         public QueryParametersMapBuilder getBuilderAfterAb(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
         public QueryParametersMapBuilder getBuilderAfterAB1(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
         public QueryParametersMapBuilder getBuilderAfterSelf(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
     }
     

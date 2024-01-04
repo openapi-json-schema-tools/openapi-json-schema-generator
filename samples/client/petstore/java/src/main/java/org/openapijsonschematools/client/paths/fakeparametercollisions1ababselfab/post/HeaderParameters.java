@@ -146,16 +146,16 @@ public class HeaderParameters {
             return instance;
         }
         public HeaderParametersMapBuilder getBuilderAfterSchema1(Map<String, @Nullable Object> instance) {
-            return new HeaderParametersMapBuilder(instance);
+            return this;
         }
         public HeaderParametersMapBuilder getBuilderAfterAB(Map<String, @Nullable Object> instance) {
-            return new HeaderParametersMapBuilder(instance);
+            return this;
         }
         public HeaderParametersMapBuilder getBuilderAfterAB1(Map<String, @Nullable Object> instance) {
-            return new HeaderParametersMapBuilder(instance);
+            return this;
         }
         public HeaderParametersMapBuilder getBuilderAfterSelf(Map<String, @Nullable Object> instance) {
-            return new HeaderParametersMapBuilder(instance);
+            return this;
         }
     }
     

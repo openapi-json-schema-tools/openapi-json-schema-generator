@@ -187,10 +187,10 @@ public class Name {
             return instance;
         }
         public NameMap0Builder getBuilderAfterSnakeCase(Map<String, @Nullable Object> instance) {
-            return new NameMap0Builder(instance);
+            return this;
         }
         public NameMap0Builder getBuilderAfterProperty(Map<String, @Nullable Object> instance) {
-            return new NameMap0Builder(instance);
+            return this;
         }
         public NameMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

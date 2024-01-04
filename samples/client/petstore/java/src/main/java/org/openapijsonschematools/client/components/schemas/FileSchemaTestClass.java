@@ -209,10 +209,10 @@ public class FileSchemaTestClass {
             return instance;
         }
         public FileSchemaTestClassMapBuilder getBuilderAfterFile(Map<String, @Nullable Object> instance) {
-            return new FileSchemaTestClassMapBuilder(instance);
+            return this;
         }
         public FileSchemaTestClassMapBuilder getBuilderAfterFiles(Map<String, @Nullable Object> instance) {
-            return new FileSchemaTestClassMapBuilder(instance);
+            return this;
         }
         public FileSchemaTestClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

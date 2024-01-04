@@ -338,7 +338,7 @@ public class Zebra {
             return instance;
         }
         public ZebraMap0Builder getBuilderAfterType(Map<String, @Nullable Object> instance) {
-            return new ZebraMap0Builder(instance);
+            return this;
         }
         public ZebraMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

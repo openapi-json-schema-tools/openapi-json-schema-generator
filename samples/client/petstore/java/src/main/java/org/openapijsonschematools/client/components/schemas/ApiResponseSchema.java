@@ -173,13 +173,13 @@ public class ApiResponseSchema {
             return instance;
         }
         public ApiResponseMapBuilder getBuilderAfterCode(Map<String, @Nullable Object> instance) {
-            return new ApiResponseMapBuilder(instance);
+            return this;
         }
         public ApiResponseMapBuilder getBuilderAfterType(Map<String, @Nullable Object> instance) {
-            return new ApiResponseMapBuilder(instance);
+            return this;
         }
         public ApiResponseMapBuilder getBuilderAfterMessage(Map<String, @Nullable Object> instance) {
-            return new ApiResponseMapBuilder(instance);
+            return this;
         }
         public ApiResponseMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

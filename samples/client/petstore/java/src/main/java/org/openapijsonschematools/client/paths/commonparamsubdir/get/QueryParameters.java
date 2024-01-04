@@ -88,7 +88,7 @@ public class QueryParameters {
             return instance;
         }
         public QueryParametersMapBuilder getBuilderAfterSearchStr(Map<String, String> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
     }
     

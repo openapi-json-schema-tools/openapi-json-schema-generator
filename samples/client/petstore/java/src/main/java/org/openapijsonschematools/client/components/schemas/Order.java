@@ -381,22 +381,22 @@ public class Order {
             return instance;
         }
         public OrderMapBuilder getBuilderAfterId(Map<String, @Nullable Object> instance) {
-            return new OrderMapBuilder(instance);
+            return this;
         }
         public OrderMapBuilder getBuilderAfterPetId(Map<String, @Nullable Object> instance) {
-            return new OrderMapBuilder(instance);
+            return this;
         }
         public OrderMapBuilder getBuilderAfterQuantity(Map<String, @Nullable Object> instance) {
-            return new OrderMapBuilder(instance);
+            return this;
         }
         public OrderMapBuilder getBuilderAfterShipDate(Map<String, @Nullable Object> instance) {
-            return new OrderMapBuilder(instance);
+            return this;
         }
         public OrderMapBuilder getBuilderAfterStatus(Map<String, @Nullable Object> instance) {
-            return new OrderMapBuilder(instance);
+            return this;
         }
         public OrderMapBuilder getBuilderAfterComplete(Map<String, @Nullable Object> instance) {
-            return new OrderMapBuilder(instance);
+            return this;
         }
         public OrderMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

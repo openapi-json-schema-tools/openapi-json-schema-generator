@@ -63,6 +63,12 @@ public class SelfReferencingObjectModel {
     public interface SetterForSelfRef <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSelfRef(Map<String, @Nullable Object> instance);
+        
+        default T selfRef(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("selfRef", value);
+            return getBuilderAfterSelfRef(instance);
+        }
     }
     
     public interface SetterForAdditionalProperties<T> {
@@ -152,7 +158,7 @@ public class SelfReferencingObjectModel {
             return instance;
         }
         public SelfReferencingObjectModelMapBuilder getBuilderAfterSelfRef(Map<String, @Nullable Object> instance) {
-            return new SelfReferencingObjectModelMapBuilder(instance);
+            return this;
         }
         public SelfReferencingObjectModelMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

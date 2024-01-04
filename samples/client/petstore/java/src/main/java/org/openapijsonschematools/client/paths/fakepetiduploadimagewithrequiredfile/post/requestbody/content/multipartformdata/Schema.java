@@ -132,7 +132,7 @@ public class Schema {
             return instance;
         }
         public SchemaMap0Builder getBuilderAfterAdditionalMetadata(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0Builder(instance);
+            return this;
         }
         public SchemaMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -358,10 +358,10 @@ public class EnumArrays {
             return instance;
         }
         public EnumArraysMapBuilder getBuilderAfterJustSymbol(Map<String, @Nullable Object> instance) {
-            return new EnumArraysMapBuilder(instance);
+            return this;
         }
         public EnumArraysMapBuilder getBuilderAfterArrayEnum(Map<String, @Nullable Object> instance) {
-            return new EnumArraysMapBuilder(instance);
+            return this;
         }
         public EnumArraysMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -528,16 +528,16 @@ public class Pet {
             return instance;
         }
         public PetMap00Builder getBuilderAfterId(Map<String, @Nullable Object> instance) {
-            return new PetMap00Builder(instance);
+            return this;
         }
         public PetMap00Builder getBuilderAfterCategory(Map<String, @Nullable Object> instance) {
-            return new PetMap00Builder(instance);
+            return this;
         }
         public PetMap00Builder getBuilderAfterTags(Map<String, @Nullable Object> instance) {
-            return new PetMap00Builder(instance);
+            return this;
         }
         public PetMap00Builder getBuilderAfterStatus(Map<String, @Nullable Object> instance) {
-            return new PetMap00Builder(instance);
+            return this;
         }
         public PetMap00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -169,7 +169,7 @@ public class SimpleQuadrilateral {
             return instance;
         }
         public Schema1MapBuilder getBuilderAfterQuadrilateralType(Map<String, @Nullable Object> instance) {
-            return new Schema1MapBuilder(instance);
+            return this;
         }
         public Schema1MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

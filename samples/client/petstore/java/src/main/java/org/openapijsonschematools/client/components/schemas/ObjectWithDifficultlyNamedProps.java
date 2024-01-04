@@ -175,10 +175,10 @@ public class ObjectWithDifficultlyNamedProps {
             return instance;
         }
         public ObjectWithDifficultlyNamedPropsMap0Builder getBuilderAfterSpecialpropertyname(Map<String, @Nullable Object> instance) {
-            return new ObjectWithDifficultlyNamedPropsMap0Builder(instance);
+            return this;
         }
         public ObjectWithDifficultlyNamedPropsMap0Builder getBuilderAfterSchema123Number(Map<String, @Nullable Object> instance) {
-            return new ObjectWithDifficultlyNamedPropsMap0Builder(instance);
+            return this;
         }
         public ObjectWithDifficultlyNamedPropsMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

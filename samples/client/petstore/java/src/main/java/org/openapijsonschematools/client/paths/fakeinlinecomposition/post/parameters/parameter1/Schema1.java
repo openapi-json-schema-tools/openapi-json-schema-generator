@@ -380,7 +380,7 @@ public class Schema1 {
             return instance;
         }
         public SchemaMapBuilder1 getBuilderAfterSomeProp1(Map<String, @Nullable Object> instance) {
-            return new SchemaMapBuilder1(instance);
+            return this;
         }
         public SchemaMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -208,7 +208,7 @@ public class Apple {
             return instance;
         }
         public AppleMap0Builder getBuilderAfterOrigin(Map<String, @Nullable Object> instance) {
-            return new AppleMap0Builder(instance);
+            return this;
         }
         public AppleMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

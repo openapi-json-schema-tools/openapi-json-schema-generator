@@ -132,10 +132,10 @@ public class ObjectWithCollidingProperties {
             return instance;
         }
         public ObjectWithCollidingPropertiesMapBuilder getBuilderAfterSomeProp(Map<String, @Nullable Object> instance) {
-            return new ObjectWithCollidingPropertiesMapBuilder(instance);
+            return this;
         }
         public ObjectWithCollidingPropertiesMapBuilder getBuilderAfterSomeprop(Map<String, @Nullable Object> instance) {
-            return new ObjectWithCollidingPropertiesMapBuilder(instance);
+            return this;
         }
         public ObjectWithCollidingPropertiesMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

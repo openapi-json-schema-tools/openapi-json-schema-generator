@@ -157,7 +157,7 @@ public class BananaReq {
             return instance;
         }
         public BananaReqMap0Builder getBuilderAfterSweet(Map<String, Object> instance) {
-            return new BananaReqMap0Builder(instance);
+            return this;
         }
     }
     

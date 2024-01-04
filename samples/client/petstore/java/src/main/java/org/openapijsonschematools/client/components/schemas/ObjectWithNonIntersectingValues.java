@@ -144,7 +144,7 @@ public class ObjectWithNonIntersectingValues {
             return instance;
         }
         public ObjectWithNonIntersectingValuesMapBuilder getBuilderAfterA(Map<String, Object> instance) {
-            return new ObjectWithNonIntersectingValuesMapBuilder(instance);
+            return this;
         }
         public ObjectWithNonIntersectingValuesMapBuilder getBuilderAfterAdditionalProperty(Map<String, Object> instance) {
             return this;

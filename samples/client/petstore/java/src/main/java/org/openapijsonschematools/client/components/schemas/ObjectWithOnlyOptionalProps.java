@@ -158,10 +158,10 @@ public class ObjectWithOnlyOptionalProps {
             return instance;
         }
         public ObjectWithOnlyOptionalPropsMapBuilder getBuilderAfterA(Map<String, Object> instance) {
-            return new ObjectWithOnlyOptionalPropsMapBuilder(instance);
+            return this;
         }
         public ObjectWithOnlyOptionalPropsMapBuilder getBuilderAfterB(Map<String, Object> instance) {
-            return new ObjectWithOnlyOptionalPropsMapBuilder(instance);
+            return this;
         }
     }
     

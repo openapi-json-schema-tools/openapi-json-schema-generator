@@ -98,7 +98,7 @@ public class Client {
             return instance;
         }
         public ClientMapBuilder1 getBuilderAfterClient2(Map<String, @Nullable Object> instance) {
-            return new ClientMapBuilder1(instance);
+            return this;
         }
         public ClientMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

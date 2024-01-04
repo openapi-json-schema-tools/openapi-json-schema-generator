@@ -116,7 +116,7 @@ public class NumberOnly {
             return instance;
         }
         public NumberOnlyMapBuilder getBuilderAfterJustNumber(Map<String, @Nullable Object> instance) {
-            return new NumberOnlyMapBuilder(instance);
+            return this;
         }
         public NumberOnlyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

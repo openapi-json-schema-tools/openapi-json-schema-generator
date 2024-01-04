@@ -199,10 +199,10 @@ public class QueryParameters {
             return instance;
         }
         public QueryParametersMap00Builder getBuilderAfterInt64Group(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMap00Builder(instance);
+            return this;
         }
         public QueryParametersMap00Builder getBuilderAfterStringGroup(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMap00Builder(instance);
+            return this;
         }
     }
     

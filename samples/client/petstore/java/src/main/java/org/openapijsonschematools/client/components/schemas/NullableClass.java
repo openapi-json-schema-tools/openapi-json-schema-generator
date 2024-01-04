@@ -2066,40 +2066,40 @@ public class NullableClass {
             return instance;
         }
         public NullableClassMapBuilder getBuilderAfterIntegerProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterNumberProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterBooleanProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterStringProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterDateProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterDatetimeProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterArrayNullableProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterArrayAndItemsNullableProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterArrayItemsNullable(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterObjectNullableProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterObjectAndItemsNullableProp(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterObjectItemsNullable(Map<String, @Nullable Object> instance) {
-            return new NullableClassMapBuilder(instance);
+            return this;
         }
         public NullableClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

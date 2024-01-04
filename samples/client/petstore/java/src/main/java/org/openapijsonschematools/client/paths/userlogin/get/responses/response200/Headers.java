@@ -171,10 +171,10 @@ public class Headers {
             return instance;
         }
         public HeadersMap000Builder getBuilderAfterXExpiresAfter(Map<String, @Nullable Object> instance) {
-            return new HeadersMap000Builder(instance);
+            return this;
         }
         public HeadersMap000Builder getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance) {
-            return new HeadersMap000Builder(instance);
+            return this;
         }
     }
     

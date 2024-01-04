@@ -88,7 +88,7 @@ public class HeaderParameters {
             return instance;
         }
         public HeaderParametersMapBuilder getBuilderAfterApiKey(Map<String, String> instance) {
-            return new HeaderParametersMapBuilder(instance);
+            return this;
         }
     }
     

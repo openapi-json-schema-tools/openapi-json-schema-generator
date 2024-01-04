@@ -138,10 +138,10 @@ public class Schema200Response {
             return instance;
         }
         public Schema200ResponseMapBuilder getBuilderAfterName(Map<String, @Nullable Object> instance) {
-            return new Schema200ResponseMapBuilder(instance);
+            return this;
         }
         public Schema200ResponseMapBuilder getBuilderAfterClassSchema(Map<String, @Nullable Object> instance) {
-            return new Schema200ResponseMapBuilder(instance);
+            return this;
         }
         public Schema200ResponseMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

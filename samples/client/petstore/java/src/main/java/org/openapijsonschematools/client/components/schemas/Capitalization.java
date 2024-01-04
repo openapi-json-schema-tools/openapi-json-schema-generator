@@ -268,22 +268,22 @@ public class Capitalization {
             return instance;
         }
         public CapitalizationMapBuilder getBuilderAfterSmallCamel(Map<String, @Nullable Object> instance) {
-            return new CapitalizationMapBuilder(instance);
+            return this;
         }
         public CapitalizationMapBuilder getBuilderAfterCapitalCamel(Map<String, @Nullable Object> instance) {
-            return new CapitalizationMapBuilder(instance);
+            return this;
         }
         public CapitalizationMapBuilder getBuilderAfterSmallSnake(Map<String, @Nullable Object> instance) {
-            return new CapitalizationMapBuilder(instance);
+            return this;
         }
         public CapitalizationMapBuilder getBuilderAfterCapitalSnake(Map<String, @Nullable Object> instance) {
-            return new CapitalizationMapBuilder(instance);
+            return this;
         }
         public CapitalizationMapBuilder getBuilderAfterSCAETHFlowPoints(Map<String, @Nullable Object> instance) {
-            return new CapitalizationMapBuilder(instance);
+            return this;
         }
         public CapitalizationMapBuilder getBuilderAfterATTNAME(Map<String, @Nullable Object> instance) {
-            return new CapitalizationMapBuilder(instance);
+            return this;
         }
         public CapitalizationMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

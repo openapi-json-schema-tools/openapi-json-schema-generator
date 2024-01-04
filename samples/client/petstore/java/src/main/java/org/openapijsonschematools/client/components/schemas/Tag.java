@@ -151,10 +151,10 @@ public class Tag {
             return instance;
         }
         public TagMapBuilder getBuilderAfterId(Map<String, @Nullable Object> instance) {
-            return new TagMapBuilder(instance);
+            return this;
         }
         public TagMapBuilder getBuilderAfterName(Map<String, @Nullable Object> instance) {
-            return new TagMapBuilder(instance);
+            return this;
         }
         public TagMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -151,10 +151,10 @@ public class FromSchema {
             return instance;
         }
         public FromSchemaMapBuilder getBuilderAfterData(Map<String, @Nullable Object> instance) {
-            return new FromSchemaMapBuilder(instance);
+            return this;
         }
         public FromSchemaMapBuilder getBuilderAfterId(Map<String, @Nullable Object> instance) {
-            return new FromSchemaMapBuilder(instance);
+            return this;
         }
         public FromSchemaMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

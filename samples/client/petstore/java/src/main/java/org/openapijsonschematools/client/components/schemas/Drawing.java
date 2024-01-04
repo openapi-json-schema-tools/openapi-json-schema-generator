@@ -511,16 +511,16 @@ public class Drawing {
             return instance;
         }
         public DrawingMapBuilder getBuilderAfterMainShape(Map<String, @Nullable Object> instance) {
-            return new DrawingMapBuilder(instance);
+            return this;
         }
         public DrawingMapBuilder getBuilderAfterShapeOrNull(Map<String, @Nullable Object> instance) {
-            return new DrawingMapBuilder(instance);
+            return this;
         }
         public DrawingMapBuilder getBuilderAfterNullableShape(Map<String, @Nullable Object> instance) {
-            return new DrawingMapBuilder(instance);
+            return this;
         }
         public DrawingMapBuilder getBuilderAfterShapes(Map<String, @Nullable Object> instance) {
-            return new DrawingMapBuilder(instance);
+            return this;
         }
         public DrawingMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

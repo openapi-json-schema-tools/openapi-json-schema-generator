@@ -380,7 +380,7 @@ public class ObjectWithInlineCompositionProperty {
             return instance;
         }
         public ObjectWithInlineCompositionPropertyMapBuilder getBuilderAfterSomeProp(Map<String, @Nullable Object> instance) {
-            return new ObjectWithInlineCompositionPropertyMapBuilder(instance);
+            return this;
         }
         public ObjectWithInlineCompositionPropertyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

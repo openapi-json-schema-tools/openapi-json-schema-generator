@@ -107,7 +107,7 @@ public class GmFruit {
             return instance;
         }
         public GmFruitMapBuilder getBuilderAfterColor(Map<String, @Nullable Object> instance) {
-            return new GmFruitMapBuilder(instance);
+            return this;
         }
         public GmFruitMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

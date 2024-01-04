@@ -98,7 +98,7 @@ public class SpecialModelname {
             return instance;
         }
         public SpecialModelnameMapBuilder getBuilderAfterA(Map<String, @Nullable Object> instance) {
-            return new SpecialModelnameMapBuilder(instance);
+            return this;
         }
         public SpecialModelnameMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

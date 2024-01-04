@@ -94,6 +94,12 @@ public class Player {
     public interface SetterForEnemyPlayer <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnemyPlayer(Map<String, @Nullable Object> instance);
+        
+        default T enemyPlayer(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("enemyPlayer", value);
+            return getBuilderAfterEnemyPlayer(instance);
+        }
     }
     
     public static class PlayerMapBuilder extends UnsetAddPropsSetter<PlayerMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForName<PlayerMapBuilder>, SetterForEnemyPlayer<PlayerMapBuilder> {
@@ -115,10 +121,10 @@ public class Player {
             return instance;
         }
         public PlayerMapBuilder getBuilderAfterName(Map<String, @Nullable Object> instance) {
-            return new PlayerMapBuilder(instance);
+            return this;
         }
         public PlayerMapBuilder getBuilderAfterEnemyPlayer(Map<String, @Nullable Object> instance) {
-            return new PlayerMapBuilder(instance);
+            return this;
         }
         public PlayerMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

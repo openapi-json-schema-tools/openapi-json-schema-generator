@@ -1369,55 +1369,55 @@ public class FormatTest {
             return instance;
         }
         public FormatTestMap0000Builder getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterInt32withValidations(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterInt64(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterFloat32(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterFloat64(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterArrayWithUniqueItems(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterStringSchema(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterBinary(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterDateTime(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterUuidNoExample(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterPatternWithDigits(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterPatternWithDigitsAndDelimiter(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterNoneProp(Map<String, @Nullable Object> instance) {
-            return new FormatTestMap0000Builder(instance);
+            return this;
         }
         public FormatTestMap0000Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

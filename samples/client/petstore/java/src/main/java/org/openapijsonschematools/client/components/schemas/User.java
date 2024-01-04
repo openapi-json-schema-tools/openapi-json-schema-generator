@@ -944,43 +944,43 @@ public class User {
             return instance;
         }
         public UserMapBuilder getBuilderAfterId(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterUsername(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterFirstName(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterLastName(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterEmail(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterPhone(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterUserStatus(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterObjectWithNoDeclaredProps(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterObjectWithNoDeclaredPropsNullable(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterAnyTypeProp(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterAnyTypeExceptNullProp(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterAnyTypePropNullable(Map<String, @Nullable Object> instance) {
-            return new UserMapBuilder(instance);
+            return this;
         }
         public UserMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

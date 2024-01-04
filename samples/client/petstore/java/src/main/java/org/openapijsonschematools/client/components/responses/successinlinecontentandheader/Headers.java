@@ -88,7 +88,7 @@ public class Headers {
             return instance;
         }
         public HeadersMapBuilder getBuilderAfterSomeHeader(Map<String, String> instance) {
-            return new HeadersMapBuilder(instance);
+            return this;
         }
     }
     

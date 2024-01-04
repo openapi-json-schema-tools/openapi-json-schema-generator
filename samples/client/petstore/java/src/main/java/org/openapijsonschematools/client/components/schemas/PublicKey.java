@@ -98,7 +98,7 @@ public class PublicKey {
             return instance;
         }
         public PublicKeyMapBuilder getBuilderAfterKey(Map<String, @Nullable Object> instance) {
-            return new PublicKeyMapBuilder(instance);
+            return this;
         }
         public PublicKeyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

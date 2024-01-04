@@ -313,13 +313,13 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return instance;
         }
         public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
-            return new MixedPropertiesAndAdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterDateTime(Map<String, @Nullable Object> instance) {
-            return new MixedPropertiesAndAdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterMapSchema(Map<String, @Nullable Object> instance) {
-            return new MixedPropertiesAndAdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

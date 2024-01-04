@@ -2392,31 +2392,31 @@ public class AnyTypeAndFormat {
             return instance;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterDatetime(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterBinary(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterInt64(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance) {
-            return new AnyTypeAndFormatMapBuilder(instance);
+            return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

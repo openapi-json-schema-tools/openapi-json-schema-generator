@@ -77,7 +77,7 @@ public class Schema {
             return instance;
         }
         public SchemaMapBuilder getBuilderAfterStringSchema(Map<String, @Nullable Object> instance) {
-            return new SchemaMapBuilder(instance);
+            return this;
         }
         public SchemaMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

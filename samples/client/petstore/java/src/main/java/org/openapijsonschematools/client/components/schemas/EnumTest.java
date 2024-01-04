@@ -868,28 +868,28 @@ public class EnumTest {
             return instance;
         }
         public EnumTestMap0Builder getBuilderAfterEnumString(Map<String, @Nullable Object> instance) {
-            return new EnumTestMap0Builder(instance);
+            return this;
         }
         public EnumTestMap0Builder getBuilderAfterEnumInteger(Map<String, @Nullable Object> instance) {
-            return new EnumTestMap0Builder(instance);
+            return this;
         }
         public EnumTestMap0Builder getBuilderAfterEnumNumber(Map<String, @Nullable Object> instance) {
-            return new EnumTestMap0Builder(instance);
+            return this;
         }
         public EnumTestMap0Builder getBuilderAfterStringEnum(Map<String, @Nullable Object> instance) {
-            return new EnumTestMap0Builder(instance);
+            return this;
         }
         public EnumTestMap0Builder getBuilderAfterIntegerEnum(Map<String, @Nullable Object> instance) {
-            return new EnumTestMap0Builder(instance);
+            return this;
         }
         public EnumTestMap0Builder getBuilderAfterStringEnumWithDefaultValue(Map<String, @Nullable Object> instance) {
-            return new EnumTestMap0Builder(instance);
+            return this;
         }
         public EnumTestMap0Builder getBuilderAfterIntegerEnumWithDefaultValue(Map<String, @Nullable Object> instance) {
-            return new EnumTestMap0Builder(instance);
+            return this;
         }
         public EnumTestMap0Builder getBuilderAfterIntegerEnumOneValue(Map<String, @Nullable Object> instance) {
-            return new EnumTestMap0Builder(instance);
+            return this;
         }
         public EnumTestMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

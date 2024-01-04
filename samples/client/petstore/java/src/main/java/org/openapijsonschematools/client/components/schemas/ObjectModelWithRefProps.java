@@ -150,13 +150,13 @@ public class ObjectModelWithRefProps {
             return instance;
         }
         public ObjectModelWithRefPropsMapBuilder getBuilderAfterMyNumber(Map<String, @Nullable Object> instance) {
-            return new ObjectModelWithRefPropsMapBuilder(instance);
+            return this;
         }
         public ObjectModelWithRefPropsMapBuilder getBuilderAfterMyString(Map<String, @Nullable Object> instance) {
-            return new ObjectModelWithRefPropsMapBuilder(instance);
+            return this;
         }
         public ObjectModelWithRefPropsMapBuilder getBuilderAfterMyBoolean(Map<String, @Nullable Object> instance) {
-            return new ObjectModelWithRefPropsMapBuilder(instance);
+            return this;
         }
         public ObjectModelWithRefPropsMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

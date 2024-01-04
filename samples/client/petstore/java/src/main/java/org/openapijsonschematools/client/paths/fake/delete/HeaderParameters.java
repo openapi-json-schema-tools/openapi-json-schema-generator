@@ -129,7 +129,7 @@ public class HeaderParameters {
             return instance;
         }
         public HeaderParametersMap0Builder getBuilderAfterBooleanGroup(Map<String, @Nullable Object> instance) {
-            return new HeaderParametersMap0Builder(instance);
+            return this;
         }
     }
     

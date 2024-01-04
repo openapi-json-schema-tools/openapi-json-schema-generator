@@ -124,10 +124,10 @@ public class HeaderParameters {
             return instance;
         }
         public HeaderParametersMapBuilder getBuilderAfterEnumHeaderString(Map<String, @Nullable Object> instance) {
-            return new HeaderParametersMapBuilder(instance);
+            return this;
         }
         public HeaderParametersMapBuilder getBuilderAfterEnumHeaderStringArray(Map<String, @Nullable Object> instance) {
-            return new HeaderParametersMapBuilder(instance);
+            return this;
         }
     }
     

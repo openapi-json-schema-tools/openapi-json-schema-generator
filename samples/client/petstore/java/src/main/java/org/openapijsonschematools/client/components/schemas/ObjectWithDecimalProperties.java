@@ -144,13 +144,13 @@ public class ObjectWithDecimalProperties {
             return instance;
         }
         public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterLength(Map<String, @Nullable Object> instance) {
-            return new ObjectWithDecimalPropertiesMapBuilder(instance);
+            return this;
         }
         public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterWidth(Map<String, @Nullable Object> instance) {
-            return new ObjectWithDecimalPropertiesMapBuilder(instance);
+            return this;
         }
         public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterCost(Map<String, @Nullable Object> instance) {
-            return new ObjectWithDecimalPropertiesMapBuilder(instance);
+            return this;
         }
         public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

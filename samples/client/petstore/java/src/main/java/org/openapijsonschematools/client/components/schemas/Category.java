@@ -184,7 +184,7 @@ public class Category {
             return instance;
         }
         public CategoryMap0Builder getBuilderAfterId(Map<String, @Nullable Object> instance) {
-            return new CategoryMap0Builder(instance);
+            return this;
         }
         public CategoryMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

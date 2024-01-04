@@ -132,10 +132,10 @@ public class HasOnlyReadOnly {
             return instance;
         }
         public HasOnlyReadOnlyMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new HasOnlyReadOnlyMapBuilder(instance);
+            return this;
         }
         public HasOnlyReadOnlyMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new HasOnlyReadOnlyMapBuilder(instance);
+            return this;
         }
         public HasOnlyReadOnlyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

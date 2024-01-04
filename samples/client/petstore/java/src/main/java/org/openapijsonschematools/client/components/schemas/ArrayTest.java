@@ -663,13 +663,13 @@ public class ArrayTest {
             return instance;
         }
         public ArrayTestMapBuilder getBuilderAfterArrayOfString(Map<String, @Nullable Object> instance) {
-            return new ArrayTestMapBuilder(instance);
+            return this;
         }
         public ArrayTestMapBuilder getBuilderAfterArrayArrayOfInteger(Map<String, @Nullable Object> instance) {
-            return new ArrayTestMapBuilder(instance);
+            return this;
         }
         public ArrayTestMapBuilder getBuilderAfterArrayArrayOfModel(Map<String, @Nullable Object> instance) {
-            return new ArrayTestMapBuilder(instance);
+            return this;
         }
         public ArrayTestMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

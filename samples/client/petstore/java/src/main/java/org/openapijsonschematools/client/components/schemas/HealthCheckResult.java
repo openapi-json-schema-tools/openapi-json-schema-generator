@@ -155,7 +155,7 @@ public class HealthCheckResult {
             return instance;
         }
         public HealthCheckResultMapBuilder getBuilderAfterNullableMessage(Map<String, @Nullable Object> instance) {
-            return new HealthCheckResultMapBuilder(instance);
+            return this;
         }
         public HealthCheckResultMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -132,10 +132,10 @@ public class ReadOnlyFirst {
             return instance;
         }
         public ReadOnlyFirstMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new ReadOnlyFirstMapBuilder(instance);
+            return this;
         }
         public ReadOnlyFirstMapBuilder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
-            return new ReadOnlyFirstMapBuilder(instance);
+            return this;
         }
         public ReadOnlyFirstMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -98,7 +98,7 @@ public class ObjectWithOptionalTestProp {
             return instance;
         }
         public ObjectWithOptionalTestPropMapBuilder getBuilderAfterTest(Map<String, @Nullable Object> instance) {
-            return new ObjectWithOptionalTestPropMapBuilder(instance);
+            return this;
         }
         public ObjectWithOptionalTestPropMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

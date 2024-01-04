@@ -173,7 +173,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             return instance;
         }
         public Schema1Map0Builder getBuilderAfterName(Map<String, @Nullable Object> instance) {
-            return new Schema1Map0Builder(instance);
+            return this;
         }
         public Schema1Map0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

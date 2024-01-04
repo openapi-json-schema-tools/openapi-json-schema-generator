@@ -164,7 +164,7 @@ public class NoAdditionalProperties {
             return instance;
         }
         public NoAdditionalPropertiesMap0Builder getBuilderAfterPetId(Map<String, Number> instance) {
-            return new NoAdditionalPropertiesMap0Builder(instance);
+            return this;
         }
     }
     

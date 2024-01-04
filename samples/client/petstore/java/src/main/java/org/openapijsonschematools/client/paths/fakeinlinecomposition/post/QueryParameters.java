@@ -166,10 +166,10 @@ public class QueryParameters {
             return instance;
         }
         public QueryParametersMapBuilder getBuilderAfterCompositionAtRoot(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
         public QueryParametersMapBuilder getBuilderAfterCompositionInProperty(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
     }
     

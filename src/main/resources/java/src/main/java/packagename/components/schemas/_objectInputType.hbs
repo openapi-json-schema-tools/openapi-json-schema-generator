@@ -91,8 +91,8 @@ public static class {{className.pascalCase}}{{#and @first (eq ../additionalPrope
     {{/or}}
     {{#each keyToBuilder}}
     public {{builder.className.pascalCase}} getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
-        {{#eq this ../this}}
-            {{! optional property }}
+        {{#eq builder ../this}}
+            {{! property in final builder }}
         return this;
         {{else}}
         return new {{builder.className.pascalCase}}(instance);

@@ -1131,28 +1131,28 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterMapProperty(Map<String, @Nullable Object> instance) {
-            return new AdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterMapOfMapProperty(Map<String, @Nullable Object> instance) {
-            return new AdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterAnytype1(Map<String, @Nullable Object> instance) {
-            return new AdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterMapWithUndeclaredPropertiesAnytype1(Map<String, @Nullable Object> instance) {
-            return new AdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterMapWithUndeclaredPropertiesAnytype2(Map<String, @Nullable Object> instance) {
-            return new AdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterMapWithUndeclaredPropertiesAnytype3(Map<String, @Nullable Object> instance) {
-            return new AdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterEmptyMap(Map<String, @Nullable Object> instance) {
-            return new AdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterMapWithUndeclaredPropertiesString(Map<String, @Nullable Object> instance) {
-            return new AdditionalPropertiesClassMapBuilder(instance);
+            return this;
         }
         public AdditionalPropertiesClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

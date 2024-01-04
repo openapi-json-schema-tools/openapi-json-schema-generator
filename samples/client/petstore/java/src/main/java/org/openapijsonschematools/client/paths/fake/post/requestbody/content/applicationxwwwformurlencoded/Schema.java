@@ -972,34 +972,34 @@ public class Schema {
             return instance;
         }
         public SchemaMap0000Builder getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterInt64(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterStringSchema(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterBinary(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterDateTime(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterCallback(Map<String, @Nullable Object> instance) {
-            return new SchemaMap0000Builder(instance);
+            return this;
         }
         public SchemaMap0000Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -170,19 +170,19 @@ public class CookieParameters {
             return instance;
         }
         public CookieParametersMapBuilder getBuilderAfterSchema1(Map<String, @Nullable Object> instance) {
-            return new CookieParametersMapBuilder(instance);
+            return this;
         }
         public CookieParametersMapBuilder getBuilderAfterAB(Map<String, @Nullable Object> instance) {
-            return new CookieParametersMapBuilder(instance);
+            return this;
         }
         public CookieParametersMapBuilder getBuilderAfterAb(Map<String, @Nullable Object> instance) {
-            return new CookieParametersMapBuilder(instance);
+            return this;
         }
         public CookieParametersMapBuilder getBuilderAfterAB1(Map<String, @Nullable Object> instance) {
-            return new CookieParametersMapBuilder(instance);
+            return this;
         }
         public CookieParametersMapBuilder getBuilderAfterSelf(Map<String, @Nullable Object> instance) {
-            return new CookieParametersMapBuilder(instance);
+            return this;
         }
     }
     

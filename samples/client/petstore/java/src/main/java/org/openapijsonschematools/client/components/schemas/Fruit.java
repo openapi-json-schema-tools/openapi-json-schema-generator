@@ -107,7 +107,7 @@ public class Fruit {
             return instance;
         }
         public FruitMapBuilder getBuilderAfterColor(Map<String, @Nullable Object> instance) {
-            return new FruitMapBuilder(instance);
+            return this;
         }
         public FruitMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

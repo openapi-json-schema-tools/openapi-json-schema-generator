@@ -229,10 +229,10 @@ public class Whale {
             return instance;
         }
         public WhaleMap0Builder getBuilderAfterHasBaleen(Map<String, @Nullable Object> instance) {
-            return new WhaleMap0Builder(instance);
+            return this;
         }
         public WhaleMap0Builder getBuilderAfterHasTeeth(Map<String, @Nullable Object> instance) {
-            return new WhaleMap0Builder(instance);
+            return this;
         }
         public WhaleMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -99,7 +99,7 @@ public class MyObjectDto {
             return instance;
         }
         public MyObjectDtoMapBuilder getBuilderAfterId(Map<String, String> instance) {
-            return new MyObjectDtoMapBuilder(instance);
+            return this;
         }
     }
     

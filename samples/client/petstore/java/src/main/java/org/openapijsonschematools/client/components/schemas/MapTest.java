@@ -743,16 +743,16 @@ public class MapTest {
             return instance;
         }
         public MapTestMapBuilder getBuilderAfterMapMapOfString(Map<String, @Nullable Object> instance) {
-            return new MapTestMapBuilder(instance);
+            return this;
         }
         public MapTestMapBuilder getBuilderAfterMapOfEnumString(Map<String, @Nullable Object> instance) {
-            return new MapTestMapBuilder(instance);
+            return this;
         }
         public MapTestMapBuilder getBuilderAfterDirectMap(Map<String, @Nullable Object> instance) {
-            return new MapTestMapBuilder(instance);
+            return this;
         }
         public MapTestMapBuilder getBuilderAfterIndirectMap(Map<String, @Nullable Object> instance) {
-            return new MapTestMapBuilder(instance);
+            return this;
         }
         public MapTestMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

@@ -166,7 +166,7 @@ public class Animal {
             return instance;
         }
         public AnimalMap0Builder getBuilderAfterColor(Map<String, @Nullable Object> instance) {
-            return new AnimalMap0Builder(instance);
+            return this;
         }
         public AnimalMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

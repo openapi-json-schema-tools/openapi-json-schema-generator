@@ -88,7 +88,7 @@ public class QueryParameters {
             return instance;
         }
         public QueryParametersMapBuilder getBuilderAfterMapBean(Map<String, Map<String, @Nullable Object>> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
     }
     

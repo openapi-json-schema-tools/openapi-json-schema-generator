@@ -98,7 +98,7 @@ public class File {
             return instance;
         }
         public FileMapBuilder getBuilderAfterSourceURI(Map<String, @Nullable Object> instance) {
-            return new FileMapBuilder(instance);
+            return this;
         }
         public FileMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

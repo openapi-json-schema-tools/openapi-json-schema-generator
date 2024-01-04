@@ -97,7 +97,7 @@ public class ClassModel {
             return instance;
         }
         public ClassModelMapBuilder getBuilderAfterClassSchema(Map<String, @Nullable Object> instance) {
-            return new ClassModelMapBuilder(instance);
+            return this;
         }
         public ClassModelMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

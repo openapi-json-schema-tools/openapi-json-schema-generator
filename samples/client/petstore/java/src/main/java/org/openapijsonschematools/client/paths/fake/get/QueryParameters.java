@@ -232,16 +232,16 @@ public class QueryParameters {
             return instance;
         }
         public QueryParametersMapBuilder getBuilderAfterEnumQueryDouble(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
         public QueryParametersMapBuilder getBuilderAfterEnumQueryString(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
         public QueryParametersMapBuilder getBuilderAfterEnumQueryInteger(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
         public QueryParametersMapBuilder getBuilderAfterEnumQueryStringArray(Map<String, @Nullable Object> instance) {
-            return new QueryParametersMapBuilder(instance);
+            return this;
         }
     }
     
