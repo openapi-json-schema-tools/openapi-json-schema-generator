@@ -19,15 +19,27 @@ MapUtils.makeMap(
 ){{endChar}}
 {{/eq}}
 {{#eq type"array"}}
+    {{#if constructor}}
+        {{#each value}}
+            {{#or (eq type "array") (eq type "object")}}
+.add(
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true constructor=false }}
+)
+            {{else}}
+.add({{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar=")" noVoid=true constructor=false }}
+            {{/or}}
+        {{/each}}
+    {{else}}
 Arrays.asList(
-    {{#each value}}
-        {{#unless @last}}
+        {{#each value}}
+            {{#unless @last}}
     {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," noVoid=true }}
-        {{else}}
+            {{else}}
     {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true }}
-        {{/unless}}
-    {{/each}}
+            {{/unless}}
+        {{/each}}
 ){{endChar}}
+    {{/if}}
 {{/eq}}
 {{#eq type "number"}}
     {{#eq javaType "Long"}}

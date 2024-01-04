@@ -39,10 +39,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
     ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
-    new ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListBuilder()
+    .build(),
     configuration
 );
 ```

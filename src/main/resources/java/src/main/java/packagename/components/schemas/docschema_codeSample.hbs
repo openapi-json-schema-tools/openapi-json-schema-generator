@@ -82,9 +82,9 @@ boolean validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../j
 {{/eq}}
             {{#with this}}
                 {{#and (eq type "array") ../arrayInputJsonPathPiece.pascalCase }}
-    new {{../../../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}(
-        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
-    ).build(),
+    new {{../../../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}()
+        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=true }}
+    .build(),
                 {{else}}
     {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}
                 {{/and}}
