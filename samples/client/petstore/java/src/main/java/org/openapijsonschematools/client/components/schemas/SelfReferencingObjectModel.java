@@ -63,7 +63,6 @@ public class SelfReferencingObjectModel {
     public interface SetterForSelfRef <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSelfRef(Map<String, @Nullable Object> instance);
-        // todo how to handle this
     }
     
     public interface SetterForAdditionalProperties<T> {

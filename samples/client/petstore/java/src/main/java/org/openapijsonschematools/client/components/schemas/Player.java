@@ -94,7 +94,6 @@ public class Player {
     public interface SetterForEnemyPlayer <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnemyPlayer(Map<String, @Nullable Object> instance);
-        // todo how to handle this
     }
     
     public static class PlayerMapBuilder extends UnsetAddPropsSetter<PlayerMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForName<PlayerMapBuilder>, SetterForEnemyPlayer<PlayerMapBuilder> {

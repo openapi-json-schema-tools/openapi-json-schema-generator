@@ -71,7 +71,6 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-// todo how to handle this
 
 ## SelfReferencingObjectModelMap
 public static class SelfReferencingObjectModelMap<br>

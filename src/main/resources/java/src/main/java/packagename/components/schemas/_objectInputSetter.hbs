@@ -5,7 +5,9 @@
         {{/with}}
     {{else}}
         {{! self reference} }}
-// todo how to handle this
+        {{#with ref }}
+{{> src/main/java/packagename/components/schemas/_objectInputSetter }}
+        {{/with}}
     {{/if}}
 {{else}}
     {{#each types}}

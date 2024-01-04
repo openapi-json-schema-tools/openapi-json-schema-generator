@@ -79,7 +79,6 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [PlayerMapBuilder](#playermapbuilder) | name(String value) |
-// todo how to handle this
 
 ## PlayerMap
 public static class PlayerMap<br>
