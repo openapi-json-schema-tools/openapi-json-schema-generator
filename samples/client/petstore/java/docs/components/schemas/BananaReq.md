@@ -84,6 +84,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [BananaReqMap0Builder](#bananareqmap0builder) | sweet(boolean value) |
+
 ## BananaReqMapBuilder
 public class BananaReqMapBuilder<br>
 builder for `Map<String, Object>`

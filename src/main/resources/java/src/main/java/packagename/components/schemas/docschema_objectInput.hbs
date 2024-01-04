@@ -1,5 +1,5 @@
-
 {{#each mapBuilders}}
+
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces className) }}
 public class {{className.pascalCase}}<br>
     {{#if ../mapValueSchema}}
@@ -28,16 +28,21 @@ A class that builds the Map input type
     {{#each keyToBuilder}}
         {{#with schema }}
             {{#if ../@key.isValid}}
-{{> src/main/java/packagename/components/schemas/_objectInputSetter forDocs=true builderClass=../builder.className methodName=../@key.original getBuilderMethod=(join "getBuilderAfter" ../@key.pascalCase "") key=../@key.original }}
+{{> src/main/java/packagename/components/schemas/_objectInputSetter forDocs=true builderClass=../builder.className methodName=../@key.original }}
             {{else}}
-{{> src/main/java/packagename/components/schemas/_objectInputSetter forDocs=true builderClass=../builder.className methodName=../@key.camelCase getBuilderMethod=(join "getBuilderAfter" ../@key.pascalCase "") key=../@key.original }}
+{{> src/main/java/packagename/components/schemas/_objectInputSetter forDocs=true builderClass=../builder.className methodName=../@key.camelCase }}
             {{/if}}
         {{/with}}
     {{/each}}
-    {{! todo handle addProps unset }}
-    {{#and ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}
-        {{#with ../additionalProperties }}
-{{> src/main/java/packagename/components/schemas/_objectInputAddPropSetter forDocs=true builderClass=../className methodName="additionalProperty" getBuilderMethod="getBuilderAfterAdditionalProperty" }}
-        {{/with}}
-    {{/and}}
+    {{#if @first}}
+        {{#eq ../additionalProperties null }}
+{{> src/main/java/packagename/components/schemas/_objectInputAddPropUnsetSetterDocs builderClass=className methodName="additionalProperty" }}
+        {{else}}
+            {{#eq ../additionalProperties.isBooleanSchemaFalse false }}
+                {{#with ../additionalProperties }}
+{{> src/main/java/packagename/components/schemas/_objectInputAddPropSetter forDocs=true builderClass=../className methodName="additionalProperty" }}
+                {{/with}}
+            {{/eq}}
+        {{/eq}}
+    {{/if}}
 {{/each}}

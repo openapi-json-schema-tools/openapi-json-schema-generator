@@ -63,6 +63,16 @@ A class that builds the Map input type
 | [NameMap0Builder](#namemap0builder) | snake_case(int value) |
 | [NameMap0Builder](#namemap0builder) | snake_case(float value) |
 | [NameMap0Builder](#namemap0builder) | property(String value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, Void value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, boolean value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, String value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, int value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, float value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, long value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, double value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, List<?> value) |
+| [NameMap0Builder](#namemap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## NameMapBuilder1
 public class NameMapBuilder1<br>
 builder for `Map<String, @Nullable Object>`

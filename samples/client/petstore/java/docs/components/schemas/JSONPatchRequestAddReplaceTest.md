@@ -86,6 +86,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+
 ## JSONPatchRequestAddReplaceTestMap001Builder
 public class JSONPatchRequestAddReplaceTestMap001Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -109,6 +110,7 @@ A class that builds the Map input type
 | [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(double value) |
 | [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(List<?> value) |
 | [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(Map<String, ?> value) |
+
 ## JSONPatchRequestAddReplaceTestMap010Builder
 public class JSONPatchRequestAddReplaceTestMap010Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -124,6 +126,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | path(String value) |
+
 ## JSONPatchRequestAddReplaceTestMap011Builder
 public class JSONPatchRequestAddReplaceTestMap011Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -148,6 +151,7 @@ A class that builds the Map input type
 | [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(double value) |
 | [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(List<?> value) |
 | [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(Map<String, ?> value) |
+
 ## JSONPatchRequestAddReplaceTestMap100Builder
 public class JSONPatchRequestAddReplaceTestMap100Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -164,6 +168,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | op(String value) |
 | [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | op([StringOpEnums](#stringopenums) value) |
+
 ## JSONPatchRequestAddReplaceTestMap101Builder
 public class JSONPatchRequestAddReplaceTestMap101Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -189,6 +194,7 @@ A class that builds the Map input type
 | [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(double value) |
 | [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(List<?> value) |
 | [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(Map<String, ?> value) |
+
 ## JSONPatchRequestAddReplaceTestMap110Builder
 public class JSONPatchRequestAddReplaceTestMap110Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -206,6 +212,7 @@ A class that builds the Map input type
 | [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | op(String value) |
 | [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | op([StringOpEnums](#stringopenums) value) |
 | [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | path(String value) |
+
 ## JSONPatchRequestAddReplaceTestMapBuilder
 public class JSONPatchRequestAddReplaceTestMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

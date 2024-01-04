@@ -97,6 +97,7 @@ A class that builds the Map input type
 | [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, double value) |
 | [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, List<?> value) |
 | [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## ZebraMapBuilder
 public class ZebraMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -113,15 +114,6 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [ZebraMap0Builder](#zebramap0builder) | className(String value) |
 | [ZebraMap0Builder](#zebramap0builder) | className([StringClassNameEnums](#stringclassnameenums) value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, Void value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, boolean value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, String value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, int value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, float value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, long value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, double value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, List<?> value) |
-| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ZebraMap
 public static class ZebraMap<br>

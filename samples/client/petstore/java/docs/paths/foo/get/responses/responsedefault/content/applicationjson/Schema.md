@@ -80,6 +80,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [SchemaMapBuilder](#schemamapbuilder) | setString(Map<String, @Nullable Object> value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, Void value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, boolean value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, String value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, int value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, float value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, long value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, double value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, List<?> value) |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## SchemaMap
 public static class SchemaMap<br>

@@ -81,6 +81,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, Void value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, boolean value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, String value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, int value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, float value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, long value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, double value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, List<?> value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## ObjectModelWithArgAndArgsPropertiesMap01Builder
 public class ObjectModelWithArgAndArgsPropertiesMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -96,6 +106,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | args(String value) |
+
 ## ObjectModelWithArgAndArgsPropertiesMap10Builder
 public class ObjectModelWithArgAndArgsPropertiesMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -111,6 +122,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | arg(String value) |
+
 ## ObjectModelWithArgAndArgsPropertiesMapBuilder
 public class ObjectModelWithArgAndArgsPropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

@@ -81,6 +81,15 @@ A class that builds the Map input type
 | [SchemaMapBuilder1](#schemamapbuilder1) | someProp(double value) |
 | [SchemaMapBuilder1](#schemamapbuilder1) | someProp(List<?> value) |
 | [SchemaMapBuilder1](#schemamapbuilder1) | someProp(Map<String, ?> value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, Void value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, boolean value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, String value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, int value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, float value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, long value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, double value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, List<?> value) |
+| [SchemaMapBuilder1](#schemamapbuilder1) | additionalProperty(String key, Map<String, ?> value) |
 
 ## SchemaMap1
 public static class SchemaMap1<br>

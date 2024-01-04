@@ -79,6 +79,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [PublicKeyMapBuilder](#publickeymapbuilder) | key(String value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, Void value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, boolean value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, String value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, int value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, float value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, long value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, double value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, List<?> value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## PublicKeyMap
 public static class PublicKeyMap<br>

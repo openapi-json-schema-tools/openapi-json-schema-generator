@@ -84,6 +84,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [AppleReqMap0Builder](#applereqmap0builder) | mealy(boolean value) |
+
 ## AppleReqMapBuilder
 public class AppleReqMapBuilder<br>
 builder for `Map<String, Object>`

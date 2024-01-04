@@ -76,6 +76,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ClientMapBuilder1](#clientmapbuilder1) | client(String value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, Void value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, boolean value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, String value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, int value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, float value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, long value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, double value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, List<?> value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ClientMap
 public static class ClientMap<br>

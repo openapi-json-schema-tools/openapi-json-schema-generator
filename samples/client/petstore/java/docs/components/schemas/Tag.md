@@ -85,6 +85,15 @@ A class that builds the Map input type
 | [TagMapBuilder](#tagmapbuilder) | id(long value) |
 | [TagMapBuilder](#tagmapbuilder) | id(double value) |
 | [TagMapBuilder](#tagmapbuilder) | name(String value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, Void value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, boolean value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, String value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, int value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, float value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, long value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, double value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, List<?> value) |
+| [TagMapBuilder](#tagmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## TagMap
 public static class TagMap<br>

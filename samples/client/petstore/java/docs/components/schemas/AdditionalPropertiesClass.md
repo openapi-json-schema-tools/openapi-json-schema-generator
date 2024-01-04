@@ -137,6 +137,15 @@ A class that builds the Map input type
 | [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | map_with_undeclared_properties_anytype_3(Map<String, @Nullable Object> value) |
 | [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | empty_map(Map<String, @Nullable Object> value) |
 | [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | map_with_undeclared_properties_string(Map<String, String> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, Void value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, boolean value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, String value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, int value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, float value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, long value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, double value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, List<?> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## AdditionalPropertiesClassMap
 public static class AdditionalPropertiesClassMap<br>

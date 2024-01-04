@@ -160,6 +160,15 @@ A class that builds the Map input type
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(double value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(List<?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## AnyTypeAndFormatMap
 public static class AnyTypeAndFormatMap<br>

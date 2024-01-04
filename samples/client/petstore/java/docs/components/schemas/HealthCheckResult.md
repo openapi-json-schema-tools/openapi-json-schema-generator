@@ -80,6 +80,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | NullableMessage(Void value) |
 | [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | NullableMessage(String value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, Void value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, boolean value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, String value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, int value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, float value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, long value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, double value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, List<?> value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## HealthCheckResultMap
 public static class HealthCheckResultMap<br>

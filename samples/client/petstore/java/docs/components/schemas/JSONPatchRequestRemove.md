@@ -85,6 +85,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+
 ## JSONPatchRequestRemoveMap01Builder
 public class JSONPatchRequestRemoveMap01Builder<br>
 builder for `Map<String, String>`
@@ -100,6 +101,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [JSONPatchRequestRemoveMap00Builder](#jsonpatchrequestremovemap00builder) | path(String value) |
+
 ## JSONPatchRequestRemoveMap10Builder
 public class JSONPatchRequestRemoveMap10Builder<br>
 builder for `Map<String, String>`
@@ -116,6 +118,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [JSONPatchRequestRemoveMap00Builder](#jsonpatchrequestremovemap00builder) | op(String value) |
 | [JSONPatchRequestRemoveMap00Builder](#jsonpatchrequestremovemap00builder) | op([StringOpEnums](#stringopenums) value) |
+
 ## JSONPatchRequestRemoveMapBuilder
 public class JSONPatchRequestRemoveMapBuilder<br>
 builder for `Map<String, String>`

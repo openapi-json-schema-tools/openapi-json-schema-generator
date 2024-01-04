@@ -79,6 +79,15 @@ A class that builds the Map input type
 | [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(double value) |
 | [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(String value) |
 | [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(boolean value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, boolean value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, String value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, int value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, float value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, long value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, double value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ObjectModelWithRefPropsMap
 public static class ObjectModelWithRefPropsMap<br>

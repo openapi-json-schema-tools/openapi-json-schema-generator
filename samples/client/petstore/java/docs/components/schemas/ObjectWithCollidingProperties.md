@@ -77,6 +77,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | someProp(Map<String, @Nullable Object> value) |
 | [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | someprop(Map<String, @Nullable Object> value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, boolean value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, String value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, int value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, float value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, long value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, double value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ObjectWithCollidingPropertiesMap
 public static class ObjectWithCollidingPropertiesMap<br>

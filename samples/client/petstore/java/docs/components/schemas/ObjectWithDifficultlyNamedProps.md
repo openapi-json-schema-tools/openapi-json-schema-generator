@@ -97,6 +97,16 @@ A class that builds the Map input type
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(float value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(long value) |
 | [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(double value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, Void value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, boolean value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, String value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, int value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, float value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, long value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, double value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, List<?> value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## ObjectWithDifficultlyNamedPropsMapBuilder
 public class ObjectWithDifficultlyNamedPropsMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

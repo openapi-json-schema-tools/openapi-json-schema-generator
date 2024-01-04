@@ -58,6 +58,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, Void value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, boolean value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, String value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, int value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, float value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, long value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, double value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, List<?> value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## TriangleInterfaceMap01Builder
 public class TriangleInterfaceMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -73,6 +83,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | triangleType(String value) |
+
 ## TriangleInterfaceMap10Builder
 public class TriangleInterfaceMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -89,6 +100,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | shapeType(String value) |
 | [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | shapeType([StringShapeTypeEnums](#stringshapetypeenums) value) |
+
 ## TriangleInterfaceMapBuilder
 public class TriangleInterfaceMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

@@ -56,6 +56,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [GmFruitMapBuilder](#gmfruitmapbuilder) | color(String value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, Void value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, boolean value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, String value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, int value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, float value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, long value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, double value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, List<?> value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## GmFruitMap
 public static class GmFruitMap<br>

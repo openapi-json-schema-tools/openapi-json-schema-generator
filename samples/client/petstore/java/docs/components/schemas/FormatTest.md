@@ -220,6 +220,16 @@ A class that builds the Map input type
 | [FormatTestMap0000Builder](#formattestmap0000builder) | pattern_with_digits(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | pattern_with_digits_and_delimiter(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | noneProp(Void value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, Void value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, boolean value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, List<?> value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## FormatTestMap0001Builder
 public class FormatTestMap0001Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -235,6 +245,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | password(String value) |
+
 ## FormatTestMap0010Builder
 public class FormatTestMap0010Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -253,6 +264,7 @@ A class that builds the Map input type
 | [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(long value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(double value) |
+
 ## FormatTestMap0011Builder
 public class FormatTestMap0011Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -272,6 +284,7 @@ A class that builds the Map input type
 | [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(long value) |
 | [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(double value) |
 | [FormatTestMap0010Builder](#formattestmap0010builder) | password(String value) |
+
 ## FormatTestMap0100Builder
 public class FormatTestMap0100Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -287,6 +300,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | date(String value) |
+
 ## FormatTestMap0101Builder
 public class FormatTestMap0101Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -303,6 +317,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [FormatTestMap0001Builder](#formattestmap0001builder) | date(String value) |
 | [FormatTestMap0100Builder](#formattestmap0100builder) | password(String value) |
+
 ## FormatTestMap0110Builder
 public class FormatTestMap0110Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -322,6 +337,7 @@ A class that builds the Map input type
 | [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(float value) |
 | [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(long value) |
 | [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(double value) |
+
 ## FormatTestMap0111Builder
 public class FormatTestMap0111Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -342,6 +358,7 @@ A class that builds the Map input type
 | [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(long value) |
 | [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(double value) |
 | [FormatTestMap0110Builder](#formattestmap0110builder) | password(String value) |
+
 ## FormatTestMap1000Builder
 public class FormatTestMap1000Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -357,6 +374,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | setByte(String value) |
+
 ## FormatTestMap1001Builder
 public class FormatTestMap1001Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -373,6 +391,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [FormatTestMap0001Builder](#formattestmap0001builder) | setByte(String value) |
 | [FormatTestMap1000Builder](#formattestmap1000builder) | password(String value) |
+
 ## FormatTestMap1010Builder
 public class FormatTestMap1010Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -392,6 +411,7 @@ A class that builds the Map input type
 | [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(float value) |
 | [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(long value) |
 | [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(double value) |
+
 ## FormatTestMap1011Builder
 public class FormatTestMap1011Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -412,6 +432,7 @@ A class that builds the Map input type
 | [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(long value) |
 | [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(double value) |
 | [FormatTestMap1010Builder](#formattestmap1010builder) | password(String value) |
+
 ## FormatTestMap1100Builder
 public class FormatTestMap1100Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -428,6 +449,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [FormatTestMap0100Builder](#formattestmap0100builder) | setByte(String value) |
 | [FormatTestMap1000Builder](#formattestmap1000builder) | date(String value) |
+
 ## FormatTestMap1101Builder
 public class FormatTestMap1101Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -445,6 +467,7 @@ A class that builds the Map input type
 | [FormatTestMap0101Builder](#formattestmap0101builder) | setByte(String value) |
 | [FormatTestMap1001Builder](#formattestmap1001builder) | date(String value) |
 | [FormatTestMap1100Builder](#formattestmap1100builder) | password(String value) |
+
 ## FormatTestMap1110Builder
 public class FormatTestMap1110Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -465,6 +488,7 @@ A class that builds the Map input type
 | [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(float value) |
 | [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(long value) |
 | [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(double value) |
+
 ## FormatTestMapBuilder
 public class FormatTestMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

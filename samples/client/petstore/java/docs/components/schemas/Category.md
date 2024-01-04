@@ -85,6 +85,16 @@ A class that builds the Map input type
 | [CategoryMap0Builder](#categorymap0builder) | id(float value) |
 | [CategoryMap0Builder](#categorymap0builder) | id(long value) |
 | [CategoryMap0Builder](#categorymap0builder) | id(double value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, Void value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, boolean value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, String value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, int value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, float value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, long value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, double value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, List<?> value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## CategoryMapBuilder
 public class CategoryMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

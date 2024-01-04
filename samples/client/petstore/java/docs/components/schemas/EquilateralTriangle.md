@@ -104,6 +104,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [Schema1MapBuilder](#schema1mapbuilder) | triangleType(String value) |
 | [Schema1MapBuilder](#schema1mapbuilder) | triangleType([StringTriangleTypeEnums](#stringtriangletypeenums) value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, String value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, int value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, float value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, long value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, double value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema1Map
 public static class Schema1Map<br>

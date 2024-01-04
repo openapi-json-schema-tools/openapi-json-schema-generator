@@ -87,6 +87,7 @@ A class that builds the Map input type
 | [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | petId(float value) |
 | [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | petId(long value) |
 | [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | petId(double value) |
+
 ## NoAdditionalPropertiesMapBuilder
 public class NoAdditionalPropertiesMapBuilder<br>
 builder for `Map<String, Number>`

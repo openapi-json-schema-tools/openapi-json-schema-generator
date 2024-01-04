@@ -82,6 +82,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+
 ## MoneyMap01Builder
 public class MoneyMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -98,6 +99,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [MoneyMap00Builder](#moneymap00builder) | currency(String value) |
 | [MoneyMap00Builder](#moneymap00builder) | currency([Currency.StringCurrencyEnums](../../components/schemas/Currency.md#stringcurrencyenums) value) |
+
 ## MoneyMap10Builder
 public class MoneyMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -113,6 +115,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MoneyMap00Builder](#moneymap00builder) | amount(String value) |
+
 ## MoneyMapBuilder
 public class MoneyMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

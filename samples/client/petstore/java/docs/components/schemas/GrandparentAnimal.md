@@ -76,6 +76,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, Void value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, boolean value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, String value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, int value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, float value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, long value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, double value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, List<?> value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## GrandparentAnimalMapBuilder
 public class GrandparentAnimalMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

@@ -76,6 +76,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, Void value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, boolean value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, String value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, int value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, float value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, long value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, double value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, List<?> value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## BananaMapBuilder
 public class BananaMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

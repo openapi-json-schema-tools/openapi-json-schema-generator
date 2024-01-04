@@ -116,6 +116,15 @@ A class that builds the Map input type
 | [OrderMapBuilder](#ordermapbuilder) | status(String value) |
 | [OrderMapBuilder](#ordermapbuilder) | status([StringStatusEnums](#stringstatusenums) value) |
 | [OrderMapBuilder](#ordermapbuilder) | complete(boolean value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, Void value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, boolean value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, String value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, int value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, float value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, long value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, double value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, List<?> value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## OrderMap
 public static class OrderMap<br>

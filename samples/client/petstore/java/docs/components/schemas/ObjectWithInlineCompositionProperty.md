@@ -81,6 +81,15 @@ A class that builds the Map input type
 | [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | someProp(double value) |
 | [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | someProp(List<?> value) |
 | [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | someProp(Map<String, ?> value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, boolean value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, String value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, int value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, float value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, long value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, double value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, List<?> value) |
+| [ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ObjectWithInlineCompositionPropertyMap
 public static class ObjectWithInlineCompositionPropertyMap<br>

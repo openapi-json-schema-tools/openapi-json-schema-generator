@@ -138,6 +138,16 @@ A class that builds the Map input type
 | [PetMap00Builder](#petmap00builder) | tags(List<Map<String, @Nullable Object>> value) |
 | [PetMap00Builder](#petmap00builder) | status(String value) |
 | [PetMap00Builder](#petmap00builder) | status([StringStatusEnums](#stringstatusenums) value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, Void value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, boolean value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, String value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, int value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, float value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, long value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, double value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, List<?> value) |
+| [PetMap00Builder](#petmap00builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## PetMap01Builder
 public class PetMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -153,6 +163,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PetMap00Builder](#petmap00builder) | photoUrls(List<String> value) |
+
 ## PetMap10Builder
 public class PetMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -168,6 +179,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PetMap00Builder](#petmap00builder) | name(String value) |
+
 ## PetMapBuilder
 public class PetMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

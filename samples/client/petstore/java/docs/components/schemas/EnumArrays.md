@@ -93,6 +93,15 @@ A class that builds the Map input type
 | [EnumArraysMapBuilder](#enumarraysmapbuilder) | just_symbol(String value) |
 | [EnumArraysMapBuilder](#enumarraysmapbuilder) | just_symbol([StringJustSymbolEnums](#stringjustsymbolenums) value) |
 | [EnumArraysMapBuilder](#enumarraysmapbuilder) | array_enum(List<String> value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, Void value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, boolean value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, String value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, int value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, float value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, long value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, double value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, List<?> value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## EnumArraysMap
 public static class EnumArraysMap<br>

@@ -82,6 +82,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | bar(String value) |
 | [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | baz(String value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, Void value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, boolean value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, String value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, int value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, float value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, long value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, double value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ReadOnlyFirstMap
 public static class ReadOnlyFirstMap<br>

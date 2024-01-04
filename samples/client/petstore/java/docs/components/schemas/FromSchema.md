@@ -85,6 +85,15 @@ A class that builds the Map input type
 | [FromSchemaMapBuilder](#fromschemamapbuilder) | id(float value) |
 | [FromSchemaMapBuilder](#fromschemamapbuilder) | id(long value) |
 | [FromSchemaMapBuilder](#fromschemamapbuilder) | id(double value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, Void value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, boolean value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, String value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, int value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, float value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, long value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, double value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, List<?> value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## FromSchemaMap
 public static class FromSchemaMap<br>

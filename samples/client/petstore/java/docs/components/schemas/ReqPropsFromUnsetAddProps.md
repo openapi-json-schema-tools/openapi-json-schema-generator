@@ -70,6 +70,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, Void value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, boolean value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, String value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, int value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, float value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, long value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, double value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, List<?> value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## ReqPropsFromUnsetAddPropsMap01Builder
 public class ReqPropsFromUnsetAddPropsMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -93,6 +103,7 @@ A class that builds the Map input type
 | [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(double value) |
 | [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(List<?> value) |
 | [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(Map<String, ?> value) |
+
 ## ReqPropsFromUnsetAddPropsMap10Builder
 public class ReqPropsFromUnsetAddPropsMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -116,6 +127,7 @@ A class that builds the Map input type
 | [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(double value) |
 | [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(List<?> value) |
 | [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(Map<String, ?> value) |
+
 ## ReqPropsFromUnsetAddPropsMapBuilder
 public class ReqPropsFromUnsetAddPropsMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

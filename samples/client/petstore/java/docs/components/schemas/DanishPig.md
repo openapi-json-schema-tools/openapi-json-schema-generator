@@ -78,6 +78,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, Void value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, boolean value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, String value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, int value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, float value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, long value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, double value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, List<?> value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## DanishPigMapBuilder
 public class DanishPigMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

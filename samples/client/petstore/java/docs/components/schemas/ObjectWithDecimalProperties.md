@@ -95,6 +95,15 @@ A class that builds the Map input type
 | [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(String value) |
 | [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | width(String value) |
 | [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(Map<String, @Nullable Object> value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, boolean value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, String value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, int value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, float value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, long value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, double value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ObjectWithDecimalPropertiesMap
 public static class ObjectWithDecimalPropertiesMap<br>

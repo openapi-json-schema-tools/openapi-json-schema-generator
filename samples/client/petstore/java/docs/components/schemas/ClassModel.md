@@ -58,6 +58,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ClassModelMapBuilder](#classmodelmapbuilder) | setClass(String value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, Void value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, boolean value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, String value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, int value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, float value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, long value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, double value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ClassModelMap
 public static class ClassModelMap<br>

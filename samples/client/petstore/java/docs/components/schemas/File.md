@@ -79,6 +79,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [FileMapBuilder](#filemapbuilder) | sourceURI(String value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, Void value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, boolean value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, String value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, int value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, float value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, long value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, double value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, List<?> value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## FileMap
 public static class FileMap<br>

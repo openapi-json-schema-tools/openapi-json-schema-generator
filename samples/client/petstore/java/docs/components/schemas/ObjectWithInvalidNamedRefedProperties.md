@@ -90,6 +90,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, Void value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, boolean value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, String value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, int value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, float value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, long value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, double value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, List<?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## ObjectWithInvalidNamedRefedPropertiesMap01Builder
 public class ObjectWithInvalidNamedRefedPropertiesMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -105,6 +115,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(Map<String, @Nullable Object> value) |
+
 ## ObjectWithInvalidNamedRefedPropertiesMap10Builder
 public class ObjectWithInvalidNamedRefedPropertiesMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -120,6 +131,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(List<Number> value) |
+
 ## ObjectWithInvalidNamedRefedPropertiesMapBuilder
 public class ObjectWithInvalidNamedRefedPropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

@@ -89,6 +89,16 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [AppleMap0Builder](#applemap0builder) | origin(String value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, Void value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, boolean value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, String value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, int value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, float value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, long value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, double value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, List<?> value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## AppleMapBuilder
 public class AppleMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

@@ -76,6 +76,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | test(String value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, boolean value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, String value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, int value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, float value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, long value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, double value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ObjectWithOptionalTestPropMap
 public static class ObjectWithOptionalTestPropMap<br>

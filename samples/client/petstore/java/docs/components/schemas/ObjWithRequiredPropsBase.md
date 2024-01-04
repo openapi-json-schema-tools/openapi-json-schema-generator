@@ -76,6 +76,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, Void value) |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, boolean value) |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, String value) |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, int value) |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, float value) |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, long value) |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, double value) |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, List<?> value) |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## ObjWithRequiredPropsBaseMapBuilder
 public class ObjWithRequiredPropsBaseMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

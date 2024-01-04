@@ -80,6 +80,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, Void value) |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, boolean value) |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, String value) |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, int value) |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, float value) |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, long value) |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, double value) |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, List<?> value) |
+| [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## AbstractStepMessageMap001Builder
 public class AbstractStepMessageMap001Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -103,6 +113,7 @@ A class that builds the Map input type
 | [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | sequenceNumber(double value) |
 | [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | sequenceNumber(List<?> value) |
 | [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | sequenceNumber(Map<String, ?> value) |
+
 ## AbstractStepMessageMap010Builder
 public class AbstractStepMessageMap010Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -118,6 +129,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | discriminator(String value) |
+
 ## AbstractStepMessageMap011Builder
 public class AbstractStepMessageMap011Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -142,6 +154,7 @@ A class that builds the Map input type
 | [AbstractStepMessageMap010Builder](#abstractstepmessagemap010builder) | sequenceNumber(double value) |
 | [AbstractStepMessageMap010Builder](#abstractstepmessagemap010builder) | sequenceNumber(List<?> value) |
 | [AbstractStepMessageMap010Builder](#abstractstepmessagemap010builder) | sequenceNumber(Map<String, ?> value) |
+
 ## AbstractStepMessageMap100Builder
 public class AbstractStepMessageMap100Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -165,6 +178,7 @@ A class that builds the Map input type
 | [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | description(double value) |
 | [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | description(List<?> value) |
 | [AbstractStepMessageMap000Builder](#abstractstepmessagemap000builder) | description(Map<String, ?> value) |
+
 ## AbstractStepMessageMap101Builder
 public class AbstractStepMessageMap101Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -197,6 +211,7 @@ A class that builds the Map input type
 | [AbstractStepMessageMap100Builder](#abstractstepmessagemap100builder) | sequenceNumber(double value) |
 | [AbstractStepMessageMap100Builder](#abstractstepmessagemap100builder) | sequenceNumber(List<?> value) |
 | [AbstractStepMessageMap100Builder](#abstractstepmessagemap100builder) | sequenceNumber(Map<String, ?> value) |
+
 ## AbstractStepMessageMap110Builder
 public class AbstractStepMessageMap110Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -221,6 +236,7 @@ A class that builds the Map input type
 | [AbstractStepMessageMap010Builder](#abstractstepmessagemap010builder) | description(List<?> value) |
 | [AbstractStepMessageMap010Builder](#abstractstepmessagemap010builder) | description(Map<String, ?> value) |
 | [AbstractStepMessageMap100Builder](#abstractstepmessagemap100builder) | discriminator(String value) |
+
 ## AbstractStepMessageMapBuilder
 public class AbstractStepMessageMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

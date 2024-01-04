@@ -162,6 +162,15 @@ A class that builds the Map input type
 | [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(double value) |
 | [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(List<?> value) |
 | [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(Map<String, ?> value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, Void value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, boolean value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, String value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, int value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, float value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, long value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, double value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, List<?> value) |
+| [UserMapBuilder](#usermapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## UserMap
 public static class UserMap<br>

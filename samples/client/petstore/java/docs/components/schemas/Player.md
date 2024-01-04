@@ -80,6 +80,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [PlayerMapBuilder](#playermapbuilder) | name(String value) |
 | [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(Map<String, @Nullable Object> value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, Void value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, boolean value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, String value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, int value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, float value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, long value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, double value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, List<?> value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## PlayerMap
 public static class PlayerMap<br>

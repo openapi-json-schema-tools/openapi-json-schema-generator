@@ -61,6 +61,15 @@ A class that builds the Map input type
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(int value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(float value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | setClass(String value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, Void value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, String value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, int value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, float value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, long value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, double value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema200ResponseMap
 public static class Schema200ResponseMap<br>

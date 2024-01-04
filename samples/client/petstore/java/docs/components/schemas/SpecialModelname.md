@@ -79,6 +79,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | a(String value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, Void value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, boolean value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, String value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, int value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, float value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, long value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, double value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, List<?> value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## SpecialModelnameMap
 public static class SpecialModelnameMap<br>

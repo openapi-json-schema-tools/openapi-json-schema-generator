@@ -82,6 +82,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | bar(String value) |
 | [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | foo(String value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, Void value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, boolean value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, String value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, int value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, float value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, long value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, double value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, List<?> value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## HasOnlyReadOnlyMap
 public static class HasOnlyReadOnlyMap<br>

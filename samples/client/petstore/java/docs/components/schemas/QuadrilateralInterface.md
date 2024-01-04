@@ -58,6 +58,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, Void value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, boolean value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, String value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, int value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, float value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, long value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, double value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, List<?> value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## QuadrilateralInterfaceMap01Builder
 public class QuadrilateralInterfaceMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -74,6 +84,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | shapeType(String value) |
 | [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | shapeType([StringShapeTypeEnums](#stringshapetypeenums) value) |
+
 ## QuadrilateralInterfaceMap10Builder
 public class QuadrilateralInterfaceMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -89,6 +100,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | quadrilateralType(String value) |
+
 ## QuadrilateralInterfaceMapBuilder
 public class QuadrilateralInterfaceMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

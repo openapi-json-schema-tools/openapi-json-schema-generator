@@ -90,6 +90,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+
 ## JSONPatchRequestMoveCopyMap001Builder
 public class JSONPatchRequestMoveCopyMap001Builder<br>
 builder for `Map<String, String>`
@@ -105,6 +106,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [JSONPatchRequestMoveCopyMap000Builder](#jsonpatchrequestmovecopymap000builder) | path(String value) |
+
 ## JSONPatchRequestMoveCopyMap010Builder
 public class JSONPatchRequestMoveCopyMap010Builder<br>
 builder for `Map<String, String>`
@@ -121,6 +123,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [JSONPatchRequestMoveCopyMap000Builder](#jsonpatchrequestmovecopymap000builder) | op(String value) |
 | [JSONPatchRequestMoveCopyMap000Builder](#jsonpatchrequestmovecopymap000builder) | op([StringOpEnums](#stringopenums) value) |
+
 ## JSONPatchRequestMoveCopyMap011Builder
 public class JSONPatchRequestMoveCopyMap011Builder<br>
 builder for `Map<String, String>`
@@ -138,6 +141,7 @@ A class that builds the Map input type
 | [JSONPatchRequestMoveCopyMap001Builder](#jsonpatchrequestmovecopymap001builder) | op(String value) |
 | [JSONPatchRequestMoveCopyMap001Builder](#jsonpatchrequestmovecopymap001builder) | op([StringOpEnums](#stringopenums) value) |
 | [JSONPatchRequestMoveCopyMap010Builder](#jsonpatchrequestmovecopymap010builder) | path(String value) |
+
 ## JSONPatchRequestMoveCopyMap100Builder
 public class JSONPatchRequestMoveCopyMap100Builder<br>
 builder for `Map<String, String>`
@@ -153,6 +157,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [JSONPatchRequestMoveCopyMap000Builder](#jsonpatchrequestmovecopymap000builder) | from(String value) |
+
 ## JSONPatchRequestMoveCopyMap101Builder
 public class JSONPatchRequestMoveCopyMap101Builder<br>
 builder for `Map<String, String>`
@@ -169,6 +174,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [JSONPatchRequestMoveCopyMap001Builder](#jsonpatchrequestmovecopymap001builder) | from(String value) |
 | [JSONPatchRequestMoveCopyMap100Builder](#jsonpatchrequestmovecopymap100builder) | path(String value) |
+
 ## JSONPatchRequestMoveCopyMap110Builder
 public class JSONPatchRequestMoveCopyMap110Builder<br>
 builder for `Map<String, String>`
@@ -186,6 +192,7 @@ A class that builds the Map input type
 | [JSONPatchRequestMoveCopyMap010Builder](#jsonpatchrequestmovecopymap010builder) | from(String value) |
 | [JSONPatchRequestMoveCopyMap100Builder](#jsonpatchrequestmovecopymap100builder) | op(String value) |
 | [JSONPatchRequestMoveCopyMap100Builder](#jsonpatchrequestmovecopymap100builder) | op([StringOpEnums](#stringopenums) value) |
+
 ## JSONPatchRequestMoveCopyMapBuilder
 public class JSONPatchRequestMoveCopyMapBuilder<br>
 builder for `Map<String, String>`

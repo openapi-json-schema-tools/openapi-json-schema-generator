@@ -106,6 +106,15 @@ A class that builds the Map input type
 | [CapitalizationMapBuilder](#capitalizationmapbuilder) | Capital_Snake(String value) |
 | [CapitalizationMapBuilder](#capitalizationmapbuilder) | SCA_ETH_Flow_Points(String value) |
 | [CapitalizationMapBuilder](#capitalizationmapbuilder) | ATT_NAME(String value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, Void value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, boolean value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, String value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, int value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, float value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, long value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, double value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, List<?> value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## CapitalizationMap
 public static class CapitalizationMap<br>

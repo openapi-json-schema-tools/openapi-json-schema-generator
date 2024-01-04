@@ -88,6 +88,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Object> | build()<br>Returns map input that should be used with Schema.validate |
+
 ## PaginatedResultMyObjectDtoMap01Builder
 public class PaginatedResultMyObjectDtoMap01Builder<br>
 builder for `Map<String, Object>`
@@ -103,6 +104,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | results(List<Map<String, String>> value) |
+
 ## PaginatedResultMyObjectDtoMap10Builder
 public class PaginatedResultMyObjectDtoMap10Builder<br>
 builder for `Map<String, Object>`
@@ -121,6 +123,7 @@ A class that builds the Map input type
 | [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | count(float value) |
 | [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | count(long value) |
 | [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | count(double value) |
+
 ## PaginatedResultMyObjectDtoMapBuilder
 public class PaginatedResultMyObjectDtoMapBuilder<br>
 builder for `Map<String, Object>`

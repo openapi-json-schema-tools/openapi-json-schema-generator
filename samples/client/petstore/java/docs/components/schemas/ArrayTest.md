@@ -123,6 +123,15 @@ A class that builds the Map input type
 | [ArrayTestMapBuilder](#arraytestmapbuilder) | array_of_string(List<String> value) |
 | [ArrayTestMapBuilder](#arraytestmapbuilder) | array_array_of_integer(List<List<Number>> value) |
 | [ArrayTestMapBuilder](#arraytestmapbuilder) | array_array_of_model(List<List<Map<String, @Nullable Object>>> value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, Void value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, boolean value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, String value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, int value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, float value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, long value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, double value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ArrayTestMap
 public static class ArrayTestMap<br>

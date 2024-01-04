@@ -78,6 +78,16 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, Void value) |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, boolean value) |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, String value) |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, int value) |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, float value) |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, long value) |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, double value) |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, List<?> value) |
+| [BasquePigMap0Builder](#basquepigmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## BasquePigMapBuilder
 public class BasquePigMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

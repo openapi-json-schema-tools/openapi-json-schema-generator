@@ -91,6 +91,15 @@ A class that builds the Map input type
 | [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | setUuid(String value) |
 | [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | dateTime(String value) |
 | [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | setMap(Map<String, Map<String, @Nullable Object>> value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, Void value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, boolean value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, String value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, int value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, float value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, long value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, double value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, List<?> value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## MixedPropertiesAndAdditionalPropertiesClassMap
 public static class MixedPropertiesAndAdditionalPropertiesClassMap<br>

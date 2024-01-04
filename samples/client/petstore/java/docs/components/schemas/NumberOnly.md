@@ -79,6 +79,15 @@ A class that builds the Map input type
 | [NumberOnlyMapBuilder](#numberonlymapbuilder) | JustNumber(float value) |
 | [NumberOnlyMapBuilder](#numberonlymapbuilder) | JustNumber(long value) |
 | [NumberOnlyMapBuilder](#numberonlymapbuilder) | JustNumber(double value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, Void value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, boolean value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, String value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, int value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, float value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, long value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, double value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, List<?> value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## NumberOnlyMap
 public static class NumberOnlyMap<br>

@@ -102,6 +102,16 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [Schema1Map0Builder](#schema1map0builder) | name(String value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, Void value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, boolean value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, String value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, int value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, float value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, long value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, double value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, List<?> value) |
+| [Schema1Map0Builder](#schema1map0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
 builder for `Map<String, @Nullable Object>`

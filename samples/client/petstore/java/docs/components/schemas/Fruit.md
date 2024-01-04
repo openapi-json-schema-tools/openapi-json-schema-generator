@@ -56,6 +56,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [FruitMapBuilder](#fruitmapbuilder) | color(String value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, Void value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, boolean value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, String value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, int value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, float value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, long value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, double value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, List<?> value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## FruitMap
 public static class FruitMap<br>

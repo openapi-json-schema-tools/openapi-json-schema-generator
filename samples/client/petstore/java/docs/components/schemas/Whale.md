@@ -90,6 +90,16 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [WhaleMap0Builder](#whalemap0builder) | hasBaleen(boolean value) |
 | [WhaleMap0Builder](#whalemap0builder) | hasTeeth(boolean value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, Void value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, boolean value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, String value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, int value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, float value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, long value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, double value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, List<?> value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## WhaleMapBuilder
 public class WhaleMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

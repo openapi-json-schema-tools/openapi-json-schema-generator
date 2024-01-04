@@ -82,6 +82,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(Map<String, @Nullable Object> value) |
 | [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | files(List<Map<String, @Nullable Object>> value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, Void value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, boolean value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, String value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, int value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, float value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, long value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, double value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, List<?> value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## FileSchemaTestClassMap
 public static class FileSchemaTestClassMap<br>

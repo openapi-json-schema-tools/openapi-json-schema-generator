@@ -71,6 +71,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [FooMapBuilder](#foomapbuilder) | bar(String value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, Void value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, boolean value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, String value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, int value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, float value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, long value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, double value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, List<?> value) |
+| [FooMapBuilder](#foomapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## FooMap
 public static class FooMap<br>

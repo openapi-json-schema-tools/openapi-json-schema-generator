@@ -83,6 +83,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | ArrayNumber(List<Number> value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, Void value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, boolean value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, String value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, int value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, float value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, long value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, double value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, List<?> value) |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ArrayOfNumberOnlyMap
 public static class ArrayOfNumberOnlyMap<br>

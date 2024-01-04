@@ -82,6 +82,16 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [AnimalMap0Builder](#animalmap0builder) | color(String value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, Void value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, boolean value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, String value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, int value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, float value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, long value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, double value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, List<?> value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## AnimalMapBuilder
 public class AnimalMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

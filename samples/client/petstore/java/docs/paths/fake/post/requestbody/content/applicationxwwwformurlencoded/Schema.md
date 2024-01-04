@@ -161,6 +161,16 @@ A class that builds the Map input type
 | [SchemaMap0000Builder](#schemamap0000builder) | dateTime(String value) |
 | [SchemaMap0000Builder](#schemamap0000builder) | password(String value) |
 | [SchemaMap0000Builder](#schemamap0000builder) | callback(String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, Void value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, boolean value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, int value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, float value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, long value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, double value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, List<?> value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## SchemaMap0001Builder
 public class SchemaMap0001Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -176,6 +186,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap0000Builder](#schemamap0000builder) | pattern_without_delimiter(String value) |
+
 ## SchemaMap0010Builder
 public class SchemaMap0010Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -194,6 +205,7 @@ A class that builds the Map input type
 | [SchemaMap0000Builder](#schemamap0000builder) | setNumber(float value) |
 | [SchemaMap0000Builder](#schemamap0000builder) | setNumber(long value) |
 | [SchemaMap0000Builder](#schemamap0000builder) | setNumber(double value) |
+
 ## SchemaMap0011Builder
 public class SchemaMap0011Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -213,6 +225,7 @@ A class that builds the Map input type
 | [SchemaMap0001Builder](#schemamap0001builder) | setNumber(long value) |
 | [SchemaMap0001Builder](#schemamap0001builder) | setNumber(double value) |
 | [SchemaMap0010Builder](#schemamap0010builder) | pattern_without_delimiter(String value) |
+
 ## SchemaMap0100Builder
 public class SchemaMap0100Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -231,6 +244,7 @@ A class that builds the Map input type
 | [SchemaMap0000Builder](#schemamap0000builder) | setDouble(float value) |
 | [SchemaMap0000Builder](#schemamap0000builder) | setDouble(long value) |
 | [SchemaMap0000Builder](#schemamap0000builder) | setDouble(double value) |
+
 ## SchemaMap0101Builder
 public class SchemaMap0101Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -250,6 +264,7 @@ A class that builds the Map input type
 | [SchemaMap0001Builder](#schemamap0001builder) | setDouble(long value) |
 | [SchemaMap0001Builder](#schemamap0001builder) | setDouble(double value) |
 | [SchemaMap0100Builder](#schemamap0100builder) | pattern_without_delimiter(String value) |
+
 ## SchemaMap0110Builder
 public class SchemaMap0110Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -272,6 +287,7 @@ A class that builds the Map input type
 | [SchemaMap0100Builder](#schemamap0100builder) | setNumber(float value) |
 | [SchemaMap0100Builder](#schemamap0100builder) | setNumber(long value) |
 | [SchemaMap0100Builder](#schemamap0100builder) | setNumber(double value) |
+
 ## SchemaMap0111Builder
 public class SchemaMap0111Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -295,6 +311,7 @@ A class that builds the Map input type
 | [SchemaMap0101Builder](#schemamap0101builder) | setNumber(long value) |
 | [SchemaMap0101Builder](#schemamap0101builder) | setNumber(double value) |
 | [SchemaMap0110Builder](#schemamap0110builder) | pattern_without_delimiter(String value) |
+
 ## SchemaMap1000Builder
 public class SchemaMap1000Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -310,6 +327,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap0000Builder](#schemamap0000builder) | setByte(String value) |
+
 ## SchemaMap1001Builder
 public class SchemaMap1001Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -326,6 +344,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [SchemaMap0001Builder](#schemamap0001builder) | setByte(String value) |
 | [SchemaMap1000Builder](#schemamap1000builder) | pattern_without_delimiter(String value) |
+
 ## SchemaMap1010Builder
 public class SchemaMap1010Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -345,6 +364,7 @@ A class that builds the Map input type
 | [SchemaMap1000Builder](#schemamap1000builder) | setNumber(float value) |
 | [SchemaMap1000Builder](#schemamap1000builder) | setNumber(long value) |
 | [SchemaMap1000Builder](#schemamap1000builder) | setNumber(double value) |
+
 ## SchemaMap1011Builder
 public class SchemaMap1011Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -365,6 +385,7 @@ A class that builds the Map input type
 | [SchemaMap1001Builder](#schemamap1001builder) | setNumber(long value) |
 | [SchemaMap1001Builder](#schemamap1001builder) | setNumber(double value) |
 | [SchemaMap1010Builder](#schemamap1010builder) | pattern_without_delimiter(String value) |
+
 ## SchemaMap1100Builder
 public class SchemaMap1100Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -384,6 +405,7 @@ A class that builds the Map input type
 | [SchemaMap1000Builder](#schemamap1000builder) | setDouble(float value) |
 | [SchemaMap1000Builder](#schemamap1000builder) | setDouble(long value) |
 | [SchemaMap1000Builder](#schemamap1000builder) | setDouble(double value) |
+
 ## SchemaMap1101Builder
 public class SchemaMap1101Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -404,6 +426,7 @@ A class that builds the Map input type
 | [SchemaMap1001Builder](#schemamap1001builder) | setDouble(long value) |
 | [SchemaMap1001Builder](#schemamap1001builder) | setDouble(double value) |
 | [SchemaMap1100Builder](#schemamap1100builder) | pattern_without_delimiter(String value) |
+
 ## SchemaMap1110Builder
 public class SchemaMap1110Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -427,6 +450,7 @@ A class that builds the Map input type
 | [SchemaMap1100Builder](#schemamap1100builder) | setNumber(float value) |
 | [SchemaMap1100Builder](#schemamap1100builder) | setNumber(long value) |
 | [SchemaMap1100Builder](#schemamap1100builder) | setNumber(double value) |
+
 ## SchemaMapBuilder
 public class SchemaMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

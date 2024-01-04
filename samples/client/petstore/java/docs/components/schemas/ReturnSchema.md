@@ -59,6 +59,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ReturnMapBuilder1](#returnmapbuilder1) | setReturn(int value) |
 | [ReturnMapBuilder1](#returnmapbuilder1) | setReturn(float value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, Void value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, boolean value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, String value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, int value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, float value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, long value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, double value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, List<?> value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ReturnMap
 public static class ReturnMap<br>

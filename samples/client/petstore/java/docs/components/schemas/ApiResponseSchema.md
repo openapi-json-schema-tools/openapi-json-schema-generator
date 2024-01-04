@@ -89,6 +89,15 @@ A class that builds the Map input type
 | [ApiResponseMapBuilder](#apiresponsemapbuilder) | code(float value) |
 | [ApiResponseMapBuilder](#apiresponsemapbuilder) | type(String value) |
 | [ApiResponseMapBuilder](#apiresponsemapbuilder) | message(String value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, Void value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, boolean value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, String value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, int value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, float value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, long value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, double value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, List<?> value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ApiResponseMap
 public static class ApiResponseMap<br>

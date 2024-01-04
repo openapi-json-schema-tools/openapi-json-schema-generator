@@ -144,6 +144,16 @@ A class that builds the Map input type
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.LongIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#longintegerenumonevalueenums) value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.FloatIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#floatintegerenumonevalueenums) value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.DoubleIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#doubleintegerenumonevalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, Void value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, boolean value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, int value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, float value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, long value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, double value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, List<?> value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## EnumTestMapBuilder
 public class EnumTestMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
