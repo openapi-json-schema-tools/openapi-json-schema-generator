@@ -254,7 +254,7 @@ public class EnumsInProperties {
             return instance;
         }
         public EnumsInProperties0MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return this;
+            return new EnumsInProperties0MapBuilder(instance);
         }
         public EnumsInProperties0MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

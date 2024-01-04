@@ -36,7 +36,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | validate([Map<?, ?>](#propertynamedrefthatisnotareferencemapbuilder) arg, SchemaConfiguration configuration) |
+| [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | validate([Map&lt;?, ?&gt;](#propertynamedrefthatisnotareferencemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PropertyNamedRefThatIsNotAReferenceMapBuilder
@@ -50,12 +50,11 @@ A class that builds the Map input type
 | --------------------------- |
 | PropertyNamedRefThatIsNotAReferenceMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| PropertyNamedRefThatIsNotAReferenceMapBuilder | setDollarSignRef(String value) |
 
 ## PropertyNamedRefThatIsNotAReferenceMap
 public static class PropertyNamedRefThatIsNotAReferenceMap<br>

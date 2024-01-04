@@ -37,7 +37,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | validate([Map<?, ?>](#additionalpropertiesareallowedbydefaultmapbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | validate([Map&lt;?, ?&gt;](#additionalpropertiesareallowedbydefaultmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalpropertiesAreAllowedByDefaultMapBuilder
@@ -51,12 +51,28 @@ A class that builds the Map input type
 | --------------------------- |
 | AdditionalpropertiesAreAllowedByDefaultMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(Void value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(boolean value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(String value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(int value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(float value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(long value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(double value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(List<?> value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(Map<String, ?> value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(Void value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(boolean value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(String value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(int value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(float value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(long value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(double value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(List<?> value) |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(Map<String, ?> value) |
 
 ## AdditionalpropertiesAreAllowedByDefaultMap
 public static class AdditionalpropertiesAreAllowedByDefaultMap<br>

@@ -35,7 +35,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [RefInPropertyMap](#refinpropertymap) | validate([Map<?, ?>](#refinpropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [RefInPropertyMap](#refinpropertymap) | validate([Map&lt;?, ?&gt;](#refinpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RefInPropertyMapBuilder
@@ -49,12 +49,19 @@ A class that builds the Map input type
 | --------------------------- |
 | RefInPropertyMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| RefInPropertyMapBuilder | a(Void value) |
+| RefInPropertyMapBuilder | a(boolean value) |
+| RefInPropertyMapBuilder | a(String value) |
+| RefInPropertyMapBuilder | a(int value) |
+| RefInPropertyMapBuilder | a(float value) |
+| RefInPropertyMapBuilder | a(long value) |
+| RefInPropertyMapBuilder | a(double value) |
+| RefInPropertyMapBuilder | a(List<?> value) |
+| RefInPropertyMapBuilder | a(Map<String, ?> value) |
 
 ## RefInPropertyMap
 public static class RefInPropertyMap<br>

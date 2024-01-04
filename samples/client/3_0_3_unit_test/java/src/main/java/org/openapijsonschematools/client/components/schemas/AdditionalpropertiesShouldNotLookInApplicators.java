@@ -162,7 +162,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return instance;
         }
         public Schema0MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return this;
+            return new Schema0MapBuilder(instance);
         }
         public Schema0MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

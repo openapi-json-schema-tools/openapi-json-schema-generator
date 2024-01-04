@@ -38,7 +38,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [RequiredValidationMap](#requiredvalidationmap) | validate([Map<?, ?>](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
+| [RequiredValidationMap](#requiredvalidationmap) | validate([Map&lt;?, ?&gt;](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RequiredValidation0MapBuilder
@@ -52,12 +52,19 @@ A class that builds the Map input type
 | --------------------------- |
 | RequiredValidation0MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| RequiredValidation0MapBuilder | bar(Void value) |
+| RequiredValidation0MapBuilder | bar(boolean value) |
+| RequiredValidation0MapBuilder | bar(String value) |
+| RequiredValidation0MapBuilder | bar(int value) |
+| RequiredValidation0MapBuilder | bar(float value) |
+| RequiredValidation0MapBuilder | bar(long value) |
+| RequiredValidation0MapBuilder | bar(double value) |
+| RequiredValidation0MapBuilder | bar(List<?> value) |
+| RequiredValidation0MapBuilder | bar(Map<String, ?> value) |
 ## RequiredValidationMapBuilder
 public class RequiredValidationMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -69,11 +76,18 @@ A class that builds the Map input type
 | --------------------------- |
 | RequiredValidationMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-
+| RequiredValidation0MapBuilder | foo(Void value) |
+| RequiredValidation0MapBuilder | foo(boolean value) |
+| RequiredValidation0MapBuilder | foo(String value) |
+| RequiredValidation0MapBuilder | foo(int value) |
+| RequiredValidation0MapBuilder | foo(float value) |
+| RequiredValidation0MapBuilder | foo(long value) |
+| RequiredValidation0MapBuilder | foo(double value) |
+| RequiredValidation0MapBuilder | foo(List<?> value) |
+| RequiredValidation0MapBuilder | foo(Map<String, ?> value) |
 
 ## RequiredValidationMap
 public static class RequiredValidationMap<br>

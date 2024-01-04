@@ -36,7 +36,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | validate([Map<?, ?>](#requiredwithemptyarraymapbuilder) arg, SchemaConfiguration configuration) |
+| [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | validate([Map&lt;?, ?&gt;](#requiredwithemptyarraymapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RequiredWithEmptyArrayMapBuilder
@@ -50,12 +50,19 @@ A class that builds the Map input type
 | --------------------------- |
 | RequiredWithEmptyArrayMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| RequiredWithEmptyArrayMapBuilder | foo(Void value) |
+| RequiredWithEmptyArrayMapBuilder | foo(boolean value) |
+| RequiredWithEmptyArrayMapBuilder | foo(String value) |
+| RequiredWithEmptyArrayMapBuilder | foo(int value) |
+| RequiredWithEmptyArrayMapBuilder | foo(float value) |
+| RequiredWithEmptyArrayMapBuilder | foo(long value) |
+| RequiredWithEmptyArrayMapBuilder | foo(double value) |
+| RequiredWithEmptyArrayMapBuilder | foo(List<?> value) |
+| RequiredWithEmptyArrayMapBuilder | foo(Map<String, ?> value) |
 
 ## RequiredWithEmptyArrayMap
 public static class RequiredWithEmptyArrayMap<br>

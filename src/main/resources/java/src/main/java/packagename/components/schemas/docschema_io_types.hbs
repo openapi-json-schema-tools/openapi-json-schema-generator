@@ -16,9 +16,9 @@
 | boolean | validate([Boolean{{enumInfo.jsonPathPiece.pascalCase}}](#boolean{{enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
     {{/and}}
     {{#if mapOutputJsonPathPiece }}
-| [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map&lt;?, ?&gt;](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
     {{else}}
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
 | [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |

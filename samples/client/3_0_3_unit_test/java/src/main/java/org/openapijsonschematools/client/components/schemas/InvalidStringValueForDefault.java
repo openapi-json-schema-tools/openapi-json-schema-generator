@@ -141,7 +141,7 @@ public class InvalidStringValueForDefault {
             return instance;
         }
         public InvalidStringValueForDefaultMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return this;
+            return new InvalidStringValueForDefaultMapBuilder(instance);
         }
         public InvalidStringValueForDefaultMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

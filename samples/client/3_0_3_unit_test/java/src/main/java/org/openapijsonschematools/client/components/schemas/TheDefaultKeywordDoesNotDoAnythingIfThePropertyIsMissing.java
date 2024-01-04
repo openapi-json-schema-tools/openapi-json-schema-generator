@@ -170,7 +170,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             return instance;
         }
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder getBuilderAfterAlpha(Map<String, @Nullable Object> instance) {
-            return this;
+            return new TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder(instance);
         }
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

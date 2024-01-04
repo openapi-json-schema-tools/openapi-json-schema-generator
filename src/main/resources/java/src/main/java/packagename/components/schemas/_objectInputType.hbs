@@ -35,7 +35,7 @@ public interface SetterFor{{jsonPathPiece.pascalCase}}<T> {
 {{/with}}
 {{#each mapBuilders}}
 
-public static class {{className}}{{#and @first (eq ../additionalProperties null) }} extends UnsetAddPropsSetter<{{className}}>{{/and}} implements {{#if @first}}BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>{{#if ../optionalProperties}}, {{/if}}{{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{className}}>{{#unless @last}}, {{/unless}}{{/each}}{{#and ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}, SetterFor{{../additionalProperties.jsonPathPiece.pascalCase}}<{{className}}>{{/and}} {
+public static class {{className}}{{#and @first (eq ../additionalProperties null) }} extends UnsetAddPropsSetter<{{className}}>{{/and}} implements {{#if @first}}BaseBuilder<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>{{#if ../optionalProperties}}, {{/if}}{{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{builder.className}}>{{#unless @last}}, {{/unless}}{{/each}}{{#and ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}, SetterFor{{../additionalProperties.jsonPathPiece.pascalCase}}<{{className}}>{{/and}} {
     private final Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
     {{#if @first}}
         {{#and (eq ../requiredProperties null) (eq ../optionalProperties null) }}
@@ -90,12 +90,12 @@ public static class {{className}}{{#and @first (eq ../additionalProperties null)
     }
     {{/or}}
     {{#each keyToBuilder}}
-    public {{className}} getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+    public {{builder.className}} getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
         {{#eq this ../this}}
             {{! optional property }}
         return this;
         {{else}}
-        return new {{className}}(instance);
+        return new {{builder.className}}(instance);
         {{/eq}}
     }
     {{/each}}

@@ -97,7 +97,7 @@ public class PropertyNamedRefThatIsNotAReference {
             return instance;
         }
         public PropertyNamedRefThatIsNotAReferenceMapBuilder getBuilderAfterRef(Map<String, @Nullable Object> instance) {
-            return this;
+            return new PropertyNamedRefThatIsNotAReferenceMapBuilder(instance);
         }
         public PropertyNamedRefThatIsNotAReferenceMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

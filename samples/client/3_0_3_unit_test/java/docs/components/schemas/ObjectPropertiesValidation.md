@@ -37,7 +37,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<?, ?>](#objectpropertiesvalidationmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map&lt;?, ?&gt;](#objectpropertiesvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectPropertiesValidationMapBuilder
@@ -51,12 +51,15 @@ A class that builds the Map input type
 | --------------------------- |
 | ObjectPropertiesValidationMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| ObjectPropertiesValidationMapBuilder | foo(int value) |
+| ObjectPropertiesValidationMapBuilder | foo(float value) |
+| ObjectPropertiesValidationMapBuilder | foo(long value) |
+| ObjectPropertiesValidationMapBuilder | foo(double value) |
+| ObjectPropertiesValidationMapBuilder | bar(String value) |
 
 ## ObjectPropertiesValidationMap
 public static class ObjectPropertiesValidationMap<br>

@@ -36,7 +36,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate([Map<?, ?>](#invalidstringvaluefordefaultmapbuilder) arg, SchemaConfiguration configuration) |
+| [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate([Map&lt;?, ?&gt;](#invalidstringvaluefordefaultmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## InvalidStringValueForDefaultMapBuilder
@@ -50,12 +50,11 @@ A class that builds the Map input type
 | --------------------------- |
 | InvalidStringValueForDefaultMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| InvalidStringValueForDefaultMapBuilder | bar(String value) |
 
 ## InvalidStringValueForDefaultMap
 public static class InvalidStringValueForDefaultMap<br>

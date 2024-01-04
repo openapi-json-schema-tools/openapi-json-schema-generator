@@ -325,22 +325,22 @@ public class PropertiesWithEscapedCharacters {
             return instance;
         }
         public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return this;
+            return new PropertiesWithEscapedCharactersMapBuilder(instance);
         }
         public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return this;
+            return new PropertiesWithEscapedCharactersMapBuilder(instance);
         }
         public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return this;
+            return new PropertiesWithEscapedCharactersMapBuilder(instance);
         }
         public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return this;
+            return new PropertiesWithEscapedCharactersMapBuilder(instance);
         }
         public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return this;
+            return new PropertiesWithEscapedCharactersMapBuilder(instance);
         }
         public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return this;
+            return new PropertiesWithEscapedCharactersMapBuilder(instance);
         }
         public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

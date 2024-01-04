@@ -160,10 +160,10 @@ public class ObjectPropertiesValidation {
             return instance;
         }
         public ObjectPropertiesValidationMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return this;
+            return new ObjectPropertiesValidationMapBuilder(instance);
         }
         public ObjectPropertiesValidationMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return this;
+            return new ObjectPropertiesValidationMapBuilder(instance);
         }
         public ObjectPropertiesValidationMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;

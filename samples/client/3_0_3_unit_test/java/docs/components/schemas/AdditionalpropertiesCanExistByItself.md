@@ -67,12 +67,10 @@ A class that builds the Map input type
 | --------------------------- |
 | AdditionalpropertiesCanExistByItselfMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Boolean> | build() |
-
 
 ## AdditionalpropertiesCanExistByItselfMap
 public static class AdditionalpropertiesCanExistByItselfMap<br>

@@ -80,12 +80,12 @@ A class that builds the Map input type
 | --------------------------- |
 | EnumsInProperties0MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| EnumsInProperties0MapBuilder | foo(String value) |
+| EnumsInProperties0MapBuilder | foo([StringFooEnums](#stringfooenums) value) |
 ## EnumsInPropertiesMapBuilder
 public class EnumsInPropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -97,11 +97,11 @@ A class that builds the Map input type
 | --------------------------- |
 | EnumsInPropertiesMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-
+| EnumsInProperties0MapBuilder | bar(String value) |
+| EnumsInProperties0MapBuilder | bar([StringBarEnums](#stringbarenums) value) |
 
 ## EnumsInPropertiesMap
 public static class EnumsInPropertiesMap<br>

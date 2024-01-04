@@ -71,12 +71,14 @@ A class that builds the Map input type
 | --------------------------- |
 | TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder | alpha(int value) |
+| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder | alpha(float value) |
+| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder | alpha(long value) |
+| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder | alpha(double value) |
 
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap
 public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap<br>

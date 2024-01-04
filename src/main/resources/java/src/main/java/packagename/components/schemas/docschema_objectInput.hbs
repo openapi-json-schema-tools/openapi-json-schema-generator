@@ -19,12 +19,19 @@ A class that builds the Map input type
 | {{className}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance)<br>Creates a builder that contains the passed instance |
     {{/if}}
 
-
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
     {{#if @first}}
 | Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> | build() |
     {{/if}}
-
+    {{#each keyToBuilder}}
+        {{#with schema }}
+            {{#if ../@key.isValid}}
+{{> src/main/java/packagename/components/schemas/_objectInputSetter forDocs=true builderClass=../builder.className methodName=../@key.original getBuilderMethod=(join "getBuilderAfter" ../@key.pascalCase "") key=../@key.original }}
+            {{else}}
+{{> src/main/java/packagename/components/schemas/_objectInputSetter forDocs=true builderClass=../builder.className methodName=../@key.camelCase getBuilderMethod=(join "getBuilderAfter" ../@key.pascalCase "") key=../@key.original }}
+            {{/if}}
+        {{/with}}
+    {{/each}}
 {{/each}}

@@ -36,7 +36,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate([Map<?, ?>](#requireddefaultvalidationmapbuilder) arg, SchemaConfiguration configuration) |
+| [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate([Map&lt;?, ?&gt;](#requireddefaultvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RequiredDefaultValidationMapBuilder
@@ -50,12 +50,19 @@ A class that builds the Map input type
 | --------------------------- |
 | RequiredDefaultValidationMapBuilder()<br>Creates a builder that contains an empty map |
 
-
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build() |
-
+| RequiredDefaultValidationMapBuilder | foo(Void value) |
+| RequiredDefaultValidationMapBuilder | foo(boolean value) |
+| RequiredDefaultValidationMapBuilder | foo(String value) |
+| RequiredDefaultValidationMapBuilder | foo(int value) |
+| RequiredDefaultValidationMapBuilder | foo(float value) |
+| RequiredDefaultValidationMapBuilder | foo(long value) |
+| RequiredDefaultValidationMapBuilder | foo(double value) |
+| RequiredDefaultValidationMapBuilder | foo(List<?> value) |
+| RequiredDefaultValidationMapBuilder | foo(Map<String, ?> value) |
 
 ## RequiredDefaultValidationMap
 public static class RequiredDefaultValidationMap<br>

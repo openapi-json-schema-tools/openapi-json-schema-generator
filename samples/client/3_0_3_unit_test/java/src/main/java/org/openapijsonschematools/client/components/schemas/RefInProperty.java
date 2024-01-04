@@ -143,7 +143,7 @@ public class RefInProperty {
             return instance;
         }
         public RefInPropertyMapBuilder getBuilderAfterA(Map<String, @Nullable Object> instance) {
-            return this;
+            return new RefInPropertyMapBuilder(instance);
         }
         public RefInPropertyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
