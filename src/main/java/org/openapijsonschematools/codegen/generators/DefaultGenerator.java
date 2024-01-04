@@ -2429,12 +2429,12 @@ public class DefaultGenerator implements Generator {
         return listVal;
     }
 
-    private Object getMapFromSchema(CodegenSchema mapSchema, Set<CodegenSchema> seenSchemas) {
+    private LinkedHashMap<String, Object> getMapFromSchema(CodegenSchema mapSchema, Set<CodegenSchema> seenSchemas) {
         // todo add enum and const handling once those support array types
         if (mapSchema.properties == null && mapSchema.additionalProperties == null && mapSchema.requiredProperties == null) {
             return null;
         }
-        Map<String, Object> mapVal = new LinkedHashMap<>();
+        LinkedHashMap<String, Object> mapVal = new LinkedHashMap<>();
         if (mapSchema.requiredProperties != null && !mapSchema.requiredProperties.isEmpty()) {
             for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.requiredProperties.entrySet()) {
                 String propName = entry.getKey().original;
