@@ -74,11 +74,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder | alpha(int value) |
-| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder | alpha(float value) |
-| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder | alpha(long value) |
-| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder | alpha(double value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapbuilder) | alpha(int value) |
+| [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapbuilder) | alpha(float value) |
+| [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapbuilder) | alpha(long value) |
+| [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapbuilder) | alpha(double value) |
 
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap
 public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap<br>

@@ -58,7 +58,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, Boolean> | build() |
+| Map<String, Boolean> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## AdditionalpropertiesShouldNotLookInApplicatorsMap
 public static class AdditionalpropertiesShouldNotLookInApplicatorsMap<br>
@@ -110,16 +110,16 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| Schema0MapBuilder | foo(Void value) |
-| Schema0MapBuilder | foo(boolean value) |
-| Schema0MapBuilder | foo(String value) |
-| Schema0MapBuilder | foo(int value) |
-| Schema0MapBuilder | foo(float value) |
-| Schema0MapBuilder | foo(long value) |
-| Schema0MapBuilder | foo(double value) |
-| Schema0MapBuilder | foo(List<?> value) |
-| Schema0MapBuilder | foo(Map<String, ?> value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(Void value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(boolean value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(String value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(int value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(float value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(long value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(double value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(List<?> value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(Map<String, ?> value) |
 
 ## Schema0Map
 public static class Schema0Map<br>

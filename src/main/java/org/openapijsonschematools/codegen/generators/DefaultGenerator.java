@@ -2869,16 +2869,16 @@ public class DefaultGenerator implements Generator {
             if (reqPropsSize != 0) {
                 bitStr = String.format("%"+reqPropsSize+"s", Integer.toBinaryString(i)).replace(' ', '0');
             }
-            String builderClassName = "";
+            CodegenKey builderClassName;
             if (i == qtyBuilders - 1) {
                 // first invoked builder has the simplest name with no bitStr
                 if (schema.mapInputJsonPathPiece != null) {
-                    builderClassName = schema.mapInputJsonPathPiece.pascalCase;
+                    builderClassName = schema.mapInputJsonPathPiece;
                 } else {
-                    builderClassName = getSchemaPascalCaseName(schemaName + objectIOClassNamePiece + "Builder", sourceJsonPath);
+                    builderClassName = getKey(schemaName + objectIOClassNamePiece + "Builder", "schemas", sourceJsonPath);
                 }
             } else {
-                builderClassName = getSchemaPascalCaseName(schemaName + bitStr + objectIOClassNamePiece + "Builder", sourceJsonPath);
+                builderClassName = getKey(schemaName + objectIOClassNamePiece + bitStr + "Builder", "schemas", sourceJsonPath);
             }
             MapBuilder builder;
             if (i == 0) {

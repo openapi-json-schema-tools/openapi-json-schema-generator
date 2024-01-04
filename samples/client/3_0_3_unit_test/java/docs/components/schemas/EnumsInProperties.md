@@ -69,8 +69,8 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 | ----------------- | ---------------------- |
 | [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<?, ?>](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## EnumsInProperties0MapBuilder
-public class EnumsInProperties0MapBuilder<br>
+## EnumsInPropertiesMap0Builder
+public class EnumsInPropertiesMap0Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -78,14 +78,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| EnumsInProperties0MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| EnumsInPropertiesMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| EnumsInProperties0MapBuilder | foo(String value) |
-| EnumsInProperties0MapBuilder | foo([StringFooEnums](#stringfooenums) value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | foo(String value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | foo([StringFooEnums](#stringfooenums) value) |
 ## EnumsInPropertiesMapBuilder
 public class EnumsInPropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -100,8 +100,8 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| EnumsInProperties0MapBuilder | bar(String value) |
-| EnumsInProperties0MapBuilder | bar([StringBarEnums](#stringbarenums) value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | bar(String value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | bar([StringBarEnums](#stringbarenums) value) |
 
 ## EnumsInPropertiesMap
 public static class EnumsInPropertiesMap<br>

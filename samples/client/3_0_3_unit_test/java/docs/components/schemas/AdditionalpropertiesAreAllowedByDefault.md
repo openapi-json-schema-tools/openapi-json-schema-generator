@@ -54,25 +54,25 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(Void value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(boolean value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(String value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(int value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(float value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(long value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(double value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(List<?> value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | foo(Map<String, ?> value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(Void value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(boolean value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(String value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(int value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(float value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(long value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(double value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(List<?> value) |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder | bar(Map<String, ?> value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(Void value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(boolean value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(String value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(int value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(float value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(long value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(double value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(List<?> value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | foo(Map<String, ?> value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(Void value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(boolean value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(String value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(int value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(float value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(long value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(double value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(List<?> value) |
+| [AdditionalpropertiesAreAllowedByDefaultMapBuilder](#additionalpropertiesareallowedbydefaultmapbuilder) | bar(Map<String, ?> value) |
 
 ## AdditionalpropertiesAreAllowedByDefaultMap
 public static class AdditionalpropertiesAreAllowedByDefaultMap<br>

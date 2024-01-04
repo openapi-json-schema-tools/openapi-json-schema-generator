@@ -59,8 +59,8 @@ A schema class that validates payloads
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema100MapBuilder
-public class Schema100MapBuilder<br>
+## Schema1Map00Builder
+public class Schema1Map00Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -68,14 +68,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| Schema1Map00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-## Schema101MapBuilder
-public class Schema101MapBuilder<br>
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## Schema1Map01Builder
+public class Schema1Map01Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -83,22 +83,22 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| Schema1Map01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Schema100MapBuilder | foo(Void value) |
-| Schema100MapBuilder | foo(boolean value) |
-| Schema100MapBuilder | foo(String value) |
-| Schema100MapBuilder | foo(int value) |
-| Schema100MapBuilder | foo(float value) |
-| Schema100MapBuilder | foo(long value) |
-| Schema100MapBuilder | foo(double value) |
-| Schema100MapBuilder | foo(List<?> value) |
-| Schema100MapBuilder | foo(Map<String, ?> value) |
-## Schema110MapBuilder
-public class Schema110MapBuilder<br>
+| [Schema1Map00Builder](#schema1map00builder) | foo(Void value) |
+| [Schema1Map00Builder](#schema1map00builder) | foo(boolean value) |
+| [Schema1Map00Builder](#schema1map00builder) | foo(String value) |
+| [Schema1Map00Builder](#schema1map00builder) | foo(int value) |
+| [Schema1Map00Builder](#schema1map00builder) | foo(float value) |
+| [Schema1Map00Builder](#schema1map00builder) | foo(long value) |
+| [Schema1Map00Builder](#schema1map00builder) | foo(double value) |
+| [Schema1Map00Builder](#schema1map00builder) | foo(List<?> value) |
+| [Schema1Map00Builder](#schema1map00builder) | foo(Map<String, ?> value) |
+## Schema1Map10Builder
+public class Schema1Map10Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -106,20 +106,20 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| Schema1Map10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Schema100MapBuilder | baz(Void value) |
-| Schema100MapBuilder | baz(boolean value) |
-| Schema100MapBuilder | baz(String value) |
-| Schema100MapBuilder | baz(int value) |
-| Schema100MapBuilder | baz(float value) |
-| Schema100MapBuilder | baz(long value) |
-| Schema100MapBuilder | baz(double value) |
-| Schema100MapBuilder | baz(List<?> value) |
-| Schema100MapBuilder | baz(Map<String, ?> value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(Void value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(boolean value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(String value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(int value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(float value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(long value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(double value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(List<?> value) |
+| [Schema1Map00Builder](#schema1map00builder) | baz(Map<String, ?> value) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -134,24 +134,24 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Schema101MapBuilder | baz(Void value) |
-| Schema101MapBuilder | baz(boolean value) |
-| Schema101MapBuilder | baz(String value) |
-| Schema101MapBuilder | baz(int value) |
-| Schema101MapBuilder | baz(float value) |
-| Schema101MapBuilder | baz(long value) |
-| Schema101MapBuilder | baz(double value) |
-| Schema101MapBuilder | baz(List<?> value) |
-| Schema101MapBuilder | baz(Map<String, ?> value) |
-| Schema110MapBuilder | foo(Void value) |
-| Schema110MapBuilder | foo(boolean value) |
-| Schema110MapBuilder | foo(String value) |
-| Schema110MapBuilder | foo(int value) |
-| Schema110MapBuilder | foo(float value) |
-| Schema110MapBuilder | foo(long value) |
-| Schema110MapBuilder | foo(double value) |
-| Schema110MapBuilder | foo(List<?> value) |
-| Schema110MapBuilder | foo(Map<String, ?> value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(Void value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(boolean value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(String value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(int value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(float value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(long value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(double value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(List<?> value) |
+| [Schema1Map01Builder](#schema1map01builder) | baz(Map<String, ?> value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(Void value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(boolean value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(String value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(int value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(float value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(long value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(double value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(List<?> value) |
+| [Schema1Map10Builder](#schema1map10builder) | foo(Map<String, ?> value) |
 
 ## Schema1Map
 public static class Schema1Map<br>
@@ -191,8 +191,8 @@ A schema class that validates payloads
 | [Schema0Map](#schema0map) | validate([Map&lt;?, ?&gt;](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema000MapBuilder
-public class Schema000MapBuilder<br>
+## Schema0Map00Builder
+public class Schema0Map00Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -200,14 +200,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| Schema0Map00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-## Schema001MapBuilder
-public class Schema001MapBuilder<br>
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## Schema0Map01Builder
+public class Schema0Map01Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -215,22 +215,22 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| Schema0Map01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Schema000MapBuilder | foo(Void value) |
-| Schema000MapBuilder | foo(boolean value) |
-| Schema000MapBuilder | foo(String value) |
-| Schema000MapBuilder | foo(int value) |
-| Schema000MapBuilder | foo(float value) |
-| Schema000MapBuilder | foo(long value) |
-| Schema000MapBuilder | foo(double value) |
-| Schema000MapBuilder | foo(List<?> value) |
-| Schema000MapBuilder | foo(Map<String, ?> value) |
-## Schema010MapBuilder
-public class Schema010MapBuilder<br>
+| [Schema0Map00Builder](#schema0map00builder) | foo(Void value) |
+| [Schema0Map00Builder](#schema0map00builder) | foo(boolean value) |
+| [Schema0Map00Builder](#schema0map00builder) | foo(String value) |
+| [Schema0Map00Builder](#schema0map00builder) | foo(int value) |
+| [Schema0Map00Builder](#schema0map00builder) | foo(float value) |
+| [Schema0Map00Builder](#schema0map00builder) | foo(long value) |
+| [Schema0Map00Builder](#schema0map00builder) | foo(double value) |
+| [Schema0Map00Builder](#schema0map00builder) | foo(List<?> value) |
+| [Schema0Map00Builder](#schema0map00builder) | foo(Map<String, ?> value) |
+## Schema0Map10Builder
+public class Schema0Map10Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -238,20 +238,20 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| Schema0Map10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Schema000MapBuilder | bar(Void value) |
-| Schema000MapBuilder | bar(boolean value) |
-| Schema000MapBuilder | bar(String value) |
-| Schema000MapBuilder | bar(int value) |
-| Schema000MapBuilder | bar(float value) |
-| Schema000MapBuilder | bar(long value) |
-| Schema000MapBuilder | bar(double value) |
-| Schema000MapBuilder | bar(List<?> value) |
-| Schema000MapBuilder | bar(Map<String, ?> value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(Void value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(boolean value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(String value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(int value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(float value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(long value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(double value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(List<?> value) |
+| [Schema0Map00Builder](#schema0map00builder) | bar(Map<String, ?> value) |
 ## Schema0MapBuilder
 public class Schema0MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -266,24 +266,24 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Schema001MapBuilder | bar(Void value) |
-| Schema001MapBuilder | bar(boolean value) |
-| Schema001MapBuilder | bar(String value) |
-| Schema001MapBuilder | bar(int value) |
-| Schema001MapBuilder | bar(float value) |
-| Schema001MapBuilder | bar(long value) |
-| Schema001MapBuilder | bar(double value) |
-| Schema001MapBuilder | bar(List<?> value) |
-| Schema001MapBuilder | bar(Map<String, ?> value) |
-| Schema010MapBuilder | foo(Void value) |
-| Schema010MapBuilder | foo(boolean value) |
-| Schema010MapBuilder | foo(String value) |
-| Schema010MapBuilder | foo(int value) |
-| Schema010MapBuilder | foo(float value) |
-| Schema010MapBuilder | foo(long value) |
-| Schema010MapBuilder | foo(double value) |
-| Schema010MapBuilder | foo(List<?> value) |
-| Schema010MapBuilder | foo(Map<String, ?> value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(Void value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(boolean value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(String value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(int value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(float value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(long value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(double value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(List<?> value) |
+| [Schema0Map01Builder](#schema0map01builder) | bar(Map<String, ?> value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(Void value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(boolean value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(String value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(int value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(float value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(long value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(double value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(List<?> value) |
+| [Schema0Map10Builder](#schema0map10builder) | foo(Map<String, ?> value) |
 
 ## Schema0Map
 public static class Schema0Map<br>

@@ -53,16 +53,16 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| RequiredDefaultValidationMapBuilder | foo(Void value) |
-| RequiredDefaultValidationMapBuilder | foo(boolean value) |
-| RequiredDefaultValidationMapBuilder | foo(String value) |
-| RequiredDefaultValidationMapBuilder | foo(int value) |
-| RequiredDefaultValidationMapBuilder | foo(float value) |
-| RequiredDefaultValidationMapBuilder | foo(long value) |
-| RequiredDefaultValidationMapBuilder | foo(double value) |
-| RequiredDefaultValidationMapBuilder | foo(List<?> value) |
-| RequiredDefaultValidationMapBuilder | foo(Map<String, ?> value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(Void value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(boolean value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(String value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(int value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(float value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(long value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(double value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(List<?> value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(Map<String, ?> value) |
 
 ## RequiredDefaultValidationMap
 public static class RequiredDefaultValidationMap<br>

@@ -58,31 +58,31 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusNbar(int value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusNbar(float value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusNbar(long value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusNbar(double value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusRbar(int value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusRbar(float value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusRbar(long value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusRbar(double value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusTbar(int value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusTbar(float value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusTbar(long value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusTbar(double value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusFbar(int value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusFbar(float value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusFbar(long value) |
-| PropertiesWithEscapedCharactersMapBuilder | setFooReverseSolidusFbar(double value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusNbar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusNbar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusNbar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusNbar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusRbar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusRbar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusRbar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusRbar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusTbar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusTbar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusTbar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusTbar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(double value) |
 
 ## PropertiesWithEscapedCharactersMap
 public static class PropertiesWithEscapedCharactersMap<br>

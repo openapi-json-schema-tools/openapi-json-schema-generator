@@ -89,7 +89,7 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class Schema00MapBuilder extends UnsetAddPropsSetter<Schema00MapBuilder> implements BaseBuilder<@Nullable Object> {
+    public static class Schema0Map0Builder extends UnsetAddPropsSetter<Schema0Map0Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -97,7 +97,7 @@ public class AllofWithBaseSchema {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public Schema00MapBuilder(Map<String, @Nullable Object> instance) {
+        public Schema0Map0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -106,12 +106,12 @@ public class AllofWithBaseSchema {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema00MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public Schema0Map0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class Schema0MapBuilder implements SetterForFoo<Schema00MapBuilder> {
+    public static class Schema0MapBuilder implements SetterForFoo<Schema0Map0Builder> {
         private final Map<String, @Nullable Object> instance;
         public Schema0MapBuilder() {
             this.instance = new LinkedHashMap<>();
@@ -119,8 +119,8 @@ public class AllofWithBaseSchema {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema00MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new Schema00MapBuilder(instance);
+        public Schema0Map0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new Schema0Map0Builder(instance);
         }
     }
     
@@ -374,7 +374,7 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class Schema10MapBuilder extends UnsetAddPropsSetter<Schema10MapBuilder> implements BaseBuilder<@Nullable Object> {
+    public static class Schema1Map0Builder extends UnsetAddPropsSetter<Schema1Map0Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "baz"
@@ -382,7 +382,7 @@ public class AllofWithBaseSchema {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public Schema10MapBuilder(Map<String, @Nullable Object> instance) {
+        public Schema1Map0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -391,12 +391,12 @@ public class AllofWithBaseSchema {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema10MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public Schema1Map0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class Schema1MapBuilder implements SetterForBaz<Schema10MapBuilder> {
+    public static class Schema1MapBuilder implements SetterForBaz<Schema1Map0Builder> {
         private final Map<String, @Nullable Object> instance;
         public Schema1MapBuilder() {
             this.instance = new LinkedHashMap<>();
@@ -404,8 +404,8 @@ public class AllofWithBaseSchema {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema10MapBuilder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
-            return new Schema10MapBuilder(instance);
+        public Schema1Map0Builder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
+            return new Schema1Map0Builder(instance);
         }
     }
     
@@ -677,7 +677,7 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class AllofWithBaseSchema0MapBuilder extends UnsetAddPropsSetter<AllofWithBaseSchema0MapBuilder> implements BaseBuilder<@Nullable Object> {
+    public static class AllofWithBaseSchemaMap0Builder extends UnsetAddPropsSetter<AllofWithBaseSchemaMap0Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar"
@@ -685,7 +685,7 @@ public class AllofWithBaseSchema {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public AllofWithBaseSchema0MapBuilder(Map<String, @Nullable Object> instance) {
+        public AllofWithBaseSchemaMap0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -694,12 +694,12 @@ public class AllofWithBaseSchema {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public AllofWithBaseSchema0MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public AllofWithBaseSchemaMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class AllofWithBaseSchemaMapBuilder implements SetterForBar<AllofWithBaseSchema0MapBuilder> {
+    public static class AllofWithBaseSchemaMapBuilder implements SetterForBar<AllofWithBaseSchemaMap0Builder> {
         private final Map<String, @Nullable Object> instance;
         public AllofWithBaseSchemaMapBuilder() {
             this.instance = new LinkedHashMap<>();
@@ -707,8 +707,8 @@ public class AllofWithBaseSchema {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public AllofWithBaseSchema0MapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new AllofWithBaseSchema0MapBuilder(instance);
+        public AllofWithBaseSchemaMap0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new AllofWithBaseSchemaMap0Builder(instance);
         }
     }
     

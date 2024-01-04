@@ -13,10 +13,10 @@ public class MapBuilder {
         }
     }
 
-    public final String className;
+    public final CodegenKey className;
     public final LinkedHashMap<CodegenKey, BuilderSchemaPair> keyToBuilder;
 
-    public MapBuilder(String className, LinkedHashMap<CodegenKey, BuilderSchemaPair> keyToBuilder) {
+    public MapBuilder(CodegenKey className, LinkedHashMap<CodegenKey, BuilderSchemaPair> keyToBuilder) {
         this.className = className;
         this.keyToBuilder = keyToBuilder;
     }

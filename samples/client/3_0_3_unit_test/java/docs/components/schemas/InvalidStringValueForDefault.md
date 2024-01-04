@@ -53,8 +53,8 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| InvalidStringValueForDefaultMapBuilder | bar(String value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | bar(String value) |
 
 ## InvalidStringValueForDefaultMap
 public static class InvalidStringValueForDefaultMap<br>

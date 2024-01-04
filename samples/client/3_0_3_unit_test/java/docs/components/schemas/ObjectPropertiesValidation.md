@@ -54,12 +54,12 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| ObjectPropertiesValidationMapBuilder | foo(int value) |
-| ObjectPropertiesValidationMapBuilder | foo(float value) |
-| ObjectPropertiesValidationMapBuilder | foo(long value) |
-| ObjectPropertiesValidationMapBuilder | foo(double value) |
-| ObjectPropertiesValidationMapBuilder | bar(String value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | foo(int value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | foo(float value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | foo(long value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | foo(double value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | bar(String value) |
 
 ## ObjectPropertiesValidationMap
 public static class ObjectPropertiesValidationMap<br>

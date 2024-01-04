@@ -70,7 +70,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, Boolean> | build() |
+| Map<String, Boolean> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## AdditionalpropertiesCanExistByItselfMap
 public static class AdditionalpropertiesCanExistByItselfMap<br>

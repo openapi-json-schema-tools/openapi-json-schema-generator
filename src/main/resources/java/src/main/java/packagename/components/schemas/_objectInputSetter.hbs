@@ -1,7 +1,7 @@
 {{#each types}}
     {{#eq this "null"}}
         {{#if forDocs }}
-| {{builderClass}} | {{methodName}}(Void value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(Void value) |
         {{else}}
 
 default T {{methodName}}(Void value) {
@@ -13,7 +13,7 @@ default T {{methodName}}(Void value) {
     {{else}}
         {{#eq this "boolean"}}
             {{#if forDocs }}
-| {{builderClass}} | {{methodName}}(boolean value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(boolean value) |
             {{else}}
 
 default T {{methodName}}(boolean value) {
@@ -25,7 +25,7 @@ default T {{methodName}}(boolean value) {
         {{else}}
             {{#eq this "string"}}
                 {{#if forDocs }}
-| {{builderClass}} | {{methodName}}(String value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(String value) |
                 {{else}}
 
 default T {{methodName}}(String value) {
@@ -37,11 +37,11 @@ default T {{methodName}}(String value) {
             {{else}}
                 {{#or (eq this "integer") (eq this "number") }}
                     {{#if forDocs }}
-| {{builderClass}} | {{methodName}}(int value) |
-| {{builderClass}} | {{methodName}}(float value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(int value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(float value) |
                         {{#neq ../format "int32"}}
-| {{builderClass}} | {{methodName}}(long value) |
-| {{builderClass}} | {{methodName}}(double value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(long value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(double value) |
                         {{/neq}}
                     {{else}}
 
@@ -74,7 +74,7 @@ default T {{methodName}}(double value) {
                 {{else}}
                     {{#eq this "array"}}
                         {{#if forDocs }}
-| {{builderClass}} | {{methodName}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) |
                         {{else}}
 
 default T {{methodName}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
@@ -86,7 +86,7 @@ default T {{methodName}}(List<{{#with items}}{{> src/main/java/packagename/compo
                     {{else}}
                         {{#eq this "object"}}
                             {{#if forDocs }}
-| {{builderClass}} | {{methodName}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) |
                             {{else}}
 
 default T {{methodName}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
@@ -104,15 +104,15 @@ default T {{methodName}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/p
 {{else}}
     {{! no type defined }}
     {{#if forDocs }}
-| {{builderClass}} | {{methodName}}(Void value) |
-| {{builderClass}} | {{methodName}}(boolean value) |
-| {{builderClass}} | {{methodName}}(String value) |
-| {{builderClass}} | {{methodName}}(int value) |
-| {{builderClass}} | {{methodName}}(float value) |
-| {{builderClass}} | {{methodName}}(long value) |
-| {{builderClass}} | {{methodName}}(double value) |
-| {{builderClass}} | {{methodName}}(List<?> value) |
-| {{builderClass}} | {{methodName}}(Map<String, ?> value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(Void value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(boolean value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(String value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(int value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(float value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(long value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(double value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(List<?> value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(Map<String, ?> value) |
     {{else}}
 
 default T {{methodName}}(Void value) {
@@ -175,9 +175,9 @@ default T {{methodName}}(Map<String, ?> value) {
         {{#eq @key "null"}}
             {{#if forDocs }}
                 {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.kebabCase}}) value) |
                 {{else}}
-| {{builderClass}} | {{methodName}}([Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}}) value) |
                 {{/if}}
             {{else}}
 
@@ -191,9 +191,9 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pasc
             {{#eq @key "boolean"}}
                 {{#if forDocs }}
                     {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.kebabCase}}) value) |
                     {{else}}
-| {{builderClass}} | {{methodName}}([Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}}) value) |
                     {{/if}}
                 {{else}}
 
@@ -207,9 +207,9 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pasc
                 {{#eq @key "string"}}
                     {{#if forDocs }}
                         {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.kebabCase}}) value) |
                         {{else}}
-| {{builderClass}} | {{methodName}}([String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}}) value) |
                         {{/if}}
                     {{else}}
 
@@ -223,9 +223,9 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pasc
                     {{#eq @key "Integer"}}
                         {{#if forDocs }}
                             {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.kebabCase}}) value) |
                             {{else}}
-| {{builderClass}} | {{methodName}}([Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}}) value) |
                             {{/if}}
                         {{else}}
 
@@ -239,9 +239,9 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pasc
                         {{#eq @key "Long"}}
                             {{#if forDocs }}
                                 {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.kebabCase}}) value) |
                                 {{else}}
-| {{builderClass}} | {{methodName}}([Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}}) value) |
                                 {{/if}}
                             {{else}}
 
@@ -255,9 +255,9 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pasc
                             {{#eq @key "Float"}}
                                 {{#if forDocs }}
                                     {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.kebabCase}}) value) |
                                     {{else}}
-| {{builderClass}} | {{methodName}}([Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}}) value) |
                                     {{/if}}
                                 {{else}}
 
@@ -271,9 +271,9 @@ default T {{methodName}}({{#if useContainer}}{{../../containerJsonPathPiece.pasc
                                 {{#eq @key "Double"}}
                                     {{#if forDocs }}
                                         {{#if useContainer }}
-| {{builderClass}} | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([{{../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.kebabCase}}) value) |
                                         {{else}}
-| {{builderClass}} | {{methodName}}([Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}}) value) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}([Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}}) value) |
                                         {{/if}}
                                     {{else}}
 

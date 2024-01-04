@@ -53,16 +53,16 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| ForbiddenPropertyMapBuilder | foo(Void value) |
-| ForbiddenPropertyMapBuilder | foo(boolean value) |
-| ForbiddenPropertyMapBuilder | foo(String value) |
-| ForbiddenPropertyMapBuilder | foo(int value) |
-| ForbiddenPropertyMapBuilder | foo(float value) |
-| ForbiddenPropertyMapBuilder | foo(long value) |
-| ForbiddenPropertyMapBuilder | foo(double value) |
-| ForbiddenPropertyMapBuilder | foo(List<?> value) |
-| ForbiddenPropertyMapBuilder | foo(Map<String, ?> value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(Void value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(boolean value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(String value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(int value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(float value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(long value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(double value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(List<?> value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(Map<String, ?> value) |
 
 ## ForbiddenPropertyMap
 public static class ForbiddenPropertyMap<br>

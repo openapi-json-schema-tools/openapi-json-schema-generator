@@ -52,16 +52,16 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| RefInPropertyMapBuilder | a(Void value) |
-| RefInPropertyMapBuilder | a(boolean value) |
-| RefInPropertyMapBuilder | a(String value) |
-| RefInPropertyMapBuilder | a(int value) |
-| RefInPropertyMapBuilder | a(float value) |
-| RefInPropertyMapBuilder | a(long value) |
-| RefInPropertyMapBuilder | a(double value) |
-| RefInPropertyMapBuilder | a(List<?> value) |
-| RefInPropertyMapBuilder | a(Map<String, ?> value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(Void value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(boolean value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(String value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(int value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(float value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(long value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(double value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(List<?> value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(Map<String, ?> value) |
 
 ## RefInPropertyMap
 public static class RefInPropertyMap<br>

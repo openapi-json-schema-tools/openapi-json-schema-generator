@@ -182,7 +182,7 @@ public class OneofWithRequired {
         }
     }
     
-    public static class Schema000MapBuilder extends UnsetAddPropsSetter<Schema000MapBuilder> implements BaseBuilder<@Nullable Object> {
+    public static class Schema0Map00Builder extends UnsetAddPropsSetter<Schema0Map00Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar",
@@ -191,7 +191,7 @@ public class OneofWithRequired {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public Schema000MapBuilder(Map<String, @Nullable Object> instance) {
+        public Schema0Map00Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -200,38 +200,38 @@ public class OneofWithRequired {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema000MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public Schema0Map00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class Schema001MapBuilder implements SetterForFoo<Schema000MapBuilder> {
+    public static class Schema0Map01Builder implements SetterForFoo<Schema0Map00Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema001MapBuilder(Map<String, @Nullable Object> instance) {
+        public Schema0Map01Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema000MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new Schema000MapBuilder(instance);
+        public Schema0Map00Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new Schema0Map00Builder(instance);
         }
     }
     
-    public static class Schema010MapBuilder implements SetterForBar<Schema000MapBuilder> {
+    public static class Schema0Map10Builder implements SetterForBar<Schema0Map00Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema010MapBuilder(Map<String, @Nullable Object> instance) {
+        public Schema0Map10Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema000MapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new Schema000MapBuilder(instance);
+        public Schema0Map00Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new Schema0Map00Builder(instance);
         }
     }
     
-    public static class Schema0MapBuilder implements SetterForBar<Schema001MapBuilder>, SetterForFoo<Schema010MapBuilder> {
+    public static class Schema0MapBuilder implements SetterForBar<Schema0Map01Builder>, SetterForFoo<Schema0Map10Builder> {
         private final Map<String, @Nullable Object> instance;
         public Schema0MapBuilder() {
             this.instance = new LinkedHashMap<>();
@@ -239,11 +239,11 @@ public class OneofWithRequired {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema001MapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new Schema001MapBuilder(instance);
+        public Schema0Map01Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new Schema0Map01Builder(instance);
         }
-        public Schema010MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new Schema010MapBuilder(instance);
+        public Schema0Map10Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new Schema0Map10Builder(instance);
         }
     }
     
@@ -592,7 +592,7 @@ public class OneofWithRequired {
         }
     }
     
-    public static class Schema100MapBuilder extends UnsetAddPropsSetter<Schema100MapBuilder> implements BaseBuilder<@Nullable Object> {
+    public static class Schema1Map00Builder extends UnsetAddPropsSetter<Schema1Map00Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "baz",
@@ -601,7 +601,7 @@ public class OneofWithRequired {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public Schema100MapBuilder(Map<String, @Nullable Object> instance) {
+        public Schema1Map00Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -610,38 +610,38 @@ public class OneofWithRequired {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema100MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public Schema1Map00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class Schema101MapBuilder implements SetterForFoo1<Schema100MapBuilder> {
+    public static class Schema1Map01Builder implements SetterForFoo1<Schema1Map00Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema101MapBuilder(Map<String, @Nullable Object> instance) {
+        public Schema1Map01Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema100MapBuilder getBuilderAfterFoo1(Map<String, @Nullable Object> instance) {
-            return new Schema100MapBuilder(instance);
+        public Schema1Map00Builder getBuilderAfterFoo1(Map<String, @Nullable Object> instance) {
+            return new Schema1Map00Builder(instance);
         }
     }
     
-    public static class Schema110MapBuilder implements SetterForBaz<Schema100MapBuilder> {
+    public static class Schema1Map10Builder implements SetterForBaz<Schema1Map00Builder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema110MapBuilder(Map<String, @Nullable Object> instance) {
+        public Schema1Map10Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema100MapBuilder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
-            return new Schema100MapBuilder(instance);
+        public Schema1Map00Builder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
+            return new Schema1Map00Builder(instance);
         }
     }
     
-    public static class Schema1MapBuilder implements SetterForBaz<Schema101MapBuilder>, SetterForFoo1<Schema110MapBuilder> {
+    public static class Schema1MapBuilder implements SetterForBaz<Schema1Map01Builder>, SetterForFoo1<Schema1Map10Builder> {
         private final Map<String, @Nullable Object> instance;
         public Schema1MapBuilder() {
             this.instance = new LinkedHashMap<>();
@@ -649,11 +649,11 @@ public class OneofWithRequired {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema101MapBuilder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
-            return new Schema101MapBuilder(instance);
+        public Schema1Map01Builder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
+            return new Schema1Map01Builder(instance);
         }
-        public Schema110MapBuilder getBuilderAfterFoo1(Map<String, @Nullable Object> instance) {
-            return new Schema110MapBuilder(instance);
+        public Schema1Map10Builder getBuilderAfterFoo1(Map<String, @Nullable Object> instance) {
+            return new Schema1Map10Builder(instance);
         }
     }
     

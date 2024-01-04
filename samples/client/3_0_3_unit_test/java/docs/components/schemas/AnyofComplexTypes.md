@@ -69,8 +69,8 @@ A schema class that validates payloads
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema10MapBuilder
-public class Schema10MapBuilder<br>
+## Schema1Map0Builder
+public class Schema1Map0Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -78,12 +78,12 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema10MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| Schema1Map0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -98,7 +98,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Schema10MapBuilder | foo(String value) |
+| [Schema1Map0Builder](#schema1map0builder) | foo(String value) |
 
 ## Schema1Map
 public static class Schema1Map<br>
@@ -148,8 +148,8 @@ A schema class that validates payloads
 | [Schema0Map](#schema0map) | validate([Map&lt;?, ?&gt;](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema00MapBuilder
-public class Schema00MapBuilder<br>
+## Schema0Map0Builder
+public class Schema0Map0Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -157,12 +157,12 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema00MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| Schema0Map0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 ## Schema0MapBuilder
 public class Schema0MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -177,10 +177,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Schema00MapBuilder | bar(int value) |
-| Schema00MapBuilder | bar(float value) |
-| Schema00MapBuilder | bar(long value) |
-| Schema00MapBuilder | bar(double value) |
+| [Schema0Map0Builder](#schema0map0builder) | bar(int value) |
+| [Schema0Map0Builder](#schema0map0builder) | bar(float value) |
+| [Schema0Map0Builder](#schema0map0builder) | bar(long value) |
+| [Schema0Map0Builder](#schema0map0builder) | bar(double value) |
 
 ## Schema0Map
 public static class Schema0Map<br>

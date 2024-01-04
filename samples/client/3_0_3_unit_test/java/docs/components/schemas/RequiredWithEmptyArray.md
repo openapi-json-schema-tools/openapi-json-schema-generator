@@ -53,16 +53,16 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| RequiredWithEmptyArrayMapBuilder | foo(Void value) |
-| RequiredWithEmptyArrayMapBuilder | foo(boolean value) |
-| RequiredWithEmptyArrayMapBuilder | foo(String value) |
-| RequiredWithEmptyArrayMapBuilder | foo(int value) |
-| RequiredWithEmptyArrayMapBuilder | foo(float value) |
-| RequiredWithEmptyArrayMapBuilder | foo(long value) |
-| RequiredWithEmptyArrayMapBuilder | foo(double value) |
-| RequiredWithEmptyArrayMapBuilder | foo(List<?> value) |
-| RequiredWithEmptyArrayMapBuilder | foo(Map<String, ?> value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(Void value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(boolean value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(String value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(int value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(float value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(long value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(double value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(List<?> value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(Map<String, ?> value) |
 
 ## RequiredWithEmptyArrayMap
 public static class RequiredWithEmptyArrayMap<br>

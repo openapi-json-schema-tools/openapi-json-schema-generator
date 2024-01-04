@@ -69,7 +69,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## RefInAdditionalpropertiesMap
 public static class RefInAdditionalpropertiesMap<br>

@@ -38,8 +38,8 @@ A schema class that validates payloads
 | [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate([Map&lt;?, ?&gt;](#requiredwithescapedcharactersmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## RequiredWithEscapedCharacters000000MapBuilder
-public class RequiredWithEscapedCharacters000000MapBuilder<br>
+## RequiredWithEscapedCharactersMap000000Builder
+public class RequiredWithEscapedCharactersMap000000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -47,14 +47,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap000000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-## RequiredWithEscapedCharacters000001MapBuilder
-public class RequiredWithEscapedCharacters000001MapBuilder<br>
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## RequiredWithEscapedCharactersMap000001Builder
+public class RequiredWithEscapedCharactersMap000001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -62,22 +62,22 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap000001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters000010MapBuilder
-public class RequiredWithEscapedCharacters000010MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap000010Builder
+public class RequiredWithEscapedCharactersMap000010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -85,22 +85,22 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap000010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters000011MapBuilder
-public class RequiredWithEscapedCharacters000011MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap000011Builder
+public class RequiredWithEscapedCharactersMap000011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -108,31 +108,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap000011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters000100MapBuilder
-public class RequiredWithEscapedCharacters000100MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap000100Builder
+public class RequiredWithEscapedCharactersMap000100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -140,22 +140,22 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap000100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters000101MapBuilder
-public class RequiredWithEscapedCharacters000101MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap000101Builder
+public class RequiredWithEscapedCharactersMap000101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -163,31 +163,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap000101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters000110MapBuilder
-public class RequiredWithEscapedCharacters000110MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap000110Builder
+public class RequiredWithEscapedCharactersMap000110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -195,31 +195,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap000110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters000111MapBuilder
-public class RequiredWithEscapedCharacters000111MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap000111Builder
+public class RequiredWithEscapedCharactersMap000111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -227,40 +227,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap000111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters001000MapBuilder
-public class RequiredWithEscapedCharacters001000MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap001000Builder
+public class RequiredWithEscapedCharactersMap001000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -268,22 +268,22 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap001000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters001001MapBuilder
-public class RequiredWithEscapedCharacters001001MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap001001Builder
+public class RequiredWithEscapedCharactersMap001001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -291,31 +291,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap001001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters001010MapBuilder
-public class RequiredWithEscapedCharacters001010MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap001010Builder
+public class RequiredWithEscapedCharactersMap001010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -323,31 +323,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap001010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters001011MapBuilder
-public class RequiredWithEscapedCharacters001011MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap001011Builder
+public class RequiredWithEscapedCharactersMap001011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -355,40 +355,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap001011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters001100MapBuilder
-public class RequiredWithEscapedCharacters001100MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap001100Builder
+public class RequiredWithEscapedCharactersMap001100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -396,31 +396,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap001100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters001101MapBuilder
-public class RequiredWithEscapedCharacters001101MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap001101Builder
+public class RequiredWithEscapedCharactersMap001101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -428,40 +428,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap001101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters001110MapBuilder
-public class RequiredWithEscapedCharacters001110MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap001110Builder
+public class RequiredWithEscapedCharactersMap001110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -469,40 +469,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap001110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters001111MapBuilder
-public class RequiredWithEscapedCharacters001111MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap001111Builder
+public class RequiredWithEscapedCharactersMap001111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -510,49 +510,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap001111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters010000MapBuilder
-public class RequiredWithEscapedCharacters010000MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap010000Builder
+public class RequiredWithEscapedCharactersMap010000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -560,22 +560,22 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap010000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters010001MapBuilder
-public class RequiredWithEscapedCharacters010001MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap010001Builder
+public class RequiredWithEscapedCharactersMap010001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -583,31 +583,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap010001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters010010MapBuilder
-public class RequiredWithEscapedCharacters010010MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap010010Builder
+public class RequiredWithEscapedCharactersMap010010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -615,31 +615,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap010010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters010011MapBuilder
-public class RequiredWithEscapedCharacters010011MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap010011Builder
+public class RequiredWithEscapedCharactersMap010011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -647,40 +647,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap010011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters010100MapBuilder
-public class RequiredWithEscapedCharacters010100MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap010100Builder
+public class RequiredWithEscapedCharactersMap010100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -688,31 +688,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap010100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters010101MapBuilder
-public class RequiredWithEscapedCharacters010101MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap010101Builder
+public class RequiredWithEscapedCharactersMap010101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -720,40 +720,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap010101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters010110MapBuilder
-public class RequiredWithEscapedCharacters010110MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap010110Builder
+public class RequiredWithEscapedCharactersMap010110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -761,40 +761,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap010110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters010111MapBuilder
-public class RequiredWithEscapedCharacters010111MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap010111Builder
+public class RequiredWithEscapedCharactersMap010111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -802,49 +802,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap010111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters011000MapBuilder
-public class RequiredWithEscapedCharacters011000MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap011000Builder
+public class RequiredWithEscapedCharactersMap011000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -852,31 +852,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap011000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters011001MapBuilder
-public class RequiredWithEscapedCharacters011001MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap011001Builder
+public class RequiredWithEscapedCharactersMap011001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -884,40 +884,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap011001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters011010MapBuilder
-public class RequiredWithEscapedCharacters011010MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap011010Builder
+public class RequiredWithEscapedCharactersMap011010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -925,40 +925,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap011010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters011011MapBuilder
-public class RequiredWithEscapedCharacters011011MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap011011Builder
+public class RequiredWithEscapedCharactersMap011011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -966,49 +966,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap011011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters011100MapBuilder
-public class RequiredWithEscapedCharacters011100MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap011100Builder
+public class RequiredWithEscapedCharactersMap011100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1016,40 +1016,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap011100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters011101MapBuilder
-public class RequiredWithEscapedCharacters011101MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap011101Builder
+public class RequiredWithEscapedCharactersMap011101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1057,49 +1057,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap011101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters011110MapBuilder
-public class RequiredWithEscapedCharacters011110MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap011110Builder
+public class RequiredWithEscapedCharactersMap011110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1107,49 +1107,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap011110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters011111MapBuilder
-public class RequiredWithEscapedCharacters011111MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap011111Builder
+public class RequiredWithEscapedCharactersMap011111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1157,58 +1157,58 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap011111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters100000MapBuilder
-public class RequiredWithEscapedCharacters100000MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap100000Builder
+public class RequiredWithEscapedCharactersMap100000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1216,22 +1216,22 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap100000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters000000MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters100001MapBuilder
-public class RequiredWithEscapedCharacters100001MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000000Builder](#requiredwithescapedcharactersmap000000builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap100001Builder
+public class RequiredWithEscapedCharactersMap100001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1239,31 +1239,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap100001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters000001MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters100010MapBuilder
-public class RequiredWithEscapedCharacters100010MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000001Builder](#requiredwithescapedcharactersmap000001builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap100010Builder
+public class RequiredWithEscapedCharactersMap100010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1271,31 +1271,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap100010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters000010MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters100011MapBuilder
-public class RequiredWithEscapedCharacters100011MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000010Builder](#requiredwithescapedcharactersmap000010builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap100011Builder
+public class RequiredWithEscapedCharactersMap100011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1303,40 +1303,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap100011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters000011MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters100100MapBuilder
-public class RequiredWithEscapedCharacters100100MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000011Builder](#requiredwithescapedcharactersmap000011builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap100100Builder
+public class RequiredWithEscapedCharactersMap100100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1344,31 +1344,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap100100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters000100MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters100101MapBuilder
-public class RequiredWithEscapedCharacters100101MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000100Builder](#requiredwithescapedcharactersmap000100builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap100101Builder
+public class RequiredWithEscapedCharactersMap100101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1376,40 +1376,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap100101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters000101MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters100110MapBuilder
-public class RequiredWithEscapedCharacters100110MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000101Builder](#requiredwithescapedcharactersmap000101builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap100110Builder
+public class RequiredWithEscapedCharactersMap100110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1417,40 +1417,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap100110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters000110MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters100111MapBuilder
-public class RequiredWithEscapedCharacters100111MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000110Builder](#requiredwithescapedcharactersmap000110builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap100111Builder
+public class RequiredWithEscapedCharactersMap100111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1458,49 +1458,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap100111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters000111MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters101000MapBuilder
-public class RequiredWithEscapedCharacters101000MapBuilder<br>
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap000111Builder](#requiredwithescapedcharactersmap000111builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap101000Builder
+public class RequiredWithEscapedCharactersMap101000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1508,31 +1508,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap101000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters001000MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters101001MapBuilder
-public class RequiredWithEscapedCharacters101001MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001000Builder](#requiredwithescapedcharactersmap001000builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap101001Builder
+public class RequiredWithEscapedCharactersMap101001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1540,40 +1540,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap101001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters001001MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters101010MapBuilder
-public class RequiredWithEscapedCharacters101010MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001001Builder](#requiredwithescapedcharactersmap001001builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap101010Builder
+public class RequiredWithEscapedCharactersMap101010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1581,40 +1581,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap101010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters001010MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters101011MapBuilder
-public class RequiredWithEscapedCharacters101011MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001010Builder](#requiredwithescapedcharactersmap001010builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap101011Builder
+public class RequiredWithEscapedCharactersMap101011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1622,49 +1622,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap101011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters001011MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters101100MapBuilder
-public class RequiredWithEscapedCharacters101100MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001011Builder](#requiredwithescapedcharactersmap001011builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap101100Builder
+public class RequiredWithEscapedCharactersMap101100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1672,40 +1672,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap101100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters001100MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters101101MapBuilder
-public class RequiredWithEscapedCharacters101101MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001100Builder](#requiredwithescapedcharactersmap001100builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap101101Builder
+public class RequiredWithEscapedCharactersMap101101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1713,49 +1713,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap101101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters001101MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters101110MapBuilder
-public class RequiredWithEscapedCharacters101110MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001101Builder](#requiredwithescapedcharactersmap001101builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap101110Builder
+public class RequiredWithEscapedCharactersMap101110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1763,49 +1763,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap101110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters001110MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters101111MapBuilder
-public class RequiredWithEscapedCharacters101111MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001110Builder](#requiredwithescapedcharactersmap001110builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap101111Builder
+public class RequiredWithEscapedCharactersMap101111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1813,58 +1813,58 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap101111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters001111MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters110000MapBuilder
-public class RequiredWithEscapedCharacters110000MapBuilder<br>
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap001111Builder](#requiredwithescapedcharactersmap001111builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap110000Builder
+public class RequiredWithEscapedCharactersMap110000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1872,31 +1872,31 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap110000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters010000MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters100000MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters110001MapBuilder
-public class RequiredWithEscapedCharacters110001MapBuilder<br>
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010000Builder](#requiredwithescapedcharactersmap010000builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100000Builder](#requiredwithescapedcharactersmap100000builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap110001Builder
+public class RequiredWithEscapedCharactersMap110001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1904,40 +1904,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap110001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters010001MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters100001MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters110010MapBuilder
-public class RequiredWithEscapedCharacters110010MapBuilder<br>
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010001Builder](#requiredwithescapedcharactersmap010001builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100001Builder](#requiredwithescapedcharactersmap100001builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap110010Builder
+public class RequiredWithEscapedCharactersMap110010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1945,40 +1945,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap110010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters010010MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters100010MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters110011MapBuilder
-public class RequiredWithEscapedCharacters110011MapBuilder<br>
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010010Builder](#requiredwithescapedcharactersmap010010builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100010Builder](#requiredwithescapedcharactersmap100010builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap110011Builder
+public class RequiredWithEscapedCharactersMap110011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -1986,49 +1986,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap110011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters010011MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters100011MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters110100MapBuilder
-public class RequiredWithEscapedCharacters110100MapBuilder<br>
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010011Builder](#requiredwithescapedcharactersmap010011builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100011Builder](#requiredwithescapedcharactersmap100011builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap110100Builder
+public class RequiredWithEscapedCharactersMap110100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2036,40 +2036,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap110100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters010100MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters100100MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters110101MapBuilder
-public class RequiredWithEscapedCharacters110101MapBuilder<br>
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010100Builder](#requiredwithescapedcharactersmap010100builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100100Builder](#requiredwithescapedcharactersmap100100builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap110101Builder
+public class RequiredWithEscapedCharactersMap110101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2077,49 +2077,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap110101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters010101MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters100101MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters110110MapBuilder
-public class RequiredWithEscapedCharacters110110MapBuilder<br>
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010101Builder](#requiredwithescapedcharactersmap010101builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100101Builder](#requiredwithescapedcharactersmap100101builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap110110Builder
+public class RequiredWithEscapedCharactersMap110110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2127,49 +2127,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap110110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters010110MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters100110MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters110111MapBuilder
-public class RequiredWithEscapedCharacters110111MapBuilder<br>
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010110Builder](#requiredwithescapedcharactersmap010110builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100110Builder](#requiredwithescapedcharactersmap100110builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap110111Builder
+public class RequiredWithEscapedCharactersMap110111Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2177,58 +2177,58 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap110111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters010111MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters100111MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters111000MapBuilder
-public class RequiredWithEscapedCharacters111000MapBuilder<br>
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap010111Builder](#requiredwithescapedcharactersmap010111builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap100111Builder](#requiredwithescapedcharactersmap100111builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap111000Builder
+public class RequiredWithEscapedCharactersMap111000Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2236,40 +2236,40 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap111000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters011000MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters101000MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters110000MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters111001MapBuilder
-public class RequiredWithEscapedCharacters111001MapBuilder<br>
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011000Builder](#requiredwithescapedcharactersmap011000builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101000Builder](#requiredwithescapedcharactersmap101000builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110000Builder](#requiredwithescapedcharactersmap110000builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap111001Builder
+public class RequiredWithEscapedCharactersMap111001Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2277,49 +2277,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap111001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters011001MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters101001MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters110001MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters111010MapBuilder
-public class RequiredWithEscapedCharacters111010MapBuilder<br>
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011001Builder](#requiredwithescapedcharactersmap011001builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101001Builder](#requiredwithescapedcharactersmap101001builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110001Builder](#requiredwithescapedcharactersmap110001builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap111010Builder
+public class RequiredWithEscapedCharactersMap111010Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2327,49 +2327,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap111010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters011010MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters101010MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters110010MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters111011MapBuilder
-public class RequiredWithEscapedCharacters111011MapBuilder<br>
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011010Builder](#requiredwithescapedcharactersmap011010builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101010Builder](#requiredwithescapedcharactersmap101010builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110010Builder](#requiredwithescapedcharactersmap110010builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap111011Builder
+public class RequiredWithEscapedCharactersMap111011Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2377,58 +2377,58 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap111011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters011011MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters101011MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters110011MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters111100MapBuilder
-public class RequiredWithEscapedCharacters111100MapBuilder<br>
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011011Builder](#requiredwithescapedcharactersmap011011builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101011Builder](#requiredwithescapedcharactersmap101011builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110011Builder](#requiredwithescapedcharactersmap110011builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap111100Builder
+public class RequiredWithEscapedCharactersMap111100Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2436,49 +2436,49 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap111100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters011100MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters101100MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters110100MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters111000MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters111101MapBuilder
-public class RequiredWithEscapedCharacters111101MapBuilder<br>
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011100Builder](#requiredwithescapedcharactersmap011100builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101100Builder](#requiredwithescapedcharactersmap101100builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110100Builder](#requiredwithescapedcharactersmap110100builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111000Builder](#requiredwithescapedcharactersmap111000builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap111101Builder
+public class RequiredWithEscapedCharactersMap111101Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2486,58 +2486,58 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap111101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters011101MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters101101MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters110101MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters111001MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
-## RequiredWithEscapedCharacters111110MapBuilder
-public class RequiredWithEscapedCharacters111110MapBuilder<br>
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011101Builder](#requiredwithescapedcharactersmap011101builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101101Builder](#requiredwithescapedcharactersmap101101builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110101Builder](#requiredwithescapedcharactersmap110101builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111001Builder](#requiredwithescapedcharactersmap111001builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+## RequiredWithEscapedCharactersMap111110Builder
+public class RequiredWithEscapedCharactersMap111110Builder<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -2545,56 +2545,56 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| RequiredWithEscapedCharactersMap111110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters011110MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters101110MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters110110MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters111010MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters111100MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011110Builder](#requiredwithescapedcharactersmap011110builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101110Builder](#requiredwithescapedcharactersmap101110builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110110Builder](#requiredwithescapedcharactersmap110110builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111010Builder](#requiredwithescapedcharactersmap111010builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111100Builder](#requiredwithescapedcharactersmap111100builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
 ## RequiredWithEscapedCharactersMapBuilder
 public class RequiredWithEscapedCharactersMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -2609,60 +2609,60 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(Void value) |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(boolean value) |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(String value) |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(int value) |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(float value) |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(long value) |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(double value) |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(List<?> value) |
-| RequiredWithEscapedCharacters011111MapBuilder | setFooReverseSolidusTbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(Void value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(boolean value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(String value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(int value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(float value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(long value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(double value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(List<?> value) |
-| RequiredWithEscapedCharacters101111MapBuilder | setFooReverseSolidusNbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(Void value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(boolean value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(String value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(int value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(float value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(long value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(double value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(List<?> value) |
-| RequiredWithEscapedCharacters110111MapBuilder | setFooReverseSolidusFbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(Void value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(boolean value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(String value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(int value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(float value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(long value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(double value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(List<?> value) |
-| RequiredWithEscapedCharacters111011MapBuilder | setFooReverseSolidusRbar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(Void value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(boolean value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(String value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(int value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(float value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(long value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(double value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(List<?> value) |
-| RequiredWithEscapedCharacters111101MapBuilder | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(Void value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(boolean value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(String value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(int value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(float value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(long value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(double value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(List<?> value) |
-| RequiredWithEscapedCharacters111110MapBuilder | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(Void value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(boolean value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(String value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(int value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(float value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(long value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(double value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap011111Builder](#requiredwithescapedcharactersmap011111builder) | setFooReverseSolidusTbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(Void value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(boolean value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(String value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(int value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(float value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(long value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(double value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap101111Builder](#requiredwithescapedcharactersmap101111builder) | setFooReverseSolidusNbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(Void value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(boolean value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(String value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(int value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(float value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(long value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(double value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap110111Builder](#requiredwithescapedcharactersmap110111builder) | setFooReverseSolidusFbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(Void value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(boolean value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(String value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(int value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(float value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(long value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(double value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111011Builder](#requiredwithescapedcharactersmap111011builder) | setFooReverseSolidusRbar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(Void value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(boolean value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(String value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(int value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(float value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(long value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(double value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111101Builder](#requiredwithescapedcharactersmap111101builder) | setFooReverseSolidusQuotationMarkBar(Map<String, ?> value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(Void value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(boolean value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(String value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(int value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(float value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(long value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(double value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(List<?> value) |
+| [RequiredWithEscapedCharactersMap111110Builder](#requiredwithescapedcharactersmap111110builder) | setFooReverseSolidusReverseSolidusBar(Map<String, ?> value) |
 
 ## RequiredWithEscapedCharactersMap
 public static class RequiredWithEscapedCharactersMap<br>

@@ -73,25 +73,25 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, @Nullable Object> | build() |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(Void value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(boolean value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(String value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(int value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(float value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(long value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(double value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(List<?> value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | foo(Map<String, ?> value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(Void value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(boolean value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(String value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(int value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(float value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(long value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(double value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(List<?> value) |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder | bar(Map<String, ?> value) |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(Void value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(boolean value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(String value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(int value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(float value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(long value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(double value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(List<?> value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | foo(Map<String, ?> value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(Void value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(boolean value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(String value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(int value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(float value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(long value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(double value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(List<?> value) |
+| [AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder) | bar(Map<String, ?> value) |
 
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateMap
 public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMap<br>
