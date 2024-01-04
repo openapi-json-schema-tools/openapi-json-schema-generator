@@ -116,7 +116,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | String | triangleType()<br>[optional] must be one of ["EquilateralTriangle"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## TriangleType
 public static class TriangleType<br>

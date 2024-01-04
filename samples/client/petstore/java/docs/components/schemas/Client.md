@@ -88,7 +88,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ClientMap](#clientmap) | of([Map<String, ? extends @Nullable Object>](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
 | String | client()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Client2
 public static class Client2<br>

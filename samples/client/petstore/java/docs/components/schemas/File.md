@@ -91,7 +91,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [FileMap](#filemap) | of([Map<String, ? extends @Nullable Object>](#filemapbuilder) arg, SchemaConfiguration configuration) |
 | String | sourceURI()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## SourceURI
 public static class SourceURI<br>

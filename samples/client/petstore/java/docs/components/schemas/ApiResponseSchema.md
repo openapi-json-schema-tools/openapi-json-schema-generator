@@ -103,7 +103,7 @@ A class to store validated Map payloads
 | Number | code()<br>[optional] value must be a 32 bit integer |
 | String | type()<br>[optional] |
 | String | message()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Message
 public static class Message<br>

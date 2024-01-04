@@ -95,7 +95,7 @@ A class to store validated Map payloads
 | static [FileSchemaTestClassMap](#fileschematestclassmap) | of([Map<String, ? extends @Nullable Object>](#fileschematestclassmapbuilder) arg, SchemaConfiguration configuration) |
 | [File.FileMap](../../components/schemas/File.md#filemap) | file()<br>[optional] |
 | [FilesList](#fileslist) | files()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Files
 public static class Files<br>

@@ -161,6 +161,6 @@ A class to store validated Map payloads
 | static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | of([Map<String, ? extends @Nullable Object>](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validName()<br> |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

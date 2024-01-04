@@ -88,6 +88,15 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [ZebraMap0Builder](#zebramap0builder) | type(String value) |
 | [ZebraMap0Builder](#zebramap0builder) | type([StringTypeEnums](#stringtypeenums) value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, Void value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, boolean value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, String value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, int value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, float value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, long value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, double value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, List<?> value) |
+| [ZebraMap0Builder](#zebramap0builder) | additionalProperty(String key, Map<String, ?> value) |
 ## ZebraMapBuilder
 public class ZebraMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -104,6 +113,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [ZebraMap0Builder](#zebramap0builder) | className(String value) |
 | [ZebraMap0Builder](#zebramap0builder) | className([StringClassNameEnums](#stringclassnameenums) value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, Void value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, boolean value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, String value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, int value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, float value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, long value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, double value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, List<?> value) |
+| [ZebraMapBuilder](#zebramapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ZebraMap
 public static class ZebraMap<br>
@@ -117,7 +135,7 @@ A class to store validated Map payloads
 | static [ZebraMap](#zebramap) | of([Map<String, ? extends @Nullable Object>](#zebramapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["zebra"] |
 | String | type()<br>[optional] must be one of ["plains", "mountain", "grevys"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassName
 public static class ClassName<br>

@@ -137,7 +137,7 @@ A class to store validated Map payloads
 | [ArrayOfStringList](#arrayofstringlist) | array_of_string()<br>[optional] |
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | array_array_of_integer()<br>[optional] |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | array_array_of_model()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayArrayOfModel
 public static class ArrayArrayOfModel<br>

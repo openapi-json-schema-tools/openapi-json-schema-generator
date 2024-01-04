@@ -106,7 +106,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [BasquePigMap](#basquepigmap) | of([Map<String, ? extends @Nullable Object>](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["BasquePig"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassName
 public static class ClassName<br>

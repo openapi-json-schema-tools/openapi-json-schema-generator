@@ -140,7 +140,7 @@ A class to store validated Map payloads
 | static [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | String | arg()<br> |
 | String | args()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Args
 public static class Args<br>

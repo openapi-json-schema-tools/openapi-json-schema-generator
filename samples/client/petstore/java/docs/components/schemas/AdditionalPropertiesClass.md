@@ -156,7 +156,7 @@ A class to store validated Map payloads
 | [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | map_with_undeclared_properties_anytype_3()<br>[optional] |
 | [EmptyMapMap](#emptymapmap) | empty_map()<br>[optional] |
 | [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | map_with_undeclared_properties_string()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MapWithUndeclaredPropertiesString
 public static class MapWithUndeclaredPropertiesString<br>
@@ -214,6 +214,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [MapWithUndeclaredPropertiesStringMapBuilder](#mapwithundeclaredpropertiesstringmapbuilder) | additionalProperty(String key, String value) |
 
 ## MapWithUndeclaredPropertiesStringMap
 public static class MapWithUndeclaredPropertiesStringMap<br>
@@ -374,6 +375,15 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, Void value) |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, boolean value) |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, String value) |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, int value) |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, float value) |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, long value) |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, double value) |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, List<?> value) |
+| [MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## MapWithUndeclaredPropertiesAnytype3Map
 public static class MapWithUndeclaredPropertiesAnytype3Map<br>
@@ -385,7 +395,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | of([Map<String, ? extends @Nullable Object>](#mapwithundeclaredpropertiesanytype3mapbuilder) arg, SchemaConfiguration configuration) |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
@@ -483,6 +493,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Map<String, String>> | build()<br>Returns map input that should be used with Schema.validate |
+| [MapOfMapPropertyMapBuilder](#mapofmappropertymapbuilder) | additionalProperty(String key, Map<String, String> value) |
 
 ## MapOfMapPropertyMap
 public static class MapOfMapPropertyMap<br>
@@ -552,6 +563,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalPropertiesMapBuilder2](#additionalpropertiesmapbuilder2) | additionalProperty(String key, String value) |
 
 ## AdditionalPropertiesMap
 public static class AdditionalPropertiesMap<br>
@@ -631,6 +643,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [MapPropertyMapBuilder](#mappropertymapbuilder) | additionalProperty(String key, String value) |
 
 ## MapPropertyMap
 public static class MapPropertyMap<br>

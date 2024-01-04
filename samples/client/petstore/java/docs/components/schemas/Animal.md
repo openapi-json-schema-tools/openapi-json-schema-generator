@@ -110,7 +110,7 @@ A class to store validated Map payloads
 | static [AnimalMap](#animalmap) | of([Map<String, ? extends @Nullable Object>](#animalmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> |
 | String | color()<br>[optional] if omitted the server will use the default value of red |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Color
 public static class Color<br>

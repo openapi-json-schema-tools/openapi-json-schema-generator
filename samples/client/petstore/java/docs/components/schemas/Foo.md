@@ -83,6 +83,6 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [FooMap](#foomap) | of([Map<String, ? extends @Nullable Object>](#foomapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

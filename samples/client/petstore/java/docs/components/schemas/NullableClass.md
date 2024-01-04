@@ -183,6 +183,8 @@ A class that builds the Map input type
 | [NullableClassMapBuilder](#nullableclassmapbuilder) | object_and_items_nullable_prop(Void value) |
 | [NullableClassMapBuilder](#nullableclassmapbuilder) | object_and_items_nullable_prop(Map<String, @Nullable Map<String, @Nullable Object>> value) |
 | [NullableClassMapBuilder](#nullableclassmapbuilder) | object_items_nullable(Map<String, @Nullable Map<String, @Nullable Object>> value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | additionalProperty(String key, Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | additionalProperty(String key, Map<String, @Nullable Object> value) |
 
 ## NullableClassMap
 public static class NullableClassMap<br>
@@ -264,6 +266,8 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Map<String, @Nullable Object>> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectItemsNullableMapBuilder](#objectitemsnullablemapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectItemsNullableMapBuilder](#objectitemsnullablemapbuilder) | additionalProperty(String key, Map<String, @Nullable Object> value) |
 
 ## ObjectItemsNullableMap
 public static class ObjectItemsNullableMap<br>
@@ -379,6 +383,8 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Map<String, @Nullable Object>> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectAndItemsNullablePropMapBuilder](#objectanditemsnullablepropmapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectAndItemsNullablePropMapBuilder](#objectanditemsnullablepropmapbuilder) | additionalProperty(String key, Map<String, @Nullable Object> value) |
 
 ## ObjectAndItemsNullablePropMap
 public static class ObjectAndItemsNullablePropMap<br>
@@ -494,6 +500,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Map<String, @Nullable Object>> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectNullablePropMapBuilder](#objectnullablepropmapbuilder) | additionalProperty(String key, Map<String, @Nullable Object> value) |
 
 ## ObjectNullablePropMap
 public static class ObjectNullablePropMap<br>

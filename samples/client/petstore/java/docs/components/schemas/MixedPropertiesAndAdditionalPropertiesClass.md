@@ -104,7 +104,7 @@ A class to store validated Map payloads
 | static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | of([Map<String, ? extends @Nullable Object>](#mixedpropertiesandadditionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["map"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MapSchema
 public static class MapSchema<br>
@@ -162,6 +162,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Map<String, @Nullable Object>> | build()<br>Returns map input that should be used with Schema.validate |
+| [MapMapBuilder](#mapmapbuilder) | additionalProperty(String key, Map<String, @Nullable Object> value) |
 
 ## MapMap
 public static class MapMap<br>

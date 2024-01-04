@@ -81,6 +81,7 @@ A class that builds the Map input type
 | [ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder) | a(float value) |
 | [ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder) | a(long value) |
 | [ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder) | a(double value) |
+| [ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder) | additionalProperty(String key, String value) |
 
 ## ObjectWithNonIntersectingValuesMap
 public static class ObjectWithNonIntersectingValuesMap<br>

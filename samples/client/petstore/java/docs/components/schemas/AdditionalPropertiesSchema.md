@@ -97,6 +97,15 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, String value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, int value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, float value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, long value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, double value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema2Map
 public static class Schema2Map<br>
@@ -190,6 +199,15 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, String value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, int value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, float value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, long value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, double value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema1Map
 public static class Schema1Map<br>
@@ -283,6 +301,15 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, String value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, int value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, float value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, long value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, double value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema0Map
 public static class Schema0Map<br>
@@ -294,7 +321,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

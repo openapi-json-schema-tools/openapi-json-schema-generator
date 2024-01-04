@@ -93,7 +93,7 @@ A class to store validated Map payloads
 | Number | name()<br> value must be a 32 bit integer |
 | Number | snake_case()<br>[optional] value must be a 32 bit integer |
 | String | property()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Property
 public static class Property<br>

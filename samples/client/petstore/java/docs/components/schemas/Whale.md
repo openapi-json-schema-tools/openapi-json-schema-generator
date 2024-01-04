@@ -120,7 +120,7 @@ A class to store validated Map payloads
 | String | className()<br> must be one of ["whale"] |
 | boolean | hasBaleen()<br>[optional] |
 | boolean | hasTeeth()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassName
 public static class ClassName<br>

@@ -133,7 +133,7 @@ A class to store validated Map payloads
 | String | shipDate()<br>[optional] value must conform to RFC-3339 date-time |
 | String | status()<br>[optional] must be one of ["placed", "approved", "delivered"] |
 | boolean | complete()<br>[optional] if omitted the server will use the default value of false |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Complete
 public static class Complete<br>

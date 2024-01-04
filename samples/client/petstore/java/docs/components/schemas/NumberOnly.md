@@ -91,7 +91,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [NumberOnlyMap](#numberonlymap) | of([Map<String, ? extends @Nullable Object>](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | Number | JustNumber()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## JustNumber
 public static class JustNumber<br>

@@ -123,7 +123,7 @@ A class to store validated Map payloads
 | String | Capital_Snake()<br>[optional] |
 | String | SCA_ETH_Flow_Points()<br>[optional] |
 | String | ATT_NAME()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ATTNAME
 public static class ATTNAME<br>

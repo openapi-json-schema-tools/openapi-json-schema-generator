@@ -103,7 +103,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [GrandparentAnimalMap](#grandparentanimalmap) | of([Map<String, ? extends @Nullable Object>](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | String | pet_type()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## PetType
 public static class PetType<br>

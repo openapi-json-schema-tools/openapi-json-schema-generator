@@ -121,7 +121,7 @@ A class to store validated Map payloads
 | [MapOfEnumStringMap](#mapofenumstringmap) | map_of_enum_string()<br>[optional] |
 | [DirectMapMap](#directmapmap) | direct_map()<br>[optional] |
 | [StringBooleanMap.StringBooleanMapMap](../../components/schemas/StringBooleanMap.md#stringbooleanmapmap) | indirect_map()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## DirectMap
 public static class DirectMap<br>
@@ -179,6 +179,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Boolean> | build()<br>Returns map input that should be used with Schema.validate |
+| [DirectMapMapBuilder](#directmapmapbuilder) | additionalProperty(String key, boolean value) |
 
 ## DirectMapMap
 public static class DirectMapMap<br>
@@ -258,6 +259,8 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [MapOfEnumStringMapBuilder](#mapofenumstringmapbuilder) | additionalProperty(String key, String value) |
+| [MapOfEnumStringMapBuilder](#mapofenumstringmapbuilder) | additionalProperty(String key, [StringAdditionalPropertiesEnums](#stringadditionalpropertiesenums) value) |
 
 ## MapOfEnumStringMap
 public static class MapOfEnumStringMap<br>
@@ -379,6 +382,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Map<String, String>> | build()<br>Returns map input that should be used with Schema.validate |
+| [MapMapOfStringMapBuilder](#mapmapofstringmapbuilder) | additionalProperty(String key, Map<String, String> value) |
 
 ## MapMapOfStringMap
 public static class MapMapOfStringMap<br>
@@ -448,6 +452,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalPropertiesMapBuilder1](#additionalpropertiesmapbuilder1) | additionalProperty(String key, String value) |
 
 ## AdditionalPropertiesMap
 public static class AdditionalPropertiesMap<br>

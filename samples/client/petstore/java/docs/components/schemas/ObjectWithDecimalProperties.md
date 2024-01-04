@@ -109,7 +109,7 @@ A class to store validated Map payloads
 | String | length()<br>[optional] |
 | String | width()<br>[optional] value must be int or float numeric |
 | [Money.MoneyMap](../../components/schemas/Money.md#moneymap) | cost()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Width
 public static class Width<br>

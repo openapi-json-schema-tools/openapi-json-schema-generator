@@ -117,7 +117,7 @@ A class to store validated Map payloads
 | static [AppleMap](#applemap) | of([Map<String, ? extends @Nullable Object>](#applemapbuilder) arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | String | origin()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Origin
 public static class Origin<br>

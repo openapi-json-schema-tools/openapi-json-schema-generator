@@ -124,7 +124,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | of([Map<String, ? extends @Nullable Object>](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["123-list"], instance["$special[property.name]"], instance["123Number"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Schema123Number
 public static class Schema123Number<br>

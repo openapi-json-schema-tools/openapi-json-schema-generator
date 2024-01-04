@@ -71,6 +71,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Boolean> | build()<br>Returns map input that should be used with Schema.validate |
+| [StringBooleanMapMapBuilder](#stringbooleanmapmapbuilder) | additionalProperty(String key, boolean value) |
 
 ## StringBooleanMapMap
 public static class StringBooleanMapMap<br>

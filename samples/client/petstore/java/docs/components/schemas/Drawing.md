@@ -109,6 +109,15 @@ A class that builds the Map input type
 | [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(List<?> value) |
 | [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(Map<String, ?> value) |
 | [DrawingMapBuilder](#drawingmapbuilder) | shapes(List<@Nullable Object> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, Void value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, boolean value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, String value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, int value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, float value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, long value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, double value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, List<?> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## DrawingMap
 public static class DrawingMap<br>

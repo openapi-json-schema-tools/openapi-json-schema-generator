@@ -140,7 +140,7 @@ A class to store validated Map payloads
 | static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | String | param()<br> |
 | String | param2()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Param2
 public static class Param2<br>

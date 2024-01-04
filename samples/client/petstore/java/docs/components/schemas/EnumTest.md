@@ -180,7 +180,7 @@ A class to store validated Map payloads
 | String | StringEnumWithDefaultValue()<br>[optional] |
 | Number | IntegerEnumWithDefaultValue()<br>[optional] |
 | Number | IntegerEnumOneValue()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## EnumNumber
 public static class EnumNumber<br>

@@ -106,7 +106,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [BananaMap](#bananamap) | of([Map<String, ? extends @Nullable Object>](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## LengthCm
 public static class LengthCm<br>

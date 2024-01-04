@@ -471,7 +471,7 @@ A class to store validated Map payloads
 | String | password()<br>[optional] |
 | String | callback()<br>[optional] |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Callback
 public static class Callback<br>

@@ -512,7 +512,7 @@ A class to store validated Map payloads
 | String | pattern_with_digits_and_delimiter()<br>[optional] |
 | Void | noneProp()<br>[optional] |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NoneProp
 public static class NoneProp<br>

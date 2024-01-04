@@ -268,7 +268,7 @@ A class to store validated Map payloads
 | @Nullable Object | description()<br> |
 | String | discriminator()<br> |
 | @Nullable Object | sequenceNumber()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Discriminator
 public static class Discriminator<br>

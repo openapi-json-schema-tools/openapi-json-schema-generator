@@ -201,7 +201,7 @@ A class to store validated Map payloads
 | [Category.CategoryMap](../../components/schemas/Category.md#categorymap) | category()<br>[optional] |
 | [TagsList](#tagslist) | tags()<br>[optional] |
 | String | status()<br>[optional] must be one of ["available", "pending", "sold"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Tags
 public static class Tags<br>

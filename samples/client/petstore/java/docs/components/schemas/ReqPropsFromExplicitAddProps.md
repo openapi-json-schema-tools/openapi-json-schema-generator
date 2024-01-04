@@ -76,6 +76,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [ReqPropsFromExplicitAddPropsMap00Builder](#reqpropsfromexplicitaddpropsmap00builder) | additionalProperty(String key, String value) |
 ## ReqPropsFromExplicitAddPropsMap01Builder
 public class ReqPropsFromExplicitAddPropsMap01Builder<br>
 builder for `Map<String, String>`
@@ -91,6 +92,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReqPropsFromExplicitAddPropsMap00Builder](#reqpropsfromexplicitaddpropsmap00builder) | validName(String value) |
+| [ReqPropsFromExplicitAddPropsMap01Builder](#reqpropsfromexplicitaddpropsmap01builder) | additionalProperty(String key, String value) |
 ## ReqPropsFromExplicitAddPropsMap10Builder
 public class ReqPropsFromExplicitAddPropsMap10Builder<br>
 builder for `Map<String, String>`
@@ -106,6 +108,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReqPropsFromExplicitAddPropsMap00Builder](#reqpropsfromexplicitaddpropsmap00builder) | setInvalidHyphenMinusName(String value) |
+| [ReqPropsFromExplicitAddPropsMap10Builder](#reqpropsfromexplicitaddpropsmap10builder) | additionalProperty(String key, String value) |
 ## ReqPropsFromExplicitAddPropsMapBuilder
 public class ReqPropsFromExplicitAddPropsMapBuilder<br>
 builder for `Map<String, String>`
@@ -122,6 +125,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | [ReqPropsFromExplicitAddPropsMap01Builder](#reqpropsfromexplicitaddpropsmap01builder) | setInvalidHyphenMinusName(String value) |
 | [ReqPropsFromExplicitAddPropsMap10Builder](#reqpropsfromexplicitaddpropsmap10builder) | validName(String value) |
+| [ReqPropsFromExplicitAddPropsMapBuilder](#reqpropsfromexplicitaddpropsmapbuilder) | additionalProperty(String key, String value) |
 
 ## ReqPropsFromExplicitAddPropsMap
 public static class ReqPropsFromExplicitAddPropsMap<br>

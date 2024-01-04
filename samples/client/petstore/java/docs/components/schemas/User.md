@@ -186,7 +186,7 @@ A class to store validated Map payloads
 | @Nullable Object | anyTypeProp()<br>[optional] |
 | @Nullable Object | anyTypeExceptNullProp()<br>[optional] |
 | @Nullable Object | anyTypePropNullable()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>

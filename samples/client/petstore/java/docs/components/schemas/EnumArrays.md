@@ -106,7 +106,7 @@ A class to store validated Map payloads
 | static [EnumArraysMap](#enumarraysmap) | of([Map<String, ? extends @Nullable Object>](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
 | String | just_symbol()<br>[optional] must be one of [">=", "$"] |
 | [ArrayEnumList](#arrayenumlist) | array_enum()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayEnum
 public static class ArrayEnum<br>

@@ -72,6 +72,7 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(Map<String, @Nullable Object> value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | additionalProperty(String key, Map<String, @Nullable Object> value) |
 
 ## SelfReferencingObjectModelMap
 public static class SelfReferencingObjectModelMap<br>

@@ -90,7 +90,7 @@ A class to store validated Map payloads
 | static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithcollidingpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenMap<?> | someProp()<br>[optional] |
 | FrozenMap<?> | someprop()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Someprop
 public static class Someprop<br>

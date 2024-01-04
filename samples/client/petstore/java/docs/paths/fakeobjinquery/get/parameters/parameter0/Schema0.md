@@ -88,7 +88,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [SchemaMap0](#schemamap0) | of([Map<String, ? extends @Nullable Object>](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
 | String | keyword()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Keyword0
 public static class Keyword0<br>

@@ -95,7 +95,7 @@ A class to store validated Map payloads
 | static [ReadOnlyFirstMap](#readonlyfirstmap) | of([Map<String, ? extends @Nullable Object>](#readonlyfirstmapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | baz()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Baz
 public static class Baz<br>

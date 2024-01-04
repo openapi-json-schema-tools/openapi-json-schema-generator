@@ -106,7 +106,7 @@ A class to store validated Map payloads
 | static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | [EnumFormStringArrayList](#enumformstringarraylist) | enum_form_string_array()<br>[optional] |
 | String | enum_form_string()<br>[optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## EnumFormString
 public static class EnumFormString<br>

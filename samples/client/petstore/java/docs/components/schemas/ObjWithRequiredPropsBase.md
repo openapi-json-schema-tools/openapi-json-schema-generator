@@ -103,7 +103,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | of([Map<String, ? extends @Nullable Object>](#objwithrequiredpropsbasemapbuilder) arg, SchemaConfiguration configuration) |
 | String | b()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## B
 public static class B<br>

@@ -71,6 +71,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalProperty(String key, String value) |
 
 ## SchemaMap
 public static class SchemaMap<br>

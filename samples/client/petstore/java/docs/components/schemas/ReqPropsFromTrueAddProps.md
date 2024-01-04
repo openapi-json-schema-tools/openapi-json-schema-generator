@@ -72,6 +72,15 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, Void value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, boolean value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, String value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, int value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, float value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, long value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, double value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, List<?> value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | additionalProperty(String key, Map<String, ?> value) |
 ## ReqPropsFromTrueAddPropsMap01Builder
 public class ReqPropsFromTrueAddPropsMap01Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -95,6 +104,15 @@ A class that builds the Map input type
 | [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(double value) |
 | [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(List<?> value) |
 | [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(Map<String, ?> value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, Void value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, boolean value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, String value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, int value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, float value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, long value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, double value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, List<?> value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | additionalProperty(String key, Map<String, ?> value) |
 ## ReqPropsFromTrueAddPropsMap10Builder
 public class ReqPropsFromTrueAddPropsMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -118,6 +136,15 @@ A class that builds the Map input type
 | [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(double value) |
 | [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(List<?> value) |
 | [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(Map<String, ?> value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, Void value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, boolean value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, String value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, int value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, float value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, long value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, double value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, List<?> value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | additionalProperty(String key, Map<String, ?> value) |
 ## ReqPropsFromTrueAddPropsMapBuilder
 public class ReqPropsFromTrueAddPropsMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -150,6 +177,15 @@ A class that builds the Map input type
 | [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(double value) |
 | [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(List<?> value) |
 | [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(Map<String, ?> value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, Void value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, boolean value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, String value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, int value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, float value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, long value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, double value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ReqPropsFromTrueAddPropsMap
 public static class ReqPropsFromTrueAddPropsMap<br>
@@ -163,7 +199,7 @@ A class to store validated Map payloads
 | static [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | of([Map<String, ? extends @Nullable Object>](#reqpropsfromtrueaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validName()<br> |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -75,6 +75,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, List<String>> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalPropertiesWithArrayOfEnumsMapBuilder](#additionalpropertieswitharrayofenumsmapbuilder) | additionalProperty(String key, List<String> value) |
 
 ## AdditionalPropertiesWithArrayOfEnumsMap
 public static class AdditionalPropertiesWithArrayOfEnumsMap<br>

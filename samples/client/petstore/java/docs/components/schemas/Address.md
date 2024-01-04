@@ -71,6 +71,10 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Number> | build()<br>Returns map input that should be used with Schema.validate |
+| [AddressMapBuilder](#addressmapbuilder) | additionalProperty(String key, int value) |
+| [AddressMapBuilder](#addressmapbuilder) | additionalProperty(String key, float value) |
+| [AddressMapBuilder](#addressmapbuilder) | additionalProperty(String key, long value) |
+| [AddressMapBuilder](#addressmapbuilder) | additionalProperty(String key, double value) |
 
 ## AddressMap
 public static class AddressMap<br>

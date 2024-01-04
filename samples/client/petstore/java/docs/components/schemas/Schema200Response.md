@@ -74,7 +74,7 @@ A class to store validated Map payloads
 | static [Schema200ResponseMap](#schema200responsemap) | of([Map<String, ? extends @Nullable Object>](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | Number | name()<br>[optional] value must be a 32 bit integer |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["class"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassSchema
 public static class ClassSchema<br>

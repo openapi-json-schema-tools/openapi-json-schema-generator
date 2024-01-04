@@ -119,7 +119,7 @@ A class to store validated Map payloads
 | static [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | of([Map<String, ? extends @Nullable Object>](#quadrilateralinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | String | quadrilateralType()<br> |
 | String | shapeType()<br> must be one of ["Quadrilateral"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>

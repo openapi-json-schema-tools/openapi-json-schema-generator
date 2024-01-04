@@ -95,7 +95,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | of([Map<String, ? extends @Nullable Object>](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayNumberList](#arraynumberlist) | ArrayNumber()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayNumber
 public static class ArrayNumber<br>

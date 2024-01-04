@@ -98,7 +98,7 @@ A class to store validated Map payloads
 | static [FromSchemaMap](#fromschemamap) | of([Map<String, ? extends @Nullable Object>](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
 | String | data()<br>[optional] |
 | Number | id()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Id
 public static class Id<br>

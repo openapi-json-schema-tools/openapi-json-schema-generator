@@ -92,7 +92,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [HealthCheckResultMap](#healthcheckresultmap) | of([Map<String, ? extends @Nullable Object>](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable String | NullableMessage()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NullableMessage
 public static class NullableMessage<br>

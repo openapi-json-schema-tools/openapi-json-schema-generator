@@ -93,7 +93,7 @@ A class to store validated Map payloads
 | static [PlayerMap](#playermap) | of([Map<String, ? extends @Nullable Object>](#playermapbuilder) arg, SchemaConfiguration configuration) |
 | String | name()<br>[optional] |
 | [PlayerMap](#playermap) | enemyPlayer()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Name
 public static class Name<br>

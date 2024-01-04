@@ -106,7 +106,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [DanishPigMap](#danishpigmap) | of([Map<String, ? extends @Nullable Object>](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["DanishPig"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassName
 public static class ClassName<br>
