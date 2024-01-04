@@ -4,7 +4,7 @@
 | {{builderClass}} | {{methodName}}(String key, Void value) |
         {{else}}
 
-default T {{methodName}}(String key, Void value) {
+default T {{methodName}}(String key, Void value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, null);
@@ -17,7 +17,7 @@ default T {{methodName}}(String key, Void value) {
 | {{builderClass}} | {{methodName}}(String key, boolean value) |
             {{else}}
 
-default T {{methodName}}(String key, boolean value) {
+default T {{methodName}}(String key, boolean value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
@@ -30,7 +30,7 @@ default T {{methodName}}(String key, boolean value) {
 | {{builderClass}} | {{methodName}}(String key, String value) |
                 {{else}}
 
-default T {{methodName}}(String key, String value) {
+default T {{methodName}}(String key, String value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
@@ -48,14 +48,14 @@ default T {{methodName}}(String key, String value) {
                         {{/neq}}
                     {{else}}
 
-default T {{methodName}}(String key, int value) {
+default T {{methodName}}(String key, int value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, float value) {
+default T {{methodName}}(String key, float value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
@@ -63,14 +63,14 @@ default T {{methodName}}(String key, float value) {
 }
                         {{#neq ../format "int32"}}
 
-default T {{methodName}}(String key, long value) {
+default T {{methodName}}(String key, long value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, double value) {
+default T {{methodName}}(String key, double value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
@@ -84,7 +84,7 @@ default T {{methodName}}(String key, double value) {
 | {{builderClass}} | {{methodName}}(String key, List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) |
                         {{else}}
 
-default T {{methodName}}(String key, List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
+default T {{methodName}}(String key, List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
@@ -97,7 +97,7 @@ default T {{methodName}}(String key, List<{{#with items}}{{> src/main/java/packa
 | {{builderClass}} | {{methodName}}(String key, Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) |
                             {{else}}
 
-default T {{methodName}}(String key, Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) {
+default T {{methodName}}(String key, Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
@@ -124,63 +124,63 @@ default T {{methodName}}(String key, Map<String, {{#with mapValueSchema}}{{> src
 | {{builderClass}} | {{methodName}}(String key, Map<String, ?> value) |
     {{else}}
 
-default T {{methodName}}(String key, Void value) {
+default T {{methodName}}(String key, Void value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, null);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, boolean value) {
+default T {{methodName}}(String key, boolean value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, String value) {
+default T {{methodName}}(String key, String value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, int value) {
+default T {{methodName}}(String key, int value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, float value) {
+default T {{methodName}}(String key, float value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, long value) {
+default T {{methodName}}(String key, long value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, double value) {
+default T {{methodName}}(String key, double value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, List<?> value) {
+default T {{methodName}}(String key, List<?> value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
     return {{getBuilderMethod}}(instance);
 }
 
-default T {{methodName}}(String key, Map<String, ?> value) {
+default T {{methodName}}(String key, Map<String, ?> value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value);
@@ -199,7 +199,7 @@ default T {{methodName}}(String key, Map<String, ?> value) {
                 {{/if}}
             {{else}}
 
-default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}} value) {
+default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}} value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, null);
@@ -216,7 +216,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                     {{/if}}
                 {{else}}
 
-default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}} value) {
+default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}} value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
@@ -233,7 +233,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                         {{/if}}
                     {{else}}
 
-default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}} value) {
+default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}} value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
@@ -250,7 +250,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                             {{/if}}
                         {{else}}
 
-default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}} value) {
+default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}} value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
@@ -267,7 +267,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                                 {{/if}}
                             {{else}}
 
-default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}} value) {
+default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}} value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
@@ -284,7 +284,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                                     {{/if}}
                                 {{else}}
 
-default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}} value) {
+default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}} value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());
@@ -301,7 +301,7 @@ default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPa
                                         {{/if}}
                                     {{else}}
 
-default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}} value) {
+default T {{methodName}}(String key, {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}} value) throws InvalidAdditionalPropertyException {
     MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
     var instance = getInstance();
     instance.put(key, value.value());

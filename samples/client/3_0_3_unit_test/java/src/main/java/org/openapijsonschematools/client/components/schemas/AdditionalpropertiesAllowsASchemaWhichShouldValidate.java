@@ -217,7 +217,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
         
-        default T additionalProperty(String key, boolean value) {
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);

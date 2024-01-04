@@ -47,63 +47,63 @@ public class RefInAdditionalproperties {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
         
-        default T additionalProperty(String key, Void value) {
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, null);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
-        default T additionalProperty(String key, boolean value) {
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
-        default T additionalProperty(String key, String value) {
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
-        default T additionalProperty(String key, int value) {
+        default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
-        default T additionalProperty(String key, float value) {
+        default T additionalProperty(String key, float value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
-        default T additionalProperty(String key, long value) {
+        default T additionalProperty(String key, long value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
-        default T additionalProperty(String key, double value) {
+        default T additionalProperty(String key, double value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
-        default T additionalProperty(String key, List<?> value) {
+        default T additionalProperty(String key, List<?> value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
             return getBuilderAfterAdditionalProperty(instance);
         }
         
-        default T additionalProperty(String key, Map<String, ?> value) {
+        default T additionalProperty(String key, Map<String, ?> value) throws InvalidAdditionalPropertyException {
             MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
             var instance = getInstance();
             instance.put(key, value);
