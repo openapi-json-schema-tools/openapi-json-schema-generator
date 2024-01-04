@@ -80,14 +80,10 @@ public class PropertyNamedRefThatIsNotAReference {
     
     public static class PropertyNamedRefThatIsNotAReferenceBuilder implements BaseBuilder<@Nullable Object>, SetterForRef<PropertyNamedRefThatIsNotAReferenceBuilder> {
         private final Map<String, @Nullable Object> instance;
-        private static final Set<String> requiredKeys = Set.of();
-        private static final Set<String> optionalKeys = Set.of(
+        private static final Set<String> knownKeys = Set.of(
             "$ref"
         );
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public PropertyNamedRefThatIsNotAReferenceBuilder() {

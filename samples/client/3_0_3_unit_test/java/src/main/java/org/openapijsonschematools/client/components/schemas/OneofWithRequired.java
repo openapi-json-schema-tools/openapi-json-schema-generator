@@ -183,15 +183,11 @@ public class OneofWithRequired {
     
     public static class Schema000Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        private static final Set<String> requiredKeys = Set.of(
+        private static final Set<String> knownKeys = Set.of(
             "bar",
             "foo"
         );
-        private static final Set<String> optionalKeys = Set.of();
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public Schema000Builder(Map<String, @Nullable Object> instance) {
@@ -594,15 +590,11 @@ public class OneofWithRequired {
     
     public static class Schema100Builder implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
-        private static final Set<String> requiredKeys = Set.of(
+        private static final Set<String> knownKeys = Set.of(
             "baz",
             "foo"
         );
-        private static final Set<String> optionalKeys = Set.of();
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public Schema100Builder(Map<String, @Nullable Object> instance) {

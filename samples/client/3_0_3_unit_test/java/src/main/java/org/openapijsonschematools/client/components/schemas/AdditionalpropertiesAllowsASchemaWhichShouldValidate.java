@@ -227,15 +227,11 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForBar<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder>, SetterForAdditionalProperties<AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder> {
         private final Map<String, @Nullable Object> instance;
-        private static final Set<String> requiredKeys = Set.of();
-        private static final Set<String> optionalKeys = Set.of(
+        private static final Set<String> knownKeys = Set.of(
             "foo",
             "bar"
         );
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateBuilder() {

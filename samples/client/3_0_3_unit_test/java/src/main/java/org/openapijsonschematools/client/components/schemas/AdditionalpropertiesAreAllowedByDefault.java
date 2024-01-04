@@ -207,15 +207,11 @@ public class AdditionalpropertiesAreAllowedByDefault {
     
     public static class AdditionalpropertiesAreAllowedByDefaultBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAreAllowedByDefaultBuilder>, SetterForBar<AdditionalpropertiesAreAllowedByDefaultBuilder> {
         private final Map<String, @Nullable Object> instance;
-        private static final Set<String> requiredKeys = Set.of();
-        private static final Set<String> optionalKeys = Set.of(
+        private static final Set<String> knownKeys = Set.of(
             "foo",
             "bar"
         );
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public AdditionalpropertiesAreAllowedByDefaultBuilder() {

@@ -145,14 +145,10 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     public static class Schema0Builder implements BaseBuilder<@Nullable Object>, SetterForFoo<Schema0Builder> {
         private final Map<String, @Nullable Object> instance;
-        private static final Set<String> requiredKeys = Set.of();
-        private static final Set<String> optionalKeys = Set.of(
+        private static final Set<String> knownKeys = Set.of(
             "foo"
         );
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public Schema0Builder() {
@@ -405,12 +401,8 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     public static class AdditionalpropertiesShouldNotLookInApplicatorsBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesShouldNotLookInApplicatorsBuilder> {
         private final Map<String, Boolean> instance;
-        private static final Set<String> requiredKeys = Set.of();
-        private static final Set<String> optionalKeys = Set.of();
+        private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public AdditionalpropertiesShouldNotLookInApplicatorsBuilder() {

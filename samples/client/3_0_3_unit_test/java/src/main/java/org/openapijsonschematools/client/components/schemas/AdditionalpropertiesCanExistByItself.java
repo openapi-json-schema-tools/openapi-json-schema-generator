@@ -74,12 +74,8 @@ public class AdditionalpropertiesCanExistByItself {
     
     public static class AdditionalpropertiesCanExistByItselfBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesCanExistByItselfBuilder> {
         private final Map<String, Boolean> instance;
-        private static final Set<String> requiredKeys = Set.of();
-        private static final Set<String> optionalKeys = Set.of();
+        private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public AdditionalpropertiesCanExistByItselfBuilder() {

@@ -126,14 +126,10 @@ public class RefInProperty {
     
     public static class RefInPropertyBuilder implements BaseBuilder<@Nullable Object>, SetterForA<RefInPropertyBuilder> {
         private final Map<String, @Nullable Object> instance;
-        private static final Set<String> requiredKeys = Set.of();
-        private static final Set<String> optionalKeys = Set.of(
+        private static final Set<String> knownKeys = Set.of(
             "a"
         );
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public RefInPropertyBuilder() {

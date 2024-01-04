@@ -90,14 +90,10 @@ public class NotMoreComplexSchema {
     
     public static class NotBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<NotBuilder> {
         private final Map<String, @Nullable Object> instance;
-        private static final Set<String> requiredKeys = Set.of();
-        private static final Set<String> optionalKeys = Set.of(
+        private static final Set<String> knownKeys = Set.of(
             "foo"
         );
         public Set<String> getKnownKeys() {
-            Set<String> knownKeys = new HashSet<>();
-            knownKeys.addAll(requiredKeys);
-            knownKeys.addAll(optionalKeys);
             return knownKeys;
         }
         public NotBuilder() {
