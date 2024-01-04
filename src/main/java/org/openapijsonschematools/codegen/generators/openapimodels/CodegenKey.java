@@ -5,18 +5,20 @@ import java.util.Objects;
 public class CodegenKey implements Comparable<CodegenKey> {
     public final String original;
     public final boolean isValid;
-    public final String snakeCase;
-    public final String pascalCase;
-    public final String camelCase;
-    public final String kebabCase;
+    public final String snakeCase; // used by python
+    public final String pascalCase; // used for class names
+    public final String camelCase; // used by java MapBuilder interface setters
+    public final String kebabCase; // used by docs for anchors
+    public final boolean isAdditionalProperty; // used by java code samples
 
-    public CodegenKey(String original, boolean isValid, String snakeCase, String pascalCase, String kebabCase, String camelCase) {
+    public CodegenKey(String original, boolean isValid, String snakeCase, String pascalCase, String kebabCase, String camelCase, boolean isAdditionalProperty) {
         this.original = original;
         this.isValid = isValid;
         this.snakeCase = snakeCase;
         this.pascalCase = pascalCase;
         this.kebabCase = kebabCase;
         this.camelCase = camelCase;
+        this.isAdditionalProperty = isAdditionalProperty;
     }
 
     @Override
@@ -29,7 +31,8 @@ public class CodegenKey implements Comparable<CodegenKey> {
                 Objects.equals(snakeCase, that.snakeCase) &&
                 Objects.equals(camelCase, that.camelCase) &&
                 Objects.equals(kebabCase, that.kebabCase) &&
-                Objects.equals(pascalCase, that.pascalCase);
+                Objects.equals(pascalCase, that.pascalCase) &&
+                Objects.equals(isAdditionalProperty, that.isAdditionalProperty);
     }
 
     @Override
@@ -41,13 +44,14 @@ public class CodegenKey implements Comparable<CodegenKey> {
         sb.append(", pascalCase=").append(pascalCase);
         sb.append(", kebabCase=").append(kebabCase);
         sb.append(", camelCase=").append(camelCase);
+        sb.append(", isAdditionalProperty=").append(isAdditionalProperty);
         sb.append('}');
         return sb.toString();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(original, isValid, snakeCase, camelCase, kebabCase, pascalCase);
+        return Objects.hash(original, isValid, snakeCase, camelCase, kebabCase, pascalCase, isAdditionalProperty);
     }
 
     @Override

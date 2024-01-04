@@ -152,6 +152,7 @@ public class DefaultGenerator implements Generator {
     protected String securitySchemesIdentifier = "security_schemes";
     protected String requestBodyIdentifier = "request_body";
     private final Pattern patternRegex = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
+    private CodegenKey additionalPropertySampleKey = new CodegenKey("additionalProperty", true, "additional_property", "AdditionalProperty", "additional-property", "additionalProperty", true);
 
 
 
@@ -2429,19 +2430,18 @@ public class DefaultGenerator implements Generator {
         return listVal;
     }
 
-    private LinkedHashMap<String, Object> getMapFromSchema(CodegenSchema mapSchema, Set<CodegenSchema> seenSchemas) {
+    private LinkedHashMap<CodegenKey, Object> getMapFromSchema(CodegenSchema mapSchema, Set<CodegenSchema> seenSchemas) {
         // todo add enum and const handling once those support array types
         if (mapSchema.properties == null && mapSchema.additionalProperties == null && mapSchema.requiredProperties == null) {
             return null;
         }
-        LinkedHashMap<String, Object> mapVal = new LinkedHashMap<>();
+        LinkedHashMap<CodegenKey, Object> mapVal = new LinkedHashMap<>();
         if (mapSchema.requiredProperties != null && !mapSchema.requiredProperties.isEmpty()) {
             for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.requiredProperties.entrySet()) {
-                String propName = entry.getKey().original;
                 Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue(), seenSchemas);
                 if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
                     for(EnumValue exampleValue: propertyTypeToExample.values()) {
-                        mapVal.put(propName, exampleValue);
+                        mapVal.put(entry.getKey(), exampleValue);
                         break;
                     }
                 }
@@ -2449,22 +2449,21 @@ public class DefaultGenerator implements Generator {
         }
         if (mapSchema.optionalProperties != null && !mapSchema.optionalProperties.isEmpty()) {
             for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.optionalProperties.entrySet()) {
-                String propName = entry.getKey().original;
                 Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue(), seenSchemas);
                 if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
                     for(EnumValue exampleValue: propertyTypeToExample.values()) {
-                        mapVal.put(propName, exampleValue);
+                        mapVal.put(entry.getKey(), exampleValue);
                         break;
                     }
                 }
             }
         }
+
         if (mapSchema.additionalProperties != null && !mapSchema.additionalProperties.isBooleanSchemaFalse) {
-            String propName = "additionalProperty";
             Map<String, EnumValue> propertyTypeToExample = getTypeToExample(mapSchema.additionalProperties, seenSchemas);
             if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
                 for(EnumValue exampleValue: propertyTypeToExample.values()) {
-                    mapVal.put(propName, exampleValue);
+                    mapVal.put(additionalPropertySampleKey, exampleValue);
                     break;
                 }
             }
@@ -2965,7 +2964,8 @@ public class DefaultGenerator implements Generator {
                 getOperationIdSnakeCase(operationId),
                 pascalCaseName,
                 kebabCase,
-                null
+                null,
+                false
         );
     }
 
@@ -5409,7 +5409,8 @@ public class DefaultGenerator implements Generator {
                 snakeCaseName,
                 pascalCaseName,
                 kebabCase,
-                camelCaseName
+                camelCaseName,
+                false
         );
     }
 
