@@ -21,6 +21,7 @@ import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;

@@ -367,6 +367,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("NumberJsonSchema");
         schemaSupportingFiles.add("SetMaker");
         schemaSupportingFiles.add("StringJsonSchema");
+        schemaSupportingFiles.add("UnsetAddPropsSetter");
         schemaSupportingFiles.add("UuidJsonSchema");
         for (String schemaSupportingFile: schemaSupportingFiles) {
             supportingFiles.add(new SupportingFile(
@@ -1641,6 +1642,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         if (schema.additionalProperties != null) {
             imports.add("import "+packageName + ".schemas.BaseBuilder;");
             imports.add("import "+packageName + ".schemas.MapMaker;");
+        } else {
+            imports.add("import "+packageName + ".schemas.UnsetAddPropsSetter;");
         }
     }
 
