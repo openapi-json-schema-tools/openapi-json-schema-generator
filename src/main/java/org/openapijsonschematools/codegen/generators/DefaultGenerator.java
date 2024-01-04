@@ -2460,7 +2460,7 @@ public class DefaultGenerator implements Generator {
             }
         }
         if (mapSchema.additionalProperties != null && !mapSchema.additionalProperties.isBooleanSchemaFalse) {
-            String propName = "someAdditionalProperty";
+            String propName = "additionalProperty";
             Map<String, EnumValue> propertyTypeToExample = getTypeToExample(mapSchema.additionalProperties, seenSchemas);
             if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
                 for(EnumValue exampleValue: propertyTypeToExample.values()) {

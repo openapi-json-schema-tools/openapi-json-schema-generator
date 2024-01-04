@@ -43,7 +43,7 @@ AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsA
     AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.validate(
     MapUtils.makeMap(
         new AbstractMap.SimpleEntry<>(
-            "someAdditionalProperty",
+            "additionalProperty",
             true
         )
     ),

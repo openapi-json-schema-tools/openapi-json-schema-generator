@@ -41,7 +41,7 @@ AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap val
     AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
     MapUtils.makeMap(
         new AbstractMap.SimpleEntry<>(
-            "someAdditionalProperty",
+            "additionalProperty",
             true
         )
     ),
