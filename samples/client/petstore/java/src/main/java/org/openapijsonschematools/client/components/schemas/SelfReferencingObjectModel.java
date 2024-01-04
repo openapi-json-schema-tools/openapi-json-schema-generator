@@ -63,60 +63,7 @@ public class SelfReferencingObjectModel {
     public interface SetterForSelfRef <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSelfRef(Map<String, @Nullable Object> instance);
-        
-        default T selfRef(Void value) {
-            var instance = getInstance();
-            instance.put("selfRef", null);
-            return getBuilderAfterSelfRef(instance);
-        }
-        
-        default T selfRef(boolean value) {
-            var instance = getInstance();
-            instance.put("selfRef", value);
-            return getBuilderAfterSelfRef(instance);
-        }
-        
-        default T selfRef(String value) {
-            var instance = getInstance();
-            instance.put("selfRef", value);
-            return getBuilderAfterSelfRef(instance);
-        }
-        
-        default T selfRef(int value) {
-            var instance = getInstance();
-            instance.put("selfRef", value);
-            return getBuilderAfterSelfRef(instance);
-        }
-        
-        default T selfRef(float value) {
-            var instance = getInstance();
-            instance.put("selfRef", value);
-            return getBuilderAfterSelfRef(instance);
-        }
-        
-        default T selfRef(long value) {
-            var instance = getInstance();
-            instance.put("selfRef", value);
-            return getBuilderAfterSelfRef(instance);
-        }
-        
-        default T selfRef(double value) {
-            var instance = getInstance();
-            instance.put("selfRef", value);
-            return getBuilderAfterSelfRef(instance);
-        }
-        
-        default T selfRef(List<?> value) {
-            var instance = getInstance();
-            instance.put("selfRef", value);
-            return getBuilderAfterSelfRef(instance);
-        }
-        
-        default T selfRef(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("selfRef", value);
-            return getBuilderAfterSelfRef(instance);
-        }
+        // todo how to handle this
     }
     
     public interface SetterForAdditionalProperties<T> {

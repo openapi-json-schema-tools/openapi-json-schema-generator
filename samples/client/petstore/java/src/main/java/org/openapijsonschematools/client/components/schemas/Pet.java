@@ -470,55 +470,7 @@ public class Pet {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterCategory(Map<String, @Nullable Object> instance);
         
-        default T category(Void value) {
-            var instance = getInstance();
-            instance.put("category", null);
-            return getBuilderAfterCategory(instance);
-        }
-        
-        default T category(boolean value) {
-            var instance = getInstance();
-            instance.put("category", value);
-            return getBuilderAfterCategory(instance);
-        }
-        
-        default T category(String value) {
-            var instance = getInstance();
-            instance.put("category", value);
-            return getBuilderAfterCategory(instance);
-        }
-        
-        default T category(int value) {
-            var instance = getInstance();
-            instance.put("category", value);
-            return getBuilderAfterCategory(instance);
-        }
-        
-        default T category(float value) {
-            var instance = getInstance();
-            instance.put("category", value);
-            return getBuilderAfterCategory(instance);
-        }
-        
-        default T category(long value) {
-            var instance = getInstance();
-            instance.put("category", value);
-            return getBuilderAfterCategory(instance);
-        }
-        
-        default T category(double value) {
-            var instance = getInstance();
-            instance.put("category", value);
-            return getBuilderAfterCategory(instance);
-        }
-        
-        default T category(List<?> value) {
-            var instance = getInstance();
-            instance.put("category", value);
-            return getBuilderAfterCategory(instance);
-        }
-        
-        default T category(Map<String, ?> value) {
+        default T category(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("category", value);
             return getBuilderAfterCategory(instance);

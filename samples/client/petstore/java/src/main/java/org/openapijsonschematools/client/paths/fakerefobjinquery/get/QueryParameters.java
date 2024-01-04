@@ -63,55 +63,7 @@ public class QueryParameters {
         Map<String, Map<String, @Nullable Object>> getInstance();
         T getBuilderAfterMapBean(Map<String, Map<String, @Nullable Object>> instance);
         
-        default T mapBean(Void value) {
-            var instance = getInstance();
-            instance.put("mapBean", null);
-            return getBuilderAfterMapBean(instance);
-        }
-        
-        default T mapBean(boolean value) {
-            var instance = getInstance();
-            instance.put("mapBean", value);
-            return getBuilderAfterMapBean(instance);
-        }
-        
-        default T mapBean(String value) {
-            var instance = getInstance();
-            instance.put("mapBean", value);
-            return getBuilderAfterMapBean(instance);
-        }
-        
-        default T mapBean(int value) {
-            var instance = getInstance();
-            instance.put("mapBean", value);
-            return getBuilderAfterMapBean(instance);
-        }
-        
-        default T mapBean(float value) {
-            var instance = getInstance();
-            instance.put("mapBean", value);
-            return getBuilderAfterMapBean(instance);
-        }
-        
-        default T mapBean(long value) {
-            var instance = getInstance();
-            instance.put("mapBean", value);
-            return getBuilderAfterMapBean(instance);
-        }
-        
-        default T mapBean(double value) {
-            var instance = getInstance();
-            instance.put("mapBean", value);
-            return getBuilderAfterMapBean(instance);
-        }
-        
-        default T mapBean(List<?> value) {
-            var instance = getInstance();
-            instance.put("mapBean", value);
-            return getBuilderAfterMapBean(instance);
-        }
-        
-        default T mapBean(Map<String, ?> value) {
+        default T mapBean(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("mapBean", value);
             return getBuilderAfterMapBean(instance);

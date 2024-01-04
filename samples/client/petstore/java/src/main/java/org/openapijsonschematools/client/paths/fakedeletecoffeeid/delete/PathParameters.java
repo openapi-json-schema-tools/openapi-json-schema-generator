@@ -63,55 +63,7 @@ public class PathParameters {
         Map<String, String> getInstance();
         T getBuilderAfterId(Map<String, String> instance);
         
-        default T id(Void value) {
-            var instance = getInstance();
-            instance.put("id", null);
-            return getBuilderAfterId(instance);
-        }
-        
-        default T id(boolean value) {
-            var instance = getInstance();
-            instance.put("id", value);
-            return getBuilderAfterId(instance);
-        }
-        
         default T id(String value) {
-            var instance = getInstance();
-            instance.put("id", value);
-            return getBuilderAfterId(instance);
-        }
-        
-        default T id(int value) {
-            var instance = getInstance();
-            instance.put("id", value);
-            return getBuilderAfterId(instance);
-        }
-        
-        default T id(float value) {
-            var instance = getInstance();
-            instance.put("id", value);
-            return getBuilderAfterId(instance);
-        }
-        
-        default T id(long value) {
-            var instance = getInstance();
-            instance.put("id", value);
-            return getBuilderAfterId(instance);
-        }
-        
-        default T id(double value) {
-            var instance = getInstance();
-            instance.put("id", value);
-            return getBuilderAfterId(instance);
-        }
-        
-        default T id(List<?> value) {
-            var instance = getInstance();
-            instance.put("id", value);
-            return getBuilderAfterId(instance);
-        }
-        
-        default T id(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("id", value);
             return getBuilderAfterId(instance);

@@ -77,55 +77,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterPassword(Map<String, @Nullable Object> instance);
         
-        default T password(Void value) {
-            var instance = getInstance();
-            instance.put("password", null);
-            return getBuilderAfterPassword(instance);
-        }
-        
-        default T password(boolean value) {
-            var instance = getInstance();
-            instance.put("password", value);
-            return getBuilderAfterPassword(instance);
-        }
-        
         default T password(String value) {
-            var instance = getInstance();
-            instance.put("password", value);
-            return getBuilderAfterPassword(instance);
-        }
-        
-        default T password(int value) {
-            var instance = getInstance();
-            instance.put("password", value);
-            return getBuilderAfterPassword(instance);
-        }
-        
-        default T password(float value) {
-            var instance = getInstance();
-            instance.put("password", value);
-            return getBuilderAfterPassword(instance);
-        }
-        
-        default T password(long value) {
-            var instance = getInstance();
-            instance.put("password", value);
-            return getBuilderAfterPassword(instance);
-        }
-        
-        default T password(double value) {
-            var instance = getInstance();
-            instance.put("password", value);
-            return getBuilderAfterPassword(instance);
-        }
-        
-        default T password(List<?> value) {
-            var instance = getInstance();
-            instance.put("password", value);
-            return getBuilderAfterPassword(instance);
-        }
-        
-        default T password(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("password", value);
             return getBuilderAfterPassword(instance);
@@ -136,55 +88,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterUsername(Map<String, @Nullable Object> instance);
         
-        default T username(Void value) {
-            var instance = getInstance();
-            instance.put("username", null);
-            return getBuilderAfterUsername(instance);
-        }
-        
-        default T username(boolean value) {
-            var instance = getInstance();
-            instance.put("username", value);
-            return getBuilderAfterUsername(instance);
-        }
-        
         default T username(String value) {
-            var instance = getInstance();
-            instance.put("username", value);
-            return getBuilderAfterUsername(instance);
-        }
-        
-        default T username(int value) {
-            var instance = getInstance();
-            instance.put("username", value);
-            return getBuilderAfterUsername(instance);
-        }
-        
-        default T username(float value) {
-            var instance = getInstance();
-            instance.put("username", value);
-            return getBuilderAfterUsername(instance);
-        }
-        
-        default T username(long value) {
-            var instance = getInstance();
-            instance.put("username", value);
-            return getBuilderAfterUsername(instance);
-        }
-        
-        default T username(double value) {
-            var instance = getInstance();
-            instance.put("username", value);
-            return getBuilderAfterUsername(instance);
-        }
-        
-        default T username(List<?> value) {
-            var instance = getInstance();
-            instance.put("username", value);
-            return getBuilderAfterUsername(instance);
-        }
-        
-        default T username(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("username", value);
             return getBuilderAfterUsername(instance);

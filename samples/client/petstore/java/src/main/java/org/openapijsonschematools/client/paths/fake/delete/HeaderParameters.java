@@ -80,57 +80,15 @@ public class HeaderParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterRequiredBooleanGroup(Map<String, @Nullable Object> instance);
         
-        default T required_boolean_group(Void value) {
-            var instance = getInstance();
-            instance.put("required_boolean_group", null);
-            return getBuilderAfterRequiredBooleanGroup(instance);
-        }
-        
-        default T required_boolean_group(boolean value) {
-            var instance = getInstance();
-            instance.put("required_boolean_group", value);
-            return getBuilderAfterRequiredBooleanGroup(instance);
-        }
-        
         default T required_boolean_group(String value) {
             var instance = getInstance();
             instance.put("required_boolean_group", value);
             return getBuilderAfterRequiredBooleanGroup(instance);
         }
         
-        default T required_boolean_group(int value) {
+        default T required_boolean_group(Schema1.StringSchemaEnums1 value) {
             var instance = getInstance();
-            instance.put("required_boolean_group", value);
-            return getBuilderAfterRequiredBooleanGroup(instance);
-        }
-        
-        default T required_boolean_group(float value) {
-            var instance = getInstance();
-            instance.put("required_boolean_group", value);
-            return getBuilderAfterRequiredBooleanGroup(instance);
-        }
-        
-        default T required_boolean_group(long value) {
-            var instance = getInstance();
-            instance.put("required_boolean_group", value);
-            return getBuilderAfterRequiredBooleanGroup(instance);
-        }
-        
-        default T required_boolean_group(double value) {
-            var instance = getInstance();
-            instance.put("required_boolean_group", value);
-            return getBuilderAfterRequiredBooleanGroup(instance);
-        }
-        
-        default T required_boolean_group(List<?> value) {
-            var instance = getInstance();
-            instance.put("required_boolean_group", value);
-            return getBuilderAfterRequiredBooleanGroup(instance);
-        }
-        
-        default T required_boolean_group(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("required_boolean_group", value);
+            instance.put("required_boolean_group", value.value());
             return getBuilderAfterRequiredBooleanGroup(instance);
         }
     }
@@ -139,57 +97,15 @@ public class HeaderParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterBooleanGroup(Map<String, @Nullable Object> instance);
         
-        default T boolean_group(Void value) {
-            var instance = getInstance();
-            instance.put("boolean_group", null);
-            return getBuilderAfterBooleanGroup(instance);
-        }
-        
-        default T boolean_group(boolean value) {
-            var instance = getInstance();
-            instance.put("boolean_group", value);
-            return getBuilderAfterBooleanGroup(instance);
-        }
-        
         default T boolean_group(String value) {
             var instance = getInstance();
             instance.put("boolean_group", value);
             return getBuilderAfterBooleanGroup(instance);
         }
         
-        default T boolean_group(int value) {
+        default T boolean_group(Schema4.StringSchemaEnums4 value) {
             var instance = getInstance();
-            instance.put("boolean_group", value);
-            return getBuilderAfterBooleanGroup(instance);
-        }
-        
-        default T boolean_group(float value) {
-            var instance = getInstance();
-            instance.put("boolean_group", value);
-            return getBuilderAfterBooleanGroup(instance);
-        }
-        
-        default T boolean_group(long value) {
-            var instance = getInstance();
-            instance.put("boolean_group", value);
-            return getBuilderAfterBooleanGroup(instance);
-        }
-        
-        default T boolean_group(double value) {
-            var instance = getInstance();
-            instance.put("boolean_group", value);
-            return getBuilderAfterBooleanGroup(instance);
-        }
-        
-        default T boolean_group(List<?> value) {
-            var instance = getInstance();
-            instance.put("boolean_group", value);
-            return getBuilderAfterBooleanGroup(instance);
-        }
-        
-        default T boolean_group(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("boolean_group", value);
+            instance.put("boolean_group", value.value());
             return getBuilderAfterBooleanGroup(instance);
         }
     }

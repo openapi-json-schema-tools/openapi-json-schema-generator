@@ -93,24 +93,6 @@ public class Headers {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterInt32(Map<String, @Nullable Object> instance);
         
-        default T int32(Void value) {
-            var instance = getInstance();
-            instance.put("int32", null);
-            return getBuilderAfterInt32(instance);
-        }
-        
-        default T int32(boolean value) {
-            var instance = getInstance();
-            instance.put("int32", value);
-            return getBuilderAfterInt32(instance);
-        }
-        
-        default T int32(String value) {
-            var instance = getInstance();
-            instance.put("int32", value);
-            return getBuilderAfterInt32(instance);
-        }
-        
         default T int32(int value) {
             var instance = getInstance();
             instance.put("int32", value);
@@ -122,85 +104,13 @@ public class Headers {
             instance.put("int32", value);
             return getBuilderAfterInt32(instance);
         }
-        
-        default T int32(long value) {
-            var instance = getInstance();
-            instance.put("int32", value);
-            return getBuilderAfterInt32(instance);
-        }
-        
-        default T int32(double value) {
-            var instance = getInstance();
-            instance.put("int32", value);
-            return getBuilderAfterInt32(instance);
-        }
-        
-        default T int32(List<?> value) {
-            var instance = getInstance();
-            instance.put("int32", value);
-            return getBuilderAfterInt32(instance);
-        }
-        
-        default T int32(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("int32", value);
-            return getBuilderAfterInt32(instance);
-        }
     }
     
     public interface SetterForRefcontentschemaheader <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance);
         
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(Void value) {
-            var instance = getInstance();
-            instance.put("ref-content-schema-header", null);
-            return getBuilderAfterRefcontentschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(boolean value) {
-            var instance = getInstance();
-            instance.put("ref-content-schema-header", value);
-            return getBuilderAfterRefcontentschemaheader(instance);
-        }
-        
         default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) {
-            var instance = getInstance();
-            instance.put("ref-content-schema-header", value);
-            return getBuilderAfterRefcontentschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(int value) {
-            var instance = getInstance();
-            instance.put("ref-content-schema-header", value);
-            return getBuilderAfterRefcontentschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(float value) {
-            var instance = getInstance();
-            instance.put("ref-content-schema-header", value);
-            return getBuilderAfterRefcontentschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(long value) {
-            var instance = getInstance();
-            instance.put("ref-content-schema-header", value);
-            return getBuilderAfterRefcontentschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(double value) {
-            var instance = getInstance();
-            instance.put("ref-content-schema-header", value);
-            return getBuilderAfterRefcontentschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(List<?> value) {
-            var instance = getInstance();
-            instance.put("ref-content-schema-header", value);
-            return getBuilderAfterRefcontentschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("ref-content-schema-header", value);
             return getBuilderAfterRefcontentschemaheader(instance);
@@ -211,55 +121,7 @@ public class Headers {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance);
         
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(Void value) {
-            var instance = getInstance();
-            instance.put("ref-schema-header", null);
-            return getBuilderAfterRefschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(boolean value) {
-            var instance = getInstance();
-            instance.put("ref-schema-header", value);
-            return getBuilderAfterRefschemaheader(instance);
-        }
-        
         default T setRefHyphenMinusSchemaHyphenMinusHeader(String value) {
-            var instance = getInstance();
-            instance.put("ref-schema-header", value);
-            return getBuilderAfterRefschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(int value) {
-            var instance = getInstance();
-            instance.put("ref-schema-header", value);
-            return getBuilderAfterRefschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(float value) {
-            var instance = getInstance();
-            instance.put("ref-schema-header", value);
-            return getBuilderAfterRefschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(long value) {
-            var instance = getInstance();
-            instance.put("ref-schema-header", value);
-            return getBuilderAfterRefschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(double value) {
-            var instance = getInstance();
-            instance.put("ref-schema-header", value);
-            return getBuilderAfterRefschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(List<?> value) {
-            var instance = getInstance();
-            instance.put("ref-schema-header", value);
-            return getBuilderAfterRefschemaheader(instance);
-        }
-        
-        default T setRefHyphenMinusSchemaHyphenMinusHeader(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("ref-schema-header", value);
             return getBuilderAfterRefschemaheader(instance);
@@ -270,55 +132,7 @@ public class Headers {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterStringHeader(Map<String, @Nullable Object> instance);
         
-        default T stringHeader(Void value) {
-            var instance = getInstance();
-            instance.put("stringHeader", null);
-            return getBuilderAfterStringHeader(instance);
-        }
-        
-        default T stringHeader(boolean value) {
-            var instance = getInstance();
-            instance.put("stringHeader", value);
-            return getBuilderAfterStringHeader(instance);
-        }
-        
         default T stringHeader(String value) {
-            var instance = getInstance();
-            instance.put("stringHeader", value);
-            return getBuilderAfterStringHeader(instance);
-        }
-        
-        default T stringHeader(int value) {
-            var instance = getInstance();
-            instance.put("stringHeader", value);
-            return getBuilderAfterStringHeader(instance);
-        }
-        
-        default T stringHeader(float value) {
-            var instance = getInstance();
-            instance.put("stringHeader", value);
-            return getBuilderAfterStringHeader(instance);
-        }
-        
-        default T stringHeader(long value) {
-            var instance = getInstance();
-            instance.put("stringHeader", value);
-            return getBuilderAfterStringHeader(instance);
-        }
-        
-        default T stringHeader(double value) {
-            var instance = getInstance();
-            instance.put("stringHeader", value);
-            return getBuilderAfterStringHeader(instance);
-        }
-        
-        default T stringHeader(List<?> value) {
-            var instance = getInstance();
-            instance.put("stringHeader", value);
-            return getBuilderAfterStringHeader(instance);
-        }
-        
-        default T stringHeader(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("stringHeader", value);
             return getBuilderAfterStringHeader(instance);
@@ -329,55 +143,7 @@ public class Headers {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance);
         
-        default T numberHeader(Void value) {
-            var instance = getInstance();
-            instance.put("numberHeader", null);
-            return getBuilderAfterNumberHeader(instance);
-        }
-        
-        default T numberHeader(boolean value) {
-            var instance = getInstance();
-            instance.put("numberHeader", value);
-            return getBuilderAfterNumberHeader(instance);
-        }
-        
         default T numberHeader(String value) {
-            var instance = getInstance();
-            instance.put("numberHeader", value);
-            return getBuilderAfterNumberHeader(instance);
-        }
-        
-        default T numberHeader(int value) {
-            var instance = getInstance();
-            instance.put("numberHeader", value);
-            return getBuilderAfterNumberHeader(instance);
-        }
-        
-        default T numberHeader(float value) {
-            var instance = getInstance();
-            instance.put("numberHeader", value);
-            return getBuilderAfterNumberHeader(instance);
-        }
-        
-        default T numberHeader(long value) {
-            var instance = getInstance();
-            instance.put("numberHeader", value);
-            return getBuilderAfterNumberHeader(instance);
-        }
-        
-        default T numberHeader(double value) {
-            var instance = getInstance();
-            instance.put("numberHeader", value);
-            return getBuilderAfterNumberHeader(instance);
-        }
-        
-        default T numberHeader(List<?> value) {
-            var instance = getInstance();
-            instance.put("numberHeader", value);
-            return getBuilderAfterNumberHeader(instance);
-        }
-        
-        default T numberHeader(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("numberHeader", value);
             return getBuilderAfterNumberHeader(instance);

@@ -95,55 +95,7 @@ public class ObjectWithDecimalProperties {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterLength(Map<String, @Nullable Object> instance);
         
-        default T length(Void value) {
-            var instance = getInstance();
-            instance.put("length", null);
-            return getBuilderAfterLength(instance);
-        }
-        
-        default T length(boolean value) {
-            var instance = getInstance();
-            instance.put("length", value);
-            return getBuilderAfterLength(instance);
-        }
-        
         default T length(String value) {
-            var instance = getInstance();
-            instance.put("length", value);
-            return getBuilderAfterLength(instance);
-        }
-        
-        default T length(int value) {
-            var instance = getInstance();
-            instance.put("length", value);
-            return getBuilderAfterLength(instance);
-        }
-        
-        default T length(float value) {
-            var instance = getInstance();
-            instance.put("length", value);
-            return getBuilderAfterLength(instance);
-        }
-        
-        default T length(long value) {
-            var instance = getInstance();
-            instance.put("length", value);
-            return getBuilderAfterLength(instance);
-        }
-        
-        default T length(double value) {
-            var instance = getInstance();
-            instance.put("length", value);
-            return getBuilderAfterLength(instance);
-        }
-        
-        default T length(List<?> value) {
-            var instance = getInstance();
-            instance.put("length", value);
-            return getBuilderAfterLength(instance);
-        }
-        
-        default T length(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("length", value);
             return getBuilderAfterLength(instance);
@@ -165,55 +117,7 @@ public class ObjectWithDecimalProperties {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterCost(Map<String, @Nullable Object> instance);
         
-        default T cost(Void value) {
-            var instance = getInstance();
-            instance.put("cost", null);
-            return getBuilderAfterCost(instance);
-        }
-        
-        default T cost(boolean value) {
-            var instance = getInstance();
-            instance.put("cost", value);
-            return getBuilderAfterCost(instance);
-        }
-        
-        default T cost(String value) {
-            var instance = getInstance();
-            instance.put("cost", value);
-            return getBuilderAfterCost(instance);
-        }
-        
-        default T cost(int value) {
-            var instance = getInstance();
-            instance.put("cost", value);
-            return getBuilderAfterCost(instance);
-        }
-        
-        default T cost(float value) {
-            var instance = getInstance();
-            instance.put("cost", value);
-            return getBuilderAfterCost(instance);
-        }
-        
-        default T cost(long value) {
-            var instance = getInstance();
-            instance.put("cost", value);
-            return getBuilderAfterCost(instance);
-        }
-        
-        default T cost(double value) {
-            var instance = getInstance();
-            instance.put("cost", value);
-            return getBuilderAfterCost(instance);
-        }
-        
-        default T cost(List<?> value) {
-            var instance = getInstance();
-            instance.put("cost", value);
-            return getBuilderAfterCost(instance);
-        }
-        
-        default T cost(Map<String, ?> value) {
+        default T cost(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("cost", value);
             return getBuilderAfterCost(instance);

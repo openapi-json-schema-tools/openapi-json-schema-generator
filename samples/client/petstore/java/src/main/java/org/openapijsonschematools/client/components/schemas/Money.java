@@ -98,57 +98,15 @@ public class Money {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterCurrency(Map<String, @Nullable Object> instance);
         
-        default T currency(Void value) {
-            var instance = getInstance();
-            instance.put("currency", null);
-            return getBuilderAfterCurrency(instance);
-        }
-        
-        default T currency(boolean value) {
-            var instance = getInstance();
-            instance.put("currency", value);
-            return getBuilderAfterCurrency(instance);
-        }
-        
         default T currency(String value) {
             var instance = getInstance();
             instance.put("currency", value);
             return getBuilderAfterCurrency(instance);
         }
         
-        default T currency(int value) {
+        default T currency(Currency.StringCurrencyEnums value) {
             var instance = getInstance();
-            instance.put("currency", value);
-            return getBuilderAfterCurrency(instance);
-        }
-        
-        default T currency(float value) {
-            var instance = getInstance();
-            instance.put("currency", value);
-            return getBuilderAfterCurrency(instance);
-        }
-        
-        default T currency(long value) {
-            var instance = getInstance();
-            instance.put("currency", value);
-            return getBuilderAfterCurrency(instance);
-        }
-        
-        default T currency(double value) {
-            var instance = getInstance();
-            instance.put("currency", value);
-            return getBuilderAfterCurrency(instance);
-        }
-        
-        default T currency(List<?> value) {
-            var instance = getInstance();
-            instance.put("currency", value);
-            return getBuilderAfterCurrency(instance);
-        }
-        
-        default T currency(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("currency", value);
+            instance.put("currency", value.value());
             return getBuilderAfterCurrency(instance);
         }
     }

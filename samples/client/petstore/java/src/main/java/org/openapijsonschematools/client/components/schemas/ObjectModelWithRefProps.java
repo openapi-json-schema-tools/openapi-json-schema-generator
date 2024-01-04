@@ -83,24 +83,6 @@ public class ObjectModelWithRefProps {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterMyNumber(Map<String, @Nullable Object> instance);
         
-        default T myNumber(Void value) {
-            var instance = getInstance();
-            instance.put("myNumber", null);
-            return getBuilderAfterMyNumber(instance);
-        }
-        
-        default T myNumber(boolean value) {
-            var instance = getInstance();
-            instance.put("myNumber", value);
-            return getBuilderAfterMyNumber(instance);
-        }
-        
-        default T myNumber(String value) {
-            var instance = getInstance();
-            instance.put("myNumber", value);
-            return getBuilderAfterMyNumber(instance);
-        }
-        
         default T myNumber(int value) {
             var instance = getInstance();
             instance.put("myNumber", value);
@@ -124,73 +106,13 @@ public class ObjectModelWithRefProps {
             instance.put("myNumber", value);
             return getBuilderAfterMyNumber(instance);
         }
-        
-        default T myNumber(List<?> value) {
-            var instance = getInstance();
-            instance.put("myNumber", value);
-            return getBuilderAfterMyNumber(instance);
-        }
-        
-        default T myNumber(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("myNumber", value);
-            return getBuilderAfterMyNumber(instance);
-        }
     }
     
     public interface SetterForMyString <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterMyString(Map<String, @Nullable Object> instance);
         
-        default T myString(Void value) {
-            var instance = getInstance();
-            instance.put("myString", null);
-            return getBuilderAfterMyString(instance);
-        }
-        
-        default T myString(boolean value) {
-            var instance = getInstance();
-            instance.put("myString", value);
-            return getBuilderAfterMyString(instance);
-        }
-        
         default T myString(String value) {
-            var instance = getInstance();
-            instance.put("myString", value);
-            return getBuilderAfterMyString(instance);
-        }
-        
-        default T myString(int value) {
-            var instance = getInstance();
-            instance.put("myString", value);
-            return getBuilderAfterMyString(instance);
-        }
-        
-        default T myString(float value) {
-            var instance = getInstance();
-            instance.put("myString", value);
-            return getBuilderAfterMyString(instance);
-        }
-        
-        default T myString(long value) {
-            var instance = getInstance();
-            instance.put("myString", value);
-            return getBuilderAfterMyString(instance);
-        }
-        
-        default T myString(double value) {
-            var instance = getInstance();
-            instance.put("myString", value);
-            return getBuilderAfterMyString(instance);
-        }
-        
-        default T myString(List<?> value) {
-            var instance = getInstance();
-            instance.put("myString", value);
-            return getBuilderAfterMyString(instance);
-        }
-        
-        default T myString(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("myString", value);
             return getBuilderAfterMyString(instance);
@@ -201,55 +123,7 @@ public class ObjectModelWithRefProps {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterMyBoolean(Map<String, @Nullable Object> instance);
         
-        default T myBoolean(Void value) {
-            var instance = getInstance();
-            instance.put("myBoolean", null);
-            return getBuilderAfterMyBoolean(instance);
-        }
-        
         default T myBoolean(boolean value) {
-            var instance = getInstance();
-            instance.put("myBoolean", value);
-            return getBuilderAfterMyBoolean(instance);
-        }
-        
-        default T myBoolean(String value) {
-            var instance = getInstance();
-            instance.put("myBoolean", value);
-            return getBuilderAfterMyBoolean(instance);
-        }
-        
-        default T myBoolean(int value) {
-            var instance = getInstance();
-            instance.put("myBoolean", value);
-            return getBuilderAfterMyBoolean(instance);
-        }
-        
-        default T myBoolean(float value) {
-            var instance = getInstance();
-            instance.put("myBoolean", value);
-            return getBuilderAfterMyBoolean(instance);
-        }
-        
-        default T myBoolean(long value) {
-            var instance = getInstance();
-            instance.put("myBoolean", value);
-            return getBuilderAfterMyBoolean(instance);
-        }
-        
-        default T myBoolean(double value) {
-            var instance = getInstance();
-            instance.put("myBoolean", value);
-            return getBuilderAfterMyBoolean(instance);
-        }
-        
-        default T myBoolean(List<?> value) {
-            var instance = getInstance();
-            instance.put("myBoolean", value);
-            return getBuilderAfterMyBoolean(instance);
-        }
-        
-        default T myBoolean(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("myBoolean", value);
             return getBuilderAfterMyBoolean(instance);

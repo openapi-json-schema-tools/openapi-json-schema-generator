@@ -140,55 +140,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterCompositionInProperty(Map<String, @Nullable Object> instance);
         
-        default T compositionInProperty(Void value) {
-            var instance = getInstance();
-            instance.put("compositionInProperty", null);
-            return getBuilderAfterCompositionInProperty(instance);
-        }
-        
-        default T compositionInProperty(boolean value) {
-            var instance = getInstance();
-            instance.put("compositionInProperty", value);
-            return getBuilderAfterCompositionInProperty(instance);
-        }
-        
-        default T compositionInProperty(String value) {
-            var instance = getInstance();
-            instance.put("compositionInProperty", value);
-            return getBuilderAfterCompositionInProperty(instance);
-        }
-        
-        default T compositionInProperty(int value) {
-            var instance = getInstance();
-            instance.put("compositionInProperty", value);
-            return getBuilderAfterCompositionInProperty(instance);
-        }
-        
-        default T compositionInProperty(float value) {
-            var instance = getInstance();
-            instance.put("compositionInProperty", value);
-            return getBuilderAfterCompositionInProperty(instance);
-        }
-        
-        default T compositionInProperty(long value) {
-            var instance = getInstance();
-            instance.put("compositionInProperty", value);
-            return getBuilderAfterCompositionInProperty(instance);
-        }
-        
-        default T compositionInProperty(double value) {
-            var instance = getInstance();
-            instance.put("compositionInProperty", value);
-            return getBuilderAfterCompositionInProperty(instance);
-        }
-        
-        default T compositionInProperty(List<?> value) {
-            var instance = getInstance();
-            instance.put("compositionInProperty", value);
-            return getBuilderAfterCompositionInProperty(instance);
-        }
-        
-        default T compositionInProperty(Map<String, ?> value) {
+        default T compositionInProperty(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("compositionInProperty", value);
             return getBuilderAfterCompositionInProperty(instance);

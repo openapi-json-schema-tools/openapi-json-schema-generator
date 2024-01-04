@@ -63,24 +63,6 @@ public class PathParameters {
         Map<String, Number> getInstance();
         T getBuilderAfterPetId(Map<String, Number> instance);
         
-        default T petId(Void value) {
-            var instance = getInstance();
-            instance.put("petId", null);
-            return getBuilderAfterPetId(instance);
-        }
-        
-        default T petId(boolean value) {
-            var instance = getInstance();
-            instance.put("petId", value);
-            return getBuilderAfterPetId(instance);
-        }
-        
-        default T petId(String value) {
-            var instance = getInstance();
-            instance.put("petId", value);
-            return getBuilderAfterPetId(instance);
-        }
-        
         default T petId(int value) {
             var instance = getInstance();
             instance.put("petId", value);
@@ -100,18 +82,6 @@ public class PathParameters {
         }
         
         default T petId(double value) {
-            var instance = getInstance();
-            instance.put("petId", value);
-            return getBuilderAfterPetId(instance);
-        }
-        
-        default T petId(List<?> value) {
-            var instance = getInstance();
-            instance.put("petId", value);
-            return getBuilderAfterPetId(instance);
-        }
-        
-        default T petId(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("petId", value);
             return getBuilderAfterPetId(instance);

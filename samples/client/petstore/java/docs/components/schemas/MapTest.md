@@ -105,15 +105,7 @@ A class that builds the Map input type
 | [MapTestMapBuilder](#maptestmapbuilder) | map_map_of_string(Map<String, Map<String, String>> value) |
 | [MapTestMapBuilder](#maptestmapbuilder) | map_of_enum_string(Map<String, String> value) |
 | [MapTestMapBuilder](#maptestmapbuilder) | direct_map(Map<String, Boolean> value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(Void value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(boolean value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(String value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(int value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(float value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(long value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(double value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(List<?> value) |
-| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(Map<String, ?> value) |
+| [MapTestMapBuilder](#maptestmapbuilder) | indirect_map(Map<String, Boolean> value) |
 
 ## MapTestMap
 public static class MapTestMap<br>

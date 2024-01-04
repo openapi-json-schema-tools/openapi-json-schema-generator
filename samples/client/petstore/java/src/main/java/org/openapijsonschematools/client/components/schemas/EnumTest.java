@@ -647,51 +647,21 @@ public class EnumTest {
             return getBuilderAfterStringEnum(instance);
         }
         
-        default T stringEnum(boolean value) {
-            var instance = getInstance();
-            instance.put("stringEnum", value);
-            return getBuilderAfterStringEnum(instance);
-        }
-        
         default T stringEnum(String value) {
             var instance = getInstance();
             instance.put("stringEnum", value);
             return getBuilderAfterStringEnum(instance);
         }
         
-        default T stringEnum(int value) {
+        default T stringEnum(StringEnum.StringStringEnumEnums value) {
             var instance = getInstance();
-            instance.put("stringEnum", value);
+            instance.put("stringEnum", value.value());
             return getBuilderAfterStringEnum(instance);
         }
         
-        default T stringEnum(float value) {
+        default T stringEnum(StringEnum.NullStringEnumEnums value) {
             var instance = getInstance();
-            instance.put("stringEnum", value);
-            return getBuilderAfterStringEnum(instance);
-        }
-        
-        default T stringEnum(long value) {
-            var instance = getInstance();
-            instance.put("stringEnum", value);
-            return getBuilderAfterStringEnum(instance);
-        }
-        
-        default T stringEnum(double value) {
-            var instance = getInstance();
-            instance.put("stringEnum", value);
-            return getBuilderAfterStringEnum(instance);
-        }
-        
-        default T stringEnum(List<?> value) {
-            var instance = getInstance();
-            instance.put("stringEnum", value);
-            return getBuilderAfterStringEnum(instance);
-        }
-        
-        default T stringEnum(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("stringEnum", value);
+            instance.put("stringEnum", null);
             return getBuilderAfterStringEnum(instance);
         }
     }
@@ -699,24 +669,6 @@ public class EnumTest {
     public interface SetterForIntegerEnum <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterIntegerEnum(Map<String, @Nullable Object> instance);
-        
-        default T IntegerEnum(Void value) {
-            var instance = getInstance();
-            instance.put("IntegerEnum", null);
-            return getBuilderAfterIntegerEnum(instance);
-        }
-        
-        default T IntegerEnum(boolean value) {
-            var instance = getInstance();
-            instance.put("IntegerEnum", value);
-            return getBuilderAfterIntegerEnum(instance);
-        }
-        
-        default T IntegerEnum(String value) {
-            var instance = getInstance();
-            instance.put("IntegerEnum", value);
-            return getBuilderAfterIntegerEnum(instance);
-        }
         
         default T IntegerEnum(int value) {
             var instance = getInstance();
@@ -742,15 +694,27 @@ public class EnumTest {
             return getBuilderAfterIntegerEnum(instance);
         }
         
-        default T IntegerEnum(List<?> value) {
+        default T IntegerEnum(IntegerEnum.IntegerIntegerEnumEnums value) {
             var instance = getInstance();
-            instance.put("IntegerEnum", value);
+            instance.put("IntegerEnum", value.value());
             return getBuilderAfterIntegerEnum(instance);
         }
         
-        default T IntegerEnum(Map<String, ?> value) {
+        default T IntegerEnum(IntegerEnum.LongIntegerEnumEnums value) {
             var instance = getInstance();
-            instance.put("IntegerEnum", value);
+            instance.put("IntegerEnum", value.value());
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(IntegerEnum.FloatIntegerEnumEnums value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value.value());
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(IntegerEnum.DoubleIntegerEnumEnums value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value.value());
             return getBuilderAfterIntegerEnum(instance);
         }
     }
@@ -759,57 +723,15 @@ public class EnumTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterStringEnumWithDefaultValue(Map<String, @Nullable Object> instance);
         
-        default T StringEnumWithDefaultValue(Void value) {
-            var instance = getInstance();
-            instance.put("StringEnumWithDefaultValue", null);
-            return getBuilderAfterStringEnumWithDefaultValue(instance);
-        }
-        
-        default T StringEnumWithDefaultValue(boolean value) {
-            var instance = getInstance();
-            instance.put("StringEnumWithDefaultValue", value);
-            return getBuilderAfterStringEnumWithDefaultValue(instance);
-        }
-        
         default T StringEnumWithDefaultValue(String value) {
             var instance = getInstance();
             instance.put("StringEnumWithDefaultValue", value);
             return getBuilderAfterStringEnumWithDefaultValue(instance);
         }
         
-        default T StringEnumWithDefaultValue(int value) {
+        default T StringEnumWithDefaultValue(StringEnumWithDefaultValue.StringStringEnumWithDefaultValueEnums value) {
             var instance = getInstance();
-            instance.put("StringEnumWithDefaultValue", value);
-            return getBuilderAfterStringEnumWithDefaultValue(instance);
-        }
-        
-        default T StringEnumWithDefaultValue(float value) {
-            var instance = getInstance();
-            instance.put("StringEnumWithDefaultValue", value);
-            return getBuilderAfterStringEnumWithDefaultValue(instance);
-        }
-        
-        default T StringEnumWithDefaultValue(long value) {
-            var instance = getInstance();
-            instance.put("StringEnumWithDefaultValue", value);
-            return getBuilderAfterStringEnumWithDefaultValue(instance);
-        }
-        
-        default T StringEnumWithDefaultValue(double value) {
-            var instance = getInstance();
-            instance.put("StringEnumWithDefaultValue", value);
-            return getBuilderAfterStringEnumWithDefaultValue(instance);
-        }
-        
-        default T StringEnumWithDefaultValue(List<?> value) {
-            var instance = getInstance();
-            instance.put("StringEnumWithDefaultValue", value);
-            return getBuilderAfterStringEnumWithDefaultValue(instance);
-        }
-        
-        default T StringEnumWithDefaultValue(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("StringEnumWithDefaultValue", value);
+            instance.put("StringEnumWithDefaultValue", value.value());
             return getBuilderAfterStringEnumWithDefaultValue(instance);
         }
     }
@@ -817,24 +739,6 @@ public class EnumTest {
     public interface SetterForIntegerEnumWithDefaultValue <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterIntegerEnumWithDefaultValue(Map<String, @Nullable Object> instance);
-        
-        default T IntegerEnumWithDefaultValue(Void value) {
-            var instance = getInstance();
-            instance.put("IntegerEnumWithDefaultValue", null);
-            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
-        }
-        
-        default T IntegerEnumWithDefaultValue(boolean value) {
-            var instance = getInstance();
-            instance.put("IntegerEnumWithDefaultValue", value);
-            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
-        }
-        
-        default T IntegerEnumWithDefaultValue(String value) {
-            var instance = getInstance();
-            instance.put("IntegerEnumWithDefaultValue", value);
-            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
-        }
         
         default T IntegerEnumWithDefaultValue(int value) {
             var instance = getInstance();
@@ -860,15 +764,27 @@ public class EnumTest {
             return getBuilderAfterIntegerEnumWithDefaultValue(instance);
         }
         
-        default T IntegerEnumWithDefaultValue(List<?> value) {
+        default T IntegerEnumWithDefaultValue(IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums value) {
             var instance = getInstance();
-            instance.put("IntegerEnumWithDefaultValue", value);
+            instance.put("IntegerEnumWithDefaultValue", value.value());
             return getBuilderAfterIntegerEnumWithDefaultValue(instance);
         }
         
-        default T IntegerEnumWithDefaultValue(Map<String, ?> value) {
+        default T IntegerEnumWithDefaultValue(IntegerEnumWithDefaultValue.LongIntegerEnumWithDefaultValueEnums value) {
             var instance = getInstance();
-            instance.put("IntegerEnumWithDefaultValue", value);
+            instance.put("IntegerEnumWithDefaultValue", value.value());
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(IntegerEnumWithDefaultValue.FloatIntegerEnumWithDefaultValueEnums value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value.value());
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(IntegerEnumWithDefaultValue.DoubleIntegerEnumWithDefaultValueEnums value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value.value());
             return getBuilderAfterIntegerEnumWithDefaultValue(instance);
         }
     }
@@ -876,24 +792,6 @@ public class EnumTest {
     public interface SetterForIntegerEnumOneValue <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterIntegerEnumOneValue(Map<String, @Nullable Object> instance);
-        
-        default T IntegerEnumOneValue(Void value) {
-            var instance = getInstance();
-            instance.put("IntegerEnumOneValue", null);
-            return getBuilderAfterIntegerEnumOneValue(instance);
-        }
-        
-        default T IntegerEnumOneValue(boolean value) {
-            var instance = getInstance();
-            instance.put("IntegerEnumOneValue", value);
-            return getBuilderAfterIntegerEnumOneValue(instance);
-        }
-        
-        default T IntegerEnumOneValue(String value) {
-            var instance = getInstance();
-            instance.put("IntegerEnumOneValue", value);
-            return getBuilderAfterIntegerEnumOneValue(instance);
-        }
         
         default T IntegerEnumOneValue(int value) {
             var instance = getInstance();
@@ -919,15 +817,27 @@ public class EnumTest {
             return getBuilderAfterIntegerEnumOneValue(instance);
         }
         
-        default T IntegerEnumOneValue(List<?> value) {
+        default T IntegerEnumOneValue(IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums value) {
             var instance = getInstance();
-            instance.put("IntegerEnumOneValue", value);
+            instance.put("IntegerEnumOneValue", value.value());
             return getBuilderAfterIntegerEnumOneValue(instance);
         }
         
-        default T IntegerEnumOneValue(Map<String, ?> value) {
+        default T IntegerEnumOneValue(IntegerEnumOneValue.LongIntegerEnumOneValueEnums value) {
             var instance = getInstance();
-            instance.put("IntegerEnumOneValue", value);
+            instance.put("IntegerEnumOneValue", value.value());
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(IntegerEnumOneValue.FloatIntegerEnumOneValueEnums value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value.value());
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(IntegerEnumOneValue.DoubleIntegerEnumOneValueEnums value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value.value());
             return getBuilderAfterIntegerEnumOneValue(instance);
         }
     }

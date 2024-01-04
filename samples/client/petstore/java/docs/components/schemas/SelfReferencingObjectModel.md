@@ -71,15 +71,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(Void value) |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(boolean value) |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(String value) |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(int value) |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(float value) |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(long value) |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(double value) |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(List<?> value) |
-| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(Map<String, ?> value) |
+// todo how to handle this
 
 ## SelfReferencingObjectModelMap
 public static class SelfReferencingObjectModelMap<br>

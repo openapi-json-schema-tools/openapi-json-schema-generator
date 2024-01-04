@@ -102,24 +102,6 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterRequiredInt64Group(Map<String, @Nullable Object> instance);
         
-        default T required_int64_group(Void value) {
-            var instance = getInstance();
-            instance.put("required_int64_group", null);
-            return getBuilderAfterRequiredInt64Group(instance);
-        }
-        
-        default T required_int64_group(boolean value) {
-            var instance = getInstance();
-            instance.put("required_int64_group", value);
-            return getBuilderAfterRequiredInt64Group(instance);
-        }
-        
-        default T required_int64_group(String value) {
-            var instance = getInstance();
-            instance.put("required_int64_group", value);
-            return getBuilderAfterRequiredInt64Group(instance);
-        }
-        
         default T required_int64_group(int value) {
             var instance = getInstance();
             instance.put("required_int64_group", value);
@@ -143,73 +125,13 @@ public class QueryParameters {
             instance.put("required_int64_group", value);
             return getBuilderAfterRequiredInt64Group(instance);
         }
-        
-        default T required_int64_group(List<?> value) {
-            var instance = getInstance();
-            instance.put("required_int64_group", value);
-            return getBuilderAfterRequiredInt64Group(instance);
-        }
-        
-        default T required_int64_group(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("required_int64_group", value);
-            return getBuilderAfterRequiredInt64Group(instance);
-        }
     }
     
     public interface SetterForRequiredStringGroup <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterRequiredStringGroup(Map<String, @Nullable Object> instance);
         
-        default T required_string_group(Void value) {
-            var instance = getInstance();
-            instance.put("required_string_group", null);
-            return getBuilderAfterRequiredStringGroup(instance);
-        }
-        
-        default T required_string_group(boolean value) {
-            var instance = getInstance();
-            instance.put("required_string_group", value);
-            return getBuilderAfterRequiredStringGroup(instance);
-        }
-        
         default T required_string_group(String value) {
-            var instance = getInstance();
-            instance.put("required_string_group", value);
-            return getBuilderAfterRequiredStringGroup(instance);
-        }
-        
-        default T required_string_group(int value) {
-            var instance = getInstance();
-            instance.put("required_string_group", value);
-            return getBuilderAfterRequiredStringGroup(instance);
-        }
-        
-        default T required_string_group(float value) {
-            var instance = getInstance();
-            instance.put("required_string_group", value);
-            return getBuilderAfterRequiredStringGroup(instance);
-        }
-        
-        default T required_string_group(long value) {
-            var instance = getInstance();
-            instance.put("required_string_group", value);
-            return getBuilderAfterRequiredStringGroup(instance);
-        }
-        
-        default T required_string_group(double value) {
-            var instance = getInstance();
-            instance.put("required_string_group", value);
-            return getBuilderAfterRequiredStringGroup(instance);
-        }
-        
-        default T required_string_group(List<?> value) {
-            var instance = getInstance();
-            instance.put("required_string_group", value);
-            return getBuilderAfterRequiredStringGroup(instance);
-        }
-        
-        default T required_string_group(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("required_string_group", value);
             return getBuilderAfterRequiredStringGroup(instance);
@@ -219,24 +141,6 @@ public class QueryParameters {
     public interface SetterForInt64Group <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterInt64Group(Map<String, @Nullable Object> instance);
-        
-        default T int64_group(Void value) {
-            var instance = getInstance();
-            instance.put("int64_group", null);
-            return getBuilderAfterInt64Group(instance);
-        }
-        
-        default T int64_group(boolean value) {
-            var instance = getInstance();
-            instance.put("int64_group", value);
-            return getBuilderAfterInt64Group(instance);
-        }
-        
-        default T int64_group(String value) {
-            var instance = getInstance();
-            instance.put("int64_group", value);
-            return getBuilderAfterInt64Group(instance);
-        }
         
         default T int64_group(int value) {
             var instance = getInstance();
@@ -261,73 +165,13 @@ public class QueryParameters {
             instance.put("int64_group", value);
             return getBuilderAfterInt64Group(instance);
         }
-        
-        default T int64_group(List<?> value) {
-            var instance = getInstance();
-            instance.put("int64_group", value);
-            return getBuilderAfterInt64Group(instance);
-        }
-        
-        default T int64_group(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("int64_group", value);
-            return getBuilderAfterInt64Group(instance);
-        }
     }
     
     public interface SetterForStringGroup <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterStringGroup(Map<String, @Nullable Object> instance);
         
-        default T string_group(Void value) {
-            var instance = getInstance();
-            instance.put("string_group", null);
-            return getBuilderAfterStringGroup(instance);
-        }
-        
-        default T string_group(boolean value) {
-            var instance = getInstance();
-            instance.put("string_group", value);
-            return getBuilderAfterStringGroup(instance);
-        }
-        
         default T string_group(String value) {
-            var instance = getInstance();
-            instance.put("string_group", value);
-            return getBuilderAfterStringGroup(instance);
-        }
-        
-        default T string_group(int value) {
-            var instance = getInstance();
-            instance.put("string_group", value);
-            return getBuilderAfterStringGroup(instance);
-        }
-        
-        default T string_group(float value) {
-            var instance = getInstance();
-            instance.put("string_group", value);
-            return getBuilderAfterStringGroup(instance);
-        }
-        
-        default T string_group(long value) {
-            var instance = getInstance();
-            instance.put("string_group", value);
-            return getBuilderAfterStringGroup(instance);
-        }
-        
-        default T string_group(double value) {
-            var instance = getInstance();
-            instance.put("string_group", value);
-            return getBuilderAfterStringGroup(instance);
-        }
-        
-        default T string_group(List<?> value) {
-            var instance = getInstance();
-            instance.put("string_group", value);
-            return getBuilderAfterStringGroup(instance);
-        }
-        
-        default T string_group(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("string_group", value);
             return getBuilderAfterStringGroup(instance);

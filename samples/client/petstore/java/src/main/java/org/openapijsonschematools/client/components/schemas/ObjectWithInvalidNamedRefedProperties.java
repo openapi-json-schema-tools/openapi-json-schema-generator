@@ -60,55 +60,7 @@ public class ObjectWithInvalidNamedRefedProperties {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterReference(Map<String, @Nullable Object> instance);
         
-        default T setExclamationMarkReference(Void value) {
-            var instance = getInstance();
-            instance.put("!reference", null);
-            return getBuilderAfterReference(instance);
-        }
-        
-        default T setExclamationMarkReference(boolean value) {
-            var instance = getInstance();
-            instance.put("!reference", value);
-            return getBuilderAfterReference(instance);
-        }
-        
-        default T setExclamationMarkReference(String value) {
-            var instance = getInstance();
-            instance.put("!reference", value);
-            return getBuilderAfterReference(instance);
-        }
-        
-        default T setExclamationMarkReference(int value) {
-            var instance = getInstance();
-            instance.put("!reference", value);
-            return getBuilderAfterReference(instance);
-        }
-        
-        default T setExclamationMarkReference(float value) {
-            var instance = getInstance();
-            instance.put("!reference", value);
-            return getBuilderAfterReference(instance);
-        }
-        
-        default T setExclamationMarkReference(long value) {
-            var instance = getInstance();
-            instance.put("!reference", value);
-            return getBuilderAfterReference(instance);
-        }
-        
-        default T setExclamationMarkReference(double value) {
-            var instance = getInstance();
-            instance.put("!reference", value);
-            return getBuilderAfterReference(instance);
-        }
-        
-        default T setExclamationMarkReference(List<?> value) {
-            var instance = getInstance();
-            instance.put("!reference", value);
-            return getBuilderAfterReference(instance);
-        }
-        
-        default T setExclamationMarkReference(Map<String, ?> value) {
+        default T setExclamationMarkReference(List<Number> value) {
             var instance = getInstance();
             instance.put("!reference", value);
             return getBuilderAfterReference(instance);
@@ -119,55 +71,7 @@ public class ObjectWithInvalidNamedRefedProperties {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFrom(Map<String, @Nullable Object> instance);
         
-        default T from(Void value) {
-            var instance = getInstance();
-            instance.put("from", null);
-            return getBuilderAfterFrom(instance);
-        }
-        
-        default T from(boolean value) {
-            var instance = getInstance();
-            instance.put("from", value);
-            return getBuilderAfterFrom(instance);
-        }
-        
-        default T from(String value) {
-            var instance = getInstance();
-            instance.put("from", value);
-            return getBuilderAfterFrom(instance);
-        }
-        
-        default T from(int value) {
-            var instance = getInstance();
-            instance.put("from", value);
-            return getBuilderAfterFrom(instance);
-        }
-        
-        default T from(float value) {
-            var instance = getInstance();
-            instance.put("from", value);
-            return getBuilderAfterFrom(instance);
-        }
-        
-        default T from(long value) {
-            var instance = getInstance();
-            instance.put("from", value);
-            return getBuilderAfterFrom(instance);
-        }
-        
-        default T from(double value) {
-            var instance = getInstance();
-            instance.put("from", value);
-            return getBuilderAfterFrom(instance);
-        }
-        
-        default T from(List<?> value) {
-            var instance = getInstance();
-            instance.put("from", value);
-            return getBuilderAfterFrom(instance);
-        }
-        
-        default T from(Map<String, ?> value) {
+        default T from(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("from", value);
             return getBuilderAfterFrom(instance);

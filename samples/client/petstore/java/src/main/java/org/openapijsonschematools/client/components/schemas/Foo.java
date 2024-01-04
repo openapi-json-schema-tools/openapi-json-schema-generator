@@ -61,55 +61,7 @@ public class Foo {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterBar(Map<String, @Nullable Object> instance);
         
-        default T bar(Void value) {
-            var instance = getInstance();
-            instance.put("bar", null);
-            return getBuilderAfterBar(instance);
-        }
-        
-        default T bar(boolean value) {
-            var instance = getInstance();
-            instance.put("bar", value);
-            return getBuilderAfterBar(instance);
-        }
-        
         default T bar(String value) {
-            var instance = getInstance();
-            instance.put("bar", value);
-            return getBuilderAfterBar(instance);
-        }
-        
-        default T bar(int value) {
-            var instance = getInstance();
-            instance.put("bar", value);
-            return getBuilderAfterBar(instance);
-        }
-        
-        default T bar(float value) {
-            var instance = getInstance();
-            instance.put("bar", value);
-            return getBuilderAfterBar(instance);
-        }
-        
-        default T bar(long value) {
-            var instance = getInstance();
-            instance.put("bar", value);
-            return getBuilderAfterBar(instance);
-        }
-        
-        default T bar(double value) {
-            var instance = getInstance();
-            instance.put("bar", value);
-            return getBuilderAfterBar(instance);
-        }
-        
-        default T bar(List<?> value) {
-            var instance = getInstance();
-            instance.put("bar", value);
-            return getBuilderAfterBar(instance);
-        }
-        
-        default T bar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("bar", value);
             return getBuilderAfterBar(instance);

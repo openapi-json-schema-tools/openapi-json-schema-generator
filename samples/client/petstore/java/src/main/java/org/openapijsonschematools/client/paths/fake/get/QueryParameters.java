@@ -105,24 +105,6 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnumQueryDouble(Map<String, @Nullable Object> instance);
         
-        default T enum_query_double(Void value) {
-            var instance = getInstance();
-            instance.put("enum_query_double", null);
-            return getBuilderAfterEnumQueryDouble(instance);
-        }
-        
-        default T enum_query_double(boolean value) {
-            var instance = getInstance();
-            instance.put("enum_query_double", value);
-            return getBuilderAfterEnumQueryDouble(instance);
-        }
-        
-        default T enum_query_double(String value) {
-            var instance = getInstance();
-            instance.put("enum_query_double", value);
-            return getBuilderAfterEnumQueryDouble(instance);
-        }
-        
         default T enum_query_double(int value) {
             var instance = getInstance();
             instance.put("enum_query_double", value);
@@ -147,15 +129,15 @@ public class QueryParameters {
             return getBuilderAfterEnumQueryDouble(instance);
         }
         
-        default T enum_query_double(List<?> value) {
+        default T enum_query_double(Schema5.DoubleSchemaEnums5 value) {
             var instance = getInstance();
-            instance.put("enum_query_double", value);
+            instance.put("enum_query_double", value.value());
             return getBuilderAfterEnumQueryDouble(instance);
         }
         
-        default T enum_query_double(Map<String, ?> value) {
+        default T enum_query_double(Schema5.FloatSchemaEnums5 value) {
             var instance = getInstance();
-            instance.put("enum_query_double", value);
+            instance.put("enum_query_double", value.value());
             return getBuilderAfterEnumQueryDouble(instance);
         }
     }
@@ -164,57 +146,15 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnumQueryString(Map<String, @Nullable Object> instance);
         
-        default T enum_query_string(Void value) {
-            var instance = getInstance();
-            instance.put("enum_query_string", null);
-            return getBuilderAfterEnumQueryString(instance);
-        }
-        
-        default T enum_query_string(boolean value) {
-            var instance = getInstance();
-            instance.put("enum_query_string", value);
-            return getBuilderAfterEnumQueryString(instance);
-        }
-        
         default T enum_query_string(String value) {
             var instance = getInstance();
             instance.put("enum_query_string", value);
             return getBuilderAfterEnumQueryString(instance);
         }
         
-        default T enum_query_string(int value) {
+        default T enum_query_string(Schema3.StringSchemaEnums3 value) {
             var instance = getInstance();
-            instance.put("enum_query_string", value);
-            return getBuilderAfterEnumQueryString(instance);
-        }
-        
-        default T enum_query_string(float value) {
-            var instance = getInstance();
-            instance.put("enum_query_string", value);
-            return getBuilderAfterEnumQueryString(instance);
-        }
-        
-        default T enum_query_string(long value) {
-            var instance = getInstance();
-            instance.put("enum_query_string", value);
-            return getBuilderAfterEnumQueryString(instance);
-        }
-        
-        default T enum_query_string(double value) {
-            var instance = getInstance();
-            instance.put("enum_query_string", value);
-            return getBuilderAfterEnumQueryString(instance);
-        }
-        
-        default T enum_query_string(List<?> value) {
-            var instance = getInstance();
-            instance.put("enum_query_string", value);
-            return getBuilderAfterEnumQueryString(instance);
-        }
-        
-        default T enum_query_string(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("enum_query_string", value);
+            instance.put("enum_query_string", value.value());
             return getBuilderAfterEnumQueryString(instance);
         }
     }
@@ -222,24 +162,6 @@ public class QueryParameters {
     public interface SetterForEnumQueryInteger <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnumQueryInteger(Map<String, @Nullable Object> instance);
-        
-        default T enum_query_integer(Void value) {
-            var instance = getInstance();
-            instance.put("enum_query_integer", null);
-            return getBuilderAfterEnumQueryInteger(instance);
-        }
-        
-        default T enum_query_integer(boolean value) {
-            var instance = getInstance();
-            instance.put("enum_query_integer", value);
-            return getBuilderAfterEnumQueryInteger(instance);
-        }
-        
-        default T enum_query_integer(String value) {
-            var instance = getInstance();
-            instance.put("enum_query_integer", value);
-            return getBuilderAfterEnumQueryInteger(instance);
-        }
         
         default T enum_query_integer(int value) {
             var instance = getInstance();
@@ -253,27 +175,27 @@ public class QueryParameters {
             return getBuilderAfterEnumQueryInteger(instance);
         }
         
-        default T enum_query_integer(long value) {
+        default T enum_query_integer(Schema4.IntegerSchemaEnums4 value) {
             var instance = getInstance();
-            instance.put("enum_query_integer", value);
+            instance.put("enum_query_integer", value.value());
             return getBuilderAfterEnumQueryInteger(instance);
         }
         
-        default T enum_query_integer(double value) {
+        default T enum_query_integer(Schema4.LongSchemaEnums4 value) {
             var instance = getInstance();
-            instance.put("enum_query_integer", value);
+            instance.put("enum_query_integer", value.value());
             return getBuilderAfterEnumQueryInteger(instance);
         }
         
-        default T enum_query_integer(List<?> value) {
+        default T enum_query_integer(Schema4.FloatSchemaEnums4 value) {
             var instance = getInstance();
-            instance.put("enum_query_integer", value);
+            instance.put("enum_query_integer", value.value());
             return getBuilderAfterEnumQueryInteger(instance);
         }
         
-        default T enum_query_integer(Map<String, ?> value) {
+        default T enum_query_integer(Schema4.DoubleSchemaEnums4 value) {
             var instance = getInstance();
-            instance.put("enum_query_integer", value);
+            instance.put("enum_query_integer", value.value());
             return getBuilderAfterEnumQueryInteger(instance);
         }
     }
@@ -282,55 +204,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnumQueryStringArray(Map<String, @Nullable Object> instance);
         
-        default T enum_query_string_array(Void value) {
-            var instance = getInstance();
-            instance.put("enum_query_string_array", null);
-            return getBuilderAfterEnumQueryStringArray(instance);
-        }
-        
-        default T enum_query_string_array(boolean value) {
-            var instance = getInstance();
-            instance.put("enum_query_string_array", value);
-            return getBuilderAfterEnumQueryStringArray(instance);
-        }
-        
-        default T enum_query_string_array(String value) {
-            var instance = getInstance();
-            instance.put("enum_query_string_array", value);
-            return getBuilderAfterEnumQueryStringArray(instance);
-        }
-        
-        default T enum_query_string_array(int value) {
-            var instance = getInstance();
-            instance.put("enum_query_string_array", value);
-            return getBuilderAfterEnumQueryStringArray(instance);
-        }
-        
-        default T enum_query_string_array(float value) {
-            var instance = getInstance();
-            instance.put("enum_query_string_array", value);
-            return getBuilderAfterEnumQueryStringArray(instance);
-        }
-        
-        default T enum_query_string_array(long value) {
-            var instance = getInstance();
-            instance.put("enum_query_string_array", value);
-            return getBuilderAfterEnumQueryStringArray(instance);
-        }
-        
-        default T enum_query_string_array(double value) {
-            var instance = getInstance();
-            instance.put("enum_query_string_array", value);
-            return getBuilderAfterEnumQueryStringArray(instance);
-        }
-        
-        default T enum_query_string_array(List<?> value) {
-            var instance = getInstance();
-            instance.put("enum_query_string_array", value);
-            return getBuilderAfterEnumQueryStringArray(instance);
-        }
-        
-        default T enum_query_string_array(Map<String, ?> value) {
+        default T enum_query_string_array(List<String> value) {
             var instance = getInstance();
             instance.put("enum_query_string_array", value);
             return getBuilderAfterEnumQueryStringArray(instance);

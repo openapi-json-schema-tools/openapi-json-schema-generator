@@ -52,55 +52,7 @@ public class Schema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterStringSchema(Map<String, @Nullable Object> instance);
         
-        default T setString(Void value) {
-            var instance = getInstance();
-            instance.put("string", null);
-            return getBuilderAfterStringSchema(instance);
-        }
-        
-        default T setString(boolean value) {
-            var instance = getInstance();
-            instance.put("string", value);
-            return getBuilderAfterStringSchema(instance);
-        }
-        
-        default T setString(String value) {
-            var instance = getInstance();
-            instance.put("string", value);
-            return getBuilderAfterStringSchema(instance);
-        }
-        
-        default T setString(int value) {
-            var instance = getInstance();
-            instance.put("string", value);
-            return getBuilderAfterStringSchema(instance);
-        }
-        
-        default T setString(float value) {
-            var instance = getInstance();
-            instance.put("string", value);
-            return getBuilderAfterStringSchema(instance);
-        }
-        
-        default T setString(long value) {
-            var instance = getInstance();
-            instance.put("string", value);
-            return getBuilderAfterStringSchema(instance);
-        }
-        
-        default T setString(double value) {
-            var instance = getInstance();
-            instance.put("string", value);
-            return getBuilderAfterStringSchema(instance);
-        }
-        
-        default T setString(List<?> value) {
-            var instance = getInstance();
-            instance.put("string", value);
-            return getBuilderAfterStringSchema(instance);
-        }
-        
-        default T setString(Map<String, ?> value) {
+        default T setString(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("string", value);
             return getBuilderAfterStringSchema(instance);

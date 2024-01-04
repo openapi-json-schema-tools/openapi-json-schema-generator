@@ -80,15 +80,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(Void value) |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(boolean value) |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(String value) |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(int value) |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(float value) |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(long value) |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(double value) |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(List<?> value) |
-| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(Map<String, ?> value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(Map<String, @Nullable Object> value) |
 | [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | files(List<Map<String, @Nullable Object>> value) |
 
 ## FileSchemaTestClassMap

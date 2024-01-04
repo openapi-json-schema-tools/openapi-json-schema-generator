@@ -70,15 +70,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [FooMapBuilder](#foomapbuilder) | bar(Void value) |
-| [FooMapBuilder](#foomapbuilder) | bar(boolean value) |
 | [FooMapBuilder](#foomapbuilder) | bar(String value) |
-| [FooMapBuilder](#foomapbuilder) | bar(int value) |
-| [FooMapBuilder](#foomapbuilder) | bar(float value) |
-| [FooMapBuilder](#foomapbuilder) | bar(long value) |
-| [FooMapBuilder](#foomapbuilder) | bar(double value) |
-| [FooMapBuilder](#foomapbuilder) | bar(List<?> value) |
-| [FooMapBuilder](#foomapbuilder) | bar(Map<String, ?> value) |
 
 ## FooMap
 public static class FooMap<br>

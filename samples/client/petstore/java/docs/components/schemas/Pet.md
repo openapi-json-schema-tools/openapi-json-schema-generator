@@ -134,15 +134,7 @@ A class that builds the Map input type
 | [PetMap00Builder](#petmap00builder) | id(float value) |
 | [PetMap00Builder](#petmap00builder) | id(long value) |
 | [PetMap00Builder](#petmap00builder) | id(double value) |
-| [PetMap00Builder](#petmap00builder) | category(Void value) |
-| [PetMap00Builder](#petmap00builder) | category(boolean value) |
-| [PetMap00Builder](#petmap00builder) | category(String value) |
-| [PetMap00Builder](#petmap00builder) | category(int value) |
-| [PetMap00Builder](#petmap00builder) | category(float value) |
-| [PetMap00Builder](#petmap00builder) | category(long value) |
-| [PetMap00Builder](#petmap00builder) | category(double value) |
-| [PetMap00Builder](#petmap00builder) | category(List<?> value) |
-| [PetMap00Builder](#petmap00builder) | category(Map<String, ?> value) |
+| [PetMap00Builder](#petmap00builder) | category(Map<String, @Nullable Object> value) |
 | [PetMap00Builder](#petmap00builder) | tags(List<Map<String, @Nullable Object>> value) |
 | [PetMap00Builder](#petmap00builder) | status(String value) |
 | [PetMap00Builder](#petmap00builder) | status([StringStatusEnums](#stringstatusenums) value) |

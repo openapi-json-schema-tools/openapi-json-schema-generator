@@ -63,55 +63,7 @@ public class PathParameters {
         Map<String, String> getInstance();
         T getBuilderAfterOrderId(Map<String, String> instance);
         
-        default T order_id(Void value) {
-            var instance = getInstance();
-            instance.put("order_id", null);
-            return getBuilderAfterOrderId(instance);
-        }
-        
-        default T order_id(boolean value) {
-            var instance = getInstance();
-            instance.put("order_id", value);
-            return getBuilderAfterOrderId(instance);
-        }
-        
         default T order_id(String value) {
-            var instance = getInstance();
-            instance.put("order_id", value);
-            return getBuilderAfterOrderId(instance);
-        }
-        
-        default T order_id(int value) {
-            var instance = getInstance();
-            instance.put("order_id", value);
-            return getBuilderAfterOrderId(instance);
-        }
-        
-        default T order_id(float value) {
-            var instance = getInstance();
-            instance.put("order_id", value);
-            return getBuilderAfterOrderId(instance);
-        }
-        
-        default T order_id(long value) {
-            var instance = getInstance();
-            instance.put("order_id", value);
-            return getBuilderAfterOrderId(instance);
-        }
-        
-        default T order_id(double value) {
-            var instance = getInstance();
-            instance.put("order_id", value);
-            return getBuilderAfterOrderId(instance);
-        }
-        
-        default T order_id(List<?> value) {
-            var instance = getInstance();
-            instance.put("order_id", value);
-            return getBuilderAfterOrderId(instance);
-        }
-        
-        default T order_id(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("order_id", value);
             return getBuilderAfterOrderId(instance);

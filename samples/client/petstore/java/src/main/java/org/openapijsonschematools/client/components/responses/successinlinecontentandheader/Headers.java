@@ -63,55 +63,7 @@ public class Headers {
         Map<String, String> getInstance();
         T getBuilderAfterSomeHeader(Map<String, String> instance);
         
-        default T someHeader(Void value) {
-            var instance = getInstance();
-            instance.put("someHeader", null);
-            return getBuilderAfterSomeHeader(instance);
-        }
-        
-        default T someHeader(boolean value) {
-            var instance = getInstance();
-            instance.put("someHeader", value);
-            return getBuilderAfterSomeHeader(instance);
-        }
-        
         default T someHeader(String value) {
-            var instance = getInstance();
-            instance.put("someHeader", value);
-            return getBuilderAfterSomeHeader(instance);
-        }
-        
-        default T someHeader(int value) {
-            var instance = getInstance();
-            instance.put("someHeader", value);
-            return getBuilderAfterSomeHeader(instance);
-        }
-        
-        default T someHeader(float value) {
-            var instance = getInstance();
-            instance.put("someHeader", value);
-            return getBuilderAfterSomeHeader(instance);
-        }
-        
-        default T someHeader(long value) {
-            var instance = getInstance();
-            instance.put("someHeader", value);
-            return getBuilderAfterSomeHeader(instance);
-        }
-        
-        default T someHeader(double value) {
-            var instance = getInstance();
-            instance.put("someHeader", value);
-            return getBuilderAfterSomeHeader(instance);
-        }
-        
-        default T someHeader(List<?> value) {
-            var instance = getInstance();
-            instance.put("someHeader", value);
-            return getBuilderAfterSomeHeader(instance);
-        }
-        
-        default T someHeader(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("someHeader", value);
             return getBuilderAfterSomeHeader(instance);

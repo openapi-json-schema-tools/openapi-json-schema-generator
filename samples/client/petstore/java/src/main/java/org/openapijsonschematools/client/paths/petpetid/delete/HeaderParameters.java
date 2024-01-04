@@ -63,55 +63,7 @@ public class HeaderParameters {
         Map<String, String> getInstance();
         T getBuilderAfterApiKey(Map<String, String> instance);
         
-        default T api_key(Void value) {
-            var instance = getInstance();
-            instance.put("api_key", null);
-            return getBuilderAfterApiKey(instance);
-        }
-        
-        default T api_key(boolean value) {
-            var instance = getInstance();
-            instance.put("api_key", value);
-            return getBuilderAfterApiKey(instance);
-        }
-        
         default T api_key(String value) {
-            var instance = getInstance();
-            instance.put("api_key", value);
-            return getBuilderAfterApiKey(instance);
-        }
-        
-        default T api_key(int value) {
-            var instance = getInstance();
-            instance.put("api_key", value);
-            return getBuilderAfterApiKey(instance);
-        }
-        
-        default T api_key(float value) {
-            var instance = getInstance();
-            instance.put("api_key", value);
-            return getBuilderAfterApiKey(instance);
-        }
-        
-        default T api_key(long value) {
-            var instance = getInstance();
-            instance.put("api_key", value);
-            return getBuilderAfterApiKey(instance);
-        }
-        
-        default T api_key(double value) {
-            var instance = getInstance();
-            instance.put("api_key", value);
-            return getBuilderAfterApiKey(instance);
-        }
-        
-        default T api_key(List<?> value) {
-            var instance = getInstance();
-            instance.put("api_key", value);
-            return getBuilderAfterApiKey(instance);
-        }
-        
-        default T api_key(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("api_key", value);
             return getBuilderAfterApiKey(instance);

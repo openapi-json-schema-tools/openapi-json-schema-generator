@@ -64,55 +64,7 @@ public class QueryParameters {
         Map<String, List<String>> getInstance();
         T getBuilderAfterStatus(Map<String, List<String>> instance);
         
-        default T status(Void value) {
-            var instance = getInstance();
-            instance.put("status", null);
-            return getBuilderAfterStatus(instance);
-        }
-        
-        default T status(boolean value) {
-            var instance = getInstance();
-            instance.put("status", value);
-            return getBuilderAfterStatus(instance);
-        }
-        
-        default T status(String value) {
-            var instance = getInstance();
-            instance.put("status", value);
-            return getBuilderAfterStatus(instance);
-        }
-        
-        default T status(int value) {
-            var instance = getInstance();
-            instance.put("status", value);
-            return getBuilderAfterStatus(instance);
-        }
-        
-        default T status(float value) {
-            var instance = getInstance();
-            instance.put("status", value);
-            return getBuilderAfterStatus(instance);
-        }
-        
-        default T status(long value) {
-            var instance = getInstance();
-            instance.put("status", value);
-            return getBuilderAfterStatus(instance);
-        }
-        
-        default T status(double value) {
-            var instance = getInstance();
-            instance.put("status", value);
-            return getBuilderAfterStatus(instance);
-        }
-        
-        default T status(List<?> value) {
-            var instance = getInstance();
-            instance.put("status", value);
-            return getBuilderAfterStatus(instance);
-        }
-        
-        default T status(Map<String, ?> value) {
+        default T status(List<String> value) {
             var instance = getInstance();
             instance.put("status", value);
             return getBuilderAfterStatus(instance);

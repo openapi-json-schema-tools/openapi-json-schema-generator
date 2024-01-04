@@ -96,15 +96,8 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MoneyMap00Builder](#moneymap00builder) | currency(Void value) |
-| [MoneyMap00Builder](#moneymap00builder) | currency(boolean value) |
 | [MoneyMap00Builder](#moneymap00builder) | currency(String value) |
-| [MoneyMap00Builder](#moneymap00builder) | currency(int value) |
-| [MoneyMap00Builder](#moneymap00builder) | currency(float value) |
-| [MoneyMap00Builder](#moneymap00builder) | currency(long value) |
-| [MoneyMap00Builder](#moneymap00builder) | currency(double value) |
-| [MoneyMap00Builder](#moneymap00builder) | currency(List<?> value) |
-| [MoneyMap00Builder](#moneymap00builder) | currency(Map<String, ?> value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency([Currency.StringCurrencyEnums](../../components/schemas/Currency.md#stringcurrencyenums) value) |
 ## MoneyMap10Builder
 public class MoneyMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -135,15 +128,8 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MoneyMap01Builder](#moneymap01builder) | amount(String value) |
-| [MoneyMap10Builder](#moneymap10builder) | currency(Void value) |
-| [MoneyMap10Builder](#moneymap10builder) | currency(boolean value) |
 | [MoneyMap10Builder](#moneymap10builder) | currency(String value) |
-| [MoneyMap10Builder](#moneymap10builder) | currency(int value) |
-| [MoneyMap10Builder](#moneymap10builder) | currency(float value) |
-| [MoneyMap10Builder](#moneymap10builder) | currency(long value) |
-| [MoneyMap10Builder](#moneymap10builder) | currency(double value) |
-| [MoneyMap10Builder](#moneymap10builder) | currency(List<?> value) |
-| [MoneyMap10Builder](#moneymap10builder) | currency(Map<String, ?> value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency([Currency.StringCurrencyEnums](../../components/schemas/Currency.md#stringcurrencyenums) value) |
 
 ## MoneyMap
 public static class MoneyMap<br>

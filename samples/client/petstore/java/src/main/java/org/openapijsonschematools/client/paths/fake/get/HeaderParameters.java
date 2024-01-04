@@ -81,57 +81,15 @@ public class HeaderParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnumHeaderString(Map<String, @Nullable Object> instance);
         
-        default T enum_header_string(Void value) {
-            var instance = getInstance();
-            instance.put("enum_header_string", null);
-            return getBuilderAfterEnumHeaderString(instance);
-        }
-        
-        default T enum_header_string(boolean value) {
-            var instance = getInstance();
-            instance.put("enum_header_string", value);
-            return getBuilderAfterEnumHeaderString(instance);
-        }
-        
         default T enum_header_string(String value) {
             var instance = getInstance();
             instance.put("enum_header_string", value);
             return getBuilderAfterEnumHeaderString(instance);
         }
         
-        default T enum_header_string(int value) {
+        default T enum_header_string(Schema1.StringSchemaEnums1 value) {
             var instance = getInstance();
-            instance.put("enum_header_string", value);
-            return getBuilderAfterEnumHeaderString(instance);
-        }
-        
-        default T enum_header_string(float value) {
-            var instance = getInstance();
-            instance.put("enum_header_string", value);
-            return getBuilderAfterEnumHeaderString(instance);
-        }
-        
-        default T enum_header_string(long value) {
-            var instance = getInstance();
-            instance.put("enum_header_string", value);
-            return getBuilderAfterEnumHeaderString(instance);
-        }
-        
-        default T enum_header_string(double value) {
-            var instance = getInstance();
-            instance.put("enum_header_string", value);
-            return getBuilderAfterEnumHeaderString(instance);
-        }
-        
-        default T enum_header_string(List<?> value) {
-            var instance = getInstance();
-            instance.put("enum_header_string", value);
-            return getBuilderAfterEnumHeaderString(instance);
-        }
-        
-        default T enum_header_string(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("enum_header_string", value);
+            instance.put("enum_header_string", value.value());
             return getBuilderAfterEnumHeaderString(instance);
         }
     }
@@ -140,55 +98,7 @@ public class HeaderParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnumHeaderStringArray(Map<String, @Nullable Object> instance);
         
-        default T enum_header_string_array(Void value) {
-            var instance = getInstance();
-            instance.put("enum_header_string_array", null);
-            return getBuilderAfterEnumHeaderStringArray(instance);
-        }
-        
-        default T enum_header_string_array(boolean value) {
-            var instance = getInstance();
-            instance.put("enum_header_string_array", value);
-            return getBuilderAfterEnumHeaderStringArray(instance);
-        }
-        
-        default T enum_header_string_array(String value) {
-            var instance = getInstance();
-            instance.put("enum_header_string_array", value);
-            return getBuilderAfterEnumHeaderStringArray(instance);
-        }
-        
-        default T enum_header_string_array(int value) {
-            var instance = getInstance();
-            instance.put("enum_header_string_array", value);
-            return getBuilderAfterEnumHeaderStringArray(instance);
-        }
-        
-        default T enum_header_string_array(float value) {
-            var instance = getInstance();
-            instance.put("enum_header_string_array", value);
-            return getBuilderAfterEnumHeaderStringArray(instance);
-        }
-        
-        default T enum_header_string_array(long value) {
-            var instance = getInstance();
-            instance.put("enum_header_string_array", value);
-            return getBuilderAfterEnumHeaderStringArray(instance);
-        }
-        
-        default T enum_header_string_array(double value) {
-            var instance = getInstance();
-            instance.put("enum_header_string_array", value);
-            return getBuilderAfterEnumHeaderStringArray(instance);
-        }
-        
-        default T enum_header_string_array(List<?> value) {
-            var instance = getInstance();
-            instance.put("enum_header_string_array", value);
-            return getBuilderAfterEnumHeaderStringArray(instance);
-        }
-        
-        default T enum_header_string_array(Map<String, ?> value) {
+        default T enum_header_string_array(List<String> value) {
             var instance = getInstance();
             instance.put("enum_header_string_array", value);
             return getBuilderAfterEnumHeaderStringArray(instance);

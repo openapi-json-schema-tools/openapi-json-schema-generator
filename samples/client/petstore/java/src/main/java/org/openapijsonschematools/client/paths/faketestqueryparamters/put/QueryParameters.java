@@ -117,55 +117,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterContext(Map<String, @Nullable Object> instance);
         
-        default T context(Void value) {
-            var instance = getInstance();
-            instance.put("context", null);
-            return getBuilderAfterContext(instance);
-        }
-        
-        default T context(boolean value) {
-            var instance = getInstance();
-            instance.put("context", value);
-            return getBuilderAfterContext(instance);
-        }
-        
-        default T context(String value) {
-            var instance = getInstance();
-            instance.put("context", value);
-            return getBuilderAfterContext(instance);
-        }
-        
-        default T context(int value) {
-            var instance = getInstance();
-            instance.put("context", value);
-            return getBuilderAfterContext(instance);
-        }
-        
-        default T context(float value) {
-            var instance = getInstance();
-            instance.put("context", value);
-            return getBuilderAfterContext(instance);
-        }
-        
-        default T context(long value) {
-            var instance = getInstance();
-            instance.put("context", value);
-            return getBuilderAfterContext(instance);
-        }
-        
-        default T context(double value) {
-            var instance = getInstance();
-            instance.put("context", value);
-            return getBuilderAfterContext(instance);
-        }
-        
-        default T context(List<?> value) {
-            var instance = getInstance();
-            instance.put("context", value);
-            return getBuilderAfterContext(instance);
-        }
-        
-        default T context(Map<String, ?> value) {
+        default T context(List<String> value) {
             var instance = getInstance();
             instance.put("context", value);
             return getBuilderAfterContext(instance);
@@ -176,55 +128,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterHttp(Map<String, @Nullable Object> instance);
         
-        default T http(Void value) {
-            var instance = getInstance();
-            instance.put("http", null);
-            return getBuilderAfterHttp(instance);
-        }
-        
-        default T http(boolean value) {
-            var instance = getInstance();
-            instance.put("http", value);
-            return getBuilderAfterHttp(instance);
-        }
-        
-        default T http(String value) {
-            var instance = getInstance();
-            instance.put("http", value);
-            return getBuilderAfterHttp(instance);
-        }
-        
-        default T http(int value) {
-            var instance = getInstance();
-            instance.put("http", value);
-            return getBuilderAfterHttp(instance);
-        }
-        
-        default T http(float value) {
-            var instance = getInstance();
-            instance.put("http", value);
-            return getBuilderAfterHttp(instance);
-        }
-        
-        default T http(long value) {
-            var instance = getInstance();
-            instance.put("http", value);
-            return getBuilderAfterHttp(instance);
-        }
-        
-        default T http(double value) {
-            var instance = getInstance();
-            instance.put("http", value);
-            return getBuilderAfterHttp(instance);
-        }
-        
-        default T http(List<?> value) {
-            var instance = getInstance();
-            instance.put("http", value);
-            return getBuilderAfterHttp(instance);
-        }
-        
-        default T http(Map<String, ?> value) {
+        default T http(List<String> value) {
             var instance = getInstance();
             instance.put("http", value);
             return getBuilderAfterHttp(instance);
@@ -235,55 +139,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterIoutil(Map<String, @Nullable Object> instance);
         
-        default T ioutil(Void value) {
-            var instance = getInstance();
-            instance.put("ioutil", null);
-            return getBuilderAfterIoutil(instance);
-        }
-        
-        default T ioutil(boolean value) {
-            var instance = getInstance();
-            instance.put("ioutil", value);
-            return getBuilderAfterIoutil(instance);
-        }
-        
-        default T ioutil(String value) {
-            var instance = getInstance();
-            instance.put("ioutil", value);
-            return getBuilderAfterIoutil(instance);
-        }
-        
-        default T ioutil(int value) {
-            var instance = getInstance();
-            instance.put("ioutil", value);
-            return getBuilderAfterIoutil(instance);
-        }
-        
-        default T ioutil(float value) {
-            var instance = getInstance();
-            instance.put("ioutil", value);
-            return getBuilderAfterIoutil(instance);
-        }
-        
-        default T ioutil(long value) {
-            var instance = getInstance();
-            instance.put("ioutil", value);
-            return getBuilderAfterIoutil(instance);
-        }
-        
-        default T ioutil(double value) {
-            var instance = getInstance();
-            instance.put("ioutil", value);
-            return getBuilderAfterIoutil(instance);
-        }
-        
-        default T ioutil(List<?> value) {
-            var instance = getInstance();
-            instance.put("ioutil", value);
-            return getBuilderAfterIoutil(instance);
-        }
-        
-        default T ioutil(Map<String, ?> value) {
+        default T ioutil(List<String> value) {
             var instance = getInstance();
             instance.put("ioutil", value);
             return getBuilderAfterIoutil(instance);
@@ -294,55 +150,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterPipe(Map<String, @Nullable Object> instance);
         
-        default T pipe(Void value) {
-            var instance = getInstance();
-            instance.put("pipe", null);
-            return getBuilderAfterPipe(instance);
-        }
-        
-        default T pipe(boolean value) {
-            var instance = getInstance();
-            instance.put("pipe", value);
-            return getBuilderAfterPipe(instance);
-        }
-        
-        default T pipe(String value) {
-            var instance = getInstance();
-            instance.put("pipe", value);
-            return getBuilderAfterPipe(instance);
-        }
-        
-        default T pipe(int value) {
-            var instance = getInstance();
-            instance.put("pipe", value);
-            return getBuilderAfterPipe(instance);
-        }
-        
-        default T pipe(float value) {
-            var instance = getInstance();
-            instance.put("pipe", value);
-            return getBuilderAfterPipe(instance);
-        }
-        
-        default T pipe(long value) {
-            var instance = getInstance();
-            instance.put("pipe", value);
-            return getBuilderAfterPipe(instance);
-        }
-        
-        default T pipe(double value) {
-            var instance = getInstance();
-            instance.put("pipe", value);
-            return getBuilderAfterPipe(instance);
-        }
-        
-        default T pipe(List<?> value) {
-            var instance = getInstance();
-            instance.put("pipe", value);
-            return getBuilderAfterPipe(instance);
-        }
-        
-        default T pipe(Map<String, ?> value) {
+        default T pipe(List<String> value) {
             var instance = getInstance();
             instance.put("pipe", value);
             return getBuilderAfterPipe(instance);
@@ -353,55 +161,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterRefParam(Map<String, @Nullable Object> instance);
         
-        default T refParam(Void value) {
-            var instance = getInstance();
-            instance.put("refParam", null);
-            return getBuilderAfterRefParam(instance);
-        }
-        
-        default T refParam(boolean value) {
-            var instance = getInstance();
-            instance.put("refParam", value);
-            return getBuilderAfterRefParam(instance);
-        }
-        
         default T refParam(String value) {
-            var instance = getInstance();
-            instance.put("refParam", value);
-            return getBuilderAfterRefParam(instance);
-        }
-        
-        default T refParam(int value) {
-            var instance = getInstance();
-            instance.put("refParam", value);
-            return getBuilderAfterRefParam(instance);
-        }
-        
-        default T refParam(float value) {
-            var instance = getInstance();
-            instance.put("refParam", value);
-            return getBuilderAfterRefParam(instance);
-        }
-        
-        default T refParam(long value) {
-            var instance = getInstance();
-            instance.put("refParam", value);
-            return getBuilderAfterRefParam(instance);
-        }
-        
-        default T refParam(double value) {
-            var instance = getInstance();
-            instance.put("refParam", value);
-            return getBuilderAfterRefParam(instance);
-        }
-        
-        default T refParam(List<?> value) {
-            var instance = getInstance();
-            instance.put("refParam", value);
-            return getBuilderAfterRefParam(instance);
-        }
-        
-        default T refParam(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("refParam", value);
             return getBuilderAfterRefParam(instance);
@@ -412,55 +172,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterUrl(Map<String, @Nullable Object> instance);
         
-        default T url(Void value) {
-            var instance = getInstance();
-            instance.put("url", null);
-            return getBuilderAfterUrl(instance);
-        }
-        
-        default T url(boolean value) {
-            var instance = getInstance();
-            instance.put("url", value);
-            return getBuilderAfterUrl(instance);
-        }
-        
-        default T url(String value) {
-            var instance = getInstance();
-            instance.put("url", value);
-            return getBuilderAfterUrl(instance);
-        }
-        
-        default T url(int value) {
-            var instance = getInstance();
-            instance.put("url", value);
-            return getBuilderAfterUrl(instance);
-        }
-        
-        default T url(float value) {
-            var instance = getInstance();
-            instance.put("url", value);
-            return getBuilderAfterUrl(instance);
-        }
-        
-        default T url(long value) {
-            var instance = getInstance();
-            instance.put("url", value);
-            return getBuilderAfterUrl(instance);
-        }
-        
-        default T url(double value) {
-            var instance = getInstance();
-            instance.put("url", value);
-            return getBuilderAfterUrl(instance);
-        }
-        
-        default T url(List<?> value) {
-            var instance = getInstance();
-            instance.put("url", value);
-            return getBuilderAfterUrl(instance);
-        }
-        
-        default T url(Map<String, ?> value) {
+        default T url(List<String> value) {
             var instance = getInstance();
             instance.put("url", value);
             return getBuilderAfterUrl(instance);

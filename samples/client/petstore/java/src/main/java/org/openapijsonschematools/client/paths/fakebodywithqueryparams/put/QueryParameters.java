@@ -63,55 +63,7 @@ public class QueryParameters {
         Map<String, String> getInstance();
         T getBuilderAfterQuery(Map<String, String> instance);
         
-        default T query(Void value) {
-            var instance = getInstance();
-            instance.put("query", null);
-            return getBuilderAfterQuery(instance);
-        }
-        
-        default T query(boolean value) {
-            var instance = getInstance();
-            instance.put("query", value);
-            return getBuilderAfterQuery(instance);
-        }
-        
         default T query(String value) {
-            var instance = getInstance();
-            instance.put("query", value);
-            return getBuilderAfterQuery(instance);
-        }
-        
-        default T query(int value) {
-            var instance = getInstance();
-            instance.put("query", value);
-            return getBuilderAfterQuery(instance);
-        }
-        
-        default T query(float value) {
-            var instance = getInstance();
-            instance.put("query", value);
-            return getBuilderAfterQuery(instance);
-        }
-        
-        default T query(long value) {
-            var instance = getInstance();
-            instance.put("query", value);
-            return getBuilderAfterQuery(instance);
-        }
-        
-        default T query(double value) {
-            var instance = getInstance();
-            instance.put("query", value);
-            return getBuilderAfterQuery(instance);
-        }
-        
-        default T query(List<?> value) {
-            var instance = getInstance();
-            instance.put("query", value);
-            return getBuilderAfterQuery(instance);
-        }
-        
-        default T query(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("query", value);
             return getBuilderAfterQuery(instance);

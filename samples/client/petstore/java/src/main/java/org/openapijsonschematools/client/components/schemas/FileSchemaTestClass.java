@@ -172,55 +172,7 @@ public class FileSchemaTestClass {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterFile(Map<String, @Nullable Object> instance);
         
-        default T file(Void value) {
-            var instance = getInstance();
-            instance.put("file", null);
-            return getBuilderAfterFile(instance);
-        }
-        
-        default T file(boolean value) {
-            var instance = getInstance();
-            instance.put("file", value);
-            return getBuilderAfterFile(instance);
-        }
-        
-        default T file(String value) {
-            var instance = getInstance();
-            instance.put("file", value);
-            return getBuilderAfterFile(instance);
-        }
-        
-        default T file(int value) {
-            var instance = getInstance();
-            instance.put("file", value);
-            return getBuilderAfterFile(instance);
-        }
-        
-        default T file(float value) {
-            var instance = getInstance();
-            instance.put("file", value);
-            return getBuilderAfterFile(instance);
-        }
-        
-        default T file(long value) {
-            var instance = getInstance();
-            instance.put("file", value);
-            return getBuilderAfterFile(instance);
-        }
-        
-        default T file(double value) {
-            var instance = getInstance();
-            instance.put("file", value);
-            return getBuilderAfterFile(instance);
-        }
-        
-        default T file(List<?> value) {
-            var instance = getInstance();
-            instance.put("file", value);
-            return getBuilderAfterFile(instance);
-        }
-        
-        default T file(Map<String, ?> value) {
+        default T file(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("file", value);
             return getBuilderAfterFile(instance);

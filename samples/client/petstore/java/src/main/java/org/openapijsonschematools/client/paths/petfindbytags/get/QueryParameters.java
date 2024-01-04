@@ -64,55 +64,7 @@ public class QueryParameters {
         Map<String, List<String>> getInstance();
         T getBuilderAfterTags(Map<String, List<String>> instance);
         
-        default T tags(Void value) {
-            var instance = getInstance();
-            instance.put("tags", null);
-            return getBuilderAfterTags(instance);
-        }
-        
-        default T tags(boolean value) {
-            var instance = getInstance();
-            instance.put("tags", value);
-            return getBuilderAfterTags(instance);
-        }
-        
-        default T tags(String value) {
-            var instance = getInstance();
-            instance.put("tags", value);
-            return getBuilderAfterTags(instance);
-        }
-        
-        default T tags(int value) {
-            var instance = getInstance();
-            instance.put("tags", value);
-            return getBuilderAfterTags(instance);
-        }
-        
-        default T tags(float value) {
-            var instance = getInstance();
-            instance.put("tags", value);
-            return getBuilderAfterTags(instance);
-        }
-        
-        default T tags(long value) {
-            var instance = getInstance();
-            instance.put("tags", value);
-            return getBuilderAfterTags(instance);
-        }
-        
-        default T tags(double value) {
-            var instance = getInstance();
-            instance.put("tags", value);
-            return getBuilderAfterTags(instance);
-        }
-        
-        default T tags(List<?> value) {
-            var instance = getInstance();
-            instance.put("tags", value);
-            return getBuilderAfterTags(instance);
-        }
-        
-        default T tags(Map<String, ?> value) {
+        default T tags(List<String> value) {
             var instance = getInstance();
             instance.put("tags", value);
             return getBuilderAfterTags(instance);

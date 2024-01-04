@@ -104,15 +104,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(Void value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(boolean value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(String value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(int value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(float value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(long value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(double value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(List<?> value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(Map<String, ?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(Map<String, @Nullable Object> value) |
 ## ObjectWithInvalidNamedRefedPropertiesMap10Builder
 public class ObjectWithInvalidNamedRefedPropertiesMap10Builder<br>
 builder for `Map<String, @Nullable Object>`
@@ -127,15 +119,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(Void value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(boolean value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(String value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(int value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(float value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(long value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(double value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(List<?> value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(Map<String, ?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(List<Number> value) |
 ## ObjectWithInvalidNamedRefedPropertiesMapBuilder
 public class ObjectWithInvalidNamedRefedPropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -150,24 +134,8 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(Void value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(boolean value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(String value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(int value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(float value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(long value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(double value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(List<?> value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(Map<String, ?> value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(Void value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(boolean value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(String value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(int value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(float value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(long value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(double value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(List<?> value) |
-| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(Map<String, ?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(List<Number> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(Map<String, @Nullable Object> value) |
 
 ## ObjectWithInvalidNamedRefedPropertiesMap
 public static class ObjectWithInvalidNamedRefedPropertiesMap<br>

@@ -87,55 +87,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance);
         
-        default T SomeVar(Void value) {
-            var instance = getInstance();
-            instance.put("SomeVar", null);
-            return getBuilderAfterSomeVar2(instance);
-        }
-        
-        default T SomeVar(boolean value) {
-            var instance = getInstance();
-            instance.put("SomeVar", value);
-            return getBuilderAfterSomeVar2(instance);
-        }
-        
         default T SomeVar(String value) {
-            var instance = getInstance();
-            instance.put("SomeVar", value);
-            return getBuilderAfterSomeVar2(instance);
-        }
-        
-        default T SomeVar(int value) {
-            var instance = getInstance();
-            instance.put("SomeVar", value);
-            return getBuilderAfterSomeVar2(instance);
-        }
-        
-        default T SomeVar(float value) {
-            var instance = getInstance();
-            instance.put("SomeVar", value);
-            return getBuilderAfterSomeVar2(instance);
-        }
-        
-        default T SomeVar(long value) {
-            var instance = getInstance();
-            instance.put("SomeVar", value);
-            return getBuilderAfterSomeVar2(instance);
-        }
-        
-        default T SomeVar(double value) {
-            var instance = getInstance();
-            instance.put("SomeVar", value);
-            return getBuilderAfterSomeVar2(instance);
-        }
-        
-        default T SomeVar(List<?> value) {
-            var instance = getInstance();
-            instance.put("SomeVar", value);
-            return getBuilderAfterSomeVar2(instance);
-        }
-        
-        default T SomeVar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("SomeVar", value);
             return getBuilderAfterSomeVar2(instance);
@@ -146,55 +98,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSomeVar(Map<String, @Nullable Object> instance);
         
-        default T someVar(Void value) {
-            var instance = getInstance();
-            instance.put("someVar", null);
-            return getBuilderAfterSomeVar(instance);
-        }
-        
-        default T someVar(boolean value) {
-            var instance = getInstance();
-            instance.put("someVar", value);
-            return getBuilderAfterSomeVar(instance);
-        }
-        
         default T someVar(String value) {
-            var instance = getInstance();
-            instance.put("someVar", value);
-            return getBuilderAfterSomeVar(instance);
-        }
-        
-        default T someVar(int value) {
-            var instance = getInstance();
-            instance.put("someVar", value);
-            return getBuilderAfterSomeVar(instance);
-        }
-        
-        default T someVar(float value) {
-            var instance = getInstance();
-            instance.put("someVar", value);
-            return getBuilderAfterSomeVar(instance);
-        }
-        
-        default T someVar(long value) {
-            var instance = getInstance();
-            instance.put("someVar", value);
-            return getBuilderAfterSomeVar(instance);
-        }
-        
-        default T someVar(double value) {
-            var instance = getInstance();
-            instance.put("someVar", value);
-            return getBuilderAfterSomeVar(instance);
-        }
-        
-        default T someVar(List<?> value) {
-            var instance = getInstance();
-            instance.put("someVar", value);
-            return getBuilderAfterSomeVar(instance);
-        }
-        
-        default T someVar(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("someVar", value);
             return getBuilderAfterSomeVar(instance);
@@ -205,55 +109,7 @@ public class QueryParameters {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance);
         
-        default T some_var(Void value) {
-            var instance = getInstance();
-            instance.put("some_var", null);
-            return getBuilderAfterSomeVar1(instance);
-        }
-        
-        default T some_var(boolean value) {
-            var instance = getInstance();
-            instance.put("some_var", value);
-            return getBuilderAfterSomeVar1(instance);
-        }
-        
         default T some_var(String value) {
-            var instance = getInstance();
-            instance.put("some_var", value);
-            return getBuilderAfterSomeVar1(instance);
-        }
-        
-        default T some_var(int value) {
-            var instance = getInstance();
-            instance.put("some_var", value);
-            return getBuilderAfterSomeVar1(instance);
-        }
-        
-        default T some_var(float value) {
-            var instance = getInstance();
-            instance.put("some_var", value);
-            return getBuilderAfterSomeVar1(instance);
-        }
-        
-        default T some_var(long value) {
-            var instance = getInstance();
-            instance.put("some_var", value);
-            return getBuilderAfterSomeVar1(instance);
-        }
-        
-        default T some_var(double value) {
-            var instance = getInstance();
-            instance.put("some_var", value);
-            return getBuilderAfterSomeVar1(instance);
-        }
-        
-        default T some_var(List<?> value) {
-            var instance = getInstance();
-            instance.put("some_var", value);
-            return getBuilderAfterSomeVar1(instance);
-        }
-        
-        default T some_var(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("some_var", value);
             return getBuilderAfterSomeVar1(instance);

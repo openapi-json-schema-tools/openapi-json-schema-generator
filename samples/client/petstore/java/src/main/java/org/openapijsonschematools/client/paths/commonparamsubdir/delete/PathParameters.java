@@ -63,57 +63,15 @@ public class PathParameters {
         Map<String, String> getInstance();
         T getBuilderAfterSubDir(Map<String, String> instance);
         
-        default T subDir(Void value) {
-            var instance = getInstance();
-            instance.put("subDir", null);
-            return getBuilderAfterSubDir(instance);
-        }
-        
-        default T subDir(boolean value) {
-            var instance = getInstance();
-            instance.put("subDir", value);
-            return getBuilderAfterSubDir(instance);
-        }
-        
         default T subDir(String value) {
             var instance = getInstance();
             instance.put("subDir", value);
             return getBuilderAfterSubDir(instance);
         }
         
-        default T subDir(int value) {
+        default T subDir(Schema1.StringSchemaEnums1 value) {
             var instance = getInstance();
-            instance.put("subDir", value);
-            return getBuilderAfterSubDir(instance);
-        }
-        
-        default T subDir(float value) {
-            var instance = getInstance();
-            instance.put("subDir", value);
-            return getBuilderAfterSubDir(instance);
-        }
-        
-        default T subDir(long value) {
-            var instance = getInstance();
-            instance.put("subDir", value);
-            return getBuilderAfterSubDir(instance);
-        }
-        
-        default T subDir(double value) {
-            var instance = getInstance();
-            instance.put("subDir", value);
-            return getBuilderAfterSubDir(instance);
-        }
-        
-        default T subDir(List<?> value) {
-            var instance = getInstance();
-            instance.put("subDir", value);
-            return getBuilderAfterSubDir(instance);
-        }
-        
-        default T subDir(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("subDir", value);
+            instance.put("subDir", value.value());
             return getBuilderAfterSubDir(instance);
         }
     }

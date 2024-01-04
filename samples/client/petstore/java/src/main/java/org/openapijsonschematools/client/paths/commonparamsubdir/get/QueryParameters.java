@@ -63,55 +63,7 @@ public class QueryParameters {
         Map<String, String> getInstance();
         T getBuilderAfterSearchStr(Map<String, String> instance);
         
-        default T searchStr(Void value) {
-            var instance = getInstance();
-            instance.put("searchStr", null);
-            return getBuilderAfterSearchStr(instance);
-        }
-        
-        default T searchStr(boolean value) {
-            var instance = getInstance();
-            instance.put("searchStr", value);
-            return getBuilderAfterSearchStr(instance);
-        }
-        
         default T searchStr(String value) {
-            var instance = getInstance();
-            instance.put("searchStr", value);
-            return getBuilderAfterSearchStr(instance);
-        }
-        
-        default T searchStr(int value) {
-            var instance = getInstance();
-            instance.put("searchStr", value);
-            return getBuilderAfterSearchStr(instance);
-        }
-        
-        default T searchStr(float value) {
-            var instance = getInstance();
-            instance.put("searchStr", value);
-            return getBuilderAfterSearchStr(instance);
-        }
-        
-        default T searchStr(long value) {
-            var instance = getInstance();
-            instance.put("searchStr", value);
-            return getBuilderAfterSearchStr(instance);
-        }
-        
-        default T searchStr(double value) {
-            var instance = getInstance();
-            instance.put("searchStr", value);
-            return getBuilderAfterSearchStr(instance);
-        }
-        
-        default T searchStr(List<?> value) {
-            var instance = getInstance();
-            instance.put("searchStr", value);
-            return getBuilderAfterSearchStr(instance);
-        }
-        
-        default T searchStr(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("searchStr", value);
             return getBuilderAfterSearchStr(instance);

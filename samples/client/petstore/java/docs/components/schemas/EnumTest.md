@@ -115,50 +115,35 @@ A class that builds the Map input type
 | [EnumTestMap0Builder](#enumtestmap0builder) | enum_number([DoubleEnumNumberEnums](#doubleenumnumberenums) value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | enum_number([FloatEnumNumberEnums](#floatenumnumberenums) value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(Void value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(boolean value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(String value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(int value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(float value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(long value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(double value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(List<?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(Map<String, ?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(Void value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(boolean value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum([StringEnum.StringStringEnumEnums](../../components/schemas/StringEnum.md#stringstringenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum([StringEnum.NullStringEnumEnums](../../components/schemas/StringEnum.md#nullstringenumenums) value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(int value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(float value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(long value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(double value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(List<?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(Map<String, ?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(Void value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(boolean value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum([IntegerEnum.IntegerIntegerEnumEnums](../../components/schemas/IntegerEnum.md#integerintegerenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum([IntegerEnum.LongIntegerEnumEnums](../../components/schemas/IntegerEnum.md#longintegerenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum([IntegerEnum.FloatIntegerEnumEnums](../../components/schemas/IntegerEnum.md#floatintegerenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum([IntegerEnum.DoubleIntegerEnumEnums](../../components/schemas/IntegerEnum.md#doubleintegerenumenums) value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(String value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(int value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(float value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(long value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(double value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(List<?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(Map<String, ?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(Void value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(boolean value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue([StringEnumWithDefaultValue.StringStringEnumWithDefaultValueEnums](../../components/schemas/StringEnumWithDefaultValue.md#stringstringenumwithdefaultvalueenums) value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(int value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(float value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(long value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(double value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(List<?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(Map<String, ?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(Void value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(boolean value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue([IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums](../../components/schemas/IntegerEnumWithDefaultValue.md#integerintegerenumwithdefaultvalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue([IntegerEnumWithDefaultValue.LongIntegerEnumWithDefaultValueEnums](../../components/schemas/IntegerEnumWithDefaultValue.md#longintegerenumwithdefaultvalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue([IntegerEnumWithDefaultValue.FloatIntegerEnumWithDefaultValueEnums](../../components/schemas/IntegerEnumWithDefaultValue.md#floatintegerenumwithdefaultvalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue([IntegerEnumWithDefaultValue.DoubleIntegerEnumWithDefaultValueEnums](../../components/schemas/IntegerEnumWithDefaultValue.md#doubleintegerenumwithdefaultvalueenums) value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(int value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(float value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(long value) |
 | [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(double value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(List<?> value) |
-| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(Map<String, ?> value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#integerintegerenumonevalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.LongIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#longintegerenumonevalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.FloatIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#floatintegerenumonevalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.DoubleIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#doubleintegerenumonevalueenums) value) |
 ## EnumTestMapBuilder
 public class EnumTestMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

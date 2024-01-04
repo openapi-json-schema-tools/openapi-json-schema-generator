@@ -715,55 +715,7 @@ public class MapTest {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterIndirectMap(Map<String, @Nullable Object> instance);
         
-        default T indirect_map(Void value) {
-            var instance = getInstance();
-            instance.put("indirect_map", null);
-            return getBuilderAfterIndirectMap(instance);
-        }
-        
-        default T indirect_map(boolean value) {
-            var instance = getInstance();
-            instance.put("indirect_map", value);
-            return getBuilderAfterIndirectMap(instance);
-        }
-        
-        default T indirect_map(String value) {
-            var instance = getInstance();
-            instance.put("indirect_map", value);
-            return getBuilderAfterIndirectMap(instance);
-        }
-        
-        default T indirect_map(int value) {
-            var instance = getInstance();
-            instance.put("indirect_map", value);
-            return getBuilderAfterIndirectMap(instance);
-        }
-        
-        default T indirect_map(float value) {
-            var instance = getInstance();
-            instance.put("indirect_map", value);
-            return getBuilderAfterIndirectMap(instance);
-        }
-        
-        default T indirect_map(long value) {
-            var instance = getInstance();
-            instance.put("indirect_map", value);
-            return getBuilderAfterIndirectMap(instance);
-        }
-        
-        default T indirect_map(double value) {
-            var instance = getInstance();
-            instance.put("indirect_map", value);
-            return getBuilderAfterIndirectMap(instance);
-        }
-        
-        default T indirect_map(List<?> value) {
-            var instance = getInstance();
-            instance.put("indirect_map", value);
-            return getBuilderAfterIndirectMap(instance);
-        }
-        
-        default T indirect_map(Map<String, ?> value) {
+        default T indirect_map(Map<String, Boolean> value) {
             var instance = getInstance();
             instance.put("indirect_map", value);
             return getBuilderAfterIndirectMap(instance);

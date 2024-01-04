@@ -63,55 +63,7 @@ public class Headers {
         Map<String, String> getInstance();
         T getBuilderAfterLocation(Map<String, String> instance);
         
-        default T location(Void value) {
-            var instance = getInstance();
-            instance.put("location", null);
-            return getBuilderAfterLocation(instance);
-        }
-        
-        default T location(boolean value) {
-            var instance = getInstance();
-            instance.put("location", value);
-            return getBuilderAfterLocation(instance);
-        }
-        
         default T location(String value) {
-            var instance = getInstance();
-            instance.put("location", value);
-            return getBuilderAfterLocation(instance);
-        }
-        
-        default T location(int value) {
-            var instance = getInstance();
-            instance.put("location", value);
-            return getBuilderAfterLocation(instance);
-        }
-        
-        default T location(float value) {
-            var instance = getInstance();
-            instance.put("location", value);
-            return getBuilderAfterLocation(instance);
-        }
-        
-        default T location(long value) {
-            var instance = getInstance();
-            instance.put("location", value);
-            return getBuilderAfterLocation(instance);
-        }
-        
-        default T location(double value) {
-            var instance = getInstance();
-            instance.put("location", value);
-            return getBuilderAfterLocation(instance);
-        }
-        
-        default T location(List<?> value) {
-            var instance = getInstance();
-            instance.put("location", value);
-            return getBuilderAfterLocation(instance);
-        }
-        
-        default T location(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("location", value);
             return getBuilderAfterLocation(instance);

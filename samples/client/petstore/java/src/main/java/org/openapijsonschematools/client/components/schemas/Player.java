@@ -94,60 +94,7 @@ public class Player {
     public interface SetterForEnemyPlayer <T> {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterEnemyPlayer(Map<String, @Nullable Object> instance);
-        
-        default T enemyPlayer(Void value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", null);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
-        
-        default T enemyPlayer(boolean value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", value);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
-        
-        default T enemyPlayer(String value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", value);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
-        
-        default T enemyPlayer(int value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", value);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
-        
-        default T enemyPlayer(float value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", value);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
-        
-        default T enemyPlayer(long value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", value);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
-        
-        default T enemyPlayer(double value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", value);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
-        
-        default T enemyPlayer(List<?> value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", value);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
-        
-        default T enemyPlayer(Map<String, ?> value) {
-            var instance = getInstance();
-            instance.put("enemyPlayer", value);
-            return getBuilderAfterEnemyPlayer(instance);
-        }
+        // todo how to handle this
     }
     
     public static class PlayerMapBuilder extends UnsetAddPropsSetter<PlayerMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForName<PlayerMapBuilder>, SetterForEnemyPlayer<PlayerMapBuilder> {
