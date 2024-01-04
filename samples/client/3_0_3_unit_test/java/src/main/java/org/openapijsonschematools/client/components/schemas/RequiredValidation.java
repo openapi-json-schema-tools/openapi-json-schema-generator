@@ -233,9 +233,9 @@ public class RequiredValidation {
         }
     }
     
-    public static class RequiredValidationMapBuilder1 implements SetterForFoo<RequiredValidation0MapBuilder> {
+    public static class RequiredValidationMapBuilder implements SetterForFoo<RequiredValidation0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredValidationMapBuilder1() {
+        public RequiredValidationMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {

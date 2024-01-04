@@ -131,7 +131,7 @@ public class RequiredWithEmptyArray {
         }
     }
     
-    public static class RequiredWithEmptyArrayMapBuilder1 extends UnsetAddPropsSetter<RequiredWithEmptyArrayMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredWithEmptyArrayMapBuilder1> {
+    public static class RequiredWithEmptyArrayMapBuilder extends UnsetAddPropsSetter<RequiredWithEmptyArrayMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredWithEmptyArrayMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -139,7 +139,7 @@ public class RequiredWithEmptyArray {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public RequiredWithEmptyArrayMapBuilder1() {
+        public RequiredWithEmptyArrayMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -148,10 +148,10 @@ public class RequiredWithEmptyArray {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEmptyArrayMapBuilder1 getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public RequiredWithEmptyArrayMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public RequiredWithEmptyArrayMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public RequiredWithEmptyArrayMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

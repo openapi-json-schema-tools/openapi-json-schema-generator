@@ -261,9 +261,9 @@ public class EnumsInProperties {
         }
     }
     
-    public static class EnumsInPropertiesMapBuilder1 implements SetterForBar<EnumsInProperties0MapBuilder> {
+    public static class EnumsInPropertiesMapBuilder implements SetterForBar<EnumsInProperties0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public EnumsInPropertiesMapBuilder1() {
+        public EnumsInPropertiesMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {

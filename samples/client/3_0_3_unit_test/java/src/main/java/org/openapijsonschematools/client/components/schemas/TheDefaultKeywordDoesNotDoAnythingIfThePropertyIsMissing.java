@@ -152,7 +152,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         }
     }
     
-    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder1 extends UnsetAddPropsSetter<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForAlpha<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder1> {
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder extends UnsetAddPropsSetter<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForAlpha<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "alpha"
@@ -160,7 +160,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder1() {
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -169,10 +169,10 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder1 getBuilderAfterAlpha(Map<String, @Nullable Object> instance) {
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder getBuilderAfterAlpha(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

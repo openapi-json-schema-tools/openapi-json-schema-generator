@@ -2872,7 +2872,11 @@ public class DefaultGenerator implements Generator {
             String builderClassName = "";
             if (i == qtyBuilders - 1) {
                 // first invoked builder has the simplest name with no bitStr
-                builderClassName = getSchemaPascalCaseName(schemaName + objectIOClassNamePiece + "Builder", sourceJsonPath);
+                if (schema.mapInputJsonPathPiece != null) {
+                    builderClassName = schema.mapInputJsonPathPiece.pascalCase;
+                } else {
+                    builderClassName = getSchemaPascalCaseName(schemaName + objectIOClassNamePiece + "Builder", sourceJsonPath);
+                }
             } else {
                 builderClassName = getSchemaPascalCaseName(schemaName + bitStr + objectIOClassNamePiece + "Builder", sourceJsonPath);
             }

@@ -144,7 +144,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public static class Schema0MapBuilder1 extends UnsetAddPropsSetter<Schema0MapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoo<Schema0MapBuilder1> {
+    public static class Schema0MapBuilder extends UnsetAddPropsSetter<Schema0MapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<Schema0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -152,7 +152,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public Schema0MapBuilder1() {
+        public Schema0MapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -161,10 +161,10 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Schema0MapBuilder1 getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public Schema0MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public Schema0MapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public Schema0MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
@@ -403,13 +403,13 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder1 implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder1> {
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder> {
         private final Map<String, Boolean> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder1() {
+        public AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Boolean> build() {
@@ -418,7 +418,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         public Map<String, Boolean> getInstance() {
             return instance;
         }
-        public AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
+        public AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
             return this;
         }
     }

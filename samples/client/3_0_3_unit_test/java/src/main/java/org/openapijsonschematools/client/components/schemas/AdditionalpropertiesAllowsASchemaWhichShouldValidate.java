@@ -225,7 +225,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         }
     }
     
-    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder1 implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder1>, SetterForBar<AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder1>, SetterForAdditionalProperties<AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder1> {
+    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder>, SetterForBar<AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder>, SetterForAdditionalProperties<AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
@@ -234,7 +234,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder1() {
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -243,13 +243,13 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder1 getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder1 getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

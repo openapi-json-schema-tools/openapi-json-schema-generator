@@ -141,7 +141,7 @@ public class ObjectPropertiesValidation {
         }
     }
     
-    public static class ObjectPropertiesValidationMapBuilder1 extends UnsetAddPropsSetter<ObjectPropertiesValidationMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationMapBuilder1>, SetterForBar<ObjectPropertiesValidationMapBuilder1> {
+    public static class ObjectPropertiesValidationMapBuilder extends UnsetAddPropsSetter<ObjectPropertiesValidationMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationMapBuilder>, SetterForBar<ObjectPropertiesValidationMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
@@ -150,7 +150,7 @@ public class ObjectPropertiesValidation {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public ObjectPropertiesValidationMapBuilder1() {
+        public ObjectPropertiesValidationMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -159,13 +159,13 @@ public class ObjectPropertiesValidation {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public ObjectPropertiesValidationMapBuilder1 getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public ObjectPropertiesValidationMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public ObjectPropertiesValidationMapBuilder1 getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+        public ObjectPropertiesValidationMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public ObjectPropertiesValidationMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public ObjectPropertiesValidationMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

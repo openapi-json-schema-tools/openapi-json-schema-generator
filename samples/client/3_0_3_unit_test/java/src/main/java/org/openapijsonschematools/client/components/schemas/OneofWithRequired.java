@@ -231,9 +231,9 @@ public class OneofWithRequired {
         }
     }
     
-    public static class Schema0MapBuilder1 implements SetterForBar<Schema001MapBuilder>, SetterForFoo<Schema010MapBuilder> {
+    public static class Schema0MapBuilder implements SetterForBar<Schema001MapBuilder>, SetterForFoo<Schema010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema0MapBuilder1() {
+        public Schema0MapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
@@ -644,9 +644,9 @@ public class OneofWithRequired {
         }
     }
     
-    public static class Schema1MapBuilder1 implements SetterForBaz<Schema101MapBuilder>, SetterForFoo1<Schema110MapBuilder> {
+    public static class Schema1MapBuilder implements SetterForBaz<Schema101MapBuilder>, SetterForFoo1<Schema110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema1MapBuilder1() {
+        public Schema1MapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {

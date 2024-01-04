@@ -206,7 +206,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
         }
     }
     
-    public static class AdditionalpropertiesAreAllowedByDefaultMapBuilder1 extends UnsetAddPropsSetter<AdditionalpropertiesAreAllowedByDefaultMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAreAllowedByDefaultMapBuilder1>, SetterForBar<AdditionalpropertiesAreAllowedByDefaultMapBuilder1> {
+    public static class AdditionalpropertiesAreAllowedByDefaultMapBuilder extends UnsetAddPropsSetter<AdditionalpropertiesAreAllowedByDefaultMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAreAllowedByDefaultMapBuilder>, SetterForBar<AdditionalpropertiesAreAllowedByDefaultMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
@@ -215,7 +215,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public AdditionalpropertiesAreAllowedByDefaultMapBuilder1() {
+        public AdditionalpropertiesAreAllowedByDefaultMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -224,13 +224,13 @@ public class AdditionalpropertiesAreAllowedByDefault {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public AdditionalpropertiesAreAllowedByDefaultMapBuilder1 getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public AdditionalpropertiesAreAllowedByDefaultMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public AdditionalpropertiesAreAllowedByDefaultMapBuilder1 getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+        public AdditionalpropertiesAreAllowedByDefaultMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public AdditionalpropertiesAreAllowedByDefaultMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public AdditionalpropertiesAreAllowedByDefaultMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

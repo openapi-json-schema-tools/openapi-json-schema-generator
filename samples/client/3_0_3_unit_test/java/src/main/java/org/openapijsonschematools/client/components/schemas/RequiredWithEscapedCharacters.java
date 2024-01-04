@@ -1619,9 +1619,9 @@ public class RequiredWithEscapedCharacters {
         }
     }
     
-    public static class RequiredWithEscapedCharactersMapBuilder1 implements SetterForFootbar<RequiredWithEscapedCharacters011111MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101111MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters111011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters111101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters111110MapBuilder> {
+    public static class RequiredWithEscapedCharactersMapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters011111MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101111MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters111011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters111101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters111110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharactersMapBuilder1() {
+        public RequiredWithEscapedCharactersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {

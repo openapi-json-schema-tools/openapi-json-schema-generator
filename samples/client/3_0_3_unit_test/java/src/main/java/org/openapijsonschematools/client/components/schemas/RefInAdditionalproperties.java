@@ -111,13 +111,13 @@ public class RefInAdditionalproperties {
         }
     }
     
-    public static class RefInAdditionalpropertiesMapBuilder1 implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties<RefInAdditionalpropertiesMapBuilder1> {
+    public static class RefInAdditionalpropertiesMapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties<RefInAdditionalpropertiesMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public RefInAdditionalpropertiesMapBuilder1() {
+        public RefInAdditionalpropertiesMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -126,7 +126,7 @@ public class RefInAdditionalproperties {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RefInAdditionalpropertiesMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public RefInAdditionalpropertiesMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

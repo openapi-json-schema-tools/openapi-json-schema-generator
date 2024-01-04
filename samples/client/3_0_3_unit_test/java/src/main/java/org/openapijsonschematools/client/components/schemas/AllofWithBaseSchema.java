@@ -111,9 +111,9 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class Schema0MapBuilder1 implements SetterForFoo<Schema00MapBuilder> {
+    public static class Schema0MapBuilder implements SetterForFoo<Schema00MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema0MapBuilder1() {
+        public Schema0MapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
@@ -399,9 +399,9 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class Schema1MapBuilder1 implements SetterForBaz<Schema10MapBuilder> {
+    public static class Schema1MapBuilder implements SetterForBaz<Schema10MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public Schema1MapBuilder1() {
+        public Schema1MapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
@@ -705,9 +705,9 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class AllofWithBaseSchemaMapBuilder1 implements SetterForBar<AllofWithBaseSchema0MapBuilder> {
+    public static class AllofWithBaseSchemaMapBuilder implements SetterForBar<AllofWithBaseSchema0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public AllofWithBaseSchemaMapBuilder1() {
+        public AllofWithBaseSchemaMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {

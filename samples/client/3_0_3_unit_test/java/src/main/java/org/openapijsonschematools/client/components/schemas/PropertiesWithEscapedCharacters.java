@@ -302,7 +302,7 @@ public class PropertiesWithEscapedCharacters {
         }
     }
     
-    public static class PropertiesWithEscapedCharactersMapBuilder1 extends UnsetAddPropsSetter<PropertiesWithEscapedCharactersMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoonbar<PropertiesWithEscapedCharactersMapBuilder1>, SetterForFoobar<PropertiesWithEscapedCharactersMapBuilder1>, SetterForFoobar1<PropertiesWithEscapedCharactersMapBuilder1>, SetterForFoorbar<PropertiesWithEscapedCharactersMapBuilder1>, SetterForFootbar<PropertiesWithEscapedCharactersMapBuilder1>, SetterForFoofbar<PropertiesWithEscapedCharactersMapBuilder1> {
+    public static class PropertiesWithEscapedCharactersMapBuilder extends UnsetAddPropsSetter<PropertiesWithEscapedCharactersMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoonbar<PropertiesWithEscapedCharactersMapBuilder>, SetterForFoobar<PropertiesWithEscapedCharactersMapBuilder>, SetterForFoobar1<PropertiesWithEscapedCharactersMapBuilder>, SetterForFoorbar<PropertiesWithEscapedCharactersMapBuilder>, SetterForFootbar<PropertiesWithEscapedCharactersMapBuilder>, SetterForFoofbar<PropertiesWithEscapedCharactersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo\nbar",
@@ -315,7 +315,7 @@ public class PropertiesWithEscapedCharacters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public PropertiesWithEscapedCharactersMapBuilder1() {
+        public PropertiesWithEscapedCharactersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -324,25 +324,25 @@ public class PropertiesWithEscapedCharacters {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public PropertiesWithEscapedCharactersMapBuilder1 getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+        public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesWithEscapedCharactersMapBuilder1 getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+        public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesWithEscapedCharactersMapBuilder1 getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+        public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesWithEscapedCharactersMapBuilder1 getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+        public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesWithEscapedCharactersMapBuilder1 getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+        public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesWithEscapedCharactersMapBuilder1 getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+        public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesWithEscapedCharactersMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public PropertiesWithEscapedCharactersMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
