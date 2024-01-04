@@ -47,11 +47,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000000MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters000000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 ## RequiredWithEscapedCharacters000001MapBuilder
 public class RequiredWithEscapedCharacters000001MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -61,11 +64,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000001MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters000001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters000010MapBuilder
 public class RequiredWithEscapedCharacters000010MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -75,11 +80,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000010MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters000010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters000011MapBuilder
 public class RequiredWithEscapedCharacters000011MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -89,11 +96,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000011MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters000011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters000100MapBuilder
 public class RequiredWithEscapedCharacters000100MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -103,11 +112,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000100MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters000100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters000101MapBuilder
 public class RequiredWithEscapedCharacters000101MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -117,11 +128,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000101MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters000101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters000110MapBuilder
 public class RequiredWithEscapedCharacters000110MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -131,11 +144,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000110MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters000110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters000111MapBuilder
 public class RequiredWithEscapedCharacters000111MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -145,11 +160,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters000111MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters000111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters001000MapBuilder
 public class RequiredWithEscapedCharacters001000MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -159,11 +176,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001000MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters001000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters001001MapBuilder
 public class RequiredWithEscapedCharacters001001MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -173,11 +192,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001001MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters001001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters001010MapBuilder
 public class RequiredWithEscapedCharacters001010MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -187,11 +208,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001010MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters001010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters001011MapBuilder
 public class RequiredWithEscapedCharacters001011MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -201,11 +224,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001011MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters001011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters001100MapBuilder
 public class RequiredWithEscapedCharacters001100MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -215,11 +240,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001100MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters001100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters001101MapBuilder
 public class RequiredWithEscapedCharacters001101MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -229,11 +256,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001101MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters001101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters001110MapBuilder
 public class RequiredWithEscapedCharacters001110MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -243,11 +272,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001110MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters001110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters001111MapBuilder
 public class RequiredWithEscapedCharacters001111MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -257,11 +288,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters001111MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters001111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters010000MapBuilder
 public class RequiredWithEscapedCharacters010000MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -271,11 +304,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010000MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters010000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters010001MapBuilder
 public class RequiredWithEscapedCharacters010001MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -285,11 +320,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010001MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters010001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters010010MapBuilder
 public class RequiredWithEscapedCharacters010010MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -299,11 +336,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010010MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters010010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters010011MapBuilder
 public class RequiredWithEscapedCharacters010011MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -313,11 +352,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010011MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters010011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters010100MapBuilder
 public class RequiredWithEscapedCharacters010100MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -327,11 +368,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010100MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters010100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters010101MapBuilder
 public class RequiredWithEscapedCharacters010101MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -341,11 +384,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010101MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters010101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters010110MapBuilder
 public class RequiredWithEscapedCharacters010110MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -355,11 +400,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010110MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters010110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters010111MapBuilder
 public class RequiredWithEscapedCharacters010111MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -369,11 +416,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters010111MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters010111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters011000MapBuilder
 public class RequiredWithEscapedCharacters011000MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -383,11 +432,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011000MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters011000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters011001MapBuilder
 public class RequiredWithEscapedCharacters011001MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -397,11 +448,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011001MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters011001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters011010MapBuilder
 public class RequiredWithEscapedCharacters011010MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -411,11 +464,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011010MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters011010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters011011MapBuilder
 public class RequiredWithEscapedCharacters011011MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -425,11 +480,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011011MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters011011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters011100MapBuilder
 public class RequiredWithEscapedCharacters011100MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -439,11 +496,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011100MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters011100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters011101MapBuilder
 public class RequiredWithEscapedCharacters011101MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -453,11 +512,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011101MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters011101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters011110MapBuilder
 public class RequiredWithEscapedCharacters011110MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -467,11 +528,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011110MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters011110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters011111MapBuilder
 public class RequiredWithEscapedCharacters011111MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -481,11 +544,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters011111MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters011111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters100000MapBuilder
 public class RequiredWithEscapedCharacters100000MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -495,11 +560,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100000MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters100000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters100001MapBuilder
 public class RequiredWithEscapedCharacters100001MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -509,11 +576,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100001MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters100001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters100010MapBuilder
 public class RequiredWithEscapedCharacters100010MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -523,11 +592,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100010MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters100010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters100011MapBuilder
 public class RequiredWithEscapedCharacters100011MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -537,11 +608,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100011MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters100011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters100100MapBuilder
 public class RequiredWithEscapedCharacters100100MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -551,11 +624,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100100MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters100100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters100101MapBuilder
 public class RequiredWithEscapedCharacters100101MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -565,11 +640,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100101MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters100101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters100110MapBuilder
 public class RequiredWithEscapedCharacters100110MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -579,11 +656,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100110MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters100110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters100111MapBuilder
 public class RequiredWithEscapedCharacters100111MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -593,11 +672,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters100111MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters100111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters101000MapBuilder
 public class RequiredWithEscapedCharacters101000MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -607,11 +688,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101000MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters101000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters101001MapBuilder
 public class RequiredWithEscapedCharacters101001MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -621,11 +704,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101001MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters101001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters101010MapBuilder
 public class RequiredWithEscapedCharacters101010MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -635,11 +720,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101010MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters101010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters101011MapBuilder
 public class RequiredWithEscapedCharacters101011MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -649,11 +736,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101011MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters101011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters101100MapBuilder
 public class RequiredWithEscapedCharacters101100MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -663,11 +752,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101100MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters101100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters101101MapBuilder
 public class RequiredWithEscapedCharacters101101MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -677,11 +768,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101101MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters101101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters101110MapBuilder
 public class RequiredWithEscapedCharacters101110MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -691,11 +784,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101110MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters101110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters101111MapBuilder
 public class RequiredWithEscapedCharacters101111MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -705,11 +800,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters101111MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters101111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters110000MapBuilder
 public class RequiredWithEscapedCharacters110000MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -719,11 +816,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110000MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters110000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters110001MapBuilder
 public class RequiredWithEscapedCharacters110001MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -733,11 +832,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110001MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters110001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters110010MapBuilder
 public class RequiredWithEscapedCharacters110010MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -747,11 +848,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110010MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters110010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters110011MapBuilder
 public class RequiredWithEscapedCharacters110011MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -761,11 +864,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110011MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters110011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters110100MapBuilder
 public class RequiredWithEscapedCharacters110100MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -775,11 +880,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110100MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters110100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters110101MapBuilder
 public class RequiredWithEscapedCharacters110101MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -789,11 +896,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110101MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters110101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters110110MapBuilder
 public class RequiredWithEscapedCharacters110110MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -803,11 +912,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110110MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters110110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters110111MapBuilder
 public class RequiredWithEscapedCharacters110111MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -817,11 +928,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters110111MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters110111MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters111000MapBuilder
 public class RequiredWithEscapedCharacters111000MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -831,11 +944,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111000MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters111000MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters111001MapBuilder
 public class RequiredWithEscapedCharacters111001MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -845,11 +960,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111001MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters111001MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters111010MapBuilder
 public class RequiredWithEscapedCharacters111010MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -859,11 +976,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111010MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters111010MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters111011MapBuilder
 public class RequiredWithEscapedCharacters111011MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -873,11 +992,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111011MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters111011MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters111100MapBuilder
 public class RequiredWithEscapedCharacters111100MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -887,11 +1008,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111100MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters111100MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters111101MapBuilder
 public class RequiredWithEscapedCharacters111101MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -901,11 +1024,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111101MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters111101MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharacters111110MapBuilder
 public class RequiredWithEscapedCharacters111110MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -915,11 +1040,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharacters111110MapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharacters111110MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 ## RequiredWithEscapedCharactersMapBuilder
 public class RequiredWithEscapedCharactersMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -929,11 +1056,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredWithEscapedCharactersMapBuilder()<br>Creates an empty map |
+| RequiredWithEscapedCharactersMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 
 ## RequiredWithEscapedCharactersMap
 public static class RequiredWithEscapedCharactersMap<br>

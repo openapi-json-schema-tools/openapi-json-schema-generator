@@ -58,11 +58,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| AllofWithBaseSchema0MapBuilder()<br>Creates an empty map |
+| AllofWithBaseSchema0MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 ## AllofWithBaseSchemaMapBuilder
 public class AllofWithBaseSchemaMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -72,11 +75,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| AllofWithBaseSchemaMapBuilder()<br>Creates an empty map |
+| AllofWithBaseSchemaMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 
 ## AllofWithBaseSchemaMap
 public static class AllofWithBaseSchemaMap<br>
@@ -135,11 +140,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema10MapBuilder()<br>Creates an empty map |
+| Schema10MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -149,11 +157,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema1MapBuilder()<br>Creates an empty map |
+| Schema1MapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 
 ## Schema1Map
 public static class Schema1Map<br>
@@ -212,11 +222,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema00MapBuilder()<br>Creates an empty map |
+| Schema00MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 ## Schema0MapBuilder
 public class Schema0MapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -226,11 +239,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema0MapBuilder()<br>Creates an empty map |
+| Schema0MapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 
 ## Schema0Map
 public static class Schema0Map<br>

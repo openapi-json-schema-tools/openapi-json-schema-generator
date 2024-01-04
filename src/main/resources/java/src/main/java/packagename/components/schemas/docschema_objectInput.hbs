@@ -13,9 +13,18 @@ A class that builds the Map input type
 {{headerSize}}# Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| {{className}}()<br>Creates an empty map |
+    {{#if @last }}
+| {{className}}()<br>Creates a builder that contains an empty map |
+    {{else}}
+| {{className}}(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance)<br>Creates a builder that contains the passed instance |
+    {{/if}}
+
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+    {{#if @first}}
+| Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> | build() |
+    {{/if}}
+
 {{/each}}

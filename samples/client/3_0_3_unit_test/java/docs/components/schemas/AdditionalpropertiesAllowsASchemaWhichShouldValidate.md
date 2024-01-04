@@ -68,11 +68,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder()<br>Creates an empty map |
+| AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateMap
 public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMap<br>

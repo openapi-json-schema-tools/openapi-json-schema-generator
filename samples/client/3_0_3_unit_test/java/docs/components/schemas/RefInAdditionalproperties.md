@@ -64,11 +64,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RefInAdditionalpropertiesMapBuilder()<br>Creates an empty map |
+| RefInAdditionalpropertiesMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 
 ## RefInAdditionalpropertiesMap
 public static class RefInAdditionalpropertiesMap<br>

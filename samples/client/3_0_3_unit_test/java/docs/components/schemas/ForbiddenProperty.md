@@ -48,11 +48,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ForbiddenPropertyMapBuilder()<br>Creates an empty map |
+| ForbiddenPropertyMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 
 ## ForbiddenPropertyMap
 public static class ForbiddenPropertyMap<br>

@@ -48,11 +48,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredDefaultValidationMapBuilder()<br>Creates an empty map |
+| RequiredDefaultValidationMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 
 ## RequiredDefaultValidationMap
 public static class RequiredDefaultValidationMap<br>

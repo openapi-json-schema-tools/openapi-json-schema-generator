@@ -50,11 +50,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredValidation0MapBuilder()<br>Creates an empty map |
+| RequiredValidation0MapBuilder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 ## RequiredValidationMapBuilder
 public class RequiredValidationMapBuilder<br>
 builder for `Map<String, @Nullable Object>`
@@ -64,11 +67,13 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RequiredValidationMapBuilder()<br>Creates an empty map |
+| RequiredValidationMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+
 
 ## RequiredValidationMap
 public static class RequiredValidationMap<br>

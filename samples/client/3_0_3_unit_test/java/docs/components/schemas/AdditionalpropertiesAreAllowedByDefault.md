@@ -49,11 +49,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| AdditionalpropertiesAreAllowedByDefaultMapBuilder()<br>Creates an empty map |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 
 ## AdditionalpropertiesAreAllowedByDefaultMap
 public static class AdditionalpropertiesAreAllowedByDefaultMap<br>

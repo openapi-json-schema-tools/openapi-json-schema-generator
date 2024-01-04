@@ -53,11 +53,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder()<br>Creates an empty map |
+| AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, Boolean> | build() |
+
 
 ## AdditionalpropertiesShouldNotLookInApplicatorsMap
 public static class AdditionalpropertiesShouldNotLookInApplicatorsMap<br>
@@ -104,11 +107,14 @@ A class that builds the Map input type
 ## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema0MapBuilder()<br>Creates an empty map |
+| Schema0MapBuilder()<br>Creates a builder that contains an empty map |
+
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build() |
+
 
 ## Schema0Map
 public static class Schema0Map<br>
