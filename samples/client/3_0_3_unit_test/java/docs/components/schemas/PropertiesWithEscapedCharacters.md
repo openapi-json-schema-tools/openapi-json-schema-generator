@@ -83,6 +83,15 @@ A class that builds the Map input type
 | [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(float value) |
 | [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(long value) |
 | [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | setFooReverseSolidusFbar(double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, Void value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, boolean value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, String value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, int value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, float value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, long value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, double value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, List<?> value) |
+| [PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## PropertiesWithEscapedCharactersMap
 public static class PropertiesWithEscapedCharactersMap<br>

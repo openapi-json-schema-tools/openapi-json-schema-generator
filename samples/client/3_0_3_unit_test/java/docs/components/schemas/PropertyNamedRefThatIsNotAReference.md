@@ -55,6 +55,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | setDollarSignRef(String value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, Void value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, boolean value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, String value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, int value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, float value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, long value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, double value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, List<?> value) |
+| [PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## PropertyNamedRefThatIsNotAReferenceMap
 public static class PropertyNamedRefThatIsNotAReferenceMap<br>

@@ -65,6 +65,16 @@ A class that builds the Map input type
 | [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(double value) |
 | [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(List<?> value) |
 | [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(Map<String, ?> value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, Void value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, boolean value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, String value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, int value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, float value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, long value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, double value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, List<?> value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## RequiredValidationMapBuilder
 public class RequiredValidationMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

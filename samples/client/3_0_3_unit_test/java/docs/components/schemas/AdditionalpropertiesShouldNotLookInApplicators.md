@@ -121,6 +121,15 @@ A class that builds the Map input type
 | [Schema0MapBuilder](#schema0mapbuilder) | foo(double value) |
 | [Schema0MapBuilder](#schema0mapbuilder) | foo(List<?> value) |
 | [Schema0MapBuilder](#schema0mapbuilder) | foo(Map<String, ?> value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, String value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, int value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, float value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, long value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, double value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema0Map
 public static class Schema0Map<br>

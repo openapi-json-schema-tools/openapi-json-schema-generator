@@ -60,6 +60,15 @@ A class that builds the Map input type
 | [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | foo(long value) |
 | [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | foo(double value) |
 | [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | bar(String value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, boolean value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, String value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, int value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, float value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, long value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, double value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ObjectPropertiesValidationMap
 public static class ObjectPropertiesValidationMap<br>

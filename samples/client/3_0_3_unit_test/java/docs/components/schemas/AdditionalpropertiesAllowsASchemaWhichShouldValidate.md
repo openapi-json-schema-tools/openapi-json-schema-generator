@@ -42,6 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMap validatedPayload =
     AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.validate(
     MapUtils.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "someAdditionalProperty",
+            true
+        )
     ),
     configuration
 );

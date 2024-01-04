@@ -63,6 +63,15 @@ A class that builds the Map input type
 | [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(double value) |
 | [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(List<?> value) |
 | [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(Map<String, ?> value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, Void value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, boolean value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, String value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, int value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, float value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, long value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, double value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, List<?> value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ForbiddenPropertyMap
 public static class ForbiddenPropertyMap<br>

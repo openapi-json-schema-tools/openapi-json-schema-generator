@@ -2459,6 +2459,16 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        if (mapSchema.additionalProperties != null && !mapSchema.additionalProperties.isBooleanSchemaFalse) {
+            String propName = "someAdditionalProperty";
+            Map<String, EnumValue> propertyTypeToExample = getTypeToExample(mapSchema.additionalProperties, seenSchemas);
+            if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
+                for(EnumValue exampleValue: propertyTypeToExample.values()) {
+                    mapVal.put(propName, exampleValue);
+                    break;
+                }
+            }
+        }
         return mapVal;
     }
 

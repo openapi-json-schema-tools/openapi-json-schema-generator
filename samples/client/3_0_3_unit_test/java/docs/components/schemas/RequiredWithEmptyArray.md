@@ -63,6 +63,15 @@ A class that builds the Map input type
 | [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(double value) |
 | [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(List<?> value) |
 | [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(Map<String, ?> value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, Void value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, boolean value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, String value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, int value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, float value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, long value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, double value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, List<?> value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## RequiredWithEmptyArrayMap
 public static class RequiredWithEmptyArrayMap<br>

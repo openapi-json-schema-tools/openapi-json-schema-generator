@@ -62,6 +62,15 @@ A class that builds the Map input type
 | [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(double value) |
 | [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(List<?> value) |
 | [RefInPropertyMapBuilder](#refinpropertymapbuilder) | a(Map<String, ?> value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, Void value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, boolean value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, String value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, int value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, float value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, long value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, double value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, List<?> value) |
+| [RefInPropertyMapBuilder](#refinpropertymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## RefInPropertyMap
 public static class RefInPropertyMap<br>

@@ -86,6 +86,16 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | foo(String value) |
 | [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | foo([StringFooEnums](#stringfooenums) value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, Void value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, boolean value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, String value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, int value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, float value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, long value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, double value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, List<?> value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
 ## EnumsInPropertiesMapBuilder
 public class EnumsInPropertiesMapBuilder<br>
 builder for `Map<String, @Nullable Object>`

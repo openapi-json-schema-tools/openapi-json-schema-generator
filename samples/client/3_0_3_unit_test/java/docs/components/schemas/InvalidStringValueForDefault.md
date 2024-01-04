@@ -55,6 +55,15 @@ A class that builds the Map input type
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | bar(String value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, Void value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, boolean value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, String value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, int value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, float value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, long value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, double value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, List<?> value) |
+| [InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## InvalidStringValueForDefaultMap
 public static class InvalidStringValueForDefaultMap<br>

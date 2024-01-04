@@ -63,6 +63,15 @@ A class that builds the Map input type
 | [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(double value) |
 | [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(List<?> value) |
 | [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | foo(Map<String, ?> value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, Void value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, boolean value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, String value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, int value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, float value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, long value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, double value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, List<?> value) |
+| [RequiredDefaultValidationMapBuilder](#requireddefaultvalidationmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## RequiredDefaultValidationMap
 public static class RequiredDefaultValidationMap<br>

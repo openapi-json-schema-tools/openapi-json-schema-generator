@@ -40,6 +40,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap validatedPayload =
     AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
     MapUtils.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "someAdditionalProperty",
+            true
+        )
     ),
     configuration
 );
