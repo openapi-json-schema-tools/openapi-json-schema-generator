@@ -89,7 +89,7 @@ public class NotMoreComplexSchema {
         }
     }
     
-    public static class NotBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<NotBuilder> {
+    public static class NotBuilder extends UnsetAddPropsSetter<NotBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<NotBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -107,6 +107,9 @@ public class NotMoreComplexSchema {
             return instance;
         }
         public NotBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public NotBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

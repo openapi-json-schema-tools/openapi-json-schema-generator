@@ -207,7 +207,7 @@ public class RequiredValidation {
         }
     }
     
-    public static class RequiredValidation0Builder implements BaseBuilder<@Nullable Object>, SetterForBar<RequiredValidation0Builder> {
+    public static class RequiredValidation0Builder extends UnsetAddPropsSetter<RequiredValidation0Builder> implements BaseBuilder<@Nullable Object>, SetterForBar<RequiredValidation0Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
@@ -226,6 +226,9 @@ public class RequiredValidation {
             return instance;
         }
         public RequiredValidation0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public RequiredValidation0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Set;
 
 public abstract class UnsetAddPropsSetter<T> {
-    abstract Map<String, @Nullable Object> getInstance();
-    abstract Set<String> getKnownKeys();
-    abstract T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+    public abstract Map<String, @Nullable Object> getInstance();
+    public abstract Set<String> getKnownKeys();
+    public abstract T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
     public T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
         MapMaker.throwIfKeyKnown(key, getKnownKeys(), true);
         var instance = getInstance();

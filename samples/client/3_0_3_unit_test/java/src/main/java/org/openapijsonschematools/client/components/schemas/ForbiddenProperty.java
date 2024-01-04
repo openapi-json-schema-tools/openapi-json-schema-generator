@@ -133,7 +133,7 @@ public class ForbiddenProperty {
         }
     }
     
-    public static class ForbiddenPropertyBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<ForbiddenPropertyBuilder> {
+    public static class ForbiddenPropertyBuilder extends UnsetAddPropsSetter<ForbiddenPropertyBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<ForbiddenPropertyBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -151,6 +151,9 @@ public class ForbiddenProperty {
             return instance;
         }
         public ForbiddenPropertyBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ForbiddenPropertyBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

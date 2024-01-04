@@ -123,7 +123,7 @@ public class InvalidStringValueForDefault {
         }
     }
     
-    public static class InvalidStringValueForDefaultBuilder implements BaseBuilder<@Nullable Object>, SetterForBar<InvalidStringValueForDefaultBuilder> {
+    public static class InvalidStringValueForDefaultBuilder extends UnsetAddPropsSetter<InvalidStringValueForDefaultBuilder> implements BaseBuilder<@Nullable Object>, SetterForBar<InvalidStringValueForDefaultBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar"
@@ -141,6 +141,9 @@ public class InvalidStringValueForDefault {
             return instance;
         }
         public InvalidStringValueForDefaultBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public InvalidStringValueForDefaultBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

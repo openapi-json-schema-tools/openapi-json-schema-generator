@@ -302,7 +302,7 @@ public class PropertiesWithEscapedCharacters {
         }
     }
     
-    public static class PropertiesWithEscapedCharactersBuilder implements BaseBuilder<@Nullable Object>, SetterForFoonbar<PropertiesWithEscapedCharactersBuilder>, SetterForFoobar<PropertiesWithEscapedCharactersBuilder>, SetterForFoobar1<PropertiesWithEscapedCharactersBuilder>, SetterForFoorbar<PropertiesWithEscapedCharactersBuilder>, SetterForFootbar<PropertiesWithEscapedCharactersBuilder>, SetterForFoofbar<PropertiesWithEscapedCharactersBuilder> {
+    public static class PropertiesWithEscapedCharactersBuilder extends UnsetAddPropsSetter<PropertiesWithEscapedCharactersBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoonbar<PropertiesWithEscapedCharactersBuilder>, SetterForFoobar<PropertiesWithEscapedCharactersBuilder>, SetterForFoobar1<PropertiesWithEscapedCharactersBuilder>, SetterForFoorbar<PropertiesWithEscapedCharactersBuilder>, SetterForFootbar<PropertiesWithEscapedCharactersBuilder>, SetterForFoofbar<PropertiesWithEscapedCharactersBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo\nbar",
@@ -340,6 +340,9 @@ public class PropertiesWithEscapedCharacters {
             return this;
         }
         public PropertiesWithEscapedCharactersBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PropertiesWithEscapedCharactersBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

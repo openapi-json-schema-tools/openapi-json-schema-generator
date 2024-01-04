@@ -79,7 +79,7 @@ public class PropertyNamedRefThatIsNotAReference {
         }
     }
     
-    public static class PropertyNamedRefThatIsNotAReferenceBuilder implements BaseBuilder<@Nullable Object>, SetterForRef<PropertyNamedRefThatIsNotAReferenceBuilder> {
+    public static class PropertyNamedRefThatIsNotAReferenceBuilder extends UnsetAddPropsSetter<PropertyNamedRefThatIsNotAReferenceBuilder> implements BaseBuilder<@Nullable Object>, SetterForRef<PropertyNamedRefThatIsNotAReferenceBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "$ref"
@@ -97,6 +97,9 @@ public class PropertyNamedRefThatIsNotAReference {
             return instance;
         }
         public PropertyNamedRefThatIsNotAReferenceBuilder getBuilderAfterRef(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PropertyNamedRefThatIsNotAReferenceBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

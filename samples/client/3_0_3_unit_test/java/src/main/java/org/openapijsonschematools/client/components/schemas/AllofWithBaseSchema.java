@@ -89,7 +89,7 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class Schema00Builder implements BaseBuilder<@Nullable Object> {
+    public static class Schema00Builder extends UnsetAddPropsSetter<Schema00Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -102,6 +102,12 @@ public class AllofWithBaseSchema {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     
@@ -371,7 +377,7 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class Schema10Builder implements BaseBuilder<@Nullable Object> {
+    public static class Schema10Builder extends UnsetAddPropsSetter<Schema10Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "baz"
@@ -384,6 +390,12 @@ public class AllofWithBaseSchema {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema10Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     
@@ -671,7 +683,7 @@ public class AllofWithBaseSchema {
         }
     }
     
-    public static class AllofWithBaseSchema0Builder implements BaseBuilder<@Nullable Object> {
+    public static class AllofWithBaseSchema0Builder extends UnsetAddPropsSetter<AllofWithBaseSchema0Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar"
@@ -684,6 +696,12 @@ public class AllofWithBaseSchema {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AllofWithBaseSchema0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     

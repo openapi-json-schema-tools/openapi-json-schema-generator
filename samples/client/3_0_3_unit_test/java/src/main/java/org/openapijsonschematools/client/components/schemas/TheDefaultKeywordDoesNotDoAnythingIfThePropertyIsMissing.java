@@ -152,7 +152,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         }
     }
     
-    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder implements BaseBuilder<@Nullable Object>, SetterForAlpha<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder> {
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder extends UnsetAddPropsSetter<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder> implements BaseBuilder<@Nullable Object>, SetterForAlpha<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "alpha"
@@ -170,6 +170,9 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             return instance;
         }
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder getBuilderAfterAlpha(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

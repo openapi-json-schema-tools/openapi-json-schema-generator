@@ -235,7 +235,7 @@ public class EnumsInProperties {
         }
     }
     
-    public static class EnumsInProperties0Builder implements BaseBuilder<@Nullable Object>, SetterForFoo<EnumsInProperties0Builder> {
+    public static class EnumsInProperties0Builder extends UnsetAddPropsSetter<EnumsInProperties0Builder> implements BaseBuilder<@Nullable Object>, SetterForFoo<EnumsInProperties0Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar",
@@ -254,6 +254,9 @@ public class EnumsInProperties {
             return instance;
         }
         public EnumsInProperties0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public EnumsInProperties0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

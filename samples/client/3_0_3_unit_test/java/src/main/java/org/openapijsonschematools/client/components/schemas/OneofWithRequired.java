@@ -182,7 +182,7 @@ public class OneofWithRequired {
         }
     }
     
-    public static class Schema000Builder implements BaseBuilder<@Nullable Object> {
+    public static class Schema000Builder extends UnsetAddPropsSetter<Schema000Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar",
@@ -196,6 +196,12 @@ public class OneofWithRequired {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema000Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     
@@ -589,7 +595,7 @@ public class OneofWithRequired {
         }
     }
     
-    public static class Schema100Builder implements BaseBuilder<@Nullable Object> {
+    public static class Schema100Builder extends UnsetAddPropsSetter<Schema100Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "baz",
@@ -603,6 +609,12 @@ public class OneofWithRequired {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema100Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     

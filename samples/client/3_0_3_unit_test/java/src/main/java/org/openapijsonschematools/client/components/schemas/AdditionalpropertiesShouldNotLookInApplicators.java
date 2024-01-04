@@ -144,7 +144,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public static class Schema0Builder implements BaseBuilder<@Nullable Object>, SetterForFoo<Schema0Builder> {
+    public static class Schema0Builder extends UnsetAddPropsSetter<Schema0Builder> implements BaseBuilder<@Nullable Object>, SetterForFoo<Schema0Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -162,6 +162,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return instance;
         }
         public Schema0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public Schema0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

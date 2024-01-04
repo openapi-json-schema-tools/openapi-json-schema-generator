@@ -131,7 +131,7 @@ public class RequiredWithEmptyArray {
         }
     }
     
-    public static class RequiredWithEmptyArrayBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredWithEmptyArrayBuilder> {
+    public static class RequiredWithEmptyArrayBuilder extends UnsetAddPropsSetter<RequiredWithEmptyArrayBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredWithEmptyArrayBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -149,6 +149,9 @@ public class RequiredWithEmptyArray {
             return instance;
         }
         public RequiredWithEmptyArrayBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public RequiredWithEmptyArrayBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

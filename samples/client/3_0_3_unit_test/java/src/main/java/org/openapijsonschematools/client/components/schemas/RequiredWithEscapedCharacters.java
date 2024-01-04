@@ -414,7 +414,7 @@ public class RequiredWithEscapedCharacters {
         }
     }
     
-    public static class RequiredWithEscapedCharacters000000Builder implements BaseBuilder<@Nullable Object> {
+    public static class RequiredWithEscapedCharacters000000Builder extends UnsetAddPropsSetter<RequiredWithEscapedCharacters000000Builder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo\tbar",
@@ -432,6 +432,12 @@ public class RequiredWithEscapedCharacters {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public RequiredWithEscapedCharacters000000Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
         }
     }
     

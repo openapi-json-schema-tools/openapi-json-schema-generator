@@ -141,7 +141,7 @@ public class ObjectPropertiesValidation {
         }
     }
     
-    public static class ObjectPropertiesValidationBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationBuilder>, SetterForBar<ObjectPropertiesValidationBuilder> {
+    public static class ObjectPropertiesValidationBuilder extends UnsetAddPropsSetter<ObjectPropertiesValidationBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationBuilder>, SetterForBar<ObjectPropertiesValidationBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
@@ -163,6 +163,9 @@ public class ObjectPropertiesValidation {
             return this;
         }
         public ObjectPropertiesValidationBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectPropertiesValidationBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

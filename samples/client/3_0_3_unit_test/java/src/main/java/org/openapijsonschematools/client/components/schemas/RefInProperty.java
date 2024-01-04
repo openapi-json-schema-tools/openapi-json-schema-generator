@@ -125,7 +125,7 @@ public class RefInProperty {
         }
     }
     
-    public static class RefInPropertyBuilder implements BaseBuilder<@Nullable Object>, SetterForA<RefInPropertyBuilder> {
+    public static class RefInPropertyBuilder extends UnsetAddPropsSetter<RefInPropertyBuilder> implements BaseBuilder<@Nullable Object>, SetterForA<RefInPropertyBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "a"
@@ -143,6 +143,9 @@ public class RefInProperty {
             return instance;
         }
         public RefInPropertyBuilder getBuilderAfterA(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public RefInPropertyBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

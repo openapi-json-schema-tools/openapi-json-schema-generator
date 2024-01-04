@@ -206,7 +206,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
         }
     }
     
-    public static class AdditionalpropertiesAreAllowedByDefaultBuilder implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAreAllowedByDefaultBuilder>, SetterForBar<AdditionalpropertiesAreAllowedByDefaultBuilder> {
+    public static class AdditionalpropertiesAreAllowedByDefaultBuilder extends UnsetAddPropsSetter<AdditionalpropertiesAreAllowedByDefaultBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<AdditionalpropertiesAreAllowedByDefaultBuilder>, SetterForBar<AdditionalpropertiesAreAllowedByDefaultBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
@@ -228,6 +228,9 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return this;
         }
         public AdditionalpropertiesAreAllowedByDefaultBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AdditionalpropertiesAreAllowedByDefaultBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
