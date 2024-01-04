@@ -55,7 +55,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AllofWithBaseSchemaMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -80,7 +80,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AllofWithBaseSchemaMapBuilder()<br>Creates a builder that contains an empty map |
@@ -147,7 +147,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1Map0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -172,7 +172,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1MapBuilder()<br>Creates a builder that contains an empty map |
@@ -236,7 +236,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0Map0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -261,7 +261,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0MapBuilder()<br>Creates a builder that contains an empty map |

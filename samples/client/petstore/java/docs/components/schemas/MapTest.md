@@ -55,23 +55,40 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MapTest.MapTestMap validatedPayload =
     MapTest.MapTest1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
-            "map_map_of_string",
+    new MapTest.MapTestMapBuilder()
+        .map_map_of_string(
             MapUtils.makeMap(
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
-            "map_of_enum_string",
-            MapUtils.makeMap(
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
-            "direct_map",
-            MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        MapUtils.makeMap(
+            new AbstractMap.SimpleEntry<>(
+                "someAdditionalProperty",
+                "a"
             )
         )
-    ),
+    )
+)
+
+        )
+        .map_of_enum_string(
+            MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        "UPPER"
+    )
+)
+
+        )
+        .direct_map(
+            MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        true
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -93,7 +110,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapTestMapBuilder()<br>Creates a builder that contains an empty map |
@@ -156,8 +173,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MapTest.DirectMapMap validatedPayload =
     MapTest.DirectMap.validate(
-    MapUtils.makeMap(
-    ),
+    new MapTest.DirectMapMapBuilder()
+        .additionalProperty("someAdditionalProperty", true)
+
+    .build(),
     configuration
 );
 ```
@@ -179,7 +198,7 @@ builder for `Map<String, Boolean>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DirectMapMapBuilder()<br>Creates a builder that contains an empty map |
@@ -236,8 +255,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MapTest.MapOfEnumStringMap validatedPayload =
     MapTest.MapOfEnumString.validate(
-    MapUtils.makeMap(
-    ),
+    new MapTest.MapOfEnumStringMapBuilder()
+        .additionalProperty("someAdditionalProperty", "UPPER")
+
+    .build(),
     configuration
 );
 ```
@@ -259,7 +280,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapOfEnumStringMapBuilder()<br>Creates a builder that contains an empty map |
@@ -359,8 +380,17 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MapTest.MapMapOfStringMap validatedPayload =
     MapTest.MapMapOfString.validate(
-    MapUtils.makeMap(
-    ),
+    new MapTest.MapMapOfStringMapBuilder()
+        .additionalProperty(
+            "someAdditionalProperty", MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        "a"
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -382,7 +412,7 @@ builder for `Map<String, Map<String, String>>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapMapOfStringMapBuilder()<br>Creates a builder that contains an empty map |
@@ -429,8 +459,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MapTest.AdditionalPropertiesMap validatedPayload =
     MapTest.AdditionalProperties.validate(
-    MapUtils.makeMap(
-    ),
+    new MapTest.AdditionalPropertiesMapBuilder1()
+        .additionalProperty("someAdditionalProperty", "a")
+
+    .build(),
     configuration
 );
 ```
@@ -452,7 +484,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesMapBuilder1()<br>Creates a builder that contains an empty map |

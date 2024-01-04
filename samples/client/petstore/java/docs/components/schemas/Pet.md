@@ -55,50 +55,44 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Pet.PetMap validatedPayload =
     Pet.Pet1.validate(
+    new Pet.PetMapBuilder()
+        .name("a")
+
+        .photoUrls(
+            Arrays.asList(
+    "a"
+)
+
+        )
+        .id(1L)
+
+        .category(
+            MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<String, Object>(
+        "name",
+        "a"
+    ),
+    new AbstractMap.SimpleEntry<String, Object>(
+        "id",
+        1L
+    )
+)
+
+        )
+        .tags(
+            Arrays.asList(
     MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
+        new AbstractMap.SimpleEntry<>(
             "name",
             "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "photoUrls",
-            Arrays.asList(
-                "a"
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "id",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "category",
-            MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<String, Object>(
-                    "name",
-                    "a"
-                ),
-                new AbstractMap.SimpleEntry<String, Object>(
-                    "id",
-                    1L
-                )
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "tags",
-            Arrays.asList(
-                MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
-                        "name",
-                        "a"
-                    )
-                )
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "status",
-            "available"
         )
-    ),
+    )
+)
+
+        )
+        .status("available")
+
+    .build(),
     configuration
 );
 ```
@@ -121,7 +115,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PetMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -154,7 +148,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PetMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -170,7 +164,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PetMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -186,7 +180,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PetMapBuilder()<br>Creates a builder that contains an empty map |
@@ -239,8 +233,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Pet.TagsList validatedPayload =
     Pet.Tags.validate(
-    new Pet.TagsListBuilder(
-        Arrays.asList(
+    new Pet.TagsListBuilder()
+        .add(
             MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "id",
@@ -252,7 +246,7 @@ Pet.TagsList validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -274,7 +268,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | TagsListBuilder()<br>Creates an empty list |
@@ -377,11 +371,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Pet.PhotoUrlsList validatedPayload =
     Pet.PhotoUrls.validate(
-    new Pet.PhotoUrlsListBuilder(
-        Arrays.asList(
-            "a"
-        )
-    ).build(),
+    new Pet.PhotoUrlsListBuilder()
+        .add("a")
+
+    .build(),
     configuration
 );
 ```
@@ -403,7 +396,7 @@ builder for `List<String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PhotoUrlsListBuilder()<br>Creates an empty list |

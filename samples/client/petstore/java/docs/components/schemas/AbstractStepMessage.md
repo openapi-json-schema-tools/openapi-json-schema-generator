@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AbstractStepMessage.AbstractStepMessageMap validatedPayload =
     AbstractStepMessage.AbstractStepMessage1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "discriminator",
-            "a"
-        )
-    ),
+    new AbstractStepMessage.AbstractStepMessageMapBuilder()
+        .discriminator("a")
+
+    .build(),
     configuration
 );
 ```
@@ -71,7 +69,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessageMap000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -96,7 +94,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessageMap001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -120,7 +118,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessageMap010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -136,7 +134,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessageMap011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -161,7 +159,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessageMap100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -185,7 +183,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessageMap101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -218,7 +216,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessageMap110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -243,7 +241,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AbstractStepMessageMapBuilder()<br>Creates a builder that contains an empty map |

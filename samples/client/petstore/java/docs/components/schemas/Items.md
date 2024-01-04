@@ -42,10 +42,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Items.ItemsList validatedPayload =
     Items.Items1.validate(
-    new Items.ItemsListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new Items.ItemsListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -67,7 +65,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder()<br>Creates an empty list |

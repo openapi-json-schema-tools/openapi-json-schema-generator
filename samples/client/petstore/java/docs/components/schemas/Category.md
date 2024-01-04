@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Category.CategoryMap validatedPayload =
     Category.Category1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "name",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "id",
-            1L
-        )
-    ),
+    new Category.CategoryMapBuilder()
+        .name("a")
+
+        .id(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -72,7 +68,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CategoryMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -101,7 +97,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CategoryMapBuilder()<br>Creates a builder that contains an empty map |

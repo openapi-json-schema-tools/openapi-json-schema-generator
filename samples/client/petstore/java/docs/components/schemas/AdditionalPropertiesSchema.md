@@ -65,8 +65,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesSchema.Schema2Map validatedPayload =
     AdditionalPropertiesSchema.Schema2.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesSchema.Schema2MapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -88,7 +88,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema2MapBuilder()<br>Creates a builder that contains an empty map |
@@ -167,8 +167,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesSchema.Schema1Map validatedPayload =
     AdditionalPropertiesSchema.Schema1.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesSchema.Schema1MapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -190,7 +190,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1MapBuilder()<br>Creates a builder that contains an empty map |
@@ -269,8 +269,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesSchema.Schema0Map validatedPayload =
     AdditionalPropertiesSchema.Schema0.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesSchema.Schema0MapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -292,7 +292,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema0MapBuilder()<br>Creates a builder that contains an empty map |

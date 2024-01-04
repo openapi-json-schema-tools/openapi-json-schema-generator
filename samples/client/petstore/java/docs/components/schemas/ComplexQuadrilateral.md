@@ -66,12 +66,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ComplexQuadrilateral.Schema1Map validatedPayload =
     ComplexQuadrilateral.Schema1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "quadrilateralType",
-            "ComplexQuadrilateral"
-        )
-    ),
+    new ComplexQuadrilateral.Schema1MapBuilder()
+        .quadrilateralType("ComplexQuadrilateral")
+
+    .build(),
     configuration
 );
 ```
@@ -93,7 +91,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1MapBuilder()<br>Creates a builder that contains an empty map |

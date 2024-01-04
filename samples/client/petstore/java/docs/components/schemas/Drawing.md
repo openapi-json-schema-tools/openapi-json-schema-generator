@@ -43,13 +43,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Drawing.DrawingMap validatedPayload =
     Drawing.Drawing1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "shapes",
+    new Drawing.DrawingMapBuilder()
+        .shapes(
             Arrays.asList(
-            )
+)
+
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -72,7 +72,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | DrawingMapBuilder()<br>Creates a builder that contains an empty map |
@@ -159,10 +159,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Drawing.ShapesList validatedPayload =
     Drawing.Shapes.validate(
-    new Drawing.ShapesListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new Drawing.ShapesListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -184,7 +182,7 @@ builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapesListBuilder()<br>Creates an empty list |

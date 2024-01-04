@@ -111,10 +111,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ComposedOneOfDifferentTypes.Schema5List validatedPayload =
     ComposedOneOfDifferentTypes.Schema5.validate(
-    new ComposedOneOfDifferentTypes.Schema5ListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new ComposedOneOfDifferentTypes.Schema5ListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -138,7 +136,7 @@ builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema5ListBuilder()<br>Creates an empty list |

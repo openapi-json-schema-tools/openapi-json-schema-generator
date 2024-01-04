@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Schema0.SchemaMap0 validatedPayload =
     Schema0.Schema01.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "keyword",
-            "a"
-        )
-    ),
+    new Schema0.SchemaMapBuilder0()
+        .keyword("a")
+
+    .build(),
     configuration
 );
 ```
@@ -66,7 +64,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMapBuilder0()<br>Creates a builder that contains an empty map |

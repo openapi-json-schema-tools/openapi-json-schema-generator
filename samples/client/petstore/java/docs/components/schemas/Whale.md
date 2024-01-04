@@ -43,20 +43,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Whale.WhaleMap validatedPayload =
     Whale.Whale1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "className",
-            "whale"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "hasBaleen",
-            true
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "hasTeeth",
-            true
-        )
-    ),
+    new Whale.WhaleMapBuilder()
+        .className("whale")
+
+        .hasBaleen(true)
+
+        .hasTeeth(true)
+
+    .build(),
     configuration
 );
 ```
@@ -79,7 +73,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | WhaleMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -106,7 +100,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | WhaleMapBuilder()<br>Creates a builder that contains an empty map |

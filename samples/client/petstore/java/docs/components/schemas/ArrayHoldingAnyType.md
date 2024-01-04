@@ -39,10 +39,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
     ArrayHoldingAnyType.ArrayHoldingAnyType1.validate(
-    new ArrayHoldingAnyType.ArrayHoldingAnyTypeListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new ArrayHoldingAnyType.ArrayHoldingAnyTypeListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -64,7 +62,7 @@ builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayHoldingAnyTypeListBuilder()<br>Creates an empty list |

@@ -44,20 +44,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
     JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "from",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "op",
-            "move"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "path",
-            "a"
-        )
-    ),
+    new JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMapBuilder()
+        .from("a")
+
+        .op("move")
+
+        .path("a")
+
+    .build(),
     configuration
 );
 ```
@@ -81,7 +75,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestMoveCopyMap000Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -97,7 +91,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestMoveCopyMap001Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -113,7 +107,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestMoveCopyMap010Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -130,7 +124,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestMoveCopyMap011Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -148,7 +142,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestMoveCopyMap100Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -164,7 +158,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestMoveCopyMap101Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -181,7 +175,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestMoveCopyMap110Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -199,7 +193,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestMoveCopyMapBuilder()<br>Creates a builder that contains an empty map |

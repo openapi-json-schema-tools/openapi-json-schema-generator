@@ -40,8 +40,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Schema1.SchemaMap1 validatedPayload =
     Schema1.Schema11.validate(
-    MapUtils.makeMap(
-    ),
+    new Schema1.SchemaMapBuilder1()
+    .build(),
     configuration
 );
 ```
@@ -63,7 +63,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMapBuilder1()<br>Creates a builder that contains an empty map |

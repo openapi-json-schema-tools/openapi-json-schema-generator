@@ -45,17 +45,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
     PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "count",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "results",
+    new PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapBuilder()
+        .count(1L)
+
+        .results(
             Arrays.asList(
-            )
+)
+
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -79,7 +77,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PaginatedResultMyObjectDtoMap00Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
@@ -95,7 +93,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PaginatedResultMyObjectDtoMap01Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
@@ -111,7 +109,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PaginatedResultMyObjectDtoMap10Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
@@ -130,7 +128,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PaginatedResultMyObjectDtoMapBuilder()<br>Creates a builder that contains an empty map |
@@ -181,10 +179,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 PaginatedResultMyObjectDto.ResultsList validatedPayload =
     PaginatedResultMyObjectDto.Results.validate(
-    new PaginatedResultMyObjectDto.ResultsListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new PaginatedResultMyObjectDto.ResultsListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -206,7 +202,7 @@ builder for `List<Map<String, String>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ResultsListBuilder()<br>Creates an empty list |

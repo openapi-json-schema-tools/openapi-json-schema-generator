@@ -47,8 +47,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
     AnyTypeAndFormat.AnyTypeAndFormat1.validate(
-    MapUtils.makeMap(
-    ),
+    new AnyTypeAndFormat.AnyTypeAndFormatMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -70,7 +70,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnyTypeAndFormatMapBuilder()<br>Creates a builder that contains an empty map |

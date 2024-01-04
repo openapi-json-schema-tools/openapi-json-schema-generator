@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 FromSchema.FromSchemaMap validatedPayload =
     FromSchema.FromSchema1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "data",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "id",
-            1L
-        )
-    ),
+    new FromSchema.FromSchemaMapBuilder()
+        .data("a")
+
+        .id(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -71,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FromSchemaMapBuilder()<br>Creates a builder that contains an empty map |

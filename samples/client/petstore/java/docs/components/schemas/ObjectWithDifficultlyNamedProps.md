@@ -44,20 +44,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayload =
     ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "123-list",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "$special[property.name]",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "123Number",
-            1L
-        )
-    ),
+    new ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMapBuilder()
+        .set123HyphenMinusList("a")
+
+        .setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(1L)
+
+        .set123number(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -80,7 +74,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithDifficultlyNamedPropsMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -113,7 +107,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithDifficultlyNamedPropsMapBuilder()<br>Creates a builder that contains an empty map |

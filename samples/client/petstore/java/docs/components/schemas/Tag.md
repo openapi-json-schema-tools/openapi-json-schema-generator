@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Tag.TagMap validatedPayload =
     Tag.Tag1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "id",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "name",
-            "a"
-        )
-    ),
+    new Tag.TagMapBuilder()
+        .id(1L)
+
+        .name("a")
+
+    .build(),
     configuration
 );
 ```
@@ -71,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | TagMapBuilder()<br>Creates a builder that contains an empty map |

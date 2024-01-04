@@ -46,16 +46,12 @@ Void validatedPayload = Apple.Apple1.validate(
 // Map validation
 Apple.AppleMap validatedPayload =
     Apple.Apple1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "cultivar",
-            "IaQnEaqioxT	oASzjxaSH"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "origin",
-            "IaQnEaqioxT	oASzjxaSH"
-        )
-    ),
+    new Apple.AppleMapBuilder()
+        .cultivar("IaQnEaqioxT	oASzjxaSH")
+
+        .origin("IaQnEaqioxT	oASzjxaSH")
+
+    .build(),
     configuration
 );
 ```
@@ -79,7 +75,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AppleMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -105,7 +101,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AppleMapBuilder()<br>Creates a builder that contains an empty map |

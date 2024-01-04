@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 SpecialModelname.SpecialModelnameMap validatedPayload =
     SpecialModelname.SpecialModelname1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "a",
-            "a"
-        )
-    ),
+    new SpecialModelname.SpecialModelnameMapBuilder()
+        .a("a")
+
+    .build(),
     configuration
 );
 ```
@@ -69,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SpecialModelnameMapBuilder()<br>Creates a builder that contains an empty map |

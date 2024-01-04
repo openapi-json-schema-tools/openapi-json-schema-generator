@@ -39,8 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Schema.SchemaMap validatedPayload =
     Schema.Schema1.validate(
-    MapUtils.makeMap(
-    ),
+    new Schema.SchemaMapBuilder()
+        .additionalProperty("someAdditionalProperty", 1)
+
+    .build(),
     configuration
 );
 ```
@@ -62,7 +64,7 @@ builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMapBuilder()<br>Creates a builder that contains an empty map |

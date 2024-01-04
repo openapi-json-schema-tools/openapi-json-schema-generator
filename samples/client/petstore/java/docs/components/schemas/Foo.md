@@ -38,8 +38,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Foo.FooMap validatedPayload =
     Foo.Foo1.validate(
-    MapUtils.makeMap(
-    ),
+    new Foo.FooMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -61,7 +61,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FooMapBuilder()<br>Creates a builder that contains an empty map |

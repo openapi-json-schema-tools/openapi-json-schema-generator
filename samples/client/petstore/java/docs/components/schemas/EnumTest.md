@@ -51,24 +51,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 EnumTest.EnumTestMap validatedPayload =
     EnumTest.EnumTest1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "enum_string_required",
-            "UPPER"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "enum_string",
-            "UPPER"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "enum_integer",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "enum_number",
-            3.14d
-        )
-    ),
+    new EnumTest.EnumTestMapBuilder()
+        .enum_string_required("UPPER")
+
+        .enum_string("UPPER")
+
+        .enum_integer(1)
+
+        .enum_number(3.14d)
+
+    .build(),
     configuration
 );
 ```
@@ -91,7 +83,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumTestMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -160,7 +152,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumTestMapBuilder()<br>Creates a builder that contains an empty map |

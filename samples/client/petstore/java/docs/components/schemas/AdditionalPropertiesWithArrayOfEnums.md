@@ -43,8 +43,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap validatedPayload =
     AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMapBuilder()
+        .additionalProperty(
+            "someAdditionalProperty", Arrays.asList(
+    "_abc"
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -66,7 +72,7 @@ builder for `Map<String, List<String>>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesWithArrayOfEnumsMapBuilder()<br>Creates a builder that contains an empty map |
@@ -113,11 +119,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
     AdditionalPropertiesWithArrayOfEnums.AdditionalProperties.validate(
-    new AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListBuilder(
-        Arrays.asList(
-            "_abc"
-        )
-    ).build(),
+    new AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListBuilder()
+        .add("_abc")
+
+    .build(),
     configuration
 );
 ```
@@ -139,7 +144,7 @@ builder for `List<String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesListBuilder()<br>Creates an empty list |

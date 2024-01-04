@@ -41,16 +41,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 BananaReq.BananaReqMap validatedPayload =
     BananaReq.BananaReq1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "lengthCm",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "sweet",
-            true
-        )
-    ),
+    new BananaReq.BananaReqMapBuilder()
+        .lengthCm(1)
+
+        .sweet(true)
+
+    .build(),
     configuration
 );
 ```
@@ -74,7 +70,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BananaReqMap0Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
@@ -91,7 +87,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BananaReqMapBuilder()<br>Creates a builder that contains an empty map |

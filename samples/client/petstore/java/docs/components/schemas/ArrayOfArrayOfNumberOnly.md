@@ -47,16 +47,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
     ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "ArrayArrayNumber",
+    new ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMapBuilder()
+        .ArrayArrayNumber(
             Arrays.asList(
-                Arrays.asList(
-                    1
-                )
-            )
+    Arrays.asList(
+        1
+    )
+)
+
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -78,7 +78,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayOfArrayOfNumberOnlyMapBuilder()<br>Creates a builder that contains an empty map |
@@ -135,13 +135,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
     ArrayOfArrayOfNumberOnly.ArrayArrayNumber.validate(
-    new ArrayOfArrayOfNumberOnly.ArrayArrayNumberListBuilder(
-        Arrays.asList(
+    new ArrayOfArrayOfNumberOnly.ArrayArrayNumberListBuilder()
+        .add(
             Arrays.asList(
                 1
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -163,7 +163,7 @@ builder for `List<List<Number>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayArrayNumberListBuilder()<br>Creates an empty list |
@@ -210,11 +210,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
     ArrayOfArrayOfNumberOnly.Items.validate(
-    new ArrayOfArrayOfNumberOnly.ItemsListBuilder(
-        Arrays.asList(
-            1
-        )
-    ).build(),
+    new ArrayOfArrayOfNumberOnly.ItemsListBuilder()
+        .add(1)
+
+    .build(),
     configuration
 );
 ```
@@ -236,7 +235,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder()<br>Creates an empty list |

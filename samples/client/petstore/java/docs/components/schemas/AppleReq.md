@@ -41,16 +41,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AppleReq.AppleReqMap validatedPayload =
     AppleReq.AppleReq1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "cultivar",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "mealy",
-            true
-        )
-    ),
+    new AppleReq.AppleReqMapBuilder()
+        .cultivar("a")
+
+        .mealy(true)
+
+    .build(),
     configuration
 );
 ```
@@ -74,7 +70,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AppleReqMap0Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
@@ -91,7 +87,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AppleReqMapBuilder()<br>Creates a builder that contains an empty map |

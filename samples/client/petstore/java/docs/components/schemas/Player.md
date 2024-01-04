@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Player.PlayerMap validatedPayload =
     Player.Player1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "name",
-            "a"
-        )
-    ),
+    new Player.PlayerMapBuilder()
+        .name("a")
+
+    .build(),
     configuration
 );
 ```
@@ -69,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PlayerMapBuilder()<br>Creates a builder that contains an empty map |

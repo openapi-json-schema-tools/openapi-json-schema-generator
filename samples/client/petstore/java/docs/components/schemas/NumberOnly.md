@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NumberOnly.NumberOnlyMap validatedPayload =
     NumberOnly.NumberOnly1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "JustNumber",
-            1
-        )
-    ),
+    new NumberOnly.NumberOnlyMapBuilder()
+        .JustNumber(1)
+
+    .build(),
     configuration
 );
 ```
@@ -66,7 +64,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NumberOnlyMapBuilder()<br>Creates a builder that contains an empty map |

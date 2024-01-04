@@ -39,11 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
     ArrayWithValidationsInItems.ArrayWithValidationsInItems1.validate(
-    new ArrayWithValidationsInItems.ArrayWithValidationsInItemsListBuilder(
-        Arrays.asList(
-            1L
-        )
-    ).build(),
+    new ArrayWithValidationsInItems.ArrayWithValidationsInItemsListBuilder()
+        .add(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -66,7 +65,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayWithValidationsInItemsListBuilder()<br>Creates an empty list |

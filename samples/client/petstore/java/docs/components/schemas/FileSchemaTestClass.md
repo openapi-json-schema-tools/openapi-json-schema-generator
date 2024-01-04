@@ -43,13 +43,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
     FileSchemaTestClass.FileSchemaTestClass1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "files",
+    new FileSchemaTestClass.FileSchemaTestClassMapBuilder()
+        .files(
             Arrays.asList(
-            )
+)
+
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -71,7 +71,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FileSchemaTestClassMapBuilder()<br>Creates a builder that contains an empty map |
@@ -130,10 +130,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 FileSchemaTestClass.FilesList validatedPayload =
     FileSchemaTestClass.Files.validate(
-    new FileSchemaTestClass.FilesListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new FileSchemaTestClass.FilesListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -155,7 +153,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FilesListBuilder()<br>Creates an empty list |

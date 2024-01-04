@@ -38,10 +38,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
     SelfReferencingArrayModel.SelfReferencingArrayModel1.validate(
-    new SelfReferencingArrayModel.SelfReferencingArrayModelListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new SelfReferencingArrayModel.SelfReferencingArrayModelListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -63,7 +61,7 @@ builder for `List<List<?>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SelfReferencingArrayModelListBuilder()<br>Creates an empty list |

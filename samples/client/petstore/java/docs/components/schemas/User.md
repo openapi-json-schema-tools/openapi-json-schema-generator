@@ -52,44 +52,26 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 User.UserMap validatedPayload =
     User.User1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "id",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "username",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "firstName",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "lastName",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "email",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "password",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "phone",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "userStatus",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "objectWithNoDeclaredPropsNullable",
-            null
-        )
-    ),
+    new User.UserMapBuilder()
+        .id(1L)
+
+        .username("a")
+
+        .firstName("a")
+
+        .lastName("a")
+
+        .email("a")
+
+        .password("a")
+
+        .phone("a")
+
+        .userStatus(1)
+
+        .objectWithNoDeclaredPropsNullable(null)
+
+    .build(),
     configuration
 );
 ```
@@ -111,7 +93,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | UserMapBuilder()<br>Creates a builder that contains an empty map |

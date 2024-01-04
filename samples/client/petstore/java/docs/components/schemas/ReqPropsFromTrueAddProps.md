@@ -39,8 +39,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap validatedPayload =
     ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1.validate(
-    MapUtils.makeMap(
-    ),
+    new ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -63,7 +63,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromTrueAddPropsMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -88,7 +88,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromTrueAddPropsMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -112,7 +112,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromTrueAddPropsMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -136,7 +136,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromTrueAddPropsMapBuilder()<br>Creates a builder that contains an empty map |

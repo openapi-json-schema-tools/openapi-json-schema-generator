@@ -43,16 +43,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
     JSONPatchRequestRemove.JSONPatchRequestRemove1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "op",
-            "remove"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "path",
-            "a"
-        )
-    ),
+    new JSONPatchRequestRemove.JSONPatchRequestRemoveMapBuilder()
+        .op("remove")
+
+        .path("a")
+
+    .build(),
     configuration
 );
 ```
@@ -76,7 +72,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestRemoveMap00Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -92,7 +88,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestRemoveMap01Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -108,7 +104,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestRemoveMap10Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -125,7 +121,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestRemoveMapBuilder()<br>Creates a builder that contains an empty map |

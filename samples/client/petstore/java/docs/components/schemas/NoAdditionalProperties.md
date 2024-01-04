@@ -41,16 +41,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
     NoAdditionalProperties.NoAdditionalProperties1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Number>(
-            "id",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Number>(
-            "petId",
-            1L
-        )
-    ),
+    new NoAdditionalProperties.NoAdditionalPropertiesMapBuilder()
+        .id(1L)
+
+        .petId(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -74,7 +70,7 @@ builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NoAdditionalPropertiesMap0Builder(Map<String, Number> instance)<br>Creates a builder that contains the passed instance |
@@ -94,7 +90,7 @@ builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NoAdditionalPropertiesMapBuilder()<br>Creates a builder that contains an empty map |

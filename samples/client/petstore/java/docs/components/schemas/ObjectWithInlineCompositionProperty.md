@@ -40,8 +40,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap validatedPayload =
     ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1.validate(
-    MapUtils.makeMap(
-    ),
+    new ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -63,7 +63,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithInlineCompositionPropertyMapBuilder()<br>Creates a builder that contains an empty map |

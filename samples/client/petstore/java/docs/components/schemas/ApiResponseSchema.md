@@ -41,20 +41,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ApiResponseSchema.ApiResponseMap validatedPayload =
     ApiResponseSchema.ApiResponseSchema1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "code",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "type",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "message",
-            "a"
-        )
-    ),
+    new ApiResponseSchema.ApiResponseMapBuilder()
+        .code(1)
+
+        .type("a")
+
+        .message("a")
+
+    .build(),
     configuration
 );
 ```
@@ -76,7 +70,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ApiResponseMapBuilder()<br>Creates a builder that contains an empty map |

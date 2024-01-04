@@ -57,39 +57,39 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ArrayTest.ArrayTestMap validatedPayload =
     ArrayTest.ArrayTest1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, List<?>>(
-            "array_of_string",
+    new ArrayTest.ArrayTestMapBuilder()
+        .array_of_string(
             Arrays.asList(
+    "a"
+)
+
+        )
+        .array_array_of_integer(
+            Arrays.asList(
+    Arrays.asList(
+        1L
+    )
+)
+
+        )
+        .array_array_of_model(
+            Arrays.asList(
+    Arrays.asList(
+        MapUtils.makeMap(
+            new AbstractMap.SimpleEntry<String, String>(
+                "bar",
+                "a"
+            ),
+            new AbstractMap.SimpleEntry<String, String>(
+                "baz",
                 "a"
             )
-        ),
-        new AbstractMap.SimpleEntry<String, List<?>>(
-            "array_array_of_integer",
-            Arrays.asList(
-                Arrays.asList(
-                    1L
-                )
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, List<?>>(
-            "array_array_of_model",
-            Arrays.asList(
-                Arrays.asList(
-                    MapUtils.makeMap(
-                        new AbstractMap.SimpleEntry<String, String>(
-                            "bar",
-                            "a"
-                        ),
-                        new AbstractMap.SimpleEntry<String, String>(
-                            "baz",
-                            "a"
-                        )
-                    )
-                )
-            )
         )
-    ),
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -111,7 +111,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayTestMapBuilder()<br>Creates a builder that contains an empty map |
@@ -172,8 +172,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayArrayOfModelList validatedPayload =
     ArrayTest.ArrayArrayOfModel.validate(
-    new ArrayTest.ArrayArrayOfModelListBuilder(
-        Arrays.asList(
+    new ArrayTest.ArrayArrayOfModelListBuilder()
+        .add(
             Arrays.asList(
                 MapUtils.makeMap(
                     new AbstractMap.SimpleEntry<String, String>(
@@ -187,7 +187,7 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -209,7 +209,7 @@ builder for `List<List<Map<String, @Nullable Object>>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayArrayOfModelListBuilder()<br>Creates an empty list |
@@ -256,8 +256,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ItemsList1 validatedPayload =
     ArrayTest.Items3.validate(
-    new ArrayTest.ItemsListBuilder1(
-        Arrays.asList(
+    new ArrayTest.ItemsListBuilder1()
+        .add(
             MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, String>(
                     "bar",
@@ -269,7 +269,7 @@ ArrayTest.ItemsList1 validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -291,7 +291,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder1()<br>Creates an empty list |
@@ -338,13 +338,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayArrayOfIntegerList validatedPayload =
     ArrayTest.ArrayArrayOfInteger.validate(
-    new ArrayTest.ArrayArrayOfIntegerListBuilder(
-        Arrays.asList(
+    new ArrayTest.ArrayArrayOfIntegerListBuilder()
+        .add(
             Arrays.asList(
                 1L
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -366,7 +366,7 @@ builder for `List<List<Number>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayArrayOfIntegerListBuilder()<br>Creates an empty list |
@@ -413,11 +413,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ItemsList validatedPayload =
     ArrayTest.Items1.validate(
-    new ArrayTest.ItemsListBuilder(
-        Arrays.asList(
-            1L
-        )
-    ).build(),
+    new ArrayTest.ItemsListBuilder()
+        .add(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -439,7 +438,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder()<br>Creates an empty list |
@@ -499,11 +498,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayOfStringList validatedPayload =
     ArrayTest.ArrayOfString.validate(
-    new ArrayTest.ArrayOfStringListBuilder(
-        Arrays.asList(
-            "a"
-        )
-    ).build(),
+    new ArrayTest.ArrayOfStringListBuilder()
+        .add("a")
+
+    .build(),
     configuration
 );
 ```
@@ -525,7 +523,7 @@ builder for `List<String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayOfStringListBuilder()<br>Creates an empty list |

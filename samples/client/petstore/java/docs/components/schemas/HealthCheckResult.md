@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 HealthCheckResult.HealthCheckResultMap validatedPayload =
     HealthCheckResult.HealthCheckResult1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "NullableMessage",
-            null
-        )
-    ),
+    new HealthCheckResult.HealthCheckResultMapBuilder()
+        .NullableMessage(null)
+
+    .build(),
     configuration
 );
 ```
@@ -69,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | HealthCheckResultMapBuilder()<br>Creates a builder that contains an empty map |

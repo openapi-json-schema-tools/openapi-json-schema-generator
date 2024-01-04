@@ -39,10 +39,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 JSONPatchRequest.JSONPatchRequestList validatedPayload =
     JSONPatchRequest.JSONPatchRequest1.validate(
-    new JSONPatchRequest.JSONPatchRequestListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new JSONPatchRequest.JSONPatchRequestListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -64,7 +62,7 @@ builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestListBuilder()<br>Creates an empty list |

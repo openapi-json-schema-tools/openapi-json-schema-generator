@@ -38,8 +38,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
     SelfReferencingObjectModel.SelfReferencingObjectModel1.validate(
-    MapUtils.makeMap(
-    ),
+    new SelfReferencingObjectModel.SelfReferencingObjectModelMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -62,7 +62,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SelfReferencingObjectModelMapBuilder()<br>Creates a builder that contains an empty map |

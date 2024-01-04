@@ -40,12 +40,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MyObjectDto.MyObjectDtoMap validatedPayload =
     MyObjectDto.MyObjectDto1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "id",
-            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
-        )
-    ),
+    new MyObjectDto.MyObjectDtoMapBuilder()
+        .id("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+
+    .build(),
     configuration
 );
 ```
@@ -68,7 +66,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MyObjectDtoMapBuilder()<br>Creates a builder that contains an empty map |

@@ -64,12 +64,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Cat.Schema1Map validatedPayload =
     Cat.Schema1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "declawed",
-            true
-        )
-    ),
+    new Cat.Schema1MapBuilder()
+        .declawed(true)
+
+    .build(),
     configuration
 );
 ```
@@ -91,7 +89,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1MapBuilder()<br>Creates a builder that contains an empty map |

@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap validatedPayload =
     ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "arg",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "args",
-            "a"
-        )
-    ),
+    new ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapBuilder()
+        .arg("a")
+
+        .args("a")
+
+    .build(),
     configuration
 );
 ```
@@ -72,7 +68,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectModelWithArgAndArgsPropertiesMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -97,7 +93,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectModelWithArgAndArgsPropertiesMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -113,7 +109,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectModelWithArgAndArgsPropertiesMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -129,7 +125,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectModelWithArgAndArgsPropertiesMapBuilder()<br>Creates a builder that contains an empty map |

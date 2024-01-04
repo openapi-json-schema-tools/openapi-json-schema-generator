@@ -39,29 +39,25 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
     ObjectWithDecimalProperties.ObjectWithDecimalProperties1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "length",
-            "3.14"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "width",
-            "3.14"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "cost",
+    new ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMapBuilder()
+        .length("3.14")
+
+        .width("3.14")
+
+        .cost(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
-                    "amount",
-                    "3.14"
-                ),
-                new AbstractMap.SimpleEntry<String, String>(
-                    "currency",
-                    "eur"
-                )
-            )
-        )
+    new AbstractMap.SimpleEntry<String, String>(
+        "amount",
+        "3.14"
     ),
+    new AbstractMap.SimpleEntry<String, String>(
+        "currency",
+        "eur"
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -83,7 +79,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithDecimalPropertiesMapBuilder()<br>Creates a builder that contains an empty map |

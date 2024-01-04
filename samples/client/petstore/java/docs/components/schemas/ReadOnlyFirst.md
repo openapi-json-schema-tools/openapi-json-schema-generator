@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
     ReadOnlyFirst.ReadOnlyFirst1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "bar",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "baz",
-            "a"
-        )
-    ),
+    new ReadOnlyFirst.ReadOnlyFirstMapBuilder()
+        .bar("a")
+
+        .baz("a")
+
+    .build(),
     configuration
 );
 ```
@@ -71,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReadOnlyFirstMapBuilder()<br>Creates a builder that contains an empty map |

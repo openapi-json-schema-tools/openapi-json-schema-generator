@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap validatedPayload =
     ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "b",
-            "a"
-        )
-    ),
+    new ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMapBuilder()
+        .b("a")
+
+    .build(),
     configuration
 );
 ```
@@ -67,7 +65,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjWithRequiredPropsBaseMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -92,7 +90,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjWithRequiredPropsBaseMapBuilder()<br>Creates a builder that contains an empty map |

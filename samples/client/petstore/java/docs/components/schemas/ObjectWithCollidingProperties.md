@@ -43,8 +43,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap validatedPayload =
     ObjectWithCollidingProperties.ObjectWithCollidingProperties1.validate(
-    MapUtils.makeMap(
-    ),
+    new ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -66,7 +66,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithCollidingPropertiesMapBuilder()<br>Creates a builder that contains an empty map |

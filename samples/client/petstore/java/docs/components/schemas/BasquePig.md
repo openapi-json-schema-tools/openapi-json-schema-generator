@@ -41,12 +41,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 BasquePig.BasquePigMap validatedPayload =
     BasquePig.BasquePig1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "className",
-            "BasquePig"
-        )
-    ),
+    new BasquePig.BasquePigMapBuilder()
+        .className("BasquePig")
+
+    .build(),
     configuration
 );
 ```
@@ -69,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BasquePigMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -94,7 +92,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BasquePigMapBuilder()<br>Creates a builder that contains an empty map |

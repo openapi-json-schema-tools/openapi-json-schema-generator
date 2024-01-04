@@ -71,59 +71,45 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NullableClass.NullableClassMap validatedPayload =
     NullableClass.NullableClass1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "integer_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "number_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "boolean_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "string_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "date_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "datetime_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "array_nullable_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "array_and_items_nullable_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "array_items_nullable",
+    new NullableClass.NullableClassMapBuilder()
+        .integer_prop(null)
+
+        .number_prop(null)
+
+        .boolean_prop(null)
+
+        .string_prop(null)
+
+        .date_prop(null)
+
+        .datetime_prop(null)
+
+        .array_nullable_prop(null)
+
+        .array_and_items_nullable_prop(null)
+
+        .array_items_nullable(
             Arrays.asList(
-                null
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "object_nullable_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "object_and_items_nullable_prop",
-            null
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "object_items_nullable",
-            MapUtils.makeMap(
-            )
+    null
+)
+
         )
-    ),
+        .object_nullable_prop(null)
+
+        .object_and_items_nullable_prop(null)
+
+        .object_items_nullable(
+            MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        null
+    )
+)
+
+        )
+        .additionalProperty("someAdditionalProperty", null)
+
+    .build(),
     configuration
 );
 ```
@@ -146,7 +132,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NullableClassMapBuilder()<br>Creates a builder that contains an empty map |
@@ -234,8 +220,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NullableClass.ObjectItemsNullableMap validatedPayload =
     NullableClass.ObjectItemsNullable.validate(
-    MapUtils.makeMap(
-    ),
+    new NullableClass.ObjectItemsNullableMapBuilder()
+        .additionalProperty("someAdditionalProperty", null)
+
+    .build(),
     configuration
 );
 ```
@@ -257,7 +245,7 @@ builder for `Map<String, @Nullable Map<String, @Nullable Object>>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectItemsNullableMapBuilder()<br>Creates a builder that contains an empty map |
@@ -350,8 +338,10 @@ Void validatedPayload = NullableClass.ObjectAndItemsNullableProp.validate(
 // Map validation
 NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
     NullableClass.ObjectAndItemsNullableProp.validate(
-    MapUtils.makeMap(
-    ),
+    new NullableClass.ObjectAndItemsNullablePropMapBuilder()
+        .additionalProperty("someAdditionalProperty", null)
+
+    .build(),
     configuration
 );
 ```
@@ -374,7 +364,7 @@ builder for `Map<String, @Nullable Map<String, @Nullable Object>>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectAndItemsNullablePropMapBuilder()<br>Creates a builder that contains an empty map |
@@ -467,8 +457,8 @@ Void validatedPayload = NullableClass.ObjectNullableProp.validate(
 // Map validation
 NullableClass.ObjectNullablePropMap validatedPayload =
     NullableClass.ObjectNullableProp.validate(
-    MapUtils.makeMap(
-    ),
+    new NullableClass.ObjectNullablePropMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -491,7 +481,7 @@ builder for `Map<String, Map<String, @Nullable Object>>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectNullablePropMapBuilder()<br>Creates a builder that contains an empty map |
@@ -548,11 +538,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NullableClass.ArrayItemsNullableList validatedPayload =
     NullableClass.ArrayItemsNullable.validate(
-    new NullableClass.ArrayItemsNullableListBuilder(
-        Arrays.asList(
-            null
-        )
-    ).build(),
+    new NullableClass.ArrayItemsNullableListBuilder()
+        .add(null)
+
+    .build(),
     configuration
 );
 ```
@@ -574,7 +563,7 @@ builder for `List<@Nullable Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayItemsNullableListBuilder()<br>Creates an empty list |
@@ -667,11 +656,10 @@ Void validatedPayload = NullableClass.ArrayAndItemsNullableProp.validate(
 // List validation
 NullableClass.ArrayAndItemsNullablePropList validatedPayload =
     NullableClass.ArrayAndItemsNullableProp.validate(
-    new NullableClass.ArrayAndItemsNullablePropListBuilder(
-        Arrays.asList(
-            null
-        )
-    ).build(),
+    new NullableClass.ArrayAndItemsNullablePropListBuilder()
+        .add(null)
+
+    .build(),
     configuration
 );
 ```
@@ -694,7 +682,7 @@ builder for `List<@Nullable Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayAndItemsNullablePropListBuilder()<br>Creates an empty list |
@@ -787,10 +775,8 @@ Void validatedPayload = NullableClass.ArrayNullableProp.validate(
 // List validation
 NullableClass.ArrayNullablePropList validatedPayload =
     NullableClass.ArrayNullableProp.validate(
-    new NullableClass.ArrayNullablePropListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new NullableClass.ArrayNullablePropListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -813,7 +799,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayNullablePropListBuilder()<br>Creates an empty list |

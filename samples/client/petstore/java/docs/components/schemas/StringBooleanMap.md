@@ -39,8 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 StringBooleanMap.StringBooleanMapMap validatedPayload =
     StringBooleanMap.StringBooleanMap1.validate(
-    MapUtils.makeMap(
-    ),
+    new StringBooleanMap.StringBooleanMapMapBuilder()
+        .additionalProperty("someAdditionalProperty", true)
+
+    .build(),
     configuration
 );
 ```
@@ -62,7 +64,7 @@ builder for `Map<String, Boolean>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | StringBooleanMapMapBuilder()<br>Creates a builder that contains an empty map |

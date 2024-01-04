@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 File.FileMap validatedPayload =
     File.File1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "sourceURI",
-            "a"
-        )
-    ),
+    new File.FileMapBuilder()
+        .sourceURI("a")
+
+    .build(),
     configuration
 );
 ```
@@ -69,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FileMapBuilder()<br>Creates a builder that contains an empty map |

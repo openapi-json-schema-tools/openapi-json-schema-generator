@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Schema.SchemaMap validatedPayload =
     Schema.Schema1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "param",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "param2",
-            "a"
-        )
-    ),
+    new Schema.SchemaMapBuilder()
+        .param("a")
+
+        .param2("a")
+
+    .build(),
     configuration
 );
 ```
@@ -72,7 +68,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -97,7 +93,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -113,7 +109,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -129,7 +125,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMapBuilder()<br>Creates a builder that contains an empty map |

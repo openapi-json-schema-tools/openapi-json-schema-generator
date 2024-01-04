@@ -38,8 +38,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 AnimalFarm.AnimalFarmList validatedPayload =
     AnimalFarm.AnimalFarm1.validate(
-    new AnimalFarm.AnimalFarmListBuilder(
-        Arrays.asList(
+    new AnimalFarm.AnimalFarmListBuilder()
+        .add(
             MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, String>(
                     "className",
@@ -51,7 +51,7 @@ AnimalFarm.AnimalFarmList validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -73,7 +73,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnimalFarmListBuilder()<br>Creates an empty list |

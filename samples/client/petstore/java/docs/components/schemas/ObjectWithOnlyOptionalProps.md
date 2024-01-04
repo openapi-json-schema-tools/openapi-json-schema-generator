@@ -41,16 +41,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap validatedPayload =
     ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "a",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "b",
-            1
-        )
-    ),
+    new ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMapBuilder()
+        .a("a")
+
+        .b(1)
+
+    .build(),
     configuration
 );
 ```
@@ -73,7 +69,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithOnlyOptionalPropsMapBuilder()<br>Creates a builder that contains an empty map |

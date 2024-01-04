@@ -38,8 +38,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema.SchemaList validatedPayload =
     Schema.Schema1.validate(
-    new Schema.SchemaListBuilder(
-        Arrays.asList(
+    new Schema.SchemaListBuilder()
+        .add(
             MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "name",
@@ -85,7 +85,7 @@ Schema.SchemaList validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -107,7 +107,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaListBuilder()<br>Creates an empty list |

@@ -44,14 +44,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
     ArrayOfNumberOnly.ArrayOfNumberOnly1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "ArrayNumber",
+    new ArrayOfNumberOnly.ArrayOfNumberOnlyMapBuilder()
+        .ArrayNumber(
             Arrays.asList(
-                1
-            )
+    1
+)
+
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -73,7 +73,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayOfNumberOnlyMapBuilder()<br>Creates a builder that contains an empty map |
@@ -130,11 +130,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfNumberOnly.ArrayNumberList validatedPayload =
     ArrayOfNumberOnly.ArrayNumber.validate(
-    new ArrayOfNumberOnly.ArrayNumberListBuilder(
-        Arrays.asList(
-            1
-        )
-    ).build(),
+    new ArrayOfNumberOnly.ArrayNumberListBuilder()
+        .add(1)
+
+    .build(),
     configuration
 );
 ```
@@ -156,7 +155,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayNumberListBuilder()<br>Creates an empty list |

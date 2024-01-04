@@ -43,21 +43,30 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap validatedPayload =
     MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "uuid",
-            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "dateTime",
-            "1970-01-01T00:00:00.00Z"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "map",
+    new MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMapBuilder()
+        .setUuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+
+        .dateTime("1970-01-01T00:00:00.00Z")
+
+        .setMap(
             MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        MapUtils.makeMap(
+            new AbstractMap.SimpleEntry<String, String>(
+                "className",
+                "a"
+            ),
+            new AbstractMap.SimpleEntry<String, String>(
+                "color",
+                "a"
             )
         )
-    ),
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -79,7 +88,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MixedPropertiesAndAdditionalPropertiesClassMapBuilder()<br>Creates a builder that contains an empty map |
@@ -139,8 +148,21 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MixedPropertiesAndAdditionalPropertiesClass.MapMap validatedPayload =
     MixedPropertiesAndAdditionalPropertiesClass.MapSchema.validate(
-    MapUtils.makeMap(
+    new MixedPropertiesAndAdditionalPropertiesClass.MapMapBuilder()
+        .additionalProperty(
+            "someAdditionalProperty", MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<String, String>(
+        "className",
+        "a"
     ),
+    new AbstractMap.SimpleEntry<String, String>(
+        "color",
+        "a"
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -162,7 +184,7 @@ builder for `Map<String, Map<String, @Nullable Object>>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapMapBuilder()<br>Creates a builder that contains an empty map |

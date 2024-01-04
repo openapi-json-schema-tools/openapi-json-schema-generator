@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
     ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "invalid-name",
-            "a"
-        )
-    ),
+    new ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMapBuilder()
+        .setInvalidHyphenMinusName("a")
+
+    .build(),
     configuration
 );
 ```
@@ -67,7 +65,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromExplicitAddPropsMap00Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -84,7 +82,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromExplicitAddPropsMap01Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -100,7 +98,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromExplicitAddPropsMap10Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
@@ -116,7 +114,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ReqPropsFromExplicitAddPropsMapBuilder()<br>Creates a builder that contains an empty map |

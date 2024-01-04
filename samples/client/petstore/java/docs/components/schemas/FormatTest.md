@@ -64,94 +64,54 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 FormatTest.FormatTestMap validatedPayload =
     FormatTest.FormatTest1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "byte",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "date",
-            "2020-12-13"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "number",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "password",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "integer",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "int32",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "int32withValidations",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "int64",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "float",
-            3.14f
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "float32",
-            3.14f
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "double",
-            3.14d
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "float64",
-            3.14d
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "arrayWithUniqueItems",
+    new FormatTest.FormatTestMapBuilder()
+        .setByte("a")
+
+        .date("2020-12-13")
+
+        .setNumber(1)
+
+        .password("a")
+
+        .setInteger(1L)
+
+        .int32(1)
+
+        .int32withValidations(1)
+
+        .int64(1L)
+
+        .setFloat(3.14f)
+
+        .float32(3.14f)
+
+        .setDouble(3.14d)
+
+        .float64(3.14d)
+
+        .arrayWithUniqueItems(
             Arrays.asList(
-                1
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "string",
-            "A"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "binary",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "dateTime",
-            "1970-01-01T00:00:00.00Z"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "uuid",
-            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "uuidNoExample",
-            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "pattern_with_digits",
-            "0480728880"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "pattern_with_digits_and_delimiter",
-            "IMage_88"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "noneProp",
-            null
+    1
+)
+
         )
-    ),
+        .setString("A")
+
+        .binary("a")
+
+        .dateTime("1970-01-01T00:00:00.00Z")
+
+        .setUuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+
+        .uuidNoExample("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+
+        .pattern_with_digits("0480728880")
+
+        .pattern_with_digits_and_delimiter("IMage_88")
+
+        .noneProp(null)
+
+    .build(),
     configuration
 );
 ```
@@ -174,7 +134,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap0000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -236,7 +196,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap0001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -252,7 +212,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap0010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -271,7 +231,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap0011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -291,7 +251,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap0100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -307,7 +267,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap0101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -324,7 +284,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap0110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -344,7 +304,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap0111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -365,7 +325,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap1000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -381,7 +341,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap1001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -398,7 +358,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap1010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -418,7 +378,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap1011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -439,7 +399,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap1100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -456,7 +416,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap1101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -474,7 +434,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMap1110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -495,7 +455,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | FormatTestMapBuilder()<br>Creates a builder that contains an empty map |
@@ -788,11 +748,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 FormatTest.ArrayWithUniqueItemsList validatedPayload =
     FormatTest.ArrayWithUniqueItems.validate(
-    new FormatTest.ArrayWithUniqueItemsListBuilder(
-        Arrays.asList(
-            1
-        )
-    ).build(),
+    new FormatTest.ArrayWithUniqueItemsListBuilder()
+        .add(1)
+
+    .build(),
     configuration
 );
 ```
@@ -815,7 +774,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayWithUniqueItemsListBuilder()<br>Creates an empty list |

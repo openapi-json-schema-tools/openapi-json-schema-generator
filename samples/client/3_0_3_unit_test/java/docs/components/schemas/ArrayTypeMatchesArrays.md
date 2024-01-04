@@ -62,7 +62,7 @@ builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayTypeMatchesArraysListBuilder()<br>Creates an empty list |

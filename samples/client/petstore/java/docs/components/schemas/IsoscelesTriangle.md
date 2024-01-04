@@ -66,12 +66,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 IsoscelesTriangle.Schema1Map validatedPayload =
     IsoscelesTriangle.Schema1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "triangleType",
-            "IsoscelesTriangle"
-        )
-    ),
+    new IsoscelesTriangle.Schema1MapBuilder()
+        .triangleType("IsoscelesTriangle")
+
+    .build(),
     configuration
 );
 ```
@@ -93,7 +91,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | Schema1MapBuilder()<br>Creates a builder that contains an empty map |

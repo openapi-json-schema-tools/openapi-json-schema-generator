@@ -41,8 +41,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
     ObjectModelWithRefProps.ObjectModelWithRefProps1.validate(
-    MapUtils.makeMap(
-    ),
+    new ObjectModelWithRefProps.ObjectModelWithRefPropsMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -64,7 +64,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectModelWithRefPropsMapBuilder()<br>Creates a builder that contains an empty map |

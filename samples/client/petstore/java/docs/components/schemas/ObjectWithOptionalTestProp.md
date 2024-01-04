@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
     ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "test",
-            "a"
-        )
-    ),
+    new ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapBuilder()
+        .test("a")
+
+    .build(),
     configuration
 );
 ```
@@ -66,7 +64,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithOptionalTestPropMapBuilder()<br>Creates a builder that contains an empty map |

@@ -44,16 +44,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Zebra.ZebraMap validatedPayload =
     Zebra.Zebra1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "className",
-            "zebra"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "type",
-            "plains"
-        )
-    ),
+    new Zebra.ZebraMapBuilder()
+        .className("zebra")
+
+        .type("plains")
+
+    .build(),
     configuration
 );
 ```
@@ -77,7 +73,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ZebraMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -104,7 +100,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ZebraMapBuilder()<br>Creates a builder that contains an empty map |

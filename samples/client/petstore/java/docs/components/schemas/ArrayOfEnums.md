@@ -38,11 +38,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfEnums.ArrayOfEnumsList validatedPayload =
     ArrayOfEnums.ArrayOfEnums1.validate(
-    new ArrayOfEnums.ArrayOfEnumsListBuilder(
-        Arrays.asList(
-            null
-        )
-    ).build(),
+    new ArrayOfEnums.ArrayOfEnumsListBuilder()
+        .add(null)
+
+    .build(),
     configuration
 );
 ```
@@ -64,7 +63,7 @@ builder for `List<@Nullable String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayOfEnumsListBuilder()<br>Creates an empty list |

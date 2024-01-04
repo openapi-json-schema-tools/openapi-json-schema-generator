@@ -44,32 +44,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Capitalization.CapitalizationMap validatedPayload =
     Capitalization.Capitalization1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "smallCamel",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "CapitalCamel",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "small_Snake",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "Capital_Snake",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "SCA_ETH_Flow_Points",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "ATT_NAME",
-            "a"
-        )
-    ),
+    new Capitalization.CapitalizationMapBuilder()
+        .smallCamel("a")
+
+        .CapitalCamel("a")
+
+        .small_Snake("a")
+
+        .Capital_Snake("a")
+
+        .SCA_ETH_Flow_Points("a")
+
+        .ATT_NAME("a")
+
+    .build(),
     configuration
 );
 ```
@@ -91,7 +79,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | CapitalizationMapBuilder()<br>Creates a builder that contains an empty map |

@@ -64,33 +64,50 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
     AdditionalPropertiesClass.AdditionalPropertiesClass1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
-            "map_property",
+    new AdditionalPropertiesClass.AdditionalPropertiesClassMapBuilder()
+        .map_property(
             MapUtils.makeMap(
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
-            "map_of_map_property",
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        "a"
+    )
+)
+
+        )
+        .map_of_map_property(
             MapUtils.makeMap(
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
-            "map_with_undeclared_properties_anytype_3",
-            MapUtils.makeMap(
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
-            "empty_map",
-            MapUtils.makeMap(
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
-            "map_with_undeclared_properties_string",
-            MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        MapUtils.makeMap(
+            new AbstractMap.SimpleEntry<>(
+                "someAdditionalProperty",
+                "a"
             )
         )
-    ),
+    )
+)
+
+        )
+        .map_with_undeclared_properties_anytype_3(
+            MapUtils.makeMap(
+)
+
+        )
+        .empty_map(
+            MapUtils.makeMap(
+)
+
+        )
+        .map_with_undeclared_properties_string(
+            MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        "a"
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -112,7 +129,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesClassMapBuilder()<br>Creates a builder that contains an empty map |
@@ -191,8 +208,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap validatedPayload =
     AdditionalPropertiesClass.MapWithUndeclaredPropertiesString.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMapBuilder()
+        .additionalProperty("someAdditionalProperty", "a")
+
+    .build(),
     configuration
 );
 ```
@@ -214,7 +233,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapWithUndeclaredPropertiesStringMapBuilder()<br>Creates a builder that contains an empty map |
@@ -274,8 +293,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.EmptyMapMap validatedPayload =
     AdditionalPropertiesClass.EmptyMap.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesClass.EmptyMapMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -297,7 +316,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EmptyMapMapBuilder()<br>Creates a builder that contains an empty map |
@@ -352,8 +371,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayload =
     AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3MapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -375,7 +394,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapWithUndeclaredPropertiesAnytype3MapBuilder()<br>Creates a builder that contains an empty map |
@@ -470,8 +489,17 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
     AdditionalPropertiesClass.MapOfMapProperty.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesClass.MapOfMapPropertyMapBuilder()
+        .additionalProperty(
+            "someAdditionalProperty", MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<>(
+        "someAdditionalProperty",
+        "a"
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -493,7 +521,7 @@ builder for `Map<String, Map<String, String>>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapOfMapPropertyMapBuilder()<br>Creates a builder that contains an empty map |
@@ -540,8 +568,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.AdditionalPropertiesMap validatedPayload =
     AdditionalPropertiesClass.AdditionalProperties1.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesClass.AdditionalPropertiesMapBuilder2()
+        .additionalProperty("someAdditionalProperty", "a")
+
+    .build(),
     configuration
 );
 ```
@@ -563,7 +593,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesMapBuilder2()<br>Creates a builder that contains an empty map |
@@ -620,8 +650,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.MapPropertyMap validatedPayload =
     AdditionalPropertiesClass.MapProperty.validate(
-    MapUtils.makeMap(
-    ),
+    new AdditionalPropertiesClass.MapPropertyMapBuilder()
+        .additionalProperty("someAdditionalProperty", "a")
+
+    .build(),
     configuration
 );
 ```
@@ -643,7 +675,7 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | MapPropertyMapBuilder()<br>Creates a builder that contains an empty map |

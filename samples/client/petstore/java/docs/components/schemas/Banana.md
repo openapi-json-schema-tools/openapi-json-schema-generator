@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Banana.BananaMap validatedPayload =
     Banana.Banana1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "lengthCm",
-            1
-        )
-    ),
+    new Banana.BananaMapBuilder()
+        .lengthCm(1)
+
+    .build(),
     configuration
 );
 ```
@@ -67,7 +65,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BananaMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -92,7 +90,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | BananaMapBuilder()<br>Creates a builder that contains an empty map |

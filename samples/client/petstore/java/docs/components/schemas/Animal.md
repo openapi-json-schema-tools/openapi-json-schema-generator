@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Animal.AnimalMap validatedPayload =
     Animal.Animal1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "className",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "color",
-            "a"
-        )
-    ),
+    new Animal.AnimalMapBuilder()
+        .className("a")
+
+        .color("a")
+
+    .build(),
     configuration
 );
 ```
@@ -72,7 +68,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnimalMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -98,7 +94,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnimalMapBuilder()<br>Creates a builder that contains an empty map |

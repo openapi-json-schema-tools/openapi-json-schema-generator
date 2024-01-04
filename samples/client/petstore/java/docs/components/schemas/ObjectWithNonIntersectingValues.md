@@ -40,12 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayload =
     ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "a",
-            1
-        )
-    ),
+    new ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMapBuilder()
+        .a(1)
+
+        .additionalProperty("someAdditionalProperty", "a")
+
+    .build(),
     configuration
 );
 ```
@@ -68,7 +68,7 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithNonIntersectingValuesMapBuilder()<br>Creates a builder that contains an empty map |

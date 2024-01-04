@@ -48,18 +48,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 EnumArrays.EnumArraysMap validatedPayload =
     EnumArrays.EnumArrays1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "just_symbol",
-            ">="
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "array_enum",
+    new EnumArrays.EnumArraysMapBuilder()
+        .just_symbol(">=")
+
+        .array_enum(
             Arrays.asList(
-                "fish"
-            )
+    "fish"
+)
+
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -81,7 +79,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | EnumArraysMapBuilder()<br>Creates a builder that contains an empty map |
@@ -141,11 +139,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 EnumArrays.ArrayEnumList validatedPayload =
     EnumArrays.ArrayEnum.validate(
-    new EnumArrays.ArrayEnumListBuilder(
-        Arrays.asList(
-            "fish"
-        )
-    ).build(),
+    new EnumArrays.ArrayEnumListBuilder()
+        .add("fish")
+
+    .build(),
     configuration
 );
 ```
@@ -167,7 +164,7 @@ builder for `List<String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayEnumListBuilder()<br>Creates an empty list |

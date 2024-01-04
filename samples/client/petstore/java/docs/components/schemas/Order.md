@@ -46,32 +46,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Order.OrderMap validatedPayload =
     Order.Order1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "id",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "petId",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "quantity",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "shipDate",
-            "1970-01-01T00:00:00.00Z"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "status",
-            "placed"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "complete",
-            true
-        )
-    ),
+    new Order.OrderMapBuilder()
+        .id(1L)
+
+        .petId(1L)
+
+        .quantity(1)
+
+        .shipDate("1970-01-01T00:00:00.00Z")
+
+        .status("placed")
+
+        .complete(true)
+
+    .build(),
     configuration
 );
 ```
@@ -93,7 +81,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | OrderMapBuilder()<br>Creates a builder that contains an empty map |

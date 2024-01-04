@@ -52,64 +52,36 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Schema.SchemaMap validatedPayload =
     Schema.Schema1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "byte",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "double",
-            3.14d
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "number",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "pattern_without_delimiter",
-            "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "integer",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "int32",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "int64",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "float",
-            3.14f
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "string",
-            "A"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "binary",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "date",
-            "2020-12-13"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "dateTime",
-            "1970-01-01T00:00:00.00Z"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "password",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "callback",
-            "a"
-        )
-    ),
+    new Schema.SchemaMapBuilder()
+        .setByte("a")
+
+        .setDouble(3.14d)
+
+        .setNumber(1)
+
+        .pattern_without_delimiter("AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>")
+
+        .setInteger(1L)
+
+        .int32(1)
+
+        .int64(1L)
+
+        .setFloat(3.14f)
+
+        .setString("A")
+
+        .binary("a")
+
+        .date("2020-12-13")
+
+        .dateTime("1970-01-01T00:00:00.00Z")
+
+        .password("a")
+
+        .callback("a")
+
+    .build(),
     configuration
 );
 ```
@@ -132,7 +104,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap0000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -177,7 +149,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap0001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -193,7 +165,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap0010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -212,7 +184,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap0011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -232,7 +204,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap0100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -251,7 +223,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap0101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -271,7 +243,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap0110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -294,7 +266,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap0111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -318,7 +290,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap1000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -334,7 +306,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap1001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -351,7 +323,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap1010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -371,7 +343,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap1011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -392,7 +364,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap1100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -412,7 +384,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap1101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -433,7 +405,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMap1110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -457,7 +429,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaMapBuilder()<br>Creates a builder that contains an empty map |

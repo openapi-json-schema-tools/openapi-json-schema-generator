@@ -44,16 +44,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap validatedPayload =
     JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "op",
-            "add"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "path",
-            "a"
-        )
-    ),
+    new JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapBuilder()
+        .op("add")
+
+        .path("a")
+
+    .build(),
     configuration
 );
 ```
@@ -77,7 +73,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestAddReplaceTestMap000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -93,7 +89,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestAddReplaceTestMap001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -117,7 +113,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestAddReplaceTestMap010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -133,7 +129,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestAddReplaceTestMap011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -158,7 +154,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestAddReplaceTestMap100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -175,7 +171,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestAddReplaceTestMap101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -201,7 +197,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestAddReplaceTestMap110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -219,7 +215,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | JSONPatchRequestAddReplaceTestMapBuilder()<br>Creates a builder that contains an empty map |

@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 PublicKey.PublicKeyMap validatedPayload =
     PublicKey.PublicKey1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "key",
-            "a"
-        )
-    ),
+    new PublicKey.PublicKeyMapBuilder()
+        .key("a")
+
+    .build(),
     configuration
 );
 ```
@@ -69,7 +67,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | PublicKeyMapBuilder()<br>Creates a builder that contains an empty map |

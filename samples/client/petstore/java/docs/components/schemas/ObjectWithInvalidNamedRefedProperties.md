@@ -38,27 +38,27 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap validatedPayload =
     ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1.validate(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "!reference",
+    new ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMapBuilder()
+        .setExclamationMarkReference(
             Arrays.asList(
-                1L
-            )
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "from",
-            MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<String, Object>(
-                    "data",
-                    "a"
-                ),
-                new AbstractMap.SimpleEntry<String, Object>(
-                    "id",
-                    1L
-                )
-            )
+    1L
+)
+
         )
+        .from(
+            MapUtils.makeMap(
+    new AbstractMap.SimpleEntry<String, Object>(
+        "data",
+        "a"
     ),
+    new AbstractMap.SimpleEntry<String, Object>(
+        "id",
+        1L
+    )
+)
+
+        )
+    .build(),
     configuration
 );
 ```
@@ -81,7 +81,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithInvalidNamedRefedPropertiesMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -106,7 +106,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithInvalidNamedRefedPropertiesMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -122,7 +122,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithInvalidNamedRefedPropertiesMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
@@ -138,7 +138,7 @@ builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ObjectWithInvalidNamedRefedPropertiesMapBuilder()<br>Creates a builder that contains an empty map |
