@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -84,8 +86,92 @@ public class Schema {
             return get(name);
         }
     }
-    public static class SchemaMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForParam <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterParam(Map<String, @Nullable Object> instance);
+        
+        default T param(String value) {
+            var instance = getInstance();
+            instance.put("param", value);
+            return getBuilderAfterParam(instance);
+        }
+    }
+    
+    public interface SetterForParam2 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterParam2(Map<String, @Nullable Object> instance);
+        
+        default T param2(String value) {
+            var instance = getInstance();
+            instance.put("param2", value);
+            return getBuilderAfterParam2(instance);
+        }
+    }
+    
+    public static class SchemaMap00Builder extends UnsetAddPropsSetter<SchemaMap00Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "param",
+            "param2"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public SchemaMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class SchemaMap01Builder implements SetterForParam2<SchemaMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap00Builder getBuilderAfterParam2(Map<String, @Nullable Object> instance) {
+            return new SchemaMap00Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap10Builder implements SetterForParam<SchemaMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap00Builder getBuilderAfterParam(Map<String, @Nullable Object> instance) {
+            return new SchemaMap00Builder(instance);
+        }
+    }
+    
+    public static class SchemaMapBuilder implements SetterForParam<SchemaMap01Builder>, SetterForParam2<SchemaMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap01Builder getBuilderAfterParam(Map<String, @Nullable Object> instance) {
+            return new SchemaMap01Builder(instance);
+        }
+        public SchemaMap10Builder getBuilderAfterParam2(Map<String, @Nullable Object> instance) {
+            return new SchemaMap10Builder(instance);
+        }
     }
     
     

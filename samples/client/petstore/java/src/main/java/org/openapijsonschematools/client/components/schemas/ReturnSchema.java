@@ -17,7 +17,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -65,8 +67,47 @@ public class ReturnSchema {
             return get(name);
         }
     }
-    public static class ReturnMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForReturnSchema2 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterReturnSchema2(Map<String, @Nullable Object> instance);
+        
+        default T setReturn(int value) {
+            var instance = getInstance();
+            instance.put("return", value);
+            return getBuilderAfterReturnSchema2(instance);
+        }
+        
+        default T setReturn(float value) {
+            var instance = getInstance();
+            instance.put("return", value);
+            return getBuilderAfterReturnSchema2(instance);
+        }
+    }
+    
+    public static class ReturnMapBuilder1 extends UnsetAddPropsSetter<ReturnMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForReturnSchema2<ReturnMapBuilder1> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "return"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ReturnMapBuilder1() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ReturnMapBuilder1 getBuilderAfterReturnSchema2(Map<String, @Nullable Object> instance) {
+            return new ReturnMapBuilder1(instance);
+        }
+        public ReturnMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

@@ -40,21 +40,27 @@ model with an invalid class name for python, starts with a number
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [Schema200ResponseMap](#schema200responsemap) | validate([Map<?, ?>](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema200ResponseMap](#schema200responsemap) | validate([Map&lt;?, ?&gt;](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema200ResponseMapBuilder
 public class Schema200ResponseMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **name** | Number |  | [optional] value must be a 32 bit integer |
-| **class** | String | this is a reserved python keyword | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema200ResponseMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(int value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(float value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | setClass(String value) |
 
 ## Schema200ResponseMap
 public static class Schema200ResponseMap<br>

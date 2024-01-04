@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,86 @@ public class Headers {
             return getOrThrow("location");
         }
     }
-    public static class HeadersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForLocation <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterLocation(Map<String, String> instance);
+        
+        default T location(Void value) {
+            var instance = getInstance();
+            instance.put("location", null);
+            return getBuilderAfterLocation(instance);
+        }
+        
+        default T location(boolean value) {
+            var instance = getInstance();
+            instance.put("location", value);
+            return getBuilderAfterLocation(instance);
+        }
+        
+        default T location(String value) {
+            var instance = getInstance();
+            instance.put("location", value);
+            return getBuilderAfterLocation(instance);
+        }
+        
+        default T location(int value) {
+            var instance = getInstance();
+            instance.put("location", value);
+            return getBuilderAfterLocation(instance);
+        }
+        
+        default T location(float value) {
+            var instance = getInstance();
+            instance.put("location", value);
+            return getBuilderAfterLocation(instance);
+        }
+        
+        default T location(long value) {
+            var instance = getInstance();
+            instance.put("location", value);
+            return getBuilderAfterLocation(instance);
+        }
+        
+        default T location(double value) {
+            var instance = getInstance();
+            instance.put("location", value);
+            return getBuilderAfterLocation(instance);
+        }
+        
+        default T location(List<?> value) {
+            var instance = getInstance();
+            instance.put("location", value);
+            return getBuilderAfterLocation(instance);
+        }
+        
+        default T location(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("location", value);
+            return getBuilderAfterLocation(instance);
+        }
+    }
+    
+    public static class HeadersMapBuilder implements BaseBuilder<String>, SetterForLocation<HeadersMapBuilder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "location"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public HeadersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public HeadersMapBuilder getBuilderAfterLocation(Map<String, String> instance) {
+            return new HeadersMapBuilder(instance);
+        }
     }
     
     

@@ -37,20 +37,25 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [GmFruitMap](#gmfruitmap) | validate([Map<?, ?>](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
+| [GmFruitMap](#gmfruitmap) | validate([Map&lt;?, ?&gt;](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## GmFruitMapBuilder
 public class GmFruitMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **color** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| GmFruitMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | color(String value) |
 
 ## GmFruitMap
 public static class GmFruitMap<br>

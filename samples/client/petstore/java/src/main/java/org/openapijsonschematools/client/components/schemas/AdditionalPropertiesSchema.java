@@ -18,6 +18,8 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -25,6 +27,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -60,8 +63,94 @@ public class AdditionalPropertiesSchema {
             return getOrThrow(name);
         }
     }
-    public static class Schema0MapBuilder {
-        // Map<String, Object> because additionalProperties == true
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, float value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, long value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, double value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, List<?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, ?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class Schema0MapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties<Schema0MapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema0MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     
@@ -342,8 +431,94 @@ public class AdditionalPropertiesSchema {
             return getOrThrow(name);
         }
     }
-    public static class Schema1MapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties1<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, float value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, long value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, double value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, List<?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, ?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class Schema1MapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties1<Schema1MapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema1MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     
@@ -624,8 +799,94 @@ public class AdditionalPropertiesSchema {
             return getOrThrow(name);
         }
     }
-    public static class Schema2MapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties2<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, float value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, long value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, double value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, List<?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, ?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class Schema2MapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties2<Schema2MapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema2MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema2MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

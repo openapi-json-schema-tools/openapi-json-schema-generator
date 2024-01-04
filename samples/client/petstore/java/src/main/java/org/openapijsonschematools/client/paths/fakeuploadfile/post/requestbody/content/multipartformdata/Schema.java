@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -88,8 +90,66 @@ public class Schema {
             return get(name);
         }
     }
-    public static class SchemaMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForFile <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFile(Map<String, @Nullable Object> instance);
+        
+        default T file(String value) {
+            var instance = getInstance();
+            instance.put("file", value);
+            return getBuilderAfterFile(instance);
+        }
+    }
+    
+    public interface SetterForAdditionalMetadata <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalMetadata(Map<String, @Nullable Object> instance);
+        
+        default T additionalMetadata(String value) {
+            var instance = getInstance();
+            instance.put("additionalMetadata", value);
+            return getBuilderAfterAdditionalMetadata(instance);
+        }
+    }
+    
+    public static class SchemaMap0Builder extends UnsetAddPropsSetter<SchemaMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForAdditionalMetadata<SchemaMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "file",
+            "additionalMetadata"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public SchemaMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0Builder getBuilderAfterAdditionalMetadata(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0Builder(instance);
+        }
+        public SchemaMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class SchemaMapBuilder implements SetterForFile<SchemaMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0Builder getBuilderAfterFile(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0Builder(instance);
+        }
     }
     
     

@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -88,8 +90,56 @@ public class ObjectWithCollidingProperties {
             return get(name);
         }
     }
-    public static class ObjectWithCollidingPropertiesMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForSomeProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSomeProp(Map<String, @Nullable Object> instance);
+        
+        default T someProp(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+    }
+    
+    public interface SetterForSomeprop <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSomeprop(Map<String, @Nullable Object> instance);
+        
+        default T someprop(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("someprop", value);
+            return getBuilderAfterSomeprop(instance);
+        }
+    }
+    
+    public static class ObjectWithCollidingPropertiesMapBuilder extends UnsetAddPropsSetter<ObjectWithCollidingPropertiesMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForSomeProp<ObjectWithCollidingPropertiesMapBuilder>, SetterForSomeprop<ObjectWithCollidingPropertiesMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "someProp",
+            "someprop"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectWithCollidingPropertiesMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithCollidingPropertiesMapBuilder getBuilderAfterSomeProp(Map<String, @Nullable Object> instance) {
+            return new ObjectWithCollidingPropertiesMapBuilder(instance);
+        }
+        public ObjectWithCollidingPropertiesMapBuilder getBuilderAfterSomeprop(Map<String, @Nullable Object> instance) {
+            return new ObjectWithCollidingPropertiesMapBuilder(instance);
+        }
+        public ObjectWithCollidingPropertiesMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

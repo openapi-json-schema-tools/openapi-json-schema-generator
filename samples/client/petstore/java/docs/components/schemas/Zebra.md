@@ -31,7 +31,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -44,7 +44,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Zebra.ZebraMap validatedPayload =
     Zebra.Zebra1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, String>(
             "className",
             "zebra"
@@ -71,18 +71,39 @@ Zebra.ZebraMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ZebraMap](#zebramap) | validate([Map<?, ?>](#zebramapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ZebraMapBuilder
-public class ZebraMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ZebraMap0Builder
+public class ZebraMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **className** | String |  | must be one of ["zebra"] |
-| **type** | String |  | [optional] must be one of ["plains", "mountain", "grevys"] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ZebraMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ZebraMap0Builder](#zebramap0builder) | type(String value) |
+| [ZebraMap0Builder](#zebramap0builder) | type([StringTypeEnums](#stringtypeenums) value) |
+## ZebraMapBuilder
+public class ZebraMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ZebraMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ZebraMap0Builder](#zebramap0builder) | className(String value) |
+| [ZebraMap0Builder](#zebramap0builder) | className([StringClassNameEnums](#stringclassnameenums) value) |
 
 ## ZebraMap
 public static class ZebraMap<br>
@@ -109,7 +130,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -160,7 +181,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

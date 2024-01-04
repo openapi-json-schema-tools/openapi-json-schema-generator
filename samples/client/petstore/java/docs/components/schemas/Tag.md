@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,7 +40,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Tag.TagMap validatedPayload =
     Tag.Tag1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, Object>(
             "id",
             1L
@@ -67,16 +67,24 @@ Tag.TagMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TagMapBuilder
 public class TagMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **id** | Number |  | [optional] value must be a 64 bit integer |
-| **name** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TagMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [TagMapBuilder](#tagmapbuilder) | id(int value) |
+| [TagMapBuilder](#tagmapbuilder) | id(float value) |
+| [TagMapBuilder](#tagmapbuilder) | id(long value) |
+| [TagMapBuilder](#tagmapbuilder) | id(double value) |
+| [TagMapBuilder](#tagmapbuilder) | name(String value) |
 
 ## TagMap
 public static class TagMap<br>

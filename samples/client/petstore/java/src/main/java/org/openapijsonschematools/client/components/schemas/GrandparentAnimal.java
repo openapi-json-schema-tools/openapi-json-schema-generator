@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -64,8 +66,51 @@ public class GrandparentAnimal {
             return get(name);
         }
     }
-    public static class GrandparentAnimalMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForPetType <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPetType(Map<String, @Nullable Object> instance);
+        
+        default T pet_type(String value) {
+            var instance = getInstance();
+            instance.put("pet_type", value);
+            return getBuilderAfterPetType(instance);
+        }
+    }
+    
+    public static class GrandparentAnimalMap0Builder extends UnsetAddPropsSetter<GrandparentAnimalMap0Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "pet_type"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public GrandparentAnimalMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public GrandparentAnimalMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class GrandparentAnimalMapBuilder implements SetterForPetType<GrandparentAnimalMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public GrandparentAnimalMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public GrandparentAnimalMap0Builder getBuilderAfterPetType(Map<String, @Nullable Object> instance) {
+            return new GrandparentAnimalMap0Builder(instance);
+        }
     }
     
     

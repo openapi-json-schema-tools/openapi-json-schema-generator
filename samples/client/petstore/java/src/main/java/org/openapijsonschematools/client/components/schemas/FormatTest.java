@@ -16,6 +16,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.client.schemas.DoubleJsonSchema;
@@ -25,6 +26,7 @@ import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.UuidJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -959,8 +961,713 @@ public class FormatTest {
             return get(name);
         }
     }
-    public static class FormatTestMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForByteSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterByteSchema(Map<String, @Nullable Object> instance);
+        
+        default T setByte(String value) {
+            var instance = getInstance();
+            instance.put("byte", value);
+            return getBuilderAfterByteSchema(instance);
+        }
+    }
+    
+    public interface SetterForDate <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDate(Map<String, @Nullable Object> instance);
+        
+        default T date(String value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+    }
+    
+    public interface SetterForNumberSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance);
+        
+        default T setNumber(int value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(float value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(long value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(double value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+    }
+    
+    public interface SetterForPassword <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPassword(Map<String, @Nullable Object> instance);
+        
+        default T password(String value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+    }
+    
+    public interface SetterForIntegerSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance);
+        
+        default T setInteger(int value) {
+            var instance = getInstance();
+            instance.put("integer", value);
+            return getBuilderAfterIntegerSchema(instance);
+        }
+        
+        default T setInteger(float value) {
+            var instance = getInstance();
+            instance.put("integer", value);
+            return getBuilderAfterIntegerSchema(instance);
+        }
+        
+        default T setInteger(long value) {
+            var instance = getInstance();
+            instance.put("integer", value);
+            return getBuilderAfterIntegerSchema(instance);
+        }
+        
+        default T setInteger(double value) {
+            var instance = getInstance();
+            instance.put("integer", value);
+            return getBuilderAfterIntegerSchema(instance);
+        }
+    }
+    
+    public interface SetterForInt32 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt32(Map<String, @Nullable Object> instance);
+        
+        default T int32(int value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(float value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+    }
+    
+    public interface SetterForInt32withValidations <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt32withValidations(Map<String, @Nullable Object> instance);
+        
+        default T int32withValidations(int value) {
+            var instance = getInstance();
+            instance.put("int32withValidations", value);
+            return getBuilderAfterInt32withValidations(instance);
+        }
+        
+        default T int32withValidations(float value) {
+            var instance = getInstance();
+            instance.put("int32withValidations", value);
+            return getBuilderAfterInt32withValidations(instance);
+        }
+    }
+    
+    public interface SetterForInt64 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt64(Map<String, @Nullable Object> instance);
+        
+        default T int64(int value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(float value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(long value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(double value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+    }
+    
+    public interface SetterForFloatSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance);
+        
+        default T setFloat(int value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(float value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(long value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(double value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+    }
+    
+    public interface SetterForFloat32 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFloat32(Map<String, @Nullable Object> instance);
+        
+        default T float32(int value) {
+            var instance = getInstance();
+            instance.put("float32", value);
+            return getBuilderAfterFloat32(instance);
+        }
+        
+        default T float32(float value) {
+            var instance = getInstance();
+            instance.put("float32", value);
+            return getBuilderAfterFloat32(instance);
+        }
+        
+        default T float32(long value) {
+            var instance = getInstance();
+            instance.put("float32", value);
+            return getBuilderAfterFloat32(instance);
+        }
+        
+        default T float32(double value) {
+            var instance = getInstance();
+            instance.put("float32", value);
+            return getBuilderAfterFloat32(instance);
+        }
+    }
+    
+    public interface SetterForDoubleSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance);
+        
+        default T setDouble(int value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(float value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(long value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(double value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+    }
+    
+    public interface SetterForFloat64 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFloat64(Map<String, @Nullable Object> instance);
+        
+        default T float64(int value) {
+            var instance = getInstance();
+            instance.put("float64", value);
+            return getBuilderAfterFloat64(instance);
+        }
+        
+        default T float64(float value) {
+            var instance = getInstance();
+            instance.put("float64", value);
+            return getBuilderAfterFloat64(instance);
+        }
+        
+        default T float64(long value) {
+            var instance = getInstance();
+            instance.put("float64", value);
+            return getBuilderAfterFloat64(instance);
+        }
+        
+        default T float64(double value) {
+            var instance = getInstance();
+            instance.put("float64", value);
+            return getBuilderAfterFloat64(instance);
+        }
+    }
+    
+    public interface SetterForArrayWithUniqueItems <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayWithUniqueItems(Map<String, @Nullable Object> instance);
+        
+        default T arrayWithUniqueItems(List<Number> value) {
+            var instance = getInstance();
+            instance.put("arrayWithUniqueItems", value);
+            return getBuilderAfterArrayWithUniqueItems(instance);
+        }
+    }
+    
+    public interface SetterForStringSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStringSchema(Map<String, @Nullable Object> instance);
+        
+        default T setString(String value) {
+            var instance = getInstance();
+            instance.put("string", value);
+            return getBuilderAfterStringSchema(instance);
+        }
+    }
+    
+    public interface SetterForBinary <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBinary(Map<String, @Nullable Object> instance);
+        
+        default T binary(String value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+    }
+    
+    public interface SetterForDateTime <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDateTime(Map<String, @Nullable Object> instance);
+        
+        default T dateTime(String value) {
+            var instance = getInstance();
+            instance.put("dateTime", value);
+            return getBuilderAfterDateTime(instance);
+        }
+    }
+    
+    public interface SetterForUuidSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
+        
+        default T setUuid(String value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+    }
+    
+    public interface SetterForUuidNoExample <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterUuidNoExample(Map<String, @Nullable Object> instance);
+        
+        default T uuidNoExample(String value) {
+            var instance = getInstance();
+            instance.put("uuidNoExample", value);
+            return getBuilderAfterUuidNoExample(instance);
+        }
+    }
+    
+    public interface SetterForPatternWithDigits <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPatternWithDigits(Map<String, @Nullable Object> instance);
+        
+        default T pattern_with_digits(String value) {
+            var instance = getInstance();
+            instance.put("pattern_with_digits", value);
+            return getBuilderAfterPatternWithDigits(instance);
+        }
+    }
+    
+    public interface SetterForPatternWithDigitsAndDelimiter <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPatternWithDigitsAndDelimiter(Map<String, @Nullable Object> instance);
+        
+        default T pattern_with_digits_and_delimiter(String value) {
+            var instance = getInstance();
+            instance.put("pattern_with_digits_and_delimiter", value);
+            return getBuilderAfterPatternWithDigitsAndDelimiter(instance);
+        }
+    }
+    
+    public interface SetterForNoneProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNoneProp(Map<String, @Nullable Object> instance);
+        
+        default T noneProp(Void value) {
+            var instance = getInstance();
+            instance.put("noneProp", null);
+            return getBuilderAfterNoneProp(instance);
+        }
+    }
+    
+    public static class FormatTestMap0000Builder extends UnsetAddPropsSetter<FormatTestMap0000Builder> implements BaseBuilder<@Nullable Object>, SetterForIntegerSchema<FormatTestMap0000Builder>, SetterForInt32<FormatTestMap0000Builder>, SetterForInt32withValidations<FormatTestMap0000Builder>, SetterForInt64<FormatTestMap0000Builder>, SetterForFloatSchema<FormatTestMap0000Builder>, SetterForFloat32<FormatTestMap0000Builder>, SetterForDoubleSchema<FormatTestMap0000Builder>, SetterForFloat64<FormatTestMap0000Builder>, SetterForArrayWithUniqueItems<FormatTestMap0000Builder>, SetterForStringSchema<FormatTestMap0000Builder>, SetterForBinary<FormatTestMap0000Builder>, SetterForDateTime<FormatTestMap0000Builder>, SetterForUuidSchema<FormatTestMap0000Builder>, SetterForUuidNoExample<FormatTestMap0000Builder>, SetterForPatternWithDigits<FormatTestMap0000Builder>, SetterForPatternWithDigitsAndDelimiter<FormatTestMap0000Builder>, SetterForNoneProp<FormatTestMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "byte",
+            "date",
+            "number",
+            "password",
+            "integer",
+            "int32",
+            "int32withValidations",
+            "int64",
+            "float",
+            "float32",
+            "double",
+            "float64",
+            "arrayWithUniqueItems",
+            "string",
+            "binary",
+            "dateTime",
+            "uuid",
+            "uuidNoExample",
+            "pattern_with_digits",
+            "pattern_with_digits_and_delimiter",
+            "noneProp"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public FormatTestMap0000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0000Builder getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterInt32withValidations(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterInt64(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterFloat32(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterFloat64(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterArrayWithUniqueItems(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterStringSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterBinary(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterDateTime(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterUuidNoExample(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterPatternWithDigits(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterPatternWithDigitsAndDelimiter(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterNoneProp(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+        public FormatTestMap0000Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class FormatTestMap0001Builder implements SetterForPassword<FormatTestMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap0001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0000Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap0010Builder implements SetterForNumberSchema<FormatTestMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap0010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0000Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap0011Builder implements SetterForNumberSchema<FormatTestMap0001Builder>, SetterForPassword<FormatTestMap0010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap0011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0001Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0001Builder(instance);
+        }
+        public FormatTestMap0010Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0010Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap0100Builder implements SetterForDate<FormatTestMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap0100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0000Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap0101Builder implements SetterForDate<FormatTestMap0001Builder>, SetterForPassword<FormatTestMap0100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap0101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0001Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0001Builder(instance);
+        }
+        public FormatTestMap0100Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0100Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap0110Builder implements SetterForDate<FormatTestMap0010Builder>, SetterForNumberSchema<FormatTestMap0100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap0110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0010Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0010Builder(instance);
+        }
+        public FormatTestMap0100Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0100Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap0111Builder implements SetterForDate<FormatTestMap0011Builder>, SetterForNumberSchema<FormatTestMap0101Builder>, SetterForPassword<FormatTestMap0110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap0111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0011Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0011Builder(instance);
+        }
+        public FormatTestMap0101Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0101Builder(instance);
+        }
+        public FormatTestMap0110Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0110Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap1000Builder implements SetterForByteSchema<FormatTestMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap1000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0000Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0000Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap1001Builder implements SetterForByteSchema<FormatTestMap0001Builder>, SetterForPassword<FormatTestMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap1001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0001Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0001Builder(instance);
+        }
+        public FormatTestMap1000Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1000Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap1010Builder implements SetterForByteSchema<FormatTestMap0010Builder>, SetterForNumberSchema<FormatTestMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap1010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0010Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0010Builder(instance);
+        }
+        public FormatTestMap1000Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1000Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap1011Builder implements SetterForByteSchema<FormatTestMap0011Builder>, SetterForNumberSchema<FormatTestMap1001Builder>, SetterForPassword<FormatTestMap1010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap1011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0011Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0011Builder(instance);
+        }
+        public FormatTestMap1001Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1001Builder(instance);
+        }
+        public FormatTestMap1010Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1010Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap1100Builder implements SetterForByteSchema<FormatTestMap0100Builder>, SetterForDate<FormatTestMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap1100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0100Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0100Builder(instance);
+        }
+        public FormatTestMap1000Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1000Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap1101Builder implements SetterForByteSchema<FormatTestMap0101Builder>, SetterForDate<FormatTestMap1001Builder>, SetterForPassword<FormatTestMap1100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap1101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0101Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0101Builder(instance);
+        }
+        public FormatTestMap1001Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1001Builder(instance);
+        }
+        public FormatTestMap1100Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1100Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMap1110Builder implements SetterForByteSchema<FormatTestMap0110Builder>, SetterForDate<FormatTestMap1010Builder>, SetterForNumberSchema<FormatTestMap1100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMap1110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0110Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0110Builder(instance);
+        }
+        public FormatTestMap1010Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1010Builder(instance);
+        }
+        public FormatTestMap1100Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1100Builder(instance);
+        }
+    }
+    
+    public static class FormatTestMapBuilder implements SetterForByteSchema<FormatTestMap0111Builder>, SetterForDate<FormatTestMap1011Builder>, SetterForNumberSchema<FormatTestMap1101Builder>, SetterForPassword<FormatTestMap1110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public FormatTestMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FormatTestMap0111Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap0111Builder(instance);
+        }
+        public FormatTestMap1011Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1011Builder(instance);
+        }
+        public FormatTestMap1101Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1101Builder(instance);
+        }
+        public FormatTestMap1110Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new FormatTestMap1110Builder(instance);
+        }
     }
     
     

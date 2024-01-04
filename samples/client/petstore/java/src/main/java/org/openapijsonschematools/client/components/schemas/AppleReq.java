@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -21,6 +22,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -95,8 +97,63 @@ public class AppleReq {
             return (boolean) value;
         }
     }
-    public static class AppleReqMapBuilder {
-        // requiredProperties, optionalProperties, NO additionalProperties
+    
+    public interface SetterForCultivar <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterCultivar(Map<String, Object> instance);
+        
+        default T cultivar(String value) {
+            var instance = getInstance();
+            instance.put("cultivar", value);
+            return getBuilderAfterCultivar(instance);
+        }
+    }
+    
+    public interface SetterForMealy <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterMealy(Map<String, Object> instance);
+        
+        default T mealy(boolean value) {
+            var instance = getInstance();
+            instance.put("mealy", value);
+            return getBuilderAfterMealy(instance);
+        }
+    }
+    
+    public static class AppleReqMap0Builder implements BaseBuilder<Object>, SetterForMealy<AppleReqMap0Builder> {
+        private final Map<String, Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "cultivar",
+            "mealy"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AppleReqMap0Builder(Map<String, Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Object> build() {
+            return instance;
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public AppleReqMap0Builder getBuilderAfterMealy(Map<String, Object> instance) {
+            return new AppleReqMap0Builder(instance);
+        }
+    }
+    
+    public static class AppleReqMapBuilder implements SetterForCultivar<AppleReqMap0Builder> {
+        private final Map<String, Object> instance;
+        public AppleReqMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public AppleReqMap0Builder getBuilderAfterCultivar(Map<String, Object> instance) {
+            return new AppleReqMap0Builder(instance);
+        }
     }
     
     

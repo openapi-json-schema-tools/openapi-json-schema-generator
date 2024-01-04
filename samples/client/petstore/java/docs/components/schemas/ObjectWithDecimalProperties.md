@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,7 +39,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
     ObjectWithDecimalProperties.ObjectWithDecimalProperties1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, Object>(
             "length",
             "3.14"
@@ -50,7 +50,7 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "cost",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, String>(
                     "amount",
                     "3.14"
@@ -79,17 +79,38 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithDecimalPropertiesMapBuilder
 public class ObjectWithDecimalPropertiesMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **length** | String |  | [optional] |
-| **width** | String |  | [optional] value must be int or float numeric |
-| **cost** | Map<String, ? extends @Nullable Object> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithDecimalPropertiesMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(Void value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(boolean value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(String value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(int value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(float value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(long value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(double value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(List<?> value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | length(Map<String, ?> value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | width(String value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(Void value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(boolean value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(String value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(int value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(float value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(long value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(double value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(List<?> value) |
+| [ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder) | cost(Map<String, ?> value) |
 
 ## ObjectWithDecimalPropertiesMap
 public static class ObjectWithDecimalPropertiesMap<br>

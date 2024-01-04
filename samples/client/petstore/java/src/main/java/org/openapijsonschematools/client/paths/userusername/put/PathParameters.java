@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,93 @@ public class PathParameters {
             return getOrThrow("username");
         }
     }
-    public static class PathParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForUsername <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterUsername(Map<String, String> instance);
+        
+        default T username(Void value) {
+            var instance = getInstance();
+            instance.put("username", null);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(boolean value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(String value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(int value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(float value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(long value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(double value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(List<?> value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+    }
+    
+    public static class PathParametersMap0Builder implements BaseBuilder<String> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "username"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PathParametersMap0Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+    }
+    
+    public static class PathParametersMapBuilder implements SetterForUsername<PathParametersMap0Builder> {
+        private final Map<String, String> instance;
+        public PathParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public PathParametersMap0Builder getBuilderAfterUsername(Map<String, String> instance) {
+            return new PathParametersMap0Builder(instance);
+        }
     }
     
     

@@ -17,7 +17,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -65,8 +67,41 @@ public class ClassModel {
             return get(name);
         }
     }
-    public static class ClassModelMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForClassSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterClassSchema(Map<String, @Nullable Object> instance);
+        
+        default T setClass(String value) {
+            var instance = getInstance();
+            instance.put("_class", value);
+            return getBuilderAfterClassSchema(instance);
+        }
+    }
+    
+    public static class ClassModelMapBuilder extends UnsetAddPropsSetter<ClassModelMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForClassSchema<ClassModelMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "_class"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ClassModelMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ClassModelMapBuilder getBuilderAfterClassSchema(Map<String, @Nullable Object> instance) {
+            return new ClassModelMapBuilder(instance);
+        }
+        public ClassModelMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

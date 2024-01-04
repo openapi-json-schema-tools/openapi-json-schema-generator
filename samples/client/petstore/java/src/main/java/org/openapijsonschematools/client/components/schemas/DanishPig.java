@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -121,8 +123,57 @@ public class DanishPig {
             return get(name);
         }
     }
-    public static class DanishPigMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForClassName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterClassName(Map<String, @Nullable Object> instance);
+        
+        default T className(String value) {
+            var instance = getInstance();
+            instance.put("className", value);
+            return getBuilderAfterClassName(instance);
+        }
+        
+        default T className(StringClassNameEnums value) {
+            var instance = getInstance();
+            instance.put("className", value.value());
+            return getBuilderAfterClassName(instance);
+        }
+    }
+    
+    public static class DanishPigMap0Builder extends UnsetAddPropsSetter<DanishPigMap0Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "className"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public DanishPigMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public DanishPigMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class DanishPigMapBuilder implements SetterForClassName<DanishPigMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public DanishPigMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public DanishPigMap0Builder getBuilderAfterClassName(Map<String, @Nullable Object> instance) {
+            return new DanishPigMap0Builder(instance);
+        }
     }
     
     

@@ -14,6 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -53,8 +55,188 @@ public class ObjectWithInvalidNamedRefedProperties {
             return get(name);
         }
     }
-    public static class ObjectWithInvalidNamedRefedPropertiesMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForReference <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterReference(Map<String, @Nullable Object> instance);
+        
+        default T setExclamationMarkReference(Void value) {
+            var instance = getInstance();
+            instance.put("!reference", null);
+            return getBuilderAfterReference(instance);
+        }
+        
+        default T setExclamationMarkReference(boolean value) {
+            var instance = getInstance();
+            instance.put("!reference", value);
+            return getBuilderAfterReference(instance);
+        }
+        
+        default T setExclamationMarkReference(String value) {
+            var instance = getInstance();
+            instance.put("!reference", value);
+            return getBuilderAfterReference(instance);
+        }
+        
+        default T setExclamationMarkReference(int value) {
+            var instance = getInstance();
+            instance.put("!reference", value);
+            return getBuilderAfterReference(instance);
+        }
+        
+        default T setExclamationMarkReference(float value) {
+            var instance = getInstance();
+            instance.put("!reference", value);
+            return getBuilderAfterReference(instance);
+        }
+        
+        default T setExclamationMarkReference(long value) {
+            var instance = getInstance();
+            instance.put("!reference", value);
+            return getBuilderAfterReference(instance);
+        }
+        
+        default T setExclamationMarkReference(double value) {
+            var instance = getInstance();
+            instance.put("!reference", value);
+            return getBuilderAfterReference(instance);
+        }
+        
+        default T setExclamationMarkReference(List<?> value) {
+            var instance = getInstance();
+            instance.put("!reference", value);
+            return getBuilderAfterReference(instance);
+        }
+        
+        default T setExclamationMarkReference(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("!reference", value);
+            return getBuilderAfterReference(instance);
+        }
+    }
+    
+    public interface SetterForFrom <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFrom(Map<String, @Nullable Object> instance);
+        
+        default T from(Void value) {
+            var instance = getInstance();
+            instance.put("from", null);
+            return getBuilderAfterFrom(instance);
+        }
+        
+        default T from(boolean value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+        
+        default T from(String value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+        
+        default T from(int value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+        
+        default T from(float value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+        
+        default T from(long value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+        
+        default T from(double value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+        
+        default T from(List<?> value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+        
+        default T from(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+    }
+    
+    public static class ObjectWithInvalidNamedRefedPropertiesMap00Builder extends UnsetAddPropsSetter<ObjectWithInvalidNamedRefedPropertiesMap00Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "!reference",
+            "from"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectWithInvalidNamedRefedPropertiesMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithInvalidNamedRefedPropertiesMap00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class ObjectWithInvalidNamedRefedPropertiesMap01Builder implements SetterForFrom<ObjectWithInvalidNamedRefedPropertiesMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjectWithInvalidNamedRefedPropertiesMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithInvalidNamedRefedPropertiesMap00Builder getBuilderAfterFrom(Map<String, @Nullable Object> instance) {
+            return new ObjectWithInvalidNamedRefedPropertiesMap00Builder(instance);
+        }
+    }
+    
+    public static class ObjectWithInvalidNamedRefedPropertiesMap10Builder implements SetterForReference<ObjectWithInvalidNamedRefedPropertiesMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjectWithInvalidNamedRefedPropertiesMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithInvalidNamedRefedPropertiesMap00Builder getBuilderAfterReference(Map<String, @Nullable Object> instance) {
+            return new ObjectWithInvalidNamedRefedPropertiesMap00Builder(instance);
+        }
+    }
+    
+    public static class ObjectWithInvalidNamedRefedPropertiesMapBuilder implements SetterForReference<ObjectWithInvalidNamedRefedPropertiesMap01Builder>, SetterForFrom<ObjectWithInvalidNamedRefedPropertiesMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjectWithInvalidNamedRefedPropertiesMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithInvalidNamedRefedPropertiesMap01Builder getBuilderAfterReference(Map<String, @Nullable Object> instance) {
+            return new ObjectWithInvalidNamedRefedPropertiesMap01Builder(instance);
+        }
+        public ObjectWithInvalidNamedRefedPropertiesMap10Builder getBuilderAfterFrom(Map<String, @Nullable Object> instance) {
+            return new ObjectWithInvalidNamedRefedPropertiesMap10Builder(instance);
+        }
     }
     
     

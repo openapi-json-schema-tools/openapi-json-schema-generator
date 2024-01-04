@@ -31,7 +31,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -44,7 +44,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
     JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, String>(
             "from",
             "a"
@@ -75,18 +75,135 @@ JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<?, ?>](#jsonpatchrequestmovecopymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## JSONPatchRequestMoveCopyMap000Builder
+public class JSONPatchRequestMoveCopyMap000Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopyMap000Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+## JSONPatchRequestMoveCopyMap001Builder
+public class JSONPatchRequestMoveCopyMap001Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopyMap001Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestMoveCopyMap000Builder](#jsonpatchrequestmovecopymap000builder) | path(String value) |
+## JSONPatchRequestMoveCopyMap010Builder
+public class JSONPatchRequestMoveCopyMap010Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopyMap010Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestMoveCopyMap000Builder](#jsonpatchrequestmovecopymap000builder) | op(String value) |
+| [JSONPatchRequestMoveCopyMap000Builder](#jsonpatchrequestmovecopymap000builder) | op([StringOpEnums](#stringopenums) value) |
+## JSONPatchRequestMoveCopyMap011Builder
+public class JSONPatchRequestMoveCopyMap011Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopyMap011Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestMoveCopyMap001Builder](#jsonpatchrequestmovecopymap001builder) | op(String value) |
+| [JSONPatchRequestMoveCopyMap001Builder](#jsonpatchrequestmovecopymap001builder) | op([StringOpEnums](#stringopenums) value) |
+| [JSONPatchRequestMoveCopyMap010Builder](#jsonpatchrequestmovecopymap010builder) | path(String value) |
+## JSONPatchRequestMoveCopyMap100Builder
+public class JSONPatchRequestMoveCopyMap100Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopyMap100Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestMoveCopyMap000Builder](#jsonpatchrequestmovecopymap000builder) | from(String value) |
+## JSONPatchRequestMoveCopyMap101Builder
+public class JSONPatchRequestMoveCopyMap101Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopyMap101Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestMoveCopyMap001Builder](#jsonpatchrequestmovecopymap001builder) | from(String value) |
+| [JSONPatchRequestMoveCopyMap100Builder](#jsonpatchrequestmovecopymap100builder) | path(String value) |
+## JSONPatchRequestMoveCopyMap110Builder
+public class JSONPatchRequestMoveCopyMap110Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopyMap110Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestMoveCopyMap010Builder](#jsonpatchrequestmovecopymap010builder) | from(String value) |
+| [JSONPatchRequestMoveCopyMap100Builder](#jsonpatchrequestmovecopymap100builder) | op(String value) |
+| [JSONPatchRequestMoveCopyMap100Builder](#jsonpatchrequestmovecopymap100builder) | op([StringOpEnums](#stringopenums) value) |
 ## JSONPatchRequestMoveCopyMapBuilder
 public class JSONPatchRequestMoveCopyMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **from** | String | A JSON Pointer path. | |
-| **op** | String | The operation to perform. | must be one of ["move", "copy"] |
-| **path** | String | A JSON Pointer path. | |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestMoveCopyMap011Builder](#jsonpatchrequestmovecopymap011builder) | from(String value) |
+| [JSONPatchRequestMoveCopyMap101Builder](#jsonpatchrequestmovecopymap101builder) | op(String value) |
+| [JSONPatchRequestMoveCopyMap101Builder](#jsonpatchrequestmovecopymap101builder) | op([StringOpEnums](#stringopenums) value) |
+| [JSONPatchRequestMoveCopyMap110Builder](#jsonpatchrequestmovecopymap110builder) | path(String value) |
 
 ## JSONPatchRequestMoveCopyMap
 public static class JSONPatchRequestMoveCopyMap<br>
@@ -116,7 +233,7 @@ The operation to perform.
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

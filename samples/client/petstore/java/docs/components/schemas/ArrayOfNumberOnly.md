@@ -31,7 +31,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -44,7 +44,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
     ArrayOfNumberOnly.ArrayOfNumberOnly1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<>(
             "ArrayNumber",
             Arrays.asList(
@@ -69,15 +69,20 @@ ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfNumberOnlyMapBuilder
 public class ArrayOfNumberOnlyMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **ArrayNumber** | List<Number> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayOfNumberOnlyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder) | ArrayNumber(List<Number> value) |
 
 ## ArrayOfNumberOnlyMap
 public static class ArrayOfNumberOnlyMap<br>
@@ -103,7 +108,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -116,7 +121,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfNumberOnly.ArrayNumberList validatedPayload =
     ArrayOfNumberOnly.ArrayNumber.validate(
-    new .ArrayNumberListBuilder(
+    new ArrayOfNumberOnly.ArrayNumberListBuilder(
         Arrays.asList(
             1
         )

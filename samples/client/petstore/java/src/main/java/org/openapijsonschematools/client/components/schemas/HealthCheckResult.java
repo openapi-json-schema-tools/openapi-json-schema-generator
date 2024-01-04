@@ -14,6 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -117,8 +119,47 @@ public class HealthCheckResult {
             return get(name);
         }
     }
-    public static class HealthCheckResultMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForNullableMessage <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNullableMessage(Map<String, @Nullable Object> instance);
+        
+        default T NullableMessage(Void value) {
+            var instance = getInstance();
+            instance.put("NullableMessage", null);
+            return getBuilderAfterNullableMessage(instance);
+        }
+        
+        default T NullableMessage(String value) {
+            var instance = getInstance();
+            instance.put("NullableMessage", value);
+            return getBuilderAfterNullableMessage(instance);
+        }
+    }
+    
+    public static class HealthCheckResultMapBuilder extends UnsetAddPropsSetter<HealthCheckResultMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForNullableMessage<HealthCheckResultMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "NullableMessage"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public HealthCheckResultMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HealthCheckResultMapBuilder getBuilderAfterNullableMessage(Map<String, @Nullable Object> instance) {
+            return new HealthCheckResultMapBuilder(instance);
+        }
+        public HealthCheckResultMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

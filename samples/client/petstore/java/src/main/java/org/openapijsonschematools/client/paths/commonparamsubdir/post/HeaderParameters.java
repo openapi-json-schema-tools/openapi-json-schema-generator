@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,86 @@ public class HeaderParameters {
             return getOrThrow("someHeader");
         }
     }
-    public static class HeaderParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForSomeHeader <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterSomeHeader(Map<String, String> instance);
+        
+        default T someHeader(Void value) {
+            var instance = getInstance();
+            instance.put("someHeader", null);
+            return getBuilderAfterSomeHeader(instance);
+        }
+        
+        default T someHeader(boolean value) {
+            var instance = getInstance();
+            instance.put("someHeader", value);
+            return getBuilderAfterSomeHeader(instance);
+        }
+        
+        default T someHeader(String value) {
+            var instance = getInstance();
+            instance.put("someHeader", value);
+            return getBuilderAfterSomeHeader(instance);
+        }
+        
+        default T someHeader(int value) {
+            var instance = getInstance();
+            instance.put("someHeader", value);
+            return getBuilderAfterSomeHeader(instance);
+        }
+        
+        default T someHeader(float value) {
+            var instance = getInstance();
+            instance.put("someHeader", value);
+            return getBuilderAfterSomeHeader(instance);
+        }
+        
+        default T someHeader(long value) {
+            var instance = getInstance();
+            instance.put("someHeader", value);
+            return getBuilderAfterSomeHeader(instance);
+        }
+        
+        default T someHeader(double value) {
+            var instance = getInstance();
+            instance.put("someHeader", value);
+            return getBuilderAfterSomeHeader(instance);
+        }
+        
+        default T someHeader(List<?> value) {
+            var instance = getInstance();
+            instance.put("someHeader", value);
+            return getBuilderAfterSomeHeader(instance);
+        }
+        
+        default T someHeader(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("someHeader", value);
+            return getBuilderAfterSomeHeader(instance);
+        }
+    }
+    
+    public static class HeaderParametersMapBuilder implements BaseBuilder<String>, SetterForSomeHeader<HeaderParametersMapBuilder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "someHeader"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public HeaderParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public HeaderParametersMapBuilder getBuilderAfterSomeHeader(Map<String, String> instance) {
+            return new HeaderParametersMapBuilder(instance);
+        }
     }
     
     

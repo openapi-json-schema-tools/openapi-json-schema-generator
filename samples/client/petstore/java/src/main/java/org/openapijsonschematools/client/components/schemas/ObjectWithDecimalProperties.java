@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.DecimalJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -88,8 +90,167 @@ public class ObjectWithDecimalProperties {
             return get(name);
         }
     }
-    public static class ObjectWithDecimalPropertiesMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForLength <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterLength(Map<String, @Nullable Object> instance);
+        
+        default T length(Void value) {
+            var instance = getInstance();
+            instance.put("length", null);
+            return getBuilderAfterLength(instance);
+        }
+        
+        default T length(boolean value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+        
+        default T length(String value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+        
+        default T length(int value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+        
+        default T length(float value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+        
+        default T length(long value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+        
+        default T length(double value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+        
+        default T length(List<?> value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+        
+        default T length(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+    }
+    
+    public interface SetterForWidth <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterWidth(Map<String, @Nullable Object> instance);
+        
+        default T width(String value) {
+            var instance = getInstance();
+            instance.put("width", value);
+            return getBuilderAfterWidth(instance);
+        }
+    }
+    
+    public interface SetterForCost <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCost(Map<String, @Nullable Object> instance);
+        
+        default T cost(Void value) {
+            var instance = getInstance();
+            instance.put("cost", null);
+            return getBuilderAfterCost(instance);
+        }
+        
+        default T cost(boolean value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+        
+        default T cost(String value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+        
+        default T cost(int value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+        
+        default T cost(float value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+        
+        default T cost(long value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+        
+        default T cost(double value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+        
+        default T cost(List<?> value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+        
+        default T cost(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+    }
+    
+    public static class ObjectWithDecimalPropertiesMapBuilder extends UnsetAddPropsSetter<ObjectWithDecimalPropertiesMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForLength<ObjectWithDecimalPropertiesMapBuilder>, SetterForWidth<ObjectWithDecimalPropertiesMapBuilder>, SetterForCost<ObjectWithDecimalPropertiesMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "length",
+            "width",
+            "cost"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectWithDecimalPropertiesMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterLength(Map<String, @Nullable Object> instance) {
+            return new ObjectWithDecimalPropertiesMapBuilder(instance);
+        }
+        public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterWidth(Map<String, @Nullable Object> instance) {
+            return new ObjectWithDecimalPropertiesMapBuilder(instance);
+        }
+        public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterCost(Map<String, @Nullable Object> instance) {
+            return new ObjectWithDecimalPropertiesMapBuilder(instance);
+        }
+        public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

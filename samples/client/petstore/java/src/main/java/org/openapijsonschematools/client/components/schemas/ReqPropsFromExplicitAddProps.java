@@ -14,11 +14,13 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -59,8 +61,105 @@ public class ReqPropsFromExplicitAddProps {
             return getOrThrow(name);
         }
     }
-    public static class ReqPropsFromExplicitAddPropsMapBuilder {
-        // requiredProperties + additionalProperties
+    
+    public interface SetterForInvalidname <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterInvalidname(Map<String, String> instance);
+        
+        default T setInvalidHyphenMinusName(String value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+    }
+    
+    public interface SetterForValidName <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterValidName(Map<String, String> instance);
+        
+        default T validName(String value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+    }
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, String> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, String> instance);
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class ReqPropsFromExplicitAddPropsMap00Builder implements BaseBuilder<String>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMap00Builder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "invalid-name",
+            "validName"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ReqPropsFromExplicitAddPropsMap00Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public ReqPropsFromExplicitAddPropsMap00Builder getBuilderAfterAdditionalProperty(Map<String, String> instance) {
+            return this;
+        }
+    }
+    
+    public static class ReqPropsFromExplicitAddPropsMap01Builder implements SetterForValidName<ReqPropsFromExplicitAddPropsMap00Builder>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMap01Builder> {
+        private final Map<String, String> instance;
+        public ReqPropsFromExplicitAddPropsMap01Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public ReqPropsFromExplicitAddPropsMap00Builder getBuilderAfterValidName(Map<String, String> instance) {
+            return new ReqPropsFromExplicitAddPropsMap00Builder(instance);
+        }
+    }
+    
+    public static class ReqPropsFromExplicitAddPropsMap10Builder implements SetterForInvalidname<ReqPropsFromExplicitAddPropsMap00Builder>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMap10Builder> {
+        private final Map<String, String> instance;
+        public ReqPropsFromExplicitAddPropsMap10Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public ReqPropsFromExplicitAddPropsMap00Builder getBuilderAfterInvalidname(Map<String, String> instance) {
+            return new ReqPropsFromExplicitAddPropsMap00Builder(instance);
+        }
+    }
+    
+    public static class ReqPropsFromExplicitAddPropsMapBuilder implements SetterForInvalidname<ReqPropsFromExplicitAddPropsMap01Builder>, SetterForValidName<ReqPropsFromExplicitAddPropsMap10Builder>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMapBuilder> {
+        private final Map<String, String> instance;
+        public ReqPropsFromExplicitAddPropsMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public ReqPropsFromExplicitAddPropsMap01Builder getBuilderAfterInvalidname(Map<String, String> instance) {
+            return new ReqPropsFromExplicitAddPropsMap01Builder(instance);
+        }
+        public ReqPropsFromExplicitAddPropsMap10Builder getBuilderAfterValidName(Map<String, String> instance) {
+            return new ReqPropsFromExplicitAddPropsMap10Builder(instance);
+        }
     }
     
     

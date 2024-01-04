@@ -14,11 +14,13 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -51,8 +53,38 @@ public class Schema {
             return getOrThrow(name);
         }
     }
-    public static class SchemaMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, String> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, String> instance);
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class SchemaMapBuilder implements BaseBuilder<String>, SetterForAdditionalProperties<SchemaMapBuilder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public SchemaMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public SchemaMapBuilder getBuilderAfterAdditionalProperty(Map<String, String> instance) {
+            return this;
+        }
     }
     
     

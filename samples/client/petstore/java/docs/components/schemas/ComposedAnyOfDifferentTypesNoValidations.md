@@ -52,7 +52,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema15
@@ -126,7 +126,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -139,7 +139,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
     ComposedAnyOfDifferentTypesNoValidations.Schema9.validate(
-    new .Schema9ListBuilder(
+    new ComposedAnyOfDifferentTypesNoValidations.Schema9ListBuilder(
         Arrays.asList(
         )
     ).build(),

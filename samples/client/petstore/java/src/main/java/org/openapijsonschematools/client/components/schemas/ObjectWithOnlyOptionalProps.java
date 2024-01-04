@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -21,6 +22,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -96,8 +98,71 @@ public class ObjectWithOnlyOptionalProps {
             return (Number) value;
         }
     }
-    public static class ObjectWithOnlyOptionalPropsMapBuilder {
-        // empty mapping
+    
+    public interface SetterForA <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterA(Map<String, Object> instance);
+        
+        default T a(String value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+    }
+    
+    public interface SetterForB <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterB(Map<String, Object> instance);
+        
+        default T b(int value) {
+            var instance = getInstance();
+            instance.put("b", value);
+            return getBuilderAfterB(instance);
+        }
+        
+        default T b(float value) {
+            var instance = getInstance();
+            instance.put("b", value);
+            return getBuilderAfterB(instance);
+        }
+        
+        default T b(long value) {
+            var instance = getInstance();
+            instance.put("b", value);
+            return getBuilderAfterB(instance);
+        }
+        
+        default T b(double value) {
+            var instance = getInstance();
+            instance.put("b", value);
+            return getBuilderAfterB(instance);
+        }
+    }
+    
+    public static class ObjectWithOnlyOptionalPropsMapBuilder implements BaseBuilder<Object>, SetterForA<ObjectWithOnlyOptionalPropsMapBuilder>, SetterForB<ObjectWithOnlyOptionalPropsMapBuilder> {
+        private final Map<String, Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "a",
+            "b"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectWithOnlyOptionalPropsMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Object> build() {
+            return instance;
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithOnlyOptionalPropsMapBuilder getBuilderAfterA(Map<String, Object> instance) {
+            return new ObjectWithOnlyOptionalPropsMapBuilder(instance);
+        }
+        public ObjectWithOnlyOptionalPropsMapBuilder getBuilderAfterB(Map<String, Object> instance) {
+            return new ObjectWithOnlyOptionalPropsMapBuilder(instance);
+        }
     }
     
     

@@ -14,12 +14,14 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -230,8 +232,299 @@ public class Drawing {
             return (@Nullable Object) value;
         }
     }
-    public static class DrawingMapBuilder {
-        // optionalProperties + additionalProperties
+    
+    public interface SetterForMainShape <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMainShape(Map<String, @Nullable Object> instance);
+        
+        default T mainShape(Void value) {
+            var instance = getInstance();
+            instance.put("mainShape", null);
+            return getBuilderAfterMainShape(instance);
+        }
+        
+        default T mainShape(boolean value) {
+            var instance = getInstance();
+            instance.put("mainShape", value);
+            return getBuilderAfterMainShape(instance);
+        }
+        
+        default T mainShape(String value) {
+            var instance = getInstance();
+            instance.put("mainShape", value);
+            return getBuilderAfterMainShape(instance);
+        }
+        
+        default T mainShape(int value) {
+            var instance = getInstance();
+            instance.put("mainShape", value);
+            return getBuilderAfterMainShape(instance);
+        }
+        
+        default T mainShape(float value) {
+            var instance = getInstance();
+            instance.put("mainShape", value);
+            return getBuilderAfterMainShape(instance);
+        }
+        
+        default T mainShape(long value) {
+            var instance = getInstance();
+            instance.put("mainShape", value);
+            return getBuilderAfterMainShape(instance);
+        }
+        
+        default T mainShape(double value) {
+            var instance = getInstance();
+            instance.put("mainShape", value);
+            return getBuilderAfterMainShape(instance);
+        }
+        
+        default T mainShape(List<?> value) {
+            var instance = getInstance();
+            instance.put("mainShape", value);
+            return getBuilderAfterMainShape(instance);
+        }
+        
+        default T mainShape(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("mainShape", value);
+            return getBuilderAfterMainShape(instance);
+        }
+    }
+    
+    public interface SetterForShapeOrNull <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterShapeOrNull(Map<String, @Nullable Object> instance);
+        
+        default T shapeOrNull(Void value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", null);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+        
+        default T shapeOrNull(boolean value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", value);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+        
+        default T shapeOrNull(String value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", value);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+        
+        default T shapeOrNull(int value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", value);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+        
+        default T shapeOrNull(float value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", value);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+        
+        default T shapeOrNull(long value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", value);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+        
+        default T shapeOrNull(double value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", value);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+        
+        default T shapeOrNull(List<?> value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", value);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+        
+        default T shapeOrNull(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("shapeOrNull", value);
+            return getBuilderAfterShapeOrNull(instance);
+        }
+    }
+    
+    public interface SetterForNullableShape <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNullableShape(Map<String, @Nullable Object> instance);
+        
+        default T nullableShape(Void value) {
+            var instance = getInstance();
+            instance.put("nullableShape", null);
+            return getBuilderAfterNullableShape(instance);
+        }
+        
+        default T nullableShape(boolean value) {
+            var instance = getInstance();
+            instance.put("nullableShape", value);
+            return getBuilderAfterNullableShape(instance);
+        }
+        
+        default T nullableShape(String value) {
+            var instance = getInstance();
+            instance.put("nullableShape", value);
+            return getBuilderAfterNullableShape(instance);
+        }
+        
+        default T nullableShape(int value) {
+            var instance = getInstance();
+            instance.put("nullableShape", value);
+            return getBuilderAfterNullableShape(instance);
+        }
+        
+        default T nullableShape(float value) {
+            var instance = getInstance();
+            instance.put("nullableShape", value);
+            return getBuilderAfterNullableShape(instance);
+        }
+        
+        default T nullableShape(long value) {
+            var instance = getInstance();
+            instance.put("nullableShape", value);
+            return getBuilderAfterNullableShape(instance);
+        }
+        
+        default T nullableShape(double value) {
+            var instance = getInstance();
+            instance.put("nullableShape", value);
+            return getBuilderAfterNullableShape(instance);
+        }
+        
+        default T nullableShape(List<?> value) {
+            var instance = getInstance();
+            instance.put("nullableShape", value);
+            return getBuilderAfterNullableShape(instance);
+        }
+        
+        default T nullableShape(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("nullableShape", value);
+            return getBuilderAfterNullableShape(instance);
+        }
+    }
+    
+    public interface SetterForShapes <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterShapes(Map<String, @Nullable Object> instance);
+        
+        default T shapes(List<@Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("shapes", value);
+            return getBuilderAfterShapes(instance);
+        }
+    }
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, float value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, long value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, double value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, List<?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, ?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class DrawingMapBuilder implements BaseBuilder<@Nullable Object>, SetterForMainShape<DrawingMapBuilder>, SetterForShapeOrNull<DrawingMapBuilder>, SetterForNullableShape<DrawingMapBuilder>, SetterForShapes<DrawingMapBuilder>, SetterForAdditionalProperties<DrawingMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "mainShape",
+            "shapeOrNull",
+            "nullableShape",
+            "shapes"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public DrawingMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public DrawingMapBuilder getBuilderAfterMainShape(Map<String, @Nullable Object> instance) {
+            return new DrawingMapBuilder(instance);
+        }
+        public DrawingMapBuilder getBuilderAfterShapeOrNull(Map<String, @Nullable Object> instance) {
+            return new DrawingMapBuilder(instance);
+        }
+        public DrawingMapBuilder getBuilderAfterNullableShape(Map<String, @Nullable Object> instance) {
+            return new DrawingMapBuilder(instance);
+        }
+        public DrawingMapBuilder getBuilderAfterShapes(Map<String, @Nullable Object> instance) {
+            return new DrawingMapBuilder(instance);
+        }
+        public DrawingMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

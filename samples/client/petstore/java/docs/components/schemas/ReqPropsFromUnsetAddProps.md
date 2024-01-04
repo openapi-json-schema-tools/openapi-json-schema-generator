@@ -25,7 +25,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -38,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
     ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -55,18 +55,99 @@ ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<?, ?>](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ReqPropsFromUnsetAddPropsMapBuilder
-public class ReqPropsFromUnsetAddPropsMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ReqPropsFromUnsetAddPropsMap00Builder
+public class ReqPropsFromUnsetAddPropsMap00Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **invalid-name** | ? extends @Nullable Object |  | |
-| **validName** | ? extends @Nullable Object |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromUnsetAddPropsMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## ReqPropsFromUnsetAddPropsMap01Builder
+public class ReqPropsFromUnsetAddPropsMap01Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromUnsetAddPropsMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(Void value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(boolean value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(String value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(int value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(float value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(long value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(double value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(List<?> value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | validName(Map<String, ?> value) |
+## ReqPropsFromUnsetAddPropsMap10Builder
+public class ReqPropsFromUnsetAddPropsMap10Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromUnsetAddPropsMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(Void value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(boolean value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(String value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(int value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(float value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(long value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(double value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(List<?> value) |
+| [ReqPropsFromUnsetAddPropsMap00Builder](#reqpropsfromunsetaddpropsmap00builder) | setInvalidHyphenMinusName(Map<String, ?> value) |
+## ReqPropsFromUnsetAddPropsMapBuilder
+public class ReqPropsFromUnsetAddPropsMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromUnsetAddPropsMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(Void value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(boolean value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(String value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(int value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(float value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(long value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(double value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(List<?> value) |
+| [ReqPropsFromUnsetAddPropsMap01Builder](#reqpropsfromunsetaddpropsmap01builder) | setInvalidHyphenMinusName(Map<String, ?> value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(Void value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(boolean value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(String value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(int value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(float value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(long value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(double value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(List<?> value) |
+| [ReqPropsFromUnsetAddPropsMap10Builder](#reqpropsfromunsetaddpropsmap10builder) | validName(Map<String, ?> value) |
 
 ## ReqPropsFromUnsetAddPropsMap
 public static class ReqPropsFromUnsetAddPropsMap<br>

@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,7 +40,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Schema.SchemaMap validatedPayload =
     Schema.Schema1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, String>(
             "additionalMetadata",
             "a"
@@ -67,16 +67,21 @@ Schema.SchemaMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder
 public class SchemaMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **additionalMetadata** | String | Additional data to pass to server | [optional] |
-| **file** | String | file to upload | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [SchemaMapBuilder](#schemamapbuilder) | additionalMetadata(String value) |
+| [SchemaMapBuilder](#schemamapbuilder) | file(String value) |
 
 ## SchemaMap
 public static class SchemaMap<br>

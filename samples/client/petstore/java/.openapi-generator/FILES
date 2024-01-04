@@ -648,6 +648,7 @@ src/main/java/org/openapijsonschematools/client/paths/userusername/get/responses
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/requestbody/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
+src/main/java/org/openapijsonschematools/client/schemas/BaseBuilder.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateTimeJsonSchema.java
@@ -659,12 +660,12 @@ src/main/java/org/openapijsonschematools/client/schemas/Int64JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/IntJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/ListJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/MapJsonSchema.java
-src/main/java/org/openapijsonschematools/client/schemas/MapMaker.java
 src/main/java/org/openapijsonschematools/client/schemas/NotAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NullJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NumberJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/SetMaker.java
 src/main/java/org/openapijsonschematools/client/schemas/StringJsonSchema.java
+src/main/java/org/openapijsonschematools/client/schemas/UnsetAddPropsSetter.java
 src/main/java/org/openapijsonschematools/client/schemas/UuidJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/AdditionalPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/AllOfValidator.java
@@ -698,6 +699,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ListSchemaVal
 src/main/java/org/openapijsonschematools/client/schemas/validation/LongEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/LongValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MapSchemaValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/MapUtils.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxLengthValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxPropertiesValidator.java

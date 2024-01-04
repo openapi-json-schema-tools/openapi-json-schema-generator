@@ -28,7 +28,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -41,7 +41,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AppleReq.AppleReqMap validatedPayload =
     AppleReq.AppleReq1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, Object>(
             "cultivar",
             "a"
@@ -68,17 +68,37 @@ AppleReq.AppleReqMap validatedPayload =
 | ----------------- | ---------------------- |
 | [AppleReqMap](#applereqmap) | validate([Map<?, ?>](#applereqmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## AppleReqMap0Builder
+public class AppleReqMap0Builder<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AppleReqMap0Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [AppleReqMap0Builder](#applereqmap0builder) | mealy(boolean value) |
 ## AppleReqMapBuilder
 public class AppleReqMapBuilder<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **cultivar** | String |  | |
-| **mealy** | boolean |  | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AppleReqMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [AppleReqMap0Builder](#applereqmap0builder) | cultivar(String value) |
 
 ## AppleReqMap
 public static class AppleReqMap<br>

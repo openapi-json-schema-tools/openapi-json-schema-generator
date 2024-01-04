@@ -19,11 +19,13 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -79,8 +81,435 @@ public class Headers {
             return (String) value;
         }
     }
-    public static class HeadersMapBuilder {
-        // requiredProperties, optionalProperties, NO additionalProperties
+    
+    public interface SetterForXRateLimit <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance);
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(Void value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", null);
+            return getBuilderAfterXRateLimit(instance);
+        }
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(boolean value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", value);
+            return getBuilderAfterXRateLimit(instance);
+        }
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(String value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", value);
+            return getBuilderAfterXRateLimit(instance);
+        }
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(int value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", value);
+            return getBuilderAfterXRateLimit(instance);
+        }
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(float value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", value);
+            return getBuilderAfterXRateLimit(instance);
+        }
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(long value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", value);
+            return getBuilderAfterXRateLimit(instance);
+        }
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(double value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", value);
+            return getBuilderAfterXRateLimit(instance);
+        }
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(List<?> value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", value);
+            return getBuilderAfterXRateLimit(instance);
+        }
+        
+        default T setXHyphenMinusRateHyphenMinusLimit(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("X-Rate-Limit", value);
+            return getBuilderAfterXRateLimit(instance);
+        }
+    }
+    
+    public interface SetterForInt32 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt32(Map<String, @Nullable Object> instance);
+        
+        default T int32(Void value) {
+            var instance = getInstance();
+            instance.put("int32", null);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(boolean value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(String value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(int value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(float value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(long value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(double value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(List<?> value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+    }
+    
+    public interface SetterForRefcontentschemaheader <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance);
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(Void value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", null);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(boolean value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(int value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(float value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(long value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(double value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(List<?> value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+    }
+    
+    public interface SetterForXExpiresAfter <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterXExpiresAfter(Map<String, @Nullable Object> instance);
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(Void value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", null);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(boolean value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", value);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(String value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", value);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(int value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", value);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(float value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", value);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(long value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", value);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(double value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", value);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(List<?> value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", value);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+        
+        default T setXHyphenMinusExpiresHyphenMinusAfter(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("X-Expires-After", value);
+            return getBuilderAfterXExpiresAfter(instance);
+        }
+    }
+    
+    public interface SetterForNumberHeader <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance);
+        
+        default T numberHeader(Void value) {
+            var instance = getInstance();
+            instance.put("numberHeader", null);
+            return getBuilderAfterNumberHeader(instance);
+        }
+        
+        default T numberHeader(boolean value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+        
+        default T numberHeader(String value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+        
+        default T numberHeader(int value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+        
+        default T numberHeader(float value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+        
+        default T numberHeader(long value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+        
+        default T numberHeader(double value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+        
+        default T numberHeader(List<?> value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+        
+        default T numberHeader(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+    }
+    
+    public static class HeadersMap000Builder implements BaseBuilder<@Nullable Object>, SetterForXExpiresAfter<HeadersMap000Builder>, SetterForNumberHeader<HeadersMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "X-Rate-Limit",
+            "int32",
+            "ref-content-schema-header",
+            "X-Expires-After",
+            "numberHeader"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public HeadersMap000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap000Builder getBuilderAfterXExpiresAfter(Map<String, @Nullable Object> instance) {
+            return new HeadersMap000Builder(instance);
+        }
+        public HeadersMap000Builder getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap001Builder implements SetterForRefcontentschemaheader<HeadersMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap000Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap010Builder implements SetterForInt32<HeadersMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap000Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap011Builder implements SetterForInt32<HeadersMap001Builder>, SetterForRefcontentschemaheader<HeadersMap010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap001Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap001Builder(instance);
+        }
+        public HeadersMap010Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap010Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap100Builder implements SetterForXRateLimit<HeadersMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap000Builder getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance) {
+            return new HeadersMap000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap101Builder implements SetterForXRateLimit<HeadersMap001Builder>, SetterForRefcontentschemaheader<HeadersMap100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap001Builder getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance) {
+            return new HeadersMap001Builder(instance);
+        }
+        public HeadersMap100Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap100Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap110Builder implements SetterForXRateLimit<HeadersMap010Builder>, SetterForInt32<HeadersMap100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap010Builder getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance) {
+            return new HeadersMap010Builder(instance);
+        }
+        public HeadersMap100Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap100Builder(instance);
+        }
+    }
+    
+    public static class HeadersMapBuilder implements SetterForXRateLimit<HeadersMap011Builder>, SetterForInt32<HeadersMap101Builder>, SetterForRefcontentschemaheader<HeadersMap110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap011Builder getBuilderAfterXRateLimit(Map<String, @Nullable Object> instance) {
+            return new HeadersMap011Builder(instance);
+        }
+        public HeadersMap101Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap101Builder(instance);
+        }
+        public HeadersMap110Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap110Builder(instance);
+        }
     }
     
     

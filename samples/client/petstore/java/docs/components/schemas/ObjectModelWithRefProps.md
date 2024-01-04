@@ -28,7 +28,7 @@ a model that includes properties which should stay primitive (String + Boolean) 
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -41,7 +41,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
     ObjectModelWithRefProps.ObjectModelWithRefProps1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -60,17 +60,46 @@ ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectModelWithRefPropsMapBuilder
 public class ObjectModelWithRefPropsMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **myNumber** | Number |  | [optional] |
-| **myString** | String |  | [optional] |
-| **myBoolean** | boolean |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectModelWithRefPropsMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(Void value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(boolean value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(String value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(int value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(float value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(long value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(double value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(List<?> value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myNumber(Map<String, ?> value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(Void value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(boolean value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(String value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(int value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(float value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(long value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(double value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(List<?> value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myString(Map<String, ?> value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(Void value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(boolean value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(String value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(int value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(float value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(long value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(double value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(List<?> value) |
+| [ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder) | myBoolean(Map<String, ?> value) |
 
 ## ObjectModelWithRefPropsMap
 public static class ObjectModelWithRefPropsMap<br>

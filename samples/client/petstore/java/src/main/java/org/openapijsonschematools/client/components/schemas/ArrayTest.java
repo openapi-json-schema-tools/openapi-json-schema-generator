@@ -14,8 +14,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -607,8 +609,71 @@ public class ArrayTest {
             return get(name);
         }
     }
-    public static class ArrayTestMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForArrayOfString <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayOfString(Map<String, @Nullable Object> instance);
+        
+        default T array_of_string(List<String> value) {
+            var instance = getInstance();
+            instance.put("array_of_string", value);
+            return getBuilderAfterArrayOfString(instance);
+        }
+    }
+    
+    public interface SetterForArrayArrayOfInteger <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayArrayOfInteger(Map<String, @Nullable Object> instance);
+        
+        default T array_array_of_integer(List<List<Number>> value) {
+            var instance = getInstance();
+            instance.put("array_array_of_integer", value);
+            return getBuilderAfterArrayArrayOfInteger(instance);
+        }
+    }
+    
+    public interface SetterForArrayArrayOfModel <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayArrayOfModel(Map<String, @Nullable Object> instance);
+        
+        default T array_array_of_model(List<List<Map<String, @Nullable Object>>> value) {
+            var instance = getInstance();
+            instance.put("array_array_of_model", value);
+            return getBuilderAfterArrayArrayOfModel(instance);
+        }
+    }
+    
+    public static class ArrayTestMapBuilder extends UnsetAddPropsSetter<ArrayTestMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForArrayOfString<ArrayTestMapBuilder>, SetterForArrayArrayOfInteger<ArrayTestMapBuilder>, SetterForArrayArrayOfModel<ArrayTestMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "array_of_string",
+            "array_array_of_integer",
+            "array_array_of_model"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ArrayTestMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ArrayTestMapBuilder getBuilderAfterArrayOfString(Map<String, @Nullable Object> instance) {
+            return new ArrayTestMapBuilder(instance);
+        }
+        public ArrayTestMapBuilder getBuilderAfterArrayArrayOfInteger(Map<String, @Nullable Object> instance) {
+            return new ArrayTestMapBuilder(instance);
+        }
+        public ArrayTestMapBuilder getBuilderAfterArrayArrayOfModel(Map<String, @Nullable Object> instance) {
+            return new ArrayTestMapBuilder(instance);
+        }
+        public ArrayTestMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

@@ -40,21 +40,72 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | validate([Map<?, ?>](#quadrilateralinterfacemapbuilder) arg, SchemaConfiguration configuration) |
+| [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | validate([Map&lt;?, ?&gt;](#quadrilateralinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## QuadrilateralInterfaceMapBuilder
-public class QuadrilateralInterfaceMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## QuadrilateralInterfaceMap00Builder
+public class QuadrilateralInterfaceMap00Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **quadrilateralType** | String |  | |
-| **shapeType** | String |  | must be one of ["Quadrilateral"] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| QuadrilateralInterfaceMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## QuadrilateralInterfaceMap01Builder
+public class QuadrilateralInterfaceMap01Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| QuadrilateralInterfaceMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | shapeType(String value) |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | shapeType([StringShapeTypeEnums](#stringshapetypeenums) value) |
+## QuadrilateralInterfaceMap10Builder
+public class QuadrilateralInterfaceMap10Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| QuadrilateralInterfaceMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [QuadrilateralInterfaceMap00Builder](#quadrilateralinterfacemap00builder) | quadrilateralType(String value) |
+## QuadrilateralInterfaceMapBuilder
+public class QuadrilateralInterfaceMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| QuadrilateralInterfaceMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [QuadrilateralInterfaceMap01Builder](#quadrilateralinterfacemap01builder) | quadrilateralType(String value) |
+| [QuadrilateralInterfaceMap10Builder](#quadrilateralinterfacemap10builder) | shapeType(String value) |
+| [QuadrilateralInterfaceMap10Builder](#quadrilateralinterfacemap10builder) | shapeType([StringShapeTypeEnums](#stringshapetypeenums) value) |
 
 ## QuadrilateralInterfaceMap
 public static class QuadrilateralInterfaceMap<br>
@@ -91,7 +142,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

@@ -37,7 +37,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1
@@ -51,7 +51,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -64,7 +64,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map validatedPayload =
     ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<>(
             "name",
             "a"
@@ -86,18 +86,45 @@ ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map validatedPayload =
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## Schema1MapBuilder
-public class Schema1MapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## Schema1Map0Builder
+public class Schema1Map0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **test** | ? extends @Nullable Object |  | |
-| **name** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1Map0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema1Map0Builder](#schema1map0builder) | name(String value) |
+## Schema1MapBuilder
+public class Schema1MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1MapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [Schema1Map0Builder](#schema1map0builder) | test(Void value) |
+| [Schema1Map0Builder](#schema1map0builder) | test(boolean value) |
+| [Schema1Map0Builder](#schema1map0builder) | test(String value) |
+| [Schema1Map0Builder](#schema1map0builder) | test(int value) |
+| [Schema1Map0Builder](#schema1map0builder) | test(float value) |
+| [Schema1Map0Builder](#schema1map0builder) | test(long value) |
+| [Schema1Map0Builder](#schema1map0builder) | test(double value) |
+| [Schema1Map0Builder](#schema1map0builder) | test(List<?> value) |
+| [Schema1Map0Builder](#schema1map0builder) | test(Map<String, ?> value) |
 
 ## Schema1Map
 public static class Schema1Map<br>

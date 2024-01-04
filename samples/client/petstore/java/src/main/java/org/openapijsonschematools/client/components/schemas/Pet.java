@@ -14,9 +14,11 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -412,8 +414,224 @@ public class Pet {
             return get(name);
         }
     }
-    public static class PetMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterName(Map<String, @Nullable Object> instance);
+        
+        default T name(String value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName(instance);
+        }
+    }
+    
+    public interface SetterForPhotoUrls <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPhotoUrls(Map<String, @Nullable Object> instance);
+        
+        default T photoUrls(List<String> value) {
+            var instance = getInstance();
+            instance.put("photoUrls", value);
+            return getBuilderAfterPhotoUrls(instance);
+        }
+    }
+    
+    public interface SetterForId <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterId(Map<String, @Nullable Object> instance);
+        
+        default T id(int value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(float value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(long value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(double value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+    }
+    
+    public interface SetterForCategory <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCategory(Map<String, @Nullable Object> instance);
+        
+        default T category(Void value) {
+            var instance = getInstance();
+            instance.put("category", null);
+            return getBuilderAfterCategory(instance);
+        }
+        
+        default T category(boolean value) {
+            var instance = getInstance();
+            instance.put("category", value);
+            return getBuilderAfterCategory(instance);
+        }
+        
+        default T category(String value) {
+            var instance = getInstance();
+            instance.put("category", value);
+            return getBuilderAfterCategory(instance);
+        }
+        
+        default T category(int value) {
+            var instance = getInstance();
+            instance.put("category", value);
+            return getBuilderAfterCategory(instance);
+        }
+        
+        default T category(float value) {
+            var instance = getInstance();
+            instance.put("category", value);
+            return getBuilderAfterCategory(instance);
+        }
+        
+        default T category(long value) {
+            var instance = getInstance();
+            instance.put("category", value);
+            return getBuilderAfterCategory(instance);
+        }
+        
+        default T category(double value) {
+            var instance = getInstance();
+            instance.put("category", value);
+            return getBuilderAfterCategory(instance);
+        }
+        
+        default T category(List<?> value) {
+            var instance = getInstance();
+            instance.put("category", value);
+            return getBuilderAfterCategory(instance);
+        }
+        
+        default T category(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("category", value);
+            return getBuilderAfterCategory(instance);
+        }
+    }
+    
+    public interface SetterForTags <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterTags(Map<String, @Nullable Object> instance);
+        
+        default T tags(List<Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("tags", value);
+            return getBuilderAfterTags(instance);
+        }
+    }
+    
+    public interface SetterForStatus <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStatus(Map<String, @Nullable Object> instance);
+        
+        default T status(String value) {
+            var instance = getInstance();
+            instance.put("status", value);
+            return getBuilderAfterStatus(instance);
+        }
+        
+        default T status(StringStatusEnums value) {
+            var instance = getInstance();
+            instance.put("status", value.value());
+            return getBuilderAfterStatus(instance);
+        }
+    }
+    
+    public static class PetMap00Builder extends UnsetAddPropsSetter<PetMap00Builder> implements BaseBuilder<@Nullable Object>, SetterForId<PetMap00Builder>, SetterForCategory<PetMap00Builder>, SetterForTags<PetMap00Builder>, SetterForStatus<PetMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "name",
+            "photoUrls",
+            "id",
+            "category",
+            "tags",
+            "status"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PetMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PetMap00Builder getBuilderAfterId(Map<String, @Nullable Object> instance) {
+            return new PetMap00Builder(instance);
+        }
+        public PetMap00Builder getBuilderAfterCategory(Map<String, @Nullable Object> instance) {
+            return new PetMap00Builder(instance);
+        }
+        public PetMap00Builder getBuilderAfterTags(Map<String, @Nullable Object> instance) {
+            return new PetMap00Builder(instance);
+        }
+        public PetMap00Builder getBuilderAfterStatus(Map<String, @Nullable Object> instance) {
+            return new PetMap00Builder(instance);
+        }
+        public PetMap00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class PetMap01Builder implements SetterForPhotoUrls<PetMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public PetMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PetMap00Builder getBuilderAfterPhotoUrls(Map<String, @Nullable Object> instance) {
+            return new PetMap00Builder(instance);
+        }
+    }
+    
+    public static class PetMap10Builder implements SetterForName<PetMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public PetMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PetMap00Builder getBuilderAfterName(Map<String, @Nullable Object> instance) {
+            return new PetMap00Builder(instance);
+        }
+    }
+    
+    public static class PetMapBuilder implements SetterForName<PetMap01Builder>, SetterForPhotoUrls<PetMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public PetMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PetMap01Builder getBuilderAfterName(Map<String, @Nullable Object> instance) {
+            return new PetMap01Builder(instance);
+        }
+        public PetMap10Builder getBuilderAfterPhotoUrls(Map<String, @Nullable Object> instance) {
+            return new PetMap10Builder(instance);
+        }
     }
     
     

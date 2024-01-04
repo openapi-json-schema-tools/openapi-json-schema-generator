@@ -17,7 +17,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -131,8 +133,47 @@ public class ComplexQuadrilateral {
             return get(name);
         }
     }
-    public static class Schema1MapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForQuadrilateralType <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterQuadrilateralType(Map<String, @Nullable Object> instance);
+        
+        default T quadrilateralType(String value) {
+            var instance = getInstance();
+            instance.put("quadrilateralType", value);
+            return getBuilderAfterQuadrilateralType(instance);
+        }
+        
+        default T quadrilateralType(StringQuadrilateralTypeEnums value) {
+            var instance = getInstance();
+            instance.put("quadrilateralType", value.value());
+            return getBuilderAfterQuadrilateralType(instance);
+        }
+    }
+    
+    public static class Schema1MapBuilder extends UnsetAddPropsSetter<Schema1MapBuilder> implements BaseBuilder<@Nullable Object>, SetterForQuadrilateralType<Schema1MapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "quadrilateralType"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema1MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1MapBuilder getBuilderAfterQuadrilateralType(Map<String, @Nullable Object> instance) {
+            return new Schema1MapBuilder(instance);
+        }
+        public Schema1MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

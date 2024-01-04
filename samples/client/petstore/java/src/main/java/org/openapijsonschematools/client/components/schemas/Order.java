@@ -14,11 +14,13 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -241,8 +243,164 @@ public class Order {
             return get(name);
         }
     }
-    public static class OrderMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForId <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterId(Map<String, @Nullable Object> instance);
+        
+        default T id(int value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(float value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(long value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(double value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+    }
+    
+    public interface SetterForPetId <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPetId(Map<String, @Nullable Object> instance);
+        
+        default T petId(int value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(float value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(long value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(double value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+    }
+    
+    public interface SetterForQuantity <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterQuantity(Map<String, @Nullable Object> instance);
+        
+        default T quantity(int value) {
+            var instance = getInstance();
+            instance.put("quantity", value);
+            return getBuilderAfterQuantity(instance);
+        }
+        
+        default T quantity(float value) {
+            var instance = getInstance();
+            instance.put("quantity", value);
+            return getBuilderAfterQuantity(instance);
+        }
+    }
+    
+    public interface SetterForShipDate <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterShipDate(Map<String, @Nullable Object> instance);
+        
+        default T shipDate(String value) {
+            var instance = getInstance();
+            instance.put("shipDate", value);
+            return getBuilderAfterShipDate(instance);
+        }
+    }
+    
+    public interface SetterForStatus <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStatus(Map<String, @Nullable Object> instance);
+        
+        default T status(String value) {
+            var instance = getInstance();
+            instance.put("status", value);
+            return getBuilderAfterStatus(instance);
+        }
+        
+        default T status(StringStatusEnums value) {
+            var instance = getInstance();
+            instance.put("status", value.value());
+            return getBuilderAfterStatus(instance);
+        }
+    }
+    
+    public interface SetterForComplete <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterComplete(Map<String, @Nullable Object> instance);
+        
+        default T complete(boolean value) {
+            var instance = getInstance();
+            instance.put("complete", value);
+            return getBuilderAfterComplete(instance);
+        }
+    }
+    
+    public static class OrderMapBuilder extends UnsetAddPropsSetter<OrderMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForId<OrderMapBuilder>, SetterForPetId<OrderMapBuilder>, SetterForQuantity<OrderMapBuilder>, SetterForShipDate<OrderMapBuilder>, SetterForStatus<OrderMapBuilder>, SetterForComplete<OrderMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "id",
+            "petId",
+            "quantity",
+            "shipDate",
+            "status",
+            "complete"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public OrderMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public OrderMapBuilder getBuilderAfterId(Map<String, @Nullable Object> instance) {
+            return new OrderMapBuilder(instance);
+        }
+        public OrderMapBuilder getBuilderAfterPetId(Map<String, @Nullable Object> instance) {
+            return new OrderMapBuilder(instance);
+        }
+        public OrderMapBuilder getBuilderAfterQuantity(Map<String, @Nullable Object> instance) {
+            return new OrderMapBuilder(instance);
+        }
+        public OrderMapBuilder getBuilderAfterShipDate(Map<String, @Nullable Object> instance) {
+            return new OrderMapBuilder(instance);
+        }
+        public OrderMapBuilder getBuilderAfterStatus(Map<String, @Nullable Object> instance) {
+            return new OrderMapBuilder(instance);
+        }
+        public OrderMapBuilder getBuilderAfterComplete(Map<String, @Nullable Object> instance) {
+            return new OrderMapBuilder(instance);
+        }
+        public OrderMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

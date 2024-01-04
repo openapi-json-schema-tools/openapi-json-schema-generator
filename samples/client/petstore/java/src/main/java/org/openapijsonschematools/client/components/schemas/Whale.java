@@ -14,8 +14,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -167,8 +169,87 @@ public class Whale {
             return get(name);
         }
     }
-    public static class WhaleMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForClassName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterClassName(Map<String, @Nullable Object> instance);
+        
+        default T className(String value) {
+            var instance = getInstance();
+            instance.put("className", value);
+            return getBuilderAfterClassName(instance);
+        }
+        
+        default T className(StringClassNameEnums value) {
+            var instance = getInstance();
+            instance.put("className", value.value());
+            return getBuilderAfterClassName(instance);
+        }
+    }
+    
+    public interface SetterForHasBaleen <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterHasBaleen(Map<String, @Nullable Object> instance);
+        
+        default T hasBaleen(boolean value) {
+            var instance = getInstance();
+            instance.put("hasBaleen", value);
+            return getBuilderAfterHasBaleen(instance);
+        }
+    }
+    
+    public interface SetterForHasTeeth <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterHasTeeth(Map<String, @Nullable Object> instance);
+        
+        default T hasTeeth(boolean value) {
+            var instance = getInstance();
+            instance.put("hasTeeth", value);
+            return getBuilderAfterHasTeeth(instance);
+        }
+    }
+    
+    public static class WhaleMap0Builder extends UnsetAddPropsSetter<WhaleMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForHasBaleen<WhaleMap0Builder>, SetterForHasTeeth<WhaleMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "className",
+            "hasBaleen",
+            "hasTeeth"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public WhaleMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public WhaleMap0Builder getBuilderAfterHasBaleen(Map<String, @Nullable Object> instance) {
+            return new WhaleMap0Builder(instance);
+        }
+        public WhaleMap0Builder getBuilderAfterHasTeeth(Map<String, @Nullable Object> instance) {
+            return new WhaleMap0Builder(instance);
+        }
+        public WhaleMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class WhaleMapBuilder implements SetterForClassName<WhaleMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public WhaleMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public WhaleMap0Builder getBuilderAfterClassName(Map<String, @Nullable Object> instance) {
+            return new WhaleMap0Builder(instance);
+        }
     }
     
     

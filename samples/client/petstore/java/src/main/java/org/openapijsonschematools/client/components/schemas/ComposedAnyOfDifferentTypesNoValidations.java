@@ -30,6 +30,7 @@ import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;

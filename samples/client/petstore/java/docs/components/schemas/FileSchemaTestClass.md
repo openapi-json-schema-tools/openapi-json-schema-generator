@@ -30,7 +30,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -43,7 +43,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
     FileSchemaTestClass.FileSchemaTestClass1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<>(
             "files",
             Arrays.asList(
@@ -67,16 +67,29 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FileSchemaTestClassMapBuilder
 public class FileSchemaTestClassMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **file** | Map<String, ? extends @Nullable Object> |  | [optional] |
-| **files** | List<Map<String, ? extends @Nullable Object>> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FileSchemaTestClassMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(Void value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(boolean value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(String value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(int value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(float value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(long value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(double value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(List<?> value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | file(Map<String, ?> value) |
+| [FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder) | files(List<Map<String, @Nullable Object>> value) |
 
 ## FileSchemaTestClassMap
 public static class FileSchemaTestClassMap<br>
@@ -103,7 +116,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -116,7 +129,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 FileSchemaTestClass.FilesList validatedPayload =
     FileSchemaTestClass.Files.validate(
-    new .FilesListBuilder(
+    new FileSchemaTestClass.FilesListBuilder(
         Arrays.asList(
         )
     ).build(),

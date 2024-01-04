@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,7 +39,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap validatedPayload =
     ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<>(
             "b",
             "a"
@@ -61,17 +61,36 @@ ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map<?, ?>](#objwithrequiredpropsbasemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjWithRequiredPropsBaseMapBuilder
-public class ObjWithRequiredPropsBaseMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ObjWithRequiredPropsBaseMap0Builder
+public class ObjWithRequiredPropsBaseMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **b** | String |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjWithRequiredPropsBaseMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## ObjWithRequiredPropsBaseMapBuilder
+public class ObjWithRequiredPropsBaseMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjWithRequiredPropsBaseMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ObjWithRequiredPropsBaseMap0Builder](#objwithrequiredpropsbasemap0builder) | b(String value) |
 
 ## ObjWithRequiredPropsBaseMap
 public static class ObjWithRequiredPropsBaseMap<br>

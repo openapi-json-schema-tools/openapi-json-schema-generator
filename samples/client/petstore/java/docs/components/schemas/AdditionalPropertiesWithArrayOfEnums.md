@@ -30,7 +30,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -43,7 +43,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap validatedPayload =
     AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -66,10 +66,15 @@ builder for `Map<String, List<String>>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | List<String> | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesWithArrayOfEnumsMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, List<String>> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## AdditionalPropertiesWithArrayOfEnumsMap
 public static class AdditionalPropertiesWithArrayOfEnumsMap<br>
@@ -94,7 +99,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -107,7 +112,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
     AdditionalPropertiesWithArrayOfEnums.AdditionalProperties.validate(
-    new .AdditionalPropertiesListBuilder(
+    new AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListBuilder(
         Arrays.asList(
             "_abc"
         )

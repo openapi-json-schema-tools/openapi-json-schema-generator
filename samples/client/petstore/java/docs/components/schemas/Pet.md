@@ -42,7 +42,7 @@ Pet object that needs to be added to the store
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -55,7 +55,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Pet.PetMap validatedPayload =
     Pet.Pet1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, Object>(
             "name",
             "a"
@@ -72,7 +72,7 @@ Pet.PetMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "category",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "name",
                     "a"
@@ -86,7 +86,7 @@ Pet.PetMap validatedPayload =
         new AbstractMap.SimpleEntry<String, Object>(
             "tags",
             Arrays.asList(
-                MapMaker.makeMap(
+                MapUtils.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "name",
                         "a"
@@ -115,22 +115,83 @@ Pet.PetMap validatedPayload =
 | ----------------- | ---------------------- |
 | [PetMap](#petmap) | validate([Map<?, ?>](#petmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## PetMapBuilder
-public class PetMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## PetMap00Builder
+public class PetMap00Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **name** | String |  | |
-| **photoUrls** | List<String> |  | |
-| **id** | Number |  | [optional] value must be a 64 bit integer |
-| **category** | Map<String, ? extends @Nullable Object> |  | [optional] |
-| **tags** | List<Map<String, ? extends @Nullable Object>> |  | [optional] |
-| **status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PetMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [PetMap00Builder](#petmap00builder) | id(int value) |
+| [PetMap00Builder](#petmap00builder) | id(float value) |
+| [PetMap00Builder](#petmap00builder) | id(long value) |
+| [PetMap00Builder](#petmap00builder) | id(double value) |
+| [PetMap00Builder](#petmap00builder) | category(Void value) |
+| [PetMap00Builder](#petmap00builder) | category(boolean value) |
+| [PetMap00Builder](#petmap00builder) | category(String value) |
+| [PetMap00Builder](#petmap00builder) | category(int value) |
+| [PetMap00Builder](#petmap00builder) | category(float value) |
+| [PetMap00Builder](#petmap00builder) | category(long value) |
+| [PetMap00Builder](#petmap00builder) | category(double value) |
+| [PetMap00Builder](#petmap00builder) | category(List<?> value) |
+| [PetMap00Builder](#petmap00builder) | category(Map<String, ?> value) |
+| [PetMap00Builder](#petmap00builder) | tags(List<Map<String, @Nullable Object>> value) |
+| [PetMap00Builder](#petmap00builder) | status(String value) |
+| [PetMap00Builder](#petmap00builder) | status([StringStatusEnums](#stringstatusenums) value) |
+## PetMap01Builder
+public class PetMap01Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PetMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PetMap00Builder](#petmap00builder) | photoUrls(List<String> value) |
+## PetMap10Builder
+public class PetMap10Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PetMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PetMap00Builder](#petmap00builder) | name(String value) |
+## PetMapBuilder
+public class PetMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PetMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PetMap01Builder](#petmap01builder) | name(String value) |
+| [PetMap10Builder](#petmap10builder) | photoUrls(List<String> value) |
 
 ## PetMap
 public static class PetMap<br>
@@ -161,7 +222,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -174,9 +235,9 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Pet.TagsList validatedPayload =
     Pet.Tags.validate(
-    new .TagsListBuilder(
+    new Pet.TagsListBuilder(
         Arrays.asList(
-            MapMaker.makeMap(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "id",
                     1L
@@ -246,7 +307,7 @@ pet status in the store
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -299,7 +360,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -312,7 +373,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Pet.PhotoUrlsList validatedPayload =
     Pet.PhotoUrls.validate(
-    new .PhotoUrlsListBuilder(
+    new Pet.PhotoUrlsListBuilder(
         Arrays.asList(
             "a"
         )

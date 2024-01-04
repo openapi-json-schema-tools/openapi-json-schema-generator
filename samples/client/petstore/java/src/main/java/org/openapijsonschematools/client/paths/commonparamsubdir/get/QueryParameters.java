@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.commonparamsubdir.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,86 @@ public class QueryParameters {
             return getOrThrow("searchStr");
         }
     }
-    public static class QueryParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForSearchStr <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterSearchStr(Map<String, String> instance);
+        
+        default T searchStr(Void value) {
+            var instance = getInstance();
+            instance.put("searchStr", null);
+            return getBuilderAfterSearchStr(instance);
+        }
+        
+        default T searchStr(boolean value) {
+            var instance = getInstance();
+            instance.put("searchStr", value);
+            return getBuilderAfterSearchStr(instance);
+        }
+        
+        default T searchStr(String value) {
+            var instance = getInstance();
+            instance.put("searchStr", value);
+            return getBuilderAfterSearchStr(instance);
+        }
+        
+        default T searchStr(int value) {
+            var instance = getInstance();
+            instance.put("searchStr", value);
+            return getBuilderAfterSearchStr(instance);
+        }
+        
+        default T searchStr(float value) {
+            var instance = getInstance();
+            instance.put("searchStr", value);
+            return getBuilderAfterSearchStr(instance);
+        }
+        
+        default T searchStr(long value) {
+            var instance = getInstance();
+            instance.put("searchStr", value);
+            return getBuilderAfterSearchStr(instance);
+        }
+        
+        default T searchStr(double value) {
+            var instance = getInstance();
+            instance.put("searchStr", value);
+            return getBuilderAfterSearchStr(instance);
+        }
+        
+        default T searchStr(List<?> value) {
+            var instance = getInstance();
+            instance.put("searchStr", value);
+            return getBuilderAfterSearchStr(instance);
+        }
+        
+        default T searchStr(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("searchStr", value);
+            return getBuilderAfterSearchStr(instance);
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements BaseBuilder<String>, SetterForSearchStr<QueryParametersMapBuilder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "searchStr"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public QueryParametersMapBuilder getBuilderAfterSearchStr(Map<String, String> instance) {
+            return new QueryParametersMapBuilder(instance);
+        }
     }
     
     

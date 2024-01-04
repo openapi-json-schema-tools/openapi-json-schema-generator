@@ -16,7 +16,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -24,6 +26,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -1071,8 +1074,38 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectNullablePropMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, Map<String, @Nullable Object>> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Map<String, @Nullable Object>> instance);
+        
+        default T additionalProperty(String key, Map<String, @Nullable Object> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class ObjectNullablePropMapBuilder implements BaseBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties<ObjectNullablePropMapBuilder> {
+        private final Map<String, Map<String, @Nullable Object>> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectNullablePropMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Map<String, @Nullable Object>> build() {
+            return instance;
+        }
+        public Map<String, Map<String, @Nullable Object>> getInstance() {
+            return instance;
+        }
+        public ObjectNullablePropMapBuilder getBuilderAfterAdditionalProperty(Map<String, Map<String, @Nullable Object>> instance) {
+            return this;
+        }
     }
     
     
@@ -1262,8 +1295,45 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectAndItemsNullablePropMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties1<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Map<String, @Nullable Object>> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Map<String, @Nullable Object>> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, @Nullable Object> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class ObjectAndItemsNullablePropMapBuilder implements BaseBuilder<@Nullable Map<String, @Nullable Object>>, SetterForAdditionalProperties1<ObjectAndItemsNullablePropMapBuilder> {
+        private final Map<String, @Nullable Map<String, @Nullable Object>> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectAndItemsNullablePropMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Map<String, @Nullable Object>> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Map<String, @Nullable Object>> getInstance() {
+            return instance;
+        }
+        public ObjectAndItemsNullablePropMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Map<String, @Nullable Object>> instance) {
+            return this;
+        }
     }
     
     
@@ -1453,8 +1523,45 @@ public class NullableClass {
             return getOrThrow(name);
         }
     }
-    public static class ObjectItemsNullableMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties2<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Map<String, @Nullable Object>> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Map<String, @Nullable Object>> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, @Nullable Object> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class ObjectItemsNullableMapBuilder implements BaseBuilder<@Nullable Map<String, @Nullable Object>>, SetterForAdditionalProperties2<ObjectItemsNullableMapBuilder> {
+        private final Map<String, @Nullable Map<String, @Nullable Object>> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectItemsNullableMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Map<String, @Nullable Object>> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Map<String, @Nullable Object>> getInstance() {
+            return instance;
+        }
+        public ObjectItemsNullableMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Map<String, @Nullable Object>> instance) {
+            return this;
+        }
     }
     
     
@@ -1681,8 +1788,322 @@ public class NullableClass {
             return (@Nullable FrozenMap<?>) value;
         }
     }
-    public static class NullableClassMapBuilder {
-        // optionalProperties + additionalProperties
+    
+    public interface SetterForIntegerProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterIntegerProp(Map<String, @Nullable Object> instance);
+        
+        default T integer_prop(Void value) {
+            var instance = getInstance();
+            instance.put("integer_prop", null);
+            return getBuilderAfterIntegerProp(instance);
+        }
+        
+        default T integer_prop(int value) {
+            var instance = getInstance();
+            instance.put("integer_prop", value);
+            return getBuilderAfterIntegerProp(instance);
+        }
+        
+        default T integer_prop(float value) {
+            var instance = getInstance();
+            instance.put("integer_prop", value);
+            return getBuilderAfterIntegerProp(instance);
+        }
+        
+        default T integer_prop(long value) {
+            var instance = getInstance();
+            instance.put("integer_prop", value);
+            return getBuilderAfterIntegerProp(instance);
+        }
+        
+        default T integer_prop(double value) {
+            var instance = getInstance();
+            instance.put("integer_prop", value);
+            return getBuilderAfterIntegerProp(instance);
+        }
+    }
+    
+    public interface SetterForNumberProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNumberProp(Map<String, @Nullable Object> instance);
+        
+        default T number_prop(Void value) {
+            var instance = getInstance();
+            instance.put("number_prop", null);
+            return getBuilderAfterNumberProp(instance);
+        }
+        
+        default T number_prop(int value) {
+            var instance = getInstance();
+            instance.put("number_prop", value);
+            return getBuilderAfterNumberProp(instance);
+        }
+        
+        default T number_prop(float value) {
+            var instance = getInstance();
+            instance.put("number_prop", value);
+            return getBuilderAfterNumberProp(instance);
+        }
+        
+        default T number_prop(long value) {
+            var instance = getInstance();
+            instance.put("number_prop", value);
+            return getBuilderAfterNumberProp(instance);
+        }
+        
+        default T number_prop(double value) {
+            var instance = getInstance();
+            instance.put("number_prop", value);
+            return getBuilderAfterNumberProp(instance);
+        }
+    }
+    
+    public interface SetterForBooleanProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBooleanProp(Map<String, @Nullable Object> instance);
+        
+        default T boolean_prop(Void value) {
+            var instance = getInstance();
+            instance.put("boolean_prop", null);
+            return getBuilderAfterBooleanProp(instance);
+        }
+        
+        default T boolean_prop(boolean value) {
+            var instance = getInstance();
+            instance.put("boolean_prop", value);
+            return getBuilderAfterBooleanProp(instance);
+        }
+    }
+    
+    public interface SetterForStringProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStringProp(Map<String, @Nullable Object> instance);
+        
+        default T string_prop(Void value) {
+            var instance = getInstance();
+            instance.put("string_prop", null);
+            return getBuilderAfterStringProp(instance);
+        }
+        
+        default T string_prop(String value) {
+            var instance = getInstance();
+            instance.put("string_prop", value);
+            return getBuilderAfterStringProp(instance);
+        }
+    }
+    
+    public interface SetterForDateProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDateProp(Map<String, @Nullable Object> instance);
+        
+        default T date_prop(Void value) {
+            var instance = getInstance();
+            instance.put("date_prop", null);
+            return getBuilderAfterDateProp(instance);
+        }
+        
+        default T date_prop(String value) {
+            var instance = getInstance();
+            instance.put("date_prop", value);
+            return getBuilderAfterDateProp(instance);
+        }
+    }
+    
+    public interface SetterForDatetimeProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDatetimeProp(Map<String, @Nullable Object> instance);
+        
+        default T datetime_prop(Void value) {
+            var instance = getInstance();
+            instance.put("datetime_prop", null);
+            return getBuilderAfterDatetimeProp(instance);
+        }
+        
+        default T datetime_prop(String value) {
+            var instance = getInstance();
+            instance.put("datetime_prop", value);
+            return getBuilderAfterDatetimeProp(instance);
+        }
+    }
+    
+    public interface SetterForArrayNullableProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayNullableProp(Map<String, @Nullable Object> instance);
+        
+        default T array_nullable_prop(Void value) {
+            var instance = getInstance();
+            instance.put("array_nullable_prop", null);
+            return getBuilderAfterArrayNullableProp(instance);
+        }
+        
+        default T array_nullable_prop(List<Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("array_nullable_prop", value);
+            return getBuilderAfterArrayNullableProp(instance);
+        }
+    }
+    
+    public interface SetterForArrayAndItemsNullableProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayAndItemsNullableProp(Map<String, @Nullable Object> instance);
+        
+        default T array_and_items_nullable_prop(Void value) {
+            var instance = getInstance();
+            instance.put("array_and_items_nullable_prop", null);
+            return getBuilderAfterArrayAndItemsNullableProp(instance);
+        }
+        
+        default T array_and_items_nullable_prop(List<@Nullable Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("array_and_items_nullable_prop", value);
+            return getBuilderAfterArrayAndItemsNullableProp(instance);
+        }
+    }
+    
+    public interface SetterForArrayItemsNullable <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayItemsNullable(Map<String, @Nullable Object> instance);
+        
+        default T array_items_nullable(List<@Nullable Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("array_items_nullable", value);
+            return getBuilderAfterArrayItemsNullable(instance);
+        }
+    }
+    
+    public interface SetterForObjectNullableProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterObjectNullableProp(Map<String, @Nullable Object> instance);
+        
+        default T object_nullable_prop(Void value) {
+            var instance = getInstance();
+            instance.put("object_nullable_prop", null);
+            return getBuilderAfterObjectNullableProp(instance);
+        }
+        
+        default T object_nullable_prop(Map<String, Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("object_nullable_prop", value);
+            return getBuilderAfterObjectNullableProp(instance);
+        }
+    }
+    
+    public interface SetterForObjectAndItemsNullableProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterObjectAndItemsNullableProp(Map<String, @Nullable Object> instance);
+        
+        default T object_and_items_nullable_prop(Void value) {
+            var instance = getInstance();
+            instance.put("object_and_items_nullable_prop", null);
+            return getBuilderAfterObjectAndItemsNullableProp(instance);
+        }
+        
+        default T object_and_items_nullable_prop(Map<String, @Nullable Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("object_and_items_nullable_prop", value);
+            return getBuilderAfterObjectAndItemsNullableProp(instance);
+        }
+    }
+    
+    public interface SetterForObjectItemsNullable <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterObjectItemsNullable(Map<String, @Nullable Object> instance);
+        
+        default T object_items_nullable(Map<String, @Nullable Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("object_items_nullable", value);
+            return getBuilderAfterObjectItemsNullable(instance);
+        }
+    }
+    
+    public interface SetterForAdditionalProperties3<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, @Nullable Object> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class NullableClassMapBuilder implements BaseBuilder<@Nullable Object>, SetterForIntegerProp<NullableClassMapBuilder>, SetterForNumberProp<NullableClassMapBuilder>, SetterForBooleanProp<NullableClassMapBuilder>, SetterForStringProp<NullableClassMapBuilder>, SetterForDateProp<NullableClassMapBuilder>, SetterForDatetimeProp<NullableClassMapBuilder>, SetterForArrayNullableProp<NullableClassMapBuilder>, SetterForArrayAndItemsNullableProp<NullableClassMapBuilder>, SetterForArrayItemsNullable<NullableClassMapBuilder>, SetterForObjectNullableProp<NullableClassMapBuilder>, SetterForObjectAndItemsNullableProp<NullableClassMapBuilder>, SetterForObjectItemsNullable<NullableClassMapBuilder>, SetterForAdditionalProperties3<NullableClassMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "integer_prop",
+            "number_prop",
+            "boolean_prop",
+            "string_prop",
+            "date_prop",
+            "datetime_prop",
+            "array_nullable_prop",
+            "array_and_items_nullable_prop",
+            "array_items_nullable",
+            "object_nullable_prop",
+            "object_and_items_nullable_prop",
+            "object_items_nullable"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public NullableClassMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public NullableClassMapBuilder getBuilderAfterIntegerProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterNumberProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterBooleanProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterStringProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterDateProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterDatetimeProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterArrayNullableProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterArrayAndItemsNullableProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterArrayItemsNullable(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterObjectNullableProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterObjectAndItemsNullableProp(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterObjectItemsNullable(Map<String, @Nullable Object> instance) {
+            return new NullableClassMapBuilder(instance);
+        }
+        public NullableClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

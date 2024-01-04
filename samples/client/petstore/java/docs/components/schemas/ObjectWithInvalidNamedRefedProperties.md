@@ -25,7 +25,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -38,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap validatedPayload =
     ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, Object>(
             "!reference",
             Arrays.asList(
@@ -47,7 +47,7 @@ ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap v
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "from",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "data",
                     "a"
@@ -75,18 +75,99 @@ ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap v
 | ----------------- | ---------------------- |
 | [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate([Map<?, ?>](#objectwithinvalidnamedrefedpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithInvalidNamedRefedPropertiesMapBuilder
-public class ObjectWithInvalidNamedRefedPropertiesMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ObjectWithInvalidNamedRefedPropertiesMap00Builder
+public class ObjectWithInvalidNamedRefedPropertiesMap00Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **!reference** | List<Number> |  | |
-| **from** | Map<String, ? extends @Nullable Object> |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithInvalidNamedRefedPropertiesMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## ObjectWithInvalidNamedRefedPropertiesMap01Builder
+public class ObjectWithInvalidNamedRefedPropertiesMap01Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithInvalidNamedRefedPropertiesMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(Void value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(boolean value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(String value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(int value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(float value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(long value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(double value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(List<?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | from(Map<String, ?> value) |
+## ObjectWithInvalidNamedRefedPropertiesMap10Builder
+public class ObjectWithInvalidNamedRefedPropertiesMap10Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithInvalidNamedRefedPropertiesMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(Void value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(boolean value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(String value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(int value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(float value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(long value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(double value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(List<?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap00Builder](#objectwithinvalidnamedrefedpropertiesmap00builder) | setExclamationMarkReference(Map<String, ?> value) |
+## ObjectWithInvalidNamedRefedPropertiesMapBuilder
+public class ObjectWithInvalidNamedRefedPropertiesMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithInvalidNamedRefedPropertiesMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(Void value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(boolean value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(String value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(int value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(float value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(long value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(double value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(List<?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap01Builder](#objectwithinvalidnamedrefedpropertiesmap01builder) | setExclamationMarkReference(Map<String, ?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(Void value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(boolean value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(String value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(int value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(float value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(long value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(double value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(List<?> value) |
+| [ObjectWithInvalidNamedRefedPropertiesMap10Builder](#objectwithinvalidnamedrefedpropertiesmap10builder) | from(Map<String, ?> value) |
 
 ## ObjectWithInvalidNamedRefedPropertiesMap
 public static class ObjectWithInvalidNamedRefedPropertiesMap<br>

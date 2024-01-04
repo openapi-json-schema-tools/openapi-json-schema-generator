@@ -32,7 +32,7 @@ A class that contains necessary nested
 | static class | [AdditionalPropertiesClass.MapOfMapPropertyMapBuilder](#mapofmappropertymapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapOfMapPropertyMap](#mapofmappropertymap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
-| static class | [AdditionalPropertiesClass.AdditionalPropertiesMapBuilder](#additionalpropertiesmapbuilder)<br> builder for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesMapBuilder2](#additionalpropertiesmapbuilder2)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapProperty](#mapproperty)<br> schema class |
@@ -51,7 +51,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -64,30 +64,30 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
     AdditionalPropertiesClass.AdditionalPropertiesClass1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, Map<String, ?>>(
             "map_property",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
             )
         ),
         new AbstractMap.SimpleEntry<String, Map<String, ?>>(
             "map_of_map_property",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
             )
         ),
         new AbstractMap.SimpleEntry<String, Map<String, ?>>(
             "map_with_undeclared_properties_anytype_3",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
             )
         ),
         new AbstractMap.SimpleEntry<String, Map<String, ?>>(
             "empty_map",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
             )
         ),
         new AbstractMap.SimpleEntry<String, Map<String, ?>>(
             "map_with_undeclared_properties_string",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
             )
         )
     ),
@@ -108,22 +108,35 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesClassMapBuilder
 public class AdditionalPropertiesClassMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **map_property** | Map<String, String> |  | [optional] |
-| **map_of_map_property** | Map<String, Map<String, String>> |  | [optional] |
-| **anytype_1** | ? extends @Nullable Object |  | [optional] |
-| **map_with_undeclared_properties_anytype_1** | Map<String, ? extends @Nullable Object> |  | [optional] |
-| **map_with_undeclared_properties_anytype_2** | Map<String, ? extends @Nullable Object> |  | [optional] |
-| **map_with_undeclared_properties_anytype_3** | Map<String, ? extends @Nullable Object> |  | [optional] |
-| **empty_map** | Map<String, ? extends @Nullable Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional] |
-| **map_with_undeclared_properties_string** | Map<String, String> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesClassMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | map_property(Map<String, String> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | map_of_map_property(Map<String, Map<String, String>> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(Void value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(boolean value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(String value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(int value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(float value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(long value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(double value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(List<?> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | anytype_1(Map<String, ?> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | map_with_undeclared_properties_anytype_1(Map<String, @Nullable Object> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | map_with_undeclared_properties_anytype_2(Map<String, @Nullable Object> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | map_with_undeclared_properties_anytype_3(Map<String, @Nullable Object> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | empty_map(Map<String, @Nullable Object> value) |
+| [AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder) | map_with_undeclared_properties_string(Map<String, String> value) |
 
 ## AdditionalPropertiesClassMap
 public static class AdditionalPropertiesClassMap<br>
@@ -156,7 +169,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -169,7 +182,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap validatedPayload =
     AdditionalPropertiesClass.MapWithUndeclaredPropertiesString.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -192,10 +205,15 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapWithUndeclaredPropertiesStringMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## MapWithUndeclaredPropertiesStringMap
 public static class MapWithUndeclaredPropertiesStringMap<br>
@@ -233,7 +251,7 @@ an object with no declared properties and no undeclared properties, hence it&#x2
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -246,7 +264,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.EmptyMapMap validatedPayload =
     AdditionalPropertiesClass.EmptyMap.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -265,13 +283,19 @@ AdditionalPropertiesClass.EmptyMapMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EmptyMapMapBuilder
 public class EmptyMapMapBuilder<br>
-builder for `Map<String, Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EmptyMapMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## EmptyMapMap
 public static class EmptyMapMap<br>
@@ -305,7 +329,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -318,7 +342,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayload =
     AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -337,14 +361,19 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayloa
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapWithUndeclaredPropertiesAnytype3MapBuilder
 public class MapWithUndeclaredPropertiesAnytype3MapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapWithUndeclaredPropertiesAnytype3MapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## MapWithUndeclaredPropertiesAnytype3Map
 public static class MapWithUndeclaredPropertiesAnytype3Map<br>
@@ -409,7 +438,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -422,7 +451,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
     AdditionalPropertiesClass.MapOfMapProperty.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -445,10 +474,15 @@ builder for `Map<String, Map<String, String>>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapOfMapPropertyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Map<String, String>> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## MapOfMapPropertyMap
 public static class MapOfMapPropertyMap<br>
@@ -473,7 +507,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -486,7 +520,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.AdditionalPropertiesMap validatedPayload =
     AdditionalPropertiesClass.AdditionalProperties1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -501,18 +535,23 @@ AdditionalPropertiesClass.AdditionalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<?, ?>](#additionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<?, ?>](#additionalpropertiesmapbuilder2) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AdditionalPropertiesMapBuilder
-public class AdditionalPropertiesMapBuilder<br>
+## AdditionalPropertiesMapBuilder2
+public class AdditionalPropertiesMapBuilder2<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesMapBuilder2()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## AdditionalPropertiesMap
 public static class AdditionalPropertiesMap<br>
@@ -523,7 +562,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesMap](#additionalpropertiesmap) | of([Map<String, String>](#additionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesMap](#additionalpropertiesmap) | of([Map<String, String>](#additionalpropertiesmapbuilder2) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties2
@@ -547,7 +586,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -560,7 +599,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesClass.MapPropertyMap validatedPayload =
     AdditionalPropertiesClass.MapProperty.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -583,10 +622,15 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapPropertyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## MapPropertyMap
 public static class MapPropertyMap<br>

@@ -19,11 +19,13 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter3.Schema3;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter4.Schema4;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -90,8 +92,338 @@ public class QueryParameters {
             return (String) value;
         }
     }
-    public static class QueryParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForSchema1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSchema1(Map<String, @Nullable Object> instance);
+        
+        default T setPositive1(Void value) {
+            var instance = getInstance();
+            instance.put("1", null);
+            return getBuilderAfterSchema1(instance);
+        }
+        
+        default T setPositive1(boolean value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+        
+        default T setPositive1(String value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+        
+        default T setPositive1(int value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+        
+        default T setPositive1(float value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+        
+        default T setPositive1(long value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+        
+        default T setPositive1(double value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+        
+        default T setPositive1(List<?> value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+        
+        default T setPositive1(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+    }
+    
+    public interface SetterForAB <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAB(Map<String, @Nullable Object> instance);
+        
+        default T aB(Void value) {
+            var instance = getInstance();
+            instance.put("aB", null);
+            return getBuilderAfterAB(instance);
+        }
+        
+        default T aB(boolean value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+        
+        default T aB(String value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+        
+        default T aB(int value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+        
+        default T aB(float value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+        
+        default T aB(long value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+        
+        default T aB(double value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+        
+        default T aB(List<?> value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+        
+        default T aB(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+    }
+    
+    public interface SetterForAb <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAb(Map<String, @Nullable Object> instance);
+        
+        default T Ab(Void value) {
+            var instance = getInstance();
+            instance.put("Ab", null);
+            return getBuilderAfterAb(instance);
+        }
+        
+        default T Ab(boolean value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+        
+        default T Ab(String value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+        
+        default T Ab(int value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+        
+        default T Ab(float value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+        
+        default T Ab(long value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+        
+        default T Ab(double value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+        
+        default T Ab(List<?> value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+        
+        default T Ab(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+    }
+    
+    public interface SetterForAB1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAB1(Map<String, @Nullable Object> instance);
+        
+        default T setAHyphenMinusB(Void value) {
+            var instance = getInstance();
+            instance.put("A-B", null);
+            return getBuilderAfterAB1(instance);
+        }
+        
+        default T setAHyphenMinusB(boolean value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+        
+        default T setAHyphenMinusB(String value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+        
+        default T setAHyphenMinusB(int value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+        
+        default T setAHyphenMinusB(float value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+        
+        default T setAHyphenMinusB(long value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+        
+        default T setAHyphenMinusB(double value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+        
+        default T setAHyphenMinusB(List<?> value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+        
+        default T setAHyphenMinusB(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+    }
+    
+    public interface SetterForSelf <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSelf(Map<String, @Nullable Object> instance);
+        
+        default T self(Void value) {
+            var instance = getInstance();
+            instance.put("self", null);
+            return getBuilderAfterSelf(instance);
+        }
+        
+        default T self(boolean value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+        
+        default T self(String value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+        
+        default T self(int value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+        
+        default T self(float value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+        
+        default T self(long value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+        
+        default T self(double value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+        
+        default T self(List<?> value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+        
+        default T self(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements BaseBuilder<@Nullable Object>, SetterForSchema1<QueryParametersMapBuilder>, SetterForAB<QueryParametersMapBuilder>, SetterForAb<QueryParametersMapBuilder>, SetterForAB1<QueryParametersMapBuilder>, SetterForSelf<QueryParametersMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "1",
+            "aB",
+            "Ab",
+            "A-B",
+            "self"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMapBuilder getBuilderAfterSchema1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMapBuilder(instance);
+        }
+        public QueryParametersMapBuilder getBuilderAfterAB(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMapBuilder(instance);
+        }
+        public QueryParametersMapBuilder getBuilderAfterAb(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMapBuilder(instance);
+        }
+        public QueryParametersMapBuilder getBuilderAfterAB1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMapBuilder(instance);
+        }
+        public QueryParametersMapBuilder getBuilderAfterSelf(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMapBuilder(instance);
+        }
     }
     
     

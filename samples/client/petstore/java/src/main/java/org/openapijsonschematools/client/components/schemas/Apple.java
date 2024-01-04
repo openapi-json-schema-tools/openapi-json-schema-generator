@@ -15,6 +15,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -164,8 +166,66 @@ public class Apple {
             return get(name);
         }
     }
-    public static class AppleMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForCultivar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCultivar(Map<String, @Nullable Object> instance);
+        
+        default T cultivar(String value) {
+            var instance = getInstance();
+            instance.put("cultivar", value);
+            return getBuilderAfterCultivar(instance);
+        }
+    }
+    
+    public interface SetterForOrigin <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterOrigin(Map<String, @Nullable Object> instance);
+        
+        default T origin(String value) {
+            var instance = getInstance();
+            instance.put("origin", value);
+            return getBuilderAfterOrigin(instance);
+        }
+    }
+    
+    public static class AppleMap0Builder extends UnsetAddPropsSetter<AppleMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForOrigin<AppleMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "cultivar",
+            "origin"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AppleMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AppleMap0Builder getBuilderAfterOrigin(Map<String, @Nullable Object> instance) {
+            return new AppleMap0Builder(instance);
+        }
+        public AppleMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class AppleMapBuilder implements SetterForCultivar<AppleMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AppleMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AppleMap0Builder getBuilderAfterCultivar(Map<String, @Nullable Object> instance) {
+            return new AppleMap0Builder(instance);
+        }
     }
     
     

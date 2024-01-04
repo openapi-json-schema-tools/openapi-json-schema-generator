@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,7 +40,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Money.MoneyMap validatedPayload =
     Money.Money1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, String>(
             "amount",
             "3.14"
@@ -67,17 +67,83 @@ Money.MoneyMap validatedPayload =
 | ----------------- | ---------------------- |
 | [MoneyMap](#moneymap) | validate([Map<?, ?>](#moneymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## MoneyMapBuilder
-public class MoneyMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## MoneyMap00Builder
+public class MoneyMap00Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **amount** | String |  | value must be int or float numeric |
-| **currency** | String |  | |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MoneyMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## MoneyMap01Builder
+public class MoneyMap01Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MoneyMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [MoneyMap00Builder](#moneymap00builder) | currency(Void value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency(boolean value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency(String value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency(int value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency(float value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency(long value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency(double value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency(List<?> value) |
+| [MoneyMap00Builder](#moneymap00builder) | currency(Map<String, ?> value) |
+## MoneyMap10Builder
+public class MoneyMap10Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MoneyMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [MoneyMap00Builder](#moneymap00builder) | amount(String value) |
+## MoneyMapBuilder
+public class MoneyMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MoneyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [MoneyMap01Builder](#moneymap01builder) | amount(String value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(Void value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(boolean value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(String value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(int value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(float value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(long value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(double value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(List<?> value) |
+| [MoneyMap10Builder](#moneymap10builder) | currency(Map<String, ?> value) |
 
 ## MoneyMap
 public static class MoneyMap<br>

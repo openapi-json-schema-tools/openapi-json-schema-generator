@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,7 +39,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap validatedPayload =
     ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -57,18 +57,99 @@ ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap validatedPayload =
 | ----------------- | ---------------------- |
 | [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate([Map<?, ?>](#reqpropsfromtrueaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ReqPropsFromTrueAddPropsMapBuilder
-public class ReqPropsFromTrueAddPropsMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ReqPropsFromTrueAddPropsMap00Builder
+public class ReqPropsFromTrueAddPropsMap00Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **invalid-name** | ? extends @Nullable Object |  | |
-| **validName** | ? extends @Nullable Object |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromTrueAddPropsMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+## ReqPropsFromTrueAddPropsMap01Builder
+public class ReqPropsFromTrueAddPropsMap01Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromTrueAddPropsMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(Void value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(boolean value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(String value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(int value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(float value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(long value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(double value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(List<?> value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | validName(Map<String, ?> value) |
+## ReqPropsFromTrueAddPropsMap10Builder
+public class ReqPropsFromTrueAddPropsMap10Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromTrueAddPropsMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(Void value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(boolean value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(String value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(int value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(float value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(long value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(double value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(List<?> value) |
+| [ReqPropsFromTrueAddPropsMap00Builder](#reqpropsfromtrueaddpropsmap00builder) | setInvalidHyphenMinusName(Map<String, ?> value) |
+## ReqPropsFromTrueAddPropsMapBuilder
+public class ReqPropsFromTrueAddPropsMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromTrueAddPropsMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(Void value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(boolean value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(String value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(int value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(float value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(long value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(double value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(List<?> value) |
+| [ReqPropsFromTrueAddPropsMap01Builder](#reqpropsfromtrueaddpropsmap01builder) | setInvalidHyphenMinusName(Map<String, ?> value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(Void value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(boolean value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(String value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(int value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(float value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(long value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(double value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(List<?> value) |
+| [ReqPropsFromTrueAddPropsMap10Builder](#reqpropsfromtrueaddpropsmap10builder) | validName(Map<String, ?> value) |
 
 ## ReqPropsFromTrueAddPropsMap
 public static class ReqPropsFromTrueAddPropsMap<br>

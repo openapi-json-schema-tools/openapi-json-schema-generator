@@ -25,7 +25,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -38,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
     SelfReferencingObjectModel.SelfReferencingObjectModel1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -58,15 +58,28 @@ SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SelfReferencingObjectModelMapBuilder
 public class SelfReferencingObjectModelMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **selfRef** | Map<String, ?> |  | [optional] |
-| **anyStringName** | Map<String, ?> | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SelfReferencingObjectModelMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(Void value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(boolean value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(String value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(int value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(float value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(long value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(double value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(List<?> value) |
+| [SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder) | selfRef(Map<String, ?> value) |
 
 ## SelfReferencingObjectModelMap
 public static class SelfReferencingObjectModelMap<br>

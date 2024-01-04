@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,93 @@ public class QueryParameters {
             return getOrThrow("someParam");
         }
     }
-    public static class QueryParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForSomeParam <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSomeParam(Map<String, @Nullable Object> instance);
+        
+        default T someParam(Void value) {
+            var instance = getInstance();
+            instance.put("someParam", null);
+            return getBuilderAfterSomeParam(instance);
+        }
+        
+        default T someParam(boolean value) {
+            var instance = getInstance();
+            instance.put("someParam", value);
+            return getBuilderAfterSomeParam(instance);
+        }
+        
+        default T someParam(String value) {
+            var instance = getInstance();
+            instance.put("someParam", value);
+            return getBuilderAfterSomeParam(instance);
+        }
+        
+        default T someParam(int value) {
+            var instance = getInstance();
+            instance.put("someParam", value);
+            return getBuilderAfterSomeParam(instance);
+        }
+        
+        default T someParam(float value) {
+            var instance = getInstance();
+            instance.put("someParam", value);
+            return getBuilderAfterSomeParam(instance);
+        }
+        
+        default T someParam(long value) {
+            var instance = getInstance();
+            instance.put("someParam", value);
+            return getBuilderAfterSomeParam(instance);
+        }
+        
+        default T someParam(double value) {
+            var instance = getInstance();
+            instance.put("someParam", value);
+            return getBuilderAfterSomeParam(instance);
+        }
+        
+        default T someParam(List<?> value) {
+            var instance = getInstance();
+            instance.put("someParam", value);
+            return getBuilderAfterSomeParam(instance);
+        }
+        
+        default T someParam(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("someParam", value);
+            return getBuilderAfterSomeParam(instance);
+        }
+    }
+    
+    public static class QueryParametersMap0Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "someParam"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements SetterForSomeParam<QueryParametersMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap0Builder getBuilderAfterSomeParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap0Builder(instance);
+        }
     }
     
     

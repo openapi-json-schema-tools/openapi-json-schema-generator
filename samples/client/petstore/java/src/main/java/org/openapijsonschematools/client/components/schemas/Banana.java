@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -64,8 +66,69 @@ public class Banana {
             return get(name);
         }
     }
-    public static class BananaMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForLengthCm <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterLengthCm(Map<String, @Nullable Object> instance);
+        
+        default T lengthCm(int value) {
+            var instance = getInstance();
+            instance.put("lengthCm", value);
+            return getBuilderAfterLengthCm(instance);
+        }
+        
+        default T lengthCm(float value) {
+            var instance = getInstance();
+            instance.put("lengthCm", value);
+            return getBuilderAfterLengthCm(instance);
+        }
+        
+        default T lengthCm(long value) {
+            var instance = getInstance();
+            instance.put("lengthCm", value);
+            return getBuilderAfterLengthCm(instance);
+        }
+        
+        default T lengthCm(double value) {
+            var instance = getInstance();
+            instance.put("lengthCm", value);
+            return getBuilderAfterLengthCm(instance);
+        }
+    }
+    
+    public static class BananaMap0Builder extends UnsetAddPropsSetter<BananaMap0Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "lengthCm"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public BananaMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public BananaMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class BananaMapBuilder implements SetterForLengthCm<BananaMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public BananaMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public BananaMap0Builder getBuilderAfterLengthCm(Map<String, @Nullable Object> instance) {
+            return new BananaMap0Builder(instance);
+        }
     }
     
     

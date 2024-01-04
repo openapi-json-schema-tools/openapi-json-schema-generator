@@ -16,11 +16,13 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter4.Schema4;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -73,8 +75,159 @@ public class HeaderParameters {
             return (String) value;
         }
     }
-    public static class HeaderParametersMapBuilder {
-        // requiredProperties, optionalProperties, NO additionalProperties
+    
+    public interface SetterForRequiredBooleanGroup <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterRequiredBooleanGroup(Map<String, @Nullable Object> instance);
+        
+        default T required_boolean_group(Void value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", null);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+        
+        default T required_boolean_group(boolean value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", value);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+        
+        default T required_boolean_group(String value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", value);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+        
+        default T required_boolean_group(int value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", value);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+        
+        default T required_boolean_group(float value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", value);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+        
+        default T required_boolean_group(long value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", value);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+        
+        default T required_boolean_group(double value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", value);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+        
+        default T required_boolean_group(List<?> value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", value);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+        
+        default T required_boolean_group(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("required_boolean_group", value);
+            return getBuilderAfterRequiredBooleanGroup(instance);
+        }
+    }
+    
+    public interface SetterForBooleanGroup <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBooleanGroup(Map<String, @Nullable Object> instance);
+        
+        default T boolean_group(Void value) {
+            var instance = getInstance();
+            instance.put("boolean_group", null);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+        
+        default T boolean_group(boolean value) {
+            var instance = getInstance();
+            instance.put("boolean_group", value);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+        
+        default T boolean_group(String value) {
+            var instance = getInstance();
+            instance.put("boolean_group", value);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+        
+        default T boolean_group(int value) {
+            var instance = getInstance();
+            instance.put("boolean_group", value);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+        
+        default T boolean_group(float value) {
+            var instance = getInstance();
+            instance.put("boolean_group", value);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+        
+        default T boolean_group(long value) {
+            var instance = getInstance();
+            instance.put("boolean_group", value);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+        
+        default T boolean_group(double value) {
+            var instance = getInstance();
+            instance.put("boolean_group", value);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+        
+        default T boolean_group(List<?> value) {
+            var instance = getInstance();
+            instance.put("boolean_group", value);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+        
+        default T boolean_group(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("boolean_group", value);
+            return getBuilderAfterBooleanGroup(instance);
+        }
+    }
+    
+    public static class HeaderParametersMap0Builder implements BaseBuilder<@Nullable Object>, SetterForBooleanGroup<HeaderParametersMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "required_boolean_group",
+            "boolean_group"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public HeaderParametersMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeaderParametersMap0Builder getBuilderAfterBooleanGroup(Map<String, @Nullable Object> instance) {
+            return new HeaderParametersMap0Builder(instance);
+        }
+    }
+    
+    public static class HeaderParametersMapBuilder implements SetterForRequiredBooleanGroup<HeaderParametersMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeaderParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeaderParametersMap0Builder getBuilderAfterRequiredBooleanGroup(Map<String, @Nullable Object> instance) {
+            return new HeaderParametersMap0Builder(instance);
+        }
     }
     
     

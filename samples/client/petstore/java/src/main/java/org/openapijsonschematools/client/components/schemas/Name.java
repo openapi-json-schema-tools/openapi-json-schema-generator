@@ -17,8 +17,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -119,8 +121,93 @@ public class Name {
             return get(name);
         }
     }
-    public static class NameMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForName2 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterName2(Map<String, @Nullable Object> instance);
+        
+        default T name(int value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName2(instance);
+        }
+        
+        default T name(float value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName2(instance);
+        }
+    }
+    
+    public interface SetterForSnakeCase <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSnakeCase(Map<String, @Nullable Object> instance);
+        
+        default T snake_case(int value) {
+            var instance = getInstance();
+            instance.put("snake_case", value);
+            return getBuilderAfterSnakeCase(instance);
+        }
+        
+        default T snake_case(float value) {
+            var instance = getInstance();
+            instance.put("snake_case", value);
+            return getBuilderAfterSnakeCase(instance);
+        }
+    }
+    
+    public interface SetterForProperty <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterProperty(Map<String, @Nullable Object> instance);
+        
+        default T property(String value) {
+            var instance = getInstance();
+            instance.put("property", value);
+            return getBuilderAfterProperty(instance);
+        }
+    }
+    
+    public static class NameMap0Builder extends UnsetAddPropsSetter<NameMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForSnakeCase<NameMap0Builder>, SetterForProperty<NameMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "name",
+            "snake_case",
+            "property"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public NameMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public NameMap0Builder getBuilderAfterSnakeCase(Map<String, @Nullable Object> instance) {
+            return new NameMap0Builder(instance);
+        }
+        public NameMap0Builder getBuilderAfterProperty(Map<String, @Nullable Object> instance) {
+            return new NameMap0Builder(instance);
+        }
+        public NameMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class NameMapBuilder1 implements SetterForName2<NameMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public NameMapBuilder1() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public NameMap0Builder getBuilderAfterName2(Map<String, @Nullable Object> instance) {
+            return new NameMap0Builder(instance);
+        }
     }
     
     

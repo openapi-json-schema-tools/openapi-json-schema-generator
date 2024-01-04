@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,7 +40,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayload =
     ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<>(
             "a",
             1
@@ -68,11 +68,19 @@ builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **a** | Number |  | [optional] |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithNonIntersectingValuesMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder) | a(int value) |
+| [ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder) | a(float value) |
+| [ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder) | a(long value) |
+| [ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder) | a(double value) |
 
 ## ObjectWithNonIntersectingValuesMap
 public static class ObjectWithNonIntersectingValuesMap<br>

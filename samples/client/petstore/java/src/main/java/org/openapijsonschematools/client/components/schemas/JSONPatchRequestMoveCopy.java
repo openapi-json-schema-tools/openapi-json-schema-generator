@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -21,6 +22,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
@@ -163,8 +165,168 @@ public class JSONPatchRequestMoveCopy {
             return getOrThrow("path");
         }
     }
-    public static class JSONPatchRequestMoveCopyMapBuilder {
-        // empty mapping
+    
+    public interface SetterForFrom <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterFrom(Map<String, String> instance);
+        
+        default T from(String value) {
+            var instance = getInstance();
+            instance.put("from", value);
+            return getBuilderAfterFrom(instance);
+        }
+    }
+    
+    public interface SetterForOp <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterOp(Map<String, String> instance);
+        
+        default T op(String value) {
+            var instance = getInstance();
+            instance.put("op", value);
+            return getBuilderAfterOp(instance);
+        }
+        
+        default T op(StringOpEnums value) {
+            var instance = getInstance();
+            instance.put("op", value.value());
+            return getBuilderAfterOp(instance);
+        }
+    }
+    
+    public interface SetterForPath <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterPath(Map<String, String> instance);
+        
+        default T path(String value) {
+            var instance = getInstance();
+            instance.put("path", value);
+            return getBuilderAfterPath(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestMoveCopyMap000Builder implements BaseBuilder<String> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "from",
+            "op",
+            "path"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public JSONPatchRequestMoveCopyMap000Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+    }
+    
+    public static class JSONPatchRequestMoveCopyMap001Builder implements SetterForPath<JSONPatchRequestMoveCopyMap000Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestMoveCopyMap001Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestMoveCopyMap000Builder getBuilderAfterPath(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap000Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestMoveCopyMap010Builder implements SetterForOp<JSONPatchRequestMoveCopyMap000Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestMoveCopyMap010Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestMoveCopyMap000Builder getBuilderAfterOp(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap000Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestMoveCopyMap011Builder implements SetterForOp<JSONPatchRequestMoveCopyMap001Builder>, SetterForPath<JSONPatchRequestMoveCopyMap010Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestMoveCopyMap011Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestMoveCopyMap001Builder getBuilderAfterOp(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap001Builder(instance);
+        }
+        public JSONPatchRequestMoveCopyMap010Builder getBuilderAfterPath(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap010Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestMoveCopyMap100Builder implements SetterForFrom<JSONPatchRequestMoveCopyMap000Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestMoveCopyMap100Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestMoveCopyMap000Builder getBuilderAfterFrom(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap000Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestMoveCopyMap101Builder implements SetterForFrom<JSONPatchRequestMoveCopyMap001Builder>, SetterForPath<JSONPatchRequestMoveCopyMap100Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestMoveCopyMap101Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestMoveCopyMap001Builder getBuilderAfterFrom(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap001Builder(instance);
+        }
+        public JSONPatchRequestMoveCopyMap100Builder getBuilderAfterPath(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap100Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestMoveCopyMap110Builder implements SetterForFrom<JSONPatchRequestMoveCopyMap010Builder>, SetterForOp<JSONPatchRequestMoveCopyMap100Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestMoveCopyMap110Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestMoveCopyMap010Builder getBuilderAfterFrom(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap010Builder(instance);
+        }
+        public JSONPatchRequestMoveCopyMap100Builder getBuilderAfterOp(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap100Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestMoveCopyMapBuilder implements SetterForFrom<JSONPatchRequestMoveCopyMap011Builder>, SetterForOp<JSONPatchRequestMoveCopyMap101Builder>, SetterForPath<JSONPatchRequestMoveCopyMap110Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestMoveCopyMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestMoveCopyMap011Builder getBuilderAfterFrom(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap011Builder(instance);
+        }
+        public JSONPatchRequestMoveCopyMap101Builder getBuilderAfterOp(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap101Builder(instance);
+        }
+        public JSONPatchRequestMoveCopyMap110Builder getBuilderAfterPath(Map<String, String> instance) {
+            return new JSONPatchRequestMoveCopyMap110Builder(instance);
+        }
     }
     
     

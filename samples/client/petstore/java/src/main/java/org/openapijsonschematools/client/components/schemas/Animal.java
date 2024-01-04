@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -122,8 +124,66 @@ public class Animal {
             return get(name);
         }
     }
-    public static class AnimalMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForClassName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterClassName(Map<String, @Nullable Object> instance);
+        
+        default T className(String value) {
+            var instance = getInstance();
+            instance.put("className", value);
+            return getBuilderAfterClassName(instance);
+        }
+    }
+    
+    public interface SetterForColor <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterColor(Map<String, @Nullable Object> instance);
+        
+        default T color(String value) {
+            var instance = getInstance();
+            instance.put("color", value);
+            return getBuilderAfterColor(instance);
+        }
+    }
+    
+    public static class AnimalMap0Builder extends UnsetAddPropsSetter<AnimalMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForColor<AnimalMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "className",
+            "color"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AnimalMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AnimalMap0Builder getBuilderAfterColor(Map<String, @Nullable Object> instance) {
+            return new AnimalMap0Builder(instance);
+        }
+        public AnimalMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class AnimalMapBuilder implements SetterForClassName<AnimalMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AnimalMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AnimalMap0Builder getBuilderAfterClassName(Map<String, @Nullable Object> instance) {
+            return new AnimalMap0Builder(instance);
+        }
     }
     
     

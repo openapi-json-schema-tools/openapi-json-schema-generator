@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -176,8 +178,116 @@ public class Capitalization {
             return get(name);
         }
     }
-    public static class CapitalizationMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForSmallCamel <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSmallCamel(Map<String, @Nullable Object> instance);
+        
+        default T smallCamel(String value) {
+            var instance = getInstance();
+            instance.put("smallCamel", value);
+            return getBuilderAfterSmallCamel(instance);
+        }
+    }
+    
+    public interface SetterForCapitalCamel <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCapitalCamel(Map<String, @Nullable Object> instance);
+        
+        default T CapitalCamel(String value) {
+            var instance = getInstance();
+            instance.put("CapitalCamel", value);
+            return getBuilderAfterCapitalCamel(instance);
+        }
+    }
+    
+    public interface SetterForSmallSnake <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSmallSnake(Map<String, @Nullable Object> instance);
+        
+        default T small_Snake(String value) {
+            var instance = getInstance();
+            instance.put("small_Snake", value);
+            return getBuilderAfterSmallSnake(instance);
+        }
+    }
+    
+    public interface SetterForCapitalSnake <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCapitalSnake(Map<String, @Nullable Object> instance);
+        
+        default T Capital_Snake(String value) {
+            var instance = getInstance();
+            instance.put("Capital_Snake", value);
+            return getBuilderAfterCapitalSnake(instance);
+        }
+    }
+    
+    public interface SetterForSCAETHFlowPoints <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSCAETHFlowPoints(Map<String, @Nullable Object> instance);
+        
+        default T SCA_ETH_Flow_Points(String value) {
+            var instance = getInstance();
+            instance.put("SCA_ETH_Flow_Points", value);
+            return getBuilderAfterSCAETHFlowPoints(instance);
+        }
+    }
+    
+    public interface SetterForATTNAME <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterATTNAME(Map<String, @Nullable Object> instance);
+        
+        default T ATT_NAME(String value) {
+            var instance = getInstance();
+            instance.put("ATT_NAME", value);
+            return getBuilderAfterATTNAME(instance);
+        }
+    }
+    
+    public static class CapitalizationMapBuilder extends UnsetAddPropsSetter<CapitalizationMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForSmallCamel<CapitalizationMapBuilder>, SetterForCapitalCamel<CapitalizationMapBuilder>, SetterForSmallSnake<CapitalizationMapBuilder>, SetterForCapitalSnake<CapitalizationMapBuilder>, SetterForSCAETHFlowPoints<CapitalizationMapBuilder>, SetterForATTNAME<CapitalizationMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "smallCamel",
+            "CapitalCamel",
+            "small_Snake",
+            "Capital_Snake",
+            "SCA_ETH_Flow_Points",
+            "ATT_NAME"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public CapitalizationMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public CapitalizationMapBuilder getBuilderAfterSmallCamel(Map<String, @Nullable Object> instance) {
+            return new CapitalizationMapBuilder(instance);
+        }
+        public CapitalizationMapBuilder getBuilderAfterCapitalCamel(Map<String, @Nullable Object> instance) {
+            return new CapitalizationMapBuilder(instance);
+        }
+        public CapitalizationMapBuilder getBuilderAfterSmallSnake(Map<String, @Nullable Object> instance) {
+            return new CapitalizationMapBuilder(instance);
+        }
+        public CapitalizationMapBuilder getBuilderAfterCapitalSnake(Map<String, @Nullable Object> instance) {
+            return new CapitalizationMapBuilder(instance);
+        }
+        public CapitalizationMapBuilder getBuilderAfterSCAETHFlowPoints(Map<String, @Nullable Object> instance) {
+            return new CapitalizationMapBuilder(instance);
+        }
+        public CapitalizationMapBuilder getBuilderAfterATTNAME(Map<String, @Nullable Object> instance) {
+            return new CapitalizationMapBuilder(instance);
+        }
+        public CapitalizationMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

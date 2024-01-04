@@ -39,7 +39,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -52,7 +52,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 User.UserMap validatedPayload =
     User.User1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "id",
             1L
@@ -107,27 +107,61 @@ User.UserMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UserMapBuilder
 public class UserMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **id** | Number |  | [optional] value must be a 64 bit integer |
-| **username** | String |  | [optional] |
-| **firstName** | String |  | [optional] |
-| **lastName** | String |  | [optional] |
-| **email** | String |  | [optional] |
-| **password** | String |  | [optional] |
-| **phone** | String |  | [optional] |
-| **userStatus** | Number | User Status | [optional] value must be a 32 bit integer |
-| **objectWithNoDeclaredProps** | Map<String, ? extends @Nullable Object> | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional] |
-| **objectWithNoDeclaredPropsNullable** | ? extends @Nullable Map<String, ? extends @Nullable Object> | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional] |
-| **anyTypeProp** | ? extends @Nullable Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional] |
-| **anyTypeExceptNullProp** | ? extends @Nullable Object | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional] |
-| **anyTypePropNullable** | ? extends @Nullable Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UserMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [UserMapBuilder](#usermapbuilder) | id(int value) |
+| [UserMapBuilder](#usermapbuilder) | id(float value) |
+| [UserMapBuilder](#usermapbuilder) | id(long value) |
+| [UserMapBuilder](#usermapbuilder) | id(double value) |
+| [UserMapBuilder](#usermapbuilder) | username(String value) |
+| [UserMapBuilder](#usermapbuilder) | firstName(String value) |
+| [UserMapBuilder](#usermapbuilder) | lastName(String value) |
+| [UserMapBuilder](#usermapbuilder) | email(String value) |
+| [UserMapBuilder](#usermapbuilder) | password(String value) |
+| [UserMapBuilder](#usermapbuilder) | phone(String value) |
+| [UserMapBuilder](#usermapbuilder) | userStatus(int value) |
+| [UserMapBuilder](#usermapbuilder) | userStatus(float value) |
+| [UserMapBuilder](#usermapbuilder) | objectWithNoDeclaredProps(Map<String, @Nullable Object> value) |
+| [UserMapBuilder](#usermapbuilder) | objectWithNoDeclaredPropsNullable(Void value) |
+| [UserMapBuilder](#usermapbuilder) | objectWithNoDeclaredPropsNullable(Map<String, @Nullable Object> value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(Void value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(boolean value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(String value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(int value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(float value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(long value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(double value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(List<?> value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeProp(Map<String, ?> value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(Void value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(boolean value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(String value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(int value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(float value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(long value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(double value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(List<?> value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypeExceptNullProp(Map<String, ?> value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(Void value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(boolean value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(String value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(int value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(float value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(long value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(double value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(List<?> value) |
+| [UserMapBuilder](#usermapbuilder) | anyTypePropNullable(Map<String, ?> value) |
 
 ## UserMap
 public static class UserMap<br>
@@ -191,7 +225,7 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Not
@@ -231,7 +265,7 @@ test code generation for nullable objects. Value must be a map of strings to val
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

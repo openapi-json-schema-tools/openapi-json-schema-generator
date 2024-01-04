@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -122,8 +124,84 @@ public class Category {
             return get(name);
         }
     }
-    public static class CategoryMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterName(Map<String, @Nullable Object> instance);
+        
+        default T name(String value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName(instance);
+        }
+    }
+    
+    public interface SetterForId <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterId(Map<String, @Nullable Object> instance);
+        
+        default T id(int value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(float value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(long value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(double value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+    }
+    
+    public static class CategoryMap0Builder extends UnsetAddPropsSetter<CategoryMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForId<CategoryMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "name",
+            "id"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public CategoryMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public CategoryMap0Builder getBuilderAfterId(Map<String, @Nullable Object> instance) {
+            return new CategoryMap0Builder(instance);
+        }
+        public CategoryMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class CategoryMapBuilder implements SetterForName<CategoryMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public CategoryMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public CategoryMap0Builder getBuilderAfterName(Map<String, @Nullable Object> instance) {
+            return new CategoryMap0Builder(instance);
+        }
     }
     
     

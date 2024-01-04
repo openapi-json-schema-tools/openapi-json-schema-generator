@@ -29,7 +29,7 @@ a model that includes a self reference this forces properties and additionalProp
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -42,7 +42,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Player.PlayerMap validatedPayload =
     Player.Player1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<>(
             "name",
             "a"
@@ -65,16 +65,29 @@ Player.PlayerMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PlayerMapBuilder
 public class PlayerMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **name** | String |  | [optional] |
-| **enemyPlayer** | Map<String, ?> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PlayerMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [PlayerMapBuilder](#playermapbuilder) | name(String value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(Void value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(boolean value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(String value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(int value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(float value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(long value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(double value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(List<?> value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(Map<String, ?> value) |
 
 ## PlayerMap
 public static class PlayerMap<br>

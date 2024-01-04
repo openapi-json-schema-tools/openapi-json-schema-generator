@@ -16,11 +16,13 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.userlogin.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.paths.userlogin.get.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -70,8 +72,182 @@ public class QueryParameters {
             return (String) value;
         }
     }
-    public static class QueryParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForPassword <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPassword(Map<String, @Nullable Object> instance);
+        
+        default T password(Void value) {
+            var instance = getInstance();
+            instance.put("password", null);
+            return getBuilderAfterPassword(instance);
+        }
+        
+        default T password(boolean value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+        
+        default T password(String value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+        
+        default T password(int value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+        
+        default T password(float value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+        
+        default T password(long value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+        
+        default T password(double value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+        
+        default T password(List<?> value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+        
+        default T password(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+    }
+    
+    public interface SetterForUsername <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterUsername(Map<String, @Nullable Object> instance);
+        
+        default T username(Void value) {
+            var instance = getInstance();
+            instance.put("username", null);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(boolean value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(String value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(int value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(float value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(long value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(double value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(List<?> value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+        
+        default T username(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+    }
+    
+    public static class QueryParametersMap00Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "password",
+            "username"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class QueryParametersMap01Builder implements SetterForUsername<QueryParametersMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap00Builder getBuilderAfterUsername(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap00Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMap10Builder implements SetterForPassword<QueryParametersMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap00Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap00Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements SetterForPassword<QueryParametersMap01Builder>, SetterForUsername<QueryParametersMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap01Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap01Builder(instance);
+        }
+        public QueryParametersMap10Builder getBuilderAfterUsername(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap10Builder(instance);
+        }
     }
     
     

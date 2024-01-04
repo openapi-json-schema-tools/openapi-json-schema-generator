@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.petpetid.delete.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,86 @@ public class HeaderParameters {
             return getOrThrow("api_key");
         }
     }
-    public static class HeaderParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForApiKey <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterApiKey(Map<String, String> instance);
+        
+        default T api_key(Void value) {
+            var instance = getInstance();
+            instance.put("api_key", null);
+            return getBuilderAfterApiKey(instance);
+        }
+        
+        default T api_key(boolean value) {
+            var instance = getInstance();
+            instance.put("api_key", value);
+            return getBuilderAfterApiKey(instance);
+        }
+        
+        default T api_key(String value) {
+            var instance = getInstance();
+            instance.put("api_key", value);
+            return getBuilderAfterApiKey(instance);
+        }
+        
+        default T api_key(int value) {
+            var instance = getInstance();
+            instance.put("api_key", value);
+            return getBuilderAfterApiKey(instance);
+        }
+        
+        default T api_key(float value) {
+            var instance = getInstance();
+            instance.put("api_key", value);
+            return getBuilderAfterApiKey(instance);
+        }
+        
+        default T api_key(long value) {
+            var instance = getInstance();
+            instance.put("api_key", value);
+            return getBuilderAfterApiKey(instance);
+        }
+        
+        default T api_key(double value) {
+            var instance = getInstance();
+            instance.put("api_key", value);
+            return getBuilderAfterApiKey(instance);
+        }
+        
+        default T api_key(List<?> value) {
+            var instance = getInstance();
+            instance.put("api_key", value);
+            return getBuilderAfterApiKey(instance);
+        }
+        
+        default T api_key(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("api_key", value);
+            return getBuilderAfterApiKey(instance);
+        }
+    }
+    
+    public static class HeaderParametersMapBuilder implements BaseBuilder<String>, SetterForApiKey<HeaderParametersMapBuilder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "api_key"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public HeaderParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public HeaderParametersMapBuilder getBuilderAfterApiKey(Map<String, String> instance) {
+            return new HeaderParametersMapBuilder(instance);
+        }
     }
     
     

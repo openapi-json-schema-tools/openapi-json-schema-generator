@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -64,8 +66,51 @@ public class ObjWithRequiredProps {
             return get(name);
         }
     }
-    public static class ObjWithRequiredPropsMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForA <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterA(Map<String, @Nullable Object> instance);
+        
+        default T a(String value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+    }
+    
+    public static class ObjWithRequiredPropsMap0Builder extends UnsetAddPropsSetter<ObjWithRequiredPropsMap0Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "a"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjWithRequiredPropsMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjWithRequiredPropsMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class ObjWithRequiredPropsMapBuilder implements SetterForA<ObjWithRequiredPropsMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjWithRequiredPropsMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjWithRequiredPropsMap0Builder getBuilderAfterA(Map<String, @Nullable Object> instance) {
+            return new ObjWithRequiredPropsMap0Builder(instance);
+        }
     }
     
     

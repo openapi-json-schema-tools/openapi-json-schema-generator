@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -66,8 +68,59 @@ public class NumberOnly {
             return get(name);
         }
     }
-    public static class NumberOnlyMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForJustNumber <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterJustNumber(Map<String, @Nullable Object> instance);
+        
+        default T JustNumber(int value) {
+            var instance = getInstance();
+            instance.put("JustNumber", value);
+            return getBuilderAfterJustNumber(instance);
+        }
+        
+        default T JustNumber(float value) {
+            var instance = getInstance();
+            instance.put("JustNumber", value);
+            return getBuilderAfterJustNumber(instance);
+        }
+        
+        default T JustNumber(long value) {
+            var instance = getInstance();
+            instance.put("JustNumber", value);
+            return getBuilderAfterJustNumber(instance);
+        }
+        
+        default T JustNumber(double value) {
+            var instance = getInstance();
+            instance.put("JustNumber", value);
+            return getBuilderAfterJustNumber(instance);
+        }
+    }
+    
+    public static class NumberOnlyMapBuilder extends UnsetAddPropsSetter<NumberOnlyMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForJustNumber<NumberOnlyMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "JustNumber"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public NumberOnlyMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public NumberOnlyMapBuilder getBuilderAfterJustNumber(Map<String, @Nullable Object> instance) {
+            return new NumberOnlyMapBuilder(instance);
+        }
+        public NumberOnlyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

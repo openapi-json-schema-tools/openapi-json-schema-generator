@@ -14,12 +14,14 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -84,8 +86,99 @@ public class NoAdditionalProperties {
             return getOrThrow("petId");
         }
     }
-    public static class NoAdditionalPropertiesMapBuilder {
-        // requiredProperties, optionalProperties, NO additionalProperties
+    
+    public interface SetterForId <T> {
+        Map<String, Number> getInstance();
+        T getBuilderAfterId(Map<String, Number> instance);
+        
+        default T id(int value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(float value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(long value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(double value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+    }
+    
+    public interface SetterForPetId <T> {
+        Map<String, Number> getInstance();
+        T getBuilderAfterPetId(Map<String, Number> instance);
+        
+        default T petId(int value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(float value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(long value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(double value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+    }
+    
+    public static class NoAdditionalPropertiesMap0Builder implements BaseBuilder<Number>, SetterForPetId<NoAdditionalPropertiesMap0Builder> {
+        private final Map<String, Number> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "id",
+            "petId"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public NoAdditionalPropertiesMap0Builder(Map<String, Number> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Number> build() {
+            return instance;
+        }
+        public Map<String, Number> getInstance() {
+            return instance;
+        }
+        public NoAdditionalPropertiesMap0Builder getBuilderAfterPetId(Map<String, Number> instance) {
+            return new NoAdditionalPropertiesMap0Builder(instance);
+        }
+    }
+    
+    public static class NoAdditionalPropertiesMapBuilder implements SetterForId<NoAdditionalPropertiesMap0Builder> {
+        private final Map<String, Number> instance;
+        public NoAdditionalPropertiesMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Number> getInstance() {
+            return instance;
+        }
+        public NoAdditionalPropertiesMap0Builder getBuilderAfterId(Map<String, Number> instance) {
+            return new NoAdditionalPropertiesMap0Builder(instance);
+        }
     }
     
     

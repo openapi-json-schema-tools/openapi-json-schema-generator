@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,93 @@ public class PathParameters {
             return getOrThrow("petId");
         }
     }
-    public static class PathParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForPetId <T> {
+        Map<String, Number> getInstance();
+        T getBuilderAfterPetId(Map<String, Number> instance);
+        
+        default T petId(Void value) {
+            var instance = getInstance();
+            instance.put("petId", null);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(boolean value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(String value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(int value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(float value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(long value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(double value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(List<?> value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+        
+        default T petId(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("petId", value);
+            return getBuilderAfterPetId(instance);
+        }
+    }
+    
+    public static class PathParametersMap0Builder implements BaseBuilder<Number> {
+        private final Map<String, Number> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "petId"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PathParametersMap0Builder(Map<String, Number> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Number> build() {
+            return instance;
+        }
+    }
+    
+    public static class PathParametersMapBuilder implements SetterForPetId<PathParametersMap0Builder> {
+        private final Map<String, Number> instance;
+        public PathParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Number> getInstance() {
+            return instance;
+        }
+        public PathParametersMap0Builder getBuilderAfterPetId(Map<String, Number> instance) {
+            return new PathParametersMap0Builder(instance);
+        }
     }
     
     

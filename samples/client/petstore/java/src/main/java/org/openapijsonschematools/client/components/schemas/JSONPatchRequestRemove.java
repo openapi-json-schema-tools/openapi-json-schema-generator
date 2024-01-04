@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -21,6 +22,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
@@ -145,8 +147,92 @@ public class JSONPatchRequestRemove {
             return getOrThrow("path");
         }
     }
-    public static class JSONPatchRequestRemoveMapBuilder {
-        // empty mapping
+    
+    public interface SetterForOp <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterOp(Map<String, String> instance);
+        
+        default T op(String value) {
+            var instance = getInstance();
+            instance.put("op", value);
+            return getBuilderAfterOp(instance);
+        }
+        
+        default T op(StringOpEnums value) {
+            var instance = getInstance();
+            instance.put("op", value.value());
+            return getBuilderAfterOp(instance);
+        }
+    }
+    
+    public interface SetterForPath <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterPath(Map<String, String> instance);
+        
+        default T path(String value) {
+            var instance = getInstance();
+            instance.put("path", value);
+            return getBuilderAfterPath(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestRemoveMap00Builder implements BaseBuilder<String> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "op",
+            "path"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public JSONPatchRequestRemoveMap00Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+    }
+    
+    public static class JSONPatchRequestRemoveMap01Builder implements SetterForPath<JSONPatchRequestRemoveMap00Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestRemoveMap01Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestRemoveMap00Builder getBuilderAfterPath(Map<String, String> instance) {
+            return new JSONPatchRequestRemoveMap00Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestRemoveMap10Builder implements SetterForOp<JSONPatchRequestRemoveMap00Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestRemoveMap10Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestRemoveMap00Builder getBuilderAfterOp(Map<String, String> instance) {
+            return new JSONPatchRequestRemoveMap00Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestRemoveMapBuilder implements SetterForOp<JSONPatchRequestRemoveMap01Builder>, SetterForPath<JSONPatchRequestRemoveMap10Builder> {
+        private final Map<String, String> instance;
+        public JSONPatchRequestRemoveMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestRemoveMap01Builder getBuilderAfterOp(Map<String, String> instance) {
+            return new JSONPatchRequestRemoveMap01Builder(instance);
+        }
+        public JSONPatchRequestRemoveMap10Builder getBuilderAfterPath(Map<String, String> instance) {
+            return new JSONPatchRequestRemoveMap10Builder(instance);
+        }
     }
     
     

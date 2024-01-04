@@ -31,7 +31,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -44,7 +44,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Capitalization.CapitalizationMap validatedPayload =
     Capitalization.Capitalization1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, String>(
             "smallCamel",
             "a"
@@ -87,20 +87,25 @@ Capitalization.CapitalizationMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CapitalizationMapBuilder
 public class CapitalizationMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **smallCamel** | String |  | [optional] |
-| **CapitalCamel** | String |  | [optional] |
-| **small_Snake** | String |  | [optional] |
-| **Capital_Snake** | String |  | [optional] |
-| **SCA_ETH_Flow_Points** | String |  | [optional] |
-| **ATT_NAME** | String | Name of the pet<br> | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| CapitalizationMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | smallCamel(String value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | CapitalCamel(String value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | small_Snake(String value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | Capital_Snake(String value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | SCA_ETH_Flow_Points(String value) |
+| [CapitalizationMapBuilder](#capitalizationmapbuilder) | ATT_NAME(String value) |
 
 ## CapitalizationMap
 public static class CapitalizationMap<br>

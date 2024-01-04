@@ -15,13 +15,16 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -55,8 +58,38 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapPropertyMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, String> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, String> instance);
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class MapPropertyMapBuilder implements BaseBuilder<String>, SetterForAdditionalProperties<MapPropertyMapBuilder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MapPropertyMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public MapPropertyMapBuilder getBuilderAfterAdditionalProperty(Map<String, String> instance) {
+            return this;
+        }
     }
     
     
@@ -156,8 +189,38 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class AdditionalPropertiesMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties2<T> {
+        Set<String> getKnownKeys();
+        Map<String, String> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, String> instance);
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class AdditionalPropertiesMapBuilder2 implements BaseBuilder<String>, SetterForAdditionalProperties2<AdditionalPropertiesMapBuilder2> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AdditionalPropertiesMapBuilder2() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public AdditionalPropertiesMapBuilder2 getBuilderAfterAdditionalProperty(Map<String, String> instance) {
+            return this;
+        }
     }
     
     
@@ -246,8 +309,38 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapOfMapPropertyMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties1<T> {
+        Set<String> getKnownKeys();
+        Map<String, Map<String, String>> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Map<String, String>> instance);
+        
+        default T additionalProperty(String key, Map<String, String> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class MapOfMapPropertyMapBuilder implements BaseBuilder<Map<String, String>>, SetterForAdditionalProperties1<MapOfMapPropertyMapBuilder> {
+        private final Map<String, Map<String, String>> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MapOfMapPropertyMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Map<String, String>> build() {
+            return instance;
+        }
+        public Map<String, Map<String, String>> getInstance() {
+            return instance;
+        }
+        public MapOfMapPropertyMapBuilder getBuilderAfterAdditionalProperty(Map<String, Map<String, String>> instance) {
+            return this;
+        }
     }
     
     
@@ -380,8 +473,94 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapWithUndeclaredPropertiesAnytype3MapBuilder {
-        // Map<String, Object> because additionalProperties == true
+    
+    public interface SetterForAdditionalProperties3<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, float value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, long value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, double value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, List<?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, ?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class MapWithUndeclaredPropertiesAnytype3MapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties3<MapWithUndeclaredPropertiesAnytype3MapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MapWithUndeclaredPropertiesAnytype3MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public MapWithUndeclaredPropertiesAnytype3MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     
@@ -476,8 +655,19 @@ public class AdditionalPropertiesClass {
             return EmptyMap.getInstance().validate(arg, configuration);
         }
     }
-    public static class EmptyMapMapBuilder {
-        // empty mapping
+    
+    public static class EmptyMapMapBuilder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public EmptyMapMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
     }
     
     
@@ -574,8 +764,38 @@ public class AdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapWithUndeclaredPropertiesStringMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties5<T> {
+        Set<String> getKnownKeys();
+        Map<String, String> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, String> instance);
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class MapWithUndeclaredPropertiesStringMapBuilder implements BaseBuilder<String>, SetterForAdditionalProperties5<MapWithUndeclaredPropertiesStringMapBuilder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MapWithUndeclaredPropertiesStringMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public MapWithUndeclaredPropertiesStringMapBuilder getBuilderAfterAdditionalProperty(Map<String, String> instance) {
+            return this;
+        }
     }
     
     
@@ -749,8 +969,194 @@ public class AdditionalPropertiesClass {
             return get(name);
         }
     }
-    public static class AdditionalPropertiesClassMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForMapProperty <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapProperty(Map<String, @Nullable Object> instance);
+        
+        default T map_property(Map<String, String> value) {
+            var instance = getInstance();
+            instance.put("map_property", value);
+            return getBuilderAfterMapProperty(instance);
+        }
+    }
+    
+    public interface SetterForMapOfMapProperty <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapOfMapProperty(Map<String, @Nullable Object> instance);
+        
+        default T map_of_map_property(Map<String, Map<String, String>> value) {
+            var instance = getInstance();
+            instance.put("map_of_map_property", value);
+            return getBuilderAfterMapOfMapProperty(instance);
+        }
+    }
+    
+    public interface SetterForAnytype1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAnytype1(Map<String, @Nullable Object> instance);
+        
+        default T anytype_1(Void value) {
+            var instance = getInstance();
+            instance.put("anytype_1", null);
+            return getBuilderAfterAnytype1(instance);
+        }
+        
+        default T anytype_1(boolean value) {
+            var instance = getInstance();
+            instance.put("anytype_1", value);
+            return getBuilderAfterAnytype1(instance);
+        }
+        
+        default T anytype_1(String value) {
+            var instance = getInstance();
+            instance.put("anytype_1", value);
+            return getBuilderAfterAnytype1(instance);
+        }
+        
+        default T anytype_1(int value) {
+            var instance = getInstance();
+            instance.put("anytype_1", value);
+            return getBuilderAfterAnytype1(instance);
+        }
+        
+        default T anytype_1(float value) {
+            var instance = getInstance();
+            instance.put("anytype_1", value);
+            return getBuilderAfterAnytype1(instance);
+        }
+        
+        default T anytype_1(long value) {
+            var instance = getInstance();
+            instance.put("anytype_1", value);
+            return getBuilderAfterAnytype1(instance);
+        }
+        
+        default T anytype_1(double value) {
+            var instance = getInstance();
+            instance.put("anytype_1", value);
+            return getBuilderAfterAnytype1(instance);
+        }
+        
+        default T anytype_1(List<?> value) {
+            var instance = getInstance();
+            instance.put("anytype_1", value);
+            return getBuilderAfterAnytype1(instance);
+        }
+        
+        default T anytype_1(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("anytype_1", value);
+            return getBuilderAfterAnytype1(instance);
+        }
+    }
+    
+    public interface SetterForMapWithUndeclaredPropertiesAnytype1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapWithUndeclaredPropertiesAnytype1(Map<String, @Nullable Object> instance);
+        
+        default T map_with_undeclared_properties_anytype_1(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("map_with_undeclared_properties_anytype_1", value);
+            return getBuilderAfterMapWithUndeclaredPropertiesAnytype1(instance);
+        }
+    }
+    
+    public interface SetterForMapWithUndeclaredPropertiesAnytype2 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapWithUndeclaredPropertiesAnytype2(Map<String, @Nullable Object> instance);
+        
+        default T map_with_undeclared_properties_anytype_2(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("map_with_undeclared_properties_anytype_2", value);
+            return getBuilderAfterMapWithUndeclaredPropertiesAnytype2(instance);
+        }
+    }
+    
+    public interface SetterForMapWithUndeclaredPropertiesAnytype3 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapWithUndeclaredPropertiesAnytype3(Map<String, @Nullable Object> instance);
+        
+        default T map_with_undeclared_properties_anytype_3(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("map_with_undeclared_properties_anytype_3", value);
+            return getBuilderAfterMapWithUndeclaredPropertiesAnytype3(instance);
+        }
+    }
+    
+    public interface SetterForEmptyMap <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEmptyMap(Map<String, @Nullable Object> instance);
+        
+        default T empty_map(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("empty_map", value);
+            return getBuilderAfterEmptyMap(instance);
+        }
+    }
+    
+    public interface SetterForMapWithUndeclaredPropertiesString <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapWithUndeclaredPropertiesString(Map<String, @Nullable Object> instance);
+        
+        default T map_with_undeclared_properties_string(Map<String, String> value) {
+            var instance = getInstance();
+            instance.put("map_with_undeclared_properties_string", value);
+            return getBuilderAfterMapWithUndeclaredPropertiesString(instance);
+        }
+    }
+    
+    public static class AdditionalPropertiesClassMapBuilder extends UnsetAddPropsSetter<AdditionalPropertiesClassMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForMapProperty<AdditionalPropertiesClassMapBuilder>, SetterForMapOfMapProperty<AdditionalPropertiesClassMapBuilder>, SetterForAnytype1<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype1<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype2<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype3<AdditionalPropertiesClassMapBuilder>, SetterForEmptyMap<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesString<AdditionalPropertiesClassMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "map_property",
+            "map_of_map_property",
+            "anytype_1",
+            "map_with_undeclared_properties_anytype_1",
+            "map_with_undeclared_properties_anytype_2",
+            "map_with_undeclared_properties_anytype_3",
+            "empty_map",
+            "map_with_undeclared_properties_string"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AdditionalPropertiesClassMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterMapProperty(Map<String, @Nullable Object> instance) {
+            return new AdditionalPropertiesClassMapBuilder(instance);
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterMapOfMapProperty(Map<String, @Nullable Object> instance) {
+            return new AdditionalPropertiesClassMapBuilder(instance);
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterAnytype1(Map<String, @Nullable Object> instance) {
+            return new AdditionalPropertiesClassMapBuilder(instance);
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterMapWithUndeclaredPropertiesAnytype1(Map<String, @Nullable Object> instance) {
+            return new AdditionalPropertiesClassMapBuilder(instance);
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterMapWithUndeclaredPropertiesAnytype2(Map<String, @Nullable Object> instance) {
+            return new AdditionalPropertiesClassMapBuilder(instance);
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterMapWithUndeclaredPropertiesAnytype3(Map<String, @Nullable Object> instance) {
+            return new AdditionalPropertiesClassMapBuilder(instance);
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterEmptyMap(Map<String, @Nullable Object> instance) {
+            return new AdditionalPropertiesClassMapBuilder(instance);
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterMapWithUndeclaredPropertiesString(Map<String, @Nullable Object> instance) {
+            return new AdditionalPropertiesClassMapBuilder(instance);
+        }
+        public AdditionalPropertiesClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

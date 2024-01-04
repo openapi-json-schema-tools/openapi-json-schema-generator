@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -88,8 +90,56 @@ public class ReadOnlyFirst {
             return get(name);
         }
     }
-    public static class ReadOnlyFirstMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForBar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
+        
+        default T bar(String value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+    }
+    
+    public interface SetterForBaz <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBaz(Map<String, @Nullable Object> instance);
+        
+        default T baz(String value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+    }
+    
+    public static class ReadOnlyFirstMapBuilder extends UnsetAddPropsSetter<ReadOnlyFirstMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForBar<ReadOnlyFirstMapBuilder>, SetterForBaz<ReadOnlyFirstMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "bar",
+            "baz"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ReadOnlyFirstMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ReadOnlyFirstMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new ReadOnlyFirstMapBuilder(instance);
+        }
+        public ReadOnlyFirstMapBuilder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
+            return new ReadOnlyFirstMapBuilder(instance);
+        }
+        public ReadOnlyFirstMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

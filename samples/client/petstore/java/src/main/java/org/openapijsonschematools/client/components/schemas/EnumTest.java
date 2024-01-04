@@ -15,7 +15,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.DoubleEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.DoubleValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FloatEnumValidator;
@@ -518,8 +520,483 @@ public class EnumTest {
             return get(name);
         }
     }
-    public static class EnumTestMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForEnumStringRequired <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEnumStringRequired(Map<String, @Nullable Object> instance);
+        
+        default T enum_string_required(String value) {
+            var instance = getInstance();
+            instance.put("enum_string_required", value);
+            return getBuilderAfterEnumStringRequired(instance);
+        }
+        
+        default T enum_string_required(StringEnumStringRequiredEnums value) {
+            var instance = getInstance();
+            instance.put("enum_string_required", value.value());
+            return getBuilderAfterEnumStringRequired(instance);
+        }
+    }
+    
+    public interface SetterForEnumString <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEnumString(Map<String, @Nullable Object> instance);
+        
+        default T enum_string(String value) {
+            var instance = getInstance();
+            instance.put("enum_string", value);
+            return getBuilderAfterEnumString(instance);
+        }
+        
+        default T enum_string(StringEnumStringEnums value) {
+            var instance = getInstance();
+            instance.put("enum_string", value.value());
+            return getBuilderAfterEnumString(instance);
+        }
+    }
+    
+    public interface SetterForEnumInteger <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEnumInteger(Map<String, @Nullable Object> instance);
+        
+        default T enum_integer(int value) {
+            var instance = getInstance();
+            instance.put("enum_integer", value);
+            return getBuilderAfterEnumInteger(instance);
+        }
+        
+        default T enum_integer(float value) {
+            var instance = getInstance();
+            instance.put("enum_integer", value);
+            return getBuilderAfterEnumInteger(instance);
+        }
+        
+        default T enum_integer(IntegerEnumIntegerEnums value) {
+            var instance = getInstance();
+            instance.put("enum_integer", value.value());
+            return getBuilderAfterEnumInteger(instance);
+        }
+        
+        default T enum_integer(LongEnumIntegerEnums value) {
+            var instance = getInstance();
+            instance.put("enum_integer", value.value());
+            return getBuilderAfterEnumInteger(instance);
+        }
+        
+        default T enum_integer(FloatEnumIntegerEnums value) {
+            var instance = getInstance();
+            instance.put("enum_integer", value.value());
+            return getBuilderAfterEnumInteger(instance);
+        }
+        
+        default T enum_integer(DoubleEnumIntegerEnums value) {
+            var instance = getInstance();
+            instance.put("enum_integer", value.value());
+            return getBuilderAfterEnumInteger(instance);
+        }
+    }
+    
+    public interface SetterForEnumNumber <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEnumNumber(Map<String, @Nullable Object> instance);
+        
+        default T enum_number(int value) {
+            var instance = getInstance();
+            instance.put("enum_number", value);
+            return getBuilderAfterEnumNumber(instance);
+        }
+        
+        default T enum_number(float value) {
+            var instance = getInstance();
+            instance.put("enum_number", value);
+            return getBuilderAfterEnumNumber(instance);
+        }
+        
+        default T enum_number(long value) {
+            var instance = getInstance();
+            instance.put("enum_number", value);
+            return getBuilderAfterEnumNumber(instance);
+        }
+        
+        default T enum_number(double value) {
+            var instance = getInstance();
+            instance.put("enum_number", value);
+            return getBuilderAfterEnumNumber(instance);
+        }
+        
+        default T enum_number(DoubleEnumNumberEnums value) {
+            var instance = getInstance();
+            instance.put("enum_number", value.value());
+            return getBuilderAfterEnumNumber(instance);
+        }
+        
+        default T enum_number(FloatEnumNumberEnums value) {
+            var instance = getInstance();
+            instance.put("enum_number", value.value());
+            return getBuilderAfterEnumNumber(instance);
+        }
+    }
+    
+    public interface SetterForStringEnum <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStringEnum(Map<String, @Nullable Object> instance);
+        
+        default T stringEnum(Void value) {
+            var instance = getInstance();
+            instance.put("stringEnum", null);
+            return getBuilderAfterStringEnum(instance);
+        }
+        
+        default T stringEnum(boolean value) {
+            var instance = getInstance();
+            instance.put("stringEnum", value);
+            return getBuilderAfterStringEnum(instance);
+        }
+        
+        default T stringEnum(String value) {
+            var instance = getInstance();
+            instance.put("stringEnum", value);
+            return getBuilderAfterStringEnum(instance);
+        }
+        
+        default T stringEnum(int value) {
+            var instance = getInstance();
+            instance.put("stringEnum", value);
+            return getBuilderAfterStringEnum(instance);
+        }
+        
+        default T stringEnum(float value) {
+            var instance = getInstance();
+            instance.put("stringEnum", value);
+            return getBuilderAfterStringEnum(instance);
+        }
+        
+        default T stringEnum(long value) {
+            var instance = getInstance();
+            instance.put("stringEnum", value);
+            return getBuilderAfterStringEnum(instance);
+        }
+        
+        default T stringEnum(double value) {
+            var instance = getInstance();
+            instance.put("stringEnum", value);
+            return getBuilderAfterStringEnum(instance);
+        }
+        
+        default T stringEnum(List<?> value) {
+            var instance = getInstance();
+            instance.put("stringEnum", value);
+            return getBuilderAfterStringEnum(instance);
+        }
+        
+        default T stringEnum(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("stringEnum", value);
+            return getBuilderAfterStringEnum(instance);
+        }
+    }
+    
+    public interface SetterForIntegerEnum <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterIntegerEnum(Map<String, @Nullable Object> instance);
+        
+        default T IntegerEnum(Void value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", null);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(boolean value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(String value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(int value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(float value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(long value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(double value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(List<?> value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+        
+        default T IntegerEnum(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("IntegerEnum", value);
+            return getBuilderAfterIntegerEnum(instance);
+        }
+    }
+    
+    public interface SetterForStringEnumWithDefaultValue <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStringEnumWithDefaultValue(Map<String, @Nullable Object> instance);
+        
+        default T StringEnumWithDefaultValue(Void value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", null);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+        
+        default T StringEnumWithDefaultValue(boolean value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", value);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+        
+        default T StringEnumWithDefaultValue(String value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", value);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+        
+        default T StringEnumWithDefaultValue(int value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", value);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+        
+        default T StringEnumWithDefaultValue(float value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", value);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+        
+        default T StringEnumWithDefaultValue(long value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", value);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+        
+        default T StringEnumWithDefaultValue(double value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", value);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+        
+        default T StringEnumWithDefaultValue(List<?> value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", value);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+        
+        default T StringEnumWithDefaultValue(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("StringEnumWithDefaultValue", value);
+            return getBuilderAfterStringEnumWithDefaultValue(instance);
+        }
+    }
+    
+    public interface SetterForIntegerEnumWithDefaultValue <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterIntegerEnumWithDefaultValue(Map<String, @Nullable Object> instance);
+        
+        default T IntegerEnumWithDefaultValue(Void value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", null);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(boolean value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(String value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(int value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(float value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(long value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(double value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(List<?> value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+        
+        default T IntegerEnumWithDefaultValue(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumWithDefaultValue", value);
+            return getBuilderAfterIntegerEnumWithDefaultValue(instance);
+        }
+    }
+    
+    public interface SetterForIntegerEnumOneValue <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterIntegerEnumOneValue(Map<String, @Nullable Object> instance);
+        
+        default T IntegerEnumOneValue(Void value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", null);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(boolean value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(String value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(int value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(float value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(long value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(double value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(List<?> value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+        
+        default T IntegerEnumOneValue(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("IntegerEnumOneValue", value);
+            return getBuilderAfterIntegerEnumOneValue(instance);
+        }
+    }
+    
+    public static class EnumTestMap0Builder extends UnsetAddPropsSetter<EnumTestMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForEnumString<EnumTestMap0Builder>, SetterForEnumInteger<EnumTestMap0Builder>, SetterForEnumNumber<EnumTestMap0Builder>, SetterForStringEnum<EnumTestMap0Builder>, SetterForIntegerEnum<EnumTestMap0Builder>, SetterForStringEnumWithDefaultValue<EnumTestMap0Builder>, SetterForIntegerEnumWithDefaultValue<EnumTestMap0Builder>, SetterForIntegerEnumOneValue<EnumTestMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "enum_string_required",
+            "enum_string",
+            "enum_integer",
+            "enum_number",
+            "stringEnum",
+            "IntegerEnum",
+            "StringEnumWithDefaultValue",
+            "IntegerEnumWithDefaultValue",
+            "IntegerEnumOneValue"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public EnumTestMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public EnumTestMap0Builder getBuilderAfterEnumString(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
+        public EnumTestMap0Builder getBuilderAfterEnumInteger(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
+        public EnumTestMap0Builder getBuilderAfterEnumNumber(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
+        public EnumTestMap0Builder getBuilderAfterStringEnum(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
+        public EnumTestMap0Builder getBuilderAfterIntegerEnum(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
+        public EnumTestMap0Builder getBuilderAfterStringEnumWithDefaultValue(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
+        public EnumTestMap0Builder getBuilderAfterIntegerEnumWithDefaultValue(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
+        public EnumTestMap0Builder getBuilderAfterIntegerEnumOneValue(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
+        public EnumTestMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class EnumTestMapBuilder implements SetterForEnumStringRequired<EnumTestMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public EnumTestMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public EnumTestMap0Builder getBuilderAfterEnumStringRequired(Map<String, @Nullable Object> instance) {
+            return new EnumTestMap0Builder(instance);
+        }
     }
     
     

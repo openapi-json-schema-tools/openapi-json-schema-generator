@@ -16,9 +16,11 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -688,8 +690,566 @@ public class Schema {
             return get(name);
         }
     }
-    public static class SchemaMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForByteSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterByteSchema(Map<String, @Nullable Object> instance);
+        
+        default T setByte(String value) {
+            var instance = getInstance();
+            instance.put("byte", value);
+            return getBuilderAfterByteSchema(instance);
+        }
+    }
+    
+    public interface SetterForDoubleSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance);
+        
+        default T setDouble(int value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(float value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(long value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(double value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+    }
+    
+    public interface SetterForNumberSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance);
+        
+        default T setNumber(int value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(float value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(long value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(double value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+    }
+    
+    public interface SetterForPatternWithoutDelimiter <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance);
+        
+        default T pattern_without_delimiter(String value) {
+            var instance = getInstance();
+            instance.put("pattern_without_delimiter", value);
+            return getBuilderAfterPatternWithoutDelimiter(instance);
+        }
+    }
+    
+    public interface SetterForIntegerSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance);
+        
+        default T setInteger(int value) {
+            var instance = getInstance();
+            instance.put("integer", value);
+            return getBuilderAfterIntegerSchema(instance);
+        }
+        
+        default T setInteger(float value) {
+            var instance = getInstance();
+            instance.put("integer", value);
+            return getBuilderAfterIntegerSchema(instance);
+        }
+        
+        default T setInteger(long value) {
+            var instance = getInstance();
+            instance.put("integer", value);
+            return getBuilderAfterIntegerSchema(instance);
+        }
+        
+        default T setInteger(double value) {
+            var instance = getInstance();
+            instance.put("integer", value);
+            return getBuilderAfterIntegerSchema(instance);
+        }
+    }
+    
+    public interface SetterForInt32 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt32(Map<String, @Nullable Object> instance);
+        
+        default T int32(int value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(float value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+    }
+    
+    public interface SetterForInt64 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt64(Map<String, @Nullable Object> instance);
+        
+        default T int64(int value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(float value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(long value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(double value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+    }
+    
+    public interface SetterForFloatSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance);
+        
+        default T setFloat(int value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(float value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(long value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(double value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+    }
+    
+    public interface SetterForStringSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStringSchema(Map<String, @Nullable Object> instance);
+        
+        default T setString(String value) {
+            var instance = getInstance();
+            instance.put("string", value);
+            return getBuilderAfterStringSchema(instance);
+        }
+    }
+    
+    public interface SetterForBinary <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBinary(Map<String, @Nullable Object> instance);
+        
+        default T binary(String value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+    }
+    
+    public interface SetterForDate <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDate(Map<String, @Nullable Object> instance);
+        
+        default T date(String value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+    }
+    
+    public interface SetterForDateTime <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDateTime(Map<String, @Nullable Object> instance);
+        
+        default T dateTime(String value) {
+            var instance = getInstance();
+            instance.put("dateTime", value);
+            return getBuilderAfterDateTime(instance);
+        }
+    }
+    
+    public interface SetterForPassword <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPassword(Map<String, @Nullable Object> instance);
+        
+        default T password(String value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+    }
+    
+    public interface SetterForCallback <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCallback(Map<String, @Nullable Object> instance);
+        
+        default T callback(String value) {
+            var instance = getInstance();
+            instance.put("callback", value);
+            return getBuilderAfterCallback(instance);
+        }
+    }
+    
+    public static class SchemaMap0000Builder extends UnsetAddPropsSetter<SchemaMap0000Builder> implements BaseBuilder<@Nullable Object>, SetterForIntegerSchema<SchemaMap0000Builder>, SetterForInt32<SchemaMap0000Builder>, SetterForInt64<SchemaMap0000Builder>, SetterForFloatSchema<SchemaMap0000Builder>, SetterForStringSchema<SchemaMap0000Builder>, SetterForBinary<SchemaMap0000Builder>, SetterForDate<SchemaMap0000Builder>, SetterForDateTime<SchemaMap0000Builder>, SetterForPassword<SchemaMap0000Builder>, SetterForCallback<SchemaMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "byte",
+            "double",
+            "number",
+            "pattern_without_delimiter",
+            "integer",
+            "int32",
+            "int64",
+            "float",
+            "string",
+            "binary",
+            "date",
+            "dateTime",
+            "password",
+            "callback"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public SchemaMap0000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0000Builder getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterInt64(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterStringSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterBinary(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterDateTime(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterCallback(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+        public SchemaMap0000Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class SchemaMap0001Builder implements SetterForPatternWithoutDelimiter<SchemaMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap0001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0000Builder getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap0010Builder implements SetterForNumberSchema<SchemaMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap0010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0000Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap0011Builder implements SetterForNumberSchema<SchemaMap0001Builder>, SetterForPatternWithoutDelimiter<SchemaMap0010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap0011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0001Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0001Builder(instance);
+        }
+        public SchemaMap0010Builder getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0010Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap0100Builder implements SetterForDoubleSchema<SchemaMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap0100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0000Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap0101Builder implements SetterForDoubleSchema<SchemaMap0001Builder>, SetterForPatternWithoutDelimiter<SchemaMap0100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap0101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0001Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0001Builder(instance);
+        }
+        public SchemaMap0100Builder getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0100Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap0110Builder implements SetterForDoubleSchema<SchemaMap0010Builder>, SetterForNumberSchema<SchemaMap0100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap0110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0010Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0010Builder(instance);
+        }
+        public SchemaMap0100Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0100Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap0111Builder implements SetterForDoubleSchema<SchemaMap0011Builder>, SetterForNumberSchema<SchemaMap0101Builder>, SetterForPatternWithoutDelimiter<SchemaMap0110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap0111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0011Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0011Builder(instance);
+        }
+        public SchemaMap0101Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0101Builder(instance);
+        }
+        public SchemaMap0110Builder getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0110Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap1000Builder implements SetterForByteSchema<SchemaMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap1000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0000Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0000Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap1001Builder implements SetterForByteSchema<SchemaMap0001Builder>, SetterForPatternWithoutDelimiter<SchemaMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap1001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0001Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0001Builder(instance);
+        }
+        public SchemaMap1000Builder getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1000Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap1010Builder implements SetterForByteSchema<SchemaMap0010Builder>, SetterForNumberSchema<SchemaMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap1010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0010Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0010Builder(instance);
+        }
+        public SchemaMap1000Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1000Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap1011Builder implements SetterForByteSchema<SchemaMap0011Builder>, SetterForNumberSchema<SchemaMap1001Builder>, SetterForPatternWithoutDelimiter<SchemaMap1010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap1011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0011Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0011Builder(instance);
+        }
+        public SchemaMap1001Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1001Builder(instance);
+        }
+        public SchemaMap1010Builder getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1010Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap1100Builder implements SetterForByteSchema<SchemaMap0100Builder>, SetterForDoubleSchema<SchemaMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap1100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0100Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0100Builder(instance);
+        }
+        public SchemaMap1000Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1000Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap1101Builder implements SetterForByteSchema<SchemaMap0101Builder>, SetterForDoubleSchema<SchemaMap1001Builder>, SetterForPatternWithoutDelimiter<SchemaMap1100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap1101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0101Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0101Builder(instance);
+        }
+        public SchemaMap1001Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1001Builder(instance);
+        }
+        public SchemaMap1100Builder getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1100Builder(instance);
+        }
+    }
+    
+    public static class SchemaMap1110Builder implements SetterForByteSchema<SchemaMap0110Builder>, SetterForDoubleSchema<SchemaMap1010Builder>, SetterForNumberSchema<SchemaMap1100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMap1110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0110Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0110Builder(instance);
+        }
+        public SchemaMap1010Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1010Builder(instance);
+        }
+        public SchemaMap1100Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1100Builder(instance);
+        }
+    }
+    
+    public static class SchemaMapBuilder implements SetterForByteSchema<SchemaMap0111Builder>, SetterForDoubleSchema<SchemaMap1011Builder>, SetterForNumberSchema<SchemaMap1101Builder>, SetterForPatternWithoutDelimiter<SchemaMap1110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public SchemaMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMap0111Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap0111Builder(instance);
+        }
+        public SchemaMap1011Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1011Builder(instance);
+        }
+        public SchemaMap1101Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1101Builder(instance);
+        }
+        public SchemaMap1110Builder getBuilderAfterPatternWithoutDelimiter(Map<String, @Nullable Object> instance) {
+            return new SchemaMap1110Builder(instance);
+        }
     }
     
     

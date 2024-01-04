@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -66,8 +68,41 @@ public class ObjectWithOptionalTestProp {
             return get(name);
         }
     }
-    public static class ObjectWithOptionalTestPropMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForTest <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterTest(Map<String, @Nullable Object> instance);
+        
+        default T test(String value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+    }
+    
+    public static class ObjectWithOptionalTestPropMapBuilder extends UnsetAddPropsSetter<ObjectWithOptionalTestPropMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForTest<ObjectWithOptionalTestPropMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "test"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectWithOptionalTestPropMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithOptionalTestPropMapBuilder getBuilderAfterTest(Map<String, @Nullable Object> instance) {
+            return new ObjectWithOptionalTestPropMapBuilder(instance);
+        }
+        public ObjectWithOptionalTestPropMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

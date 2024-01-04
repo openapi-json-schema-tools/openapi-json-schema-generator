@@ -31,7 +31,7 @@ model with properties that have invalid names for python
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -44,7 +44,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayload =
     ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, Object>(
             "123-list",
             "a"
@@ -74,19 +74,44 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 | ----------------- | ---------------------- |
 | [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map<?, ?>](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectWithDifficultlyNamedPropsMapBuilder
-public class ObjectWithDifficultlyNamedPropsMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ObjectWithDifficultlyNamedPropsMap0Builder
+public class ObjectWithDifficultlyNamedPropsMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **123-list** | String |  | |
-| **$special[property.name]** | Number |  | [optional] value must be a 64 bit integer |
-| **123Number** | Number |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithDifficultlyNamedPropsMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(int value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(float value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(long value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(double value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(int value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(float value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(long value) |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123number(double value) |
+## ObjectWithDifficultlyNamedPropsMapBuilder
+public class ObjectWithDifficultlyNamedPropsMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithDifficultlyNamedPropsMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ObjectWithDifficultlyNamedPropsMap0Builder](#objectwithdifficultlynamedpropsmap0builder) | set123HyphenMinusList(String value) |
 
 ## ObjectWithDifficultlyNamedPropsMap
 public static class ObjectWithDifficultlyNamedPropsMap<br>

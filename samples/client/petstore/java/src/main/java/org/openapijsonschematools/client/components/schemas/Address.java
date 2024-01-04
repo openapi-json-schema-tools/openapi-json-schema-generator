@@ -14,11 +14,13 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -51,8 +53,59 @@ public class Address {
             return getOrThrow(name);
         }
     }
-    public static class AddressMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, Number> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Number> instance);
+        
+        default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, float value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, long value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, double value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class AddressMapBuilder implements BaseBuilder<Number>, SetterForAdditionalProperties<AddressMapBuilder> {
+        private final Map<String, Number> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AddressMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Number> build() {
+            return instance;
+        }
+        public Map<String, Number> getInstance() {
+            return instance;
+        }
+        public AddressMapBuilder getBuilderAfterAdditionalProperty(Map<String, Number> instance) {
+            return this;
+        }
     }
     
     

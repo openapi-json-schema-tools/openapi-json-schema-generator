@@ -58,7 +58,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -71,7 +71,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NullableClass.NullableClassMap validatedPayload =
     NullableClass.NullableClass1.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
         new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "integer_prop",
             null
@@ -120,7 +120,7 @@ NullableClass.NullableClassMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "object_items_nullable",
-            MapMaker.makeMap(
+            MapUtils.makeMap(
             )
         )
     ),
@@ -142,26 +142,47 @@ NullableClass.NullableClassMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NullableClassMapBuilder
 public class NullableClassMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **integer_prop** | ? extends @Nullable Number |  | [optional] |
-| **number_prop** | ? extends @Nullable Number |  | [optional] |
-| **boolean_prop** | ? extends @Nullable Boolean |  | [optional] |
-| **string_prop** | ? extends @Nullable String |  | [optional] |
-| **date_prop** | ? extends @Nullable String |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
-| **datetime_prop** | ? extends @Nullable String |  | [optional] value must conform to RFC-3339 date-time |
-| **array_nullable_prop** | ? extends @Nullable List<Map<String, ? extends @Nullable Object>> |  | [optional] |
-| **array_and_items_nullable_prop** | ? extends @Nullable List<? extends @Nullable Map<String, ? extends @Nullable Object>> |  | [optional] |
-| **array_items_nullable** | List<? extends @Nullable Map<String, ? extends @Nullable Object>> |  | [optional] |
-| **object_nullable_prop** | ? extends @Nullable Map<String, Map<String, ? extends @Nullable Object>> |  | [optional] |
-| **object_and_items_nullable_prop** | ? extends @Nullable Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>> |  | [optional] |
-| **object_items_nullable** | Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>> |  | [optional] |
-| **anyStringName** | ? extends @Nullable Map<String, ? extends @Nullable Object> | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NullableClassMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | integer_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | integer_prop(int value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | integer_prop(float value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | integer_prop(long value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | integer_prop(double value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | number_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | number_prop(int value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | number_prop(float value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | number_prop(long value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | number_prop(double value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | boolean_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | boolean_prop(boolean value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | string_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | string_prop(String value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | date_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | date_prop(String value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | datetime_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | datetime_prop(String value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | array_nullable_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | array_nullable_prop(List<Map<String, @Nullable Object>> value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | array_and_items_nullable_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | array_and_items_nullable_prop(List<@Nullable Map<String, @Nullable Object>> value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | array_items_nullable(List<@Nullable Map<String, @Nullable Object>> value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | object_nullable_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | object_nullable_prop(Map<String, Map<String, @Nullable Object>> value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | object_and_items_nullable_prop(Void value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | object_and_items_nullable_prop(Map<String, @Nullable Map<String, @Nullable Object>> value) |
+| [NullableClassMapBuilder](#nullableclassmapbuilder) | object_items_nullable(Map<String, @Nullable Map<String, @Nullable Object>> value) |
 
 ## NullableClassMap
 public static class NullableClassMap<br>
@@ -198,7 +219,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -211,7 +232,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NullableClass.ObjectItemsNullableMap validatedPayload =
     NullableClass.ObjectItemsNullable.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -230,14 +251,19 @@ NullableClass.ObjectItemsNullableMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectItemsNullableMapBuilder
 public class ObjectItemsNullableMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>`
+builder for `Map<String, @Nullable Map<String, @Nullable Object>>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | ? extends @Nullable Map<String, ? extends @Nullable Object> | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectItemsNullableMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Map<String, @Nullable Object>> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## ObjectItemsNullableMap
 public static class ObjectItemsNullableMap<br>
@@ -262,7 +288,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -301,7 +327,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -320,7 +346,7 @@ Void validatedPayload = NullableClass.ObjectAndItemsNullableProp.validate(
 // Map validation
 NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
     NullableClass.ObjectAndItemsNullableProp.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -340,14 +366,19 @@ NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullablePropMapBuilder
 public class ObjectAndItemsNullablePropMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>`
+builder for `Map<String, @Nullable Map<String, @Nullable Object>>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | ? extends @Nullable Map<String, ? extends @Nullable Object> | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectAndItemsNullablePropMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Map<String, @Nullable Object>> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## ObjectAndItemsNullablePropMap
 public static class ObjectAndItemsNullablePropMap<br>
@@ -372,7 +403,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -411,7 +442,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -430,7 +461,7 @@ Void validatedPayload = NullableClass.ObjectNullableProp.validate(
 // Map validation
 NullableClass.ObjectNullablePropMap validatedPayload =
     NullableClass.ObjectNullableProp.validate(
-    MapMaker.makeMap(
+    MapUtils.makeMap(
     ),
     configuration
 );
@@ -450,14 +481,19 @@ NullableClass.ObjectNullablePropMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullablePropMapBuilder
 public class ObjectNullablePropMapBuilder<br>
-builder for `Map<String, Map<String, ? extends @Nullable Object>>`
+builder for `Map<String, Map<String, @Nullable Object>>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Map<String, ? extends @Nullable Object> | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectNullablePropMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Map<String, @Nullable Object>> | build()<br>Returns map input that should be used with Schema.validate |
 
 ## ObjectNullablePropMap
 public static class ObjectNullablePropMap<br>
@@ -492,7 +528,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -505,7 +541,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NullableClass.ArrayItemsNullableList validatedPayload =
     NullableClass.ArrayItemsNullable.validate(
-    new .ArrayItemsNullableListBuilder(
+    new NullableClass.ArrayItemsNullableListBuilder(
         Arrays.asList(
             null
         )
@@ -566,7 +602,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -605,7 +641,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -624,7 +660,7 @@ Void validatedPayload = NullableClass.ArrayAndItemsNullableProp.validate(
 // List validation
 NullableClass.ArrayAndItemsNullablePropList validatedPayload =
     NullableClass.ArrayAndItemsNullableProp.validate(
-    new .ArrayAndItemsNullablePropListBuilder(
+    new NullableClass.ArrayAndItemsNullablePropListBuilder(
         Arrays.asList(
             null
         )
@@ -686,7 +722,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -725,7 +761,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -744,7 +780,7 @@ Void validatedPayload = NullableClass.ArrayNullableProp.validate(
 // List validation
 NullableClass.ArrayNullablePropList validatedPayload =
     NullableClass.ArrayNullableProp.validate(
-    new .ArrayNullablePropListBuilder(
+    new NullableClass.ArrayNullablePropListBuilder(
         Arrays.asList(
         )
     ).build(),
@@ -814,7 +850,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -860,7 +896,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -906,7 +942,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -951,7 +987,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -996,7 +1032,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -1041,7 +1077,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -1086,7 +1122,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
