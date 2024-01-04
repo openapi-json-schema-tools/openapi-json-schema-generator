@@ -79,7 +79,7 @@ public class PropertyNamedRefThatIsNotAReference {
         }
     }
     
-    public static class PropertyNamedRefThatIsNotAReferenceBuilder extends UnsetAddPropsSetter<PropertyNamedRefThatIsNotAReferenceBuilder> implements BaseBuilder<@Nullable Object>, SetterForRef<PropertyNamedRefThatIsNotAReferenceBuilder> {
+    public static class PropertyNamedRefThatIsNotAReferenceMapBuilder1 extends UnsetAddPropsSetter<PropertyNamedRefThatIsNotAReferenceMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForRef<PropertyNamedRefThatIsNotAReferenceMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "$ref"
@@ -87,7 +87,7 @@ public class PropertyNamedRefThatIsNotAReference {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public PropertyNamedRefThatIsNotAReferenceBuilder() {
+        public PropertyNamedRefThatIsNotAReferenceMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -96,10 +96,10 @@ public class PropertyNamedRefThatIsNotAReference {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public PropertyNamedRefThatIsNotAReferenceBuilder getBuilderAfterRef(Map<String, @Nullable Object> instance) {
+        public PropertyNamedRefThatIsNotAReferenceMapBuilder1 getBuilderAfterRef(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertyNamedRefThatIsNotAReferenceBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public PropertyNamedRefThatIsNotAReferenceMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

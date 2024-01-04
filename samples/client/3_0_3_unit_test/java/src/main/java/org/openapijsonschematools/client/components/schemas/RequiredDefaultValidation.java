@@ -131,7 +131,7 @@ public class RequiredDefaultValidation {
         }
     }
     
-    public static class RequiredDefaultValidationBuilder extends UnsetAddPropsSetter<RequiredDefaultValidationBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredDefaultValidationBuilder> {
+    public static class RequiredDefaultValidationMapBuilder1 extends UnsetAddPropsSetter<RequiredDefaultValidationMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredDefaultValidationMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -139,7 +139,7 @@ public class RequiredDefaultValidation {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public RequiredDefaultValidationBuilder() {
+        public RequiredDefaultValidationMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -148,10 +148,10 @@ public class RequiredDefaultValidation {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredDefaultValidationBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public RequiredDefaultValidationMapBuilder1 getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public RequiredDefaultValidationBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public RequiredDefaultValidationMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

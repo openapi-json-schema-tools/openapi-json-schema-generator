@@ -72,13 +72,13 @@ public class AdditionalpropertiesCanExistByItself {
         }
     }
     
-    public static class AdditionalpropertiesCanExistByItselfBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesCanExistByItselfBuilder> {
+    public static class AdditionalpropertiesCanExistByItselfMapBuilder1 implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesCanExistByItselfMapBuilder1> {
         private final Map<String, Boolean> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public AdditionalpropertiesCanExistByItselfBuilder() {
+        public AdditionalpropertiesCanExistByItselfMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Boolean> build() {
@@ -87,7 +87,7 @@ public class AdditionalpropertiesCanExistByItself {
         public Map<String, Boolean> getInstance() {
             return instance;
         }
-        public AdditionalpropertiesCanExistByItselfBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
+        public AdditionalpropertiesCanExistByItselfMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
             return this;
         }
     }

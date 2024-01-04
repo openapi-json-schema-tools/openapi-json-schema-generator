@@ -2869,7 +2869,13 @@ public class DefaultGenerator implements Generator {
             if (reqPropsSize != 0) {
                 bitStr = String.format("%"+reqPropsSize+"s", Integer.toBinaryString(i)).replace(' ', '0');
             }
-            String builderClassName = getSchemaPascalCaseName(schemaName + bitStr + "Builder", sourceJsonPath);
+            String builderClassName = "";
+            if (i == qtyBuilders - 1) {
+                // first invoked builder has the simplest name with no bitStr
+                builderClassName = getSchemaPascalCaseName(schemaName + objectIOClassNamePiece + "Builder", sourceJsonPath);
+            } else {
+                builderClassName = getSchemaPascalCaseName(schemaName + bitStr + objectIOClassNamePiece + "Builder", sourceJsonPath);
+            }
             MapBuilder builder;
             if (i == 0) {
                 builder = new MapBuilder(builderClassName, new LinkedHashMap<>());

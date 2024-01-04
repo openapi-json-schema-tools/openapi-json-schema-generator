@@ -414,7 +414,7 @@ public class RequiredWithEscapedCharacters {
         }
     }
     
-    public static class RequiredWithEscapedCharacters000000Builder extends UnsetAddPropsSetter<RequiredWithEscapedCharacters000000Builder> implements BaseBuilder<@Nullable Object> {
+    public static class RequiredWithEscapedCharacters000000MapBuilder extends UnsetAddPropsSetter<RequiredWithEscapedCharacters000000MapBuilder> implements BaseBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo\tbar",
@@ -427,7 +427,7 @@ public class RequiredWithEscapedCharacters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public RequiredWithEscapedCharacters000000Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000000MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -436,1214 +436,1214 @@ public class RequiredWithEscapedCharacters {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000000Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000000MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class RequiredWithEscapedCharacters000001Builder implements SetterForFoobar1<RequiredWithEscapedCharacters000000Builder> {
+    public static class RequiredWithEscapedCharacters000001MapBuilder implements SetterForFoobar1<RequiredWithEscapedCharacters000000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters000001Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000001MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000000Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000000Builder(instance);
+        public RequiredWithEscapedCharacters000000MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters000010Builder implements SetterForFoobar<RequiredWithEscapedCharacters000000Builder> {
+    public static class RequiredWithEscapedCharacters000010MapBuilder implements SetterForFoobar<RequiredWithEscapedCharacters000000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters000010Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000010MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000000Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000000Builder(instance);
+        public RequiredWithEscapedCharacters000000MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters000011Builder implements SetterForFoobar<RequiredWithEscapedCharacters000001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters000010Builder> {
+    public static class RequiredWithEscapedCharacters000011MapBuilder implements SetterForFoobar<RequiredWithEscapedCharacters000001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters000010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters000011Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000011MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000001Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000001Builder(instance);
+        public RequiredWithEscapedCharacters000001MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters000010Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000010Builder(instance);
+        public RequiredWithEscapedCharacters000010MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000010MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters000100Builder implements SetterForFoorbar<RequiredWithEscapedCharacters000000Builder> {
+    public static class RequiredWithEscapedCharacters000100MapBuilder implements SetterForFoorbar<RequiredWithEscapedCharacters000000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters000100Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000100MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000000Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000000Builder(instance);
+        public RequiredWithEscapedCharacters000000MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters000101Builder implements SetterForFoorbar<RequiredWithEscapedCharacters000001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters000100Builder> {
+    public static class RequiredWithEscapedCharacters000101MapBuilder implements SetterForFoorbar<RequiredWithEscapedCharacters000001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters000100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters000101Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000101MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000001Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000001Builder(instance);
+        public RequiredWithEscapedCharacters000001MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters000100Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000100Builder(instance);
+        public RequiredWithEscapedCharacters000100MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters000110Builder implements SetterForFoorbar<RequiredWithEscapedCharacters000010Builder>, SetterForFoobar<RequiredWithEscapedCharacters000100Builder> {
+    public static class RequiredWithEscapedCharacters000110MapBuilder implements SetterForFoorbar<RequiredWithEscapedCharacters000010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters000100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters000110Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000110MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000010Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000010Builder(instance);
+        public RequiredWithEscapedCharacters000010MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters000100Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000100Builder(instance);
+        public RequiredWithEscapedCharacters000100MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters000111Builder implements SetterForFoorbar<RequiredWithEscapedCharacters000011Builder>, SetterForFoobar<RequiredWithEscapedCharacters000101Builder>, SetterForFoobar1<RequiredWithEscapedCharacters000110Builder> {
+    public static class RequiredWithEscapedCharacters000111MapBuilder implements SetterForFoorbar<RequiredWithEscapedCharacters000011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters000101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters000110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters000111Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters000111MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000011Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000011Builder(instance);
+        public RequiredWithEscapedCharacters000011MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters000101Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000101Builder(instance);
+        public RequiredWithEscapedCharacters000101MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters000110Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000110Builder(instance);
+        public RequiredWithEscapedCharacters000110MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000110MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters001000Builder implements SetterForFoofbar<RequiredWithEscapedCharacters000000Builder> {
+    public static class RequiredWithEscapedCharacters001000MapBuilder implements SetterForFoofbar<RequiredWithEscapedCharacters000000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters001000Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters001000MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000000Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000000Builder(instance);
+        public RequiredWithEscapedCharacters000000MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters001001Builder implements SetterForFoofbar<RequiredWithEscapedCharacters000001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters001000Builder> {
+    public static class RequiredWithEscapedCharacters001001MapBuilder implements SetterForFoofbar<RequiredWithEscapedCharacters000001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters001000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters001001Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters001001MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000001Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000001Builder(instance);
+        public RequiredWithEscapedCharacters000001MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001000Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001000Builder(instance);
+        public RequiredWithEscapedCharacters001000MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters001010Builder implements SetterForFoofbar<RequiredWithEscapedCharacters000010Builder>, SetterForFoobar<RequiredWithEscapedCharacters001000Builder> {
+    public static class RequiredWithEscapedCharacters001010MapBuilder implements SetterForFoofbar<RequiredWithEscapedCharacters000010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters001000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters001010Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters001010MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000010Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000010Builder(instance);
+        public RequiredWithEscapedCharacters000010MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001000Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001000Builder(instance);
+        public RequiredWithEscapedCharacters001000MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters001011Builder implements SetterForFoofbar<RequiredWithEscapedCharacters000011Builder>, SetterForFoobar<RequiredWithEscapedCharacters001001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters001010Builder> {
+    public static class RequiredWithEscapedCharacters001011MapBuilder implements SetterForFoofbar<RequiredWithEscapedCharacters000011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters001001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters001010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters001011Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters001011MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000011Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000011Builder(instance);
+        public RequiredWithEscapedCharacters000011MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001001Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001001Builder(instance);
+        public RequiredWithEscapedCharacters001001MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001010Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001010Builder(instance);
+        public RequiredWithEscapedCharacters001010MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001010MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters001100Builder implements SetterForFoofbar<RequiredWithEscapedCharacters000100Builder>, SetterForFoorbar<RequiredWithEscapedCharacters001000Builder> {
+    public static class RequiredWithEscapedCharacters001100MapBuilder implements SetterForFoofbar<RequiredWithEscapedCharacters000100MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters001000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters001100Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters001100MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000100Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000100Builder(instance);
+        public RequiredWithEscapedCharacters000100MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001000Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001000Builder(instance);
+        public RequiredWithEscapedCharacters001000MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters001101Builder implements SetterForFoofbar<RequiredWithEscapedCharacters000101Builder>, SetterForFoorbar<RequiredWithEscapedCharacters001001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters001100Builder> {
+    public static class RequiredWithEscapedCharacters001101MapBuilder implements SetterForFoofbar<RequiredWithEscapedCharacters000101MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters001001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters001100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters001101Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters001101MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000101Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000101Builder(instance);
+        public RequiredWithEscapedCharacters000101MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001001Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001001Builder(instance);
+        public RequiredWithEscapedCharacters001001MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001100Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001100Builder(instance);
+        public RequiredWithEscapedCharacters001100MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters001110Builder implements SetterForFoofbar<RequiredWithEscapedCharacters000110Builder>, SetterForFoorbar<RequiredWithEscapedCharacters001010Builder>, SetterForFoobar<RequiredWithEscapedCharacters001100Builder> {
+    public static class RequiredWithEscapedCharacters001110MapBuilder implements SetterForFoofbar<RequiredWithEscapedCharacters000110MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters001010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters001100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters001110Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters001110MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000110Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000110Builder(instance);
+        public RequiredWithEscapedCharacters000110MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001010Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001010Builder(instance);
+        public RequiredWithEscapedCharacters001010MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001100Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001100Builder(instance);
+        public RequiredWithEscapedCharacters001100MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters001111Builder implements SetterForFoofbar<RequiredWithEscapedCharacters000111Builder>, SetterForFoorbar<RequiredWithEscapedCharacters001011Builder>, SetterForFoobar<RequiredWithEscapedCharacters001101Builder>, SetterForFoobar1<RequiredWithEscapedCharacters001110Builder> {
+    public static class RequiredWithEscapedCharacters001111MapBuilder implements SetterForFoofbar<RequiredWithEscapedCharacters000111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters001011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters001101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters001110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters001111Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters001111MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000111Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000111Builder(instance);
+        public RequiredWithEscapedCharacters000111MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001011Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001011Builder(instance);
+        public RequiredWithEscapedCharacters001011MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001101Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001101Builder(instance);
+        public RequiredWithEscapedCharacters001101MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters001110Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001110Builder(instance);
+        public RequiredWithEscapedCharacters001110MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001110MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters010000Builder implements SetterForFoonbar<RequiredWithEscapedCharacters000000Builder> {
+    public static class RequiredWithEscapedCharacters010000MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters000000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters010000Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters010000MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000000Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000000Builder(instance);
+        public RequiredWithEscapedCharacters000000MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters010001Builder implements SetterForFoonbar<RequiredWithEscapedCharacters000001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters010000Builder> {
+    public static class RequiredWithEscapedCharacters010001MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters000001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters010000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters010001Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters010001MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000001Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000001Builder(instance);
+        public RequiredWithEscapedCharacters000001MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010000Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010000Builder(instance);
+        public RequiredWithEscapedCharacters010000MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters010010Builder implements SetterForFoonbar<RequiredWithEscapedCharacters000010Builder>, SetterForFoobar<RequiredWithEscapedCharacters010000Builder> {
+    public static class RequiredWithEscapedCharacters010010MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters000010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters010000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters010010Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters010010MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000010Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000010Builder(instance);
+        public RequiredWithEscapedCharacters000010MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010000Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010000Builder(instance);
+        public RequiredWithEscapedCharacters010000MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters010011Builder implements SetterForFoonbar<RequiredWithEscapedCharacters000011Builder>, SetterForFoobar<RequiredWithEscapedCharacters010001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters010010Builder> {
+    public static class RequiredWithEscapedCharacters010011MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters000011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters010001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters010010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters010011Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters010011MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000011Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000011Builder(instance);
+        public RequiredWithEscapedCharacters000011MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010001Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010001Builder(instance);
+        public RequiredWithEscapedCharacters010001MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010010Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010010Builder(instance);
+        public RequiredWithEscapedCharacters010010MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010010MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters010100Builder implements SetterForFoonbar<RequiredWithEscapedCharacters000100Builder>, SetterForFoorbar<RequiredWithEscapedCharacters010000Builder> {
+    public static class RequiredWithEscapedCharacters010100MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters000100MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters010000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters010100Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters010100MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000100Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000100Builder(instance);
+        public RequiredWithEscapedCharacters000100MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010000Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010000Builder(instance);
+        public RequiredWithEscapedCharacters010000MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters010101Builder implements SetterForFoonbar<RequiredWithEscapedCharacters000101Builder>, SetterForFoorbar<RequiredWithEscapedCharacters010001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters010100Builder> {
+    public static class RequiredWithEscapedCharacters010101MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters000101MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters010001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters010100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters010101Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters010101MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000101Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000101Builder(instance);
+        public RequiredWithEscapedCharacters000101MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010001Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010001Builder(instance);
+        public RequiredWithEscapedCharacters010001MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010100Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010100Builder(instance);
+        public RequiredWithEscapedCharacters010100MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters010110Builder implements SetterForFoonbar<RequiredWithEscapedCharacters000110Builder>, SetterForFoorbar<RequiredWithEscapedCharacters010010Builder>, SetterForFoobar<RequiredWithEscapedCharacters010100Builder> {
+    public static class RequiredWithEscapedCharacters010110MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters000110MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters010010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters010100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters010110Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters010110MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000110Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000110Builder(instance);
+        public RequiredWithEscapedCharacters000110MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010010Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010010Builder(instance);
+        public RequiredWithEscapedCharacters010010MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010100Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010100Builder(instance);
+        public RequiredWithEscapedCharacters010100MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters010111Builder implements SetterForFoonbar<RequiredWithEscapedCharacters000111Builder>, SetterForFoorbar<RequiredWithEscapedCharacters010011Builder>, SetterForFoobar<RequiredWithEscapedCharacters010101Builder>, SetterForFoobar1<RequiredWithEscapedCharacters010110Builder> {
+    public static class RequiredWithEscapedCharacters010111MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters000111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters010011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters010101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters010110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters010111Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters010111MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000111Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000111Builder(instance);
+        public RequiredWithEscapedCharacters000111MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010011Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010011Builder(instance);
+        public RequiredWithEscapedCharacters010011MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010101Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010101Builder(instance);
+        public RequiredWithEscapedCharacters010101MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010110Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010110Builder(instance);
+        public RequiredWithEscapedCharacters010110MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010110MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters011000Builder implements SetterForFoonbar<RequiredWithEscapedCharacters001000Builder>, SetterForFoofbar<RequiredWithEscapedCharacters010000Builder> {
+    public static class RequiredWithEscapedCharacters011000MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters001000MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters010000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters011000Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters011000MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001000Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001000Builder(instance);
+        public RequiredWithEscapedCharacters001000MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001000MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010000Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010000Builder(instance);
+        public RequiredWithEscapedCharacters010000MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters011001Builder implements SetterForFoonbar<RequiredWithEscapedCharacters001001Builder>, SetterForFoofbar<RequiredWithEscapedCharacters010001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters011000Builder> {
+    public static class RequiredWithEscapedCharacters011001MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters001001MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters010001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters011000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters011001Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters011001MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001001Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001001Builder(instance);
+        public RequiredWithEscapedCharacters001001MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010001Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010001Builder(instance);
+        public RequiredWithEscapedCharacters010001MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011000Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011000Builder(instance);
+        public RequiredWithEscapedCharacters011000MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters011010Builder implements SetterForFoonbar<RequiredWithEscapedCharacters001010Builder>, SetterForFoofbar<RequiredWithEscapedCharacters010010Builder>, SetterForFoobar<RequiredWithEscapedCharacters011000Builder> {
+    public static class RequiredWithEscapedCharacters011010MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters001010MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters010010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters011000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters011010Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters011010MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001010Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001010Builder(instance);
+        public RequiredWithEscapedCharacters001010MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010010Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010010Builder(instance);
+        public RequiredWithEscapedCharacters010010MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011000Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011000Builder(instance);
+        public RequiredWithEscapedCharacters011000MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters011011Builder implements SetterForFoonbar<RequiredWithEscapedCharacters001011Builder>, SetterForFoofbar<RequiredWithEscapedCharacters010011Builder>, SetterForFoobar<RequiredWithEscapedCharacters011001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters011010Builder> {
+    public static class RequiredWithEscapedCharacters011011MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters001011MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters010011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters011001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters011010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters011011Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters011011MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001011Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001011Builder(instance);
+        public RequiredWithEscapedCharacters001011MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010011Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010011Builder(instance);
+        public RequiredWithEscapedCharacters010011MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011001Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011001Builder(instance);
+        public RequiredWithEscapedCharacters011001MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011010Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011010Builder(instance);
+        public RequiredWithEscapedCharacters011010MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011010MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters011100Builder implements SetterForFoonbar<RequiredWithEscapedCharacters001100Builder>, SetterForFoofbar<RequiredWithEscapedCharacters010100Builder>, SetterForFoorbar<RequiredWithEscapedCharacters011000Builder> {
+    public static class RequiredWithEscapedCharacters011100MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters001100MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters010100MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters011000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters011100Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters011100MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001100Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001100Builder(instance);
+        public RequiredWithEscapedCharacters001100MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010100Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010100Builder(instance);
+        public RequiredWithEscapedCharacters010100MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011000Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011000Builder(instance);
+        public RequiredWithEscapedCharacters011000MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters011101Builder implements SetterForFoonbar<RequiredWithEscapedCharacters001101Builder>, SetterForFoofbar<RequiredWithEscapedCharacters010101Builder>, SetterForFoorbar<RequiredWithEscapedCharacters011001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters011100Builder> {
+    public static class RequiredWithEscapedCharacters011101MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters001101MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters010101MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters011001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters011100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters011101Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters011101MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001101Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001101Builder(instance);
+        public RequiredWithEscapedCharacters001101MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010101Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010101Builder(instance);
+        public RequiredWithEscapedCharacters010101MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011001Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011001Builder(instance);
+        public RequiredWithEscapedCharacters011001MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011100Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011100Builder(instance);
+        public RequiredWithEscapedCharacters011100MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters011110Builder implements SetterForFoonbar<RequiredWithEscapedCharacters001110Builder>, SetterForFoofbar<RequiredWithEscapedCharacters010110Builder>, SetterForFoorbar<RequiredWithEscapedCharacters011010Builder>, SetterForFoobar<RequiredWithEscapedCharacters011100Builder> {
+    public static class RequiredWithEscapedCharacters011110MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters001110MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters010110MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters011010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters011100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters011110Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters011110MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001110Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001110Builder(instance);
+        public RequiredWithEscapedCharacters001110MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010110Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010110Builder(instance);
+        public RequiredWithEscapedCharacters010110MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011010Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011010Builder(instance);
+        public RequiredWithEscapedCharacters011010MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011100Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011100Builder(instance);
+        public RequiredWithEscapedCharacters011100MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters011111Builder implements SetterForFoonbar<RequiredWithEscapedCharacters001111Builder>, SetterForFoofbar<RequiredWithEscapedCharacters010111Builder>, SetterForFoorbar<RequiredWithEscapedCharacters011011Builder>, SetterForFoobar<RequiredWithEscapedCharacters011101Builder>, SetterForFoobar1<RequiredWithEscapedCharacters011110Builder> {
+    public static class RequiredWithEscapedCharacters011111MapBuilder implements SetterForFoonbar<RequiredWithEscapedCharacters001111MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters010111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters011011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters011101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters011110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters011111Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters011111MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001111Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001111Builder(instance);
+        public RequiredWithEscapedCharacters001111MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters010111Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010111Builder(instance);
+        public RequiredWithEscapedCharacters010111MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011011Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011011Builder(instance);
+        public RequiredWithEscapedCharacters011011MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011101Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011101Builder(instance);
+        public RequiredWithEscapedCharacters011101MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters011110Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011110Builder(instance);
+        public RequiredWithEscapedCharacters011110MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011110MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters100000Builder implements SetterForFootbar<RequiredWithEscapedCharacters000000Builder> {
+    public static class RequiredWithEscapedCharacters100000MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters000000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters100000Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters100000MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000000Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000000Builder(instance);
+        public RequiredWithEscapedCharacters000000MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters100001Builder implements SetterForFootbar<RequiredWithEscapedCharacters000001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters100000Builder> {
+    public static class RequiredWithEscapedCharacters100001MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters000001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters100000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters100001Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters100001MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000001Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000001Builder(instance);
+        public RequiredWithEscapedCharacters000001MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100000Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100000Builder(instance);
+        public RequiredWithEscapedCharacters100000MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters100010Builder implements SetterForFootbar<RequiredWithEscapedCharacters000010Builder>, SetterForFoobar<RequiredWithEscapedCharacters100000Builder> {
+    public static class RequiredWithEscapedCharacters100010MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters000010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters100000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters100010Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters100010MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000010Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000010Builder(instance);
+        public RequiredWithEscapedCharacters000010MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100000Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100000Builder(instance);
+        public RequiredWithEscapedCharacters100000MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters100011Builder implements SetterForFootbar<RequiredWithEscapedCharacters000011Builder>, SetterForFoobar<RequiredWithEscapedCharacters100001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters100010Builder> {
+    public static class RequiredWithEscapedCharacters100011MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters000011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters100001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters100010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters100011Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters100011MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000011Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000011Builder(instance);
+        public RequiredWithEscapedCharacters000011MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100001Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100001Builder(instance);
+        public RequiredWithEscapedCharacters100001MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100010Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100010Builder(instance);
+        public RequiredWithEscapedCharacters100010MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100010MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters100100Builder implements SetterForFootbar<RequiredWithEscapedCharacters000100Builder>, SetterForFoorbar<RequiredWithEscapedCharacters100000Builder> {
+    public static class RequiredWithEscapedCharacters100100MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters000100MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters100000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters100100Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters100100MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000100Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000100Builder(instance);
+        public RequiredWithEscapedCharacters000100MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100000Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100000Builder(instance);
+        public RequiredWithEscapedCharacters100000MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters100101Builder implements SetterForFootbar<RequiredWithEscapedCharacters000101Builder>, SetterForFoorbar<RequiredWithEscapedCharacters100001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters100100Builder> {
+    public static class RequiredWithEscapedCharacters100101MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters000101MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters100001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters100100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters100101Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters100101MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000101Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000101Builder(instance);
+        public RequiredWithEscapedCharacters000101MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100001Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100001Builder(instance);
+        public RequiredWithEscapedCharacters100001MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100100Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100100Builder(instance);
+        public RequiredWithEscapedCharacters100100MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters100110Builder implements SetterForFootbar<RequiredWithEscapedCharacters000110Builder>, SetterForFoorbar<RequiredWithEscapedCharacters100010Builder>, SetterForFoobar<RequiredWithEscapedCharacters100100Builder> {
+    public static class RequiredWithEscapedCharacters100110MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters000110MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters100010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters100100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters100110Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters100110MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000110Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000110Builder(instance);
+        public RequiredWithEscapedCharacters000110MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100010Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100010Builder(instance);
+        public RequiredWithEscapedCharacters100010MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100100Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100100Builder(instance);
+        public RequiredWithEscapedCharacters100100MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters100111Builder implements SetterForFootbar<RequiredWithEscapedCharacters000111Builder>, SetterForFoorbar<RequiredWithEscapedCharacters100011Builder>, SetterForFoobar<RequiredWithEscapedCharacters100101Builder>, SetterForFoobar1<RequiredWithEscapedCharacters100110Builder> {
+    public static class RequiredWithEscapedCharacters100111MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters000111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters100011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters100101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters100110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters100111Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters100111MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters000111Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters000111Builder(instance);
+        public RequiredWithEscapedCharacters000111MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters000111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100011Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100011Builder(instance);
+        public RequiredWithEscapedCharacters100011MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100101Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100101Builder(instance);
+        public RequiredWithEscapedCharacters100101MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100110Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100110Builder(instance);
+        public RequiredWithEscapedCharacters100110MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100110MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters101000Builder implements SetterForFootbar<RequiredWithEscapedCharacters001000Builder>, SetterForFoofbar<RequiredWithEscapedCharacters100000Builder> {
+    public static class RequiredWithEscapedCharacters101000MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters001000MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters100000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters101000Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters101000MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001000Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001000Builder(instance);
+        public RequiredWithEscapedCharacters001000MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001000MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100000Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100000Builder(instance);
+        public RequiredWithEscapedCharacters100000MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters101001Builder implements SetterForFootbar<RequiredWithEscapedCharacters001001Builder>, SetterForFoofbar<RequiredWithEscapedCharacters100001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters101000Builder> {
+    public static class RequiredWithEscapedCharacters101001MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters001001MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters100001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters101000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters101001Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters101001MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001001Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001001Builder(instance);
+        public RequiredWithEscapedCharacters001001MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100001Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100001Builder(instance);
+        public RequiredWithEscapedCharacters100001MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101000Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101000Builder(instance);
+        public RequiredWithEscapedCharacters101000MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters101010Builder implements SetterForFootbar<RequiredWithEscapedCharacters001010Builder>, SetterForFoofbar<RequiredWithEscapedCharacters100010Builder>, SetterForFoobar<RequiredWithEscapedCharacters101000Builder> {
+    public static class RequiredWithEscapedCharacters101010MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters001010MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters100010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters101000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters101010Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters101010MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001010Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001010Builder(instance);
+        public RequiredWithEscapedCharacters001010MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100010Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100010Builder(instance);
+        public RequiredWithEscapedCharacters100010MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101000Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101000Builder(instance);
+        public RequiredWithEscapedCharacters101000MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters101011Builder implements SetterForFootbar<RequiredWithEscapedCharacters001011Builder>, SetterForFoofbar<RequiredWithEscapedCharacters100011Builder>, SetterForFoobar<RequiredWithEscapedCharacters101001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters101010Builder> {
+    public static class RequiredWithEscapedCharacters101011MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters001011MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters100011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters101001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters101010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters101011Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters101011MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001011Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001011Builder(instance);
+        public RequiredWithEscapedCharacters001011MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100011Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100011Builder(instance);
+        public RequiredWithEscapedCharacters100011MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101001Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101001Builder(instance);
+        public RequiredWithEscapedCharacters101001MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101010Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101010Builder(instance);
+        public RequiredWithEscapedCharacters101010MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101010MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters101100Builder implements SetterForFootbar<RequiredWithEscapedCharacters001100Builder>, SetterForFoofbar<RequiredWithEscapedCharacters100100Builder>, SetterForFoorbar<RequiredWithEscapedCharacters101000Builder> {
+    public static class RequiredWithEscapedCharacters101100MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters001100MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters100100MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters101000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters101100Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters101100MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001100Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001100Builder(instance);
+        public RequiredWithEscapedCharacters001100MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100100Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100100Builder(instance);
+        public RequiredWithEscapedCharacters100100MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101000Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101000Builder(instance);
+        public RequiredWithEscapedCharacters101000MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters101101Builder implements SetterForFootbar<RequiredWithEscapedCharacters001101Builder>, SetterForFoofbar<RequiredWithEscapedCharacters100101Builder>, SetterForFoorbar<RequiredWithEscapedCharacters101001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters101100Builder> {
+    public static class RequiredWithEscapedCharacters101101MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters001101MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters100101MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters101001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters101100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters101101Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters101101MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001101Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001101Builder(instance);
+        public RequiredWithEscapedCharacters001101MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100101Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100101Builder(instance);
+        public RequiredWithEscapedCharacters100101MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101001Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101001Builder(instance);
+        public RequiredWithEscapedCharacters101001MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101100Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101100Builder(instance);
+        public RequiredWithEscapedCharacters101100MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters101110Builder implements SetterForFootbar<RequiredWithEscapedCharacters001110Builder>, SetterForFoofbar<RequiredWithEscapedCharacters100110Builder>, SetterForFoorbar<RequiredWithEscapedCharacters101010Builder>, SetterForFoobar<RequiredWithEscapedCharacters101100Builder> {
+    public static class RequiredWithEscapedCharacters101110MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters001110MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters100110MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters101010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters101100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters101110Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters101110MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001110Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001110Builder(instance);
+        public RequiredWithEscapedCharacters001110MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100110Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100110Builder(instance);
+        public RequiredWithEscapedCharacters100110MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101010Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101010Builder(instance);
+        public RequiredWithEscapedCharacters101010MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101100Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101100Builder(instance);
+        public RequiredWithEscapedCharacters101100MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters101111Builder implements SetterForFootbar<RequiredWithEscapedCharacters001111Builder>, SetterForFoofbar<RequiredWithEscapedCharacters100111Builder>, SetterForFoorbar<RequiredWithEscapedCharacters101011Builder>, SetterForFoobar<RequiredWithEscapedCharacters101101Builder>, SetterForFoobar1<RequiredWithEscapedCharacters101110Builder> {
+    public static class RequiredWithEscapedCharacters101111MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters001111MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters100111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters101011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters101101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters101110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters101111Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters101111MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters001111Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters001111Builder(instance);
+        public RequiredWithEscapedCharacters001111MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters001111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100111Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100111Builder(instance);
+        public RequiredWithEscapedCharacters100111MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101011Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101011Builder(instance);
+        public RequiredWithEscapedCharacters101011MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101101Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101101Builder(instance);
+        public RequiredWithEscapedCharacters101101MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101110Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101110Builder(instance);
+        public RequiredWithEscapedCharacters101110MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101110MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters110000Builder implements SetterForFootbar<RequiredWithEscapedCharacters010000Builder>, SetterForFoonbar<RequiredWithEscapedCharacters100000Builder> {
+    public static class RequiredWithEscapedCharacters110000MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters010000MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters100000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters110000Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters110000MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters010000Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010000Builder(instance);
+        public RequiredWithEscapedCharacters010000MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010000MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100000Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100000Builder(instance);
+        public RequiredWithEscapedCharacters100000MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters110001Builder implements SetterForFootbar<RequiredWithEscapedCharacters010001Builder>, SetterForFoonbar<RequiredWithEscapedCharacters100001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters110000Builder> {
+    public static class RequiredWithEscapedCharacters110001MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters010001MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters100001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters110000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters110001Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters110001MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters010001Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010001Builder(instance);
+        public RequiredWithEscapedCharacters010001MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100001Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100001Builder(instance);
+        public RequiredWithEscapedCharacters100001MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110000Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110000Builder(instance);
+        public RequiredWithEscapedCharacters110000MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters110010Builder implements SetterForFootbar<RequiredWithEscapedCharacters010010Builder>, SetterForFoonbar<RequiredWithEscapedCharacters100010Builder>, SetterForFoobar<RequiredWithEscapedCharacters110000Builder> {
+    public static class RequiredWithEscapedCharacters110010MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters010010MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters100010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters110000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters110010Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters110010MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters010010Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010010Builder(instance);
+        public RequiredWithEscapedCharacters010010MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100010Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100010Builder(instance);
+        public RequiredWithEscapedCharacters100010MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110000Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110000Builder(instance);
+        public RequiredWithEscapedCharacters110000MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters110011Builder implements SetterForFootbar<RequiredWithEscapedCharacters010011Builder>, SetterForFoonbar<RequiredWithEscapedCharacters100011Builder>, SetterForFoobar<RequiredWithEscapedCharacters110001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters110010Builder> {
+    public static class RequiredWithEscapedCharacters110011MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters010011MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters100011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters110001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters110010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters110011Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters110011MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters010011Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010011Builder(instance);
+        public RequiredWithEscapedCharacters010011MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100011Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100011Builder(instance);
+        public RequiredWithEscapedCharacters100011MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110001Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110001Builder(instance);
+        public RequiredWithEscapedCharacters110001MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110010Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110010Builder(instance);
+        public RequiredWithEscapedCharacters110010MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110010MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters110100Builder implements SetterForFootbar<RequiredWithEscapedCharacters010100Builder>, SetterForFoonbar<RequiredWithEscapedCharacters100100Builder>, SetterForFoorbar<RequiredWithEscapedCharacters110000Builder> {
+    public static class RequiredWithEscapedCharacters110100MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters010100MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters100100MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters110000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters110100Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters110100MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters010100Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010100Builder(instance);
+        public RequiredWithEscapedCharacters010100MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100100Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100100Builder(instance);
+        public RequiredWithEscapedCharacters100100MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110000Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110000Builder(instance);
+        public RequiredWithEscapedCharacters110000MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters110101Builder implements SetterForFootbar<RequiredWithEscapedCharacters010101Builder>, SetterForFoonbar<RequiredWithEscapedCharacters100101Builder>, SetterForFoorbar<RequiredWithEscapedCharacters110001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters110100Builder> {
+    public static class RequiredWithEscapedCharacters110101MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters010101MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters100101MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters110001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters110100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters110101Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters110101MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters010101Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010101Builder(instance);
+        public RequiredWithEscapedCharacters010101MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100101Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100101Builder(instance);
+        public RequiredWithEscapedCharacters100101MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110001Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110001Builder(instance);
+        public RequiredWithEscapedCharacters110001MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110100Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110100Builder(instance);
+        public RequiredWithEscapedCharacters110100MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters110110Builder implements SetterForFootbar<RequiredWithEscapedCharacters010110Builder>, SetterForFoonbar<RequiredWithEscapedCharacters100110Builder>, SetterForFoorbar<RequiredWithEscapedCharacters110010Builder>, SetterForFoobar<RequiredWithEscapedCharacters110100Builder> {
+    public static class RequiredWithEscapedCharacters110110MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters010110MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters100110MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters110010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters110100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters110110Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters110110MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters010110Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010110Builder(instance);
+        public RequiredWithEscapedCharacters010110MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100110Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100110Builder(instance);
+        public RequiredWithEscapedCharacters100110MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110010Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110010Builder(instance);
+        public RequiredWithEscapedCharacters110010MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110100Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110100Builder(instance);
+        public RequiredWithEscapedCharacters110100MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters110111Builder implements SetterForFootbar<RequiredWithEscapedCharacters010111Builder>, SetterForFoonbar<RequiredWithEscapedCharacters100111Builder>, SetterForFoorbar<RequiredWithEscapedCharacters110011Builder>, SetterForFoobar<RequiredWithEscapedCharacters110101Builder>, SetterForFoobar1<RequiredWithEscapedCharacters110110Builder> {
+    public static class RequiredWithEscapedCharacters110111MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters010111MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters100111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters110011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters110101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters110110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters110111Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters110111MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters010111Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters010111Builder(instance);
+        public RequiredWithEscapedCharacters010111MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters010111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters100111Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters100111Builder(instance);
+        public RequiredWithEscapedCharacters100111MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters100111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110011Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110011Builder(instance);
+        public RequiredWithEscapedCharacters110011MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110101Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110101Builder(instance);
+        public RequiredWithEscapedCharacters110101MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110110Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110110Builder(instance);
+        public RequiredWithEscapedCharacters110110MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110110MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters111000Builder implements SetterForFootbar<RequiredWithEscapedCharacters011000Builder>, SetterForFoonbar<RequiredWithEscapedCharacters101000Builder>, SetterForFoofbar<RequiredWithEscapedCharacters110000Builder> {
+    public static class RequiredWithEscapedCharacters111000MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters011000MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101000MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters111000Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters111000MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters011000Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011000Builder(instance);
+        public RequiredWithEscapedCharacters011000MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011000MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101000Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101000Builder(instance);
+        public RequiredWithEscapedCharacters101000MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101000MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110000Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110000Builder(instance);
+        public RequiredWithEscapedCharacters110000MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters111001Builder implements SetterForFootbar<RequiredWithEscapedCharacters011001Builder>, SetterForFoonbar<RequiredWithEscapedCharacters101001Builder>, SetterForFoofbar<RequiredWithEscapedCharacters110001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters111000Builder> {
+    public static class RequiredWithEscapedCharacters111001MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters011001MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101001MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters111000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters111001Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters111001MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters011001Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011001Builder(instance);
+        public RequiredWithEscapedCharacters011001MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101001Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101001Builder(instance);
+        public RequiredWithEscapedCharacters101001MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110001Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110001Builder(instance);
+        public RequiredWithEscapedCharacters110001MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111000Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111000Builder(instance);
+        public RequiredWithEscapedCharacters111000MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters111010Builder implements SetterForFootbar<RequiredWithEscapedCharacters011010Builder>, SetterForFoonbar<RequiredWithEscapedCharacters101010Builder>, SetterForFoofbar<RequiredWithEscapedCharacters110010Builder>, SetterForFoobar<RequiredWithEscapedCharacters111000Builder> {
+    public static class RequiredWithEscapedCharacters111010MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters011010MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101010MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters111000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters111010Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters111010MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters011010Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011010Builder(instance);
+        public RequiredWithEscapedCharacters011010MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101010Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101010Builder(instance);
+        public RequiredWithEscapedCharacters101010MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110010Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110010Builder(instance);
+        public RequiredWithEscapedCharacters110010MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111000Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111000Builder(instance);
+        public RequiredWithEscapedCharacters111000MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters111011Builder implements SetterForFootbar<RequiredWithEscapedCharacters011011Builder>, SetterForFoonbar<RequiredWithEscapedCharacters101011Builder>, SetterForFoofbar<RequiredWithEscapedCharacters110011Builder>, SetterForFoobar<RequiredWithEscapedCharacters111001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters111010Builder> {
+    public static class RequiredWithEscapedCharacters111011MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters011011MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101011MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters111001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters111010MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters111011Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters111011MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters011011Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011011Builder(instance);
+        public RequiredWithEscapedCharacters011011MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101011Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101011Builder(instance);
+        public RequiredWithEscapedCharacters101011MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110011Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110011Builder(instance);
+        public RequiredWithEscapedCharacters110011MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111001Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111001Builder(instance);
+        public RequiredWithEscapedCharacters111001MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111010Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111010Builder(instance);
+        public RequiredWithEscapedCharacters111010MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111010MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters111100Builder implements SetterForFootbar<RequiredWithEscapedCharacters011100Builder>, SetterForFoonbar<RequiredWithEscapedCharacters101100Builder>, SetterForFoofbar<RequiredWithEscapedCharacters110100Builder>, SetterForFoorbar<RequiredWithEscapedCharacters111000Builder> {
+    public static class RequiredWithEscapedCharacters111100MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters011100MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101100MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110100MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters111000MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters111100Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters111100MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters011100Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011100Builder(instance);
+        public RequiredWithEscapedCharacters011100MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101100Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101100Builder(instance);
+        public RequiredWithEscapedCharacters101100MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110100Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110100Builder(instance);
+        public RequiredWithEscapedCharacters110100MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110100MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111000Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111000Builder(instance);
+        public RequiredWithEscapedCharacters111000MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111000MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters111101Builder implements SetterForFootbar<RequiredWithEscapedCharacters011101Builder>, SetterForFoonbar<RequiredWithEscapedCharacters101101Builder>, SetterForFoofbar<RequiredWithEscapedCharacters110101Builder>, SetterForFoorbar<RequiredWithEscapedCharacters111001Builder>, SetterForFoobar1<RequiredWithEscapedCharacters111100Builder> {
+    public static class RequiredWithEscapedCharacters111101MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters011101MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101101MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110101MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters111001MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters111100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters111101Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters111101MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters011101Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011101Builder(instance);
+        public RequiredWithEscapedCharacters011101MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101101Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101101Builder(instance);
+        public RequiredWithEscapedCharacters101101MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110101Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110101Builder(instance);
+        public RequiredWithEscapedCharacters110101MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111001Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111001Builder(instance);
+        public RequiredWithEscapedCharacters111001MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111001MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111100Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111100Builder(instance);
+        public RequiredWithEscapedCharacters111100MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters111110Builder implements SetterForFootbar<RequiredWithEscapedCharacters011110Builder>, SetterForFoonbar<RequiredWithEscapedCharacters101110Builder>, SetterForFoofbar<RequiredWithEscapedCharacters110110Builder>, SetterForFoorbar<RequiredWithEscapedCharacters111010Builder>, SetterForFoobar<RequiredWithEscapedCharacters111100Builder> {
+    public static class RequiredWithEscapedCharacters111110MapBuilder implements SetterForFootbar<RequiredWithEscapedCharacters011110MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101110MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110110MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters111010MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters111100MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters111110Builder(Map<String, @Nullable Object> instance) {
+        public RequiredWithEscapedCharacters111110MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters011110Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011110Builder(instance);
+        public RequiredWithEscapedCharacters011110MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101110Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101110Builder(instance);
+        public RequiredWithEscapedCharacters101110MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110110Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110110Builder(instance);
+        public RequiredWithEscapedCharacters110110MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110110MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111010Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111010Builder(instance);
+        public RequiredWithEscapedCharacters111010MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111010MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111100Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111100Builder(instance);
+        public RequiredWithEscapedCharacters111100MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111100MapBuilder(instance);
         }
     }
     
-    public static class RequiredWithEscapedCharacters111111Builder implements SetterForFootbar<RequiredWithEscapedCharacters011111Builder>, SetterForFoonbar<RequiredWithEscapedCharacters101111Builder>, SetterForFoofbar<RequiredWithEscapedCharacters110111Builder>, SetterForFoorbar<RequiredWithEscapedCharacters111011Builder>, SetterForFoobar<RequiredWithEscapedCharacters111101Builder>, SetterForFoobar1<RequiredWithEscapedCharacters111110Builder> {
+    public static class RequiredWithEscapedCharactersMapBuilder1 implements SetterForFootbar<RequiredWithEscapedCharacters011111MapBuilder>, SetterForFoonbar<RequiredWithEscapedCharacters101111MapBuilder>, SetterForFoofbar<RequiredWithEscapedCharacters110111MapBuilder>, SetterForFoorbar<RequiredWithEscapedCharacters111011MapBuilder>, SetterForFoobar<RequiredWithEscapedCharacters111101MapBuilder>, SetterForFoobar1<RequiredWithEscapedCharacters111110MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredWithEscapedCharacters111111Builder() {
+        public RequiredWithEscapedCharactersMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredWithEscapedCharacters011111Builder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters011111Builder(instance);
+        public RequiredWithEscapedCharacters011111MapBuilder getBuilderAfterFootbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters011111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters101111Builder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters101111Builder(instance);
+        public RequiredWithEscapedCharacters101111MapBuilder getBuilderAfterFoonbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters101111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters110111Builder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters110111Builder(instance);
+        public RequiredWithEscapedCharacters110111MapBuilder getBuilderAfterFoofbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters110111MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111011Builder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111011Builder(instance);
+        public RequiredWithEscapedCharacters111011MapBuilder getBuilderAfterFoorbar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111011MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111101Builder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111101Builder(instance);
+        public RequiredWithEscapedCharacters111101MapBuilder getBuilderAfterFoobar(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111101MapBuilder(instance);
         }
-        public RequiredWithEscapedCharacters111110Builder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
-            return new RequiredWithEscapedCharacters111110Builder(instance);
+        public RequiredWithEscapedCharacters111110MapBuilder getBuilderAfterFoobar1(Map<String, @Nullable Object> instance) {
+            return new RequiredWithEscapedCharacters111110MapBuilder(instance);
         }
     }
     public static class RequiredWithEscapedCharactersMapBuilder {

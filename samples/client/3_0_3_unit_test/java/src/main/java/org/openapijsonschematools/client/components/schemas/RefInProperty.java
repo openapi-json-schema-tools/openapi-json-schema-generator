@@ -125,7 +125,7 @@ public class RefInProperty {
         }
     }
     
-    public static class RefInPropertyBuilder extends UnsetAddPropsSetter<RefInPropertyBuilder> implements BaseBuilder<@Nullable Object>, SetterForA<RefInPropertyBuilder> {
+    public static class RefInPropertyMapBuilder1 extends UnsetAddPropsSetter<RefInPropertyMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForA<RefInPropertyMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "a"
@@ -133,7 +133,7 @@ public class RefInProperty {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public RefInPropertyBuilder() {
+        public RefInPropertyMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -142,10 +142,10 @@ public class RefInProperty {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RefInPropertyBuilder getBuilderAfterA(Map<String, @Nullable Object> instance) {
+        public RefInPropertyMapBuilder1 getBuilderAfterA(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public RefInPropertyBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public RefInPropertyMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

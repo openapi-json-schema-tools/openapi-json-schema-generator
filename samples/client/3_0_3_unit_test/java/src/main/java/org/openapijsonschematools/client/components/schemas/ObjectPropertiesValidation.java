@@ -141,7 +141,7 @@ public class ObjectPropertiesValidation {
         }
     }
     
-    public static class ObjectPropertiesValidationBuilder extends UnsetAddPropsSetter<ObjectPropertiesValidationBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationBuilder>, SetterForBar<ObjectPropertiesValidationBuilder> {
+    public static class ObjectPropertiesValidationMapBuilder1 extends UnsetAddPropsSetter<ObjectPropertiesValidationMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationMapBuilder1>, SetterForBar<ObjectPropertiesValidationMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
@@ -150,7 +150,7 @@ public class ObjectPropertiesValidation {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public ObjectPropertiesValidationBuilder() {
+        public ObjectPropertiesValidationMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -159,13 +159,13 @@ public class ObjectPropertiesValidation {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public ObjectPropertiesValidationBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public ObjectPropertiesValidationMapBuilder1 getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public ObjectPropertiesValidationBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+        public ObjectPropertiesValidationMapBuilder1 getBuilderAfterBar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public ObjectPropertiesValidationBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public ObjectPropertiesValidationMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

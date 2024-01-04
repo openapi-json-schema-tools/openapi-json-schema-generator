@@ -123,7 +123,7 @@ public class InvalidStringValueForDefault {
         }
     }
     
-    public static class InvalidStringValueForDefaultBuilder extends UnsetAddPropsSetter<InvalidStringValueForDefaultBuilder> implements BaseBuilder<@Nullable Object>, SetterForBar<InvalidStringValueForDefaultBuilder> {
+    public static class InvalidStringValueForDefaultMapBuilder1 extends UnsetAddPropsSetter<InvalidStringValueForDefaultMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForBar<InvalidStringValueForDefaultMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar"
@@ -131,7 +131,7 @@ public class InvalidStringValueForDefault {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public InvalidStringValueForDefaultBuilder() {
+        public InvalidStringValueForDefaultMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -140,10 +140,10 @@ public class InvalidStringValueForDefault {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public InvalidStringValueForDefaultBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+        public InvalidStringValueForDefaultMapBuilder1 getBuilderAfterBar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public InvalidStringValueForDefaultBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public InvalidStringValueForDefaultMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }

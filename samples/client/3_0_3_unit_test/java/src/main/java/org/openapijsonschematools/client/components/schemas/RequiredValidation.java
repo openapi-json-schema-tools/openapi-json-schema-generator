@@ -207,7 +207,7 @@ public class RequiredValidation {
         }
     }
     
-    public static class RequiredValidation0Builder extends UnsetAddPropsSetter<RequiredValidation0Builder> implements BaseBuilder<@Nullable Object>, SetterForBar<RequiredValidation0Builder> {
+    public static class RequiredValidation0MapBuilder extends UnsetAddPropsSetter<RequiredValidation0MapBuilder> implements BaseBuilder<@Nullable Object>, SetterForBar<RequiredValidation0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
@@ -216,7 +216,7 @@ public class RequiredValidation {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public RequiredValidation0Builder(Map<String, @Nullable Object> instance) {
+        public RequiredValidation0MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -225,24 +225,24 @@ public class RequiredValidation {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredValidation0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+        public RequiredValidation0MapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public RequiredValidation0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public RequiredValidation0MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class RequiredValidation1Builder implements SetterForFoo<RequiredValidation0Builder> {
+    public static class RequiredValidationMapBuilder1 implements SetterForFoo<RequiredValidation0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public RequiredValidation1Builder() {
+        public RequiredValidationMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredValidation0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
-            return new RequiredValidation0Builder(instance);
+        public RequiredValidation0MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new RequiredValidation0MapBuilder(instance);
         }
     }
     public static class RequiredValidationMapBuilder {

@@ -235,7 +235,7 @@ public class EnumsInProperties {
         }
     }
     
-    public static class EnumsInProperties0Builder extends UnsetAddPropsSetter<EnumsInProperties0Builder> implements BaseBuilder<@Nullable Object>, SetterForFoo<EnumsInProperties0Builder> {
+    public static class EnumsInProperties0MapBuilder extends UnsetAddPropsSetter<EnumsInProperties0MapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<EnumsInProperties0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar",
@@ -244,7 +244,7 @@ public class EnumsInProperties {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public EnumsInProperties0Builder(Map<String, @Nullable Object> instance) {
+        public EnumsInProperties0MapBuilder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -253,24 +253,24 @@ public class EnumsInProperties {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public EnumsInProperties0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public EnumsInProperties0MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public EnumsInProperties0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public EnumsInProperties0MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
     
-    public static class EnumsInProperties1Builder implements SetterForBar<EnumsInProperties0Builder> {
+    public static class EnumsInPropertiesMapBuilder1 implements SetterForBar<EnumsInProperties0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
-        public EnumsInProperties1Builder() {
+        public EnumsInPropertiesMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public EnumsInProperties0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
-            return new EnumsInProperties0Builder(instance);
+        public EnumsInProperties0MapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new EnumsInProperties0MapBuilder(instance);
         }
     }
     public static class EnumsInPropertiesMapBuilder {

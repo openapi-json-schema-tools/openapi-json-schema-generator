@@ -89,7 +89,7 @@ public class NotMoreComplexSchema {
         }
     }
     
-    public static class NotBuilder extends UnsetAddPropsSetter<NotBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<NotBuilder> {
+    public static class NotMapBuilder1 extends UnsetAddPropsSetter<NotMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoo<NotMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -97,7 +97,7 @@ public class NotMoreComplexSchema {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public NotBuilder() {
+        public NotMapBuilder1() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -106,10 +106,10 @@ public class NotMoreComplexSchema {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public NotBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+        public NotMapBuilder1 getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public NotBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+        public NotMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
