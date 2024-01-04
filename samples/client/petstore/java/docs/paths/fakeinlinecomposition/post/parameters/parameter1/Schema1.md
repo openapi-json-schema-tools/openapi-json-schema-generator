@@ -55,7 +55,7 @@ Schema1.SchemaMap1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap1](#schemamap1) | validate([Map&lt;?, ?&gt;>](#schemamapbuilder1) arg, SchemaConfiguration configuration) |
+| [SchemaMap1](#schemamap1) | validate([Map&lt;?, ?&gt;](#schemamapbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder1
 public class SchemaMapBuilder1<br>

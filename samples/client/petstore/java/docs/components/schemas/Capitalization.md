@@ -83,7 +83,7 @@ Capitalization.CapitalizationMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CapitalizationMap](#capitalizationmap) | validate([Map&lt;?, ?&gt;>](#capitalizationmapbuilder) arg, SchemaConfiguration configuration) |
+| [CapitalizationMap](#capitalizationmap) | validate([Map&lt;?, ?&gt;](#capitalizationmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CapitalizationMapBuilder
 public class CapitalizationMapBuilder<br>

@@ -60,7 +60,7 @@ MyObjectDto.MyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MyObjectDtoMap](#myobjectdtomap) | validate([Map&lt;?, ?&gt;>](#myobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
+| [MyObjectDtoMap](#myobjectdtomap) | validate([Map&lt;?, ?&gt;](#myobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MyObjectDtoMapBuilder
 public class MyObjectDtoMapBuilder<br>

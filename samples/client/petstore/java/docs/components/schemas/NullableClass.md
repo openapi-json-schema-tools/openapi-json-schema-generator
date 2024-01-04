@@ -138,7 +138,7 @@ NullableClass.NullableClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NullableClassMap](#nullableclassmap) | validate([Map&lt;?, ?&gt;>](#nullableclassmapbuilder) arg, SchemaConfiguration configuration) |
+| [NullableClassMap](#nullableclassmap) | validate([Map&lt;?, ?&gt;](#nullableclassmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NullableClassMapBuilder
 public class NullableClassMapBuilder<br>
@@ -247,7 +247,7 @@ NullableClass.ObjectItemsNullableMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map&lt;?, ?&gt;>](#objectitemsnullablemapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map&lt;?, ?&gt;](#objectitemsnullablemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectItemsNullableMapBuilder
 public class ObjectItemsNullableMapBuilder<br>
@@ -362,7 +362,7 @@ NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map&lt;?, ?&gt;>](#objectanditemsnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map&lt;?, ?&gt;](#objectanditemsnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullablePropMapBuilder
 public class ObjectAndItemsNullablePropMapBuilder<br>
@@ -477,7 +477,7 @@ NullableClass.ObjectNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map&lt;?, ?&gt;>](#objectnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map&lt;?, ?&gt;](#objectnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullablePropMapBuilder
 public class ObjectNullablePropMapBuilder<br>

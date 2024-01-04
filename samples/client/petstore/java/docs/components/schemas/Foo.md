@@ -53,7 +53,7 @@ Foo.FooMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FooMap](#foomap) | validate([Map&lt;?, ?&gt;>](#foomapbuilder) arg, SchemaConfiguration configuration) |
+| [FooMap](#foomap) | validate([Map&lt;?, ?&gt;](#foomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FooMapBuilder
 public class FooMapBuilder<br>

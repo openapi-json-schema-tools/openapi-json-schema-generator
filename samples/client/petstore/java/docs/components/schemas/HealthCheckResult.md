@@ -61,7 +61,7 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [HealthCheckResultMap](#healthcheckresultmap) | validate([Map&lt;?, ?&gt;>](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
+| [HealthCheckResultMap](#healthcheckresultmap) | validate([Map&lt;?, ?&gt;](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HealthCheckResultMapBuilder
 public class HealthCheckResultMapBuilder<br>

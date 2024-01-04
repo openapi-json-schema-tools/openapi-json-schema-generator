@@ -166,7 +166,7 @@ FormatTest.FormatTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap](#formattestmap) | validate([Map&lt;?, ?&gt;>](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
+| [FormatTestMap](#formattestmap) | validate([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FormatTestMap0000Builder
 public class FormatTestMap0000Builder<br>

@@ -75,7 +75,7 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map&lt;?, ?&gt;>](#objectwithdecimalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map&lt;?, ?&gt;](#objectwithdecimalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithDecimalPropertiesMapBuilder
 public class ObjectWithDecimalPropertiesMapBuilder<br>

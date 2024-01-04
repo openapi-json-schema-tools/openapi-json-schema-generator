@@ -54,7 +54,7 @@ SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map&lt;?, ?&gt;>](#selfreferencingobjectmodelmapbuilder) arg, SchemaConfiguration configuration) |
+| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map&lt;?, ?&gt;](#selfreferencingobjectmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SelfReferencingObjectModelMapBuilder
 public class SelfReferencingObjectModelMapBuilder<br>

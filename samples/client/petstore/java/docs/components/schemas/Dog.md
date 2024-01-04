@@ -83,7 +83,7 @@ Dog.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>

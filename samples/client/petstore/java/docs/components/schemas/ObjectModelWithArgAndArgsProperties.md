@@ -64,7 +64,7 @@ ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap valid
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map&lt;?, ?&gt;>](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map&lt;?, ?&gt;](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectModelWithArgAndArgsPropertiesMap00Builder
 public class ObjectModelWithArgAndArgsPropertiesMap00Builder<br>

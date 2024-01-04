@@ -61,7 +61,7 @@ SpecialModelname.SpecialModelnameMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SpecialModelnameMap](#specialmodelnamemap) | validate([Map&lt;?, ?&gt;>](#specialmodelnamemapbuilder) arg, SchemaConfiguration configuration) |
+| [SpecialModelnameMap](#specialmodelnamemap) | validate([Map&lt;?, ?&gt;](#specialmodelnamemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SpecialModelnameMapBuilder
 public class SpecialModelnameMapBuilder<br>

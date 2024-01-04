@@ -59,7 +59,7 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map&lt;?, ?&gt;>](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
+| [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map&lt;?, ?&gt;](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## GrandparentAnimalMap0Builder
 public class GrandparentAnimalMap0Builder<br>

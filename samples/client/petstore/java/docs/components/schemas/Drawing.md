@@ -64,7 +64,7 @@ Drawing.DrawingMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [DrawingMap](#drawingmap) | validate([Map&lt;?, ?&gt;>](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
+| [DrawingMap](#drawingmap) | validate([Map&lt;?, ?&gt;](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DrawingMapBuilder
 public class DrawingMapBuilder<br>

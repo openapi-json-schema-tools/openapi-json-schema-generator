@@ -55,7 +55,7 @@ ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap valid
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map&lt;?, ?&gt;>](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map&lt;?, ?&gt;](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithInlineCompositionPropertyMapBuilder
 public class ObjectWithInlineCompositionPropertyMapBuilder<br>

@@ -55,7 +55,7 @@ ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate([Map&lt;?, ?&gt;>](#reqpropsfromtrueaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate([Map&lt;?, ?&gt;](#reqpropsfromtrueaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReqPropsFromTrueAddPropsMap00Builder
 public class ReqPropsFromTrueAddPropsMap00Builder<br>

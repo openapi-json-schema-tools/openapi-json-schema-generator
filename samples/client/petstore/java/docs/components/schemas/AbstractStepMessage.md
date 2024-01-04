@@ -63,7 +63,7 @@ AbstractStepMessage.AbstractStepMessageMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AbstractStepMessageMap](#abstractstepmessagemap) | validate([Map&lt;?, ?&gt;>](#abstractstepmessagemapbuilder) arg, SchemaConfiguration configuration) |
+| [AbstractStepMessageMap](#abstractstepmessagemap) | validate([Map&lt;?, ?&gt;](#abstractstepmessagemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AbstractStepMessageMap000Builder
 public class AbstractStepMessageMap000Builder<br>

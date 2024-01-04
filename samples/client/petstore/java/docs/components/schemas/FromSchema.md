@@ -63,7 +63,7 @@ FromSchema.FromSchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FromSchemaMap](#fromschemamap) | validate([Map&lt;?, ?&gt;>](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [FromSchemaMap](#fromschemamap) | validate([Map&lt;?, ?&gt;](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FromSchemaMapBuilder
 public class FromSchemaMapBuilder<br>

@@ -103,7 +103,7 @@ User.UserMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserMap](#usermap) | validate([Map&lt;?, ?&gt;>](#usermapbuilder) arg, SchemaConfiguration configuration) |
+| [UserMap](#usermap) | validate([Map&lt;?, ?&gt;](#usermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UserMapBuilder
 public class UserMapBuilder<br>

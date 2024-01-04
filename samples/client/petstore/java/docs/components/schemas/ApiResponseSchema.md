@@ -68,7 +68,7 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApiResponseMap](#apiresponsemap) | validate([Map&lt;?, ?&gt;>](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
+| [ApiResponseMap](#apiresponsemap) | validate([Map&lt;?, ?&gt;](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ApiResponseMapBuilder
 public class ApiResponseMapBuilder<br>

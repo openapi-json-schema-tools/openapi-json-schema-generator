@@ -80,7 +80,7 @@ AdditionalPropertiesSchema.Schema2Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema2Map](#schema2map) | validate([Map&lt;?, ?&gt;>](#schema2mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema2Map](#schema2map) | validate([Map&lt;?, ?&gt;](#schema2mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2MapBuilder
 public class Schema2MapBuilder<br>
@@ -173,7 +173,7 @@ AdditionalPropertiesSchema.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
@@ -266,7 +266,7 @@ AdditionalPropertiesSchema.Schema0Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema0Map](#schema0map) | validate([Map&lt;?, ?&gt;>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema0Map](#schema0map) | validate([Map&lt;?, ?&gt;](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0MapBuilder
 public class Schema0MapBuilder<br>

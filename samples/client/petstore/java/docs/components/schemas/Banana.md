@@ -59,7 +59,7 @@ Banana.BananaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BananaMap](#bananamap) | validate([Map&lt;?, ?&gt;>](#bananamapbuilder) arg, SchemaConfiguration configuration) |
+| [BananaMap](#bananamap) | validate([Map&lt;?, ?&gt;](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BananaMap0Builder
 public class BananaMap0Builder<br>

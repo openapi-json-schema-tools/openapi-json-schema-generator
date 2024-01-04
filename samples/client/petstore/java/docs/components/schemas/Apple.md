@@ -71,7 +71,7 @@ Apple.AppleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [AppleMap](#applemap) | validate([Map&lt;?, ?&gt;>](#applemapbuilder) arg, SchemaConfiguration configuration) |
+| [AppleMap](#applemap) | validate([Map&lt;?, ?&gt;](#applemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AppleMap0Builder
 public class AppleMap0Builder<br>

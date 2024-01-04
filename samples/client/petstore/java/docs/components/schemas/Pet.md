@@ -113,7 +113,7 @@ Pet.PetMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetMap](#petmap) | validate([Map&lt;?, ?&gt;>](#petmapbuilder) arg, SchemaConfiguration configuration) |
+| [PetMap](#petmap) | validate([Map&lt;?, ?&gt;](#petmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PetMap00Builder
 public class PetMap00Builder<br>
