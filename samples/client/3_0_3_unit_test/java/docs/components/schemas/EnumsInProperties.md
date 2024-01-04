@@ -69,18 +69,34 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 | ----------------- | ---------------------- |
 | [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<?, ?>](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## EnumsInPropertiesMapBuilder
-public class EnumsInPropertiesMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## EnumsInProperties0MapBuilder
+public class EnumsInProperties0MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **bar** | String |  | must be one of ["bar"] |
-| **foo** | String |  | [optional] must be one of ["foo"] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumsInProperties0MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## EnumsInPropertiesMapBuilder
+public class EnumsInPropertiesMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumsInPropertiesMapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 
 ## EnumsInPropertiesMap
 public static class EnumsInPropertiesMap<br>

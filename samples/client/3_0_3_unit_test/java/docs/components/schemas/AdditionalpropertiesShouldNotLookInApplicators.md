@@ -50,10 +50,14 @@ builder for `Map<String, Boolean>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 
 ## AdditionalpropertiesShouldNotLookInApplicatorsMap
 public static class AdditionalpropertiesShouldNotLookInApplicatorsMap<br>
@@ -93,15 +97,18 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0MapBuilder
 public class Schema0MapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | ? extends @Nullable Object |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 
 ## Schema0Map
 public static class Schema0Map<br>

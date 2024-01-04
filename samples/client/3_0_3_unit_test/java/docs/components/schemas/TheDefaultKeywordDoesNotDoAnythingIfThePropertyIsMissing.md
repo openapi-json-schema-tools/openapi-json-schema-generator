@@ -62,15 +62,18 @@ TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNo
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder
 public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **alpha** | Number |  | [optional] if omitted the server will use the default value of 5.0 |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap
 public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap<br>

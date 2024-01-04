@@ -46,20 +46,18 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PropertiesWithEscapedCharactersMapBuilder
 public class PropertiesWithEscapedCharactersMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo\nbar** | Number |  | [optional] |
-| **foo\&quot;bar** | Number |  | [optional] |
-| **foo\\bar** | Number |  | [optional] |
-| **foo\rbar** | Number |  | [optional] |
-| **foo\tbar** | Number |  | [optional] |
-| **foo\fbar** | Number |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PropertiesWithEscapedCharactersMapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 
 ## PropertiesWithEscapedCharactersMap
 public static class PropertiesWithEscapedCharactersMap<br>

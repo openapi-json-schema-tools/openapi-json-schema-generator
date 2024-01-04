@@ -41,18 +41,34 @@ A schema class that validates payloads
 | [RequiredValidationMap](#requiredvalidationmap) | validate([Map<?, ?>](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## RequiredValidationMapBuilder
-public class RequiredValidationMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## RequiredValidation0MapBuilder
+public class RequiredValidation0MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | ? extends @Nullable Object |  | |
-| **bar** | ? extends @Nullable Object |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredValidation0MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredValidationMapBuilder
+public class RequiredValidationMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredValidationMapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 
 ## RequiredValidationMap
 public static class RequiredValidationMap<br>

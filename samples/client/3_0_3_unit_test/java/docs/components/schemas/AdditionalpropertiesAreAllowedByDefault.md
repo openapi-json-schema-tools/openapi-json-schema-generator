@@ -42,16 +42,18 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalpropertiesAreAllowedByDefaultMapBuilder
 public class AdditionalpropertiesAreAllowedByDefaultMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | ? extends @Nullable Object |  | [optional] |
-| **bar** | ? extends @Nullable Object |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalpropertiesAreAllowedByDefaultMapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 
 ## AdditionalpropertiesAreAllowedByDefaultMap
 public static class AdditionalpropertiesAreAllowedByDefaultMap<br>

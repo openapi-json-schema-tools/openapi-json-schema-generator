@@ -38,22 +38,902 @@ A schema class that validates payloads
 | [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate([Map<?, ?>](#requiredwithescapedcharactersmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## RequiredWithEscapedCharactersMapBuilder
-public class RequiredWithEscapedCharactersMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## RequiredWithEscapedCharacters000000MapBuilder
+public class RequiredWithEscapedCharacters000000MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo\tbar** | ? extends @Nullable Object |  | |
-| **foo\nbar** | ? extends @Nullable Object |  | |
-| **foo\fbar** | ? extends @Nullable Object |  | |
-| **foo\rbar** | ? extends @Nullable Object |  | |
-| **foo\&quot;bar** | ? extends @Nullable Object |  | |
-| **foo\\bar** | ? extends @Nullable Object |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters000000MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters000001MapBuilder
+public class RequiredWithEscapedCharacters000001MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters000001MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters000010MapBuilder
+public class RequiredWithEscapedCharacters000010MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters000010MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters000011MapBuilder
+public class RequiredWithEscapedCharacters000011MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters000011MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters000100MapBuilder
+public class RequiredWithEscapedCharacters000100MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters000100MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters000101MapBuilder
+public class RequiredWithEscapedCharacters000101MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters000101MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters000110MapBuilder
+public class RequiredWithEscapedCharacters000110MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters000110MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters000111MapBuilder
+public class RequiredWithEscapedCharacters000111MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters000111MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters001000MapBuilder
+public class RequiredWithEscapedCharacters001000MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters001000MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters001001MapBuilder
+public class RequiredWithEscapedCharacters001001MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters001001MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters001010MapBuilder
+public class RequiredWithEscapedCharacters001010MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters001010MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters001011MapBuilder
+public class RequiredWithEscapedCharacters001011MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters001011MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters001100MapBuilder
+public class RequiredWithEscapedCharacters001100MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters001100MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters001101MapBuilder
+public class RequiredWithEscapedCharacters001101MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters001101MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters001110MapBuilder
+public class RequiredWithEscapedCharacters001110MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters001110MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters001111MapBuilder
+public class RequiredWithEscapedCharacters001111MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters001111MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters010000MapBuilder
+public class RequiredWithEscapedCharacters010000MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters010000MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters010001MapBuilder
+public class RequiredWithEscapedCharacters010001MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters010001MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters010010MapBuilder
+public class RequiredWithEscapedCharacters010010MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters010010MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters010011MapBuilder
+public class RequiredWithEscapedCharacters010011MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters010011MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters010100MapBuilder
+public class RequiredWithEscapedCharacters010100MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters010100MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters010101MapBuilder
+public class RequiredWithEscapedCharacters010101MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters010101MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters010110MapBuilder
+public class RequiredWithEscapedCharacters010110MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters010110MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters010111MapBuilder
+public class RequiredWithEscapedCharacters010111MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters010111MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters011000MapBuilder
+public class RequiredWithEscapedCharacters011000MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters011000MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters011001MapBuilder
+public class RequiredWithEscapedCharacters011001MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters011001MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters011010MapBuilder
+public class RequiredWithEscapedCharacters011010MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters011010MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters011011MapBuilder
+public class RequiredWithEscapedCharacters011011MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters011011MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters011100MapBuilder
+public class RequiredWithEscapedCharacters011100MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters011100MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters011101MapBuilder
+public class RequiredWithEscapedCharacters011101MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters011101MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters011110MapBuilder
+public class RequiredWithEscapedCharacters011110MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters011110MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters011111MapBuilder
+public class RequiredWithEscapedCharacters011111MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters011111MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters100000MapBuilder
+public class RequiredWithEscapedCharacters100000MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters100000MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters100001MapBuilder
+public class RequiredWithEscapedCharacters100001MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters100001MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters100010MapBuilder
+public class RequiredWithEscapedCharacters100010MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters100010MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters100011MapBuilder
+public class RequiredWithEscapedCharacters100011MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters100011MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters100100MapBuilder
+public class RequiredWithEscapedCharacters100100MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters100100MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters100101MapBuilder
+public class RequiredWithEscapedCharacters100101MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters100101MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters100110MapBuilder
+public class RequiredWithEscapedCharacters100110MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters100110MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters100111MapBuilder
+public class RequiredWithEscapedCharacters100111MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters100111MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters101000MapBuilder
+public class RequiredWithEscapedCharacters101000MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters101000MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters101001MapBuilder
+public class RequiredWithEscapedCharacters101001MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters101001MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters101010MapBuilder
+public class RequiredWithEscapedCharacters101010MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters101010MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters101011MapBuilder
+public class RequiredWithEscapedCharacters101011MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters101011MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters101100MapBuilder
+public class RequiredWithEscapedCharacters101100MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters101100MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters101101MapBuilder
+public class RequiredWithEscapedCharacters101101MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters101101MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters101110MapBuilder
+public class RequiredWithEscapedCharacters101110MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters101110MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters101111MapBuilder
+public class RequiredWithEscapedCharacters101111MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters101111MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters110000MapBuilder
+public class RequiredWithEscapedCharacters110000MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters110000MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters110001MapBuilder
+public class RequiredWithEscapedCharacters110001MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters110001MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters110010MapBuilder
+public class RequiredWithEscapedCharacters110010MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters110010MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters110011MapBuilder
+public class RequiredWithEscapedCharacters110011MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters110011MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters110100MapBuilder
+public class RequiredWithEscapedCharacters110100MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters110100MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters110101MapBuilder
+public class RequiredWithEscapedCharacters110101MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters110101MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters110110MapBuilder
+public class RequiredWithEscapedCharacters110110MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters110110MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters110111MapBuilder
+public class RequiredWithEscapedCharacters110111MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters110111MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters111000MapBuilder
+public class RequiredWithEscapedCharacters111000MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters111000MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters111001MapBuilder
+public class RequiredWithEscapedCharacters111001MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters111001MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters111010MapBuilder
+public class RequiredWithEscapedCharacters111010MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters111010MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters111011MapBuilder
+public class RequiredWithEscapedCharacters111011MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters111011MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters111100MapBuilder
+public class RequiredWithEscapedCharacters111100MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters111100MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters111101MapBuilder
+public class RequiredWithEscapedCharacters111101MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters111101MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharacters111110MapBuilder
+public class RequiredWithEscapedCharacters111110MapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharacters111110MapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+## RequiredWithEscapedCharactersMapBuilder
+public class RequiredWithEscapedCharactersMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEscapedCharactersMapBuilder()<br>Creates an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 
 ## RequiredWithEscapedCharactersMap
 public static class RequiredWithEscapedCharactersMap<br>

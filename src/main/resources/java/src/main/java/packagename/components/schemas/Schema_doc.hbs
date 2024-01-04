@@ -171,37 +171,7 @@ A class to store validated List payloads
 {{> src/main/java/packagename/components/schemas/docschema_arrayInput }}
                 {{else}}
                     {{#or (eq instanceType "propertiesInputType") (eq instanceType "requiredPropertiesInputType") (eq instanceType "optionalPropertiesInputType") }}
-
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}
-public class {{mapInputJsonPathPiece.pascalCase}}<br>
-                        {{#if mapValueSchema}}
-builder for `Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>`
-                        {{else}}
-builder for `Map<String, Object>`
-                        {{/if}}
-
-A class that builds the Map input type
-
-{{headerSize}}# Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-                        {{#each requiredProperties}}
-| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
-                        {{/each}}
-                        {{#each optionalProperties}}
-| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description.originalWithBr}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
-                        {{/each}}
-                        {{#with additionalProperties}}
-                            {{#unless isBooleanSchemaFalse}}
-                                {{#if isBooleanSchemaTrue}}
-| **anyStringName** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional] |
-                                {{else}}
-| **anyStringName** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
-                                {{/if}}
-                            {{/unless}}
-                        {{else}}
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
-                        {{/with}}
+{{> src/main/java/packagename/components/schemas/docschema_objectInput }}
                     {{else}}
                         {{#eq instanceType "enumClass"}}
                             {{#with enumInfo}}
