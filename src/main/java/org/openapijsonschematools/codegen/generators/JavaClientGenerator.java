@@ -61,8 +61,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     private final Logger LOGGER = LoggerFactory.getLogger(JavaClientGenerator.class);
 
-    public static final String USE_RX_JAVA3 = "useRxJava3";
-    public static final String DO_NOT_USE_RX = "doNotUseRx";
     public static final String FEIGN = "feign";
     public static final String GOOGLE_API_CLIENT = "google-api-client";
     public static final String JERSEY1 = "jersey1";
@@ -85,11 +83,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
     public static final String SERIALIZATION_LIBRARY_JSONB = "jsonb";
 
     protected String gradleWrapperPackage = "gradle.wrapper";
-    protected boolean useRxJava = false;
-    protected boolean useRxJava3 = false;
-    // backwards compatibility for openapi configs that specify neither rx1 nor rx2
-    // (mustache does not allow for boolean operators so we need this extra field)
-    protected boolean doNotUseRx = true;
     protected String authFolder;
     protected String rootJavaEEPackage;
     protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
@@ -206,7 +199,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                 }}
         );
 
-        cliOptions.add(CliOption.newBoolean(USE_RX_JAVA3, "Whether to use the RxJava3 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter. ONLY jersey2, jersey3, okhttp-gson support this option."));
 
         supportedLibraries.put(JERSEY1, "HTTP client: Jersey client 1.19.x. JSON processing: Jackson 2.9.x. IMPORTANT NOTE: jersey 1.x is no longer actively maintained so please upgrade to 'jersey3' or other HTTP libraries instead.");
@@ -564,20 +556,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     private void setUseSingleRequestParameter(boolean useSingleRequestParameter) {
         this.useSingleRequestParameter = useSingleRequestParameter;
-    }
-
-    public void setUseRxJava(boolean useRxJava) {
-        this.useRxJava = useRxJava;
-        doNotUseRx = false;
-    }
-    
-    public void setUseRxJava3(boolean useRxJava3) {
-        this.useRxJava3 = useRxJava3;
-        doNotUseRx = false;
-    }
-
-    public void setDoNotUseRx(boolean doNotUseRx) {
-        this.doNotUseRx = doNotUseRx;
     }
 
     @Override
