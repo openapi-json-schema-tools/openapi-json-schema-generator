@@ -61,7 +61,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     private final Logger LOGGER = LoggerFactory.getLogger(JavaClientGenerator.class);
 
-    public static final String USE_RX_JAVA2 = "useRxJava2";
     public static final String USE_RX_JAVA3 = "useRxJava3";
     public static final String DO_NOT_USE_RX = "doNotUseRx";
     public static final String FEIGN = "feign";
@@ -87,7 +86,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     protected String gradleWrapperPackage = "gradle.wrapper";
     protected boolean useRxJava = false;
-    protected boolean useRxJava2 = false;
     protected boolean useRxJava3 = false;
     // backwards compatibility for openapi configs that specify neither rx1 nor rx2
     // (mustache does not allow for boolean operators so we need this extra field)
@@ -208,7 +206,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                 }}
         );
 
-        cliOptions.add(CliOption.newBoolean(USE_RX_JAVA2, "Whether to use the RxJava2 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA3, "Whether to use the RxJava3 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter. ONLY jersey2, jersey3, okhttp-gson support this option."));
 
@@ -446,32 +443,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
         super.processOpts();
 
-        // RxJava
-        if (additionalProperties.containsKey(USE_RX_JAVA2) && additionalProperties.containsKey(USE_RX_JAVA3)) {
-            LOGGER.warn("You specified all RxJava versions 2 and 3 but they are mutually exclusive. Defaulting to v3.");
-            this.setUseRxJava3(Boolean.parseBoolean(additionalProperties.get(USE_RX_JAVA3).toString()));
-        } else {
-            if (additionalProperties.containsKey(USE_RX_JAVA2) && additionalProperties.containsKey(USE_RX_JAVA3)) {
-                LOGGER.warn("You specified both RxJava versions 2 and 3 but they are mutually exclusive. Defaulting to v3.");
-                this.setUseRxJava3(Boolean.parseBoolean(additionalProperties.get(USE_RX_JAVA3).toString()));
-            } else {
-                if (additionalProperties.containsKey(USE_RX_JAVA2)) {
-                    this.setUseRxJava2(Boolean.parseBoolean(additionalProperties.get(USE_RX_JAVA2).toString()));
-                }
-                if (additionalProperties.containsKey(USE_RX_JAVA3)) {
-                    this.setUseRxJava3(Boolean.parseBoolean(additionalProperties.get(USE_RX_JAVA3).toString()));
-                }
-            }
-        }
-
         if (additionalProperties.containsKey(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER)) {
             this.setUseSingleRequestParameter(convertPropertyToBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER));
         }
         writePropertyBack(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, getUseSingleRequestParameter());
-
-        if (!useRxJava && !useRxJava2 && !useRxJava3) {
-            additionalProperties.put(DO_NOT_USE_RX, true);
-        }
 
         if (!additionalProperties.containsKey("rootJavaEEPackage")) {
             additionalProperties.put("rootJavaEEPackage", rootJavaEEPackage);
@@ -595,12 +570,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         this.useRxJava = useRxJava;
         doNotUseRx = false;
     }
-
-    public void setUseRxJava2(boolean useRxJava2) {
-        this.useRxJava2 = useRxJava2;
-        doNotUseRx = false;
-    }
-
+    
     public void setUseRxJava3(boolean useRxJava3) {
         this.useRxJava3 = useRxJava3;
         doNotUseRx = false;
