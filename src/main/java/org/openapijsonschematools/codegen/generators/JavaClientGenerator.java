@@ -64,7 +64,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
     public static final String USE_RX_JAVA2 = "useRxJava2";
     public static final String USE_RX_JAVA3 = "useRxJava3";
     public static final String DO_NOT_USE_RX = "doNotUseRx";
-    public static final String USE_PLAY_WS = "usePlayWS";
     public static final String USE_RUNTIME_EXCEPTION = "useRuntimeException";
     public static final String USE_REFLECTION_EQUALS_HASHCODE = "useReflectionEqualsHashCode";
     public static final String FEIGN = "feign";
@@ -95,7 +94,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
     // backwards compatibility for openapi configs that specify neither rx1 nor rx2
     // (mustache does not allow for boolean operators so we need this extra field)
     protected boolean doNotUseRx = true;
-    protected boolean usePlayWS = false;
     protected boolean useRuntimeException = false;
     protected boolean useReflectionEqualsHashCode = false;
     protected String authFolder;
@@ -216,7 +214,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA2, "Whether to use the RxJava2 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA3, "Whether to use the RxJava3 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
-        cliOptions.add(CliOption.newBoolean(USE_PLAY_WS, "Use Play! Async HTTP client (Play WS API)"));
         cliOptions.add(CliOption.newBoolean(USE_RUNTIME_EXCEPTION, "Use RuntimeException instead of Exception"));
         cliOptions.add(CliOption.newBoolean(USE_REFLECTION_EQUALS_HASHCODE, "Use org.apache.commons.lang3.builder for equals and hashCode in the models. WARNING: This will fail under a security manager, unless the appropriate permissions are set up correctly and also there's potential performance impact."));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter. ONLY jersey2, jersey3, okhttp-gson support this option."));
@@ -482,13 +479,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
             additionalProperties.put(DO_NOT_USE_RX, true);
         }
 
-        // Java Play
-        if (additionalProperties.containsKey(USE_PLAY_WS)) {
-            this.setUsePlayWS(Boolean.parseBoolean(additionalProperties.get(USE_PLAY_WS).toString()));
-        }
-        additionalProperties.put(USE_PLAY_WS, usePlayWS);
-
-
         if (!additionalProperties.containsKey("rootJavaEEPackage")) {
             additionalProperties.put("rootJavaEEPackage", rootJavaEEPackage);
         }
@@ -632,10 +622,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     public void setDoNotUseRx(boolean doNotUseRx) {
         this.doNotUseRx = doNotUseRx;
-    }
-
-    public void setUsePlayWS(boolean usePlayWS) {
-        this.usePlayWS = usePlayWS;
     }
 
     public void setUseRuntimeException(boolean useRuntimeException) {
