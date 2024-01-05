@@ -400,8 +400,6 @@ public class CodegenConstants {
     public static final String INIT_REQUIRED_VARS = "initRequiredVars";
     public static final String INIT_REQUIRED_VARS_DESC = "If set to true then the required variables are included as positional arguments in __init__ and _from_openapi_data methods. Note: this can break some composition use cases. To learn more read PR #8802.";
 
-    public static final String ERROR_OBJECT_TYPE = "errorObjectType";
-
     public static final String NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS = "nonCompliantUseDiscriminatorIfCompositionFails";
 
     public static final String NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS_DESC =
