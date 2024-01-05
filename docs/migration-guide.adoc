@@ -75,22 +75,11 @@ With `3.2.0` a new option is introduced: `useNullForUnknownEnumValue`.
 * When set to `false` (default value), an Exception (`IllegalArgumentException`) is thrown when the value not available in the enum.
 * When set to `true`, unknown values are mapped to `null` as it was the case in previous versions.
 
-
 === From 3.0.x to 3.1.0
 
 Version `3.1.0` is the first minor version of OpenAPI-Generator, in comparison to `3.0.3` it contains some breaking changes, but with the possibility to fallback to the old behavior.
 The default value of some options might change.
 Projects relying on generated code might need to be adapted.
-
-==== Java
-
-A new option is introduced with link:https://github.com/OpenAPITools/openapi-generator/pull/432[#432] to specify the prefix of boolean getters: `booleanGetterPrefix`.
-Possible values:
-
-* `is`: the value used in `3.0.x`.
-* `get`: the new default value.
-
-If you use the default value you will see your generated code changing from `isActive()` to `getActive()`.
 
 === Migrating from Swagger-Codegen
 

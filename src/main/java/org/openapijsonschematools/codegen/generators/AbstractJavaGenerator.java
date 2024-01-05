@@ -61,7 +61,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public static final String WITH_XML = "withXml";
     public static final String SUPPORT_JAVA6 = "supportJava6";
     public static final String DISABLE_HTML_ESCAPING = "disableHtmlEscaping";
-    public static final String BOOLEAN_GETTER_PREFIX = "booleanGetterPrefix";
     public static final String IGNORE_ANYOF_IN_ENUM = "ignoreAnyOfInEnum";
     public static final String DISCRIMINATOR_CASE_SENSITIVE = "discriminatorCaseSensitive";
     public static final String OPENAPI_NULLABLE = "openApiNullable";
@@ -103,7 +102,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected String modelDocPath = "docs/";
     protected boolean supportJava6 = false;
     protected boolean disableHtmlEscaping = false;
-    protected String booleanGetterPrefix = "get";
     protected boolean ignoreAnyOfInEnum = false;
     protected String parentGroupId = "";
     protected String parentArtifactId = "";
@@ -212,7 +210,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(dateLibrary);
 
         cliOptions.add(CliOption.newBoolean(DISABLE_HTML_ESCAPING, "Disable HTML escaping of JSON strings when using gson (needed to avoid problems with byte[] fields)", disableHtmlEscaping));
-        cliOptions.add(CliOption.newString(BOOLEAN_GETTER_PREFIX, "Set booleanGetterPrefix").defaultValue(this.getBooleanGetterPrefix()));
         cliOptions.add(CliOption.newBoolean(IGNORE_ANYOF_IN_ENUM, "Ignore anyOf keyword in enum", ignoreAnyOfInEnum));
         cliOptions.add(CliOption.newBoolean(OPENAPI_NULLABLE, "Enable OpenAPI Jackson Nullable library", this.openApiNullable));
         cliOptions.add(CliOption.newBoolean(IMPLICIT_HEADERS, "Skip header parameters in the generated API methods using @ApiImplicitParams annotation.", implicitHeaders));
@@ -305,11 +302,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             this.setDisableHtmlEscaping(Boolean.parseBoolean(additionalProperties.get(DISABLE_HTML_ESCAPING).toString()));
         }
         additionalProperties.put(DISABLE_HTML_ESCAPING, disableHtmlEscaping);
-
-        if (additionalProperties.containsKey(BOOLEAN_GETTER_PREFIX)) {
-            this.setBooleanGetterPrefix(additionalProperties.get(BOOLEAN_GETTER_PREFIX).toString());
-        }
-        additionalProperties.put(BOOLEAN_GETTER_PREFIX, booleanGetterPrefix);
 
         if (additionalProperties.containsKey(IGNORE_ANYOF_IN_ENUM)) {
             this.setIgnoreAnyOfInEnum(Boolean.parseBoolean(additionalProperties.get(IGNORE_ANYOF_IN_ENUM).toString()));
@@ -1169,7 +1161,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setTestFolder(String testFolder) {
         this.testFolder = testFolder;
     }
-    
+
     public Boolean getSerializableModel() {
         return serializableModel;
     }
@@ -1214,14 +1206,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
     public void setDisableHtmlEscaping(boolean disabled) {
         this.disableHtmlEscaping = disabled;
-    }
-
-    public String getBooleanGetterPrefix() {
-        return booleanGetterPrefix;
-    }
-
-    public void setBooleanGetterPrefix(String booleanGetterPrefix) {
-        this.booleanGetterPrefix = booleanGetterPrefix;
     }
 
     public void setIgnoreAnyOfInEnum(boolean ignoreAnyOfInEnum) {
