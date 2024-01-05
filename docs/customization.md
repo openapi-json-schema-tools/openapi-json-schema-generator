@@ -358,7 +358,7 @@ Your subclass will now be loaded and overrides the `PREFIX` value in the supercl
 Inline schemas are created as separate schemas automatically and the auto-generated schema name may not look good to everyone. One can customize the name using the `title` field or the `inlineSchemaNameMapping` option, e.g. in CLI
 
 ```
-java -jar target/openapi-generator-cli.jar generate -g java -i  src/test/resources/3_0/inline_model_resolver.yaml -o /tmp/java3/ --skip-validate-spec --inline-schema-name-mappings inline_object_2=SomethingMapped,inline_object_4=nothing_new
+java -jar target/openapi-generator-cli.jar generate -g java -i  src/test/resources/3_0/inline_model_resolver.yaml -o /tmp/java3/ --skip-validate-spec
 ```
 
 Another useful option is `inlineSchemaNameDefaults`, which allows you to customize the suffix of the auto-generated inline schema name, e.g. in CLI

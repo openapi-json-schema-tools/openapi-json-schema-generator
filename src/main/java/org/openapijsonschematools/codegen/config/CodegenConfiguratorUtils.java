@@ -68,19 +68,6 @@ public final class CodegenConfiguratorUtils {
         }
     }
 
-    public static void applyInlineSchemaNameMappingsKvpList(List<String> inlineSchemaNameMappings, CodegenConfigurator configurator) {
-        for (String propString : inlineSchemaNameMappings) {
-            applyInlineSchemaNameMappingsKvp(propString, configurator);
-        }
-    }
-
-    public static void applyInlineSchemaNameMappingsKvp(String inlineSchemaNameMappings, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(inlineSchemaNameMappings);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addInlineSchemaNameMapping(entry.getKey().trim(), entry.getValue().trim());
-        }
-    }
-
     public static void applyInlineSchemaNameDefaultsKvpList(List<String> inlineSchemaNameDefaults, CodegenConfigurator configurator) {
         for (String propString : inlineSchemaNameDefaults) {
             applyInlineSchemaNameDefaultsKvp(propString, configurator);

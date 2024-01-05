@@ -47,7 +47,6 @@ public final class GeneratorSettings implements Serializable {
 
     private final Map<String, String> instantiationTypes;
     private final Map<String, Object> additionalProperties;
-    private final Map<String, String> inlineSchemaNameMappings;
     private final Map<String, String> inlineSchemaNameDefaults;
     private final Set<String> languageSpecificPrimitives;
     private final Map<String, String> reservedWordsMappings;
@@ -199,15 +198,6 @@ public final class GeneratorSettings implements Serializable {
     }
 
     /**
-     * Gets inline schema name mappings between an inline schema name and the new name.
-     *
-     * @return the inline schema name mappings
-     */
-    public Map<String, String> getInlineSchemaNameMappings() {
-        return inlineSchemaNameMappings;
-    }
-
-    /**
      * Gets inline schema name defaults between an inline schema naming convention and the default values.
      *
      * @return the inline schema name defaults
@@ -327,7 +317,6 @@ public final class GeneratorSettings implements Serializable {
         artifactId = builder.artifactId;
         artifactVersion = builder.artifactVersion;
         instantiationTypes = Collections.unmodifiableMap(builder.instantiationTypes);
-        inlineSchemaNameMappings = Collections.unmodifiableMap(builder.inlineSchemaNameMappings);
         inlineSchemaNameDefaults = Collections.unmodifiableMap(builder.inlineSchemaNameDefaults);
         languageSpecificPrimitives = Collections.unmodifiableSet(builder.languageSpecificPrimitives);
         reservedWordsMappings = Collections.unmodifiableMap(builder.reservedWordsMappings);
@@ -397,7 +386,6 @@ public final class GeneratorSettings implements Serializable {
         setDefaults();
         instantiationTypes = Collections.unmodifiableMap(new HashMap<>(0));
         additionalProperties = Collections.unmodifiableMap(new HashMap<>(0));
-        inlineSchemaNameMappings = Collections.unmodifiableMap(new HashMap<>(0));
         inlineSchemaNameDefaults = Collections.unmodifiableMap(new HashMap<>(0));
         languageSpecificPrimitives = Collections.unmodifiableSet(new HashSet<>(0));
         reservedWordsMappings = Collections.unmodifiableMap(new HashMap<>(0));
@@ -442,9 +430,6 @@ public final class GeneratorSettings implements Serializable {
         if (copy.getAdditionalProperties() != null) {
             builder.additionalProperties.putAll(copy.getAdditionalProperties());
         }
-        if (copy.getInlineSchemaNameMappings() != null) {
-            builder.inlineSchemaNameMappings.putAll(copy.getInlineSchemaNameMappings());
-        }
         if (copy.getInlineSchemaNameDefaults() != null) {
             builder.inlineSchemaNameDefaults.putAll(copy.getInlineSchemaNameDefaults());
         }
@@ -483,7 +468,6 @@ public final class GeneratorSettings implements Serializable {
         private String artifactVersion;
         private Map<String, String> instantiationTypes;
         private Map<String, Object> additionalProperties;
-        private Map<String, String> inlineSchemaNameMappings;
         private Map<String, String> inlineSchemaNameDefaults;
         private Set<String> languageSpecificPrimitives;
         private Map<String, String> reservedWordsMappings;
@@ -500,7 +484,6 @@ public final class GeneratorSettings implements Serializable {
         public Builder() {
             instantiationTypes = new HashMap<>();
             additionalProperties = new HashMap<>();
-            inlineSchemaNameMappings = new HashMap<>();
             inlineSchemaNameDefaults = new HashMap<>();
             languageSpecificPrimitives = new HashSet<>();
             reservedWordsMappings = new HashMap<>();
@@ -712,32 +695,6 @@ public final class GeneratorSettings implements Serializable {
         }
 
         /**
-         * Sets the {@code inlineSchemaNameMappings} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param inlineSchemaNameMappings the {@code inlineSchemaNameMappings} to set
-         * @return a reference to this Builder
-         */
-        public Builder withInlineSchemaNameMappings(Map<String, String> inlineSchemaNameMappings) {
-            this.inlineSchemaNameMappings = inlineSchemaNameMappings;
-            return this;
-        }
-
-        /**
-         * Sets a single {@code inlineSchemaNameMappings} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param key   A key for the inline schema mapping
-         * @param value The value of inline schema mapping
-         * @return a reference to this Builder
-         */
-        public Builder withInlineSchemaNameMapping(String key, String value) {
-            if (this.inlineSchemaNameMappings == null) {
-                this.inlineSchemaNameMappings = new HashMap<>();
-            }
-            this.inlineSchemaNameMappings.put(key, value);
-            return this;
-        }
-
-        /**
          * Sets the {@code languageSpecificPrimitives} and returns a reference to this Builder so that the methods can be chained together.
          *
          * @param languageSpecificPrimitives the {@code languageSpecificPrimitives} to set
@@ -916,7 +873,6 @@ public final class GeneratorSettings implements Serializable {
                 Objects.equals(getArtifactVersion(), that.getArtifactVersion()) &&
                 Objects.equals(getInstantiationTypes(), that.getInstantiationTypes()) &&
                 Objects.equals(getAdditionalProperties(), that.getAdditionalProperties()) &&
-                Objects.equals(getInlineSchemaNameMappings(), that.getInlineSchemaNameMappings()) &&
                 Objects.equals(getInlineSchemaNameDefaults(), that.getInlineSchemaNameDefaults()) &&
                 Objects.equals(getLanguageSpecificPrimitives(), that.getLanguageSpecificPrimitives()) &&
                 Objects.equals(getReservedWordsMappings(), that.getReservedWordsMappings()) &&
@@ -943,7 +899,6 @@ public final class GeneratorSettings implements Serializable {
                 getArtifactVersion(),
                 getInstantiationTypes(),
                 getAdditionalProperties(),
-                getInlineSchemaNameMappings(),
                 getInlineSchemaNameDefaults(),
                 getLanguageSpecificPrimitives(),
                 getReservedWordsMappings(),

@@ -68,9 +68,6 @@ public class ConfigHelp extends AbstractCommand {
             FORMAT_TEXT, FORMAT_MARKDOWN, FORMAT_YAMLSAMPLE})
     private String format;
 
-    @Option(name = {"--inline-schema-name-mappings"}, title = "inline schema name mappings", description = "displays the inline schema name mappings (none)")
-    private Boolean inlineSchemaNameMappings;
-
     @Option(name = {"--inline-schema-name-defaults"}, title = "inline schema name defaults", description = "default values used when naming inline schema name")
     private Boolean inlineSchemaNameDefaults;
 
@@ -416,18 +413,6 @@ public class ConfigHelp extends AbstractCommand {
                     .replaceAll("\n", System.lineSeparator() + optNestedIndent));
             sb.append(newline).append(newline);
         });
-
-        if (Boolean.TRUE.equals(inlineSchemaNameMappings)) {
-            sb.append(newline).append("INLINE SCHEMA NAME MAPPING").append(newline).append(newline);
-            Map<String, String> map = config.inlineSchemaNameMapping()
-                    .entrySet()
-                    .stream()
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> {
-                        throw new IllegalStateException(String.format(Locale.ROOT, "Duplicated options! %s and %s", a, b));
-                    }, TreeMap::new));
-            writePlainTextFromMap(sb, map, optIndent, optNestedIndent, "Inline scheme name", "Mapped to");
-            sb.append(newline);
-        }
 
         if (Boolean.TRUE.equals(inlineSchemaNameDefaults)) {
             sb.append(newline).append("INLINE SCHEMA NAME DEFAULTS").append(newline).append(newline);
