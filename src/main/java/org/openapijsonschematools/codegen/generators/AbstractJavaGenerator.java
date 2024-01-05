@@ -58,7 +58,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public static final String SUPPORT_ASYNC = "supportAsync";
     public static final String WITH_XML = "withXml";
     public static final String SUPPORT_JAVA6 = "supportJava6";
-    public static final String IGNORE_ANYOF_IN_ENUM = "ignoreAnyOfInEnum";
     public static final String OPENAPI_NULLABLE = "openApiNullable";
     public static final String JACKSON = "jackson";
     public static final String TEST_OUTPUT = "testOutput";
@@ -93,7 +92,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected String apiDocPath = "docs/";
     protected String modelDocPath = "docs/";
     protected boolean supportJava6 = false;
-    protected boolean ignoreAnyOfInEnum = false;
     protected String parentGroupId = "";
     protected String parentArtifactId = "";
     protected String parentVersion = "";
@@ -189,7 +187,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
         cliOptions.add(CliOption.newBoolean(WITH_XML, "whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML)"));
 
-        cliOptions.add(CliOption.newBoolean(IGNORE_ANYOF_IN_ENUM, "Ignore anyOf keyword in enum", ignoreAnyOfInEnum));
         cliOptions.add(CliOption.newBoolean(OPENAPI_NULLABLE, "Enable OpenAPI Jackson Nullable library", this.openApiNullable));
         cliOptions.add(CliOption.newBoolean(IMPLICIT_HEADERS, "Skip header parameters in the generated API methods using @ApiImplicitParams annotation.", implicitHeaders));
         cliOptions.add(CliOption.newString(IMPLICIT_HEADERS_REGEX, "Skip header parameters that matches given regex in the generated API methods using @ApiImplicitParams annotation. Note: this parameter is ignored when implicitHeaders=true"));
@@ -276,11 +273,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             this.setSupportJava6(Boolean.parseBoolean(additionalProperties.get(SUPPORT_JAVA6).toString()));
         }
         additionalProperties.put(SUPPORT_JAVA6, supportJava6);
-
-        if (additionalProperties.containsKey(IGNORE_ANYOF_IN_ENUM)) {
-            this.setIgnoreAnyOfInEnum(Boolean.parseBoolean(additionalProperties.get(IGNORE_ANYOF_IN_ENUM).toString()));
-        }
-        additionalProperties.put(IGNORE_ANYOF_IN_ENUM, ignoreAnyOfInEnum);
 
         if (additionalProperties.containsKey(CodegenConstants.INVOKER_PACKAGE)) {
             this.setInvokerPackage((String) additionalProperties.get(CodegenConstants.INVOKER_PACKAGE));
@@ -866,29 +858,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             }
         }
         additionalProperties.put(CodegenConstants.ARTIFACT_VERSION, artifactVersion);
-
-        if (ignoreAnyOfInEnum) {
-            // Alter OpenAPI schemas ignore anyOf keyword if it consist of an enum. Example:
-            //     anyOf:
-            //     - type: string
-            //       enum:
-            //       - ENUM_A
-            //       - ENUM_B
-            Stream.concat(
-                            Stream.of(openAPI.getComponents().getSchemas()),
-                            openAPI.getComponents().getSchemas().values().stream()
-                                    .filter(schema -> schema.getProperties() != null)
-                                    .map(Schema::getProperties))
-                    .forEach(schemas -> schemas.replaceAll(
-                            (name, s) -> Stream.of(s)
-                                    .filter(schema -> schema instanceof ComposedSchema)
-                                    .map(schema -> (ComposedSchema) schema)
-                                    .filter(schema -> Objects.nonNull(schema.getAnyOf()))
-                                    .flatMap(schema -> schema.getAnyOf().stream())
-                                    .filter(schema -> Objects.nonNull(schema.getEnum()))
-                                    .findFirst()
-                                    .orElse((Schema) s)));
-        }
     }
 
     private static String getAccept(OpenAPI openAPI, Operation operation) {
@@ -1089,11 +1058,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
     }
-
-    public void setIgnoreAnyOfInEnum(boolean ignoreAnyOfInEnum) {
-        this.ignoreAnyOfInEnum = ignoreAnyOfInEnum;
-    }
-
+    
     public boolean isOpenApiNullable() {
         return openApiNullable;
     }
