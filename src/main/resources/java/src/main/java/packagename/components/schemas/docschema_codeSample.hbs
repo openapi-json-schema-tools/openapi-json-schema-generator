@@ -88,7 +88,7 @@ boolean validatedPayload = {{../../../containerJsonPathPiece.pascalCase}}.{{../j
                 {{else}}
                     {{#and (eq type "object") ../mapInputJsonPathPiece.pascalCase }}
     new {{../../../containerJsonPathPiece.pascalCase}}.{{../mapInputJsonPathPiece.pascalCase}}()
-        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=true }}
+        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=true optionalProperties=../optionalProperties requiredProperties=../requiredProperties }}
     .build(),
                     {{else}}
     {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}

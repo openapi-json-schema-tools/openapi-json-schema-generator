@@ -2,11 +2,22 @@
     {{#if constructor}}
         {{#each value}}
             {{#or (eq type "array") (eq type "object")}}
-.{{#if @key.isAdditionalProperty}}additionalProperty{{else}}{{#if @key.isValid}}{{{@key.original}}}{{else}}{{{@key.camelCase}}}{{/if}}{{/if}}(
-    {{#if @key.isAdditionalProperty}}"{{{@key.original}}}", {{/if}}{{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true constructor=false }}
+                {{#or (and optionalProperties (contains optionalProperties @key)) (and requiredProperties (contains requiredProperties @key)) }}
+.{{#if @key.isValid}}{{{@key.original}}}{{else}}{{{@key.camelCase}}}{{/if}}(
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true constructor=false }}
 )
+                {{else}}
+.additionalProperty(
+    "{{{@key.original}}}",
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true constructor=false }}
+)
+                {{/or}}
             {{else}}
-.{{#if @key.isAdditionalProperty}}additionalProperty{{else}}{{#if @key.isValid}}{{{@key.original}}}{{else}}{{{@key.camelCase}}}{{/if}}{{/if}}({{#if @key.isAdditionalProperty}}"{{{@key.original}}}", {{/if}}{{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar=")" noVoid=true constructor=false }}
+                {{#or (and optionalProperties (contains optionalProperties @key)) (and requiredProperties (contains requiredProperties @key)) }}
+.{{#if @key.isValid}}{{{@key.original}}}{{else}}{{{@key.camelCase}}}{{/if}}({{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar=")" noVoid=true constructor=false }}
+                {{else}}
+.additionalProperty("{{{@key.original}}}", {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar=")" noVoid=true constructor=false }}
+                {{/or}}
             {{/or}}
         {{/each}}
     {{else}}
