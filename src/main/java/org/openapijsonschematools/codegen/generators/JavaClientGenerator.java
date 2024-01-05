@@ -90,8 +90,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public static final String VERTX = "vertx";
     public static final String MICROPROFILE = "microprofile";
     public static final String APACHE = "apache-httpclient";
-    public static final String MICROPROFILE_REST_CLIENT_VERSION = "microprofileRestClientVersion";
-    public static final String MICROPROFILE_REST_CLIENT_DEFAULT_VERSION = "2.0";
     public static final String MICROPROFILE_REST_CLIENT_DEFAULT_ROOT_PACKAGE = "javax";
 
     public static final String SERIALIZATION_LIBRARY_GSON = "gson";
@@ -248,7 +246,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         cliOptions.add(CliOption.newBoolean(USE_ABSTRACTION_FOR_FILES, "Use alternative types instead of java.io.File to allow passing bytes without a file on disk. Available on resttemplate, webclient, libraries"));
         cliOptions.add(CliOption.newBoolean(SUPPORT_STREAMING, "Support streaming endpoint (beta)", this.supportStreaming));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP, CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP_DESC + " Only jersey2, jersey3, native, okhttp-gson support this option."));
-        cliOptions.add(CliOption.newString(MICROPROFILE_REST_CLIENT_VERSION, "Version of MicroProfile Rest Client API."));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter. ONLY jersey2, jersey3, okhttp-gson support this option."));
 
         supportedLibraries.put(JERSEY1, "HTTP client: Jersey client 1.19.x. JSON processing: Jackson 2.9.x. Enable gzip request encoding using '-DuseGzipFeature=true'. IMPORTANT NOTE: jersey 1.x is no longer actively maintained so please upgrade to 'jersey3' or other HTTP libraries instead.");
@@ -537,25 +534,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         additionalProperties.put(USE_PLAY_WS, usePlayWS);
 
-        if (!additionalProperties.containsKey(MICROPROFILE_REST_CLIENT_VERSION)) {
-            additionalProperties.put(MICROPROFILE_REST_CLIENT_VERSION, MICROPROFILE_REST_CLIENT_DEFAULT_VERSION);
-        } else {
-            String mpRestClientVersion = (String) additionalProperties.get(MICROPROFILE_REST_CLIENT_VERSION);
-            if (!mpRestClientVersions.containsKey(mpRestClientVersion)) {
-                throw new IllegalArgumentException(
-                        String.format(Locale.ROOT,
-                                "Version %s of MicroProfile Rest Client is not supported or incorrect. Supported versions are %s",
-                                mpRestClientVersion,
-                                String.join(", ", mpRestClientVersions.keySet())
-                        )
-                );
-            }
-        }
+
         if (!additionalProperties.containsKey("rootJavaEEPackage")) {
-            String mpRestClientVersion = (String) additionalProperties.get(MICROPROFILE_REST_CLIENT_VERSION);
-            if (mpRestClientVersions.containsKey(mpRestClientVersion)) {
-                rootJavaEEPackage = mpRestClientVersions.get(mpRestClientVersion).rootPackage;
-            }
             additionalProperties.put("rootJavaEEPackage", rootJavaEEPackage);
         }
 
