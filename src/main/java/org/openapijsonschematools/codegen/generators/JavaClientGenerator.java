@@ -75,7 +75,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public static final String USE_REFLECTION_EQUALS_HASHCODE = "useReflectionEqualsHashCode";
     public static final String MICROPROFILE_FRAMEWORK = "microprofileFramework";
     public static final String USE_ABSTRACTION_FOR_FILES = "useAbstractionForFiles";
-    public static final String DYNAMIC_OPERATIONS = "dynamicOperations";
     public static final String SUPPORT_STREAMING = "supportStreaming";
     public static final String GRADLE_PROPERTIES = "gradleProperties";
     public static final String ERROR_OBJECT_TYPE = "errorObjectType";
@@ -121,7 +120,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected boolean useRuntimeException = false;
     protected boolean useReflectionEqualsHashCode = false;
     protected boolean useAbstractionForFiles = false;
-    protected boolean dynamicOperations = false;
     protected boolean supportStreaming = false;
     protected String gradleProperties;
     protected String errorObjectType;
@@ -258,7 +256,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         cliOptions.add(CliOption.newBoolean(USE_REFLECTION_EQUALS_HASHCODE, "Use org.apache.commons.lang3.builder for equals and hashCode in the models. WARNING: This will fail under a security manager, unless the appropriate permissions are set up correctly and also there's potential performance impact."));
         cliOptions.add(CliOption.newString(MICROPROFILE_FRAMEWORK, "Framework for microprofile. Possible values \"kumuluzee\""));
         cliOptions.add(CliOption.newBoolean(USE_ABSTRACTION_FOR_FILES, "Use alternative types instead of java.io.File to allow passing bytes without a file on disk. Available on resttemplate, webclient, libraries"));
-        cliOptions.add(CliOption.newBoolean(DYNAMIC_OPERATIONS, "Generate operations dynamically at runtime from an OAS", this.dynamicOperations));
         cliOptions.add(CliOption.newBoolean(SUPPORT_STREAMING, "Support streaming endpoint (beta)", this.supportStreaming));
         cliOptions.add(CliOption.newString(GRADLE_PROPERTIES, "Append additional Gradle properties to the gradle.properties file"));
         cliOptions.add(CliOption.newString(ERROR_OBJECT_TYPE, "Error Object type. (This option is for okhttp-gson-next-gen only)"));
@@ -613,11 +610,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             this.setUseAbstractionForFiles(convertPropertyToBooleanAndWriteBack(USE_ABSTRACTION_FOR_FILES));
         }
 
-        if (additionalProperties.containsKey(DYNAMIC_OPERATIONS)) {
-            this.setDynamicOperations(Boolean.parseBoolean(additionalProperties.get(DYNAMIC_OPERATIONS).toString()));
-        }
-        additionalProperties.put(DYNAMIC_OPERATIONS, dynamicOperations);
-
         if (additionalProperties.containsKey(SUPPORT_STREAMING)) {
             this.setSupportStreaming(Boolean.parseBoolean(additionalProperties.get(SUPPORT_STREAMING).toString()));
         }
@@ -845,10 +837,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     public void setUseAbstractionForFiles(boolean useAbstractionForFiles) {
         this.useAbstractionForFiles = useAbstractionForFiles;
-    }
-
-    public void setDynamicOperations(final boolean dynamicOperations) {
-        this.dynamicOperations = dynamicOperations;
     }
 
     public void setSupportStreaming(final boolean supportStreaming) {
