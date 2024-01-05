@@ -55,19 +55,6 @@ public final class CodegenConfiguratorUtils {
         }
     }
 
-    public static void applyInstantiationTypesKvpList(List<String> instantiationTypes, CodegenConfigurator configurator) {
-        for (String propString : instantiationTypes) {
-            applyInstantiationTypesKvp(propString, configurator);
-        }
-    }
-
-    public static void applyInstantiationTypesKvp(String instantiationTypes, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(instantiationTypes);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addInstantiationType(entry.getKey(), entry.getValue());
-        }
-    }
-
     public static void applyAdditionalPropertiesKvpList(List<String> additionalProperties, CodegenConfigurator configurator) {
         for (String propString : additionalProperties) {
             applyAdditionalPropertiesKvp(propString, configurator);

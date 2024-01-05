@@ -106,15 +106,12 @@ OPTIONS
 
         --full-details
             displays CLI options as well as other configs/mappings (implies
-            --instantiation-types, --reserved-words,
+            --reserved-words,
             --language-specific-primitives,
             --supporting-files)
 
         -g <generator name>, --generator-name <generator name>
             generator to get config help for
-
-        --instantiation-types
-            displays types used to instantiate simple type/alias names
 
         --language-specific-primitive
             displays the language specific primitives (types which require no
@@ -257,7 +254,6 @@ SYNOPSIS
                 [--http-user-agent <http user agent>]
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
-                [--instantiation-types <instantiation types>...]
                 [--invoker-package <invoker package>]
                 [--language-specific-primitives <language specific primitives>...]
                 [--legacy-discriminator-behavior] [--library <library>]
@@ -358,13 +354,6 @@ OPTIONS
         --ignore-file-override <ignore file override location>
             Specifies an override location for the .openapi-generator-ignore
             file. Most useful on initial generation.
-
-        --instantiation-types <instantiation types>
-            sets instantiation type mappings in the format of
-            type=instantiatedType,type=instantiatedType.For example (in Java):
-            array=ArrayList,map=HashMap. In other words array types will get
-            instantiated as ArrayList in generated code. You can also have
-            multiple occurrences of this option.
 
         --invoker-package <invoker package>
             root package for generated code

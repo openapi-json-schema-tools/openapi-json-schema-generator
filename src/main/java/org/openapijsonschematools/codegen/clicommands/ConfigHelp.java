@@ -77,9 +77,6 @@ public class ConfigHelp extends AbstractCommand {
     @Option(name = {"--reserved-words"}, title = "language specific reserved words", description = "displays the reserved words which may result in renamed model or property names")
     private Boolean reservedWords;
 
-    @Option(name = {"--instantiation-types"}, title = "instantiation types", description = "displays types used to instantiate simple type/alias names")
-    private Boolean instantiationTypes;
-
     @Option(name = {"--feature-set"}, title = "feature set", description = "displays feature set as supported by the generator")
     private Boolean featureSets;
 
@@ -91,7 +88,7 @@ public class ConfigHelp extends AbstractCommand {
         "--supported-vendor-extensions"}, title = "supported vendor extensions", description = "List supported vendor extensions")
     private Boolean supportedVendorExtensions;
 
-    @Option(name = {"--full-details"}, title = "full generator details", description = "displays CLI options as well as other configs/mappings (implies --instantiation-types, --reserved-words, --language-specific-primitives, --feature-set)")
+    @Option(name = {"--full-details"}, title = "full generator details", description = "displays CLI options as well as other configs/mappings (implies --reserved-words, --language-specific-primitives, --feature-set)")
     private Boolean fullDetails;
 
     private String newline = System.lineSeparator();
@@ -104,7 +101,6 @@ public class ConfigHelp extends AbstractCommand {
         }
 
         if (Boolean.TRUE.equals(fullDetails)) {
-            instantiationTypes = Boolean.TRUE;
             reservedWords = Boolean.TRUE;
             languageSpecificPrimitives = Boolean.TRUE;
             featureSets = Boolean.TRUE;
@@ -341,9 +337,7 @@ public class ConfigHelp extends AbstractCommand {
             generateMdSupportedVendorExtensions(sb, config);
         }
 
-        if (Boolean.TRUE.equals(instantiationTypes)) {
-            generateMdInstantiationTypes(sb, config);
-        }
+        generateMdInstantiationTypes(sb, config);
 
         if (Boolean.TRUE.equals(languageSpecificPrimitives)) {
             generateMdLanguageSpecificPrimitives(sb, config);
@@ -411,9 +405,10 @@ public class ConfigHelp extends AbstractCommand {
             sb.append(newline).append(newline);
         });
 
-        if (Boolean.TRUE.equals(instantiationTypes)) {
+        Map<String, String> instantiationTypes = config.instantiationTypes();
+        if (instantiationTypes != null) {
             sb.append(newline).append("INSTANTIATION TYPES").append(newline).append(newline);
-            Map<String, String> map = config.instantiationTypes()
+            Map<String, String> map = instantiationTypes
                     .entrySet()
                     .stream()
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> {

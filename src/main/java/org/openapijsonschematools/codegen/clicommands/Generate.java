@@ -117,14 +117,6 @@ public class Generate extends AbstractCommand {
     private String modelNameSuffix;
 
     @Option(
-            name = {"--instantiation-types"},
-            title = "instantiation types",
-            description = "sets instantiation type mappings in the format of type=instantiatedType,type=instantiatedType."
-                    + "For example (in Java): array=ArrayList,map=HashMap. In other words array types will get instantiated as ArrayList in generated code."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> instantiationTypes = new ArrayList<>();
-
-    @Option(
             name = {"-p", "--additional-properties"},
             title = "additional properties",
             description = "sets additional properties that can be referenced by the mustache templates in the format of name=value,name=value."
@@ -355,7 +347,6 @@ public class Generate extends AbstractCommand {
         if (globalProperties != null && !globalProperties.isEmpty()) {
             CodegenConfiguratorUtils.applyGlobalPropertiesKvpList(globalProperties, configurator);
         }
-        CodegenConfiguratorUtils.applyInstantiationTypesKvpList(instantiationTypes, configurator);
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);
         CodegenConfiguratorUtils.applyLanguageSpecificPrimitivesCsvList(languageSpecificPrimitives, configurator);
         CodegenConfiguratorUtils.applyServerVariablesKvpList(serverVariableOverrides, configurator);

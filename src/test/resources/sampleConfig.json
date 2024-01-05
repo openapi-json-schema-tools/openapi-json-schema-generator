@@ -11,13 +11,9 @@
     "groupId" : "io.something",
     "artifactId" : "awesome-api",
     "artifactVersion" : "1.2.3",
-    "library" : "jersey2",
     "ignoreFileOverride": "/path/to/override/.openapi-generator-ignore",
     "globalProperties" : {
         "systemProp1" : "value1"
-    },
-    "instantiationTypes" : {
-        "hello" : "world"
     },
     "additionalProperties" : {
         "addtProp1" : "value2"

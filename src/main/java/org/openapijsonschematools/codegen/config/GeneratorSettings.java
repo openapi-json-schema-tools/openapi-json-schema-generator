@@ -45,7 +45,6 @@ public final class GeneratorSettings implements Serializable {
     private String artifactId;
     private String artifactVersion;
 
-    private final Map<String, String> instantiationTypes;
     private final Map<String, Object> additionalProperties;
     private final Set<String> languageSpecificPrimitives;
     private final Map<String, String> serverVariables;
@@ -173,19 +172,6 @@ public final class GeneratorSettings implements Serializable {
         return artifactVersion;
     }
 
-
-    /**
-     * Gets instantiation types mappings. These allow for customizing the defaults provided by a built-in generator.
-     * <p>
-     * For example, "array" to "ArrayList" applied to the Java generator will cause all array properties to be instantiated as ArrayList.
-     * <p>
-     *
-     * @return the instantiation types
-     */
-    public Map<String, String> getInstantiationTypes() {
-        return instantiationTypes;
-    }
-
     /**
      * Gets additional properties which will be passed to template as dynamic properties.
      *
@@ -292,7 +278,6 @@ public final class GeneratorSettings implements Serializable {
         groupId = builder.groupId;
         artifactId = builder.artifactId;
         artifactVersion = builder.artifactVersion;
-        instantiationTypes = Collections.unmodifiableMap(builder.instantiationTypes);
         languageSpecificPrimitives = Collections.unmodifiableSet(builder.languageSpecificPrimitives);
         serverVariables = Collections.unmodifiableMap(builder.serverVariables);
         gitHost = builder.gitHost;
@@ -358,7 +343,6 @@ public final class GeneratorSettings implements Serializable {
     @SuppressWarnings("unused")
     public GeneratorSettings() {
         setDefaults();
-        instantiationTypes = Collections.unmodifiableMap(new HashMap<>(0));
         additionalProperties = Collections.unmodifiableMap(new HashMap<>(0));
         languageSpecificPrimitives = Collections.unmodifiableSet(new HashSet<>(0));
         serverVariables = Collections.unmodifiableMap(new HashMap<>(0));
@@ -396,9 +380,6 @@ public final class GeneratorSettings implements Serializable {
         builder.groupId = copy.getGroupId();
         builder.artifactId = copy.getArtifactId();
         builder.artifactVersion = copy.getArtifactVersion();
-        if (copy.getInstantiationTypes() != null) {
-            builder.instantiationTypes.putAll(copy.getInstantiationTypes());
-        }
         if (copy.getAdditionalProperties() != null) {
             builder.additionalProperties.putAll(copy.getAdditionalProperties());
         }
@@ -432,7 +413,6 @@ public final class GeneratorSettings implements Serializable {
         private String groupId;
         private String artifactId;
         private String artifactVersion;
-        private Map<String, String> instantiationTypes;
         private Map<String, Object> additionalProperties;
         private Set<String> languageSpecificPrimitives;
         private Map<String, String> serverVariables;
@@ -446,7 +426,6 @@ public final class GeneratorSettings implements Serializable {
          * Instantiates a new Builder.
          */
         public Builder() {
-            instantiationTypes = new HashMap<>();
             additionalProperties = new HashMap<>();
             languageSpecificPrimitives = new HashSet<>();
             serverVariables = new HashMap<>();
@@ -564,32 +543,6 @@ public final class GeneratorSettings implements Serializable {
          */
         public Builder withArtifactVersion(String artifactVersion) {
             this.artifactVersion = artifactVersion;
-            return this;
-        }
-
-        /**
-         * Sets the {@code instantiationTypes} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param instantiationTypes the {@code instantiationTypes} to set
-         * @return a reference to this Builder
-         */
-        public Builder withInstantiationTypes(Map<String, String> instantiationTypes) {
-            this.instantiationTypes = instantiationTypes;
-            return this;
-        }
-
-        /**
-         * Sets a single {@code instantiationTypes} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param key   A key for some instantiation type
-         * @param value The value of some instantiation type
-         * @return a reference to this Builder
-         */
-        public Builder withInstantiationType(String key, String value) {
-            if (this.instantiationTypes == null) {
-                this.instantiationTypes = new HashMap<>();
-            }
-            this.instantiationTypes.put(key, value);
             return this;
         }
 
@@ -752,7 +705,6 @@ public final class GeneratorSettings implements Serializable {
                 ", groupId='" + groupId + '\'' +
                 ", artifactId='" + artifactId + '\'' +
                 ", artifactVersion='" + artifactVersion + '\'' +
-                ", instantiationTypes=" + instantiationTypes +
                 ", additionalProperties=" + additionalProperties +
                 ", languageSpecificPrimitives=" + languageSpecificPrimitives +
                 ", gitHost='" + gitHost + '\'' +
@@ -779,7 +731,6 @@ public final class GeneratorSettings implements Serializable {
                 Objects.equals(getGroupId(), that.getGroupId()) &&
                 Objects.equals(getArtifactId(), that.getArtifactId()) &&
                 Objects.equals(getArtifactVersion(), that.getArtifactVersion()) &&
-                Objects.equals(getInstantiationTypes(), that.getInstantiationTypes()) &&
                 Objects.equals(getAdditionalProperties(), that.getAdditionalProperties()) &&
                 Objects.equals(getLanguageSpecificPrimitives(), that.getLanguageSpecificPrimitives()) &&
                 Objects.equals(getGitHost(), that.getGitHost()) &&
@@ -803,7 +754,6 @@ public final class GeneratorSettings implements Serializable {
                 getGroupId(),
                 getArtifactId(),
                 getArtifactVersion(),
-                getInstantiationTypes(),
                 getAdditionalProperties(),
                 getLanguageSpecificPrimitives(),
                 getGitHost(),

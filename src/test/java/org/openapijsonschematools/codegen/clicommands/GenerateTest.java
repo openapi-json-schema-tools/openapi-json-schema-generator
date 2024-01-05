@@ -218,25 +218,6 @@ public class GenerateTest {
     }
 
     @Test
-    public void testInstantiationTypesLong() {
-        setupAndRunGenericTest("--instantiation-types", "hello=world,key=,foo=bar,key2");
-        verify(configurator).addInstantiationType("hello", "world");
-        verify(configurator).addInstantiationType("foo", "bar");
-        verify(configurator).addInstantiationType("key", "");
-        verify(configurator).addInstantiationType("key2", "");
-    }
-
-    @Test
-    public void testInstantiationTypesLongMultiple() {
-        setupAndRunGenericTest("--instantiation-types", "hello=world", "--instantiation-types",
-                "key=", "--instantiation-types", "foo=bar", "--instantiation-types", "key2");
-        verify(configurator).addInstantiationType("hello", "world");
-        verify(configurator).addInstantiationType("foo", "bar");
-        verify(configurator).addInstantiationType("key", "");
-        verify(configurator).addInstantiationType("key2", "");
-    }
-
-    @Test
     public void testInvokerPackage() {
         final String value = "io.foo.bar.api";
         setupAndRunGenericTest("--invoker-package", value);
