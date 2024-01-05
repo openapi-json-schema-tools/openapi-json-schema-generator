@@ -59,7 +59,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public static final String SUPPORT_ASYNC = "supportAsync";
     public static final String WITH_XML = "withXml";
     public static final String SUPPORT_JAVA6 = "supportJava6";
-    public static final String DISABLE_HTML_ESCAPING = "disableHtmlEscaping";
     public static final String IGNORE_ANYOF_IN_ENUM = "ignoreAnyOfInEnum";
     public static final String DISCRIMINATOR_CASE_SENSITIVE = "discriminatorCaseSensitive";
     public static final String OPENAPI_NULLABLE = "openApiNullable";
@@ -99,7 +98,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected String apiDocPath = "docs/";
     protected String modelDocPath = "docs/";
     protected boolean supportJava6 = false;
-    protected boolean disableHtmlEscaping = false;
     protected boolean ignoreAnyOfInEnum = false;
     protected String parentGroupId = "";
     protected String parentArtifactId = "";
@@ -198,7 +196,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
         cliOptions.add(CliOption.newBoolean(WITH_XML, "whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML)"));
 
-        cliOptions.add(CliOption.newBoolean(DISABLE_HTML_ESCAPING, "Disable HTML escaping of JSON strings when using gson (needed to avoid problems with byte[] fields)", disableHtmlEscaping));
         cliOptions.add(CliOption.newBoolean(IGNORE_ANYOF_IN_ENUM, "Ignore anyOf keyword in enum", ignoreAnyOfInEnum));
         cliOptions.add(CliOption.newBoolean(OPENAPI_NULLABLE, "Enable OpenAPI Jackson Nullable library", this.openApiNullable));
         cliOptions.add(CliOption.newBoolean(IMPLICIT_HEADERS, "Skip header parameters in the generated API methods using @ApiImplicitParams annotation.", implicitHeaders));
@@ -286,11 +283,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             this.setSupportJava6(Boolean.parseBoolean(additionalProperties.get(SUPPORT_JAVA6).toString()));
         }
         additionalProperties.put(SUPPORT_JAVA6, supportJava6);
-
-        if (additionalProperties.containsKey(DISABLE_HTML_ESCAPING)) {
-            this.setDisableHtmlEscaping(Boolean.parseBoolean(additionalProperties.get(DISABLE_HTML_ESCAPING).toString()));
-        }
-        additionalProperties.put(DISABLE_HTML_ESCAPING, disableHtmlEscaping);
 
         if (additionalProperties.containsKey(IGNORE_ANYOF_IN_ENUM)) {
             this.setIgnoreAnyOfInEnum(Boolean.parseBoolean(additionalProperties.get(IGNORE_ANYOF_IN_ENUM).toString()));
@@ -1163,11 +1155,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
     }
-
-    public void setDisableHtmlEscaping(boolean disabled) {
-        this.disableHtmlEscaping = disabled;
-    }
-
+    
     public void setIgnoreAnyOfInEnum(boolean ignoreAnyOfInEnum) {
         this.ignoreAnyOfInEnum = ignoreAnyOfInEnum;
     }
