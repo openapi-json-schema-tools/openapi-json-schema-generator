@@ -644,7 +644,6 @@ public class DefaultGeneratorTest {
     public void testDiscriminatorWithCustomMapping() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf.yaml");
         DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
         Schema person = openAPI.getComponents().getSchemas().get("Person");
@@ -678,7 +677,6 @@ public class DefaultGeneratorTest {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
         DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
-        codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setModelPackage("components.schemas");
         Schema sc;
         String modelName;
@@ -815,7 +813,6 @@ public class DefaultGeneratorTest {
     public void testComposedSchemaAllOfDiscriminatorMapLegacy() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
         DefaultGenerator codegen = new ThisDefaultGenerator();
-        // codegen.legacyDiscriminatorBehavior remains false in the legacy use case
         codegen.setModelPackage("components.schemas");
         codegen.setOpenAPI(openAPI);
         Schema sc;
@@ -931,7 +928,6 @@ public class DefaultGeneratorTest {
     public void testComposedSchemaOneOfDiscriminatorsInvalid() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/oneOfDiscriminator.yaml");
         DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
         HashMap<String, String> hm = new HashMap<>();
@@ -963,7 +959,6 @@ public class DefaultGeneratorTest {
     public void testComposedSchemaAnyOfDiscriminatorsInvalid() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/anyOfDiscriminator.yaml");
         DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
         HashMap<String, String> hm = new HashMap<>();
@@ -995,7 +990,6 @@ public class DefaultGeneratorTest {
     public void testComposedSchemaAnyOfDiscriminatorMap() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/anyOfDiscriminator.yaml");
         DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
         String modelName;
@@ -1104,7 +1098,6 @@ public class DefaultGeneratorTest {
     public void testComposedSchemaOneOfDiscriminatorMap() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/oneOfDiscriminator.yaml");
         DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
         String modelName;
@@ -1213,7 +1206,6 @@ public class DefaultGeneratorTest {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
 
         DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
         Schema pet = openAPI.getComponents().getSchemas().get("MyPets");
@@ -1230,7 +1222,6 @@ public class DefaultGeneratorTest {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
 
         DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
         Schema pet = openAPI.getComponents().getSchemas().get("Lizard");

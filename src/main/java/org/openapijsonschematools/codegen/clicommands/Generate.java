@@ -256,9 +256,6 @@ public class Generate extends AbstractCommand {
     @Option(name = {"--enable-post-process-file"}, title = "enable post-processing of files (in generators supporting it)", description = CodegenConstants.ENABLE_POST_PROCESS_FILE_DESC)
     private Boolean enablePostProcessFile;
 
-    @Option(name = {"--legacy-discriminator-behavior"}, title = "Support legacy logic for evaluating discriminators", description = CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR_DESC)
-    private Boolean legacyDiscriminatorBehavior;
-
     @Option(name = {"--minimal-update"},
         title = "Minimal update",
         description = "Only write output files that have changed.")

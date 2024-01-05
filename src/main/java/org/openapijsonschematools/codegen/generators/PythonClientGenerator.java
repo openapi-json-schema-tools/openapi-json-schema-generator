@@ -33,8 +33,6 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
-import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
@@ -44,7 +42,6 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
-import org.openapijsonschematools.codegen.config.GlobalSettings;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.security.SecurityScheme;
@@ -54,7 +51,6 @@ import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.common.ModelUtils;
-import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -348,7 +344,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
     @Override
     public void processOpts() {
-        this.setLegacyDiscriminatorBehavior(false);
 
         super.processOpts();
 

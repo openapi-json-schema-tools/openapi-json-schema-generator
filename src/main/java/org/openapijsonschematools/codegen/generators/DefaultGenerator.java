@@ -314,9 +314,6 @@ public class DefaultGenerator implements Generator {
     // flag to indicate whether enum value prefixes are removed
     protected boolean removeEnumValuePrefix = true;
 
-    // Support legacy logic for evaluating discriminators
-    protected boolean legacyDiscriminatorBehavior = true;
-
     // make openapi available to all methods
     protected OpenAPI openAPI;
 
@@ -434,10 +431,6 @@ public class DefaultGenerator implements Generator {
                     .get(CodegenConstants.REMOVE_ENUM_VALUE_PREFIX).toString()));
         }
 
-        if (additionalProperties.containsKey(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR)) {
-            this.setLegacyDiscriminatorBehavior(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR).toString()));
-        }
         requiredAddPropUnsetSchema = fromSchema(new JsonSchema(), null, null);
 
     }
@@ -958,14 +951,6 @@ public class DefaultGenerator implements Generator {
     public void setSortModelPropertiesByRequiredFlag(Boolean sortModelPropertiesByRequiredFlag) {
         this.sortModelPropertiesByRequiredFlag = sortModelPropertiesByRequiredFlag;
     }
-    public Boolean getLegacyDiscriminatorBehavior() {
-        return legacyDiscriminatorBehavior;
-    }
-
-    public void setLegacyDiscriminatorBehavior(boolean val) {
-        this.legacyDiscriminatorBehavior = val;
-    }
-
     public void setAllowUnicodeIdentifiers(Boolean allowUnicodeIdentifiers) {
         this.allowUnicodeIdentifiers = allowUnicodeIdentifiers;
     }
@@ -1276,14 +1261,6 @@ public class DefaultGenerator implements Generator {
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
                 .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));
-
-        // option to change how we process + set the data in the discriminator mapping
-        CliOption legacyDiscriminatorBehaviorOpt = CliOption.newBoolean(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR, CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR_DESC).defaultValue(Boolean.TRUE.toString());
-        Map<String, String> legacyDiscriminatorBehaviorOpts = new HashMap<>();
-        legacyDiscriminatorBehaviorOpts.put("true", "The mapping in the discriminator includes descendant schemas that allOf inherit from self and the discriminator mapping schemas in the OAS document.");
-        legacyDiscriminatorBehaviorOpts.put("false", "The mapping in the discriminator includes any descendant schemas that allOf inherit from self, any oneOf schemas, any anyOf schemas, any x-discriminator-values, and the discriminator mapping schemas in the OAS document AND Codegen validates that oneOf and anyOf schemas contain the required discriminator and throws an error if the discriminator is missing.");
-        legacyDiscriminatorBehaviorOpt.setEnum(legacyDiscriminatorBehaviorOpts);
-        cliOptions.add(legacyDiscriminatorBehaviorOpt);
 
         // initialize special character mapping
         initializeSpecialCharacterMapping();
@@ -1764,9 +1741,6 @@ public class DefaultGenerator implements Generator {
             return foundDisc;
         }
 
-        if (this.getLegacyDiscriminatorBehavior()) {
-            return null;
-        }
         Discriminator disc = new Discriminator();
         if (ModelUtils.isComposedSchema(refSchema)) {
             ComposedSchema composedSchema = (ComposedSchema) refSchema;
@@ -2005,29 +1979,26 @@ public class DefaultGenerator implements Generator {
             }
         }
 
-        boolean legacyUseCase = (this.getLegacyDiscriminatorBehavior() && mappedModels.isEmpty());
-        if (!this.getLegacyDiscriminatorBehavior() || legacyUseCase) {
-            // for schemas that allOf inherit from this schema, add those descendants to this discriminator map
-            List<MappedModel> otherDescendants = getAllOfDescendants(schemaName, openAPI, sourceJsonPath);
-            for (MappedModel otherDescendant : otherDescendants) {
-                // add only if the mapping names are not the same
-                boolean matched = false;
-                for (MappedModel uniqueDescendant : mappedModels) {
-                    if (uniqueDescendant.mappingName.equals(otherDescendant.mappingName)) {
-                        matched = true;
-                        break;
-                    }
+        // for schemas that allOf inherit from this schema, add those descendants to this discriminator map
+        List<MappedModel> otherDescendants = getAllOfDescendants(schemaName, openAPI, sourceJsonPath);
+        for (MappedModel otherDescendant : otherDescendants) {
+            // add only if the mapping names are not the same
+            boolean matched = false;
+            for (MappedModel uniqueDescendant : mappedModels) {
+                if (uniqueDescendant.mappingName.equals(otherDescendant.mappingName)) {
+                    matched = true;
+                    break;
                 }
+            }
 
-                if (!matched) {
-                    mappedModels.add(otherDescendant);
-                }
+            if (!matched) {
+                mappedModels.add(otherDescendant);
             }
         }
         // if there are composed oneOf/anyOf schemas, add them to this discriminator
-        if (ModelUtils.isComposedSchema(schema) && !this.getLegacyDiscriminatorBehavior()) {
-            List<MappedModel> otherDescendants = getOneOfAnyOfDescendants(schemaName, discPropName, (ComposedSchema) schema, openAPI, sourceJsonPath);
-            mappedModels.addAll(otherDescendants);
+        if (ModelUtils.isComposedSchema(schema)) {
+            List<MappedModel> composedDescendants = getOneOfAnyOfDescendants(schemaName, discPropName, (ComposedSchema) schema, openAPI, sourceJsonPath);
+            mappedModels.addAll(composedDescendants);
         }
 
         return new CodegenDiscriminator(propertyName, mapping, mappedModels);
