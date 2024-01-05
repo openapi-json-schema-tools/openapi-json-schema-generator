@@ -150,10 +150,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         packageName = "org.openapijsonschematools.client";
         addSchemaImportsFromV3SpecLocations = true;
         deepestRefSchemaImportNeeded = true;
-        // this must be false for parameter numbers to stay the same as the ones in the spec
-        // if another schema $refs a schema in a parameter, the json path
-        // and generated module must have the same parameter index as the spec
-        sortParamsByRequiredFlag = Boolean.FALSE;
         objectIOClassNamePiece = "Map";
         arrayIOClassNamePiece = "List";
         arrayObjectInputClassNameSuffix = "Builder";

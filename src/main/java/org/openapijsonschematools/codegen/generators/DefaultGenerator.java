@@ -291,7 +291,6 @@ public class DefaultGenerator implements Generator {
     protected boolean supportsAdditionalPropertiesWithComposedSchema = true;
     protected Map<String, String> supportedLibraries = new LinkedHashMap<>();
     protected String library;
-    protected Boolean sortParamsByRequiredFlag = true;
     protected Boolean allowUnicodeIdentifiers = false;
     protected String httpUserAgent;
     protected Boolean hideGenerationTimestamp = true;
@@ -362,11 +361,6 @@ public class DefaultGenerator implements Generator {
             setHideGenerationTimestamp(convertPropertyToBooleanAndWriteBack(CodegenConstants.HIDE_GENERATION_TIMESTAMP));
         } else {
             additionalProperties.put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, hideGenerationTimestamp);
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG)) {
-            this.setSortParamsByRequiredFlag(Boolean.valueOf(additionalProperties
-                    .get(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG).toString()));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS)) {
@@ -930,14 +924,6 @@ public class DefaultGenerator implements Generator {
         this.apiPackage = apiPackage;
     }
 
-    public Boolean getSortParamsByRequiredFlag() {
-        return sortParamsByRequiredFlag;
-    }
-
-    public void setSortParamsByRequiredFlag(Boolean sortParamsByRequiredFlag) {
-        this.sortParamsByRequiredFlag = sortParamsByRequiredFlag;
-    }
-
     public void setAllowUnicodeIdentifiers(Boolean allowUnicodeIdentifiers) {
         this.allowUnicodeIdentifiers = allowUnicodeIdentifiers;
     }
@@ -1241,8 +1227,6 @@ public class DefaultGenerator implements Generator {
 
         reservedWords = new HashSet<>();
 
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG,
-                CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG_DESC).defaultValue(Boolean.TRUE.toString()));
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
                 .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));
@@ -3084,17 +3068,6 @@ public class DefaultGenerator implements Generator {
                     hasOptionalParamOrBody = true;
                 }
             }
-        }
-        // move "required" parameters in front of "optional" parameters
-        if (sortParamsByRequiredFlag) {
-            allParams.sort((one, another) -> {
-                if (one.required == another.required)
-                    return 0;
-                else if (one.required)
-                    return -1;
-                else
-                    return 1;
-            });
         }
         List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
