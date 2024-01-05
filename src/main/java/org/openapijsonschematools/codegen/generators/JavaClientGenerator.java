@@ -76,7 +76,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public static final String MICROPROFILE_FRAMEWORK = "microprofileFramework";
     public static final String USE_ABSTRACTION_FOR_FILES = "useAbstractionForFiles";
     public static final String SUPPORT_STREAMING = "supportStreaming";
-    public static final String GRADLE_PROPERTIES = "gradleProperties";
     public static final String FEIGN = "feign";
     public static final String GOOGLE_API_CLIENT = "google-api-client";
     public static final String JERSEY1 = "jersey1";
@@ -119,7 +118,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected boolean useReflectionEqualsHashCode = false;
     protected boolean useAbstractionForFiles = false;
     protected boolean supportStreaming = false;
-    protected String gradleProperties;
     protected String authFolder;
     protected String serializationLibrary = null;
     protected boolean useOneOfDiscriminatorLookup = false; // use oneOf discriminator's mapping for model lookup
@@ -254,7 +252,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         cliOptions.add(CliOption.newString(MICROPROFILE_FRAMEWORK, "Framework for microprofile. Possible values \"kumuluzee\""));
         cliOptions.add(CliOption.newBoolean(USE_ABSTRACTION_FOR_FILES, "Use alternative types instead of java.io.File to allow passing bytes without a file on disk. Available on resttemplate, webclient, libraries"));
         cliOptions.add(CliOption.newBoolean(SUPPORT_STREAMING, "Support streaming endpoint (beta)", this.supportStreaming));
-        cliOptions.add(CliOption.newString(GRADLE_PROPERTIES, "Append additional Gradle properties to the gradle.properties file"));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP, CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP_DESC + " Only jersey2, jersey3, native, okhttp-gson support this option."));
         cliOptions.add(CliOption.newString(MICROPROFILE_REST_CLIENT_VERSION, "Version of MicroProfile Rest Client API."));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter. ONLY jersey2, jersey3, okhttp-gson support this option."));
@@ -611,11 +608,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         additionalProperties.put(SUPPORT_STREAMING, supportStreaming);
 
-        if (additionalProperties.containsKey(GRADLE_PROPERTIES)) {
-            this.setGradleProperties(additionalProperties.get(GRADLE_PROPERTIES).toString());
-        }
-        additionalProperties.put(GRADLE_PROPERTIES, gradleProperties);
-
         final String invokerFolder = (sourceFolder + '/' + invokerPackage).replace(".", "/");
         final String apiFolder = (sourceFolder + '/' + apiPackage).replace(".", "/");
         final String modelsFolder = (sourceFolder + File.separator + modelPackage().replace('.', File.separatorChar)).replace('/', File.separatorChar);
@@ -832,10 +824,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     public void setSupportStreaming(final boolean supportStreaming) {
         this.supportStreaming = supportStreaming;
-    }
-
-    public void setGradleProperties(final String gradleProperties) {
-        this.gradleProperties = gradleProperties;
     }
 
     /**

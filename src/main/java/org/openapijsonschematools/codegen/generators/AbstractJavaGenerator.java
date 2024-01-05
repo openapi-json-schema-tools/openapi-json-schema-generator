@@ -1081,7 +1081,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         //prefer replace a ", instead of a fuLL URL encode for readability
         return p.replaceAll("\"", "%22");
     }
-    
+
     public void setWithXml(boolean withXml) {
         this.withXml = withXml;
     }
