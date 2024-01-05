@@ -317,11 +317,6 @@ public class DefaultGenerator implements Generator {
     // Support legacy logic for evaluating discriminators
     protected boolean legacyDiscriminatorBehavior = true;
 
-    // Specify what to do if the 'additionalProperties' keyword is not present in a schema.
-    // See CodegenConstants.java for more details.
-    // This should be false for generators that support openapi + json schema
-    protected boolean disallowAdditionalPropertiesIfNotPresent = false;
-
     // make openapi available to all methods
     protected OpenAPI openAPI;
 
@@ -442,10 +437,6 @@ public class DefaultGenerator implements Generator {
         if (additionalProperties.containsKey(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR)) {
             this.setLegacyDiscriminatorBehavior(Boolean.parseBoolean(additionalProperties
                     .get(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR).toString()));
-        }
-        if (additionalProperties.containsKey(CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT)) {
-            this.setDisallowAdditionalPropertiesIfNotPresent(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT).toString()));
         }
         requiredAddPropUnsetSchema = fromSchema(new JsonSchema(), null, null);
 
@@ -610,9 +601,6 @@ public class DefaultGenerator implements Generator {
         int specMinorVersion = Integer.parseInt(originalSpecVersion.substring(2, 3));
         boolean specVersionGreaterThanOrEqualTo310 = (specMajorVersion == 3 && specMinorVersion >= 1);
         this.openAPI = openAPI;
-        // Set global settings such that helper functions in ModelUtils can look up the value
-        // of the CLI option.
-        ModelUtils.setDisallowAdditionalPropertiesIfNotPresent(getDisallowAdditionalPropertiesIfNotPresent());
     }
 
     // override with any message to be shown right before the process finishes
@@ -978,14 +966,6 @@ public class DefaultGenerator implements Generator {
         this.legacyDiscriminatorBehavior = val;
     }
 
-    public Boolean getDisallowAdditionalPropertiesIfNotPresent() {
-        return disallowAdditionalPropertiesIfNotPresent;
-    }
-
-    public void setDisallowAdditionalPropertiesIfNotPresent(boolean val) {
-        this.disallowAdditionalPropertiesIfNotPresent = val;
-    }
-
     public void setAllowUnicodeIdentifiers(Boolean allowUnicodeIdentifiers) {
         this.allowUnicodeIdentifiers = allowUnicodeIdentifiers;
     }
@@ -1304,18 +1284,6 @@ public class DefaultGenerator implements Generator {
         legacyDiscriminatorBehaviorOpts.put("false", "The mapping in the discriminator includes any descendant schemas that allOf inherit from self, any oneOf schemas, any anyOf schemas, any x-discriminator-values, and the discriminator mapping schemas in the OAS document AND Codegen validates that oneOf and anyOf schemas contain the required discriminator and throws an error if the discriminator is missing.");
         legacyDiscriminatorBehaviorOpt.setEnum(legacyDiscriminatorBehaviorOpts);
         cliOptions.add(legacyDiscriminatorBehaviorOpt);
-
-        // option to change how we process + set the data in the 'additionalProperties' keyword.
-        CliOption disallowAdditionalPropertiesIfNotPresentOpt = CliOption.newBoolean(
-                CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT,
-                CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT_DESC).defaultValue(Boolean.TRUE.toString());
-        Map<String, String> disallowAdditionalPropertiesIfNotPresentOpts = new HashMap<>();
-        disallowAdditionalPropertiesIfNotPresentOpts.put("false",
-                "The 'additionalProperties' implementation is compliant with the OAS and JSON schema specifications.");
-        disallowAdditionalPropertiesIfNotPresentOpts.put("true",
-                "Keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.");
-        disallowAdditionalPropertiesIfNotPresentOpt.setEnum(disallowAdditionalPropertiesIfNotPresentOpts);
-        cliOptions.add(disallowAdditionalPropertiesIfNotPresentOpt);
 
         // initialize special character mapping
         initializeSpecialCharacterMapping();
@@ -5350,7 +5318,7 @@ public class DefaultGenerator implements Generator {
                 throw new RuntimeException("Required property defined with name="+requiredPropertyName+" but property is missing from properties. Add it there.");
             } else {
                 // required property is not defined in properties
-                if (supportsAdditionalPropertiesWithComposedSchema && !disallowAdditionalPropertiesIfNotPresent) {
+                if (supportsAdditionalPropertiesWithComposedSchema) {
                     CodegenSchema prop;
                     requiredPropsWithDefAllFromProp = false;
                     reqPropsWithDef++;

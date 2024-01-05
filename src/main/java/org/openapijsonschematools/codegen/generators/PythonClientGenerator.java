@@ -320,11 +320,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         // in other code generators, support needs to be enabled on a case-by-case basis.
         supportsAdditionalPropertiesWithComposedSchema = true;
 
-        // When the 'additionalProperties' keyword is not present in an OAS schema, allow
-        // undeclared properties. This is compliant with the JSON schema specification.
-        this.setDisallowAdditionalPropertiesIfNotPresent(false);
-        GlobalSettings.setProperty("x-disallow-additional-properties-if-not-present", "false");
-
         // this tells users what openapi types turn in to
         instantiationTypes.put("object", "immutabledict.immutabledict");
         instantiationTypes.put("array", "tuple");
