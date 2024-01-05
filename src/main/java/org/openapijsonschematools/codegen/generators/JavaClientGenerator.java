@@ -99,7 +99,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
     protected boolean useRuntimeException = false;
     protected boolean useReflectionEqualsHashCode = false;
     protected String authFolder;
-    protected boolean useOneOfDiscriminatorLookup = false; // use oneOf discriminator's mapping for model lookup
     protected String rootJavaEEPackage;
     protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
     protected boolean useSingleRequestParameter = false;
@@ -220,7 +219,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         cliOptions.add(CliOption.newBoolean(USE_PLAY_WS, "Use Play! Async HTTP client (Play WS API)"));
         cliOptions.add(CliOption.newBoolean(USE_RUNTIME_EXCEPTION, "Use RuntimeException instead of Exception"));
         cliOptions.add(CliOption.newBoolean(USE_REFLECTION_EQUALS_HASHCODE, "Use org.apache.commons.lang3.builder for equals and hashCode in the models. WARNING: This will fail under a security manager, unless the appropriate permissions are set up correctly and also there's potential performance impact."));
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP, CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP_DESC + " Only jersey2, jersey3, native, okhttp-gson support this option."));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter. ONLY jersey2, jersey3, okhttp-gson support this option."));
 
         supportedLibraries.put(JERSEY1, "HTTP client: Jersey client 1.19.x. JSON processing: Jackson 2.9.x. IMPORTANT NOTE: jersey 1.x is no longer actively maintained so please upgrade to 'jersey3' or other HTTP libraries instead.");
@@ -457,12 +455,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
         super.processOpts();
 
-        if (additionalProperties.containsKey(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP)) {
-            setUseOneOfDiscriminatorLookup(convertPropertyToBooleanAndWriteBack(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP));
-        } else {
-            additionalProperties.put(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP, useOneOfDiscriminatorLookup);
-        }
-
         // RxJava
         if (additionalProperties.containsKey(USE_RX_JAVA2) && additionalProperties.containsKey(USE_RX_JAVA3)) {
             LOGGER.warn("You specified all RxJava versions 2 and 3 but they are mutually exclusive. Defaulting to v3.");
@@ -613,14 +605,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
             model.imports.remove("ToStringSerializer");
         }
 
-    }
-
-    public void setUseOneOfDiscriminatorLookup(boolean useOneOfDiscriminatorLookup) {
-        this.useOneOfDiscriminatorLookup = useOneOfDiscriminatorLookup;
-    }
-
-    public boolean getUseOneOfDiscriminatorLookup() {
-        return this.useOneOfDiscriminatorLookup;
     }
 
     private boolean getUseSingleRequestParameter() {
