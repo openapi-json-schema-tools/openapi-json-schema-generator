@@ -139,13 +139,6 @@ public class Generate extends AbstractCommand {
     private List<String> languageSpecificPrimitives = new ArrayList<>();
 
     @Option(
-            name = {"--schema-mappings"},
-            title = "schema mappings",
-            description = "specifies mappings between the schema and the new name in the format of schema_a=Cat,schema_b=Bird."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> schemaMappings = new ArrayList<>();
-
-    @Option(
             name = {"--inline-schema-name-mappings"},
             title = "inline schema name mappings",
             description = "specifies mappings between the inline schema name and the new name in the format of inline_object_2=Cat,inline_object_5=Bird."
@@ -384,7 +377,6 @@ public class Generate extends AbstractCommand {
             CodegenConfiguratorUtils.applyGlobalPropertiesKvpList(globalProperties, configurator);
         }
         CodegenConfiguratorUtils.applyInstantiationTypesKvpList(instantiationTypes, configurator);
-        CodegenConfiguratorUtils.applySchemaMappingsKvpList(schemaMappings, configurator);
         CodegenConfiguratorUtils.applyInlineSchemaNameMappingsKvpList(inlineSchemaNameMappings, configurator);
         CodegenConfiguratorUtils.applyInlineSchemaNameDefaultsKvpList(inlineSchemaNameDefaults, configurator);
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);

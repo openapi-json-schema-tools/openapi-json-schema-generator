@@ -66,7 +66,6 @@ public class CodegenConfigurator {
     private Map<String, String> globalProperties = new HashMap<>();
     private Map<String, String> instantiationTypes = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
-    private Map<String, String> schemaMappings = new HashMap<>();
     private Map<String, String> inlineSchemaNameMappings = new HashMap<>();
     private Map<String, String> inlineSchemaNameDefaults = new HashMap<>();
     private Set<String> languageSpecificPrimitives = new HashSet<>();
@@ -105,9 +104,6 @@ public class CodegenConfigurator {
             }
             if(generatorSettings.getAdditionalProperties() != null) {
                 configurator.additionalProperties.putAll(generatorSettings.getAdditionalProperties());
-            }
-            if(generatorSettings.getSchemaMappings() != null) {
-                configurator.schemaMappings.putAll(generatorSettings.getSchemaMappings());
             }
             if(generatorSettings.getInlineSchemaNameMappings() != null) {
                 configurator.inlineSchemaNameMappings.putAll(generatorSettings.getInlineSchemaNameMappings());
@@ -175,12 +171,6 @@ public class CodegenConfigurator {
     public CodegenConfigurator addAdditionalReservedWordMapping(String key, String value) {
         this.reservedWordsMappings.put(key, value);
         generatorSettingsBuilder.withReservedWordMapping(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addSchemaMapping(String key, String value) {
-        this.schemaMappings.put(key, value);
-        generatorSettingsBuilder.withSchemaMapping(key, value);
         return this;
     }
 
@@ -329,12 +319,6 @@ public class CodegenConfigurator {
 
     public CodegenConfigurator setIgnoreFileOverride(final String ignoreFileOverride) {
         workflowSettingsBuilder.withIgnoreFileOverride(ignoreFileOverride);
-        return this;
-    }
-
-    public CodegenConfigurator setSchemaMappings(Map<String, String> schemaMappings) {
-        this.schemaMappings = schemaMappings;
-        generatorSettingsBuilder.withSchemaMappings(schemaMappings);
         return this;
     }
 
@@ -600,7 +584,6 @@ public class CodegenConfigurator {
 
         // TODO: Work toward Generator having a "GeneratorSettings" property.
         config.instantiationTypes().putAll(generatorSettings.getInstantiationTypes());
-        config.schemaMapping().putAll(generatorSettings.getSchemaMappings());
         config.inlineSchemaNameMapping().putAll(generatorSettings.getInlineSchemaNameMappings());
         config.inlineSchemaNameDefault().putAll(generatorSettings.getInlineSchemaNameDefaults());
         config.languageSpecificPrimitives().addAll(generatorSettings.getLanguageSpecificPrimitives());

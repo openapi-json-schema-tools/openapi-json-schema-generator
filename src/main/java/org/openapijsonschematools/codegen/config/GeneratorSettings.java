@@ -47,7 +47,6 @@ public final class GeneratorSettings implements Serializable {
 
     private final Map<String, String> instantiationTypes;
     private final Map<String, Object> additionalProperties;
-    private final Map<String, String> schemaMappings;
     private final Map<String, String> inlineSchemaNameMappings;
     private final Map<String, String> inlineSchemaNameDefaults;
     private final Set<String> languageSpecificPrimitives;
@@ -200,15 +199,6 @@ public final class GeneratorSettings implements Serializable {
     }
 
     /**
-     * Gets schema mappings between a schema and the new name.
-     *
-     * @return the schema mappings
-     */
-    public Map<String, String> getSchemaMappings() {
-        return schemaMappings;
-    }
-
-    /**
      * Gets inline schema name mappings between an inline schema name and the new name.
      *
      * @return the inline schema name mappings
@@ -337,7 +327,6 @@ public final class GeneratorSettings implements Serializable {
         artifactId = builder.artifactId;
         artifactVersion = builder.artifactVersion;
         instantiationTypes = Collections.unmodifiableMap(builder.instantiationTypes);
-        schemaMappings = Collections.unmodifiableMap(builder.schemaMappings);
         inlineSchemaNameMappings = Collections.unmodifiableMap(builder.inlineSchemaNameMappings);
         inlineSchemaNameDefaults = Collections.unmodifiableMap(builder.inlineSchemaNameDefaults);
         languageSpecificPrimitives = Collections.unmodifiableSet(builder.languageSpecificPrimitives);
@@ -408,7 +397,6 @@ public final class GeneratorSettings implements Serializable {
         setDefaults();
         instantiationTypes = Collections.unmodifiableMap(new HashMap<>(0));
         additionalProperties = Collections.unmodifiableMap(new HashMap<>(0));
-        schemaMappings = Collections.unmodifiableMap(new HashMap<>(0));
         inlineSchemaNameMappings = Collections.unmodifiableMap(new HashMap<>(0));
         inlineSchemaNameDefaults = Collections.unmodifiableMap(new HashMap<>(0));
         languageSpecificPrimitives = Collections.unmodifiableSet(new HashSet<>(0));
@@ -454,9 +442,6 @@ public final class GeneratorSettings implements Serializable {
         if (copy.getAdditionalProperties() != null) {
             builder.additionalProperties.putAll(copy.getAdditionalProperties());
         }
-        if (copy.getSchemaMappings() != null) {
-            builder.schemaMappings.putAll(copy.getSchemaMappings());
-        }
         if (copy.getInlineSchemaNameMappings() != null) {
             builder.inlineSchemaNameMappings.putAll(copy.getInlineSchemaNameMappings());
         }
@@ -498,7 +483,6 @@ public final class GeneratorSettings implements Serializable {
         private String artifactVersion;
         private Map<String, String> instantiationTypes;
         private Map<String, Object> additionalProperties;
-        private Map<String, String> schemaMappings;
         private Map<String, String> inlineSchemaNameMappings;
         private Map<String, String> inlineSchemaNameDefaults;
         private Set<String> languageSpecificPrimitives;
@@ -516,7 +500,6 @@ public final class GeneratorSettings implements Serializable {
         public Builder() {
             instantiationTypes = new HashMap<>();
             additionalProperties = new HashMap<>();
-            schemaMappings = new HashMap<>();
             inlineSchemaNameMappings = new HashMap<>();
             inlineSchemaNameDefaults = new HashMap<>();
             languageSpecificPrimitives = new HashSet<>();
@@ -699,32 +682,6 @@ public final class GeneratorSettings implements Serializable {
                 this.additionalProperties = new HashMap<>();
             }
             this.additionalProperties.put(key, value);
-            return this;
-        }
-
-        /**
-         * Sets the {@code schemaMappings} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param schemaMappings the {@code schemaMappings} to set
-         * @return a reference to this Builder
-         */
-        public Builder withSchemaMappings(Map<String, String> schemaMappings) {
-            this.schemaMappings = schemaMappings;
-            return this;
-        }
-
-        /**
-         * Sets a single {@code schemaMappings} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param key   A key for some schema mapping
-         * @param value The value of some schema mapping
-         * @return a reference to this Builder
-         */
-        public Builder withSchemaMapping(String key, String value) {
-            if (this.schemaMappings == null) {
-                this.schemaMappings = new HashMap<>();
-            }
-            this.schemaMappings.put(key, value);
             return this;
         }
 
@@ -959,7 +916,6 @@ public final class GeneratorSettings implements Serializable {
                 Objects.equals(getArtifactVersion(), that.getArtifactVersion()) &&
                 Objects.equals(getInstantiationTypes(), that.getInstantiationTypes()) &&
                 Objects.equals(getAdditionalProperties(), that.getAdditionalProperties()) &&
-                Objects.equals(getSchemaMappings(), that.getSchemaMappings()) &&
                 Objects.equals(getInlineSchemaNameMappings(), that.getInlineSchemaNameMappings()) &&
                 Objects.equals(getInlineSchemaNameDefaults(), that.getInlineSchemaNameDefaults()) &&
                 Objects.equals(getLanguageSpecificPrimitives(), that.getLanguageSpecificPrimitives()) &&
@@ -987,7 +943,6 @@ public final class GeneratorSettings implements Serializable {
                 getArtifactVersion(),
                 getInstantiationTypes(),
                 getAdditionalProperties(),
-                getSchemaMappings(),
                 getInlineSchemaNameMappings(),
                 getInlineSchemaNameDefaults(),
                 getLanguageSpecificPrimitives(),

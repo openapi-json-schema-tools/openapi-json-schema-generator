@@ -1035,26 +1035,12 @@ public class ModelUtils {
     /**
      * Get the actual schema from aliases. If the provided schema is not an alias, the schema itself will be returned.
      *
-     * @param openAPI specification being checked
-     * @param schema  schema (alias or direct reference)
+     * @param openAPI        OpenAPI document containing the schemas.
+     * @param schema         schema (alias or direct reference)
      * @return actual schema
      */
     public static Schema unaliasSchema(OpenAPI openAPI,
                                        Schema schema) {
-        return unaliasSchema(openAPI, schema, Collections.emptyMap());
-    }
-
-    /**
-     * Get the actual schema from aliases. If the provided schema is not an alias, the schema itself will be returned.
-     *
-     * @param openAPI        OpenAPI document containing the schemas.
-     * @param schema         schema (alias or direct reference)
-     * @param schemaMappings mappings of external types to be omitted by unaliasing
-     * @return actual schema
-     */
-    public static Schema unaliasSchema(OpenAPI openAPI,
-                                       Schema schema,
-                                       Map<String, String> schemaMappings) {
         Map<String, Schema> allSchemas = getSchemas(openAPI);
         if (allSchemas == null || allSchemas.isEmpty()) {
             // skip the warning as the spec can have no model defined
@@ -1064,10 +1050,6 @@ public class ModelUtils {
 
         if (schema != null && StringUtils.isNotEmpty(schema.get$ref())) {
             String simpleRef = ModelUtils.getSimpleRef(schema.get$ref());
-            if (schemaMappings.containsKey(simpleRef)) {
-                LOGGER.debug("Schema unaliasing of {} omitted because aliased class is to be mapped to {}", simpleRef, schemaMappings.get(simpleRef));
-                return schema;
-            }
             Schema ref = allSchemas.get(simpleRef);
             if (ref == null) {
                 OnceLogger.once(LOGGER).warn("{} is not defined", schema.get$ref());
@@ -1092,11 +1074,13 @@ public class ModelUtils {
                     // which is the last reference to the actual model/object
                     return schema;
                 } else { // free form object (type: object)
-                    return unaliasSchema(openAPI, allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())),
-                            schemaMappings);
+                    return unaliasSchema(
+                            openAPI,
+                            allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref()))
+                    );
                 }
             } else {
-                return unaliasSchema(openAPI, allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())), schemaMappings);
+                return unaliasSchema(openAPI, allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())));
             }
         }
         return schema;

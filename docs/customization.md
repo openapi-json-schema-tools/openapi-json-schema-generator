@@ -353,39 +353,6 @@ and specify the `classname` when running the generator:
 
 Your subclass will now be loaded and overrides the `PREFIX` value in the superclass.
 
-## Schema Mapping
-
-One can map the schema to someting else (e.g. external objects/models outside of the package) using the `schemaMappings` option, e.g. in CLI
-```sh
-java -jar target/openapi-generator-cli.jar generate -g java -i src/test/resources/3_0/type-alias.yaml -o /tmp/java2/ --schema-mapping TypeAlias=foo.bar.TypeAlias
-```
-Another example:
-```sh
-java -jar target/openapi-generator-cli.jar generate -g java -i /tmp/alias.yaml -o /tmp/alias/ --schema-mappings stream=org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody
-```
-while /tmp/alias.yaml is as follows:
-```yaml
-openapi: 3.0.3
-info:
-  title: Demo app
-  version: 1.0.0
-servers:
-  - url: /api/v1
-paths:
-  /demo:
-    get:
-      summary: Demo
-      operationId: demo
-      responses:
-        '200':
-          description: Demo response
-          content:
-            text/csv:
-              schema:
-                type: string
-                format: binary
-```
-
 ## Inline Schema Naming
 
 Inline schemas are created as separate schemas automatically and the auto-generated schema name may not look good to everyone. One can customize the name using the `title` field or the `inlineSchemaNameMapping` option, e.g. in CLI

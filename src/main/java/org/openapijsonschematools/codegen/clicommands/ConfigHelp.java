@@ -68,9 +68,6 @@ public class ConfigHelp extends AbstractCommand {
             FORMAT_TEXT, FORMAT_MARKDOWN, FORMAT_YAMLSAMPLE})
     private String format;
 
-    @Option(name = {"--schema-mappings"}, title = "schema mappings", description = "display the schema mappings (none)")
-    private Boolean schemaMappings;
-
     @Option(name = {"--inline-schema-name-mappings"}, title = "inline schema name mappings", description = "displays the inline schema name mappings (none)")
     private Boolean inlineSchemaNameMappings;
 
@@ -419,18 +416,6 @@ public class ConfigHelp extends AbstractCommand {
                     .replaceAll("\n", System.lineSeparator() + optNestedIndent));
             sb.append(newline).append(newline);
         });
-
-        if (Boolean.TRUE.equals(schemaMappings)) {
-            sb.append(newline).append("SCHEMA MAPPING").append(newline).append(newline);
-            Map<String, String> map = config.schemaMapping()
-                    .entrySet()
-                    .stream()
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> {
-                        throw new IllegalStateException(String.format(Locale.ROOT, "Duplicated options! %s and %s", a, b));
-                    }, TreeMap::new));
-            writePlainTextFromMap(sb, map, optIndent, optNestedIndent, "Scheme", "Mapped to");
-            sb.append(newline);
-        }
 
         if (Boolean.TRUE.equals(inlineSchemaNameMappings)) {
             sb.append(newline).append("INLINE SCHEMA NAME MAPPING").append(newline).append(newline);
