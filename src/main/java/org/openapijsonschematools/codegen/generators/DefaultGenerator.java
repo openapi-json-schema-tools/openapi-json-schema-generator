@@ -322,10 +322,6 @@ public class DefaultGenerator implements Generator {
     // This should be false for generators that support openapi + json schema
     protected boolean disallowAdditionalPropertiesIfNotPresent = false;
 
-    // If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.
-    // With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fall back to this case.
-    protected boolean enumUnknownDefaultCase = false;
-
     // make openapi available to all methods
     protected OpenAPI openAPI;
 
@@ -450,10 +446,6 @@ public class DefaultGenerator implements Generator {
         if (additionalProperties.containsKey(CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT)) {
             this.setDisallowAdditionalPropertiesIfNotPresent(Boolean.parseBoolean(additionalProperties
                     .get(CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT).toString()));
-        }
-        if (additionalProperties.containsKey(CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE)) {
-            this.setEnumUnknownDefaultCase(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE).toString()));
         }
         requiredAddPropUnsetSchema = fromSchema(new JsonSchema(), null, null);
 
@@ -994,14 +986,6 @@ public class DefaultGenerator implements Generator {
         this.disallowAdditionalPropertiesIfNotPresent = val;
     }
 
-    public Boolean getEnumUnknownDefaultCase() {
-        return enumUnknownDefaultCase;
-    }
-
-    public void setEnumUnknownDefaultCase(boolean val) {
-        this.enumUnknownDefaultCase = val;
-    }
-
     public void setAllowUnicodeIdentifiers(Boolean allowUnicodeIdentifiers) {
         this.allowUnicodeIdentifiers = allowUnicodeIdentifiers;
     }
@@ -1335,19 +1319,7 @@ public class DefaultGenerator implements Generator {
                 "Keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.");
         disallowAdditionalPropertiesIfNotPresentOpt.setEnum(disallowAdditionalPropertiesIfNotPresentOpts);
         cliOptions.add(disallowAdditionalPropertiesIfNotPresentOpt);
-
-        CliOption enumUnknownDefaultCaseOpt = CliOption.newBoolean(
-                CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE,
-                CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE_DESC).defaultValue(Boolean.FALSE.toString());
-        Map<String, String> enumUnknownDefaultCaseOpts = new HashMap<>();
-        enumUnknownDefaultCaseOpts.put("false",
-                "No changes to the enum's are made, this is the default option.");
-        enumUnknownDefaultCaseOpts.put("true",
-                "With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the enum case sent by the server is not known by the client/spec, can safely be decoded to this case.");
-        enumUnknownDefaultCaseOpt.setEnum(enumUnknownDefaultCaseOpts);
-        cliOptions.add(enumUnknownDefaultCaseOpt);
-        this.setEnumUnknownDefaultCase(false);
-
+        
         // initialize special character mapping
         initializeSpecialCharacterMapping();
 
