@@ -116,7 +116,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         instantiationTypes.put("array", "FrozenList");
         instantiationTypes.put("string", "String");
         instantiationTypes.put("number", "Number (int, long, float, double)");
-        instantiationTypes.put("integer", "Number (int, long, float, double with integer values)");
+        instantiationTypes.put("integer", "Number (int, long, float with integer values, double with integer values)");
         instantiationTypes.put("boolean", "boolean");
         instantiationTypes.put("null", "Void (null)");
 

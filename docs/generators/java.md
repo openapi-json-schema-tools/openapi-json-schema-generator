@@ -56,9 +56,13 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 
 | Type/Alias | Instantiated By |
 | ---------- | --------------- |
-|array|ArrayList|
-|map|HashMap|
-|set|LinkedHashSet|
+|array|FrozenList|
+|boolean|boolean|
+|integer|Number (int, long, float with integer values, double with integer values)|
+|null|Void (null)|
+|number|Number (int, long, float, double)|
+|object|FrozenMap|
+|string|String|
 
 
 ## LANGUAGE PRIMITIVES
