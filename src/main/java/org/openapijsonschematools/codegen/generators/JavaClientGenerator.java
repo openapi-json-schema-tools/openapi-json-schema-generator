@@ -74,7 +74,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public static final String PARCELABLE_MODEL = "parcelableModel";
     public static final String USE_RUNTIME_EXCEPTION = "useRuntimeException";
     public static final String USE_REFLECTION_EQUALS_HASHCODE = "useReflectionEqualsHashCode";
-    public static final String CASE_INSENSITIVE_RESPONSE_HEADERS = "caseInsensitiveResponseHeaders";
     public static final String MICROPROFILE_FRAMEWORK = "microprofileFramework";
     public static final String USE_ABSTRACTION_FOR_FILES = "useAbstractionForFiles";
     public static final String DYNAMIC_OPERATIONS = "dynamicOperations";
@@ -124,7 +123,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected boolean useGzipFeature = false;
     protected boolean useRuntimeException = false;
     protected boolean useReflectionEqualsHashCode = false;
-    protected boolean caseInsensitiveResponseHeaders = false;
     protected boolean useAbstractionForFiles = false;
     protected boolean dynamicOperations = false;
     protected boolean supportStreaming = false;
@@ -261,7 +259,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         cliOptions.add(CliOption.newBoolean(USE_GZIP_FEATURE, "Send gzip-encoded requests"));
         cliOptions.add(CliOption.newBoolean(USE_RUNTIME_EXCEPTION, "Use RuntimeException instead of Exception"));
         cliOptions.add(CliOption.newBoolean(USE_REFLECTION_EQUALS_HASHCODE, "Use org.apache.commons.lang3.builder for equals and hashCode in the models. WARNING: This will fail under a security manager, unless the appropriate permissions are set up correctly and also there's potential performance impact."));
-        cliOptions.add(CliOption.newBoolean(CASE_INSENSITIVE_RESPONSE_HEADERS, "Make API response's headers case-insensitive. Available on " + OKHTTP_GSON + ", " + JERSEY2 + " libraries"));
         cliOptions.add(CliOption.newString(MICROPROFILE_FRAMEWORK, "Framework for microprofile. Possible values \"kumuluzee\""));
         cliOptions.add(CliOption.newBoolean(USE_ABSTRACTION_FOR_FILES, "Use alternative types instead of java.io.File to allow passing bytes without a file on disk. Available on resttemplate, webclient, libraries"));
         cliOptions.add(CliOption.newBoolean(DYNAMIC_OPERATIONS, "Generate operations dynamically at runtime from an OAS", this.dynamicOperations));
@@ -625,10 +622,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             this.setUseReflectionEqualsHashCode(convertPropertyToBooleanAndWriteBack(USE_REFLECTION_EQUALS_HASHCODE));
         }
 
-        if (additionalProperties.containsKey(CASE_INSENSITIVE_RESPONSE_HEADERS)) {
-            this.setUseReflectionEqualsHashCode(convertPropertyToBooleanAndWriteBack(CASE_INSENSITIVE_RESPONSE_HEADERS));
-        }
-
         if (additionalProperties.containsKey(USE_ABSTRACTION_FOR_FILES)) {
             this.setUseAbstractionForFiles(convertPropertyToBooleanAndWriteBack(USE_ABSTRACTION_FOR_FILES));
         }
@@ -866,11 +859,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public void setUseReflectionEqualsHashCode(boolean useReflectionEqualsHashCode) {
         this.useReflectionEqualsHashCode = useReflectionEqualsHashCode;
     }
-
-    public void setCaseInsensitiveResponseHeaders(final Boolean caseInsensitiveResponseHeaders) {
-        this.caseInsensitiveResponseHeaders = caseInsensitiveResponseHeaders;
-    }
-
+    
     public void setUseAbstractionForFiles(boolean useAbstractionForFiles) {
         this.useAbstractionForFiles = useAbstractionForFiles;
     }
