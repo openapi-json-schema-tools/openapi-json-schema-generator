@@ -61,9 +61,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public static final String OPENAPI_NULLABLE = "openApiNullable";
     public static final String JACKSON = "jackson";
     public static final String TEST_OUTPUT = "testOutput";
-    public static final String IMPLICIT_HEADERS = "implicitHeaders";
-    public static final String IMPLICIT_HEADERS_REGEX = "implicitHeadersRegex";
-
     public static final String DEFAULT_TEST_FOLDER = "${project.build.directory}/generated-test-sources/openapi";
 
     protected boolean supportAsync = false;
@@ -100,9 +97,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected String outputTestFolder = "";
     protected DocumentationProvider documentationProvider;
     protected AnnotationLibrary annotationLibrary;
-    protected boolean implicitHeaders = false;
-    protected String implicitHeadersRegex = null;
-
     private Map<String, String> schemaKeyToModelNameCache = new HashMap<>();
 
     public AbstractJavaGenerator() {
@@ -188,8 +182,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(CliOption.newBoolean(WITH_XML, "whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML)"));
 
         cliOptions.add(CliOption.newBoolean(OPENAPI_NULLABLE, "Enable OpenAPI Jackson Nullable library", this.openApiNullable));
-        cliOptions.add(CliOption.newBoolean(IMPLICIT_HEADERS, "Skip header parameters in the generated API methods using @ApiImplicitParams annotation.", implicitHeaders));
-        cliOptions.add(CliOption.newString(IMPLICIT_HEADERS_REGEX, "Skip header parameters that matches given regex in the generated API methods using @ApiImplicitParams annotation. Note: this parameter is ignored when implicitHeaders=true"));
 
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
@@ -418,14 +410,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
         if (additionalProperties.containsKey(CodegenConstants.PARENT_VERSION)) {
             this.setParentVersion((String) additionalProperties.get(CodegenConstants.PARENT_VERSION));
-        }
-
-        if (additionalProperties.containsKey(IMPLICIT_HEADERS)) {
-            this.setImplicitHeaders(Boolean.parseBoolean(additionalProperties.get(IMPLICIT_HEADERS).toString()));
-        }
-
-        if (additionalProperties.containsKey(IMPLICIT_HEADERS_REGEX)) {
-            this.setImplicitHeadersRegex(additionalProperties.get(IMPLICIT_HEADERS_REGEX).toString());
         }
 
         if (!StringUtils.isEmpty(parentGroupId) && !StringUtils.isEmpty(parentArtifactId) && !StringUtils.isEmpty(parentVersion)) {
@@ -1058,7 +1042,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
     }
-    
+
     public boolean isOpenApiNullable() {
         return openApiNullable;
     }
@@ -1105,15 +1089,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setAnnotationLibrary(AnnotationLibrary annotationLibrary) {
         this.annotationLibrary = annotationLibrary;
     }
-
-    public void setImplicitHeaders(boolean implicitHeaders) {
-        this.implicitHeaders = implicitHeaders;
-    }
-
-    public void setImplicitHeadersRegex(String implicitHeadersRegex) {
-        this.implicitHeadersRegex = implicitHeadersRegex;
-    }
-
+    
     @Override
     public String escapeQuotationMark(String input) {
         // remove " to avoid code injection
