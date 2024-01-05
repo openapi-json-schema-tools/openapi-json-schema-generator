@@ -17,7 +17,7 @@
 
 package org.openapijsonschematools.codegen.generators.features;
 
-public interface LoggingFeatures extends BeanValidationFeatures {
+public interface LoggingFeatures {
 
     String USE_LOGGING_FEATURE = "useLoggingFeature";
 
