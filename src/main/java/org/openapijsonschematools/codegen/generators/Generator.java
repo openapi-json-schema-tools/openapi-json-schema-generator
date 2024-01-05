@@ -180,7 +180,6 @@ public interface Generator {
     Map<String, String> instantiationTypes();
 
     Map<String, String> schemaMapping();
-    Map<String, String> inlineSchemaNameDefault();
 
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles();
 

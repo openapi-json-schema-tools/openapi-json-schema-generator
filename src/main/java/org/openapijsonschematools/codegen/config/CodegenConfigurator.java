@@ -66,7 +66,6 @@ public class CodegenConfigurator {
     private Map<String, String> globalProperties = new HashMap<>();
     private Map<String, String> instantiationTypes = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
-    private Map<String, String> inlineSchemaNameDefaults = new HashMap<>();
     private Set<String> languageSpecificPrimitives = new HashSet<>();
     private Map<String, String> reservedWordsMappings = new HashMap<>();
     private Map<String, String> serverVariables = new HashMap<>();
@@ -103,9 +102,6 @@ public class CodegenConfigurator {
             }
             if(generatorSettings.getAdditionalProperties() != null) {
                 configurator.additionalProperties.putAll(generatorSettings.getAdditionalProperties());
-            }
-            if(generatorSettings.getInlineSchemaNameDefaults() != null) {
-                configurator.inlineSchemaNameDefaults.putAll(generatorSettings.getInlineSchemaNameDefaults());
             }
             if(generatorSettings.getLanguageSpecificPrimitives() != null) {
                 configurator.languageSpecificPrimitives.addAll(generatorSettings.getLanguageSpecificPrimitives());
@@ -167,12 +163,6 @@ public class CodegenConfigurator {
     public CodegenConfigurator addAdditionalReservedWordMapping(String key, String value) {
         this.reservedWordsMappings.put(key, value);
         generatorSettingsBuilder.withReservedWordMapping(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addInlineSchemaNameDefault(String key, String value) {
-        this.inlineSchemaNameDefaults.put(key, value);
-        generatorSettingsBuilder.withInlineSchemaNameDefault(key, value);
         return this;
     }
 
@@ -309,12 +299,6 @@ public class CodegenConfigurator {
 
     public CodegenConfigurator setIgnoreFileOverride(final String ignoreFileOverride) {
         workflowSettingsBuilder.withIgnoreFileOverride(ignoreFileOverride);
-        return this;
-    }
-
-    public CodegenConfigurator setInlineSchemaNameDefaults(Map<String, String> inlineSchemaNameDefaults) {
-        this.inlineSchemaNameDefaults = inlineSchemaNameDefaults;
-        generatorSettingsBuilder.withInlineSchemaNameDefaults(inlineSchemaNameDefaults);
         return this;
     }
 
@@ -568,7 +552,6 @@ public class CodegenConfigurator {
 
         // TODO: Work toward Generator having a "GeneratorSettings" property.
         config.instantiationTypes().putAll(generatorSettings.getInstantiationTypes());
-        config.inlineSchemaNameDefault().putAll(generatorSettings.getInlineSchemaNameDefaults());
         config.languageSpecificPrimitives().addAll(generatorSettings.getLanguageSpecificPrimitives());
         config.reservedWordsMappings().putAll(generatorSettings.getReservedWordsMappings());
         config.additionalProperties().putAll(generatorSettings.getAdditionalProperties());
