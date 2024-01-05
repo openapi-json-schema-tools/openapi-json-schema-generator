@@ -20,7 +20,6 @@ package org.openapijsonschematools.codegen.clicommands;
 import io.airlift.airline.Cli;
 import org.apache.commons.lang3.ArrayUtils;
 import org.mockito.MockSettings;
-import org.openapijsonschematools.codegen.clicommands.Generate;
 import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
@@ -274,13 +273,6 @@ public class GenerateTest {
         verify(configurator).addLanguageSpecificPrimitive("bar");
         verify(configurator).addLanguageSpecificPrimitive("hello");
         verify(configurator).addLanguageSpecificPrimitive("world");
-    }
-
-    @Test
-    public void testLibrary() {
-        final String value = "feign";
-        setupAndRunGenericTest("--library", value);
-        verify(configurator).setLibrary(value);
     }
 
     @Test

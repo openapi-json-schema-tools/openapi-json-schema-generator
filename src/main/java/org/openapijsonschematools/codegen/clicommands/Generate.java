@@ -199,10 +199,6 @@ public class Generate extends AbstractCommand {
     @Option(name = {"--artifact-version"}, title = "artifact version",
             description = CodegenConstants.ARTIFACT_VERSION_DESC)
     private String artifactVersion;
-
-    @Option(name = {"--library"}, title = "library", description = CodegenConstants.LIBRARY_DESC)
-    private String library;
-
     @Option(name = {"--git-host"}, title = "git host",
             description = CodegenConstants.GIT_HOST_DESC)
     private String gitHost;
@@ -362,10 +358,6 @@ public class Generate extends AbstractCommand {
 
         if (isNotEmpty(artifactVersion)) {
             configurator.setArtifactVersion(artifactVersion);
-        }
-
-        if (isNotEmpty(library)) {
-            configurator.setLibrary(library);
         }
 
         if (isNotEmpty(gitHost)) {

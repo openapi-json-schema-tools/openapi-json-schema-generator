@@ -1364,7 +1364,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         bundle.put("security", security);
         bundle.put("apiFolder", generator.apiPackage().replace('.', File.separatorChar));
         bundle.put("modelPackage", generator.modelPackage());
-        bundle.put("library", generator.getLibrary());
         if (securitySchemes == null) {
             bundle.put("hasHttpSignatureSecurityScheme", false);
         } else {

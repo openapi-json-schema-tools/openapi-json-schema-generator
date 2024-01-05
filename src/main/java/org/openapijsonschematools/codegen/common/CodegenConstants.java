@@ -151,9 +151,6 @@ public class CodegenConstants {
     public static final String IMPL_FOLDER = "implFolder";
     public static final String IMPL_FOLDER_DESC = "folder for generated implementation code";
 
-    public static final String LIBRARY = "library";
-    public static final String LIBRARY_DESC = "library template (sub-template)";
-
     public static final String USE_DATETIME_OFFSET = "useDateTimeOffset";
     public static final String USE_DATETIME_OFFSET_DESC = "Use DateTimeOffset to model date-time properties";
 

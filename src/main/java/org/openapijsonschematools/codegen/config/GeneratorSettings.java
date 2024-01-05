@@ -44,7 +44,6 @@ public final class GeneratorSettings implements Serializable {
     private String groupId;
     private String artifactId;
     private String artifactVersion;
-    private String library;
 
     private final Map<String, String> instantiationTypes;
     private final Map<String, String> typeMappings;
@@ -178,15 +177,6 @@ public final class GeneratorSettings implements Serializable {
      */
     public String getArtifactVersion() {
         return artifactVersion;
-    }
-
-    /**
-     * Gets library (sub-template) for the target generated.
-     *
-     * @return the library
-     */
-    public String getLibrary() {
-        return library;
     }
 
 
@@ -375,7 +365,6 @@ public final class GeneratorSettings implements Serializable {
         groupId = builder.groupId;
         artifactId = builder.artifactId;
         artifactVersion = builder.artifactVersion;
-        library = builder.library;
         instantiationTypes = Collections.unmodifiableMap(builder.instantiationTypes);
         typeMappings = Collections.unmodifiableMap(builder.typeMappings);
         importMappings = Collections.unmodifiableMap(builder.importMappings);
@@ -493,7 +482,6 @@ public final class GeneratorSettings implements Serializable {
         builder.groupId = copy.getGroupId();
         builder.artifactId = copy.getArtifactId();
         builder.artifactVersion = copy.getArtifactVersion();
-        builder.library = copy.getLibrary();
         if (copy.getInstantiationTypes() != null) {
             builder.instantiationTypes.putAll(copy.getInstantiationTypes());
         }
@@ -549,7 +537,6 @@ public final class GeneratorSettings implements Serializable {
         private String groupId;
         private String artifactId;
         private String artifactVersion;
-        private String library;
         private Map<String, String> instantiationTypes;
         private Map<String, String> typeMappings;
         private Map<String, Object> additionalProperties;
@@ -705,17 +692,6 @@ public final class GeneratorSettings implements Serializable {
          */
         public Builder withArtifactVersion(String artifactVersion) {
             this.artifactVersion = artifactVersion;
-            return this;
-        }
-
-        /**
-         * Sets the {@code library} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param library the {@code library} to set
-         * @return a reference to this Builder
-         */
-        public Builder withLibrary(String library) {
-            this.library = library;
             return this;
         }
 
@@ -1046,7 +1022,6 @@ public final class GeneratorSettings implements Serializable {
                 ", groupId='" + groupId + '\'' +
                 ", artifactId='" + artifactId + '\'' +
                 ", artifactVersion='" + artifactVersion + '\'' +
-                ", library='" + library + '\'' +
                 ", instantiationTypes=" + instantiationTypes +
                 ", typeMappings=" + typeMappings +
                 ", additionalProperties=" + additionalProperties +
@@ -1077,7 +1052,6 @@ public final class GeneratorSettings implements Serializable {
                 Objects.equals(getGroupId(), that.getGroupId()) &&
                 Objects.equals(getArtifactId(), that.getArtifactId()) &&
                 Objects.equals(getArtifactVersion(), that.getArtifactVersion()) &&
-                Objects.equals(getLibrary(), that.getLibrary()) &&
                 Objects.equals(getInstantiationTypes(), that.getInstantiationTypes()) &&
                 Objects.equals(getTypeMappings(), that.getTypeMappings()) &&
                 Objects.equals(getAdditionalProperties(), that.getAdditionalProperties()) &&
@@ -1108,7 +1082,6 @@ public final class GeneratorSettings implements Serializable {
                 getGroupId(),
                 getArtifactId(),
                 getArtifactVersion(),
-                getLibrary(),
                 getInstantiationTypes(),
                 getTypeMappings(),
                 getAdditionalProperties(),

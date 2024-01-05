@@ -268,15 +268,6 @@ public interface Generator {
 
     void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
 
-    void setLibrary(String library);
-
-    /**
-     * Library template (sub-template).
-     *
-     * @return library template
-     */
-    String getLibrary();
-
     void setHttpUserAgent(String httpUserAgent);
 
     String getHttpUserAgent();

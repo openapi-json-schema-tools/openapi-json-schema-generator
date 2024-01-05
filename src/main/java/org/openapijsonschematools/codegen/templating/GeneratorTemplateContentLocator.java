@@ -1,10 +1,8 @@
 package org.openapijsonschematools.codegen.templating;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.generators.Generator;
 
 import java.io.File;
-import java.nio.file.Paths;
 
 /**
  * Locates templates according to {@link Generator} settings.
@@ -19,10 +17,6 @@ public class GeneratorTemplateContentLocator implements TemplatePathLocator {
      */
     public GeneratorTemplateContentLocator(Generator generator) {
         this.generator = generator;
-    }
-
-    private String buildLibraryFilePath(String dir, String library, String file) {
-        return Paths.get(dir, "libraries", library, file).normalize().toString();
     }
 
     /**
@@ -58,18 +52,6 @@ public class GeneratorTemplateContentLocator implements TemplatePathLocator {
     public String getFullTemplatePath(String relativeTemplateFile) {
         Generator config = this.generator;
 
-        //check the supplied template library folder for the file
-        final String library = config.getLibrary();
-        if (StringUtils.isNotEmpty(library)) {
-            //look for the file in the library subfolder of the supplied template
-            final String libTemplateFile = buildLibraryFilePath(config.templateDir(), library, relativeTemplateFile);
-            // looks for user-defined file or classpath
-            // supports template dir which refers to local file system or custom path in classpath as defined by templateDir
-            if (new File(libTemplateFile).exists() || classpathTemplateExists(libTemplateFile)) {
-                return libTemplateFile;
-            }
-        }
-
         // check the supplied template main folder for the file
         // File.separator is necessary here as the file load is OS-specific
         final String template = config.templateDir() + File.separator + relativeTemplateFile;
@@ -77,16 +59,6 @@ public class GeneratorTemplateContentLocator implements TemplatePathLocator {
         // supports template dir which refers to local file system or custom path in classpath as defined by templateDir
         if (new File(template).exists() || classpathTemplateExists(template)) {
             return template;
-        }
-
-        //try the embedded template library folder next
-        if (StringUtils.isNotEmpty(library)) {
-            final String embeddedLibTemplateFile = buildLibraryFilePath(config.embeddedTemplateDir(), library, relativeTemplateFile);
-            // *only* looks for those files in classpath as defined by embeddedTemplateDir
-            if (embeddedTemplateExists(embeddedLibTemplateFile)) {
-                // Fall back to the template file embedded/packaged in the JAR file library folder...
-                return embeddedLibTemplateFile;
-            }
         }
 
         // Fall back to the template file for generator root directory embedded/packaged in the JAR file...

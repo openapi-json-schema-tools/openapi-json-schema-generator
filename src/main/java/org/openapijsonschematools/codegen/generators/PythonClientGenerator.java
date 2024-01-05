@@ -300,12 +300,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
         cliOptions.add(nonCompliantUseDiscrIfCompositionFails);
 
-        supportedLibraries.put("urllib3", "urllib3-based client");
-        CliOption libraryOption = new CliOption(CodegenConstants.LIBRARY, "library template (sub-template) to use: urllib3");
-        libraryOption.setDefault(DEFAULT_LIBRARY);
-        cliOptions.add(libraryOption);
-        setLibrary(DEFAULT_LIBRARY);
-
         // Composed schemas can have the 'additionalProperties' keyword, as specified in JSON schema.
         // In principle, this should be enabled by default for all code generators. However, due to limitations
         // in other code generators, support needs to be enabled on a case-by-case basis.
@@ -774,11 +768,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                     break;
                 }
             }
-        }
-
-        // check library option to ensure only urllib3 is supported
-        if (!DEFAULT_LIBRARY.equals(getLibrary())) {
-            throw new RuntimeException("Only the `urllib3` library is supported in the refactored `python` client generator at the moment. Please fall back to `python-legacy` client generator for the time being. We welcome contributions to add back `asyncio`, `tornado` support to the `python` client generator.");
         }
     }
 

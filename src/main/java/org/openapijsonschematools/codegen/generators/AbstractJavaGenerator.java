@@ -54,7 +54,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractJavaGenerator.class);
     private static final String ARTIFACT_VERSION_DEFAULT_VALUE = "1.0.0";
 
-    public static final String DEFAULT_LIBRARY = "<default>";
     public static final String SUPPORT_ASYNC = "supportAsync";
     public static final String SUPPORT_JAVA6 = "supportJava6";
     public static final String JACKSON = "jackson";
@@ -369,10 +368,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             this.setSourceFolder((String) additionalProperties.get(CodegenConstants.SOURCE_FOLDER));
         }
         additionalProperties.put(CodegenConstants.SOURCE_FOLDER, sourceFolder);
-
-        if (additionalProperties.containsKey(CodegenConstants.LIBRARY)) {
-            this.setLibrary((String) additionalProperties.get(CodegenConstants.LIBRARY));
-        }
 
         if (additionalProperties.containsKey(CodegenConstants.PARENT_GROUP_ID)) {
             this.setParentGroupId((String) additionalProperties.get(CodegenConstants.PARENT_GROUP_ID));

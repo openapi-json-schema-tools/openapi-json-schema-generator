@@ -289,8 +289,6 @@ public class DefaultGenerator implements Generator {
      * Note: all language generators should support this to comply with the OAS specification.
      */
     protected boolean supportsAdditionalPropertiesWithComposedSchema = true;
-    protected Map<String, String> supportedLibraries = new LinkedHashMap<>();
-    protected String library;
     protected Boolean allowUnicodeIdentifiers = false;
     protected String httpUserAgent;
     protected Boolean hideGenerationTimestamp = true;
@@ -4295,47 +4293,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public void setHideGenerationTimestamp(boolean hideGenerationTimestamp) {
         this.hideGenerationTimestamp = hideGenerationTimestamp;
-    }
-
-    /**
-     * Set library template (sub-template).
-     *
-     * @param library Library template
-     */
-    @Override
-    public void setLibrary(String library) {
-        if (library != null && !supportedLibraries.containsKey(library)) {
-            StringBuilder sb = new StringBuilder("Unknown library: " + library + "\nAvailable libraries:");
-            if (supportedLibraries.size() == 0) {
-                sb.append("\n  ").append("NONE");
-            } else {
-                for (String lib : supportedLibraries.keySet()) {
-                    sb.append("\n  ").append(lib);
-                }
-            }
-            throw new RuntimeException(sb.toString());
-        }
-        this.library = library;
-    }
-
-    /**
-     * Library template (sub-template).
-     *
-     * @return Library template
-     */
-    @Override
-    public String getLibrary() {
-        return library;
-    }
-
-    /**
-     * check if current active library equals to passed
-     *
-     * @param library - library to be compared with
-     * @return {@code true} if passed library is active, {@code false} otherwise
-     */
-    public final boolean isLibrary(String library) {
-        return library.equals(this.library);
     }
 
     /**
