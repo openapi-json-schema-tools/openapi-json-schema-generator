@@ -100,7 +100,7 @@ public class ConfigHelp extends AbstractCommand {
         "--supported-vendor-extensions"}, title = "supported vendor extensions", description = "List supported vendor extensions")
     private Boolean supportedVendorExtensions;
 
-    @Option(name = {"--full-details"}, title = "full generator details", description = "displays CLI options as well as other configs/mappings (implies --instantiation-types, --reserved-words, --language-specific-primitives, --import-mappings, --feature-set)")
+    @Option(name = {"--full-details"}, title = "full generator details", description = "displays CLI options as well as other configs/mappings (implies --instantiation-types, --reserved-words, --language-specific-primitives, --feature-set)")
     private Boolean fullDetails;
 
     private String newline = System.lineSeparator();

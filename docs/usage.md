@@ -93,7 +93,6 @@ SYNOPSIS
                 [(-f <output format> | --format <output format>)] [--feature-set]
                 [--full-details]
                 [(-g <generator name> | --generator-name <generator name>)]
-                [--import-mappings] [--instantiation-types]
                 [--language-specific-primitive] [--markdown-header] [--named-header]
                 [(-o <output location> | --output <output location>)] [--reserved-words]
 
@@ -108,15 +107,11 @@ OPTIONS
         --full-details
             displays CLI options as well as other configs/mappings (implies
             --instantiation-types, --reserved-words,
-            --language-specific-primitives, --import-mappings,
+            --language-specific-primitives,
             --supporting-files)
 
         -g <generator name>, --generator-name <generator name>
             generator to get config help for
-
-        --import-mappings
-            displays the default import mappings (types and aliases, and what
-            imports they will pull into the template)
 
         --instantiation-types
             displays types used to instantiate simple type/alias names
@@ -262,7 +257,6 @@ SYNOPSIS
                 [--http-user-agent <http user agent>]
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
-                [--import-mappings <import mappings>...]
                 [--instantiation-types <instantiation types>...]
                 [--invoker-package <invoker package>]
                 [--language-specific-primitives <language specific primitives>...]
@@ -365,11 +359,6 @@ OPTIONS
         --ignore-file-override <ignore file override location>
             Specifies an override location for the .openapi-generator-ignore
             file. Most useful on initial generation.
-
-        --import-mappings <import mappings>
-            specifies mappings between a given class and the import that should
-            be used for that class in the format of type=import,type=import. You
-            can also have multiple occurrences of this option.
 
         --instantiation-types <instantiation types>
             sets instantiation type mappings in the format of
@@ -493,27 +482,6 @@ Pass more options via comma delimited key/value pairs:
 
 For the full list of generator-specific parameters, refer to [generators docs](./generators.md).
 
-#### Import Mappings
-
-Most generators allow for types bound to the OpenAPI Specification's types to be remapped to a user's desired types. Not _all_ type mappings can be reassigned, as some generators define mappings which are tightly coupled to the built-in templates.
-
-If you're not using your own templates with star/glob package imports, you will most likely need to combine `--import-mappings` together.
-
-* `--import-mappings` Informs the template of the type to be imported
-
-Here's how one might change the `kotlin-spring` server generator's default of `OffsetDateTime` to `LocalDateTime`:
-
-```bash
-openapi-generator-cli generate \
-    -i petstore.yaml \
-    -g kotlin-spring \
-    -o out \
-    --additional-properties=library=spring-boot,beanValidations=true,serviceImplementation=true \
-    --import-mappings=DateTime=java.time.LocalDateTime
-```
-
-> NOTE: mappings are applied to `DateTime`, as this is the representation of the primitive type. See [DefaultCodegen](https://github.com/OpenAPITools/openapi-generator/blob/7cee999543fcc00b7c1eb9f70f0456b707c7f9e2/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java#L1431).
-
 #### File Post-Processing
 
 The `--enable-post-process-file` option enables specific generators to invoke some external language-specific formatting script. Each filename is passed _individually_ to this external script, allowing for linting, formatting, or other custom clean-up.
@@ -531,21 +499,6 @@ First, indicate that the class is already included by default. This will keep th
 ```
 
 This command line option will tell the generator to consider `Pet` a "primitive" type.
-
-Next, if the `Pet` class is a different package, add an `--import-mapping` to tell the generator to include that import wherever `Pet` is used:
-
-```bash
---import-mappings=Pet=com.yourpackage.models.Pet
-```
-
-Now the codegen will know what to import from that specific package.
-
-NOTE: `import-mappings` is assigned a key-value pair in this example, but multiple values can be comma-separate. For instance:
-
-```bash
---import-mappings=Pet=com.yourpackage.models.Pet,User=com.yourpackage.models.User
-```
-
 
 #### Configuration File
 

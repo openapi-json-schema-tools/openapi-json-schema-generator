@@ -66,7 +66,6 @@ public class CodegenConfigurator {
     private Map<String, String> globalProperties = new HashMap<>();
     private Map<String, String> instantiationTypes = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
-    private Map<String, String> importMappings = new HashMap<>();
     private Map<String, String> schemaMappings = new HashMap<>();
     private Map<String, String> inlineSchemaNameMappings = new HashMap<>();
     private Map<String, String> inlineSchemaNameDefaults = new HashMap<>();
@@ -106,9 +105,6 @@ public class CodegenConfigurator {
             }
             if(generatorSettings.getAdditionalProperties() != null) {
                 configurator.additionalProperties.putAll(generatorSettings.getAdditionalProperties());
-            }
-            if(generatorSettings.getImportMappings() != null) {
-                configurator.importMappings.putAll(generatorSettings.getImportMappings());
             }
             if(generatorSettings.getSchemaMappings() != null) {
                 configurator.schemaMappings.putAll(generatorSettings.getSchemaMappings());
@@ -179,12 +175,6 @@ public class CodegenConfigurator {
     public CodegenConfigurator addAdditionalReservedWordMapping(String key, String value) {
         this.reservedWordsMappings.put(key, value);
         generatorSettingsBuilder.withReservedWordMapping(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addImportMapping(String key, String value) {
-        this.importMappings.put(key, value);
-        generatorSettingsBuilder.withImportMapping(key, value);
         return this;
     }
 
@@ -339,12 +329,6 @@ public class CodegenConfigurator {
 
     public CodegenConfigurator setIgnoreFileOverride(final String ignoreFileOverride) {
         workflowSettingsBuilder.withIgnoreFileOverride(ignoreFileOverride);
-        return this;
-    }
-
-    public CodegenConfigurator setImportMappings(Map<String, String> importMappings) {
-        this.importMappings = importMappings;
-        generatorSettingsBuilder.withImportMappings(importMappings);
         return this;
     }
 

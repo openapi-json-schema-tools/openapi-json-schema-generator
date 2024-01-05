@@ -22,8 +22,5 @@
     "additionalProperties" : {
         "addtProp1" : "value2"
     },
-    "importMappings" : {
-        "type1" : "import1"
-    },
     "languageSpecificPrimitives" : [ "rolex" ]
 }

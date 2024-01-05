@@ -47,7 +47,6 @@ public final class GeneratorSettings implements Serializable {
 
     private final Map<String, String> instantiationTypes;
     private final Map<String, Object> additionalProperties;
-    private final Map<String, String> importMappings;
     private final Map<String, String> schemaMappings;
     private final Map<String, String> inlineSchemaNameMappings;
     private final Map<String, String> inlineSchemaNameDefaults;
@@ -201,18 +200,6 @@ public final class GeneratorSettings implements Serializable {
     }
 
     /**
-     * Gets import mappings between a given class and the import that should be used for that class.
-     * <p>
-     * Use import mappings, for example, when you want to "bring your own models" from another location.
-     *
-     * @return the import mappings
-     * @see <a href="https://openapi-generator.tech/docs/customization#bringing-your-own-models">Bringing your own models</a>
-     */
-    public Map<String, String> getImportMappings() {
-        return importMappings;
-    }
-
-    /**
      * Gets schema mappings between a schema and the new name.
      *
      * @return the schema mappings
@@ -350,7 +337,6 @@ public final class GeneratorSettings implements Serializable {
         artifactId = builder.artifactId;
         artifactVersion = builder.artifactVersion;
         instantiationTypes = Collections.unmodifiableMap(builder.instantiationTypes);
-        importMappings = Collections.unmodifiableMap(builder.importMappings);
         schemaMappings = Collections.unmodifiableMap(builder.schemaMappings);
         inlineSchemaNameMappings = Collections.unmodifiableMap(builder.inlineSchemaNameMappings);
         inlineSchemaNameDefaults = Collections.unmodifiableMap(builder.inlineSchemaNameDefaults);
@@ -422,7 +408,6 @@ public final class GeneratorSettings implements Serializable {
         setDefaults();
         instantiationTypes = Collections.unmodifiableMap(new HashMap<>(0));
         additionalProperties = Collections.unmodifiableMap(new HashMap<>(0));
-        importMappings = Collections.unmodifiableMap(new HashMap<>(0));
         schemaMappings = Collections.unmodifiableMap(new HashMap<>(0));
         inlineSchemaNameMappings = Collections.unmodifiableMap(new HashMap<>(0));
         inlineSchemaNameDefaults = Collections.unmodifiableMap(new HashMap<>(0));
@@ -469,9 +454,6 @@ public final class GeneratorSettings implements Serializable {
         if (copy.getAdditionalProperties() != null) {
             builder.additionalProperties.putAll(copy.getAdditionalProperties());
         }
-        if (copy.getImportMappings() != null) {
-            builder.importMappings.putAll(copy.getImportMappings());
-        }
         if (copy.getSchemaMappings() != null) {
             builder.schemaMappings.putAll(copy.getSchemaMappings());
         }
@@ -516,7 +498,6 @@ public final class GeneratorSettings implements Serializable {
         private String artifactVersion;
         private Map<String, String> instantiationTypes;
         private Map<String, Object> additionalProperties;
-        private Map<String, String> importMappings;
         private Map<String, String> schemaMappings;
         private Map<String, String> inlineSchemaNameMappings;
         private Map<String, String> inlineSchemaNameDefaults;
@@ -535,7 +516,6 @@ public final class GeneratorSettings implements Serializable {
         public Builder() {
             instantiationTypes = new HashMap<>();
             additionalProperties = new HashMap<>();
-            importMappings = new HashMap<>();
             schemaMappings = new HashMap<>();
             inlineSchemaNameMappings = new HashMap<>();
             inlineSchemaNameDefaults = new HashMap<>();
@@ -749,32 +729,6 @@ public final class GeneratorSettings implements Serializable {
         }
 
         /**
-         * Sets the {@code importMappings} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param importMappings the {@code importMappings} to set
-         * @return a reference to this Builder
-         */
-        public Builder withImportMappings(Map<String, String> importMappings) {
-            this.importMappings = importMappings;
-            return this;
-        }
-
-        /**
-         * Sets a single {@code importMappings} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param key   A key for some import mapping
-         * @param value The value of some import mapping
-         * @return a reference to this Builder
-         */
-        public Builder withImportMapping(String key, String value) {
-            if (this.importMappings == null) {
-                this.importMappings = new HashMap<>();
-            }
-            this.importMappings.put(key, value);
-            return this;
-        }
-
-        /**
          * Sets the {@code inlineSchemaNameDefaults} and returns a reference to this Builder so that the methods can be chained together.
          *
          * @param inlineSchemaNameDefaults the {@code inlineSchemaNameDefaults} to set
@@ -977,7 +931,6 @@ public final class GeneratorSettings implements Serializable {
                 ", artifactVersion='" + artifactVersion + '\'' +
                 ", instantiationTypes=" + instantiationTypes +
                 ", additionalProperties=" + additionalProperties +
-                ", importMappings=" + importMappings +
                 ", languageSpecificPrimitives=" + languageSpecificPrimitives +
                 ", reservedWordsMappings=" + reservedWordsMappings +
                 ", gitHost='" + gitHost + '\'' +
@@ -1006,7 +959,6 @@ public final class GeneratorSettings implements Serializable {
                 Objects.equals(getArtifactVersion(), that.getArtifactVersion()) &&
                 Objects.equals(getInstantiationTypes(), that.getInstantiationTypes()) &&
                 Objects.equals(getAdditionalProperties(), that.getAdditionalProperties()) &&
-                Objects.equals(getImportMappings(), that.getImportMappings()) &&
                 Objects.equals(getSchemaMappings(), that.getSchemaMappings()) &&
                 Objects.equals(getInlineSchemaNameMappings(), that.getInlineSchemaNameMappings()) &&
                 Objects.equals(getInlineSchemaNameDefaults(), that.getInlineSchemaNameDefaults()) &&
@@ -1035,7 +987,6 @@ public final class GeneratorSettings implements Serializable {
                 getArtifactVersion(),
                 getInstantiationTypes(),
                 getAdditionalProperties(),
-                getImportMappings(),
                 getSchemaMappings(),
                 getInlineSchemaNameMappings(),
                 getInlineSchemaNameDefaults(),

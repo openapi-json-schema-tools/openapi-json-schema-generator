@@ -218,27 +218,6 @@ public class GenerateTest {
     }
 
     @Test
-    public void testImportMappingsLong() {
-        setupAndRunGenericTest("--import-mappings", "hello=world,key=,foo=bar,key2");
-
-        verify(configurator).addImportMapping("hello", "world");
-        verify(configurator).addImportMapping("foo", "bar");
-        verify(configurator).addImportMapping("key", "");
-        verify(configurator).addImportMapping("key2", "");
-    }
-
-    @Test
-    public void testImportMappingsLongMultiple() {
-        setupAndRunGenericTest("--import-mappings", "hello=world", "--import-mappings", "key=",
-                "--import-mappings", "foo=bar", "--import-mappings", "key2");
-
-        verify(configurator).addImportMapping("hello", "world");
-        verify(configurator).addImportMapping("foo", "bar");
-        verify(configurator).addImportMapping("key", "");
-        verify(configurator).addImportMapping("key2", "");
-    }
-
-    @Test
     public void testInstantiationTypesLong() {
         setupAndRunGenericTest("--instantiation-types", "hello=world,key=,foo=bar,key2");
         verify(configurator).addInstantiationType("hello", "world");

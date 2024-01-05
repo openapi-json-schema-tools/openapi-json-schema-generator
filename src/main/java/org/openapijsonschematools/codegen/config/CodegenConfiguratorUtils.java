@@ -68,19 +68,6 @@ public final class CodegenConfiguratorUtils {
         }
     }
 
-    public static void applyImportMappingsKvpList(List<String> importMappings, CodegenConfigurator configurator) {
-        for (String propString : importMappings) {
-            applyImportMappingsKvp(propString, configurator);
-        }
-    }
-
-    public static void applyImportMappingsKvp(String importMappings, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(importMappings);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addImportMapping(entry.getKey().trim(), entry.getValue().trim());
-        }
-    }
-
     public static void applySchemaMappingsKvpList(List<String> schemaMappings, CodegenConfigurator configurator) {
         for (String propString : schemaMappings) {
             applySchemaMappingsKvp(propString, configurator);
