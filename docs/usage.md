@@ -254,7 +254,6 @@ SYNOPSIS
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
                 [--invoker-package <invoker package>]
-                [--legacy-discriminator-behavior] [--library <library>]
                 [--log-to-stderr] [--minimal-update]
                 [--model-name-prefix <model name prefix>]
                 [--model-name-suffix <model name suffix>]
@@ -355,13 +354,6 @@ OPTIONS
 
         --invoker-package <invoker package>
             root package for generated code
-
-        --legacy-discriminator-behavior
-            Set to false for generators with better support for discriminators.
-            (Python, Java, Go, PowerShell, C#have this enabled by default).
-
-        --library <library>
-            library template (sub-template)
 
         --log-to-stderr
             write all log messages (not just errors) to STDOUT. Useful for
@@ -600,7 +592,7 @@ NAME
 
 SYNOPSIS
         openapi-generator-cli author
-        openapi-generator-cli author template [--library <library>]
+        openapi-generator-cli author template 
                 [(-v | --verbose)]
                 [(-o <output directory> | --output <output directory>)]
                 (-g <generator name> | --generator-name <generator name>)
@@ -617,8 +609,6 @@ COMMANDS
 
         template
             Retrieve templates for local modification
-
-            With --library option, library template (sub-template)
 
             With --verbose option, verbose mode
 
@@ -642,16 +632,12 @@ NAME
 SYNOPSIS
         openapi-generator-cli author template
                 (-g <generator name> | --generator-name <generator name>)
-                [--library <library>]
                 [(-o <output directory> | --output <output directory>)]
                 [(-v | --verbose)]
 
 OPTIONS
         -g <generator name>, --generator-name <generator name>
             generator to use (see list command for list)
-
-        --library <library>
-            library template (sub-template)
 
         -o <output directory>, --output <output directory>
             where to write the template files (defaults to 'out')
@@ -665,7 +651,7 @@ Example:
 Extract Java templates, limiting to the `webclient` library.
 
 ```bash
-openapi-generator-cli author template -g java --library webclient
+openapi-generator-cli author template -g java
 ```
 
 Extract all Java templates:
