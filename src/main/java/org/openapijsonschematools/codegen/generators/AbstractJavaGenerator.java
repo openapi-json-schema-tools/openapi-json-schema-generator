@@ -56,7 +56,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
     public static final String FULL_JAVA_UTIL = "fullJavaUtil";
     public static final String DEFAULT_LIBRARY = "<default>";
-    public static final String DATE_LIBRARY = "dateLibrary";
     public static final String SUPPORT_ASYNC = "supportAsync";
     public static final String WITH_XML = "withXml";
     public static final String SUPPORT_JAVA6 = "supportJava6";
@@ -71,7 +70,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
     public static final String DEFAULT_TEST_FOLDER = "${project.build.directory}/generated-test-sources/openapi";
 
-    protected String dateLibrary = "java8";
     protected boolean supportAsync = false;
     protected boolean withXml = false;
     protected String invokerPackage = "org.openapijsonschematools";
@@ -199,15 +197,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(CliOption.newBoolean(DISCRIMINATOR_CASE_SENSITIVE, "Whether the discriminator value lookup should be case-sensitive or not. This option only works for Java API client", discriminatorCaseSensitive));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
         cliOptions.add(CliOption.newBoolean(WITH_XML, "whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML)"));
-
-        CliOption dateLibrary = new CliOption(DATE_LIBRARY, "Option. Date library to use").defaultValue(this.getDateLibrary());
-        Map<String, String> dateOptions = new HashMap<>();
-        dateOptions.put("java8", "Java 8 native JSR310 (preferred for jdk 1.8+)");
-        dateOptions.put("java8-localdatetime", "Java 8 using LocalDateTime (for legacy app only)");
-        dateOptions.put("joda", "Joda (for legacy app only)");
-        dateOptions.put("legacy", "Legacy java.util.Date");
-        dateLibrary.setEnum(dateOptions);
-        cliOptions.add(dateLibrary);
 
         cliOptions.add(CliOption.newBoolean(DISABLE_HTML_ESCAPING, "Disable HTML escaping of JSON strings when using gson (needed to avoid problems with byte[] fields)", disableHtmlEscaping));
         cliOptions.add(CliOption.newBoolean(IGNORE_ANYOF_IN_ENUM, "Ignore anyOf keyword in enum", ignoreAnyOfInEnum));
@@ -513,27 +502,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             if (supportAsync) {
                 additionalProperties.put(SUPPORT_ASYNC, "true");
             }
-        }
-
-        if (additionalProperties.containsKey(DATE_LIBRARY)) {
-            setDateLibrary(additionalProperties.get("dateLibrary").toString());
-        }
-
-        if ("joda".equals(dateLibrary)) {
-            additionalProperties.put("joda", "true");
-            typeMapping.put("date", "LocalDate");
-            typeMapping.put("DateTime", "DateTime");
-        } else if (dateLibrary.startsWith("java8")) {
-            additionalProperties.put("java8", "true");
-            additionalProperties.put("jsr310", "true");
-            typeMapping.put("date", "LocalDate");
-            if ("java8-localdatetime".equals(dateLibrary)) {
-                typeMapping.put("DateTime", "LocalDateTime");
-            } else {
-                typeMapping.put("DateTime", "OffsetDateTime");
-            }
-        } else if (dateLibrary.equals("legacy")) {
-            additionalProperties.put("legacyDates", "true");
         }
 
         if (additionalProperties.containsKey(TEST_OUTPUT)) {
@@ -1190,14 +1158,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
     public void setWithXml(boolean withXml) {
         this.withXml = withXml;
-    }
-
-    public String getDateLibrary() {
-        return dateLibrary;
-    }
-
-    public void setDateLibrary(String library) {
-        this.dateLibrary = library;
     }
 
     public void setSupportAsync(boolean enabled) {

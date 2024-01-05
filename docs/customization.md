@@ -17,7 +17,6 @@ You might have an external configuration file named `config.yaml` which defines 
 additionalProperties:
   artifactId: kotlin-petstore-client
   serializableModel: "true"
-  dateLibrary: java8
 ```
 
 You would generate via CLI with the command:
@@ -33,7 +32,6 @@ templateDir: my_custom_templates
 additionalProperties:
   artifactId: kotlin-petstore-client
   serializableModel: "true"
-  dateLibrary: java8
 files:
   AUTHORS.md: {}
   api_interfaces.mustache:

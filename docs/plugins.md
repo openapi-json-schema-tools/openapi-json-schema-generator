@@ -114,7 +114,6 @@ openApiGenerate {
     invokerPackage = "org.openapi.example.invoker"
     modelPackage = "org.openapi.example.model"
     configOptions = [
-        dateLibrary: "java8"
     ]
 }
 ```

@@ -511,11 +511,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 }}
         );
 
-        if (WEBCLIENT.equals(getLibrary()) || NATIVE.equals(getLibrary())) {
-            dateLibrary = "java8";
-        } else if (MICROPROFILE.equals(getLibrary())) {
-            dateLibrary = "legacy";
-        }
         super.processOpts();
 
         if (additionalProperties.containsKey(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP)) {

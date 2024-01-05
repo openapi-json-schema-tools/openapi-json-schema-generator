@@ -669,7 +669,6 @@ outputDir: out/kotlin
 generatorName: kotlin
 artifactId: kotlin-petstore-string
 additionalProperties:
-  dateLibrary: string
   serializableModel: "true"
 EOF
 
