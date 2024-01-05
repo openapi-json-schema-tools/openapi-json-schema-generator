@@ -70,7 +70,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public static final String USE_RX_JAVA3 = "useRxJava3";
     public static final String DO_NOT_USE_RX = "doNotUseRx";
     public static final String USE_PLAY_WS = "usePlayWS";
-    public static final String CONFIG_KEY = "configKey";
     public static final String PARCELABLE_MODEL = "parcelableModel";
     public static final String USE_RUNTIME_EXCEPTION = "useRuntimeException";
     public static final String USE_REFLECTION_EQUALS_HASHCODE = "useReflectionEqualsHashCode";
@@ -115,8 +114,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected boolean doNotUseRx = true;
     protected boolean usePlayWS = false;
     protected String microprofileFramework = MICROPROFILE_DEFAULT;
-    protected String configKey = null;
-
     protected boolean parcelableModel = false;
     protected boolean useBeanValidation = false;
     protected boolean performBeanValidation = false;
@@ -265,7 +262,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         cliOptions.add(CliOption.newBoolean(SUPPORT_STREAMING, "Support streaming endpoint (beta)", this.supportStreaming));
         cliOptions.add(CliOption.newString(GRADLE_PROPERTIES, "Append additional Gradle properties to the gradle.properties file"));
         cliOptions.add(CliOption.newString(ERROR_OBJECT_TYPE, "Error Object type. (This option is for okhttp-gson-next-gen only)"));
-        cliOptions.add(CliOption.newString(CONFIG_KEY, "Config key in @RegisterRestClient. Default to none. Only `microprofile` supports this option."));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP, CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP_DESC + " Only jersey2, jersey3, native, okhttp-gson support this option."));
         cliOptions.add(CliOption.newString(MICROPROFILE_REST_CLIENT_VERSION, "Version of MicroProfile Rest Client API."));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter. ONLY jersey2, jersey3, okhttp-gson support this option."));
@@ -592,10 +588,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             additionalProperties.put("rootJavaEEPackage", rootJavaEEPackage);
         }
 
-        if (additionalProperties.containsKey(CONFIG_KEY)) {
-            this.setConfigKey(additionalProperties.get(CONFIG_KEY).toString());
-        }
-
         if (additionalProperties.containsKey(PARCELABLE_MODEL)) {
             this.setParcelableModel(Boolean.parseBoolean(additionalProperties.get(PARCELABLE_MODEL).toString()));
         }
@@ -832,10 +824,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         this.microprofileFramework = microprofileFramework;
     }
 
-    public void setConfigKey(String configKey) {
-        this.configKey = configKey;
-    }
-
     public void setParcelableModel(boolean parcelableModel) {
         this.parcelableModel = parcelableModel;
     }
@@ -859,7 +847,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public void setUseReflectionEqualsHashCode(boolean useReflectionEqualsHashCode) {
         this.useReflectionEqualsHashCode = useReflectionEqualsHashCode;
     }
-    
+
     public void setUseAbstractionForFiles(boolean useAbstractionForFiles) {
         this.useAbstractionForFiles = useAbstractionForFiles;
     }
