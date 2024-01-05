@@ -109,7 +109,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected boolean useAbstractionForFiles = false;
     protected boolean supportStreaming = false;
     protected String authFolder;
-    protected String serializationLibrary = null;
     protected boolean useOneOfDiscriminatorLookup = false; // use oneOf discriminator's mapping for model lookup
     protected String rootJavaEEPackage;
     protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
@@ -264,14 +263,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         libraryOption.setDefault(OKHTTP_GSON);
         cliOptions.add(libraryOption);
         setLibrary(OKHTTP_GSON);
-
-        CliOption serializationLibrary = new CliOption(CodegenConstants.SERIALIZATION_LIBRARY, "Serialization library, default depends on value of the option library");
-        Map<String, String> serializationOptions = new HashMap<>();
-        serializationOptions.put(SERIALIZATION_LIBRARY_GSON, "Use Gson as serialization library");
-        serializationOptions.put(SERIALIZATION_LIBRARY_JACKSON, "Use Jackson as serialization library");
-        serializationOptions.put(SERIALIZATION_LIBRARY_JSONB, "Use JSON-B as serialization library");
-        serializationLibrary.setEnum(serializationOptions);
-        cliOptions.add(serializationLibrary);
 
         initMpRestClientVersionToRootPackage();
     }
@@ -580,38 +571,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 //                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.jar"));
 //        supportingFiles.add(new SupportingFile("git_push.sh.mustache", "", "git_push.sh"));
 //        supportingFiles.add(new SupportingFile("gitignore.mustache", "", ".gitignore"));
-
-        if (additionalProperties.containsKey(CodegenConstants.SERIALIZATION_LIBRARY)) {
-            setSerializationLibrary(additionalProperties.get(CodegenConstants.SERIALIZATION_LIBRARY).toString());
-        }
-
-        if (getSerializationLibrary() == null) {
-            LOGGER.info("No serializationLibrary configured, using '{}' as fallback", SERIALIZATION_LIBRARY_GSON);
-            setSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
-        }
-        switch (getSerializationLibrary()) {
-            case SERIALIZATION_LIBRARY_JACKSON:
-                additionalProperties.put(SERIALIZATION_LIBRARY_JACKSON, "true");
-                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
-                supportingFiles.add(new SupportingFile("RFC3339DateFormat.mustache", invokerFolder, "RFC3339DateFormat.java"));
-                break;
-            case SERIALIZATION_LIBRARY_GSON:
-                additionalProperties.put(SERIALIZATION_LIBRARY_GSON, "true");
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
-                break;
-            case SERIALIZATION_LIBRARY_JSONB:
-                additionalProperties.put(SERIALIZATION_LIBRARY_JSONB, "true");
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-                break;
-            default:
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
-                break;
-        }
     }
 
     /**
@@ -689,11 +648,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             model.imports.remove("ToStringSerializer");
         }
 
-        if (property.types != null && property.types.contains("array") && property.uniqueItems && !JACKSON.equals(serializationLibrary)) {
-            // clean-up
-            model.imports.remove("JsonDeserialize");
-            property.vendorExtensions.remove("x-setter-extra-annotation");
-        }
     }
 
     public void setUseOneOfDiscriminatorLookup(boolean useOneOfDiscriminatorLookup) {
@@ -757,36 +711,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     public void setSupportStreaming(final boolean supportStreaming) {
         this.supportStreaming = supportStreaming;
-    }
-
-    /**
-     * Serialization library.
-     *
-     * @return 'gson' or 'jackson'
-     */
-    public String getSerializationLibrary() {
-        return serializationLibrary;
-    }
-
-    public void setSerializationLibrary(String serializationLibrary) {
-        if (SERIALIZATION_LIBRARY_JACKSON.equalsIgnoreCase(serializationLibrary)) {
-            this.serializationLibrary = SERIALIZATION_LIBRARY_JACKSON;
-        } else if (SERIALIZATION_LIBRARY_GSON.equalsIgnoreCase(serializationLibrary)) {
-            this.serializationLibrary = SERIALIZATION_LIBRARY_GSON;
-        } else if (SERIALIZATION_LIBRARY_JSONB.equalsIgnoreCase(serializationLibrary)) {
-            this.serializationLibrary = SERIALIZATION_LIBRARY_JSONB;
-        } else {
-            throw new IllegalArgumentException("Unexpected serializationLibrary value: " + serializationLibrary);
-        }
-    }
-
-    public void forceSerializationLibrary(String serializationLibrary) {
-        if ((this.serializationLibrary != null) && !this.serializationLibrary.equalsIgnoreCase(serializationLibrary)) {
-            LOGGER.warn(
-                    "The configured serializationLibrary '{}', is not supported by the library: '{}', switching back to: {}",
-                    this.serializationLibrary, getLibrary(), serializationLibrary);
-        }
-        setSerializationLibrary(serializationLibrary);
     }
 
     @Override
