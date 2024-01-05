@@ -45,7 +45,6 @@ public class PythonClientOptionsProvider implements OptionsProvider {
                 .put(CodegenConstants.PACKAGE_VERSION, PACKAGE_VERSION_VALUE)
                 .put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, "true")
                 .put(CodegenConstants.SOURCECODEONLY_GENERATION, "false")
-                .put(CodegenConstants.LIBRARY, "urllib3")
                 .put(PythonClientGenerator.USE_NOSE, USE_NOSE_VALUE)
                 .put(PythonClientGenerator.RECURSION_LIMIT, RECURSION_LIMIT)
                 .put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, "false")

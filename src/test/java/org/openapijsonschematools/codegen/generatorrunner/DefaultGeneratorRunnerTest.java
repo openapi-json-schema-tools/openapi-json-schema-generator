@@ -394,7 +394,6 @@ public class DefaultGeneratorRunnerTest {
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
                     .setGeneratorName("python")
-                    .setLibrary("urllib3")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
@@ -501,7 +500,6 @@ public class DefaultGeneratorRunnerTest {
                     .setGeneratorName("python")
                     .addAdditionalProperty("someKey", "testCustomLibraryTemplates")
                     .setTemplateDir(templates.toAbsolutePath().toString())
-                    .setLibrary("urllib3")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());

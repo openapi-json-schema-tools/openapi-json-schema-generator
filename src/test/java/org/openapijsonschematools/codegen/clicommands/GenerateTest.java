@@ -276,13 +276,6 @@ public class GenerateTest {
     }
 
     @Test
-    public void testModelPackage() {
-        final String value = "io.foo.bar.api";
-        setupAndRunGenericTest("--model-package", value);
-        verify(configurator).setModelPackage(value);
-    }
-
-    @Test
     public void testPackageName() {
         final String value = "io.foo.bar.baz";
         setupAndRunGenericTest("--package-name", value);

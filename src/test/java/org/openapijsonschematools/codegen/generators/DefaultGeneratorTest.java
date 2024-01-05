@@ -1159,45 +1159,7 @@ public class DefaultGeneratorTest {
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
-
-    @Test
-    public void verifyXDiscriminatorValue() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/x-discriminator-value.yaml");
-        final DefaultGenerator config = new ThisDefaultGenerator();
-        config.setOpenAPI(openAPI);
-
-        String modelName;
-        CodegenSchema cm;
-
-        Boolean dryRun = Boolean.TRUE;
-        final DefaultGeneratorRunner runner = new DefaultGeneratorRunner(dryRun);
-        runner.openAPI = openAPI;
-        runner.generator = config;
-        runner.configureGeneratorProperties();
-
-        // check that the model's children contain the x-discriminator-values
-        modelName = "BaseObj";
-        cm = runner.generator.fromSchema(
-                openAPI.getComponents().getSchemas().get(modelName),
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        Assert.assertNotNull(cm);
-
-        // check that the discriminator's MappedModels also contains the x-discriminator-values
-        String propertyName = "object_type";
-        Map<String, String> mapping = null;
-        TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
-        mappedModels.add(new CodegenDiscriminator.MappedModel("daily", "DailySubObj"));
-        mappedModels.add(new CodegenDiscriminator.MappedModel("DailySubObj", "DailySubObj"));
-        mappedModels.add(new CodegenDiscriminator.MappedModel("sub-obj", "SubObj"));
-        mappedModels.add(new CodegenDiscriminator.MappedModel("SubObj", "SubObj"));
-        CodegenKey expectedDiscriminatorPropName = new ThisDefaultGenerator().getKey(propertyName, "misc");
-        CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
-        assertEquals(cm.discriminator, expectedDiscriminator);
-    }
-
-
+    
     @Test
     public void testAllOfSingleRefNoOwnProps() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/composed-allof.yaml");

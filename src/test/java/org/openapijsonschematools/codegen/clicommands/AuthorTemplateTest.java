@@ -1,8 +1,6 @@
 package org.openapijsonschematools.codegen.clicommands;
 
 import io.airlift.airline.Cli;
-import org.openapijsonschematools.codegen.clicommands.AuthorTemplate;
-import org.openapijsonschematools.codegen.clicommands.Help;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeTest;
@@ -29,8 +27,6 @@ public class AuthorTemplateTest {
                 "template",
                 "-g",
                 "java",
-                "--library",
-                "webclient",
                 "--output",
                 outputDirectory.toAbsolutePath().toString()
         };
