@@ -91,9 +91,8 @@ FormatTest.FormatTestMap validatedPayload =
 
         .arrayWithUniqueItems(
             Arrays.asList(
-    1
-)
-
+                1
+            )
         )
         .setString("A")
 

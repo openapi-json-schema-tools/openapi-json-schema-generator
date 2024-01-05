@@ -41,22 +41,20 @@ ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap v
     new ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMapBuilder()
         .setExclamationMarkReference(
             Arrays.asList(
-    1L
-)
-
+                1L
+            )
         )
         .from(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<String, Object>(
-        "data",
-        "a"
-    ),
-    new AbstractMap.SimpleEntry<String, Object>(
-        "id",
-        1L
-    )
-)
-
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "data",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "id",
+                    1L
+                )
+            )
         )
     .build(),
     configuration

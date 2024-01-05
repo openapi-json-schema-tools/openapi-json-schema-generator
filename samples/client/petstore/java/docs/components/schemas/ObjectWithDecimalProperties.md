@@ -46,16 +46,15 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 
         .cost(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<String, String>(
-        "amount",
-        "3.14"
-    ),
-    new AbstractMap.SimpleEntry<String, String>(
-        "currency",
-        "eur"
-    )
-)
-
+                new AbstractMap.SimpleEntry<String, String>(
+                    "amount",
+                    "3.14"
+                ),
+                new AbstractMap.SimpleEntry<String, String>(
+                    "currency",
+                    "eur"
+                )
+            )
         )
     .build(),
     configuration

@@ -46,8 +46,7 @@ Drawing.DrawingMap validatedPayload =
     new Drawing.DrawingMapBuilder()
         .shapes(
             Arrays.asList(
-)
-
+            )
         )
     .build(),
     configuration

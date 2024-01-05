@@ -60,35 +60,32 @@ Pet.PetMap validatedPayload =
 
         .photoUrls(
             Arrays.asList(
-    "a"
-)
-
+                "a"
+            )
         )
         .id(1L)
 
         .category(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<String, Object>(
-        "name",
-        "a"
-    ),
-    new AbstractMap.SimpleEntry<String, Object>(
-        "id",
-        1L
-    )
-)
-
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "name",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, Object>(
+                    "id",
+                    1L
+                )
+            )
         )
         .tags(
             Arrays.asList(
-    MapUtils.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "name",
-            "a"
-        )
-    )
-)
-
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<>(
+                        "name",
+                        "a"
+                    )
+                )
+            )
         )
         .status("available")
 

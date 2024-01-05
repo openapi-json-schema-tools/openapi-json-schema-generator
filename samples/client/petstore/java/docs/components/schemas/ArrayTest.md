@@ -60,34 +60,31 @@ ArrayTest.ArrayTestMap validatedPayload =
     new ArrayTest.ArrayTestMapBuilder()
         .array_of_string(
             Arrays.asList(
-    "a"
-)
-
-        )
-        .array_array_of_integer(
-            Arrays.asList(
-    Arrays.asList(
-        1L
-    )
-)
-
-        )
-        .array_array_of_model(
-            Arrays.asList(
-    Arrays.asList(
-        MapUtils.makeMap(
-            new AbstractMap.SimpleEntry<String, String>(
-                "bar",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, String>(
-                "baz",
                 "a"
             )
         )
-    )
-)
-
+        .array_array_of_integer(
+            Arrays.asList(
+                Arrays.asList(
+                    1L
+                )
+            )
+        )
+        .array_array_of_model(
+            Arrays.asList(
+                Arrays.asList(
+                    MapUtils.makeMap(
+                        new AbstractMap.SimpleEntry<String, String>(
+                            "bar",
+                            "a"
+                        ),
+                        new AbstractMap.SimpleEntry<String, String>(
+                            "baz",
+                            "a"
+                        )
+                    )
+                )
+            )
         )
     .build(),
     configuration

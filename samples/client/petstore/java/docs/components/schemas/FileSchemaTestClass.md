@@ -46,8 +46,7 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
     new FileSchemaTestClass.FileSchemaTestClassMapBuilder()
         .files(
             Arrays.asList(
-)
-
+            )
         )
     .build(),
     configuration

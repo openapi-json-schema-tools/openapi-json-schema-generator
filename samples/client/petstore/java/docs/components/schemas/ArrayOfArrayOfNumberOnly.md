@@ -50,11 +50,10 @@ ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
     new ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMapBuilder()
         .ArrayArrayNumber(
             Arrays.asList(
-    Arrays.asList(
-        1
-    )
-)
-
+                Arrays.asList(
+                    1
+                )
+            )
         )
     .build(),
     configuration

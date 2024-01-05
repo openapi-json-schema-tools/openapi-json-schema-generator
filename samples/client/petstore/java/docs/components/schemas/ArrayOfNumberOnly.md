@@ -47,9 +47,8 @@ ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
     new ArrayOfNumberOnly.ArrayOfNumberOnlyMapBuilder()
         .ArrayNumber(
             Arrays.asList(
-    1
-)
-
+                1
+            )
         )
     .build(),
     configuration

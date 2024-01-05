@@ -90,9 +90,8 @@ NullableClass.NullableClassMap validatedPayload =
 
         .array_items_nullable(
             Arrays.asList(
-    null
-)
-
+                null
+            )
         )
         .object_nullable_prop(null)
 
@@ -100,12 +99,11 @@ NullableClass.NullableClassMap validatedPayload =
 
         .object_items_nullable(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        null
-    )
-)
-
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    null
+                )
+            )
         )
         .additionalProperty("someAdditionalProperty", null)
 

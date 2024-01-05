@@ -50,8 +50,7 @@ PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
 
         .results(
             Arrays.asList(
-)
-
+            )
         )
     .build(),
     configuration

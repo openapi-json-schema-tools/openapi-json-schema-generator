@@ -47,9 +47,8 @@ Schema.SchemaMap validatedPayload =
     new Schema.SchemaMapBuilder()
         .files(
             Arrays.asList(
-    "a"
-)
-
+                "a"
+            )
         )
     .build(),
     configuration

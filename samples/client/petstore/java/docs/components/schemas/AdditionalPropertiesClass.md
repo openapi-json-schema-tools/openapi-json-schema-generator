@@ -67,45 +67,40 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
     new AdditionalPropertiesClass.AdditionalPropertiesClassMapBuilder()
         .map_property(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        "a"
-    )
-)
-
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    "a"
+                )
+            )
         )
         .map_of_map_property(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        MapUtils.makeMap(
-            new AbstractMap.SimpleEntry<>(
-                "someAdditionalProperty",
-                "a"
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    MapUtils.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "someAdditionalProperty",
+                            "a"
+                        )
+                    )
+                )
             )
-        )
-    )
-)
-
         )
         .map_with_undeclared_properties_anytype_3(
             MapUtils.makeMap(
-)
-
+            )
         )
         .empty_map(
             MapUtils.makeMap(
-)
-
+            )
         )
         .map_with_undeclared_properties_string(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        "a"
-    )
-)
-
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    "a"
+                )
+            )
         )
     .build(),
     configuration
@@ -491,13 +486,13 @@ AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
     AdditionalPropertiesClass.MapOfMapProperty.validate(
     new AdditionalPropertiesClass.MapOfMapPropertyMapBuilder()
         .additionalProperty(
-            "someAdditionalProperty", MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        "a"
-    )
-)
-
+            "someAdditionalProperty",
+            MapUtils.makeMap(
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    "a"
+                )
+            )
         )
     .build(),
     configuration

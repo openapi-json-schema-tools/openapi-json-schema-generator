@@ -41,12 +41,11 @@ Schema.SchemaMap validatedPayload =
     new Schema.SchemaMapBuilder()
         .setString(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "bar",
-        "a"
-    )
-)
-
+                new AbstractMap.SimpleEntry<>(
+                    "bar",
+                    "a"
+                )
+            )
         )
     .build(),
     configuration

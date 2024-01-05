@@ -51,9 +51,8 @@ Schema.SchemaMap validatedPayload =
     new Schema.SchemaMapBuilder()
         .enum_form_string_array(
             Arrays.asList(
-    ">"
-)
-
+                ">"
+            )
         )
         .enum_form_string("_abc")
 

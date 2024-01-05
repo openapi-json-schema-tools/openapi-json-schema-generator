@@ -50,21 +50,20 @@ MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalProperti
 
         .setMap(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        MapUtils.makeMap(
-            new AbstractMap.SimpleEntry<String, String>(
-                "className",
-                "a"
-            ),
-            new AbstractMap.SimpleEntry<String, String>(
-                "color",
-                "a"
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    MapUtils.makeMap(
+                        new AbstractMap.SimpleEntry<String, String>(
+                            "className",
+                            "a"
+                        ),
+                        new AbstractMap.SimpleEntry<String, String>(
+                            "color",
+                            "a"
+                        )
+                    )
+                )
             )
-        )
-    )
-)
-
         )
     .build(),
     configuration
@@ -150,17 +149,17 @@ MixedPropertiesAndAdditionalPropertiesClass.MapMap validatedPayload =
     MixedPropertiesAndAdditionalPropertiesClass.MapSchema.validate(
     new MixedPropertiesAndAdditionalPropertiesClass.MapMapBuilder()
         .additionalProperty(
-            "someAdditionalProperty", MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<String, String>(
-        "className",
-        "a"
-    ),
-    new AbstractMap.SimpleEntry<String, String>(
-        "color",
-        "a"
-    )
-)
-
+            "someAdditionalProperty",
+            MapUtils.makeMap(
+                new AbstractMap.SimpleEntry<String, String>(
+                    "className",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<String, String>(
+                    "color",
+                    "a"
+                )
+            )
         )
     .build(),
     configuration

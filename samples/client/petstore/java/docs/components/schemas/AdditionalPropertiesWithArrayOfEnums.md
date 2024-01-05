@@ -45,10 +45,10 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap val
     AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1.validate(
     new AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMapBuilder()
         .additionalProperty(
-            "someAdditionalProperty", Arrays.asList(
-    "_abc"
-)
-
+            "someAdditionalProperty",
+            Arrays.asList(
+                "_abc"
+            )
         )
     .build(),
     configuration

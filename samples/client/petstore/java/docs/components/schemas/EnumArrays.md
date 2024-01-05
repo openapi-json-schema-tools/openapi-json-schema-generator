@@ -53,9 +53,8 @@ EnumArrays.EnumArraysMap validatedPayload =
 
         .array_enum(
             Arrays.asList(
-    "fish"
-)
-
+                "fish"
+            )
         )
     .build(),
     configuration

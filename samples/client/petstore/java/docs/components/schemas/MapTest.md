@@ -58,35 +58,32 @@ MapTest.MapTestMap validatedPayload =
     new MapTest.MapTestMapBuilder()
         .map_map_of_string(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        MapUtils.makeMap(
-            new AbstractMap.SimpleEntry<>(
-                "someAdditionalProperty",
-                "a"
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    MapUtils.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "someAdditionalProperty",
+                            "a"
+                        )
+                    )
+                )
             )
-        )
-    )
-)
-
         )
         .map_of_enum_string(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        "UPPER"
-    )
-)
-
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    "UPPER"
+                )
+            )
         )
         .direct_map(
             MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        true
-    )
-)
-
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    true
+                )
+            )
         )
     .build(),
     configuration
@@ -382,13 +379,13 @@ MapTest.MapMapOfStringMap validatedPayload =
     MapTest.MapMapOfString.validate(
     new MapTest.MapMapOfStringMapBuilder()
         .additionalProperty(
-            "someAdditionalProperty", MapUtils.makeMap(
-    new AbstractMap.SimpleEntry<>(
-        "someAdditionalProperty",
-        "a"
-    )
-)
-
+            "someAdditionalProperty",
+            MapUtils.makeMap(
+                new AbstractMap.SimpleEntry<>(
+                    "someAdditionalProperty",
+                    "a"
+                )
+            )
         )
     .build(),
     configuration
