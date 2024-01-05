@@ -541,7 +541,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         }
 
     }
-    
+
     @Override
     public Map<String, Object> postProcessSupportingFileData(Map<String, Object> data) {
         generateYAMLSpecFile(data);

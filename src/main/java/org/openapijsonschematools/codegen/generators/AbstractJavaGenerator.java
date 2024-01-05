@@ -56,14 +56,12 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
     public static final String DEFAULT_LIBRARY = "<default>";
     public static final String SUPPORT_ASYNC = "supportAsync";
-    public static final String WITH_XML = "withXml";
     public static final String SUPPORT_JAVA6 = "supportJava6";
     public static final String JACKSON = "jackson";
     public static final String TEST_OUTPUT = "testOutput";
     public static final String DEFAULT_TEST_FOLDER = "${project.build.directory}/generated-test-sources/openapi";
 
     protected boolean supportAsync = false;
-    protected boolean withXml = false;
     protected String invokerPackage = "org.openapijsonschematools";
     protected String groupId = "org.openapijsonschematools";
     protected String artifactId = "openapi-java";
@@ -175,7 +173,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(new CliOption(CodegenConstants.LICENSE_URL, CodegenConstants.LICENSE_URL_DESC).defaultValue(this.getLicenseUrl()));
         cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
-        cliOptions.add(CliOption.newBoolean(WITH_XML, "whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML)"));
 
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
@@ -376,11 +373,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         if (additionalProperties.containsKey(CodegenConstants.LIBRARY)) {
             this.setLibrary((String) additionalProperties.get(CodegenConstants.LIBRARY));
         }
-
-        if (additionalProperties.containsKey(WITH_XML)) {
-            this.setWithXml(Boolean.parseBoolean(additionalProperties.get(WITH_XML).toString()));
-        }
-        additionalProperties.put(WITH_XML, withXml);
 
         if (additionalProperties.containsKey(CodegenConstants.PARENT_GROUP_ID)) {
             this.setParentGroupId((String) additionalProperties.get(CodegenConstants.PARENT_GROUP_ID));
@@ -1001,11 +993,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         //prefer replace a ", instead of a fuLL URL encode for readability
         return p.replaceAll("\"", "%22");
     }
-
-    public void setWithXml(boolean withXml) {
-        this.withXml = withXml;
-    }
-
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
     }
