@@ -60,7 +60,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public static final String WITH_XML = "withXml";
     public static final String SUPPORT_JAVA6 = "supportJava6";
     public static final String IGNORE_ANYOF_IN_ENUM = "ignoreAnyOfInEnum";
-    public static final String DISCRIMINATOR_CASE_SENSITIVE = "discriminatorCaseSensitive";
     public static final String OPENAPI_NULLABLE = "openApiNullable";
     public static final String JACKSON = "jackson";
     public static final String TEST_OUTPUT = "testOutput";
@@ -92,7 +91,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected String sourceFolder = projectFolder + "/java";
     protected String testFolder = projectTestFolder + "/java";
     protected boolean fullJavaUtil;
-    protected boolean discriminatorCaseSensitive = true; // True if the discriminator value lookup should be case-sensitive.
     protected String javaUtilPrefix = "";
     protected Boolean serializableModel = false;
     protected String apiDocPath = "docs/";
@@ -192,7 +190,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.SERIALIZABLE_MODEL, CodegenConstants.SERIALIZABLE_MODEL_DESC, this.getSerializableModel()));
         cliOptions.add(CliOption.newBoolean(FULL_JAVA_UTIL, "whether to use fully qualified name for classes under java.util. This option only works for Java API client", fullJavaUtil));
-        cliOptions.add(CliOption.newBoolean(DISCRIMINATOR_CASE_SENSITIVE, "Whether the discriminator value lookup should be case-sensitive or not. This option only works for Java API client", discriminatorCaseSensitive));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
         cliOptions.add(CliOption.newBoolean(WITH_XML, "whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML)"));
 
@@ -416,15 +413,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         if (additionalProperties.containsKey(FULL_JAVA_UTIL)) {
             this.setFullJavaUtil(Boolean.parseBoolean(additionalProperties.get(FULL_JAVA_UTIL).toString()));
         }
-        if (additionalProperties.containsKey(DISCRIMINATOR_CASE_SENSITIVE)) {
-            this.setDiscriminatorCaseSensitive(Boolean.parseBoolean(additionalProperties.get(DISCRIMINATOR_CASE_SENSITIVE).toString()));
-        } else {
-            // By default, the discriminator lookup should be case sensitive. There is nothing in the OpenAPI specification
-            // that indicates the lookup should be case insensitive. However, some implementations perform
-            // a case-insensitive lookup.
-            this.setDiscriminatorCaseSensitive(Boolean.TRUE);
-        }
-        additionalProperties.put(DISCRIMINATOR_CASE_SENSITIVE, this.discriminatorCaseSensitive);
 
         if (fullJavaUtil) {
             javaUtilPrefix = "java.util.";
@@ -1139,15 +1127,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         this.fullJavaUtil = fullJavaUtil;
     }
 
-    /**
-     * Set whether discriminator value lookup is case-sensitive or not.
-     *
-     * @param discriminatorCaseSensitive true if the discriminator value lookup should be case sensitive.
-     */
-    public void setDiscriminatorCaseSensitive(boolean discriminatorCaseSensitive) {
-        this.discriminatorCaseSensitive = discriminatorCaseSensitive;
-    }
-
     public void setWithXml(boolean withXml) {
         this.withXml = withXml;
     }
@@ -1155,7 +1134,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
     }
-    
+
     public void setIgnoreAnyOfInEnum(boolean ignoreAnyOfInEnum) {
         this.ignoreAnyOfInEnum = ignoreAnyOfInEnum;
     }
