@@ -46,7 +46,6 @@ public final class GeneratorSettings implements Serializable {
     private String artifactVersion;
 
     private final Map<String, Object> additionalProperties;
-    private final Set<String> languageSpecificPrimitives;
     private final Map<String, String> serverVariables;
 
     private String gitHost;
@@ -182,22 +181,6 @@ public final class GeneratorSettings implements Serializable {
     }
 
     /**
-     * Gets language specific primitives. These are in addition to the "base" primitives defined in a generator.
-     * <p>
-     * In general, a primitive defined here will indicate to the generator:
-     * <p>
-     * - models with these types don't require an import
-     * - model names not included here require imports and likely indicate a model reference
-     * <p>
-     * There may be generator-specific implementation details which differ slightly.
-     *
-     * @return the language specific primitives
-     */
-    public Set<String> getLanguageSpecificPrimitives() {
-        return languageSpecificPrimitives;
-    }
-
-    /**
      * Gets server variable. Values defined here will be attempted to be replaced within a templated server object.
      *
      * @return the server variables
@@ -278,7 +261,6 @@ public final class GeneratorSettings implements Serializable {
         groupId = builder.groupId;
         artifactId = builder.artifactId;
         artifactVersion = builder.artifactVersion;
-        languageSpecificPrimitives = Collections.unmodifiableSet(builder.languageSpecificPrimitives);
         serverVariables = Collections.unmodifiableMap(builder.serverVariables);
         gitHost = builder.gitHost;
         gitUserId = builder.gitUserId;
@@ -344,7 +326,6 @@ public final class GeneratorSettings implements Serializable {
     public GeneratorSettings() {
         setDefaults();
         additionalProperties = Collections.unmodifiableMap(new HashMap<>(0));
-        languageSpecificPrimitives = Collections.unmodifiableSet(new HashSet<>(0));
         serverVariables = Collections.unmodifiableMap(new HashMap<>(0));
     }
 
@@ -383,9 +364,6 @@ public final class GeneratorSettings implements Serializable {
         if (copy.getAdditionalProperties() != null) {
             builder.additionalProperties.putAll(copy.getAdditionalProperties());
         }
-        if (copy.getLanguageSpecificPrimitives() != null) {
-            builder.languageSpecificPrimitives.addAll(copy.getLanguageSpecificPrimitives());
-        }
         if (copy.getServerVariables() != null) {
             builder.serverVariables.putAll(copy.getServerVariables());
         }
@@ -414,7 +392,6 @@ public final class GeneratorSettings implements Serializable {
         private String artifactId;
         private String artifactVersion;
         private Map<String, Object> additionalProperties;
-        private Set<String> languageSpecificPrimitives;
         private Map<String, String> serverVariables;
         private String gitHost;
         private String gitUserId;
@@ -427,7 +404,6 @@ public final class GeneratorSettings implements Serializable {
          */
         public Builder() {
             additionalProperties = new HashMap<>();
-            languageSpecificPrimitives = new HashSet<>();
             serverVariables = new HashMap<>();
 
             gitHost = DEFAULT_GIT_HOST;
@@ -584,31 +560,6 @@ public final class GeneratorSettings implements Serializable {
         }
 
         /**
-         * Sets the {@code languageSpecificPrimitives} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param languageSpecificPrimitives the {@code languageSpecificPrimitives} to set
-         * @return a reference to this Builder
-         */
-        public Builder withLanguageSpecificPrimitives(Set<String> languageSpecificPrimitives) {
-            this.languageSpecificPrimitives = languageSpecificPrimitives;
-            return this;
-        }
-
-        /**
-         * Sets a single {@code languageSpecificPrimitives} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param value The value of some primitive to set
-         * @return a reference to this Builder
-         */
-        public Builder withLanguageSpecificPrimitive(String value) {
-            if (this.languageSpecificPrimitives == null) {
-                this.languageSpecificPrimitives = new HashSet<>();
-            }
-            this.languageSpecificPrimitives.add(value);
-            return this;
-        }
-
-        /**
          * Sets a single {@code serverVariables} and returns a reference to this Builder so that the methods can be chained together.
          *
          * @param key   A key for some server variable
@@ -706,7 +657,6 @@ public final class GeneratorSettings implements Serializable {
                 ", artifactId='" + artifactId + '\'' +
                 ", artifactVersion='" + artifactVersion + '\'' +
                 ", additionalProperties=" + additionalProperties +
-                ", languageSpecificPrimitives=" + languageSpecificPrimitives +
                 ", gitHost='" + gitHost + '\'' +
                 ", gitUserId='" + gitUserId + '\'' +
                 ", gitRepoId='" + gitRepoId + '\'' +
@@ -732,7 +682,6 @@ public final class GeneratorSettings implements Serializable {
                 Objects.equals(getArtifactId(), that.getArtifactId()) &&
                 Objects.equals(getArtifactVersion(), that.getArtifactVersion()) &&
                 Objects.equals(getAdditionalProperties(), that.getAdditionalProperties()) &&
-                Objects.equals(getLanguageSpecificPrimitives(), that.getLanguageSpecificPrimitives()) &&
                 Objects.equals(getGitHost(), that.getGitHost()) &&
                 Objects.equals(getGitUserId(), that.getGitUserId()) &&
                 Objects.equals(getGitRepoId(), that.getGitRepoId()) &&
@@ -755,7 +704,6 @@ public final class GeneratorSettings implements Serializable {
                 getArtifactId(),
                 getArtifactVersion(),
                 getAdditionalProperties(),
-                getLanguageSpecificPrimitives(),
                 getGitHost(),
                 getGitUserId(),
                 getGitRepoId(),

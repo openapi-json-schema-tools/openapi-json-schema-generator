@@ -225,17 +225,6 @@ public class GenerateTest {
     }
 
     @Test
-    public void testLanguageSpecificPrimitives() {
-        setupAndRunGenericTest("--language-specific-primitives", "foo,,bar",
-                "--language-specific-primitives", "hello,world");
-
-        verify(configurator).addLanguageSpecificPrimitive("foo");
-        verify(configurator).addLanguageSpecificPrimitive("bar");
-        verify(configurator).addLanguageSpecificPrimitive("hello");
-        verify(configurator).addLanguageSpecificPrimitive("world");
-    }
-
-    @Test
     public void testPackageName() {
         final String value = "io.foo.bar.baz";
         setupAndRunGenericTest("--package-name", value);

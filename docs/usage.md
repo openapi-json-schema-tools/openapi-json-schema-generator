@@ -107,7 +107,6 @@ OPTIONS
         --full-details
             displays CLI options as well as other configs/mappings (implies
             --reserved-words,
-            --language-specific-primitives,
             --supporting-files)
 
         -g <generator name>, --generator-name <generator name>
@@ -255,7 +254,6 @@ SYNOPSIS
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
                 [--invoker-package <invoker package>]
-                [--language-specific-primitives <language specific primitives>...]
                 [--legacy-discriminator-behavior] [--library <library>]
                 [--log-to-stderr] [--minimal-update]
                 [--model-name-prefix <model name prefix>]
@@ -357,12 +355,6 @@ OPTIONS
 
         --invoker-package <invoker package>
             root package for generated code
-
-        --language-specific-primitives <language specific primitives>
-            specifies additional language specific primitive types in the format
-            of type1,type2,type3,type3. For example:
-            String,boolean,Boolean,Double. You can also have multiple
-            occurrences of this option.
 
         --legacy-discriminator-behavior
             Set to false for generators with better support for discriminators.
@@ -470,18 +462,6 @@ For the full list of generator-specific parameters, refer to [generators docs](.
 The `--enable-post-process-file` option enables specific generators to invoke some external language-specific formatting script. Each filename is passed _individually_ to this external script, allowing for linting, formatting, or other custom clean-up.
 
 For more details, see [File Post-Processing](./file-post-processing.md).
-
-### Target External Models
-
-Sometimes you don't want the codegen to make a model for you--you might want to just include one that already exists in your codebase.  Say you already have a `User` object and want to reuse that, which has a different model package from the other generated files:
-
-First, indicate that the class is already included by default. This will keep the codegen from trying to generate the class.
-
-```bash
---language-specific-primitives=Pet
-```
-
-This command line option will tell the generator to consider `Pet` a "primitive" type.
 
 #### Configuration File
 

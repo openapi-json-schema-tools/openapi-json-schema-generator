@@ -124,13 +124,6 @@ public class Generate extends AbstractCommand {
     private List<String> additionalProperties = new ArrayList<>();
 
     @Option(
-            name = {"--language-specific-primitives"},
-            title = "language specific primitives",
-            description = "specifies additional language specific primitive types in the format of type1,type2,type3,type3. For example: String,boolean,Boolean,Double."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> languageSpecificPrimitives = new ArrayList<>();
-
-    @Option(
             name = {"--server-variables"},
             title = "server variables",
             description = "sets server variables overrides for spec documents which support variable templating of servers.")
@@ -348,7 +341,6 @@ public class Generate extends AbstractCommand {
             CodegenConfiguratorUtils.applyGlobalPropertiesKvpList(globalProperties, configurator);
         }
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);
-        CodegenConfiguratorUtils.applyLanguageSpecificPrimitivesCsvList(languageSpecificPrimitives, configurator);
         CodegenConfiguratorUtils.applyServerVariablesKvpList(serverVariableOverrides, configurator);
 
         try {

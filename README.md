@@ -309,7 +309,6 @@ SYNOPSIS
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
                 [--invoker-package <invoker package>]
-                [--language-specific-primitives <language specific primitives>...]
                 [--log-to-stderr] [--minimal-update]
                 [--model-name-prefix <model name prefix>]
                 [--model-name-suffix <model name suffix>]

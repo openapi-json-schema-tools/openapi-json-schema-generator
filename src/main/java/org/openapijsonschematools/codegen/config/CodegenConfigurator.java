@@ -65,7 +65,6 @@ public class CodegenConfigurator {
     private String templatingEngineName;
     private Map<String, String> globalProperties = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
-    private Set<String> languageSpecificPrimitives = new HashSet<>();
     private Map<String, String> serverVariables = new HashMap<>();
     private String auth;
 
@@ -97,9 +96,6 @@ public class CodegenConfigurator {
             }
             if(generatorSettings.getAdditionalProperties() != null) {
                 configurator.additionalProperties.putAll(generatorSettings.getAdditionalProperties());
-            }
-            if(generatorSettings.getLanguageSpecificPrimitives() != null) {
-                configurator.languageSpecificPrimitives.addAll(generatorSettings.getLanguageSpecificPrimitives());
             }
             if(generatorSettings.getServerVariables() != null) {
                 configurator.serverVariables.putAll(generatorSettings.getServerVariables());
@@ -149,12 +145,6 @@ public class CodegenConfigurator {
     public CodegenConfigurator addAdditionalProperty(String key, Object value) {
         this.additionalProperties.put(key, value);
         generatorSettingsBuilder.withAdditionalProperty(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addLanguageSpecificPrimitive(String value) {
-        this.languageSpecificPrimitives.add(value);
-        generatorSettingsBuilder.withLanguageSpecificPrimitive(value);
         return this;
     }
 
@@ -287,13 +277,6 @@ public class CodegenConfigurator {
             addAdditionalProperty(CodegenConstants.INVOKER_PACKAGE, invokerPackage);
         }
         generatorSettingsBuilder.withInvokerPackage(invokerPackage);
-        return this;
-    }
-
-    public CodegenConfigurator setLanguageSpecificPrimitives(
-            Set<String> languageSpecificPrimitives) {
-        this.languageSpecificPrimitives = languageSpecificPrimitives;
-        generatorSettingsBuilder.withLanguageSpecificPrimitives(languageSpecificPrimitives);
         return this;
     }
 
@@ -519,7 +502,6 @@ public class CodegenConfigurator {
         config.additionalProperties().put(CodegenConstants.TEMPLATING_ENGINE, workflowSettings.getTemplatingEngineName());
 
         // TODO: Work toward Generator having a "GeneratorSettings" property.
-        config.languageSpecificPrimitives().addAll(generatorSettings.getLanguageSpecificPrimitives());
         config.additionalProperties().putAll(generatorSettings.getAdditionalProperties());
 
         Map<String, String> serverVariables = generatorSettings.getServerVariables();

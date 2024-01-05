@@ -81,19 +81,6 @@ public final class CodegenConfiguratorUtils {
         }
     }
 
-    public static void applyLanguageSpecificPrimitivesCsvList(List<String> languageSpecificPrimitives, CodegenConfigurator configurator) {
-        for (String propString : languageSpecificPrimitives) {
-            applyLanguageSpecificPrimitivesCsv(propString, configurator);
-        }
-    }
-
-    public static void applyLanguageSpecificPrimitivesCsv(String languageSpecificPrimitives, CodegenConfigurator configurator) {
-        final Set<String> set = createSetFromCsvList(languageSpecificPrimitives);
-        for (String item : set) {
-            configurator.addLanguageSpecificPrimitive(item);
-        }
-    }
-
     private static Set<String> createSetFromCsvList(String csvProperty) {
         final List<String> values = OptionUtils.splitCommaSeparatedList(csvProperty);
         return new HashSet<String>(values);

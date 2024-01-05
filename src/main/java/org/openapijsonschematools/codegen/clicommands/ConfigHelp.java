@@ -71,9 +71,6 @@ public class ConfigHelp extends AbstractCommand {
     @Option(name = {"--metadata"}, title = "metadata", description = "displays the generator metadata like the help txt for the generator and generator type etc")
     private Boolean metadata;
 
-    @Option(name = {"--language-specific-primitive"}, title = "language specific primitives", description = "displays the language specific primitives (types which require no additional imports, or which may conflict with user defined model names)")
-    private Boolean languageSpecificPrimitives;
-
     @Option(name = {"--reserved-words"}, title = "language specific reserved words", description = "displays the reserved words which may result in renamed model or property names")
     private Boolean reservedWords;
 
@@ -88,7 +85,7 @@ public class ConfigHelp extends AbstractCommand {
         "--supported-vendor-extensions"}, title = "supported vendor extensions", description = "List supported vendor extensions")
     private Boolean supportedVendorExtensions;
 
-    @Option(name = {"--full-details"}, title = "full generator details", description = "displays CLI options as well as other configs/mappings (implies --reserved-words, --language-specific-primitives, --feature-set)")
+    @Option(name = {"--full-details"}, title = "full generator details", description = "displays CLI options as well as other configs/mappings (implies --reserved-words, --feature-set)")
     private Boolean fullDetails;
 
     private String newline = System.lineSeparator();
@@ -102,7 +99,6 @@ public class ConfigHelp extends AbstractCommand {
 
         if (Boolean.TRUE.equals(fullDetails)) {
             reservedWords = Boolean.TRUE;
-            languageSpecificPrimitives = Boolean.TRUE;
             featureSets = Boolean.TRUE;
             metadata = Boolean.TRUE;
             supportedVendorExtensions = Boolean.TRUE;
@@ -339,9 +335,7 @@ public class ConfigHelp extends AbstractCommand {
 
         generateMdInstantiationTypes(sb, config);
 
-        if (Boolean.TRUE.equals(languageSpecificPrimitives)) {
-            generateMdLanguageSpecificPrimitives(sb, config);
-        }
+        generateMdLanguageSpecificPrimitives(sb, config);
 
         if (Boolean.TRUE.equals(reservedWords)) {
             generateMdReservedWords(sb, config);
@@ -418,7 +412,7 @@ public class ConfigHelp extends AbstractCommand {
             sb.append(newline);
         }
 
-        if (Boolean.TRUE.equals(languageSpecificPrimitives)) {
+        {
             sb.append(newline).append("LANGUAGE PRIMITIVES").append(newline).append(newline);
             String[] arr = config.languageSpecificPrimitives().stream().sorted().toArray(String[]::new);
             writePlainTextFromArray(sb, arr, optIndent);

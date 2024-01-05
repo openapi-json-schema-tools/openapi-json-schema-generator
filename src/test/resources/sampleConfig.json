@@ -17,6 +17,5 @@
     },
     "additionalProperties" : {
         "addtProp1" : "value2"
-    },
-    "languageSpecificPrimitives" : [ "rolex" ]
+    }
 }
