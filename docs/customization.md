@@ -16,7 +16,6 @@ You might have an external configuration file named `config.yaml` which defines 
 ```yaml
 additionalProperties:
   artifactId: kotlin-petstore-client
-  serializableModel: "true"
 ```
 
 You would generate via CLI with the command:
@@ -31,7 +30,6 @@ To support the above scenario with custom templates, ensure that you're pointing
 templateDir: my_custom_templates
 additionalProperties:
   artifactId: kotlin-petstore-client
-  serializableModel: "true"
 files:
   AUTHORS.md: {}
   api_interfaces.mustache:

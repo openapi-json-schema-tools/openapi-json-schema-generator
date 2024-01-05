@@ -1,5 +1,4 @@
 {
-  "serializableModel": true,
   "withXml": true,
   "java8": true,
   "useBeanValidation": true
