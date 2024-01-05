@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -74,8 +76,264 @@ public class AbstractStepMessage {
             return get(name);
         }
     }
-    public static class AbstractStepMessageMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForDescription <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDescription(Map<String, @Nullable Object> instance);
+        
+        default T description(Void value) {
+            var instance = getInstance();
+            instance.put("description", null);
+            return getBuilderAfterDescription(instance);
+        }
+        
+        default T description(boolean value) {
+            var instance = getInstance();
+            instance.put("description", value);
+            return getBuilderAfterDescription(instance);
+        }
+        
+        default T description(String value) {
+            var instance = getInstance();
+            instance.put("description", value);
+            return getBuilderAfterDescription(instance);
+        }
+        
+        default T description(int value) {
+            var instance = getInstance();
+            instance.put("description", value);
+            return getBuilderAfterDescription(instance);
+        }
+        
+        default T description(float value) {
+            var instance = getInstance();
+            instance.put("description", value);
+            return getBuilderAfterDescription(instance);
+        }
+        
+        default T description(long value) {
+            var instance = getInstance();
+            instance.put("description", value);
+            return getBuilderAfterDescription(instance);
+        }
+        
+        default T description(double value) {
+            var instance = getInstance();
+            instance.put("description", value);
+            return getBuilderAfterDescription(instance);
+        }
+        
+        default T description(List<?> value) {
+            var instance = getInstance();
+            instance.put("description", value);
+            return getBuilderAfterDescription(instance);
+        }
+        
+        default T description(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("description", value);
+            return getBuilderAfterDescription(instance);
+        }
+    }
+    
+    public interface SetterForDiscriminator <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDiscriminator(Map<String, @Nullable Object> instance);
+        
+        default T discriminator(String value) {
+            var instance = getInstance();
+            instance.put("discriminator", value);
+            return getBuilderAfterDiscriminator(instance);
+        }
+    }
+    
+    public interface SetterForSequenceNumber <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSequenceNumber(Map<String, @Nullable Object> instance);
+        
+        default T sequenceNumber(Void value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", null);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+        
+        default T sequenceNumber(boolean value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", value);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+        
+        default T sequenceNumber(String value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", value);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+        
+        default T sequenceNumber(int value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", value);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+        
+        default T sequenceNumber(float value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", value);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+        
+        default T sequenceNumber(long value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", value);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+        
+        default T sequenceNumber(double value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", value);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+        
+        default T sequenceNumber(List<?> value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", value);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+        
+        default T sequenceNumber(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("sequenceNumber", value);
+            return getBuilderAfterSequenceNumber(instance);
+        }
+    }
+    
+    public static class AbstractStepMessageMap000Builder extends UnsetAddPropsSetter<AbstractStepMessageMap000Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "description",
+            "discriminator",
+            "sequenceNumber"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AbstractStepMessageMap000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AbstractStepMessageMap000Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class AbstractStepMessageMap001Builder implements SetterForSequenceNumber<AbstractStepMessageMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AbstractStepMessageMap001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AbstractStepMessageMap000Builder getBuilderAfterSequenceNumber(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap000Builder(instance);
+        }
+    }
+    
+    public static class AbstractStepMessageMap010Builder implements SetterForDiscriminator<AbstractStepMessageMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AbstractStepMessageMap010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AbstractStepMessageMap000Builder getBuilderAfterDiscriminator(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap000Builder(instance);
+        }
+    }
+    
+    public static class AbstractStepMessageMap011Builder implements SetterForDiscriminator<AbstractStepMessageMap001Builder>, SetterForSequenceNumber<AbstractStepMessageMap010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AbstractStepMessageMap011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AbstractStepMessageMap001Builder getBuilderAfterDiscriminator(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap001Builder(instance);
+        }
+        public AbstractStepMessageMap010Builder getBuilderAfterSequenceNumber(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap010Builder(instance);
+        }
+    }
+    
+    public static class AbstractStepMessageMap100Builder implements SetterForDescription<AbstractStepMessageMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AbstractStepMessageMap100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AbstractStepMessageMap000Builder getBuilderAfterDescription(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap000Builder(instance);
+        }
+    }
+    
+    public static class AbstractStepMessageMap101Builder implements SetterForDescription<AbstractStepMessageMap001Builder>, SetterForSequenceNumber<AbstractStepMessageMap100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AbstractStepMessageMap101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AbstractStepMessageMap001Builder getBuilderAfterDescription(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap001Builder(instance);
+        }
+        public AbstractStepMessageMap100Builder getBuilderAfterSequenceNumber(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap100Builder(instance);
+        }
+    }
+    
+    public static class AbstractStepMessageMap110Builder implements SetterForDescription<AbstractStepMessageMap010Builder>, SetterForDiscriminator<AbstractStepMessageMap100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AbstractStepMessageMap110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AbstractStepMessageMap010Builder getBuilderAfterDescription(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap010Builder(instance);
+        }
+        public AbstractStepMessageMap100Builder getBuilderAfterDiscriminator(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap100Builder(instance);
+        }
+    }
+    
+    public static class AbstractStepMessageMapBuilder implements SetterForDescription<AbstractStepMessageMap011Builder>, SetterForDiscriminator<AbstractStepMessageMap101Builder>, SetterForSequenceNumber<AbstractStepMessageMap110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AbstractStepMessageMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AbstractStepMessageMap011Builder getBuilderAfterDescription(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap011Builder(instance);
+        }
+        public AbstractStepMessageMap101Builder getBuilderAfterDiscriminator(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap101Builder(instance);
+        }
+        public AbstractStepMessageMap110Builder getBuilderAfterSequenceNumber(Map<String, @Nullable Object> instance) {
+            return new AbstractStepMessageMap110Builder(instance);
+        }
     }
     
     

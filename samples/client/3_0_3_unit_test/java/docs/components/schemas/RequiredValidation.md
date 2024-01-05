@@ -38,21 +38,66 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [RequiredValidationMap](#requiredvalidationmap) | validate([Map<?, ?>](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
+| [RequiredValidationMap](#requiredvalidationmap) | validate([Map&lt;?, ?&gt;](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## RequiredValidationMapBuilder
-public class RequiredValidationMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## RequiredValidationMap0Builder
+public class RequiredValidationMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | ? extends @Nullable Object |  | |
-| **bar** | ? extends @Nullable Object |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredValidationMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(Void value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(boolean value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(String value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(int value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(float value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(long value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(double value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(List<?> value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | bar(Map<String, ?> value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, Void value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, boolean value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, String value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, int value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, float value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, long value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, double value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, List<?> value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## RequiredValidationMapBuilder
+public class RequiredValidationMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredValidationMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(Void value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(boolean value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(String value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(int value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(float value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(long value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(double value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(List<?> value) |
+| [RequiredValidationMap0Builder](#requiredvalidationmap0builder) | foo(Map<String, ?> value) |
 
 ## RequiredValidationMap
 public static class RequiredValidationMap<br>
@@ -66,7 +111,7 @@ A class to store validated Map payloads
 | static [RequiredValidationMap](#requiredvalidationmap) | of([Map<String, ? extends @Nullable Object>](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br> |
 | @Nullable Object | bar()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar
 public static class Bar<br>

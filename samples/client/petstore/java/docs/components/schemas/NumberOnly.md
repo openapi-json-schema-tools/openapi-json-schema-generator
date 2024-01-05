@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NumberOnly.NumberOnlyMap validatedPayload =
     NumberOnly.NumberOnly1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "JustNumber",
-            1
-        )
-    ),
+    new NumberOnly.NumberOnlyMapBuilder()
+        .JustNumber(1)
+
+    .build(),
     configuration
 );
 ```
@@ -58,19 +56,36 @@ NumberOnly.NumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NumberOnlyMap](#numberonlymap) | validate([Map<?, ?>](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [NumberOnlyMap](#numberonlymap) | validate([Map&lt;?, ?&gt;](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberOnlyMapBuilder
 public class NumberOnlyMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **JustNumber** | Number |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberOnlyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | JustNumber(int value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | JustNumber(float value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | JustNumber(long value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | JustNumber(double value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, Void value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, boolean value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, String value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, int value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, float value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, long value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, double value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, List<?> value) |
+| [NumberOnlyMapBuilder](#numberonlymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## NumberOnlyMap
 public static class NumberOnlyMap<br>
@@ -83,7 +98,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [NumberOnlyMap](#numberonlymap) | of([Map<String, ? extends @Nullable Object>](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | Number | JustNumber()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## JustNumber
 public static class JustNumber<br>

@@ -5,25 +5,25 @@
 {{/if}}
 {{#and pathParametersSchema pathParametersSchema.requiredProperties}}
 path_params: typing.Union[
-    {{pathParametersSchema.mapInputJsonPathPiece.camelCase}},
-    {{pathParametersSchema.mapOutputJsonPathPiece.camelCase}}
+    {{pathParametersSchema.mapInputJsonPathPiece.pascalCase}},
+    {{pathParametersSchema.mapOutputJsonPathPiece.pascalCase}}
 ],
 {{/and}}
 {{#and queryParametersSchema queryParametersSchema.requiredProperties}}
 query_params: typing.Union[
-    {{queryParametersSchema.mapInputJsonPathPiece.camelCase}},
-    {{queryParametersSchema.mapOutputJsonPathPiece.camelCase}}
+    {{queryParametersSchema.mapInputJsonPathPiece.pascalCase}},
+    {{queryParametersSchema.mapOutputJsonPathPiece.pascalCase}}
 ],
 {{/and}}
 {{#and headerParametersSchema headerParametersSchema.requiredProperties}}
 header_params: typing.Union[
-    {{headerParametersSchema.mapInputJsonPathPiece.camelCase}},
-    {{headerParametersSchema.mapOutputJsonPathPiece.camelCase}}
+    {{headerParametersSchema.mapInputJsonPathPiece.pascalCase}},
+    {{headerParametersSchema.mapOutputJsonPathPiece.pascalCase}}
 ],
 {{/and}}
 {{#and cookieParametersSchema cookieParametersSchema.requiredProperties}}
 cookie_params: typing.Union[
-    {{cookieParametersSchema.mapInputJsonPathPiece.camelCase}},
-    {{cookieParametersSchema.mapOutputJsonPathPiece.camelCase}}
+    {{cookieParametersSchema.mapInputJsonPathPiece.pascalCase}},
+    {{cookieParametersSchema.mapOutputJsonPathPiece.pascalCase}}
 ],
 {{/and}}

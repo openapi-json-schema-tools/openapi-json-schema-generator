@@ -40,21 +40,84 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [TriangleInterfaceMap](#triangleinterfacemap) | validate([Map<?, ?>](#triangleinterfacemapbuilder) arg, SchemaConfiguration configuration) |
+| [TriangleInterfaceMap](#triangleinterfacemap) | validate([Map&lt;?, ?&gt;](#triangleinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## TriangleInterfaceMapBuilder
-public class TriangleInterfaceMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## TriangleInterfaceMap00Builder
+public class TriangleInterfaceMap00Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **shapeType** | String |  | must be one of ["Triangle"] |
-| **triangleType** | String |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleInterfaceMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, Void value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, boolean value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, String value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, int value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, float value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, long value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, double value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, List<?> value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## TriangleInterfaceMap01Builder
+public class TriangleInterfaceMap01Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleInterfaceMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | triangleType(String value) |
+
+## TriangleInterfaceMap10Builder
+public class TriangleInterfaceMap10Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleInterfaceMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | shapeType(String value) |
+| [TriangleInterfaceMap00Builder](#triangleinterfacemap00builder) | shapeType([StringShapeTypeEnums](#stringshapetypeenums) value) |
+
+## TriangleInterfaceMapBuilder
+public class TriangleInterfaceMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleInterfaceMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [TriangleInterfaceMap01Builder](#triangleinterfacemap01builder) | shapeType(String value) |
+| [TriangleInterfaceMap01Builder](#triangleinterfacemap01builder) | shapeType([StringShapeTypeEnums](#stringshapetypeenums) value) |
+| [TriangleInterfaceMap10Builder](#triangleinterfacemap10builder) | triangleType(String value) |
 
 ## TriangleInterfaceMap
 public static class TriangleInterfaceMap<br>
@@ -68,7 +131,7 @@ A class to store validated Map payloads
 | static [TriangleInterfaceMap](#triangleinterfacemap) | of([Map<String, ? extends @Nullable Object>](#triangleinterfacemapbuilder) arg, SchemaConfiguration configuration) |
 | String | shapeType()<br> must be one of ["Triangle"] |
 | String | triangleType()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## TriangleType
 public static class TriangleType<br>
@@ -91,7 +154,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

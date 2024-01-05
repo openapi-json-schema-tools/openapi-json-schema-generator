@@ -34,7 +34,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -47,16 +47,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
     ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "ArrayArrayNumber",
+    new ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMapBuilder()
+        .ArrayArrayNumber(
             Arrays.asList(
                 Arrays.asList(
                     1
                 )
             )
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -70,19 +69,33 @@ ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | validate([Map<?, ?>](#arrayofarrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | validate([Map&lt;?, ?&gt;](#arrayofarrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfArrayOfNumberOnlyMapBuilder
 public class ArrayOfArrayOfNumberOnlyMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **ArrayArrayNumber** | List<List<Number>> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayOfArrayOfNumberOnlyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | ArrayArrayNumber(List<List<Number>> value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, Void value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, boolean value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, String value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, int value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, float value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, long value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, double value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, List<?> value) |
+| [ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ArrayOfArrayOfNumberOnlyMap
 public static class ArrayOfArrayOfNumberOnlyMap<br>
@@ -95,7 +108,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | of([Map<String, ? extends @Nullable Object>](#arrayofarrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayArrayNumberList](#arrayarraynumberlist) | ArrayArrayNumber()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayArrayNumber
 public static class ArrayArrayNumber<br>
@@ -108,7 +121,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -121,13 +134,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
     ArrayOfArrayOfNumberOnly.ArrayArrayNumber.validate(
-    new .ArrayArrayNumberListBuilder(
-        Arrays.asList(
+    new ArrayOfArrayOfNumberOnly.ArrayArrayNumberListBuilder()
+        .add(
             Arrays.asList(
                 1
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -149,7 +162,7 @@ builder for `List<List<Number>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayArrayNumberListBuilder()<br>Creates an empty list |
@@ -183,7 +196,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -196,11 +209,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
     ArrayOfArrayOfNumberOnly.Items.validate(
-    new .ItemsListBuilder(
-        Arrays.asList(
-            1
-        )
-    ).build(),
+    new ArrayOfArrayOfNumberOnly.ItemsListBuilder()
+        .add(1)
+
+    .build(),
     configuration
 );
 ```
@@ -222,7 +234,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder()<br>Creates an empty list |

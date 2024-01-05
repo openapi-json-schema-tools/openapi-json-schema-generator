@@ -29,7 +29,7 @@ Just a string to inform instance is up and running. Make it nullable in hope to 
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 HealthCheckResult.HealthCheckResultMap validatedPayload =
     HealthCheckResult.HealthCheckResult1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "NullableMessage",
-            null
-        )
-    ),
+    new HealthCheckResult.HealthCheckResultMapBuilder()
+        .NullableMessage(null)
+
+    .build(),
     configuration
 );
 ```
@@ -61,19 +59,34 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [HealthCheckResultMap](#healthcheckresultmap) | validate([Map<?, ?>](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
+| [HealthCheckResultMap](#healthcheckresultmap) | validate([Map&lt;?, ?&gt;](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HealthCheckResultMapBuilder
 public class HealthCheckResultMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **NullableMessage** | ? extends @Nullable String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| HealthCheckResultMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | NullableMessage(Void value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | NullableMessage(String value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, Void value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, boolean value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, String value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, int value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, float value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, long value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, double value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, List<?> value) |
+| [HealthCheckResultMapBuilder](#healthcheckresultmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## HealthCheckResultMap
 public static class HealthCheckResultMap<br>
@@ -86,7 +99,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [HealthCheckResultMap](#healthcheckresultmap) | of([Map<String, ? extends @Nullable Object>](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable String | NullableMessage()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NullableMessage
 public static class NullableMessage<br>
@@ -99,7 +112,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

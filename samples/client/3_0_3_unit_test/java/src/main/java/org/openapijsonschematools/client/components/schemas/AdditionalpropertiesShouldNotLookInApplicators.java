@@ -18,7 +18,9 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -26,6 +28,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -81,8 +84,89 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return get(name);
         }
     }
-    public static class Schema0MapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(Void value) {
+            var instance = getInstance();
+            instance.put("foo", null);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(boolean value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(int value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(float value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(long value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(double value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
+    public static class Schema0MapBuilder extends UnsetAddPropsSetter<Schema0MapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<Schema0MapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "foo"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema0MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0MapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public Schema0MapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     
@@ -302,8 +386,38 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return (boolean) value;
         }
     }
-    public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, Boolean> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder> {
+        private final Map<String, Boolean> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Boolean> build() {
+            return instance;
+        }
+        public Map<String, Boolean> getInstance() {
+            return instance;
+        }
+        public AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
+            return this;
+        }
     }
     
     

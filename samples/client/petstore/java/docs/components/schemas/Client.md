@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Client.Client1](#client1)<br> schema class |
-| static class | [Client.ClientMapBuilder](#clientmapbuilder)<br> builder for Map payloads |
+| static class | [Client.ClientMapBuilder1](#clientmapbuilder1)<br> builder for Map payloads |
 | static class | [Client.ClientMap](#clientmap)<br> output class for Map payloads |
 | static class | [Client.Client2](#client2)<br> schema class |
 
@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Client.ClientMap validatedPayload =
     Client.Client1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "client",
-            "a"
-        )
-    ),
+    new Client.ClientMapBuilder1()
+        .client("a")
+
+    .build(),
     configuration
 );
 ```
@@ -58,19 +56,33 @@ Client.ClientMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ClientMap](#clientmap) | validate([Map<?, ?>](#clientmapbuilder) arg, SchemaConfiguration configuration) |
+| [ClientMap](#clientmap) | validate([Map&lt;?, ?&gt;](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ClientMapBuilder
-public class ClientMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ClientMapBuilder1
+public class ClientMapBuilder1<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **client** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClientMapBuilder1()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ClientMapBuilder1](#clientmapbuilder1) | client(String value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, Void value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, boolean value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, String value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, int value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, float value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, long value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, double value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, List<?> value) |
+| [ClientMapBuilder1](#clientmapbuilder1) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ClientMap
 public static class ClientMap<br>
@@ -81,9 +93,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ClientMap](#clientmap) | of([Map<String, ? extends @Nullable Object>](#clientmapbuilder) arg, SchemaConfiguration configuration) |
+| static [ClientMap](#clientmap) | of([Map<String, ? extends @Nullable Object>](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
 | String | client()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Client2
 public static class Client2<br>

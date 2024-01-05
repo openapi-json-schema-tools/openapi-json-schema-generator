@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 FromSchema.FromSchemaMap validatedPayload =
     FromSchema.FromSchema1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "data",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "id",
-            1L
-        )
-    ),
+    new FromSchema.FromSchemaMapBuilder()
+        .data("a")
+
+        .id(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -63,20 +59,37 @@ FromSchema.FromSchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FromSchemaMap](#fromschemamap) | validate([Map<?, ?>](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [FromSchemaMap](#fromschemamap) | validate([Map&lt;?, ?&gt;](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FromSchemaMapBuilder
 public class FromSchemaMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **data** | String |  | [optional] |
-| **id** | Number |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FromSchemaMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | data(String value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | id(int value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | id(float value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | id(long value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | id(double value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, Void value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, boolean value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, String value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, int value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, float value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, long value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, double value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, List<?> value) |
+| [FromSchemaMapBuilder](#fromschemamapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## FromSchemaMap
 public static class FromSchemaMap<br>
@@ -90,7 +103,7 @@ A class to store validated Map payloads
 | static [FromSchemaMap](#fromschemamap) | of([Map<String, ? extends @Nullable Object>](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
 | String | data()<br>[optional] |
 | Number | id()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Id
 public static class Id<br>

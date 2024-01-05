@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -66,8 +68,41 @@ public class PublicKey {
             return get(name);
         }
     }
-    public static class PublicKeyMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForKey <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterKey(Map<String, @Nullable Object> instance);
+        
+        default T key(String value) {
+            var instance = getInstance();
+            instance.put("key", value);
+            return getBuilderAfterKey(instance);
+        }
+    }
+    
+    public static class PublicKeyMapBuilder extends UnsetAddPropsSetter<PublicKeyMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForKey<PublicKeyMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "key"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PublicKeyMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PublicKeyMapBuilder getBuilderAfterKey(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PublicKeyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

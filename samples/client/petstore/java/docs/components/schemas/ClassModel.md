@@ -39,20 +39,34 @@ Model for testing model with &quot;_class&quot; property
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [ClassModelMap](#classmodelmap) | validate([Map<?, ?>](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
+| [ClassModelMap](#classmodelmap) | validate([Map&lt;?, ?&gt;](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClassModelMapBuilder
 public class ClassModelMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **_class** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassModelMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | setClass(String value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, Void value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, boolean value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, String value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, int value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, float value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, long value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, double value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ClassModelMapBuilder](#classmodelmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ClassModelMap
 public static class ClassModelMap<br>
@@ -65,7 +79,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ClassModelMap](#classmodelmap) | of([Map<String, ? extends @Nullable Object>](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["_class"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassSchema
 public static class ClassSchema<br>

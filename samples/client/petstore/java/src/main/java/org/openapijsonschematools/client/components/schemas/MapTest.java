@@ -14,13 +14,16 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
@@ -57,8 +60,38 @@ public class MapTest {
             return getOrThrow(name);
         }
     }
-    public static class AdditionalPropertiesMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties1<T> {
+        Set<String> getKnownKeys();
+        Map<String, String> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, String> instance);
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class AdditionalPropertiesMapBuilder1 implements BaseBuilder<String>, SetterForAdditionalProperties1<AdditionalPropertiesMapBuilder1> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AdditionalPropertiesMapBuilder1() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public AdditionalPropertiesMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, String> instance) {
+            return this;
+        }
     }
     
     
@@ -147,8 +180,38 @@ public class MapTest {
             return getOrThrow(name);
         }
     }
-    public static class MapMapOfStringMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, Map<String, String>> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Map<String, String>> instance);
+        
+        default T additionalProperty(String key, Map<String, String> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class MapMapOfStringMapBuilder implements BaseBuilder<Map<String, String>>, SetterForAdditionalProperties<MapMapOfStringMapBuilder> {
+        private final Map<String, Map<String, String>> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MapMapOfStringMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Map<String, String>> build() {
+            return instance;
+        }
+        public Map<String, Map<String, String>> getInstance() {
+            return instance;
+        }
+        public MapMapOfStringMapBuilder getBuilderAfterAdditionalProperty(Map<String, Map<String, String>> instance) {
+            return this;
+        }
     }
     
     
@@ -304,8 +367,45 @@ public class MapTest {
             return getOrThrow(name);
         }
     }
-    public static class MapOfEnumStringMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties2<T> {
+        Set<String> getKnownKeys();
+        Map<String, String> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, String> instance);
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, StringAdditionalPropertiesEnums value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value.value());
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class MapOfEnumStringMapBuilder implements BaseBuilder<String>, SetterForAdditionalProperties2<MapOfEnumStringMapBuilder> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MapOfEnumStringMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public MapOfEnumStringMapBuilder getBuilderAfterAdditionalProperty(Map<String, String> instance) {
+            return this;
+        }
     }
     
     
@@ -410,8 +510,38 @@ public class MapTest {
             return (boolean) value;
         }
     }
-    public static class DirectMapMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties3<T> {
+        Set<String> getKnownKeys();
+        Map<String, Boolean> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class DirectMapMapBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties3<DirectMapMapBuilder> {
+        private final Map<String, Boolean> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public DirectMapMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Boolean> build() {
+            return instance;
+        }
+        public Map<String, Boolean> getInstance() {
+            return instance;
+        }
+        public DirectMapMapBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
+            return this;
+        }
     }
     
     
@@ -547,8 +677,86 @@ public class MapTest {
             return get(name);
         }
     }
-    public static class MapTestMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForMapMapOfString <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapMapOfString(Map<String, @Nullable Object> instance);
+        
+        default T map_map_of_string(Map<String, Map<String, String>> value) {
+            var instance = getInstance();
+            instance.put("map_map_of_string", value);
+            return getBuilderAfterMapMapOfString(instance);
+        }
+    }
+    
+    public interface SetterForMapOfEnumString <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapOfEnumString(Map<String, @Nullable Object> instance);
+        
+        default T map_of_enum_string(Map<String, String> value) {
+            var instance = getInstance();
+            instance.put("map_of_enum_string", value);
+            return getBuilderAfterMapOfEnumString(instance);
+        }
+    }
+    
+    public interface SetterForDirectMap <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDirectMap(Map<String, @Nullable Object> instance);
+        
+        default T direct_map(Map<String, Boolean> value) {
+            var instance = getInstance();
+            instance.put("direct_map", value);
+            return getBuilderAfterDirectMap(instance);
+        }
+    }
+    
+    public interface SetterForIndirectMap <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterIndirectMap(Map<String, @Nullable Object> instance);
+        
+        default T indirect_map(Map<String, Boolean> value) {
+            var instance = getInstance();
+            instance.put("indirect_map", value);
+            return getBuilderAfterIndirectMap(instance);
+        }
+    }
+    
+    public static class MapTestMapBuilder extends UnsetAddPropsSetter<MapTestMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForMapMapOfString<MapTestMapBuilder>, SetterForMapOfEnumString<MapTestMapBuilder>, SetterForDirectMap<MapTestMapBuilder>, SetterForIndirectMap<MapTestMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "map_map_of_string",
+            "map_of_enum_string",
+            "direct_map",
+            "indirect_map"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MapTestMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public MapTestMapBuilder getBuilderAfterMapMapOfString(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public MapTestMapBuilder getBuilderAfterMapOfEnumString(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public MapTestMapBuilder getBuilderAfterDirectMap(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public MapTestMapBuilder getBuilderAfterIndirectMap(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public MapTestMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

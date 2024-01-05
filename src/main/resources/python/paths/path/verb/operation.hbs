@@ -93,55 +93,55 @@ from .security import (
     {{/gt}}
 {{/neq}}
 {{#with pathParametersSchema}}
-from .path_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+from .path_parameters import {{jsonPathPiece.pascalCase}}, {{mapInputJsonPathPiece.pascalCase}}, {{mapOutputJsonPathPiece.pascalCase}}
 {{/with}}
 {{#with queryParametersSchema}}
-from .query_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+from .query_parameters import {{jsonPathPiece.pascalCase}}, {{mapInputJsonPathPiece.pascalCase}}, {{mapOutputJsonPathPiece.pascalCase}}
 {{/with}}
 {{#with headerParametersSchema}}
-from .header_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+from .header_parameters import {{jsonPathPiece.pascalCase}}, {{mapInputJsonPathPiece.pascalCase}}, {{mapOutputJsonPathPiece.pascalCase}}
 {{/with}}
 {{#with cookieParametersSchema}}
-from .cookie_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+from .cookie_parameters import {{jsonPathPiece.pascalCase}}, {{mapInputJsonPathPiece.pascalCase}}, {{mapOutputJsonPathPiece.pascalCase}}
 {{/with}}
 {{#or parameters pathItemParameters}}
     {{#or parameters.queryParameters pathItemParameters.queryParameters}}
 query_parameter_classes = (
 {{#each parameters.queryParameters}}
-    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 {{#each pathItemParameters.queryParameters}}
-    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 )
     {{/or}}
     {{#or parameters.headerParameters pathItemParameters.headerParameters}}
 header_parameter_classes = (
 {{#each parameters.headerParameters}}
-    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 {{#each pathItemParameters.headerParameters}}
-    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 )
     {{/or}}
     {{#or parameters.pathParameters pathItemParameters.pathParameters}}
 path_parameter_classes = (
 {{#each parameters.pathParameters}}
-    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 {{#each pathItemParameters.pathParameters}}
-    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 )
     {{/or}}
     {{#or parameters.cookieParameters pathItemParameters.cookieParameters}}
 cookie_parameter_classes = (
 {{#each parameters.pathParameters}}
-    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 {{#each pathItemParameters.cookieParameters}}
-    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 )
     {{/or}}
@@ -171,7 +171,7 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 
     {{#if defaultResponse}}
         {{#with defaultResponse}}
-default_response = response_default.{{jsonPathPiece.camelCase}}
+default_response = response_default.{{jsonPathPiece.pascalCase}}
         {{/with}}
     {{/if}}
     {{#if statusCodeResponses}}
@@ -179,13 +179,13 @@ __StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
         {{#each statusCodeResponses}}
-        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}],
+        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}}],
         {{/each}}
     }
 )
 _status_code_to_response: __StatusCodeToResponse = {
         {{#each statusCodeResponses}}
-    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
         {{/each}}
 }
     {{/if}}
@@ -194,13 +194,13 @@ __RangedStatusCodeToResponse = typing.TypedDict(
     '__RangedStatusCodeToResponse',
     {
         {{#each wildcardCodeResponses}}
-        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}],
+        '{{@key}}': typing.Type[{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}}],
         {{/each}}
     }
 )
 _ranged_status_code_to_response: __RangedStatusCodeToResponse = {
         {{#each wildcardCodeResponses}}
-    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
         {{/each}}
 }
     {{/if}}
@@ -290,13 +290,13 @@ class BaseApi(api_client.Api):
         """
     {{#if pathParametersSchema}}
         {{#if pathParametersSchema.requiredProperties}}
-        path_params = {{pathParametersSchema.jsonPathPiece.camelCase}}.validate(
+        path_params = {{pathParametersSchema.jsonPathPiece.pascalCase}}.validate(
             path_params,
             configuration=self.api_client.schema_configuration
         )
         {{else}}
         if path_params is not None:
-            path_params = {{pathParametersSchema.jsonPathPiece.camelCase}}.validate(
+            path_params = {{pathParametersSchema.jsonPathPiece.pascalCase}}.validate(
                 path_params,
                 configuration=self.api_client.schema_configuration
             )
@@ -304,13 +304,13 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#if queryParametersSchema}}
         {{#if queryParametersSchema.requiredProperties}}
-        query_params = {{queryParametersSchema.jsonPathPiece.camelCase}}.validate(
+        query_params = {{queryParametersSchema.jsonPathPiece.pascalCase}}.validate(
             query_params,
             configuration=self.api_client.schema_configuration
         )
         {{else}}
         if query_params is not None:
-            query_params = {{queryParametersSchema.jsonPathPiece.camelCase}}.validate(
+            query_params = {{queryParametersSchema.jsonPathPiece.pascalCase}}.validate(
                 query_params,
                 configuration=self.api_client.schema_configuration
             )
@@ -318,13 +318,13 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#if headerParametersSchema}}
         {{#if headerParametersSchema.requiredProperties}}
-        header_params = {{headerParametersSchema.jsonPathPiece.camelCase}}.validate(
+        header_params = {{headerParametersSchema.jsonPathPiece.pascalCase}}.validate(
             header_params,
             configuration=self.api_client.schema_configuration
         )
         {{else}}
         if header_params is not None:
-            header_params = {{headerParametersSchema.jsonPathPiece.camelCase}}.validate(
+            header_params = {{headerParametersSchema.jsonPathPiece.pascalCase}}.validate(
                 header_params,
                 configuration=self.api_client.schema_configuration
             )
@@ -332,13 +332,13 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#if cookieParametersSchema}}
         {{#if cookieParametersSchema.requiredProperties}}
-        cookie_params = {{cookieParametersSchema.jsonPathPiece.camelCase}}.validate(
+        cookie_params = {{cookieParametersSchema.jsonPathPiece.pascalCase}}.validate(
             cookie_params,
             configuration=self.api_client.schema_configuration
         )
         {{else}}
         if cookie_params is not None:
-            cookie_params = {{cookieParametersSchema.jsonPathPiece.camelCase}}.validate(
+            cookie_params = {{cookieParametersSchema.jsonPathPiece.pascalCase}}.validate(
                 cookie_params,
                 configuration=self.api_client.schema_configuration
             )
@@ -380,7 +380,7 @@ class BaseApi(api_client.Api):
     {{#if requestBodySchema}}
 
         fields, serialized_body = self._get_fields_and_body(
-            request_body=request_body.{{requestBody.jsonPathPiece.camelCase}},
+            request_body=request_body.{{requestBody.jsonPathPiece.pascalCase}},
             body=body,
             content_type=content_type,
             headers=headers
@@ -616,12 +616,12 @@ class BaseApi(api_client.Api):
 {{/if}}
 
 
-class {{operationId.camelCase}}(BaseApi):
+class {{operationId.pascalCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId.snakeCase fn names
     {{operationId.snakeCase}} = BaseApi._{{operationId.snakeCase}}
 
 
-class ApiFor{{httpMethod.camelCase}}(BaseApi):
+class ApiFor{{httpMethod.pascalCase}}(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
     {{httpMethod.original}} = BaseApi._{{operationId.snakeCase}}
 {{/with}}

@@ -30,7 +30,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -43,8 +43,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap validatedPayload =
     AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1.validate(
-    MapMaker.makeMap(
-    ),
+    new AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMapBuilder()
+        .additionalProperty(
+            "someAdditionalProperty",
+            Arrays.asList(
+                "_abc"
+            )
+        )
+    .build(),
     configuration
 );
 ```
@@ -58,7 +64,7 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap val
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate([Map<?, ?>](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate([Map&lt;?, ?&gt;](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesWithArrayOfEnumsMapBuilder
 public class AdditionalPropertiesWithArrayOfEnumsMapBuilder<br>
@@ -66,10 +72,16 @@ builder for `Map<String, List<String>>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | List<String> | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesWithArrayOfEnumsMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, List<String>> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalPropertiesWithArrayOfEnumsMapBuilder](#additionalpropertieswitharrayofenumsmapbuilder) | additionalProperty(String key, List<String> value) |
 
 ## AdditionalPropertiesWithArrayOfEnumsMap
 public static class AdditionalPropertiesWithArrayOfEnumsMap<br>
@@ -94,7 +106,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -107,11 +119,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
     AdditionalPropertiesWithArrayOfEnums.AdditionalProperties.validate(
-    new .AdditionalPropertiesListBuilder(
-        Arrays.asList(
-            "_abc"
-        )
-    ).build(),
+    new AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListBuilder()
+        .add("_abc")
+
+    .build(),
     configuration
 );
 ```
@@ -133,7 +144,7 @@ builder for `List<String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AdditionalPropertiesListBuilder()<br>Creates an empty list |

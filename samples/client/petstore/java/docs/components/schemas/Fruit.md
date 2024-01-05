@@ -37,20 +37,34 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [FruitMap](#fruitmap) | validate([Map<?, ?>](#fruitmapbuilder) arg, SchemaConfiguration configuration) |
+| [FruitMap](#fruitmap) | validate([Map&lt;?, ?&gt;](#fruitmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FruitMapBuilder
 public class FruitMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **color** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FruitMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [FruitMapBuilder](#fruitmapbuilder) | color(String value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, Void value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, boolean value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, String value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, int value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, float value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, long value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, double value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, List<?> value) |
+| [FruitMapBuilder](#fruitmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## FruitMap
 public static class FruitMap<br>
@@ -63,7 +77,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [FruitMap](#fruitmap) | of([Map<String, ? extends @Nullable Object>](#fruitmapbuilder) arg, SchemaConfiguration configuration) |
 | String | color()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Color
 public static class Color<br>

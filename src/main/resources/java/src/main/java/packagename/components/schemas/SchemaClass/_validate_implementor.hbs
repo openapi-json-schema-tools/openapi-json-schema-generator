@@ -15,7 +15,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
         {{/eq}}
         {{#eq this "object"}}
 
-public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     LinkedHashMap<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> properties = new LinkedHashMap<>();
     for(Map.Entry<?, ?> entry: arg.entrySet()) {
         @Nullable Object entryKey = entry.getKey();
@@ -47,13 +47,13 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
     }
     FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> castProperties = new FrozenMap<>(properties);
             {{#if ../mapOutputJsonPathPiece}}
-    return new {{mapOutputJsonPathPiece.camelCase}}(castProperties);
+    return new {{mapOutputJsonPathPiece.pascalCase}}(castProperties);
             {{else}}
     return castProperties;
             {{/if}}
 }
 
-public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -67,7 +67,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
         {{#eq this "array"}}
 
 @Override
-public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items = new ArrayList<>();
     int i = 0;
     for (Object item: arg) {
@@ -95,13 +95,13 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
     }
     FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);
             {{#if ../arrayOutputJsonPathPiece}}
-    return new {{../arrayOutputJsonPathPiece.camelCase}}(newInstanceItems);
+    return new {{../arrayOutputJsonPathPiece.pascalCase}}(newInstanceItems);
             {{else}}
     return newInstanceItems;
             {{/if}}
 }
 
-public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -324,7 +324,7 @@ public String validate(UUID arg, SchemaConfiguration configuration) throws Valid
 }
 
 @Override
-public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items = new ArrayList<>();
     int i = 0;
     for (Object item: arg) {
@@ -352,13 +352,13 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{e
     }
     FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);
             {{#if arrayOutputJsonPathPiece}}
-    return new {{arrayOutputJsonPathPiece.camelCase}}(newInstanceItems);
+    return new {{arrayOutputJsonPathPiece.pascalCase}}(newInstanceItems);
             {{else}}
     return newInstanceItems;
             {{/if}}
 }
 
-public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -369,7 +369,7 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{e
 }
 
 @Override
-public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     LinkedHashMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> properties = new LinkedHashMap<>();
     for(Map.Entry<?, ?> entry: arg.entrySet()) {
         @Nullable Object entryKey = entry.getKey();
@@ -401,13 +401,13 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
     }
     FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> castProperties = new FrozenMap<>(properties);
             {{#if ../mapOutputJsonPathPiece}}
-    return new {{mapOutputJsonPathPiece.camelCase}}(castProperties);
+    return new {{mapOutputJsonPathPiece.pascalCase}}(castProperties);
             {{else}}
     return castProperties;
             {{/if}}
 }
 
-public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? extends @Nullable Object{{/with}}>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? extends @Nullable Object{{/with}}>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0]");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -421,49 +421,49 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
     {{#and enumInfo enumInfo.typeToValues.null}}
 
 @Override
-public Void validate(Null{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+public Void validate(Null{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.boolean}}
 
 @Override
-public boolean validate(Boolean{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+public boolean validate(Boolean{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.string}}
 
 @Override
-public String validate(String{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+public String validate(String{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Integer}}
 
 @Override
-public int validate(Integer{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+public int validate(Integer{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Long}}
 
 @Override
-public long validate(Long{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+public long validate(Long{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (long) validate((Number) arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Float}}
 
 @Override
-public float validate(Float{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+public float validate(Float{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg.value(), configuration);
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Double}}
 
 @Override
-public double validate(Double{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+public double validate(Double{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (double) validate((Number) arg.value(), configuration);
 }
     {{/and}}

@@ -29,7 +29,7 @@ model with an invalid class name for python
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 SpecialModelname.SpecialModelnameMap validatedPayload =
     SpecialModelname.SpecialModelname1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "a",
-            "a"
-        )
-    ),
+    new SpecialModelname.SpecialModelnameMapBuilder()
+        .a("a")
+
+    .build(),
     configuration
 );
 ```
@@ -61,19 +59,33 @@ SpecialModelname.SpecialModelnameMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SpecialModelnameMap](#specialmodelnamemap) | validate([Map<?, ?>](#specialmodelnamemapbuilder) arg, SchemaConfiguration configuration) |
+| [SpecialModelnameMap](#specialmodelnamemap) | validate([Map&lt;?, ?&gt;](#specialmodelnamemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SpecialModelnameMapBuilder
 public class SpecialModelnameMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **a** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SpecialModelnameMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | a(String value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, Void value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, boolean value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, String value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, int value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, float value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, long value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, double value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, List<?> value) |
+| [SpecialModelnameMapBuilder](#specialmodelnamemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## SpecialModelnameMap
 public static class SpecialModelnameMap<br>
@@ -86,7 +98,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [SpecialModelnameMap](#specialmodelnamemap) | of([Map<String, ? extends @Nullable Object>](#specialmodelnamemapbuilder) arg, SchemaConfiguration configuration) |
 | String | a()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## A
 public static class A<br>

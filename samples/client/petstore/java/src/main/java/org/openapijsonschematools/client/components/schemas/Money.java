@@ -14,12 +14,14 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.DecimalJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -80,8 +82,92 @@ public class Money {
             return (String) value;
         }
     }
-    public static class MoneyMapBuilder {
-        // empty mapping
+    
+    public interface SetterForAmount <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAmount(Map<String, @Nullable Object> instance);
+        
+        default T amount(String value) {
+            var instance = getInstance();
+            instance.put("amount", value);
+            return getBuilderAfterAmount(instance);
+        }
+    }
+    
+    public interface SetterForCurrency <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCurrency(Map<String, @Nullable Object> instance);
+        
+        default T currency(String value) {
+            var instance = getInstance();
+            instance.put("currency", value);
+            return getBuilderAfterCurrency(instance);
+        }
+        
+        default T currency(Currency.StringCurrencyEnums value) {
+            var instance = getInstance();
+            instance.put("currency", value.value());
+            return getBuilderAfterCurrency(instance);
+        }
+    }
+    
+    public static class MoneyMap00Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "amount",
+            "currency"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MoneyMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class MoneyMap01Builder implements SetterForCurrency<MoneyMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public MoneyMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public MoneyMap00Builder getBuilderAfterCurrency(Map<String, @Nullable Object> instance) {
+            return new MoneyMap00Builder(instance);
+        }
+    }
+    
+    public static class MoneyMap10Builder implements SetterForAmount<MoneyMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public MoneyMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public MoneyMap00Builder getBuilderAfterAmount(Map<String, @Nullable Object> instance) {
+            return new MoneyMap00Builder(instance);
+        }
+    }
+    
+    public static class MoneyMapBuilder implements SetterForAmount<MoneyMap01Builder>, SetterForCurrency<MoneyMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public MoneyMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public MoneyMap01Builder getBuilderAfterAmount(Map<String, @Nullable Object> instance) {
+            return new MoneyMap01Builder(instance);
+        }
+        public MoneyMap10Builder getBuilderAfterCurrency(Map<String, @Nullable Object> instance) {
+            return new MoneyMap10Builder(instance);
+        }
     }
     
     

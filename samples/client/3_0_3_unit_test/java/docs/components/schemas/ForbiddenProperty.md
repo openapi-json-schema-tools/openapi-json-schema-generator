@@ -36,20 +36,42 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map<?, ?>](#forbiddenpropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map&lt;?, ?&gt;](#forbiddenpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ForbiddenPropertyMapBuilder
 public class ForbiddenPropertyMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | ? extends @Nullable Object |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ForbiddenPropertyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(Void value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(boolean value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(String value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(int value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(float value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(long value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(double value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(List<?> value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | foo(Map<String, ?> value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, Void value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, boolean value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, String value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, int value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, float value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, long value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, double value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, List<?> value) |
+| [ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ForbiddenPropertyMap
 public static class ForbiddenPropertyMap<br>
@@ -62,7 +84,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ForbiddenPropertyMap](#forbiddenpropertymap) | of([Map<String, ? extends @Nullable Object>](#forbiddenpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo
 public static class Foo<br>

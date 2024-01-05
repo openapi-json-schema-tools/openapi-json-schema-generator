@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
     ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "invalid-name",
-            "a"
-        )
-    ),
+    new ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMapBuilder()
+        .setInvalidHyphenMinusName("a")
+
+    .build(),
     configuration
 );
 ```
@@ -59,20 +57,73 @@ ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map<?, ?>](#reqpropsfromexplicitaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map&lt;?, ?&gt;](#reqpropsfromexplicitaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ReqPropsFromExplicitAddPropsMap00Builder
+public class ReqPropsFromExplicitAddPropsMap00Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromExplicitAddPropsMap00Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [ReqPropsFromExplicitAddPropsMap00Builder](#reqpropsfromexplicitaddpropsmap00builder) | additionalProperty(String key, String value) |
+
+## ReqPropsFromExplicitAddPropsMap01Builder
+public class ReqPropsFromExplicitAddPropsMap01Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromExplicitAddPropsMap01Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromExplicitAddPropsMap00Builder](#reqpropsfromexplicitaddpropsmap00builder) | validName(String value) |
+
+## ReqPropsFromExplicitAddPropsMap10Builder
+public class ReqPropsFromExplicitAddPropsMap10Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromExplicitAddPropsMap10Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromExplicitAddPropsMap00Builder](#reqpropsfromexplicitaddpropsmap00builder) | setInvalidHyphenMinusName(String value) |
+
 ## ReqPropsFromExplicitAddPropsMapBuilder
 public class ReqPropsFromExplicitAddPropsMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **invalid-name** | String |  | |
-| **validName** | String |  | |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromExplicitAddPropsMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ReqPropsFromExplicitAddPropsMap01Builder](#reqpropsfromexplicitaddpropsmap01builder) | setInvalidHyphenMinusName(String value) |
+| [ReqPropsFromExplicitAddPropsMap10Builder](#reqpropsfromexplicitaddpropsmap10builder) | validName(String value) |
 
 ## ReqPropsFromExplicitAddPropsMap
 public static class ReqPropsFromExplicitAddPropsMap<br>

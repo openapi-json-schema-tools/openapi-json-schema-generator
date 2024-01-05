@@ -17,6 +17,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -300,8 +302,89 @@ public class Schema {
             return get(name);
         }
     }
-    public static class SchemaMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForSomeProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSomeProp(Map<String, @Nullable Object> instance);
+        
+        default T someProp(Void value) {
+            var instance = getInstance();
+            instance.put("someProp", null);
+            return getBuilderAfterSomeProp(instance);
+        }
+        
+        default T someProp(boolean value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+        
+        default T someProp(String value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+        
+        default T someProp(int value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+        
+        default T someProp(float value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+        
+        default T someProp(long value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+        
+        default T someProp(double value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+        
+        default T someProp(List<?> value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+        
+        default T someProp(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("someProp", value);
+            return getBuilderAfterSomeProp(instance);
+        }
+    }
+    
+    public static class SchemaMapBuilder extends UnsetAddPropsSetter<SchemaMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForSomeProp<SchemaMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "someProp"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public SchemaMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SchemaMapBuilder getBuilderAfterSomeProp(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public SchemaMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

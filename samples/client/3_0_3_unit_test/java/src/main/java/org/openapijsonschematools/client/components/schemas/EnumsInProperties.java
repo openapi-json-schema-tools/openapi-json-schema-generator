@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -198,8 +200,78 @@ public class EnumsInProperties {
             return get(name);
         }
     }
-    public static class EnumsInPropertiesMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForBar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
+        
+        default T bar(String value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(StringBarEnums value) {
+            var instance = getInstance();
+            instance.put("bar", value.value());
+            return getBuilderAfterBar(instance);
+        }
+    }
+    
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(StringFooEnums value) {
+            var instance = getInstance();
+            instance.put("foo", value.value());
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
+    public static class EnumsInPropertiesMap0Builder extends UnsetAddPropsSetter<EnumsInPropertiesMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForFoo<EnumsInPropertiesMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "bar",
+            "foo"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public EnumsInPropertiesMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public EnumsInPropertiesMap0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public EnumsInPropertiesMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class EnumsInPropertiesMapBuilder implements SetterForBar<EnumsInPropertiesMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public EnumsInPropertiesMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public EnumsInPropertiesMap0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new EnumsInPropertiesMap0Builder(instance);
+        }
     }
     
     

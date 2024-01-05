@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReturnSchema.ReturnSchema1](#returnschema1)<br> schema class |
-| static class | [ReturnSchema.ReturnMapBuilder](#returnmapbuilder)<br> builder for Map payloads |
+| static class | [ReturnSchema.ReturnMapBuilder1](#returnmapbuilder1)<br> builder for Map payloads |
 | static class | [ReturnSchema.ReturnMap](#returnmap)<br> output class for Map payloads |
 | static class | [ReturnSchema.ReturnSchema2](#returnschema2)<br> schema class |
 
@@ -39,20 +39,35 @@ Model for testing reserved words
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [ReturnMap](#returnmap) | validate([Map<?, ?>](#returnmapbuilder) arg, SchemaConfiguration configuration) |
+| [ReturnMap](#returnmap) | validate([Map&lt;?, ?&gt;](#returnmapbuilder1) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ReturnMapBuilder
-public class ReturnMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ReturnMapBuilder1
+public class ReturnMapBuilder1<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **return** | Number | this is a reserved python keyword | [optional] value must be a 32 bit integer |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReturnMapBuilder1()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ReturnMapBuilder1](#returnmapbuilder1) | setReturn(int value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | setReturn(float value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, Void value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, boolean value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, String value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, int value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, float value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, long value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, double value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, List<?> value) |
+| [ReturnMapBuilder1](#returnmapbuilder1) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ReturnMap
 public static class ReturnMap<br>
@@ -63,9 +78,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReturnMap](#returnmap) | of([Map<String, ? extends @Nullable Object>](#returnmapbuilder) arg, SchemaConfiguration configuration) |
+| static [ReturnMap](#returnmap) | of([Map<String, ? extends @Nullable Object>](#returnmapbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["return"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ReturnSchema2
 public static class ReturnSchema2<br>

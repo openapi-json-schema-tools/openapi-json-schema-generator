@@ -14,6 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -120,8 +122,59 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             return get(name);
         }
     }
-    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForAlpha <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAlpha(Map<String, @Nullable Object> instance);
+        
+        default T alpha(int value) {
+            var instance = getInstance();
+            instance.put("alpha", value);
+            return getBuilderAfterAlpha(instance);
+        }
+        
+        default T alpha(float value) {
+            var instance = getInstance();
+            instance.put("alpha", value);
+            return getBuilderAfterAlpha(instance);
+        }
+        
+        default T alpha(long value) {
+            var instance = getInstance();
+            instance.put("alpha", value);
+            return getBuilderAfterAlpha(instance);
+        }
+        
+        default T alpha(double value) {
+            var instance = getInstance();
+            instance.put("alpha", value);
+            return getBuilderAfterAlpha(instance);
+        }
+    }
+    
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder extends UnsetAddPropsSetter<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForAlpha<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "alpha"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder getBuilderAfterAlpha(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

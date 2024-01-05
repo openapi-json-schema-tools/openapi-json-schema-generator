@@ -29,15 +29,15 @@ Number
                                     {{#if arrayOutputJsonPathPiece}}
                                         {{#if useLink}}
                                             {{#if fullRefModule}}
-[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{arrayOutputJsonPathPiece.anchorPiece}})
+[{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{arrayOutputJsonPathPiece.kebabCase}})
                                             {{~else}}
-[{{arrayOutputJsonPathPiece.camelCase}}](#{{arrayOutputJsonPathPiece.anchorPiece}})
+[{{arrayOutputJsonPathPiece.pascalCase}}](#{{arrayOutputJsonPathPiece.kebabCase}})
                                             {{~/if}}
                                         {{else}}
                                             {{#if fullRefModule}}
-{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}
                                             {{~else}}
-{{arrayOutputJsonPathPiece.camelCase}}
+{{arrayOutputJsonPathPiece.pascalCase}}
                                             {{~/if}}
                                         {{/if}}
                                     {{else}}
@@ -48,15 +48,15 @@ FrozenList<?>
                                         {{#if mapOutputJsonPathPiece}}
                                             {{#if useLink}}
                                                 {{#if fullRefModule}}
-[{{fullRefModule}}.{{mapOutputJsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.anchorPiece}})
+[{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}})
                                                 {{~else}}
-[{{mapOutputJsonPathPiece.camelCase}}](#{{mapOutputJsonPathPiece.anchorPiece}})
+[{{mapOutputJsonPathPiece.pascalCase}}](#{{mapOutputJsonPathPiece.kebabCase}})
                                                 {{~/if}}
                                             {{else}}
                                                 {{#if fullRefModule}}
-{{fullRefModule}}.{{mapOutputJsonPathPiece.camelCase}}
+{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}
                                                 {{~else}}
-{{mapOutputJsonPathPiece.camelCase}}
+{{mapOutputJsonPathPiece.pascalCase}}
                                                 {{~/if}}
                                             {{/if}}
                                         {{~else}}
@@ -96,15 +96,15 @@ FrozenMap<?>
                                         {{#if arrayOutputJsonPathPiece}}
                                             {{#if useLink}}
                                                 {{#if fullRefModule}}
-[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{arrayOutputJsonPathPiece.anchorPiece}})
+[{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{arrayOutputJsonPathPiece.kebabCase}})
                                                 {{~else}}
-[{{arrayOutputJsonPathPiece.camelCase}}](#{{arrayOutputJsonPathPiece.anchorPiece}})
+[{{arrayOutputJsonPathPiece.pascalCase}}](#{{arrayOutputJsonPathPiece.kebabCase}})
                                                 {{~/if}}
                                             {{else}}
                                                 {{#if fullRefModule}}
-{{#unless noAnnotations}}@Nullable {{/unless}}{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
+{{#unless noAnnotations}}@Nullable {{/unless}}{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}
                                                 {{~else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}{{arrayOutputJsonPathPiece.camelCase}}
+{{#unless noAnnotations}}@Nullable {{/unless}}{{arrayOutputJsonPathPiece.pascalCase}}
                                                 {{~/if}}
                                             {{/if}}
                                         {{else}}
@@ -115,15 +115,15 @@ FrozenMap<?>
                                             {{#if mapOutputJsonPathPiece}}
                                                 {{#if useLink}}
                                                     {{#if fullRefModule}}
-[{{fullRefModule}}.{{mapOutputJsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.anchorPiece}})
+[{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}})
                                                     {{~else}}
-[{{mapOutputJsonPathPiece.camelCase}}](#{{mapOutputJsonPathPiece.anchorPiece}})
+[{{mapOutputJsonPathPiece.pascalCase}}](#{{mapOutputJsonPathPiece.kebabCase}})
                                                     {{~/if}}
                                                 {{else}}
                                                     {{#if fullRefModule}}
-{{#unless noAnnotations}}@Nullable {{/unless}}{{fullRefModule}}.{{mapOutputJsonPathPiece.camelCase}}
+{{#unless noAnnotations}}@Nullable {{/unless}}{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}
                                                     {{~else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}{{mapOutputJsonPathPiece.camelCase}}
+{{#unless noAnnotations}}@Nullable {{/unless}}{{mapOutputJsonPathPiece.pascalCase}}
                                                     {{~/if}}
                                                 {{/if}}
                                             {{~else}}

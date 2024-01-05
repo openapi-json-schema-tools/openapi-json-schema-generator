@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
@@ -21,6 +22,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -95,8 +97,81 @@ public class BananaReq {
             return (boolean) value;
         }
     }
-    public static class BananaReqMapBuilder {
-        // requiredProperties, optionalProperties, NO additionalProperties
+    
+    public interface SetterForLengthCm <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterLengthCm(Map<String, Object> instance);
+        
+        default T lengthCm(int value) {
+            var instance = getInstance();
+            instance.put("lengthCm", value);
+            return getBuilderAfterLengthCm(instance);
+        }
+        
+        default T lengthCm(float value) {
+            var instance = getInstance();
+            instance.put("lengthCm", value);
+            return getBuilderAfterLengthCm(instance);
+        }
+        
+        default T lengthCm(long value) {
+            var instance = getInstance();
+            instance.put("lengthCm", value);
+            return getBuilderAfterLengthCm(instance);
+        }
+        
+        default T lengthCm(double value) {
+            var instance = getInstance();
+            instance.put("lengthCm", value);
+            return getBuilderAfterLengthCm(instance);
+        }
+    }
+    
+    public interface SetterForSweet <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterSweet(Map<String, Object> instance);
+        
+        default T sweet(boolean value) {
+            var instance = getInstance();
+            instance.put("sweet", value);
+            return getBuilderAfterSweet(instance);
+        }
+    }
+    
+    public static class BananaReqMap0Builder implements BaseBuilder<Object>, SetterForSweet<BananaReqMap0Builder> {
+        private final Map<String, Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "lengthCm",
+            "sweet"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public BananaReqMap0Builder(Map<String, Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Object> build() {
+            return instance;
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public BananaReqMap0Builder getBuilderAfterSweet(Map<String, Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class BananaReqMapBuilder implements SetterForLengthCm<BananaReqMap0Builder> {
+        private final Map<String, Object> instance;
+        public BananaReqMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public BananaReqMap0Builder getBuilderAfterLengthCm(Map<String, Object> instance) {
+            return new BananaReqMap0Builder(instance);
+        }
     }
     
     

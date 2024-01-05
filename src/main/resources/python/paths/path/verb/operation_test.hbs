@@ -17,8 +17,8 @@ from .. import ApiTestMixin
 
 
 {{#with operation}}
-class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
-    {{httpMethod.camelCase}} unit test stubs
+class Test{{httpMethod.pascalCase}}(ApiTestMixin, unittest.TestCase):
+    {{httpMethod.pascalCase}} unit test stubs
 {{#if summary}}
     # {{{summary.codeEscaped}}}  # noqa: E501
 {{/if}}
@@ -27,7 +27,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
         disabled_json_schema_keywords={'format'}
     )
     used_api_client = api_client.ApiClient(configuration=api_config, schema_configuration=schema_config)
-    api = {{httpMethod.original}}.ApiFor{{httpMethod.camelCase}}(api_client=used_api_client)  # noqa: E501
+    api = {{httpMethod.original}}.ApiFor{{httpMethod.pascalCase}}(api_client=used_api_client)  # noqa: E501
 
 {{#if statusCodeResponses}}
     {{#each statusCodeResponses}}
@@ -35,10 +35,10 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
     response_status = {{@key}}
             {{#if refInfo}}
                 {{#with getDeepestRef}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.pascalCase }}
                 {{/with}}
             {{else}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.pascalCase }}
             {{/if}}
         {{/if}}
     {{/each}}
@@ -49,10 +49,10 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
     response_status = {{@key}}99
                 {{#if refInfo}}
                     {{#with getDeepestRef}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.pascalCase }}
                     {{/with}}
                 {{else}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.pascalCase }}
                 {{/if}}
             {{/if}}
         {{/each}}
@@ -61,10 +61,10 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
     response_status = 200
             {{#if refInfo}}
                 {{#with getDeepestRef}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.camelCase }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=../jsonPathPiece.snakeCase responseClassName=../jsonPathPiece.pascalCase }}
                 {{/with}}
             {{else}}
-    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.camelCase }}
+    {{> paths/path/verb/_helper_operation_test_response_content responseModuleName=jsonPathPiece.snakeCase responseClassName=jsonPathPiece.pascalCase }}
             {{/if}}
         {{/with}}
     {{/if}}

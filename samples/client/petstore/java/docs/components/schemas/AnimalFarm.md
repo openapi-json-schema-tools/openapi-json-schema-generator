@@ -25,7 +25,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -38,9 +38,9 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 AnimalFarm.AnimalFarmList validatedPayload =
     AnimalFarm.AnimalFarm1.validate(
-    new AnimalFarm.AnimalFarmListBuilder(
-        Arrays.asList(
-            MapMaker.makeMap(
+    new AnimalFarm.AnimalFarmListBuilder()
+        .add(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, String>(
                     "className",
                     "a"
@@ -51,7 +51,7 @@ AnimalFarm.AnimalFarmList validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -73,7 +73,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | AnimalFarmListBuilder()<br>Creates an empty list |

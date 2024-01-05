@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -46,16 +46,12 @@ Void validatedPayload = Apple.Apple1.validate(
 // Map validation
 Apple.AppleMap validatedPayload =
     Apple.Apple1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "cultivar",
-            "IaQnEaqioxT	oASzjxaSH"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "origin",
-            "IaQnEaqioxT	oASzjxaSH"
-        )
-    ),
+    new Apple.AppleMapBuilder()
+        .cultivar("IaQnEaqioxT	oASzjxaSH")
+
+        .origin("IaQnEaqioxT	oASzjxaSH")
+
+    .build(),
     configuration
 );
 ```
@@ -71,20 +67,49 @@ Apple.AppleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
-| [AppleMap](#applemap) | validate([Map<?, ?>](#applemapbuilder) arg, SchemaConfiguration configuration) |
+| [AppleMap](#applemap) | validate([Map&lt;?, ?&gt;](#applemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AppleMapBuilder
-public class AppleMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## AppleMap0Builder
+public class AppleMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **cultivar** | String |  | |
-| **origin** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AppleMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [AppleMap0Builder](#applemap0builder) | origin(String value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, Void value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, boolean value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, String value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, int value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, float value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, long value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, double value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, List<?> value) |
+| [AppleMap0Builder](#applemap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## AppleMapBuilder
+public class AppleMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AppleMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [AppleMap0Builder](#applemap0builder) | cultivar(String value) |
 
 ## AppleMap
 public static class AppleMap<br>
@@ -98,7 +123,7 @@ A class to store validated Map payloads
 | static [AppleMap](#applemap) | of([Map<String, ? extends @Nullable Object>](#applemapbuilder) arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | String | origin()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Origin
 public static class Origin<br>
@@ -111,7 +136,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -150,7 +175,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

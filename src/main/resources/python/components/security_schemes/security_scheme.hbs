@@ -8,13 +8,13 @@
 
         {{/if}}
 {{> _helper_imports }}
-{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{jsonPathPiece.pascalCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
     {{else}}
 from {{packageName}}.shared_imports.security_scheme_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
         {{#eq type "apiKey"}}
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
+class {{jsonPathPiece.pascalCase}}(security_schemes.ApiKeySecurityScheme):
             {{#if description}}
     '''
     {{description.original}}
@@ -35,7 +35,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
         {{else}}
             {{#eq type "http"}}
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Basic{{/eq}}{{#eq scheme "bearer"}}Bearer{{/eq}}{{#eq scheme "signature"}}Signature{{/eq}}{{#eq scheme "digest"}}Digest{{/eq}}SecurityScheme):
+class {{jsonPathPiece.pascalCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Basic{{/eq}}{{#eq scheme "bearer"}}Bearer{{/eq}}{{#eq scheme "signature"}}Signature{{/eq}}{{#eq scheme "digest"}}Digest{{/eq}}SecurityScheme):
                 {{#if description}}
     '''
     {{description.original}}
@@ -47,7 +47,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Bas
             {{else}}
                 {{#eq type "mutualTLS"}}
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
+class {{jsonPathPiece.pascalCase}}(security_schemes.MutualTLSSecurityScheme):
                     {{#if description}}
     '''
     {{description.original}}
@@ -58,7 +58,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
                 {{else}}
                     {{#eq type "oauth2"}}
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
+class {{jsonPathPiece.pascalCase}}(security_schemes.OAuth2SecurityScheme):
                         {{#if description}}
     '''
     {{description.original}}
@@ -124,7 +124,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
                     {{else}}
                         {{#eq type "openIdConnect"}}
 @dataclasses.dataclass
-class {{jsonPathPiece.camelCase}}(security_schemes.OpenIdConnectSecurityScheme):
+class {{jsonPathPiece.pascalCase}}(security_schemes.OpenIdConnectSecurityScheme):
                             {{#if description}}
     '''
     {{description.original}}

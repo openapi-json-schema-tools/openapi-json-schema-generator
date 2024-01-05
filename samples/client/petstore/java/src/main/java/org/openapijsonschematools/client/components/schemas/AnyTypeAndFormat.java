@@ -17,6 +17,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -1832,8 +1834,593 @@ public class AnyTypeAndFormat {
             return get(name);
         }
     }
-    public static class AnyTypeAndFormatMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForUuidSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
+        
+        default T setUuid(Void value) {
+            var instance = getInstance();
+            instance.put("uuid", null);
+            return getBuilderAfterUuidSchema(instance);
+        }
+        
+        default T setUuid(boolean value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+        
+        default T setUuid(String value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+        
+        default T setUuid(int value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+        
+        default T setUuid(float value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+        
+        default T setUuid(long value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+        
+        default T setUuid(double value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+        
+        default T setUuid(List<?> value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+        
+        default T setUuid(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+    }
+    
+    public interface SetterForDate <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDate(Map<String, @Nullable Object> instance);
+        
+        default T date(Void value) {
+            var instance = getInstance();
+            instance.put("date", null);
+            return getBuilderAfterDate(instance);
+        }
+        
+        default T date(boolean value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+        
+        default T date(String value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+        
+        default T date(int value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+        
+        default T date(float value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+        
+        default T date(long value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+        
+        default T date(double value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+        
+        default T date(List<?> value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+        
+        default T date(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("date", value);
+            return getBuilderAfterDate(instance);
+        }
+    }
+    
+    public interface SetterForDatetime <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDatetime(Map<String, @Nullable Object> instance);
+        
+        default T setDateHyphenMinusTime(Void value) {
+            var instance = getInstance();
+            instance.put("date-time", null);
+            return getBuilderAfterDatetime(instance);
+        }
+        
+        default T setDateHyphenMinusTime(boolean value) {
+            var instance = getInstance();
+            instance.put("date-time", value);
+            return getBuilderAfterDatetime(instance);
+        }
+        
+        default T setDateHyphenMinusTime(String value) {
+            var instance = getInstance();
+            instance.put("date-time", value);
+            return getBuilderAfterDatetime(instance);
+        }
+        
+        default T setDateHyphenMinusTime(int value) {
+            var instance = getInstance();
+            instance.put("date-time", value);
+            return getBuilderAfterDatetime(instance);
+        }
+        
+        default T setDateHyphenMinusTime(float value) {
+            var instance = getInstance();
+            instance.put("date-time", value);
+            return getBuilderAfterDatetime(instance);
+        }
+        
+        default T setDateHyphenMinusTime(long value) {
+            var instance = getInstance();
+            instance.put("date-time", value);
+            return getBuilderAfterDatetime(instance);
+        }
+        
+        default T setDateHyphenMinusTime(double value) {
+            var instance = getInstance();
+            instance.put("date-time", value);
+            return getBuilderAfterDatetime(instance);
+        }
+        
+        default T setDateHyphenMinusTime(List<?> value) {
+            var instance = getInstance();
+            instance.put("date-time", value);
+            return getBuilderAfterDatetime(instance);
+        }
+        
+        default T setDateHyphenMinusTime(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("date-time", value);
+            return getBuilderAfterDatetime(instance);
+        }
+    }
+    
+    public interface SetterForNumberSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance);
+        
+        default T setNumber(Void value) {
+            var instance = getInstance();
+            instance.put("number", null);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(boolean value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(String value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(int value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(float value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(long value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(double value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(List<?> value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+        
+        default T setNumber(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("number", value);
+            return getBuilderAfterNumberSchema(instance);
+        }
+    }
+    
+    public interface SetterForBinary <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBinary(Map<String, @Nullable Object> instance);
+        
+        default T binary(Void value) {
+            var instance = getInstance();
+            instance.put("binary", null);
+            return getBuilderAfterBinary(instance);
+        }
+        
+        default T binary(boolean value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+        
+        default T binary(String value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+        
+        default T binary(int value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+        
+        default T binary(float value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+        
+        default T binary(long value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+        
+        default T binary(double value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+        
+        default T binary(List<?> value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+        
+        default T binary(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("binary", value);
+            return getBuilderAfterBinary(instance);
+        }
+    }
+    
+    public interface SetterForInt32 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt32(Map<String, @Nullable Object> instance);
+        
+        default T int32(Void value) {
+            var instance = getInstance();
+            instance.put("int32", null);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(boolean value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(String value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(int value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(float value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(long value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(double value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(List<?> value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+    }
+    
+    public interface SetterForInt64 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt64(Map<String, @Nullable Object> instance);
+        
+        default T int64(Void value) {
+            var instance = getInstance();
+            instance.put("int64", null);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(boolean value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(String value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(int value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(float value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(long value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(double value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(List<?> value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+        
+        default T int64(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("int64", value);
+            return getBuilderAfterInt64(instance);
+        }
+    }
+    
+    public interface SetterForDoubleSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance);
+        
+        default T setDouble(Void value) {
+            var instance = getInstance();
+            instance.put("double", null);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(boolean value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(String value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(int value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(float value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(long value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(double value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(List<?> value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+        
+        default T setDouble(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("double", value);
+            return getBuilderAfterDoubleSchema(instance);
+        }
+    }
+    
+    public interface SetterForFloatSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance);
+        
+        default T setFloat(Void value) {
+            var instance = getInstance();
+            instance.put("float", null);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(boolean value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(String value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(int value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(float value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(long value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(double value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(List<?> value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+        
+        default T setFloat(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("float", value);
+            return getBuilderAfterFloatSchema(instance);
+        }
+    }
+    
+    public static class AnyTypeAndFormatMapBuilder extends UnsetAddPropsSetter<AnyTypeAndFormatMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForUuidSchema<AnyTypeAndFormatMapBuilder>, SetterForDate<AnyTypeAndFormatMapBuilder>, SetterForDatetime<AnyTypeAndFormatMapBuilder>, SetterForNumberSchema<AnyTypeAndFormatMapBuilder>, SetterForBinary<AnyTypeAndFormatMapBuilder>, SetterForInt32<AnyTypeAndFormatMapBuilder>, SetterForInt64<AnyTypeAndFormatMapBuilder>, SetterForDoubleSchema<AnyTypeAndFormatMapBuilder>, SetterForFloatSchema<AnyTypeAndFormatMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "uuid",
+            "date",
+            "date-time",
+            "number",
+            "binary",
+            "int32",
+            "int64",
+            "double",
+            "float"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AnyTypeAndFormatMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterDatetime(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterBinary(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterInt64(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public AnyTypeAndFormatMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

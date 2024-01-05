@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
@@ -213,8 +215,147 @@ public class Zebra {
             return getOrThrow(name);
         }
     }
-    public static class ZebraMapBuilder {
-        // Map<String, Object> because additionalProperties == true
+    
+    public interface SetterForClassName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterClassName(Map<String, @Nullable Object> instance);
+        
+        default T className(String value) {
+            var instance = getInstance();
+            instance.put("className", value);
+            return getBuilderAfterClassName(instance);
+        }
+        
+        default T className(StringClassNameEnums value) {
+            var instance = getInstance();
+            instance.put("className", value.value());
+            return getBuilderAfterClassName(instance);
+        }
+    }
+    
+    public interface SetterForType <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterType(Map<String, @Nullable Object> instance);
+        
+        default T type(String value) {
+            var instance = getInstance();
+            instance.put("type", value);
+            return getBuilderAfterType(instance);
+        }
+        
+        default T type(StringTypeEnums value) {
+            var instance = getInstance();
+            instance.put("type", value.value());
+            return getBuilderAfterType(instance);
+        }
+    }
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        
+        default T additionalProperty(String key, Void value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, null);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, float value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, long value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, double value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, List<?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+        
+        default T additionalProperty(String key, Map<String, ?> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class ZebraMap0Builder implements BaseBuilder<@Nullable Object>, SetterForType<ZebraMap0Builder>, SetterForAdditionalProperties<ZebraMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "className",
+            "type"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ZebraMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ZebraMap0Builder getBuilderAfterType(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ZebraMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class ZebraMapBuilder implements SetterForClassName<ZebraMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ZebraMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ZebraMap0Builder getBuilderAfterClassName(Map<String, @Nullable Object> instance) {
+            return new ZebraMap0Builder(instance);
+        }
     }
     
     

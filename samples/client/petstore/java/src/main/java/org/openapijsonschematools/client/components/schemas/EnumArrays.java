@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -308,8 +310,62 @@ public class EnumArrays {
             return get(name);
         }
     }
-    public static class EnumArraysMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForJustSymbol <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterJustSymbol(Map<String, @Nullable Object> instance);
+        
+        default T just_symbol(String value) {
+            var instance = getInstance();
+            instance.put("just_symbol", value);
+            return getBuilderAfterJustSymbol(instance);
+        }
+        
+        default T just_symbol(StringJustSymbolEnums value) {
+            var instance = getInstance();
+            instance.put("just_symbol", value.value());
+            return getBuilderAfterJustSymbol(instance);
+        }
+    }
+    
+    public interface SetterForArrayEnum <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayEnum(Map<String, @Nullable Object> instance);
+        
+        default T array_enum(List<String> value) {
+            var instance = getInstance();
+            instance.put("array_enum", value);
+            return getBuilderAfterArrayEnum(instance);
+        }
+    }
+    
+    public static class EnumArraysMapBuilder extends UnsetAddPropsSetter<EnumArraysMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForJustSymbol<EnumArraysMapBuilder>, SetterForArrayEnum<EnumArraysMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "just_symbol",
+            "array_enum"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public EnumArraysMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public EnumArraysMapBuilder getBuilderAfterJustSymbol(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public EnumArraysMapBuilder getBuilderAfterArrayEnum(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public EnumArraysMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

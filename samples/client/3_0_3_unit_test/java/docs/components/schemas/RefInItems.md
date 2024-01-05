@@ -25,7 +25,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -38,10 +38,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 RefInItems.RefInItemsList validatedPayload =
     RefInItems.RefInItems1.validate(
-    new RefInItems.RefInItemsListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new RefInItems.RefInItemsListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -63,7 +61,7 @@ builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | RefInItemsListBuilder()<br>Creates an empty list |

@@ -44,7 +44,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -57,26 +57,23 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ArrayTest.ArrayTestMap validatedPayload =
     ArrayTest.ArrayTest1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, List<?>>(
-            "array_of_string",
+    new ArrayTest.ArrayTestMapBuilder()
+        .array_of_string(
             Arrays.asList(
                 "a"
             )
-        ),
-        new AbstractMap.SimpleEntry<String, List<?>>(
-            "array_array_of_integer",
+        )
+        .array_array_of_integer(
             Arrays.asList(
                 Arrays.asList(
                     1L
                 )
             )
-        ),
-        new AbstractMap.SimpleEntry<String, List<?>>(
-            "array_array_of_model",
+        )
+        .array_array_of_model(
             Arrays.asList(
                 Arrays.asList(
-                    MapMaker.makeMap(
+                    MapUtils.makeMap(
                         new AbstractMap.SimpleEntry<String, String>(
                             "bar",
                             "a"
@@ -89,7 +86,7 @@ ArrayTest.ArrayTestMap validatedPayload =
                 )
             )
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -103,21 +100,35 @@ ArrayTest.ArrayTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayTestMap](#arraytestmap) | validate([Map<?, ?>](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayTestMap](#arraytestmap) | validate([Map&lt;?, ?&gt;](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayTestMapBuilder
 public class ArrayTestMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **array_of_string** | List<String> |  | [optional] |
-| **array_array_of_integer** | List<List<Number>> |  | [optional] |
-| **array_array_of_model** | List<List<Map<String, ? extends @Nullable Object>>> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayTestMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | array_of_string(List<String> value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | array_array_of_integer(List<List<Number>> value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | array_array_of_model(List<List<Map<String, @Nullable Object>>> value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, Void value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, boolean value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, String value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, int value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, float value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, long value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, double value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ArrayTestMapBuilder](#arraytestmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ArrayTestMap
 public static class ArrayTestMap<br>
@@ -132,7 +143,7 @@ A class to store validated Map payloads
 | [ArrayOfStringList](#arrayofstringlist) | array_of_string()<br>[optional] |
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | array_array_of_integer()<br>[optional] |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | array_array_of_model()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayArrayOfModel
 public static class ArrayArrayOfModel<br>
@@ -145,7 +156,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -158,10 +169,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayArrayOfModelList validatedPayload =
     ArrayTest.ArrayArrayOfModel.validate(
-    new .ArrayArrayOfModelListBuilder(
-        Arrays.asList(
+    new ArrayTest.ArrayArrayOfModelListBuilder()
+        .add(
             Arrays.asList(
-                MapMaker.makeMap(
+                MapUtils.makeMap(
                     new AbstractMap.SimpleEntry<String, String>(
                         "bar",
                         "a"
@@ -173,7 +184,7 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -195,7 +206,7 @@ builder for `List<List<Map<String, @Nullable Object>>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayArrayOfModelListBuilder()<br>Creates an empty list |
@@ -229,7 +240,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -242,9 +253,9 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ItemsList1 validatedPayload =
     ArrayTest.Items3.validate(
-    new .ItemsListBuilder1(
-        Arrays.asList(
-            MapMaker.makeMap(
+    new ArrayTest.ItemsListBuilder1()
+        .add(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, String>(
                     "bar",
                     "a"
@@ -255,7 +266,7 @@ ArrayTest.ItemsList1 validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -277,7 +288,7 @@ builder for `List<Map<String, @Nullable Object>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder1()<br>Creates an empty list |
@@ -311,7 +322,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -324,13 +335,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayArrayOfIntegerList validatedPayload =
     ArrayTest.ArrayArrayOfInteger.validate(
-    new .ArrayArrayOfIntegerListBuilder(
-        Arrays.asList(
+    new ArrayTest.ArrayArrayOfIntegerListBuilder()
+        .add(
             Arrays.asList(
                 1L
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -352,7 +363,7 @@ builder for `List<List<Number>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayArrayOfIntegerListBuilder()<br>Creates an empty list |
@@ -386,7 +397,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -399,11 +410,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ItemsList validatedPayload =
     ArrayTest.Items1.validate(
-    new .ItemsListBuilder(
-        Arrays.asList(
-            1L
-        )
-    ).build(),
+    new ArrayTest.ItemsListBuilder()
+        .add(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -425,7 +435,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder()<br>Creates an empty list |
@@ -472,7 +482,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -485,11 +495,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 ArrayTest.ArrayOfStringList validatedPayload =
     ArrayTest.ArrayOfString.validate(
-    new .ArrayOfStringListBuilder(
-        Arrays.asList(
-            "a"
-        )
-    ).build(),
+    new ArrayTest.ArrayOfStringListBuilder()
+        .add("a")
+
+    .build(),
     configuration
 );
 ```
@@ -511,7 +520,7 @@ builder for `List<String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayOfStringListBuilder()<br>Creates an empty list |

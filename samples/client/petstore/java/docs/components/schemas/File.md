@@ -29,7 +29,7 @@ Must be named &#x60;File&#x60; for test.
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 File.FileMap validatedPayload =
     File.File1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "sourceURI",
-            "a"
-        )
-    ),
+    new File.FileMapBuilder()
+        .sourceURI("a")
+
+    .build(),
     configuration
 );
 ```
@@ -61,19 +59,33 @@ File.FileMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FileMap](#filemap) | validate([Map<?, ?>](#filemapbuilder) arg, SchemaConfiguration configuration) |
+| [FileMap](#filemap) | validate([Map&lt;?, ?&gt;](#filemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FileMapBuilder
 public class FileMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **sourceURI** | String | Test capitalization | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FileMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [FileMapBuilder](#filemapbuilder) | sourceURI(String value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, Void value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, boolean value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, String value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, int value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, float value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, long value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, double value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, List<?> value) |
+| [FileMapBuilder](#filemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## FileMap
 public static class FileMap<br>
@@ -86,7 +98,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [FileMap](#filemap) | of([Map<String, ? extends @Nullable Object>](#filemapbuilder) arg, SchemaConfiguration configuration) |
 | String | sourceURI()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## SourceURI
 public static class SourceURI<br>

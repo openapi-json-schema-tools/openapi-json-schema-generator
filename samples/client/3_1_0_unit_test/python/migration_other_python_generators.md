@@ -3,7 +3,7 @@
 When switching from other python client generators you will need to make some changes to your code.
 
 1. This generator uses spec case for all (object) property names and parameter names.
-    - So if the spec has a property name like camelCase, it will use camelCase rather than camel_case
+    - So if the spec has a property name like pascalCase, it will use pascalCase rather than camel_case
     - So you will need to update how you input and read properties to use spec case
         - endpoint calls will need to have their input arguments updated
         - schema instance property usage and instantiation will need to be updated
@@ -46,8 +46,8 @@ on protected + public classes/methods.
 ### Object property spec case
 This was done because when payloads are ingested, they can be validated against N number of schemas.
 If the input signature used a different property name then that has mutated the payload.
-So SchemaA and SchemaB must both see the camelCase spec named variable.
-Also it is possible to send in two properties, named camelCase and camel_case in the same payload.
+So SchemaA and SchemaB must both see the pascalCase spec named variable.
+Also it is possible to send in two properties, named pascalCase and camel_case in the same payload.
 That use case should work, so spec case is used.
 
 ### Parameter spec case

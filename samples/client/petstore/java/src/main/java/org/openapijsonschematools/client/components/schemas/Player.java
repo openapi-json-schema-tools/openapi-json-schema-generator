@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -77,8 +79,56 @@ public class Player {
             return get(name);
         }
     }
-    public static class PlayerMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterName(Map<String, @Nullable Object> instance);
+        
+        default T name(String value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName(instance);
+        }
+    }
+    
+    public interface SetterForEnemyPlayer <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEnemyPlayer(Map<String, @Nullable Object> instance);
+        
+        default T enemyPlayer(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("enemyPlayer", value);
+            return getBuilderAfterEnemyPlayer(instance);
+        }
+    }
+    
+    public static class PlayerMapBuilder extends UnsetAddPropsSetter<PlayerMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForName<PlayerMapBuilder>, SetterForEnemyPlayer<PlayerMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "name",
+            "enemyPlayer"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PlayerMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PlayerMapBuilder getBuilderAfterName(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PlayerMapBuilder getBuilderAfterEnemyPlayer(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PlayerMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

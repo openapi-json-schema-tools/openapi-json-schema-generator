@@ -3,13 +3,13 @@
 {{> _helper_header }}
 
 {{#each pathItem.operations}}
-from {{packageName}}.paths.{{path.snakeCase}}.{{@key.original}}.operation import ApiFor{{@key.camelCase}}
+from {{packageName}}.paths.{{path.snakeCase}}.{{@key.original}}.operation import ApiFor{{@key.pascalCase}}
 {{/each}}
 
 
-class {{path.camelCase}}(
+class {{path.pascalCase}}(
 {{#each pathItem.operations}}
-    ApiFor{{@key.camelCase}},
+    ApiFor{{@key.pascalCase}},
 {{/each}}
 ):
     pass

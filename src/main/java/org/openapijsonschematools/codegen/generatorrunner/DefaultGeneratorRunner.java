@@ -422,7 +422,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     private void generatePathItem(List<File> files, CodegenKey pathKey, CodegenPathItem pathItem, String jsonPath, List<CodegenServer> servers, List<HashMap<String, CodegenSecurityRequirementValue>> security) {
         Map<String, Object> pathTemplateInfo = new HashMap<>();
         pathTemplateInfo.put("pathModule", pathKey.snakeCase);
-        pathTemplateInfo.put("apiClassName", pathKey.camelCase);
+        pathTemplateInfo.put("apiClassName", pathKey.pascalCase);
         pathTemplateInfo.put("path", pathKey.original);
         generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH, CodegenConstants.APIS, pathTemplateInfo, true);
 

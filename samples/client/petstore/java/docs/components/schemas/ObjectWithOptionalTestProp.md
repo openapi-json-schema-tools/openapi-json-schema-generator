@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
     ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "test",
-            "a"
-        )
-    ),
+    new ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapBuilder()
+        .test("a")
+
+    .build(),
     configuration
 );
 ```
@@ -58,19 +56,33 @@ ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map<?, ?>](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map&lt;?, ?&gt;](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithOptionalTestPropMapBuilder
 public class ObjectWithOptionalTestPropMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **test** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithOptionalTestPropMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | test(String value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, boolean value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, String value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, int value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, float value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, long value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, double value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ObjectWithOptionalTestPropMap
 public static class ObjectWithOptionalTestPropMap<br>
@@ -83,7 +95,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | of([Map<String, ? extends @Nullable Object>](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
 | String | test()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Test
 public static class Test<br>

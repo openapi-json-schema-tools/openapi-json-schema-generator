@@ -17,6 +17,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -63,8 +65,89 @@ public class RefInProperty {
             return get(name);
         }
     }
-    public static class RefInPropertyMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForA <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterA(Map<String, @Nullable Object> instance);
+        
+        default T a(Void value) {
+            var instance = getInstance();
+            instance.put("a", null);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(boolean value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(String value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(int value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(float value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(long value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(double value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(List<?> value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+    }
+    
+    public static class RefInPropertyMapBuilder extends UnsetAddPropsSetter<RefInPropertyMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForA<RefInPropertyMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "a"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public RefInPropertyMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public RefInPropertyMapBuilder getBuilderAfterA(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public RefInPropertyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

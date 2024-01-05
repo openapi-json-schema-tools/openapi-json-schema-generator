@@ -14,11 +14,13 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -56,8 +58,38 @@ public class StringBooleanMap {
             return (boolean) value;
         }
     }
-    public static class StringBooleanMapMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, Boolean> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Boolean> instance);
+        
+        default T additionalProperty(String key, boolean value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class StringBooleanMapMapBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<StringBooleanMapMapBuilder> {
+        private final Map<String, Boolean> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public StringBooleanMapMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Boolean> build() {
+            return instance;
+        }
+        public Map<String, Boolean> getInstance() {
+            return instance;
+        }
+        public StringBooleanMapMapBuilder getBuilderAfterAdditionalProperty(Map<String, Boolean> instance) {
+            return this;
+        }
     }
     
     

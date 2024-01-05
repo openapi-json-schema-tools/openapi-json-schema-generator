@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.DecimalJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -88,8 +90,71 @@ public class ObjectWithDecimalProperties {
             return get(name);
         }
     }
-    public static class ObjectWithDecimalPropertiesMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForLength <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterLength(Map<String, @Nullable Object> instance);
+        
+        default T length(String value) {
+            var instance = getInstance();
+            instance.put("length", value);
+            return getBuilderAfterLength(instance);
+        }
+    }
+    
+    public interface SetterForWidth <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterWidth(Map<String, @Nullable Object> instance);
+        
+        default T width(String value) {
+            var instance = getInstance();
+            instance.put("width", value);
+            return getBuilderAfterWidth(instance);
+        }
+    }
+    
+    public interface SetterForCost <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCost(Map<String, @Nullable Object> instance);
+        
+        default T cost(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("cost", value);
+            return getBuilderAfterCost(instance);
+        }
+    }
+    
+    public static class ObjectWithDecimalPropertiesMapBuilder extends UnsetAddPropsSetter<ObjectWithDecimalPropertiesMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForLength<ObjectWithDecimalPropertiesMapBuilder>, SetterForWidth<ObjectWithDecimalPropertiesMapBuilder>, SetterForCost<ObjectWithDecimalPropertiesMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "length",
+            "width",
+            "cost"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectWithDecimalPropertiesMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterLength(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterWidth(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterCost(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectWithDecimalPropertiesMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

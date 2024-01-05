@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,11 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Schema0.SchemaList0 validatedPayload =
     Schema0.Schema01.validate(
-    new Schema0.SchemaListBuilder0(
-        Arrays.asList(
-            "a"
-        )
-    ).build(),
+    new Schema0.SchemaListBuilder0()
+        .add("a")
+
+    .build(),
     configuration
 );
 ```
@@ -65,7 +64,7 @@ builder for `List<String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | SchemaListBuilder0()<br>Creates an empty list |

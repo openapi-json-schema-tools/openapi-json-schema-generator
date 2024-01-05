@@ -14,6 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -76,8 +78,89 @@ public class ObjectModelWithRefProps {
             return get(name);
         }
     }
-    public static class ObjectModelWithRefPropsMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForMyNumber <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMyNumber(Map<String, @Nullable Object> instance);
+        
+        default T myNumber(int value) {
+            var instance = getInstance();
+            instance.put("myNumber", value);
+            return getBuilderAfterMyNumber(instance);
+        }
+        
+        default T myNumber(float value) {
+            var instance = getInstance();
+            instance.put("myNumber", value);
+            return getBuilderAfterMyNumber(instance);
+        }
+        
+        default T myNumber(long value) {
+            var instance = getInstance();
+            instance.put("myNumber", value);
+            return getBuilderAfterMyNumber(instance);
+        }
+        
+        default T myNumber(double value) {
+            var instance = getInstance();
+            instance.put("myNumber", value);
+            return getBuilderAfterMyNumber(instance);
+        }
+    }
+    
+    public interface SetterForMyString <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMyString(Map<String, @Nullable Object> instance);
+        
+        default T myString(String value) {
+            var instance = getInstance();
+            instance.put("myString", value);
+            return getBuilderAfterMyString(instance);
+        }
+    }
+    
+    public interface SetterForMyBoolean <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMyBoolean(Map<String, @Nullable Object> instance);
+        
+        default T myBoolean(boolean value) {
+            var instance = getInstance();
+            instance.put("myBoolean", value);
+            return getBuilderAfterMyBoolean(instance);
+        }
+    }
+    
+    public static class ObjectModelWithRefPropsMapBuilder extends UnsetAddPropsSetter<ObjectModelWithRefPropsMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForMyNumber<ObjectModelWithRefPropsMapBuilder>, SetterForMyString<ObjectModelWithRefPropsMapBuilder>, SetterForMyBoolean<ObjectModelWithRefPropsMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "myNumber",
+            "myString",
+            "myBoolean"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectModelWithRefPropsMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectModelWithRefPropsMapBuilder getBuilderAfterMyNumber(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectModelWithRefPropsMapBuilder getBuilderAfterMyString(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectModelWithRefPropsMapBuilder getBuilderAfterMyBoolean(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectModelWithRefPropsMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

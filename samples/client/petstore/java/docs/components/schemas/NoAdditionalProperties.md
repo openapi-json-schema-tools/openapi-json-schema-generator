@@ -28,7 +28,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -41,16 +41,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
     NoAdditionalProperties.NoAdditionalProperties1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Number>(
-            "id",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Number>(
-            "petId",
-            1L
-        )
-    ),
+    new NoAdditionalProperties.NoAdditionalPropertiesMapBuilder()
+        .id(1L)
+
+        .petId(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -66,19 +62,46 @@ NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | validate([Map<?, ?>](#noadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#noadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## NoAdditionalPropertiesMap0Builder
+public class NoAdditionalPropertiesMap0Builder<br>
+builder for `Map<String, Number>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NoAdditionalPropertiesMap0Builder(Map<String, Number> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Number> | build()<br>Returns map input that should be used with Schema.validate |
+| [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | petId(int value) |
+| [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | petId(float value) |
+| [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | petId(long value) |
+| [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | petId(double value) |
+
 ## NoAdditionalPropertiesMapBuilder
 public class NoAdditionalPropertiesMapBuilder<br>
 builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **id** | Number |  | value must be a 64 bit integer |
-| **petId** | Number |  | [optional] value must be a 64 bit integer |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NoAdditionalPropertiesMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | id(int value) |
+| [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | id(float value) |
+| [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | id(long value) |
+| [NoAdditionalPropertiesMap0Builder](#noadditionalpropertiesmap0builder) | id(double value) |
 
 ## NoAdditionalPropertiesMap
 public static class NoAdditionalPropertiesMap<br>

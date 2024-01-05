@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -121,8 +123,57 @@ public class BasquePig {
             return get(name);
         }
     }
-    public static class BasquePigMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForClassName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterClassName(Map<String, @Nullable Object> instance);
+        
+        default T className(String value) {
+            var instance = getInstance();
+            instance.put("className", value);
+            return getBuilderAfterClassName(instance);
+        }
+        
+        default T className(StringClassNameEnums value) {
+            var instance = getInstance();
+            instance.put("className", value.value());
+            return getBuilderAfterClassName(instance);
+        }
+    }
+    
+    public static class BasquePigMap0Builder extends UnsetAddPropsSetter<BasquePigMap0Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "className"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public BasquePigMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public BasquePigMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class BasquePigMapBuilder implements SetterForClassName<BasquePigMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public BasquePigMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public BasquePigMap0Builder getBuilderAfterClassName(Map<String, @Nullable Object> instance) {
+            return new BasquePigMap0Builder(instance);
+        }
     }
     
     

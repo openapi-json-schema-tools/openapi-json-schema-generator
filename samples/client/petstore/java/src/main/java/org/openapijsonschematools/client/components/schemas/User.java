@@ -18,11 +18,13 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -594,8 +596,395 @@ public class User {
             return get(name);
         }
     }
-    public static class UserMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForId <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterId(Map<String, @Nullable Object> instance);
+        
+        default T id(int value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(float value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(long value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(double value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+    }
+    
+    public interface SetterForUsername <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterUsername(Map<String, @Nullable Object> instance);
+        
+        default T username(String value) {
+            var instance = getInstance();
+            instance.put("username", value);
+            return getBuilderAfterUsername(instance);
+        }
+    }
+    
+    public interface SetterForFirstName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFirstName(Map<String, @Nullable Object> instance);
+        
+        default T firstName(String value) {
+            var instance = getInstance();
+            instance.put("firstName", value);
+            return getBuilderAfterFirstName(instance);
+        }
+    }
+    
+    public interface SetterForLastName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterLastName(Map<String, @Nullable Object> instance);
+        
+        default T lastName(String value) {
+            var instance = getInstance();
+            instance.put("lastName", value);
+            return getBuilderAfterLastName(instance);
+        }
+    }
+    
+    public interface SetterForEmail <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEmail(Map<String, @Nullable Object> instance);
+        
+        default T email(String value) {
+            var instance = getInstance();
+            instance.put("email", value);
+            return getBuilderAfterEmail(instance);
+        }
+    }
+    
+    public interface SetterForPassword <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPassword(Map<String, @Nullable Object> instance);
+        
+        default T password(String value) {
+            var instance = getInstance();
+            instance.put("password", value);
+            return getBuilderAfterPassword(instance);
+        }
+    }
+    
+    public interface SetterForPhone <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPhone(Map<String, @Nullable Object> instance);
+        
+        default T phone(String value) {
+            var instance = getInstance();
+            instance.put("phone", value);
+            return getBuilderAfterPhone(instance);
+        }
+    }
+    
+    public interface SetterForUserStatus <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterUserStatus(Map<String, @Nullable Object> instance);
+        
+        default T userStatus(int value) {
+            var instance = getInstance();
+            instance.put("userStatus", value);
+            return getBuilderAfterUserStatus(instance);
+        }
+        
+        default T userStatus(float value) {
+            var instance = getInstance();
+            instance.put("userStatus", value);
+            return getBuilderAfterUserStatus(instance);
+        }
+    }
+    
+    public interface SetterForObjectWithNoDeclaredProps <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterObjectWithNoDeclaredProps(Map<String, @Nullable Object> instance);
+        
+        default T objectWithNoDeclaredProps(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("objectWithNoDeclaredProps", value);
+            return getBuilderAfterObjectWithNoDeclaredProps(instance);
+        }
+    }
+    
+    public interface SetterForObjectWithNoDeclaredPropsNullable <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterObjectWithNoDeclaredPropsNullable(Map<String, @Nullable Object> instance);
+        
+        default T objectWithNoDeclaredPropsNullable(Void value) {
+            var instance = getInstance();
+            instance.put("objectWithNoDeclaredPropsNullable", null);
+            return getBuilderAfterObjectWithNoDeclaredPropsNullable(instance);
+        }
+        
+        default T objectWithNoDeclaredPropsNullable(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("objectWithNoDeclaredPropsNullable", value);
+            return getBuilderAfterObjectWithNoDeclaredPropsNullable(instance);
+        }
+    }
+    
+    public interface SetterForAnyTypeProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAnyTypeProp(Map<String, @Nullable Object> instance);
+        
+        default T anyTypeProp(Void value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", null);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+        
+        default T anyTypeProp(boolean value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", value);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+        
+        default T anyTypeProp(String value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", value);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+        
+        default T anyTypeProp(int value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", value);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+        
+        default T anyTypeProp(float value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", value);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+        
+        default T anyTypeProp(long value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", value);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+        
+        default T anyTypeProp(double value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", value);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+        
+        default T anyTypeProp(List<?> value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", value);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+        
+        default T anyTypeProp(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("anyTypeProp", value);
+            return getBuilderAfterAnyTypeProp(instance);
+        }
+    }
+    
+    public interface SetterForAnyTypeExceptNullProp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAnyTypeExceptNullProp(Map<String, @Nullable Object> instance);
+        
+        default T anyTypeExceptNullProp(Void value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", null);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+        
+        default T anyTypeExceptNullProp(boolean value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", value);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+        
+        default T anyTypeExceptNullProp(String value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", value);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+        
+        default T anyTypeExceptNullProp(int value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", value);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+        
+        default T anyTypeExceptNullProp(float value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", value);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+        
+        default T anyTypeExceptNullProp(long value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", value);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+        
+        default T anyTypeExceptNullProp(double value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", value);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+        
+        default T anyTypeExceptNullProp(List<?> value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", value);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+        
+        default T anyTypeExceptNullProp(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("anyTypeExceptNullProp", value);
+            return getBuilderAfterAnyTypeExceptNullProp(instance);
+        }
+    }
+    
+    public interface SetterForAnyTypePropNullable <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAnyTypePropNullable(Map<String, @Nullable Object> instance);
+        
+        default T anyTypePropNullable(Void value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", null);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+        
+        default T anyTypePropNullable(boolean value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", value);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+        
+        default T anyTypePropNullable(String value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", value);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+        
+        default T anyTypePropNullable(int value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", value);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+        
+        default T anyTypePropNullable(float value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", value);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+        
+        default T anyTypePropNullable(long value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", value);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+        
+        default T anyTypePropNullable(double value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", value);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+        
+        default T anyTypePropNullable(List<?> value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", value);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+        
+        default T anyTypePropNullable(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("anyTypePropNullable", value);
+            return getBuilderAfterAnyTypePropNullable(instance);
+        }
+    }
+    
+    public static class UserMapBuilder extends UnsetAddPropsSetter<UserMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForId<UserMapBuilder>, SetterForUsername<UserMapBuilder>, SetterForFirstName<UserMapBuilder>, SetterForLastName<UserMapBuilder>, SetterForEmail<UserMapBuilder>, SetterForPassword<UserMapBuilder>, SetterForPhone<UserMapBuilder>, SetterForUserStatus<UserMapBuilder>, SetterForObjectWithNoDeclaredProps<UserMapBuilder>, SetterForObjectWithNoDeclaredPropsNullable<UserMapBuilder>, SetterForAnyTypeProp<UserMapBuilder>, SetterForAnyTypeExceptNullProp<UserMapBuilder>, SetterForAnyTypePropNullable<UserMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "id",
+            "username",
+            "firstName",
+            "lastName",
+            "email",
+            "password",
+            "phone",
+            "userStatus",
+            "objectWithNoDeclaredProps",
+            "objectWithNoDeclaredPropsNullable",
+            "anyTypeProp",
+            "anyTypeExceptNullProp",
+            "anyTypePropNullable"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public UserMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public UserMapBuilder getBuilderAfterId(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterUsername(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterFirstName(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterLastName(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterEmail(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterPhone(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterUserStatus(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterObjectWithNoDeclaredProps(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterObjectWithNoDeclaredPropsNullable(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterAnyTypeProp(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterAnyTypeExceptNullProp(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterAnyTypePropNullable(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public UserMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

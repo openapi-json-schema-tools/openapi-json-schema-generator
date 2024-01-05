@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -22,6 +23,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -180,8 +182,104 @@ public class PaginatedResultMyObjectDto {
             return (ResultsList) value;
         }
     }
-    public static class PaginatedResultMyObjectDtoMapBuilder {
-        // empty mapping
+    
+    public interface SetterForCount <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterCount(Map<String, Object> instance);
+        
+        default T count(int value) {
+            var instance = getInstance();
+            instance.put("count", value);
+            return getBuilderAfterCount(instance);
+        }
+        
+        default T count(float value) {
+            var instance = getInstance();
+            instance.put("count", value);
+            return getBuilderAfterCount(instance);
+        }
+        
+        default T count(long value) {
+            var instance = getInstance();
+            instance.put("count", value);
+            return getBuilderAfterCount(instance);
+        }
+        
+        default T count(double value) {
+            var instance = getInstance();
+            instance.put("count", value);
+            return getBuilderAfterCount(instance);
+        }
+    }
+    
+    public interface SetterForResults <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterResults(Map<String, Object> instance);
+        
+        default T results(List<Map<String, String>> value) {
+            var instance = getInstance();
+            instance.put("results", value);
+            return getBuilderAfterResults(instance);
+        }
+    }
+    
+    public static class PaginatedResultMyObjectDtoMap00Builder implements BaseBuilder<Object> {
+        private final Map<String, Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "count",
+            "results"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PaginatedResultMyObjectDtoMap00Builder(Map<String, Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class PaginatedResultMyObjectDtoMap01Builder implements SetterForResults<PaginatedResultMyObjectDtoMap00Builder> {
+        private final Map<String, Object> instance;
+        public PaginatedResultMyObjectDtoMap01Builder(Map<String, Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public PaginatedResultMyObjectDtoMap00Builder getBuilderAfterResults(Map<String, Object> instance) {
+            return new PaginatedResultMyObjectDtoMap00Builder(instance);
+        }
+    }
+    
+    public static class PaginatedResultMyObjectDtoMap10Builder implements SetterForCount<PaginatedResultMyObjectDtoMap00Builder> {
+        private final Map<String, Object> instance;
+        public PaginatedResultMyObjectDtoMap10Builder(Map<String, Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public PaginatedResultMyObjectDtoMap00Builder getBuilderAfterCount(Map<String, Object> instance) {
+            return new PaginatedResultMyObjectDtoMap00Builder(instance);
+        }
+    }
+    
+    public static class PaginatedResultMyObjectDtoMapBuilder implements SetterForCount<PaginatedResultMyObjectDtoMap01Builder>, SetterForResults<PaginatedResultMyObjectDtoMap10Builder> {
+        private final Map<String, Object> instance;
+        public PaginatedResultMyObjectDtoMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public PaginatedResultMyObjectDtoMap01Builder getBuilderAfterCount(Map<String, Object> instance) {
+            return new PaginatedResultMyObjectDtoMap01Builder(instance);
+        }
+        public PaginatedResultMyObjectDtoMap10Builder getBuilderAfterResults(Map<String, Object> instance) {
+            return new PaginatedResultMyObjectDtoMap10Builder(instance);
+        }
     }
     
     

@@ -17,8 +17,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -150,8 +152,98 @@ public class TriangleInterface {
             return get(name);
         }
     }
-    public static class TriangleInterfaceMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForShapeType <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterShapeType(Map<String, @Nullable Object> instance);
+        
+        default T shapeType(String value) {
+            var instance = getInstance();
+            instance.put("shapeType", value);
+            return getBuilderAfterShapeType(instance);
+        }
+        
+        default T shapeType(StringShapeTypeEnums value) {
+            var instance = getInstance();
+            instance.put("shapeType", value.value());
+            return getBuilderAfterShapeType(instance);
+        }
+    }
+    
+    public interface SetterForTriangleType <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterTriangleType(Map<String, @Nullable Object> instance);
+        
+        default T triangleType(String value) {
+            var instance = getInstance();
+            instance.put("triangleType", value);
+            return getBuilderAfterTriangleType(instance);
+        }
+    }
+    
+    public static class TriangleInterfaceMap00Builder extends UnsetAddPropsSetter<TriangleInterfaceMap00Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "shapeType",
+            "triangleType"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public TriangleInterfaceMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public TriangleInterfaceMap00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class TriangleInterfaceMap01Builder implements SetterForTriangleType<TriangleInterfaceMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public TriangleInterfaceMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public TriangleInterfaceMap00Builder getBuilderAfterTriangleType(Map<String, @Nullable Object> instance) {
+            return new TriangleInterfaceMap00Builder(instance);
+        }
+    }
+    
+    public static class TriangleInterfaceMap10Builder implements SetterForShapeType<TriangleInterfaceMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public TriangleInterfaceMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public TriangleInterfaceMap00Builder getBuilderAfterShapeType(Map<String, @Nullable Object> instance) {
+            return new TriangleInterfaceMap00Builder(instance);
+        }
+    }
+    
+    public static class TriangleInterfaceMapBuilder implements SetterForShapeType<TriangleInterfaceMap01Builder>, SetterForTriangleType<TriangleInterfaceMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public TriangleInterfaceMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public TriangleInterfaceMap01Builder getBuilderAfterShapeType(Map<String, @Nullable Object> instance) {
+            return new TriangleInterfaceMap01Builder(instance);
+        }
+        public TriangleInterfaceMap10Builder getBuilderAfterTriangleType(Map<String, @Nullable Object> instance) {
+            return new TriangleInterfaceMap10Builder(instance);
+        }
     }
     
     

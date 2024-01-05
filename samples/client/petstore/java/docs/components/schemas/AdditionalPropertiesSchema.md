@@ -39,7 +39,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2
 public static class Schema2<br>
@@ -52,7 +52,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -65,8 +65,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesSchema.Schema2Map validatedPayload =
     AdditionalPropertiesSchema.Schema2.validate(
-    MapMaker.makeMap(
-    ),
+    new AdditionalPropertiesSchema.Schema2MapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -80,18 +80,32 @@ AdditionalPropertiesSchema.Schema2Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema2Map](#schema2map) | validate([Map<?, ?>](#schema2mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema2Map](#schema2map) | validate([Map&lt;?, ?&gt;](#schema2mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2MapBuilder
 public class Schema2MapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | ? extends @Nullable Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema2MapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, String value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, int value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, float value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, long value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, double value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema2MapBuilder](#schema2mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema2Map
 public static class Schema2Map<br>
@@ -126,7 +140,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1
@@ -140,7 +154,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -153,8 +167,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesSchema.Schema1Map validatedPayload =
     AdditionalPropertiesSchema.Schema1.validate(
-    MapMaker.makeMap(
-    ),
+    new AdditionalPropertiesSchema.Schema1MapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -168,18 +182,32 @@ AdditionalPropertiesSchema.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | ? extends @Nullable Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1MapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, String value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, int value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, float value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, long value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, double value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema1Map
 public static class Schema1Map<br>
@@ -214,7 +242,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0
@@ -228,7 +256,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -241,8 +269,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 AdditionalPropertiesSchema.Schema0Map validatedPayload =
     AdditionalPropertiesSchema.Schema0.validate(
-    MapMaker.makeMap(
-    ),
+    new AdditionalPropertiesSchema.Schema0MapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -256,18 +284,32 @@ AdditionalPropertiesSchema.Schema0Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema0Map](#schema0map) | validate([Map<?, ?>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema0Map](#schema0map) | validate([Map&lt;?, ?&gt;](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0MapBuilder
 public class Schema0MapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0MapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, String value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, int value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, float value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, long value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, double value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema0Map
 public static class Schema0Map<br>
@@ -279,7 +321,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

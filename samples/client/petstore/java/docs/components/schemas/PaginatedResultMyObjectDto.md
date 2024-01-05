@@ -32,7 +32,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -45,17 +45,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
     PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "count",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "results",
+    new PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapBuilder()
+        .count(1L)
+
+        .results(
             Arrays.asList(
             )
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -71,19 +68,78 @@ PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map<?, ?>](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
+| [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map&lt;?, ?&gt;](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## PaginatedResultMyObjectDtoMap00Builder
+public class PaginatedResultMyObjectDtoMap00Builder<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PaginatedResultMyObjectDtoMap00Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Object> | build()<br>Returns map input that should be used with Schema.validate |
+
+## PaginatedResultMyObjectDtoMap01Builder
+public class PaginatedResultMyObjectDtoMap01Builder<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PaginatedResultMyObjectDtoMap01Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | results(List<Map<String, String>> value) |
+
+## PaginatedResultMyObjectDtoMap10Builder
+public class PaginatedResultMyObjectDtoMap10Builder<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PaginatedResultMyObjectDtoMap10Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | count(int value) |
+| [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | count(float value) |
+| [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | count(long value) |
+| [PaginatedResultMyObjectDtoMap00Builder](#paginatedresultmyobjectdtomap00builder) | count(double value) |
+
 ## PaginatedResultMyObjectDtoMapBuilder
 public class PaginatedResultMyObjectDtoMapBuilder<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **count** | Number |  | |
-| **results** | List<Map<String, String>> |  | |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PaginatedResultMyObjectDtoMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [PaginatedResultMyObjectDtoMap01Builder](#paginatedresultmyobjectdtomap01builder) | count(int value) |
+| [PaginatedResultMyObjectDtoMap01Builder](#paginatedresultmyobjectdtomap01builder) | count(float value) |
+| [PaginatedResultMyObjectDtoMap01Builder](#paginatedresultmyobjectdtomap01builder) | count(long value) |
+| [PaginatedResultMyObjectDtoMap01Builder](#paginatedresultmyobjectdtomap01builder) | count(double value) |
+| [PaginatedResultMyObjectDtoMap10Builder](#paginatedresultmyobjectdtomap10builder) | results(List<Map<String, String>> value) |
 
 ## PaginatedResultMyObjectDtoMap
 public static class PaginatedResultMyObjectDtoMap<br>
@@ -109,7 +165,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -122,10 +178,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 PaginatedResultMyObjectDto.ResultsList validatedPayload =
     PaginatedResultMyObjectDto.Results.validate(
-    new .ResultsListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new PaginatedResultMyObjectDto.ResultsListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -147,7 +201,7 @@ builder for `List<Map<String, String>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ResultsListBuilder()<br>Creates an empty list |

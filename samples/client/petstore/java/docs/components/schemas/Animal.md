@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Animal.AnimalMap validatedPayload =
     Animal.Animal1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "className",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "color",
-            "a"
-        )
-    ),
+    new Animal.AnimalMapBuilder()
+        .className("a")
+
+        .color("a")
+
+    .build(),
     configuration
 );
 ```
@@ -64,20 +60,49 @@ Animal.AnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AnimalMap](#animalmap) | validate([Map<?, ?>](#animalmapbuilder) arg, SchemaConfiguration configuration) |
+| [AnimalMap](#animalmap) | validate([Map&lt;?, ?&gt;](#animalmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## AnimalMapBuilder
-public class AnimalMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## AnimalMap0Builder
+public class AnimalMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **className** | String |  | |
-| **color** | String |  | [optional] if omitted the server will use the default value of red |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnimalMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [AnimalMap0Builder](#animalmap0builder) | color(String value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, Void value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, boolean value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, String value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, int value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, float value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, long value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, double value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, List<?> value) |
+| [AnimalMap0Builder](#animalmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## AnimalMapBuilder
+public class AnimalMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnimalMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [AnimalMap0Builder](#animalmap0builder) | className(String value) |
 
 ## AnimalMap
 public static class AnimalMap<br>
@@ -91,7 +116,7 @@ A class to store validated Map payloads
 | static [AnimalMap](#animalmap) | of([Map<String, ? extends @Nullable Object>](#animalmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> |
 | String | color()<br>[optional] if omitted the server will use the default value of red |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Color
 public static class Color<br>
@@ -104,7 +129,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

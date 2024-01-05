@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,8 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Address.AddressMap validatedPayload =
     Address.Address1.validate(
-    MapMaker.makeMap(
-    ),
+    new Address.AddressMapBuilder()
+        .additionalProperty("someAdditionalProperty", 1L)
+
+    .build(),
     configuration
 );
 ```
@@ -54,7 +56,7 @@ Address.AddressMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AddressMap](#addressmap) | validate([Map<?, ?>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
+| [AddressMap](#addressmap) | validate([Map&lt;?, ?&gt;](#addressmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AddressMapBuilder
 public class AddressMapBuilder<br>
@@ -62,10 +64,19 @@ builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Number | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AddressMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Number> | build()<br>Returns map input that should be used with Schema.validate |
+| [AddressMapBuilder](#addressmapbuilder) | additionalProperty(String key, int value) |
+| [AddressMapBuilder](#addressmapbuilder) | additionalProperty(String key, float value) |
+| [AddressMapBuilder](#addressmapbuilder) | additionalProperty(String key, long value) |
+| [AddressMapBuilder](#addressmapbuilder) | additionalProperty(String key, double value) |
 
 ## AddressMap
 public static class AddressMap<br>

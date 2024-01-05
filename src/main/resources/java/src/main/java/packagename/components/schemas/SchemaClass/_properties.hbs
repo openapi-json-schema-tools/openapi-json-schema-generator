@@ -3,12 +3,12 @@ properties = Map.ofEntries(<br>
     {{~#each properties}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})){{#unless @last}},{{/unless}}<br>
             {{~else}}
-&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}}))){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}}))){{#unless @last}},{{/unless}}<br>
             {{~/if}}
         {{else}}
-&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}))){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}}))){{#unless @last}},{{/unless}}<br>
         {{~/if}}
     {{/each}}
 )<br>
@@ -22,7 +22,7 @@ properties = Map.ofEntries(<br>
     new PropertyEntry("{{{@key.original}}}", {{refInfo.refClass}}.class){{#unless @last}},{{/unless}}
             {{/if}}
         {{else}}
-    new PropertyEntry("{{{@key.original}}}", {{jsonPathPiece.camelCase}}.class){{#unless @last}},{{/unless}}
+    new PropertyEntry("{{{@key.original}}}", {{jsonPathPiece.pascalCase}}.class){{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
 ))

@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Category.CategoryMap validatedPayload =
     Category.Category1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "name",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "id",
-            1L
-        )
-    ),
+    new Category.CategoryMapBuilder()
+        .name("a")
+
+        .id(1L)
+
+    .build(),
     configuration
 );
 ```
@@ -64,20 +60,52 @@ Category.CategoryMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CategoryMap](#categorymap) | validate([Map<?, ?>](#categorymapbuilder) arg, SchemaConfiguration configuration) |
+| [CategoryMap](#categorymap) | validate([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## CategoryMapBuilder
-public class CategoryMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## CategoryMap0Builder
+public class CategoryMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **name** | String |  | if omitted the server will use the default value of default-name |
-| **id** | Number |  | [optional] value must be a 64 bit integer |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| CategoryMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [CategoryMap0Builder](#categorymap0builder) | id(int value) |
+| [CategoryMap0Builder](#categorymap0builder) | id(float value) |
+| [CategoryMap0Builder](#categorymap0builder) | id(long value) |
+| [CategoryMap0Builder](#categorymap0builder) | id(double value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, Void value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, boolean value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, String value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, int value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, float value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, long value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, double value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, List<?> value) |
+| [CategoryMap0Builder](#categorymap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## CategoryMapBuilder
+public class CategoryMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| CategoryMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [CategoryMap0Builder](#categorymap0builder) | name(String value) |
 
 ## CategoryMap
 public static class CategoryMap<br>
@@ -91,7 +119,7 @@ A class to store validated Map payloads
 | static [CategoryMap](#categorymap) | of([Map<String, ? extends @Nullable Object>](#categorymapbuilder) arg, SchemaConfiguration configuration) |
 | String | name()<br> if omitted the server will use the default value of default-name |
 | Number | id()<br>[optional] value must be a 64 bit integer |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Name
 public static class Name<br>
@@ -104,7 +132,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

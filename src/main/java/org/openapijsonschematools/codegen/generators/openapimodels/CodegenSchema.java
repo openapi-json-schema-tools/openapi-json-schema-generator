@@ -122,7 +122,8 @@ public class CodegenSchema {
     public boolean isInline = false;
     public String subpackage;  // the current schema's subpackage, needed by java
     public CodegenKey containerJsonPathPiece; // needed by java, outer classs that has inner nested schema classes
-    public Map<String, EnumValue> typeToExample = null;
+    public LinkedHashMap<String, EnumValue> typeToExample = null;
+    public List<MapBuilder> mapBuilders = null; // used by java
 
     /*
     Remove this in the 4.0.0 release because it is unused
@@ -715,6 +716,7 @@ public class CodegenSchema {
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapIn.mapValueSchema = mapValueSchema;
+            mapIn.mapBuilders = mapBuilders;
             mapIn.jsonPath = jsonPath;
 
             CodegenSchema mapOut = new CodegenSchema();
@@ -755,6 +757,7 @@ public class CodegenSchema {
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapIn.mapValueSchema = mapValueSchema;
+            mapIn.mapBuilders = mapBuilders;
             mapIn.jsonPath = jsonPath;
 
             CodegenSchema mapOut = new CodegenSchema();
@@ -789,6 +792,7 @@ public class CodegenSchema {
             mapIn.requiredProperties = requiredProperties;
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapIn.mapBuilders = mapBuilders;
             mapIn.mapValueSchema = mapValueSchema;
             boolean allAreInline;
             boolean addPropsHasAnyRefs = false;

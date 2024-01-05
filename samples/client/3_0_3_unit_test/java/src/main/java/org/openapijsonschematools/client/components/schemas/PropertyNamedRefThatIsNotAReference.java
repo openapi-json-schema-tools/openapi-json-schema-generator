@@ -17,7 +17,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -65,8 +67,41 @@ public class PropertyNamedRefThatIsNotAReference {
             return get(name);
         }
     }
-    public static class PropertyNamedRefThatIsNotAReferenceMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForRef <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterRef(Map<String, @Nullable Object> instance);
+        
+        default T setDollarSignRef(String value) {
+            var instance = getInstance();
+            instance.put("$ref", value);
+            return getBuilderAfterRef(instance);
+        }
+    }
+    
+    public static class PropertyNamedRefThatIsNotAReferenceMapBuilder extends UnsetAddPropsSetter<PropertyNamedRefThatIsNotAReferenceMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForRef<PropertyNamedRefThatIsNotAReferenceMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "$ref"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PropertyNamedRefThatIsNotAReferenceMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public PropertyNamedRefThatIsNotAReferenceMapBuilder getBuilderAfterRef(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public PropertyNamedRefThatIsNotAReferenceMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

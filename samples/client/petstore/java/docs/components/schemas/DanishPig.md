@@ -28,7 +28,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -41,12 +41,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 DanishPig.DanishPigMap validatedPayload =
     DanishPig.DanishPig1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "className",
-            "DanishPig"
-        )
-    ),
+    new DanishPig.DanishPigMapBuilder()
+        .className("DanishPig")
+
+    .build(),
     configuration
 );
 ```
@@ -61,19 +59,49 @@ DanishPig.DanishPigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [DanishPigMap](#danishpigmap) | validate([Map<?, ?>](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
+| [DanishPigMap](#danishpigmap) | validate([Map&lt;?, ?&gt;](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## DanishPigMapBuilder
-public class DanishPigMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## DanishPigMap0Builder
+public class DanishPigMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **className** | String |  | must be one of ["DanishPig"] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DanishPigMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, Void value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, boolean value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, String value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, int value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, float value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, long value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, double value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, List<?> value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## DanishPigMapBuilder
+public class DanishPigMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DanishPigMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [DanishPigMap0Builder](#danishpigmap0builder) | className(String value) |
+| [DanishPigMap0Builder](#danishpigmap0builder) | className([StringClassNameEnums](#stringclassnameenums) value) |
 
 ## DanishPigMap
 public static class DanishPigMap<br>
@@ -86,7 +114,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [DanishPigMap](#danishpigmap) | of([Map<String, ? extends @Nullable Object>](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["DanishPig"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassName
 public static class ClassName<br>
@@ -99,7 +127,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

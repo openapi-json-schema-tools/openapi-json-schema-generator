@@ -14,10 +14,12 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -57,8 +59,54 @@ public class SelfReferencingObjectModel {
             return (SelfReferencingObjectModelMap) value;
         }
     }
-    public static class SelfReferencingObjectModelMapBuilder {
-        // optionalProperties + additionalProperties
+    
+    public interface SetterForSelfRef <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSelfRef(Map<String, @Nullable Object> instance);
+        
+        default T selfRef(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("selfRef", value);
+            return getBuilderAfterSelfRef(instance);
+        }
+    }
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
+        
+        default T additionalProperty(String key, Map<String, @Nullable Object> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class SelfReferencingObjectModelMapBuilder implements BaseBuilder<@Nullable Object>, SetterForSelfRef<SelfReferencingObjectModelMapBuilder>, SetterForAdditionalProperties<SelfReferencingObjectModelMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "selfRef"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public SelfReferencingObjectModelMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SelfReferencingObjectModelMapBuilder getBuilderAfterSelfRef(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public SelfReferencingObjectModelMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

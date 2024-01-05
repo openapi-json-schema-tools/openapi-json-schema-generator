@@ -51,7 +51,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -64,94 +64,53 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 FormatTest.FormatTestMap validatedPayload =
     FormatTest.FormatTest1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "byte",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "date",
-            "2020-12-13"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "number",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "password",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "integer",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "int32",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "int32withValidations",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "int64",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "float",
-            3.14f
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "float32",
-            3.14f
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "double",
-            3.14d
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "float64",
-            3.14d
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "arrayWithUniqueItems",
+    new FormatTest.FormatTestMapBuilder()
+        .setByte("a")
+
+        .date("2020-12-13")
+
+        .setNumber(1)
+
+        .password("a")
+
+        .setInteger(1L)
+
+        .int32(1)
+
+        .int32withValidations(1)
+
+        .int64(1L)
+
+        .setFloat(3.14f)
+
+        .float32(3.14f)
+
+        .setDouble(3.14d)
+
+        .float64(3.14d)
+
+        .arrayWithUniqueItems(
             Arrays.asList(
                 1
             )
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "string",
-            "A"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "binary",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "dateTime",
-            "1970-01-01T00:00:00.00Z"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "uuid",
-            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "uuidNoExample",
-            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "pattern_with_digits",
-            "0480728880"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "pattern_with_digits_and_delimiter",
-            "IMage_88"
-        ),
-        new AbstractMap.SimpleEntry<String, @Nullable Object>(
-            "noneProp",
-            null
         )
-    ),
+        .setString("A")
+
+        .binary("a")
+
+        .dateTime("1970-01-01T00:00:00.00Z")
+
+        .setUuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+
+        .uuidNoExample("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+
+        .pattern_with_digits("0480728880")
+
+        .pattern_with_digits_and_delimiter("IMage_88")
+
+        .noneProp(null)
+
+    .build(),
     configuration
 );
 ```
@@ -166,39 +125,350 @@ FormatTest.FormatTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap](#formattestmap) | validate([Map<?, ?>](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
+| [FormatTestMap](#formattestmap) | validate([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## FormatTestMapBuilder
-public class FormatTestMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## FormatTestMap0000Builder
+public class FormatTestMap0000Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **byte** | String |  | |
-| **date** | String |  | value must conform to RFC-3339 full-date YYYY-MM-DD |
-| **number** | Number |  | |
-| **password** | String |  | |
-| **integer** | Number |  | [optional] |
-| **int32** | Number |  | [optional] value must be a 32 bit integer |
-| **int32withValidations** | Number |  | [optional] value must be a 32 bit integer |
-| **int64** | Number |  | [optional] value must be a 64 bit integer |
-| **float** | Number | this is a reserved python keyword | [optional] value must be a 32 bit float |
-| **float32** | Number |  | [optional] value must be a 32 bit float |
-| **double** | Number |  | [optional] value must be a 64 bit float |
-| **float64** | Number |  | [optional] value must be a 64 bit float |
-| **arrayWithUniqueItems** | List<Number> |  | [optional] |
-| **string** | String |  | [optional] |
-| **binary** | String |  | [optional] |
-| **dateTime** | String |  | [optional] value must conform to RFC-3339 date-time |
-| **uuid** | String |  | [optional] value must be a uuid |
-| **uuidNoExample** | String |  | [optional] value must be a uuid |
-| **pattern_with_digits** | String | A string that is a 10 digit number. Can have leading zeros. | [optional] |
-| **pattern_with_digits_and_delimiter** | String | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional] |
-| **noneProp** | Void |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap0000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | int32(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | int32(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | int32withValidations(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | int32withValidations(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | int64(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | int64(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | int64(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | int64(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | float32(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | float32(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | float32(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | float32(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | float64(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | float64(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | float64(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | float64(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | arrayWithUniqueItems(List<Number> value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setString(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | binary(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | dateTime(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setUuid(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | uuidNoExample(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | pattern_with_digits(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | pattern_with_digits_and_delimiter(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | noneProp(Void value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, Void value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, boolean value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, List<?> value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## FormatTestMap0001Builder
+public class FormatTestMap0001Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap0001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | password(String value) |
+
+## FormatTestMap0010Builder
+public class FormatTestMap0010Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap0010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(double value) |
+
+## FormatTestMap0011Builder
+public class FormatTestMap0011Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap0011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(int value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(float value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(long value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(double value) |
+| [FormatTestMap0010Builder](#formattestmap0010builder) | password(String value) |
+
+## FormatTestMap0100Builder
+public class FormatTestMap0100Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap0100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | date(String value) |
+
+## FormatTestMap0101Builder
+public class FormatTestMap0101Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap0101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | date(String value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | password(String value) |
+
+## FormatTestMap0110Builder
+public class FormatTestMap0110Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap0110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0010Builder](#formattestmap0010builder) | date(String value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(int value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(float value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(long value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(double value) |
+
+## FormatTestMap0111Builder
+public class FormatTestMap0111Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap0111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0011Builder](#formattestmap0011builder) | date(String value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(int value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(float value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(long value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(double value) |
+| [FormatTestMap0110Builder](#formattestmap0110builder) | password(String value) |
+
+## FormatTestMap1000Builder
+public class FormatTestMap1000Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap1000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setByte(String value) |
+
+## FormatTestMap1001Builder
+public class FormatTestMap1001Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap1001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setByte(String value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | password(String value) |
+
+## FormatTestMap1010Builder
+public class FormatTestMap1010Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap1010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0010Builder](#formattestmap0010builder) | setByte(String value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(int value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(float value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(long value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(double value) |
+
+## FormatTestMap1011Builder
+public class FormatTestMap1011Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap1011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0011Builder](#formattestmap0011builder) | setByte(String value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(int value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(float value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(long value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(double value) |
+| [FormatTestMap1010Builder](#formattestmap1010builder) | password(String value) |
+
+## FormatTestMap1100Builder
+public class FormatTestMap1100Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap1100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setByte(String value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | date(String value) |
+
+## FormatTestMap1101Builder
+public class FormatTestMap1101Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap1101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setByte(String value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | date(String value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | password(String value) |
+
+## FormatTestMap1110Builder
+public class FormatTestMap1110Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMap1110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0110Builder](#formattestmap0110builder) | setByte(String value) |
+| [FormatTestMap1010Builder](#formattestmap1010builder) | date(String value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(int value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(float value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(long value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(double value) |
+
+## FormatTestMapBuilder
+public class FormatTestMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTestMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap0111Builder](#formattestmap0111builder) | setByte(String value) |
+| [FormatTestMap1011Builder](#formattestmap1011builder) | date(String value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(int value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(float value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(long value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(double value) |
+| [FormatTestMap1110Builder](#formattestmap1110builder) | password(String value) |
 
 ## FormatTestMap
 public static class FormatTestMap<br>
@@ -225,7 +495,7 @@ A class to store validated Map payloads
 | String | pattern_with_digits_and_delimiter()<br>[optional] |
 | Void | noneProp()<br>[optional] |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NoneProp
 public static class NoneProp<br>
@@ -251,7 +521,7 @@ A string starting with &#x27;image_&#x27; (case insensitive) and one to three di
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -293,7 +563,7 @@ A string that is a 10 digit number. Can have leading zeros.
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -332,7 +602,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -425,7 +695,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -464,7 +734,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -477,11 +747,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 FormatTest.ArrayWithUniqueItemsList validatedPayload =
     FormatTest.ArrayWithUniqueItems.validate(
-    new .ArrayWithUniqueItemsListBuilder(
-        Arrays.asList(
-            1
-        )
-    ).build(),
+    new FormatTest.ArrayWithUniqueItemsListBuilder()
+        .add(1)
+
+    .build(),
     configuration
 );
 ```
@@ -504,7 +773,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayWithUniqueItemsListBuilder()<br>Creates an empty list |
@@ -561,7 +830,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -615,7 +884,7 @@ this is a reserved python keyword
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -656,7 +925,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -707,7 +976,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -758,7 +1027,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

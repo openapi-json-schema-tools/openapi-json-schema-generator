@@ -79,6 +79,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenXml;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.LinkedHashMapWithContext;
+import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.ParameterCollection;
 import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCase;
@@ -151,6 +152,7 @@ public class DefaultGenerator implements Generator {
     protected String securitySchemesIdentifier = "security_schemes";
     protected String requestBodyIdentifier = "request_body";
     private final Pattern patternRegex = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
+    private final CodegenKey additionalPropertySampleKey = new CodegenKey("someAdditionalProperty", true, "additional_property", "AdditionalProperty", "additional-property", "additionalProperty");
 
 
 
@@ -860,7 +862,7 @@ public class DefaultGenerator implements Generator {
 
     public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
-    public String getCamelCaseResponse(String componentName) { return toModelName(componentName, null); }
+    public String getPascalCaseResponse(String componentName) { return toModelName(componentName, null); }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
@@ -1139,11 +1141,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String getCamelCaseServer(String basename) {
+    public String getPascalCaseServer(String basename) {
         return toModelName(basename, null);
     }
 
-    public String getCamelCaseParameter(String basename) {
+    public String getPascalCaseParameter(String basename) {
         return toModelName(basename, null);
     }
 
@@ -2428,19 +2430,18 @@ public class DefaultGenerator implements Generator {
         return listVal;
     }
 
-    private Object getMapFromSchema(CodegenSchema mapSchema, Set<CodegenSchema> seenSchemas) {
+    private LinkedHashMap<CodegenKey, Object> getMapFromSchema(CodegenSchema mapSchema, Set<CodegenSchema> seenSchemas) {
         // todo add enum and const handling once those support array types
         if (mapSchema.properties == null && mapSchema.additionalProperties == null && mapSchema.requiredProperties == null) {
             return null;
         }
-        Map<String, Object> mapVal = new LinkedHashMap<>();
+        LinkedHashMap<CodegenKey, Object> mapVal = new LinkedHashMap<>();
         if (mapSchema.requiredProperties != null && !mapSchema.requiredProperties.isEmpty()) {
             for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.requiredProperties.entrySet()) {
-                String propName = entry.getKey().original;
                 Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue(), seenSchemas);
                 if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
                     for(EnumValue exampleValue: propertyTypeToExample.values()) {
-                        mapVal.put(propName, exampleValue);
+                        mapVal.put(entry.getKey(), exampleValue);
                         break;
                     }
                 }
@@ -2448,20 +2449,29 @@ public class DefaultGenerator implements Generator {
         }
         if (mapSchema.optionalProperties != null && !mapSchema.optionalProperties.isEmpty()) {
             for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.optionalProperties.entrySet()) {
-                String propName = entry.getKey().original;
                 Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue(), seenSchemas);
                 if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
                     for(EnumValue exampleValue: propertyTypeToExample.values()) {
-                        mapVal.put(propName, exampleValue);
+                        mapVal.put(entry.getKey(), exampleValue);
                         break;
                     }
+                }
+            }
+        }
+
+        if (mapSchema.additionalProperties != null && !mapSchema.additionalProperties.isBooleanSchemaFalse) {
+            Map<String, EnumValue> propertyTypeToExample = getTypeToExample(mapSchema.additionalProperties, seenSchemas);
+            if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
+                for(EnumValue exampleValue: propertyTypeToExample.values()) {
+                    mapVal.put(additionalPropertySampleKey, exampleValue);
+                    break;
                 }
             }
         }
         return mapVal;
     }
 
-    private Map<String, EnumValue> getTypeToExample(CodegenSchema schema, Set<CodegenSchema> seenSchemas) {
+    private LinkedHashMap<String, EnumValue> getTypeToExample(CodegenSchema schema, Set<CodegenSchema> seenSchemas) {
         if (schema == null) {
             return null;
         }
@@ -2478,7 +2488,7 @@ public class DefaultGenerator implements Generator {
             }
             seenSchemas.add(usedSchema);
         }
-        Map<String, EnumValue> typeToExample = new LinkedHashMap<>();
+        LinkedHashMap<String, EnumValue> typeToExample = new LinkedHashMap<>();
         if (usedSchema.types != null) {
             for (String type: usedSchema.types) {
                 switch(type) {
@@ -2740,6 +2750,7 @@ public class DefaultGenerator implements Generator {
             }
             property.propertyNames = fromSchema(propertyNamesSchema, sourceJsonPath, currentJsonPath + "/propertyNames");
         }
+        property.mapBuilders = getMapBuilders(property, currentJsonPath, sourceJsonPath);
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
         CodegenSchema additionalProperties = property.additionalProperties;
         LinkedHashMapWithContext<CodegenSchema> properties = property.properties;
@@ -2842,6 +2853,10 @@ public class DefaultGenerator implements Generator {
         return property;
     }
 
+    protected List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
+        return null;
+    }
+
     @Override
     public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
         if (ref == null) {
@@ -2873,14 +2888,15 @@ public class DefaultGenerator implements Generator {
                 operationId = String.join(removeOperationIdPrefixDelimiter, Arrays.copyOfRange(components, component_number, components.length));
             }
         }
-        String camelCase = toModelName(operationId, null);
-        String anchorPiece = camelCase.toLowerCase(Locale.ROOT);
+        String pascalCaseName = toModelName(operationId, null);
+        String kebabCase = pascalCaseName.toLowerCase(Locale.ROOT);
         return new CodegenKey(
                 operationId,
                 isValid(operationId),
                 getOperationIdSnakeCase(operationId),
-                camelCase,
-                anchorPiece
+                pascalCaseName,
+                kebabCase,
+                null
         );
     }
 
@@ -5205,7 +5221,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
         String usedKey = escapeUnsafeCharacters(name);
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
@@ -5241,11 +5257,18 @@ public class DefaultGenerator implements Generator {
         return usedKey;
     }
 
+    protected String getCamelCaseName(String key) {
+        String usedName = toEnumVarName(key, new StringSchema());
+        usedName = camelize("set_"+ usedName.toLowerCase(Locale.ROOT), true);
+        return usedName;
+    }
+
     public CodegenKey getKey(String key, String keyType, String sourceJsonPath) {
         String snakeCaseName = null;
         String camelCaseName = null;
-        String anchorPiece = null;
+        String kebabCase = null;
         String usedKey = null;
+        String pascalCaseName = null;
         boolean isValid = true;
         switch (keyType) {
             case "schemaProperty":
@@ -5253,67 +5276,71 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = getSchemaCamelCaseName(key, sourceJsonPath);
+                pascalCaseName = getSchemaPascalCaseName(key, sourceJsonPath);
+                if (!isValid) {
+                    camelCaseName = getCamelCaseName(usedKey);
+                }
                 break;
             case "paths":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = camelize(toPathFilename(usedKey, null));;
+                pascalCaseName = camelize(toPathFilename(usedKey, null));;
                 break;
             case "misc":
             case "verb":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
-                camelCaseName = getCamelCaseParameter(usedKey);
+                pascalCaseName = getPascalCaseParameter(usedKey);
                 break;
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toRequestBodyFilename(usedKey);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "responses":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
-                camelCaseName = getCamelCaseResponse(usedKey);
+                pascalCaseName = getPascalCaseResponse(usedKey);
                 break;
             case "securitySchemes":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey, sourceJsonPath);
+                pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "servers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
-                camelCaseName = getCamelCaseServer(usedKey);
+                pascalCaseName = getPascalCaseServer(usedKey);
                 break;
         }
-        if (camelCaseName != null) {
-            anchorPiece = camelCaseName.toLowerCase(Locale.ROOT);
+        if (pascalCaseName != null) {
+            kebabCase = pascalCaseName.toLowerCase(Locale.ROOT);
         }
         return new CodegenKey(
                 usedKey,
                 isValid,
                 snakeCaseName,
-                camelCaseName,
-                anchorPiece
+                pascalCaseName,
+                kebabCase,
+                camelCaseName
         );
     }
 

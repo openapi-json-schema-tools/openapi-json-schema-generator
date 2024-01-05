@@ -40,21 +40,36 @@ model with an invalid class name for python, starts with a number
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [Schema200ResponseMap](#schema200responsemap) | validate([Map<?, ?>](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema200ResponseMap](#schema200responsemap) | validate([Map&lt;?, ?&gt;](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema200ResponseMapBuilder
 public class Schema200ResponseMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **name** | Number |  | [optional] value must be a 32 bit integer |
-| **class** | String | this is a reserved python keyword | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema200ResponseMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(int value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(float value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | setClass(String value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, Void value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, String value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, int value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, float value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, long value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, double value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema200ResponseMap
 public static class Schema200ResponseMap<br>
@@ -68,7 +83,7 @@ A class to store validated Map payloads
 | static [Schema200ResponseMap](#schema200responsemap) | of([Map<String, ? extends @Nullable Object>](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | Number | name()<br>[optional] value must be a 32 bit integer |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["class"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassSchema
 public static class ClassSchema<br>

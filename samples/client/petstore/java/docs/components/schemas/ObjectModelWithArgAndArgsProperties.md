@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap validatedPayload =
     ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "arg",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "args",
-            "a"
-        )
-    ),
+    new ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapBuilder()
+        .arg("a")
+
+        .args("a")
+
+    .build(),
     configuration
 );
 ```
@@ -64,20 +60,81 @@ ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap valid
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map<?, ?>](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map&lt;?, ?&gt;](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectModelWithArgAndArgsPropertiesMapBuilder
-public class ObjectModelWithArgAndArgsPropertiesMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## ObjectModelWithArgAndArgsPropertiesMap00Builder
+public class ObjectModelWithArgAndArgsPropertiesMap00Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **arg** | String |  | |
-| **args** | String |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectModelWithArgAndArgsPropertiesMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, Void value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, boolean value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, String value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, int value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, float value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, long value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, double value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, List<?> value) |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## ObjectModelWithArgAndArgsPropertiesMap01Builder
+public class ObjectModelWithArgAndArgsPropertiesMap01Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectModelWithArgAndArgsPropertiesMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | args(String value) |
+
+## ObjectModelWithArgAndArgsPropertiesMap10Builder
+public class ObjectModelWithArgAndArgsPropertiesMap10Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectModelWithArgAndArgsPropertiesMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ObjectModelWithArgAndArgsPropertiesMap00Builder](#objectmodelwithargandargspropertiesmap00builder) | arg(String value) |
+
+## ObjectModelWithArgAndArgsPropertiesMapBuilder
+public class ObjectModelWithArgAndArgsPropertiesMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectModelWithArgAndArgsPropertiesMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [ObjectModelWithArgAndArgsPropertiesMap01Builder](#objectmodelwithargandargspropertiesmap01builder) | arg(String value) |
+| [ObjectModelWithArgAndArgsPropertiesMap10Builder](#objectmodelwithargandargspropertiesmap10builder) | args(String value) |
 
 ## ObjectModelWithArgAndArgsPropertiesMap
 public static class ObjectModelWithArgAndArgsPropertiesMap<br>
@@ -91,7 +148,7 @@ A class to store validated Map payloads
 | static [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | String | arg()<br> |
 | String | args()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Args
 public static class Args<br>

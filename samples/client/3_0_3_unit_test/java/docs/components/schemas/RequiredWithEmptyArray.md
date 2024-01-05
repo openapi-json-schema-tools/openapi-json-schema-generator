@@ -36,20 +36,42 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | validate([Map<?, ?>](#requiredwithemptyarraymapbuilder) arg, SchemaConfiguration configuration) |
+| [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | validate([Map&lt;?, ?&gt;](#requiredwithemptyarraymapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RequiredWithEmptyArrayMapBuilder
 public class RequiredWithEmptyArrayMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | ? extends @Nullable Object |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredWithEmptyArrayMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(Void value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(boolean value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(String value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(int value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(float value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(long value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(double value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(List<?> value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | foo(Map<String, ?> value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, Void value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, boolean value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, String value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, int value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, float value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, long value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, double value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, List<?> value) |
+| [RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## RequiredWithEmptyArrayMap
 public static class RequiredWithEmptyArrayMap<br>
@@ -62,7 +84,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | of([Map<String, ? extends @Nullable Object>](#requiredwithemptyarraymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo
 public static class Foo<br>

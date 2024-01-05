@@ -36,6 +36,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
+import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
@@ -349,6 +350,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
         schemaSupportingFiles.add("AnyTypeJsonSchema");
+        schemaSupportingFiles.add("BaseBuilder");
         schemaSupportingFiles.add("BooleanJsonSchema");
         schemaSupportingFiles.add("DateJsonSchema");
         schemaSupportingFiles.add("DateTimeJsonSchema");
@@ -359,13 +361,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
         schemaSupportingFiles.add("ListJsonSchema");
-        schemaSupportingFiles.add("MapMaker");
         schemaSupportingFiles.add("MapJsonSchema");
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
         schemaSupportingFiles.add("NumberJsonSchema");
         schemaSupportingFiles.add("SetMaker");
         schemaSupportingFiles.add("StringJsonSchema");
+        schemaSupportingFiles.add("UnsetAddPropsSetter");
         schemaSupportingFiles.add("UuidJsonSchema");
         for (String schemaSupportingFile: schemaSupportingFiles) {
             supportingFiles.add(new SupportingFile(
@@ -426,6 +428,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("LongEnumValidator");
         keywordValidatorFiles.add("LongValueMethod");
         keywordValidatorFiles.add("MapSchemaValidator");
+        keywordValidatorFiles.add("MapUtils");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
@@ -998,8 +1001,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
-    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
-        return getSchemaCamelCaseName(name, sourceJsonPath, true);
+    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
+        return getSchemaPascalCaseName(name, sourceJsonPath, true);
     }
 
     @Override
@@ -1037,7 +1040,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return stringValue;
     }
 
-    private String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath, boolean useCache) {
+    private String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath, boolean useCache) {
         String usedKey = escapeUnsafeCharacters(name);
         usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9_]+");
         /*
@@ -1131,7 +1134,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         String modelName = schemaJsonPathToModelName.get(jsonPath);
         if (modelName == null) {
             String[] pathPieces = jsonPath.split("/");
-            return getSchemaCamelCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
+            return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
         }
         return modelName;
     }
@@ -1544,6 +1547,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addEnumValidator(schema, imports);
                 addPatternValidator(schema, imports);
                 addMultipleOfValidator(schema, imports);
+                addAdditionalPropertiesImports(schema, imports);
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1609,6 +1613,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             imports.add("import java.util.Map;");
             imports.add("import java.util.Set;");
             imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
+            imports.add("import "+packageName + ".schemas.BaseBuilder;");
         }
     }
 
@@ -1630,9 +1635,24 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
     }
 
+    private void addAdditionalPropertiesImports(CodegenSchema schema, Set<String> imports) {
+        if (schema.additionalProperties == null || !schema.additionalProperties.isBooleanSchemaFalse) {
+            imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
+            imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
+        }
+        if (schema.additionalProperties != null) {
+            imports.add("import "+packageName + ".schemas.BaseBuilder;");
+            imports.add("import "+packageName + ".schemas.validation.MapUtils;");
+        } else {
+            imports.add("import "+packageName + ".schemas.UnsetAddPropsSetter;");
+        }
+    }
+
+
     private void addRequiredValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.requiredProperties != null) {
             imports.add("import java.util.Set;");
+            imports.add("import "+packageName + ".schemas.BaseBuilder;");
         }
     }
 
@@ -1686,10 +1706,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
-        if (schema.additionalProperties == null || !schema.additionalProperties.isBooleanSchemaFalse) {
-            imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
-        }
+        addAdditionalPropertiesImports(schema, imports);
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -2041,5 +2058,77 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()), enumValue.description);
             addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
         }
+    }
+
+    protected List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
+        List<MapBuilder> builders = new ArrayList<>();
+        if (sourceJsonPath == null) {
+            return builders;
+        }
+        String schemaName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+        schemaName = ModelUtils.decodeSlashes(schemaName);
+        int qtyBuilders = 1;
+        int reqPropsSize = 0;
+        if (schema.requiredProperties != null) {
+            qtyBuilders = (int) Math.pow(2, schema.requiredProperties.size());
+            reqPropsSize = schema.requiredProperties.size();
+        }
+        Map<String, MapBuilder> bitStrToBuilder = new HashMap<>();
+        List<CodegenKey> reqPropKeys = new ArrayList<>();
+        if (schema.requiredProperties != null) {
+            reqPropKeys.addAll(schema.requiredProperties.keySet());
+        }
+        MapBuilder lastBuilder = null;
+        // builders are built last to first, last builder has build method
+        for (int i=0; i < qtyBuilders; i++) {
+            String bitStr = "";
+            if (reqPropsSize != 0) {
+                bitStr = String.format("%"+reqPropsSize+"s", Integer.toBinaryString(i)).replace(' ', '0');
+            }
+            CodegenKey builderClassName;
+            if (i == qtyBuilders - 1) {
+                // first invoked builder has the simplest name with no bitStr
+                if (schema.mapInputJsonPathPiece != null) {
+                    builderClassName = schema.mapInputJsonPathPiece;
+                } else {
+                    builderClassName = getKey(schemaName + objectIOClassNamePiece + "Builder", "schemas", sourceJsonPath);
+                }
+            } else {
+                builderClassName = getKey(schemaName + objectIOClassNamePiece + bitStr + "Builder", "schemas", sourceJsonPath);
+            }
+            MapBuilder builder;
+            if (i == 0) {
+                builder = new MapBuilder(builderClassName, new LinkedHashMap<>());
+                lastBuilder = builder;
+            } else {
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderSchemaPair> keyToBuilder = new LinkedHashMap<>();
+                for (int c=0; c < reqPropsSize; c++) {
+                    if (bitStr.charAt(c) == '1') {
+                        StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
+                        nextBuilderBitStr.setCharAt(c, '0');
+                        CodegenKey key = reqPropKeys.get(c);
+                        if (key == null) {
+                            throw new RuntimeException("key must exist at c="+c);
+                        }
+                        MapBuilder nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
+                        if (nextBuilder == null) {
+                            throw new RuntimeException("Next builder must exist for bitStr="+nextBuilderBitStr.toString());
+                        }
+                        var pair = new MapBuilder.BuilderSchemaPair(nextBuilder, schema.requiredProperties.get(key));
+                        keyToBuilder.put(key, pair);
+                    }
+                }
+                builder = new MapBuilder(builderClassName, keyToBuilder);
+            }
+            bitStrToBuilder.put(bitStr, builder);
+            builders.add(builder);
+        }
+        if (lastBuilder != null && schema.optionalProperties != null) {
+            for (Map.Entry<CodegenKey, CodegenSchema> entry: schema.optionalProperties.entrySet()) {
+                var pair = new MapBuilder.BuilderSchemaPair(lastBuilder, entry.getValue());
+                lastBuilder.keyToBuilder.put(entry.getKey(), pair);
+            }
+        }
+        return builders;
     }
 }

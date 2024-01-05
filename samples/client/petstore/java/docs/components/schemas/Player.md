@@ -29,7 +29,7 @@ a model that includes a self reference this forces properties and additionalProp
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Player.PlayerMap validatedPayload =
     Player.Player1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "name",
-            "a"
-        )
-    ),
+    new Player.PlayerMapBuilder()
+        .name("a")
+
+    .build(),
     configuration
 );
 ```
@@ -61,20 +59,34 @@ Player.PlayerMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PlayerMap](#playermap) | validate([Map<?, ?>](#playermapbuilder) arg, SchemaConfiguration configuration) |
+| [PlayerMap](#playermap) | validate([Map&lt;?, ?&gt;](#playermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PlayerMapBuilder
 public class PlayerMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **name** | String |  | [optional] |
-| **enemyPlayer** | Map<String, ?> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PlayerMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [PlayerMapBuilder](#playermapbuilder) | name(String value) |
+| [PlayerMapBuilder](#playermapbuilder) | enemyPlayer(Map<String, @Nullable Object> value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, Void value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, boolean value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, String value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, int value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, float value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, long value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, double value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, List<?> value) |
+| [PlayerMapBuilder](#playermapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## PlayerMap
 public static class PlayerMap<br>
@@ -88,7 +100,7 @@ A class to store validated Map payloads
 | static [PlayerMap](#playermap) | of([Map<String, ? extends @Nullable Object>](#playermapbuilder) arg, SchemaConfiguration configuration) |
 | String | name()<br>[optional] |
 | [PlayerMap](#playermap) | enemyPlayer()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Name
 public static class Name<br>

@@ -81,7 +81,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
@@ -89,13 +88,20 @@ import static org.testng.Assert.fail;
 
 
 public class DefaultGeneratorTest {
+    public static class ThisDefaultGenerator extends DefaultGenerator {
+        @Override
+        public String escapeUnsafeCharacters(String input) {
+            return input;
+        }
+    }
+    
     private String getOperationPath(String operationPath, String httpMethod) {
         return "#/paths/" + ModelUtils.encodeSlashes(operationPath) + "/" + httpMethod;
     }
 
     @Test
     public void testDeeplyNestedAdditionalPropertiesImports() {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openApi = TestUtils.parseFlattenSpec("src/test/resources/3_0/additional-properties-deeply-nested.yaml");
         codegen.setOpenAPI(openApi);
         PathItem path = openApi.getPaths().get("/ping");
@@ -105,7 +111,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testRefedEnumParameter() {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.addSchemaImportsFromV3SpecLocations = true;
         final OpenAPI openApi = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_12445.yaml");
         codegen.setOpenAPI(openApi);
@@ -139,7 +145,7 @@ public class DefaultGeneratorTest {
         openAPI.setComponents(new Components());
         openAPI.getComponents().addSchemas("Pet", new ObjectSchema());
 
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
 
         Assert.assertFalse(codegen.hasBodyParameter(openAPI, pingOperation));
         Assert.assertTrue(codegen.hasBodyParameter(openAPI, createOperation));
@@ -147,7 +153,7 @@ public class DefaultGeneratorTest {
 
     @Test(expectedExceptions = RuntimeException.class)
     public void testParameterEmptyDescription() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
 
         codegen.fromRequestBody(null, null);
     }
@@ -181,7 +187,7 @@ public class DefaultGeneratorTest {
         Assert.assertTrue(createConsumesInfo.contains("application/xml"), "contains 'application/xml'");
         Set<String> createProducesInfo = DefaultGenerator.getProducesInfo(openAPI, createOperation);
         Assert.assertEquals(createProducesInfo.size(), 0);
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         CodegenOperation coCreate = codegen.fromOperation(createOperation, getOperationPath("somepath", "post"), null);
         Assert.assertTrue(!coCreate.requestBody.content.isEmpty());
@@ -211,7 +217,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testGetProducesInfo() throws Exception {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/produces.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         Operation textOperation = openAPI.getPaths().get("/ping/text").getGet();
@@ -236,7 +242,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testInitialConfigValues() throws Exception {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.processOpts();
 
         Assert.assertEquals(codegen.additionalProperties().get(CodegenConstants.HIDE_GENERATION_TIMESTAMP), Boolean.TRUE);
@@ -245,7 +251,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testSettersForConfigValues() throws Exception {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setHideGenerationTimestamp(false);
         codegen.processOpts();
 
@@ -255,7 +261,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testAdditionalPropertiesPutForConfigValues() throws Exception {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.additionalProperties().put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, false);
         codegen.processOpts();
 
@@ -266,7 +272,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testDateTimeFormParameterHasDefaultValue() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/date-time-parameter-types-for-testing.yml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         RequestBody reqBody = openAPI.getPaths().get("/thingy/{date}").getPost().getRequestBody();
@@ -297,7 +303,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAdditionalPropertiesV3SpecDisallowAdditionalPropertiesIfNotPresentFalse() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/python/petstore_customized.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
         codegen.supportsAdditionalPropertiesWithComposedSchema = true;
         codegen.setOpenAPI(openAPI);
@@ -416,7 +422,7 @@ public class DefaultGeneratorTest {
         // However, in legacy 'additionalProperties' mode, this is interpreted as
         // 'no additional properties are allowed'.
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing-with-http-signature.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setDisallowAdditionalPropertiesIfNotPresent(true);
         codegen.setOpenAPI(openAPI);
 
@@ -430,7 +436,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testEnsureNoDuplicateProduces() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/two-responses.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         Operation operation = openAPI.getPaths().get("/test").getGet();
@@ -443,7 +449,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testComposedSchemaOneOfWithProperties() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/oneOf.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
 
         final Schema schema = openAPI.getComponents().getSchemas().get("fruit");
         codegen.setOpenAPI(openAPI);
@@ -461,7 +467,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testEscapeText() {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
 
         Assert.assertEquals(codegen.escapeText("\n"), " ");
         Assert.assertEquals(codegen.escapeText("\r"), " ");
@@ -473,7 +479,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testEscapeTextWhileAllowingNewLines() {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
 
         // allow new lines
         Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\n"), "\n");
@@ -499,7 +505,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void updateCodegenPropertyEnumWithExtension() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         {
             CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("dog", "cat"), "updateCodegenPropertyEnumWithExtension1", Arrays.asList("DOGVAR", "CATVAR"));
             LinkedHashMap<EnumValue, String> enumVars = enumProperty.items.enumInfo.valueToName;
@@ -532,7 +538,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void updateCodegenPropertyEnumWithPrefixRemoved() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithPrefixRemoved", null);
 
         Map<EnumValue, String> enumVars = enumProperty.items.enumInfo.valueToName;
@@ -543,7 +549,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void updateCodegenPropertyEnumWithoutPrefixRemoved() {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setRemoveEnumValuePrefix(false);
 
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithoutPrefixRemoved", null);
@@ -556,7 +562,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void postProcessModelsEnumWithPrefixRemoved() {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         TreeMap<String, CodegenSchema> schemas = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithPrefixRemoved", null, null);
         CodegenSchema cm = schemas.get("model");
 
@@ -568,7 +574,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void postProcessModelsEnumWithoutPrefixRemoved() {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setRemoveEnumValuePrefix(false);
         TreeMap<String, CodegenSchema> objs = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithoutPrefixRemoved", null, null);
         CodegenSchema cm = objs.get("model");
@@ -581,7 +587,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void postProcessModelsEnumWithExtension() {
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         TreeMap<String, CodegenSchema> objs = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithExtension", Arrays.asList("DOGVAR", "CATVAR"), Arrays.asList("This is a dog", "This is a cat"));
         CodegenSchema cm = objs.get("model");
 
@@ -594,7 +600,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testExample1() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/examples.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
 
         PathItem path = openAPI.getPaths().get("/example1/singular");
         CodegenOperation op = codegen.fromOperation(path.getGet(), getOperationPath("/example1/singular", "get"), null);
@@ -608,7 +614,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testExample2() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/examples.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
 
         PathItem path = openAPI.getPaths().get("/example2/singular");
         CodegenOperation op = codegen.fromOperation(path.getGet(), getOperationPath("/example2/singular", "get"), null);
@@ -618,7 +624,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testExample3() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/examples.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
 
         PathItem path = openAPI.getPaths().get("/example3/singular");
         CodegenOperation op = codegen.fromOperation(path.getGet(), getOperationPath("/example3/singular", "get"), null);
@@ -632,7 +638,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testDiscriminator() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
 
         Schema animal = openAPI.getComponents().getSchemas().get("Animal");
         codegen.setOpenAPI(openAPI);
@@ -656,7 +662,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testDiscriminatorWithCustomMapping() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
@@ -674,7 +680,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAllOfRequired() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf-required.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
 
         Schema child = openAPI.getComponents().getSchemas().get("clubForCreation");
         codegen.setOpenAPI(openAPI);
@@ -689,7 +695,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testComposedSchemaAllOfDiscriminatorMap() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setModelPackage("components.schemas");
@@ -827,7 +833,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testComposedSchemaAllOfDiscriminatorMapLegacy() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         // codegen.legacyDiscriminatorBehavior remains false in the legacy use case
         codegen.setModelPackage("components.schemas");
         codegen.setOpenAPI(openAPI);
@@ -943,7 +949,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testComposedSchemaOneOfDiscriminatorsInvalid() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/oneOfDiscriminator.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
@@ -975,7 +981,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testComposedSchemaAnyOfDiscriminatorsInvalid() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/anyOfDiscriminator.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
@@ -1007,7 +1013,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testComposedSchemaAnyOfDiscriminatorMap() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/anyOfDiscriminator.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
@@ -1116,7 +1122,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testComposedSchemaOneOfDiscriminatorMap() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/oneOfDiscriminator.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
@@ -1225,7 +1231,7 @@ public class DefaultGeneratorTest {
     public void testComposedSchemaMyPetsOneOfDiscriminatorMap() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
 
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
@@ -1242,7 +1248,7 @@ public class DefaultGeneratorTest {
     public void testComposedSchemaAllOfHierarchy() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
 
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setLegacyDiscriminatorBehavior(false);
         codegen.setOpenAPI(openAPI);
 
@@ -1268,7 +1274,7 @@ public class DefaultGeneratorTest {
         String propertyName = prop;
         Map<String, String> mapping = null;
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
-        CodegenKey testPropName = new DefaultGenerator().getKey(propertyName, "misc");
+        CodegenKey testPropName = new ThisDefaultGenerator().getKey(propertyName, "misc");
         CodegenDiscriminator test = new CodegenDiscriminator(testPropName, mapping, mappedModels);
         assertEquals(discriminator, test);
     }
@@ -1280,7 +1286,7 @@ public class DefaultGeneratorTest {
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Snake", "Snake"));
-        CodegenKey expectedDiscriminatorPropName = new DefaultGenerator().getKey(propertyName, "misc");
+        CodegenKey expectedDiscriminatorPropName = new ThisDefaultGenerator().getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
@@ -1292,7 +1298,7 @@ public class DefaultGeneratorTest {
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Lizard", "Lizard"));
-        CodegenKey expectedDiscriminatorPropName = new DefaultGenerator().getKey(propertyName, "misc");
+        CodegenKey expectedDiscriminatorPropName = new ThisDefaultGenerator().getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
@@ -1300,7 +1306,7 @@ public class DefaultGeneratorTest {
     @Test
     public void verifyXDiscriminatorValue() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/x-discriminator-value.yaml");
-        final DefaultGenerator config = new DefaultGenerator();
+        final DefaultGenerator config = new ThisDefaultGenerator();
         config.setOpenAPI(openAPI);
 
         String modelName;
@@ -1329,7 +1335,7 @@ public class DefaultGeneratorTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("DailySubObj", "DailySubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("sub-obj", "SubObj"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("SubObj", "SubObj"));
-        CodegenKey expectedDiscriminatorPropName = new DefaultGenerator().getKey(propertyName, "misc");
+        CodegenKey expectedDiscriminatorPropName = new ThisDefaultGenerator().getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(cm.discriminator, expectedDiscriminator);
     }
@@ -1356,7 +1362,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAllOfParent() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf-required-parent.yaml");
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         Schema person = openAPI.getComponents().getSchemas().get("person");
@@ -1391,7 +1397,7 @@ public class DefaultGeneratorTest {
         openAPI.path("/here", new PathItem().get(operation1));
         Operation operation2 = new Operation().operationId("op2").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")));
         openAPI.path("some/path", new PathItem().get(operation2));
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.preprocessOpenAPI(openAPI);
         codegen.setOpenAPI(openAPI);
 
@@ -1413,7 +1419,7 @@ public class DefaultGeneratorTest {
                                 "422", new ApiResponse().description("Error"))
         );
         openAPI.path("/here", new PathItem().get(myOperation));
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         CodegenOperation co = codegen.fromOperation(myOperation, getOperationPath("/here", "get"), null);
@@ -1432,7 +1438,7 @@ public class DefaultGeneratorTest {
                         .style(Header.StyleEnum.SIMPLE));
         Operation operation1 = new Operation().operationId("op1").responses(new ApiResponses().addApiResponse("2XX", response2XX));
         openAPI.path("/here", new PathItem().get(operation1));
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setModelPackage("components");
         codegen.setOpenAPI(openAPI);
 
@@ -1444,7 +1450,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testNullableProperty() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/examples.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         CodegenSchema userModel = codegen.fromSchema(
@@ -1459,7 +1465,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testDeprecatedModel() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/component-deprecated.yml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
 
         CodegenSchema codegenPetModel = codegen.fromSchema(
                 openAPI.getComponents().getSchemas().get("Pet"),
@@ -1479,7 +1485,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testDeprecatedProperty() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/property-deprecated.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         final Map responseProperties = Collections.unmodifiableMap(openAPI.getComponents().getSchemas().get("Response").getProperties());
@@ -1510,7 +1516,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testDeprecatedRef() {
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/3_0/model-deprecated.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         final Map<String, Schema> requestProperties = openAPI.getComponents().getSchemas().get("complex").getProperties();
@@ -1536,7 +1542,7 @@ public class DefaultGeneratorTest {
     public void integerSchemaPropertyAndModelTest() {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         final Schema schema = new IntegerSchema().format("int32");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setModelPackage("components.schemas");
 
@@ -1565,7 +1571,7 @@ public class DefaultGeneratorTest {
     public void longSchemaPropertyAndModelTest() {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         final Schema schema = new IntegerSchema().format("int64");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         //Property:
@@ -1595,7 +1601,7 @@ public class DefaultGeneratorTest {
     public void numberSchemaPropertyAndModelTest() {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         final Schema schema = new NumberSchema();
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         //Property:
@@ -1623,7 +1629,7 @@ public class DefaultGeneratorTest {
     public void numberFloatSchemaPropertyAndModelTest() {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         final Schema schema = new NumberSchema().format("float");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setModelPackage("components.schemas");
         codegen.setOpenAPI(openAPI);
 
@@ -1654,7 +1660,7 @@ public class DefaultGeneratorTest {
     public void numberDoubleSchemaPropertyAndModelTest() {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         final Schema schema = new NumberSchema().format("double");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setModelPackage("components.schemas");
         codegen.setOpenAPI(openAPI);
 
@@ -1685,7 +1691,7 @@ public class DefaultGeneratorTest {
     public void testAlias() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/type_alias.yaml");
 
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         codegen.fromSchema(
@@ -1713,7 +1719,7 @@ public class DefaultGeneratorTest {
         mappedModels.add(new CodegenDiscriminator.MappedModel("c", "Child"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Adult", "Adult"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Child", "Child"));
-        CodegenKey expectedDiscriminatorPropName = new DefaultGenerator().getKey(propertyName, "misc");
+        CodegenKey expectedDiscriminatorPropName = new ThisDefaultGenerator().getKey(propertyName, "misc");
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         Assert.assertEquals(discriminator, expectedDiscriminator);
     }
@@ -1724,7 +1730,7 @@ public class DefaultGeneratorTest {
         ArraySchema arraySchema = new ArraySchema();
         arraySchema.setItems(itemsSchema);
 
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         String jsonPath = "#/components/schemas/codegenPropertyWithArrayOfIntegerValues";
         return codegen.fromSchema(arraySchema, jsonPath, jsonPath);
     }
@@ -1765,7 +1771,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void modelDoNotContainInheritedVars() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.supportsInheritance = true;
 
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/generic.yaml");
@@ -1782,7 +1788,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void schemaMapping() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.schemaMapping.put("TypeAlias", "foo.bar.TypeAlias");
 
         OpenAPI openAPI = new OpenAPIParser()
@@ -1802,7 +1808,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void modelWithPrefixDoNotContainInheritedVars() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.supportsInheritance = true;
         codegen.setModelNamePrefix("prefix");
 
@@ -1820,7 +1826,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void modelWithSuffixDoNotContainInheritedVars() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.supportsInheritance = true;
         codegen.setModelNameSuffix("suffix");
 
@@ -1839,7 +1845,7 @@ public class DefaultGeneratorTest {
     @Test
     public void arrayInnerReferencedSchemaMarkedAsModel_30() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/arrayRefBody.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         RequestBody body = openAPI.getPaths().get("/examples").getPost().getRequestBody();
@@ -1855,7 +1861,7 @@ public class DefaultGeneratorTest {
     @Test
     public void pathItemParmsCorrectlyCalculated() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue237.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         PathItem docPathItem = openAPI.getPaths().get("/users/{UserID}");
@@ -1898,7 +1904,7 @@ public class DefaultGeneratorTest {
     @SuppressWarnings("unchecked")
     public void commonLambdasRegistrationTest() {
 
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         Object lambdasObj = codegen.additionalProperties.get("lambda");
 
         assertNotNull(lambdasObj, "Expecting lambda in additionalProperties");
@@ -1917,14 +1923,14 @@ public class DefaultGeneratorTest {
 
     @Test
     public void convertApiNameWithEmptySuffix() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         assertEquals(codegen.toApiName("Fake"), "FakeApi");
         assertEquals(codegen.toApiName(""), "DefaultApi");
     }
 
     @Test
     public void convertApiNameWithSuffix() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setApiNameSuffix("Test");
         assertEquals(codegen.toApiName("Fake"), "FakeTest");
         assertEquals(codegen.toApiName(""), "DefaultApi");
@@ -1977,7 +1983,7 @@ public class DefaultGeneratorTest {
                 "              type: string\n" +
                 "              format: password\n");
 
-        final DefaultGenerator cg = new DefaultGenerator();
+        final DefaultGenerator cg = new ThisDefaultGenerator();
         cg.setOpenAPI(openAPI);
         cg.preprocessOpenAPI(openAPI);
 
@@ -1992,7 +1998,7 @@ public class DefaultGeneratorTest {
     @Test
     public void inlineAllOfSchemaDoesNotThrowException() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue7262.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String modelName = "UserTimeBase";
@@ -2022,7 +2028,7 @@ public class DefaultGeneratorTest {
     @Test
     public void arrayModelHasValidation() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue7356.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String modelName = "ArrayWithValidations";
@@ -2038,7 +2044,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testOauthMultipleFlows() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7193.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         final Map<String, SecurityScheme> securitySchemes = openAPI.getComponents().getSecuritySchemes();
@@ -2056,7 +2062,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testItemsPresent() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String modelName;
@@ -2105,7 +2111,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAdditionalPropertiesPresentInModels() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2164,7 +2170,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAdditionalPropertiesPresentInModelProperties() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2231,7 +2237,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAdditionalPropertiesPresentInParameters() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2294,7 +2300,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAdditionalPropertiesPresentInResponses() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2368,7 +2374,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAdditionalPropertiesAnyType() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_9282.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         Schema sc;
@@ -2398,7 +2404,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testIsXPresence() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7651.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String modelName;
@@ -2540,7 +2546,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testModelGetHasValidation() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7651.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         Schema sc;
@@ -2612,7 +2618,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testPropertyGetHasValidation() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7651.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String modelName = "ObjectWithPropertiesThatHaveValidations";
@@ -2633,7 +2639,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testQueryParametersGetHasValidation() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7651.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String path = "/queryParametersWithValidation";
@@ -2649,7 +2655,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHeaderParametersGetHasValidation() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7651.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String path = "/headerParametersWithValidation";
@@ -2665,7 +2671,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testCookieParametersGetHasValidation() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7651.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String path = "/cookieParametersWithValidation";
@@ -2681,7 +2687,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testPathParametersGetHasValidation() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7651.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String path = "/pathParametersWithValidation";
@@ -2697,7 +2703,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testBodyAndResponseGetHasValidation() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7651.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         List<String> modelNames = Arrays.asList(
@@ -2770,7 +2776,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testVarsAndRequiredVarsPresent() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2821,7 +2827,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHasVarsInModel() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2867,7 +2873,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHasVarsInProperty() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2920,7 +2926,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHasVarsInParameter() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2946,7 +2952,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHasVarsInResponse() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7613.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -2970,7 +2976,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHasRequiredInModel() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_8906.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -3029,7 +3035,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHasRequiredInProperties() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_8906.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -3069,7 +3075,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHasRequiredInParameters() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_8906.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -3112,7 +3118,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testHasRequiredInResponses() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_8906.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -3149,7 +3155,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testBooleansSetForIntSchemas() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_9447.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -3262,7 +3268,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testRemoveOperationIdPrefix() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/bugs/issue_9719.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -3277,7 +3283,7 @@ public class DefaultGeneratorTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "UsersGetAll");
+        assertEquals(co.operationId.pascalCase, "UsersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
@@ -3286,7 +3292,7 @@ public class DefaultGeneratorTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "GetAll");
+        assertEquals(co.operationId.pascalCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
@@ -3295,7 +3301,7 @@ public class DefaultGeneratorTest {
         path = "/dotDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "GetAll");
+        assertEquals(co.operationId.pascalCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3304,7 +3310,7 @@ public class DefaultGeneratorTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "UsersGetAll");
+        assertEquals(co.operationId.pascalCase, "UsersGetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3313,7 +3319,7 @@ public class DefaultGeneratorTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "GetAll");
+        assertEquals(co.operationId.pascalCase, "GetAll");
 
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
@@ -3322,13 +3328,13 @@ public class DefaultGeneratorTest {
         path = "/underscoreDelimiter";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null);
-        assertEquals(co.operationId.camelCase, "GetAll");
+        assertEquals(co.operationId.pascalCase, "GetAll");
     }
 
     @Test
     @Ignore
     public void testComposedPropertyTypes() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_10330.yaml");
         codegen.setOpenAPI(openAPI);
         String modelName;
@@ -3354,7 +3360,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testComposedModelTypes() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_10330.yaml");
         codegen.setOpenAPI(openAPI);
         String modelName;
@@ -3426,7 +3432,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testComposedResponseTypes() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_10330.yaml");
         codegen.setOpenAPI(openAPI);
         String path;
@@ -3477,7 +3483,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testComposedRequestBodyTypes() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_10330.yaml");
         codegen.setOpenAPI(openAPI);
         String path;
@@ -3528,7 +3534,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testComposedRequestQueryParamTypes() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_10330.yaml");
         codegen.setOpenAPI(openAPI);
         String path;
@@ -3578,7 +3584,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testByteArrayTypeInSchemas() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_10725.yaml");
         codegen.setOpenAPI(openAPI);
         String path;
@@ -3610,7 +3616,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testResponses() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/response-tests.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -3651,7 +3657,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testRequestParameterContent() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/content-data.yaml");
         codegen.setOpenAPI(openAPI);
         String path;
@@ -3686,7 +3692,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testRequestBodyContent() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/content-data.yaml");
         codegen.setOpenAPI(openAPI);
         String path;
@@ -3759,7 +3765,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testResponseContentAndHeader() {
-        DefaultGenerator codegen = new DefaultGenerator();
+        DefaultGenerator codegen = new ThisDefaultGenerator();
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/content-data.yaml");
         codegen.setOpenAPI(openAPI);
         String path;
@@ -3844,7 +3850,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testUnalias() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/schema-unalias-test.yml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         Schema requestBodySchema = ModelUtils.getSchemaFromRequestBody(
@@ -3868,7 +3874,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testFromPropertyRequiredAndOptional() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_12857.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setDisallowAdditionalPropertiesIfNotPresent(false);
 
@@ -3899,7 +3905,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testAssigning310SpecWorks() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_1/petstore.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         assertEquals(openAPI, codegen.openAPI);
     }
@@ -3907,7 +3913,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testMapValueSchemaTypes() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/246_map_values.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
         String schemaName = "NoPropsNoAddProps";
@@ -3948,7 +3954,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testExclusiveMinimum300() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMinimum300.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         String schemaPrefix = "#/components/schemas/";
 
@@ -3991,7 +3997,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testExclusiveMinimum303() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMinimum303.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         String schemaPrefix = "#/components/schemas/";
 
@@ -4034,7 +4040,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testExclusiveMinimum310() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMinimum310.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         String schemaPrefix = "#/components/schemas/";
 
@@ -4061,7 +4067,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testExclusiveMaximum300() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMaximum300.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         String schemaPrefix = "#/components/schemas/";
 
@@ -4104,7 +4110,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testExclusiveMaximum310() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMaximum310.yaml");
-        final DefaultGenerator codegen = new DefaultGenerator();
+        final DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.setOpenAPI(openAPI);
         String schemaPrefix = "#/components/schemas/";
 
@@ -4131,7 +4137,7 @@ public class DefaultGeneratorTest {
     public static class FromParameter {
         private CodegenParameter codegenParameter(String path) {
             final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/fromParameter.yaml");
-            final DefaultGenerator codegen = new DefaultGenerator();
+            final DefaultGenerator codegen = new ThisDefaultGenerator();
             codegen.setOpenAPI(openAPI);
 
             return codegen
@@ -4160,7 +4166,7 @@ public class DefaultGeneratorTest {
 
         @Test
         public void testConvertPropertyToBooleanAndWriteBack_Boolean_true() {
-            final DefaultGenerator codegen = new DefaultGenerator();
+            final DefaultGenerator codegen = new ThisDefaultGenerator();
             Map<String, Object> additionalProperties = codegen.additionalProperties();
             additionalProperties.put(CodegenConstants.SERIALIZABLE_MODEL, true);
             boolean result = codegen.convertPropertyToBooleanAndWriteBack(CodegenConstants.SERIALIZABLE_MODEL);
@@ -4169,7 +4175,7 @@ public class DefaultGeneratorTest {
 
         @Test
         public void testConvertPropertyToBooleanAndWriteBack_Boolean_false() {
-            final DefaultGenerator codegen = new DefaultGenerator();
+            final DefaultGenerator codegen = new ThisDefaultGenerator();
             Map<String, Object> additionalProperties = codegen.additionalProperties();
             additionalProperties.put(CodegenConstants.SERIALIZABLE_MODEL, false);
             boolean result = codegen.convertPropertyToBooleanAndWriteBack(CodegenConstants.SERIALIZABLE_MODEL);
@@ -4178,7 +4184,7 @@ public class DefaultGeneratorTest {
 
         @Test
         public void testConvertPropertyToBooleanAndWriteBack_String_true() {
-            final DefaultGenerator codegen = new DefaultGenerator();
+            final DefaultGenerator codegen = new ThisDefaultGenerator();
             Map<String, Object> additionalProperties = codegen.additionalProperties();
             additionalProperties.put(CodegenConstants.SERIALIZABLE_MODEL, "true");
             boolean result = codegen.convertPropertyToBooleanAndWriteBack(CodegenConstants.SERIALIZABLE_MODEL);
@@ -4187,7 +4193,7 @@ public class DefaultGeneratorTest {
 
         @Test
         public void testConvertPropertyToBooleanAndWriteBack_String_false() {
-            final DefaultGenerator codegen = new DefaultGenerator();
+            final DefaultGenerator codegen = new ThisDefaultGenerator();
             Map<String, Object> additionalProperties = codegen.additionalProperties();
             additionalProperties.put(CodegenConstants.SERIALIZABLE_MODEL, "false");
             boolean result = codegen.convertPropertyToBooleanAndWriteBack(CodegenConstants.SERIALIZABLE_MODEL);
@@ -4196,7 +4202,7 @@ public class DefaultGeneratorTest {
 
         @Test
         public void testConvertPropertyToBooleanAndWriteBack_String_blibb() {
-            final DefaultGenerator codegen = new DefaultGenerator();
+            final DefaultGenerator codegen = new ThisDefaultGenerator();
             Map<String, Object> additionalProperties = codegen.additionalProperties();
             additionalProperties.put(CodegenConstants.SERIALIZABLE_MODEL, "blibb");
             boolean result = codegen.convertPropertyToBooleanAndWriteBack(CodegenConstants.SERIALIZABLE_MODEL);

@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,63 @@ public class PathParameters {
             return getOrThrow("order_id");
         }
     }
-    public static class PathParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForOrderId <T> {
+        Map<String, Number> getInstance();
+        T getBuilderAfterOrderId(Map<String, Number> instance);
+        
+        default T order_id(int value) {
+            var instance = getInstance();
+            instance.put("order_id", value);
+            return getBuilderAfterOrderId(instance);
+        }
+        
+        default T order_id(float value) {
+            var instance = getInstance();
+            instance.put("order_id", value);
+            return getBuilderAfterOrderId(instance);
+        }
+        
+        default T order_id(long value) {
+            var instance = getInstance();
+            instance.put("order_id", value);
+            return getBuilderAfterOrderId(instance);
+        }
+        
+        default T order_id(double value) {
+            var instance = getInstance();
+            instance.put("order_id", value);
+            return getBuilderAfterOrderId(instance);
+        }
+    }
+    
+    public static class PathParametersMap0Builder implements BaseBuilder<Number> {
+        private final Map<String, Number> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "order_id"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PathParametersMap0Builder(Map<String, Number> instance) {
+            this.instance = instance;
+        }
+        public Map<String, Number> build() {
+            return instance;
+        }
+    }
+    
+    public static class PathParametersMapBuilder implements SetterForOrderId<PathParametersMap0Builder> {
+        private final Map<String, Number> instance;
+        public PathParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Number> getInstance() {
+            return instance;
+        }
+        public PathParametersMap0Builder getBuilderAfterOrderId(Map<String, Number> instance) {
+            return new PathParametersMap0Builder(instance);
+        }
     }
     
     

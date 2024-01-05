@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Banana.BananaMap validatedPayload =
     Banana.Banana1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "lengthCm",
-            1
-        )
-    ),
+    new Banana.BananaMapBuilder()
+        .lengthCm(1)
+
+    .build(),
     configuration
 );
 ```
@@ -59,19 +57,51 @@ Banana.BananaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BananaMap](#bananamap) | validate([Map<?, ?>](#bananamapbuilder) arg, SchemaConfiguration configuration) |
+| [BananaMap](#bananamap) | validate([Map&lt;?, ?&gt;](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## BananaMapBuilder
-public class BananaMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## BananaMap0Builder
+public class BananaMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **lengthCm** | Number |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BananaMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, Void value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, boolean value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, String value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, int value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, float value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, long value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, double value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, List<?> value) |
+| [BananaMap0Builder](#bananamap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## BananaMapBuilder
+public class BananaMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BananaMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [BananaMap0Builder](#bananamap0builder) | lengthCm(int value) |
+| [BananaMap0Builder](#bananamap0builder) | lengthCm(float value) |
+| [BananaMap0Builder](#bananamap0builder) | lengthCm(long value) |
+| [BananaMap0Builder](#bananamap0builder) | lengthCm(double value) |
 
 ## BananaMap
 public static class BananaMap<br>
@@ -84,7 +114,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [BananaMap](#bananamap) | of([Map<String, ? extends @Nullable Object>](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## LengthCm
 public static class LengthCm<br>

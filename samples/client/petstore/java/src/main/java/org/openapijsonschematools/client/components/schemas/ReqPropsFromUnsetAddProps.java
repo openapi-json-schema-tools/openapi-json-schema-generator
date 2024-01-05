@@ -14,6 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -48,8 +50,188 @@ public class ReqPropsFromUnsetAddProps {
             return get(name);
         }
     }
-    public static class ReqPropsFromUnsetAddPropsMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForInvalidname <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInvalidname(Map<String, @Nullable Object> instance);
+        
+        default T setInvalidHyphenMinusName(Void value) {
+            var instance = getInstance();
+            instance.put("invalid-name", null);
+            return getBuilderAfterInvalidname(instance);
+        }
+        
+        default T setInvalidHyphenMinusName(boolean value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+        
+        default T setInvalidHyphenMinusName(String value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+        
+        default T setInvalidHyphenMinusName(int value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+        
+        default T setInvalidHyphenMinusName(float value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+        
+        default T setInvalidHyphenMinusName(long value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+        
+        default T setInvalidHyphenMinusName(double value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+        
+        default T setInvalidHyphenMinusName(List<?> value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+        
+        default T setInvalidHyphenMinusName(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("invalid-name", value);
+            return getBuilderAfterInvalidname(instance);
+        }
+    }
+    
+    public interface SetterForValidName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterValidName(Map<String, @Nullable Object> instance);
+        
+        default T validName(Void value) {
+            var instance = getInstance();
+            instance.put("validName", null);
+            return getBuilderAfterValidName(instance);
+        }
+        
+        default T validName(boolean value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+        
+        default T validName(String value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+        
+        default T validName(int value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+        
+        default T validName(float value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+        
+        default T validName(long value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+        
+        default T validName(double value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+        
+        default T validName(List<?> value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+        
+        default T validName(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("validName", value);
+            return getBuilderAfterValidName(instance);
+        }
+    }
+    
+    public static class ReqPropsFromUnsetAddPropsMap00Builder extends UnsetAddPropsSetter<ReqPropsFromUnsetAddPropsMap00Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "invalid-name",
+            "validName"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ReqPropsFromUnsetAddPropsMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ReqPropsFromUnsetAddPropsMap00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class ReqPropsFromUnsetAddPropsMap01Builder implements SetterForValidName<ReqPropsFromUnsetAddPropsMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ReqPropsFromUnsetAddPropsMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ReqPropsFromUnsetAddPropsMap00Builder getBuilderAfterValidName(Map<String, @Nullable Object> instance) {
+            return new ReqPropsFromUnsetAddPropsMap00Builder(instance);
+        }
+    }
+    
+    public static class ReqPropsFromUnsetAddPropsMap10Builder implements SetterForInvalidname<ReqPropsFromUnsetAddPropsMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ReqPropsFromUnsetAddPropsMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ReqPropsFromUnsetAddPropsMap00Builder getBuilderAfterInvalidname(Map<String, @Nullable Object> instance) {
+            return new ReqPropsFromUnsetAddPropsMap00Builder(instance);
+        }
+    }
+    
+    public static class ReqPropsFromUnsetAddPropsMapBuilder implements SetterForInvalidname<ReqPropsFromUnsetAddPropsMap01Builder>, SetterForValidName<ReqPropsFromUnsetAddPropsMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ReqPropsFromUnsetAddPropsMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ReqPropsFromUnsetAddPropsMap01Builder getBuilderAfterInvalidname(Map<String, @Nullable Object> instance) {
+            return new ReqPropsFromUnsetAddPropsMap01Builder(instance);
+        }
+        public ReqPropsFromUnsetAddPropsMap10Builder getBuilderAfterValidName(Map<String, @Nullable Object> instance) {
+            return new ReqPropsFromUnsetAddPropsMap10Builder(instance);
+        }
     }
     
     

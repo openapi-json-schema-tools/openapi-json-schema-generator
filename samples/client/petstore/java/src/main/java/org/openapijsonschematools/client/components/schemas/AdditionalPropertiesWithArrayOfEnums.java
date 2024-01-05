@@ -14,12 +14,14 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -148,8 +150,38 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return (AdditionalPropertiesList) value;
         }
     }
-    public static class AdditionalPropertiesWithArrayOfEnumsMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, List<String>> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, List<String>> instance);
+        
+        default T additionalProperty(String key, List<String> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class AdditionalPropertiesWithArrayOfEnumsMapBuilder implements BaseBuilder<List<String>>, SetterForAdditionalProperties<AdditionalPropertiesWithArrayOfEnumsMapBuilder> {
+        private final Map<String, List<String>> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AdditionalPropertiesWithArrayOfEnumsMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, List<String>> build() {
+            return instance;
+        }
+        public Map<String, List<String>> getInstance() {
+            return instance;
+        }
+        public AdditionalPropertiesWithArrayOfEnumsMapBuilder getBuilderAfterAdditionalProperty(Map<String, List<String>> instance) {
+            return this;
+        }
     }
     
     

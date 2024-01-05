@@ -41,7 +41,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [AdditionalpropertiesShouldNotLookInApplicatorsMap](#additionalpropertiesshouldnotlookinapplicatorsmap) | validate([Map<?, ?>](#additionalpropertiesshouldnotlookinapplicatorsmapbuilder) arg, SchemaConfiguration configuration) |
+| [AdditionalpropertiesShouldNotLookInApplicatorsMap](#additionalpropertiesshouldnotlookinapplicatorsmap) | validate([Map&lt;?, ?&gt;](#additionalpropertiesshouldnotlookinapplicatorsmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder
@@ -50,10 +50,16 @@ builder for `Map<String, Boolean>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Boolean> | build()<br>Returns map input that should be used with Schema.validate |
+| [AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder](#additionalpropertiesshouldnotlookinapplicatorsmapbuilder) | additionalProperty(String key, boolean value) |
 
 ## AdditionalpropertiesShouldNotLookInApplicatorsMap
 public static class AdditionalpropertiesShouldNotLookInApplicatorsMap<br>
@@ -88,20 +94,42 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [Schema0Map](#schema0map) | validate([Map<?, ?>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema0Map](#schema0map) | validate([Map&lt;?, ?&gt;](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0MapBuilder
 public class Schema0MapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | ? extends @Nullable Object |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0MapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(Void value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(boolean value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(String value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(int value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(float value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(long value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(double value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(List<?> value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | foo(Map<String, ?> value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, String value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, int value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, float value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, long value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, double value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema0MapBuilder](#schema0mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema0Map
 public static class Schema0Map<br>
@@ -114,7 +142,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo
 public static class Foo<br>

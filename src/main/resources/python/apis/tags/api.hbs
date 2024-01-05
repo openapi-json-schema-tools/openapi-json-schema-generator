@@ -4,7 +4,7 @@
 
 {{#each pathToOperations}}
     {{#each this}}
-from {{packageName}}.paths.{{../@key.snakeCase}}.{{jsonPathPiece.original}}.operation import {{operationId.camelCase}}
+from {{packageName}}.paths.{{../@key.snakeCase}}.{{jsonPathPiece.original}}.operation import {{operationId.pascalCase}}
     {{/each}}
 {{/each}}
 
@@ -12,7 +12,7 @@ from {{packageName}}.paths.{{../@key.snakeCase}}.{{jsonPathPiece.original}}.oper
 class {{tag.className}}(
 {{#each pathToOperations}}
     {{#each this}}
-    {{operationId.camelCase}},
+    {{operationId.pascalCase}},
     {{/each}}
 {{/each}}
 ):

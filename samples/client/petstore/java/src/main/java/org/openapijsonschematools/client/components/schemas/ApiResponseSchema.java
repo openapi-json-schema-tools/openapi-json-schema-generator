@@ -14,8 +14,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -111,8 +113,77 @@ public class ApiResponseSchema {
             return get(name);
         }
     }
-    public static class ApiResponseMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForCode <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCode(Map<String, @Nullable Object> instance);
+        
+        default T code(int value) {
+            var instance = getInstance();
+            instance.put("code", value);
+            return getBuilderAfterCode(instance);
+        }
+        
+        default T code(float value) {
+            var instance = getInstance();
+            instance.put("code", value);
+            return getBuilderAfterCode(instance);
+        }
+    }
+    
+    public interface SetterForType <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterType(Map<String, @Nullable Object> instance);
+        
+        default T type(String value) {
+            var instance = getInstance();
+            instance.put("type", value);
+            return getBuilderAfterType(instance);
+        }
+    }
+    
+    public interface SetterForMessage <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMessage(Map<String, @Nullable Object> instance);
+        
+        default T message(String value) {
+            var instance = getInstance();
+            instance.put("message", value);
+            return getBuilderAfterMessage(instance);
+        }
+    }
+    
+    public static class ApiResponseMapBuilder extends UnsetAddPropsSetter<ApiResponseMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForCode<ApiResponseMapBuilder>, SetterForType<ApiResponseMapBuilder>, SetterForMessage<ApiResponseMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "code",
+            "type",
+            "message"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ApiResponseMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ApiResponseMapBuilder getBuilderAfterCode(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ApiResponseMapBuilder getBuilderAfterType(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ApiResponseMapBuilder getBuilderAfterMessage(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ApiResponseMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

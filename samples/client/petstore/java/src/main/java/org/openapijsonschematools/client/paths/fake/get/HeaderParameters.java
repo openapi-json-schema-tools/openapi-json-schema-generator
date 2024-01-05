@@ -16,11 +16,13 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -74,8 +76,59 @@ public class HeaderParameters {
             return (Schema0.SchemaList0) value;
         }
     }
-    public static class HeaderParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForEnumHeaderString <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEnumHeaderString(Map<String, @Nullable Object> instance);
+        
+        default T enum_header_string(String value) {
+            var instance = getInstance();
+            instance.put("enum_header_string", value);
+            return getBuilderAfterEnumHeaderString(instance);
+        }
+        
+        default T enum_header_string(Schema1.StringSchemaEnums1 value) {
+            var instance = getInstance();
+            instance.put("enum_header_string", value.value());
+            return getBuilderAfterEnumHeaderString(instance);
+        }
+    }
+    
+    public interface SetterForEnumHeaderStringArray <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterEnumHeaderStringArray(Map<String, @Nullable Object> instance);
+        
+        default T enum_header_string_array(List<String> value) {
+            var instance = getInstance();
+            instance.put("enum_header_string_array", value);
+            return getBuilderAfterEnumHeaderStringArray(instance);
+        }
+    }
+    
+    public static class HeaderParametersMapBuilder implements BaseBuilder<@Nullable Object>, SetterForEnumHeaderString<HeaderParametersMapBuilder>, SetterForEnumHeaderStringArray<HeaderParametersMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "enum_header_string",
+            "enum_header_string_array"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public HeaderParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeaderParametersMapBuilder getBuilderAfterEnumHeaderString(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public HeaderParametersMapBuilder getBuilderAfterEnumHeaderStringArray(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -84,8 +86,92 @@ public class ObjectModelWithArgAndArgsProperties {
             return get(name);
         }
     }
-    public static class ObjectModelWithArgAndArgsPropertiesMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForArg <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArg(Map<String, @Nullable Object> instance);
+        
+        default T arg(String value) {
+            var instance = getInstance();
+            instance.put("arg", value);
+            return getBuilderAfterArg(instance);
+        }
+    }
+    
+    public interface SetterForArgs <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArgs(Map<String, @Nullable Object> instance);
+        
+        default T args(String value) {
+            var instance = getInstance();
+            instance.put("args", value);
+            return getBuilderAfterArgs(instance);
+        }
+    }
+    
+    public static class ObjectModelWithArgAndArgsPropertiesMap00Builder extends UnsetAddPropsSetter<ObjectModelWithArgAndArgsPropertiesMap00Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "arg",
+            "args"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectModelWithArgAndArgsPropertiesMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectModelWithArgAndArgsPropertiesMap00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class ObjectModelWithArgAndArgsPropertiesMap01Builder implements SetterForArgs<ObjectModelWithArgAndArgsPropertiesMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjectModelWithArgAndArgsPropertiesMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectModelWithArgAndArgsPropertiesMap00Builder getBuilderAfterArgs(Map<String, @Nullable Object> instance) {
+            return new ObjectModelWithArgAndArgsPropertiesMap00Builder(instance);
+        }
+    }
+    
+    public static class ObjectModelWithArgAndArgsPropertiesMap10Builder implements SetterForArg<ObjectModelWithArgAndArgsPropertiesMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjectModelWithArgAndArgsPropertiesMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectModelWithArgAndArgsPropertiesMap00Builder getBuilderAfterArg(Map<String, @Nullable Object> instance) {
+            return new ObjectModelWithArgAndArgsPropertiesMap00Builder(instance);
+        }
+    }
+    
+    public static class ObjectModelWithArgAndArgsPropertiesMapBuilder implements SetterForArg<ObjectModelWithArgAndArgsPropertiesMap01Builder>, SetterForArgs<ObjectModelWithArgAndArgsPropertiesMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjectModelWithArgAndArgsPropertiesMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectModelWithArgAndArgsPropertiesMap01Builder getBuilderAfterArg(Map<String, @Nullable Object> instance) {
+            return new ObjectModelWithArgAndArgsPropertiesMap01Builder(instance);
+        }
+        public ObjectModelWithArgAndArgsPropertiesMap10Builder getBuilderAfterArgs(Map<String, @Nullable Object> instance) {
+            return new ObjectModelWithArgAndArgsPropertiesMap10Builder(instance);
+        }
     }
     
     

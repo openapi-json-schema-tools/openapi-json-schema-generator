@@ -14,9 +14,11 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -83,8 +85,117 @@ public class ObjectWithDifficultlyNamedProps {
             return get(name);
         }
     }
-    public static class ObjectWithDifficultlyNamedPropsMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForSchema123list <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSchema123list(Map<String, @Nullable Object> instance);
+        
+        default T set123HyphenMinusList(String value) {
+            var instance = getInstance();
+            instance.put("123-list", value);
+            return getBuilderAfterSchema123list(instance);
+        }
+    }
+    
+    public interface SetterForSpecialpropertyname <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSpecialpropertyname(Map<String, @Nullable Object> instance);
+        
+        default T setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(int value) {
+            var instance = getInstance();
+            instance.put("$special[property.name]", value);
+            return getBuilderAfterSpecialpropertyname(instance);
+        }
+        
+        default T setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(float value) {
+            var instance = getInstance();
+            instance.put("$special[property.name]", value);
+            return getBuilderAfterSpecialpropertyname(instance);
+        }
+        
+        default T setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(long value) {
+            var instance = getInstance();
+            instance.put("$special[property.name]", value);
+            return getBuilderAfterSpecialpropertyname(instance);
+        }
+        
+        default T setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(double value) {
+            var instance = getInstance();
+            instance.put("$special[property.name]", value);
+            return getBuilderAfterSpecialpropertyname(instance);
+        }
+    }
+    
+    public interface SetterForSchema123Number <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSchema123Number(Map<String, @Nullable Object> instance);
+        
+        default T set123number(int value) {
+            var instance = getInstance();
+            instance.put("123Number", value);
+            return getBuilderAfterSchema123Number(instance);
+        }
+        
+        default T set123number(float value) {
+            var instance = getInstance();
+            instance.put("123Number", value);
+            return getBuilderAfterSchema123Number(instance);
+        }
+        
+        default T set123number(long value) {
+            var instance = getInstance();
+            instance.put("123Number", value);
+            return getBuilderAfterSchema123Number(instance);
+        }
+        
+        default T set123number(double value) {
+            var instance = getInstance();
+            instance.put("123Number", value);
+            return getBuilderAfterSchema123Number(instance);
+        }
+    }
+    
+    public static class ObjectWithDifficultlyNamedPropsMap0Builder extends UnsetAddPropsSetter<ObjectWithDifficultlyNamedPropsMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForSpecialpropertyname<ObjectWithDifficultlyNamedPropsMap0Builder>, SetterForSchema123Number<ObjectWithDifficultlyNamedPropsMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "123-list",
+            "$special[property.name]",
+            "123Number"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectWithDifficultlyNamedPropsMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithDifficultlyNamedPropsMap0Builder getBuilderAfterSpecialpropertyname(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectWithDifficultlyNamedPropsMap0Builder getBuilderAfterSchema123Number(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ObjectWithDifficultlyNamedPropsMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class ObjectWithDifficultlyNamedPropsMapBuilder implements SetterForSchema123list<ObjectWithDifficultlyNamedPropsMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public ObjectWithDifficultlyNamedPropsMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithDifficultlyNamedPropsMap0Builder getBuilderAfterSchema123list(Map<String, @Nullable Object> instance) {
+            return new ObjectWithDifficultlyNamedPropsMap0Builder(instance);
+        }
     }
     
     

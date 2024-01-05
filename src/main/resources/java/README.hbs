@@ -81,7 +81,7 @@ Here is the mapping from json schema types to Java types:
 | integer          | int, long, float, double (with values equal to integers) |
 | boolean          | boolean |
 | null             | Void (null) |
-| AnyType (unset)  | Object |
+| AnyType (unset)  | @Nullable Object |
 
 ### Storage of Json Schema Definition in Java JsonSchema Classes
 In openapi v3.0.3 there are ~ 28 json schema keywords. Almost all of them can apply if
@@ -164,7 +164,7 @@ allowed input and output types.
 | ----- | ----------- |
 {{#each schemas}}
     {{#with this}}
-| [{{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](docs/components/schemas/{{containerJsonPathPiece.camelCase}}.md#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description.originalWithBr}}{{/if}} |
+| [{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](docs/components/schemas/{{containerJsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}) |{{#if description}} {{description.originalWithBr}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}

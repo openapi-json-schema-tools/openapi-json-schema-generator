@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -66,8 +68,41 @@ public class SpecialModelname {
             return get(name);
         }
     }
-    public static class SpecialModelnameMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForA <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterA(Map<String, @Nullable Object> instance);
+        
+        default T a(String value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+    }
+    
+    public static class SpecialModelnameMapBuilder extends UnsetAddPropsSetter<SpecialModelnameMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForA<SpecialModelnameMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "a"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public SpecialModelnameMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public SpecialModelnameMapBuilder getBuilderAfterA(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public SpecialModelnameMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

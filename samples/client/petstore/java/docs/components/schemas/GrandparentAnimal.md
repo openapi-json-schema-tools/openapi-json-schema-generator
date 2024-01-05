@@ -26,7 +26,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -39,12 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 GrandparentAnimal.GrandparentAnimalMap validatedPayload =
     GrandparentAnimal.GrandparentAnimal1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "pet_type",
-            "a"
-        )
-    ),
+    new GrandparentAnimal.GrandparentAnimalMapBuilder()
+        .pet_type("a")
+
+    .build(),
     configuration
 );
 ```
@@ -59,19 +57,48 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map<?, ?>](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
+| [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map&lt;?, ?&gt;](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## GrandparentAnimalMapBuilder
-public class GrandparentAnimalMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## GrandparentAnimalMap0Builder
+public class GrandparentAnimalMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **pet_type** | String |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| GrandparentAnimalMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, Void value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, boolean value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, String value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, int value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, float value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, long value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, double value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, List<?> value) |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## GrandparentAnimalMapBuilder
+public class GrandparentAnimalMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| GrandparentAnimalMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [GrandparentAnimalMap0Builder](#grandparentanimalmap0builder) | pet_type(String value) |
 
 ## GrandparentAnimalMap
 public static class GrandparentAnimalMap<br>
@@ -84,7 +111,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [GrandparentAnimalMap](#grandparentanimalmap) | of([Map<String, ? extends @Nullable Object>](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | String | pet_type()<br> |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## PetType
 public static class PetType<br>

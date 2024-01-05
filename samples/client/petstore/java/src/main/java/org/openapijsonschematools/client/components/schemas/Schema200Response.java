@@ -17,8 +17,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -88,8 +90,62 @@ public class Schema200Response {
             return get(name);
         }
     }
-    public static class Schema200ResponseMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterName(Map<String, @Nullable Object> instance);
+        
+        default T name(int value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName(instance);
+        }
+        
+        default T name(float value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName(instance);
+        }
+    }
+    
+    public interface SetterForClassSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterClassSchema(Map<String, @Nullable Object> instance);
+        
+        default T setClass(String value) {
+            var instance = getInstance();
+            instance.put("class", value);
+            return getBuilderAfterClassSchema(instance);
+        }
+    }
+    
+    public static class Schema200ResponseMapBuilder extends UnsetAddPropsSetter<Schema200ResponseMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForName<Schema200ResponseMapBuilder>, SetterForClassSchema<Schema200ResponseMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "name",
+            "class"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema200ResponseMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema200ResponseMapBuilder getBuilderAfterName(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public Schema200ResponseMapBuilder getBuilderAfterClassSchema(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public Schema200ResponseMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

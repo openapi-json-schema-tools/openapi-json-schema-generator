@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -181,8 +183,41 @@ public class ArrayOfNumberOnly {
             return get(name);
         }
     }
-    public static class ArrayOfNumberOnlyMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForArrayNumber <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterArrayNumber(Map<String, @Nullable Object> instance);
+        
+        default T ArrayNumber(List<Number> value) {
+            var instance = getInstance();
+            instance.put("ArrayNumber", value);
+            return getBuilderAfterArrayNumber(instance);
+        }
+    }
+    
+    public static class ArrayOfNumberOnlyMapBuilder extends UnsetAddPropsSetter<ArrayOfNumberOnlyMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForArrayNumber<ArrayOfNumberOnlyMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "ArrayNumber"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ArrayOfNumberOnlyMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ArrayOfNumberOnlyMapBuilder getBuilderAfterArrayNumber(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ArrayOfNumberOnlyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

@@ -37,7 +37,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Not
@@ -51,7 +51,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -64,12 +64,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 NotMoreComplexSchema.NotMap validatedPayload =
     NotMoreComplexSchema.Not.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "foo",
-            "a"
-        )
-    ),
+    new NotMoreComplexSchema.NotMapBuilder()
+        .foo("a")
+
+    .build(),
     configuration
 );
 ```
@@ -83,19 +81,33 @@ NotMoreComplexSchema.NotMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NotMap](#notmap) | validate([Map<?, ?>](#notmapbuilder) arg, SchemaConfiguration configuration) |
+| [NotMap](#notmap) | validate([Map&lt;?, ?&gt;](#notmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotMapBuilder
 public class NotMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NotMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [NotMapBuilder](#notmapbuilder) | foo(String value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, Void value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, boolean value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, String value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, int value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, float value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, long value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, double value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, List<?> value) |
+| [NotMapBuilder](#notmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## NotMap
 public static class NotMap<br>
@@ -108,7 +120,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [NotMap](#notmap) | of([Map<String, ? extends @Nullable Object>](#notmapbuilder) arg, SchemaConfiguration configuration) |
 | String | foo()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo
 public static class Foo<br>

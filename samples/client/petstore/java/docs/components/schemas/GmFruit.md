@@ -37,20 +37,34 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [GmFruitMap](#gmfruitmap) | validate([Map<?, ?>](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
+| [GmFruitMap](#gmfruitmap) | validate([Map&lt;?, ?&gt;](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## GmFruitMapBuilder
 public class GmFruitMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **color** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| GmFruitMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | color(String value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, Void value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, boolean value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, String value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, int value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, float value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, long value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, double value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, List<?> value) |
+| [GmFruitMapBuilder](#gmfruitmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## GmFruitMap
 public static class GmFruitMap<br>
@@ -63,7 +77,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [GmFruitMap](#gmfruitmap) | of([Map<String, ? extends @Nullable Object>](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
 | String | color()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Color
 public static class Color<br>

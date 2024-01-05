@@ -17,11 +17,13 @@ import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.param
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -80,8 +82,162 @@ public class QueryParameters {
             return (String) value;
         }
     }
-    public static class QueryParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForSomeVar2 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance);
+        
+        default T SomeVar(String value) {
+            var instance = getInstance();
+            instance.put("SomeVar", value);
+            return getBuilderAfterSomeVar2(instance);
+        }
+    }
+    
+    public interface SetterForSomeVar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSomeVar(Map<String, @Nullable Object> instance);
+        
+        default T someVar(String value) {
+            var instance = getInstance();
+            instance.put("someVar", value);
+            return getBuilderAfterSomeVar(instance);
+        }
+    }
+    
+    public interface SetterForSomeVar1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance);
+        
+        default T some_var(String value) {
+            var instance = getInstance();
+            instance.put("some_var", value);
+            return getBuilderAfterSomeVar1(instance);
+        }
+    }
+    
+    public static class QueryParametersMap000Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "SomeVar",
+            "someVar",
+            "some_var"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMap000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class QueryParametersMap001Builder implements SetterForSomeVar1<QueryParametersMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap000Builder getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMap010Builder implements SetterForSomeVar<QueryParametersMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap000Builder getBuilderAfterSomeVar(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMap011Builder implements SetterForSomeVar<QueryParametersMap001Builder>, SetterForSomeVar1<QueryParametersMap010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap001Builder getBuilderAfterSomeVar(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001Builder(instance);
+        }
+        public QueryParametersMap010Builder getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMap100Builder implements SetterForSomeVar2<QueryParametersMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap000Builder getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMap101Builder implements SetterForSomeVar2<QueryParametersMap001Builder>, SetterForSomeVar1<QueryParametersMap100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap001Builder getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001Builder(instance);
+        }
+        public QueryParametersMap100Builder getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMap110Builder implements SetterForSomeVar2<QueryParametersMap010Builder>, SetterForSomeVar<QueryParametersMap100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap010Builder getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010Builder(instance);
+        }
+        public QueryParametersMap100Builder getBuilderAfterSomeVar(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements SetterForSomeVar2<QueryParametersMap011Builder>, SetterForSomeVar<QueryParametersMap101Builder>, SetterForSomeVar1<QueryParametersMap110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap011Builder getBuilderAfterSomeVar2(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011Builder(instance);
+        }
+        public QueryParametersMap101Builder getBuilderAfterSomeVar(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101Builder(instance);
+        }
+        public QueryParametersMap110Builder getBuilderAfterSomeVar1(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110Builder(instance);
+        }
     }
     
     

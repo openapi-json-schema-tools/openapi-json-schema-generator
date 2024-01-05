@@ -14,8 +14,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -89,8 +91,74 @@ public class Tag {
             return get(name);
         }
     }
-    public static class TagMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForId <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterId(Map<String, @Nullable Object> instance);
+        
+        default T id(int value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(float value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(long value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(double value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+    }
+    
+    public interface SetterForName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterName(Map<String, @Nullable Object> instance);
+        
+        default T name(String value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName(instance);
+        }
+    }
+    
+    public static class TagMapBuilder extends UnsetAddPropsSetter<TagMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForId<TagMapBuilder>, SetterForName<TagMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "id",
+            "name"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public TagMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public TagMapBuilder getBuilderAfterId(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public TagMapBuilder getBuilderAfterName(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public TagMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

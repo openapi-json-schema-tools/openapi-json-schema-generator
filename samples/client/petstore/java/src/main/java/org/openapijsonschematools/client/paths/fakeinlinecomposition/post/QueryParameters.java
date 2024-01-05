@@ -16,11 +16,13 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -74,8 +76,101 @@ public class QueryParameters {
             return (Schema1.SchemaMap1) value;
         }
     }
-    public static class QueryParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForCompositionAtRoot <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCompositionAtRoot(Map<String, @Nullable Object> instance);
+        
+        default T compositionAtRoot(Void value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", null);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+        
+        default T compositionAtRoot(boolean value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", value);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+        
+        default T compositionAtRoot(String value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", value);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+        
+        default T compositionAtRoot(int value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", value);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+        
+        default T compositionAtRoot(float value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", value);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+        
+        default T compositionAtRoot(long value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", value);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+        
+        default T compositionAtRoot(double value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", value);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+        
+        default T compositionAtRoot(List<?> value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", value);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+        
+        default T compositionAtRoot(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("compositionAtRoot", value);
+            return getBuilderAfterCompositionAtRoot(instance);
+        }
+    }
+    
+    public interface SetterForCompositionInProperty <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterCompositionInProperty(Map<String, @Nullable Object> instance);
+        
+        default T compositionInProperty(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("compositionInProperty", value);
+            return getBuilderAfterCompositionInProperty(instance);
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements BaseBuilder<@Nullable Object>, SetterForCompositionAtRoot<QueryParametersMapBuilder>, SetterForCompositionInProperty<QueryParametersMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "compositionAtRoot",
+            "compositionInProperty"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMapBuilder getBuilderAfterCompositionAtRoot(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public QueryParametersMapBuilder getBuilderAfterCompositionInProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

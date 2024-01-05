@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 
 import java.util.AbstractMap;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -37,9 +38,10 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
     }
 
     protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws InvalidAdditionalPropertyException {
-        if (requiredKeys.contains(key) || optionalKeys.contains(key)) {
-            throw new InvalidAdditionalPropertyException ("The known key " + key + " may not be passed in when getting an additional property");
-        }
+        Set<String> knownKeys = new HashSet<>();
+        knownKeys.addAll(requiredKeys);
+        knownKeys.addAll(optionalKeys);
+        MapUtils.throwIfKeyKnown(key, knownKeys, false);
     }
 
     @Override

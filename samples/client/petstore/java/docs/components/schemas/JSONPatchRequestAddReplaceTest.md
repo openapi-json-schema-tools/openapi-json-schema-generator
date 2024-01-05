@@ -31,7 +31,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -44,16 +44,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap validatedPayload =
     JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "op",
-            "add"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "path",
-            "a"
-        )
-    ),
+    new JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapBuilder()
+        .op("add")
+
+        .path("a")
+
+    .build(),
     configuration
 );
 ```
@@ -69,20 +65,176 @@ JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map<?, ?>](#jsonpatchrequestaddreplacetestmapbuilder) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map&lt;?, ?&gt;](#jsonpatchrequestaddreplacetestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## JSONPatchRequestAddReplaceTestMapBuilder
-public class JSONPatchRequestAddReplaceTestMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## JSONPatchRequestAddReplaceTestMap000Builder
+public class JSONPatchRequestAddReplaceTestMap000Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **op** | String | The operation to perform. | must be one of ["add", "replace", "test"] |
-| **path** | String | A JSON Pointer path. | |
-| **value** | ? extends @Nullable Object | The value to add, replace or test. | |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestAddReplaceTestMap000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+
+## JSONPatchRequestAddReplaceTestMap001Builder
+public class JSONPatchRequestAddReplaceTestMap001Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestAddReplaceTestMap001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(Void value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(boolean value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(String value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(int value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(float value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(long value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(double value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(List<?> value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | value(Map<String, ?> value) |
+
+## JSONPatchRequestAddReplaceTestMap010Builder
+public class JSONPatchRequestAddReplaceTestMap010Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestAddReplaceTestMap010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | path(String value) |
+
+## JSONPatchRequestAddReplaceTestMap011Builder
+public class JSONPatchRequestAddReplaceTestMap011Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestAddReplaceTestMap011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestAddReplaceTestMap001Builder](#jsonpatchrequestaddreplacetestmap001builder) | path(String value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(Void value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(boolean value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(String value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(int value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(float value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(long value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(double value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(List<?> value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | value(Map<String, ?> value) |
+
+## JSONPatchRequestAddReplaceTestMap100Builder
+public class JSONPatchRequestAddReplaceTestMap100Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestAddReplaceTestMap100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | op(String value) |
+| [JSONPatchRequestAddReplaceTestMap000Builder](#jsonpatchrequestaddreplacetestmap000builder) | op([StringOpEnums](#stringopenums) value) |
+
+## JSONPatchRequestAddReplaceTestMap101Builder
+public class JSONPatchRequestAddReplaceTestMap101Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestAddReplaceTestMap101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestAddReplaceTestMap001Builder](#jsonpatchrequestaddreplacetestmap001builder) | op(String value) |
+| [JSONPatchRequestAddReplaceTestMap001Builder](#jsonpatchrequestaddreplacetestmap001builder) | op([StringOpEnums](#stringopenums) value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(Void value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(boolean value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(String value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(int value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(float value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(long value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(double value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(List<?> value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | value(Map<String, ?> value) |
+
+## JSONPatchRequestAddReplaceTestMap110Builder
+public class JSONPatchRequestAddReplaceTestMap110Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestAddReplaceTestMap110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | op(String value) |
+| [JSONPatchRequestAddReplaceTestMap010Builder](#jsonpatchrequestaddreplacetestmap010builder) | op([StringOpEnums](#stringopenums) value) |
+| [JSONPatchRequestAddReplaceTestMap100Builder](#jsonpatchrequestaddreplacetestmap100builder) | path(String value) |
+
+## JSONPatchRequestAddReplaceTestMapBuilder
+public class JSONPatchRequestAddReplaceTestMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestAddReplaceTestMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestAddReplaceTestMap011Builder](#jsonpatchrequestaddreplacetestmap011builder) | op(String value) |
+| [JSONPatchRequestAddReplaceTestMap011Builder](#jsonpatchrequestaddreplacetestmap011builder) | op([StringOpEnums](#stringopenums) value) |
+| [JSONPatchRequestAddReplaceTestMap101Builder](#jsonpatchrequestaddreplacetestmap101builder) | path(String value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(Void value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(boolean value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(String value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(int value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(float value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(long value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(double value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(List<?> value) |
+| [JSONPatchRequestAddReplaceTestMap110Builder](#jsonpatchrequestaddreplacetestmap110builder) | value(Map<String, ?> value) |
 
 ## JSONPatchRequestAddReplaceTestMap
 public static class JSONPatchRequestAddReplaceTestMap<br>
@@ -112,7 +264,7 @@ The operation to perform.
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

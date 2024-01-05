@@ -18,11 +18,13 @@ import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter2
 import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter3.Schema3;
 import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter5.Schema5;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -95,8 +97,155 @@ public class QueryParameters {
             return (String) value;
         }
     }
-    public static class QueryParametersMapBuilder {
-        // requiredProperties, optionalProperties, NO additionalProperties
+    
+    public interface SetterForRequiredInt64Group <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterRequiredInt64Group(Map<String, @Nullable Object> instance);
+        
+        default T required_int64_group(int value) {
+            var instance = getInstance();
+            instance.put("required_int64_group", value);
+            return getBuilderAfterRequiredInt64Group(instance);
+        }
+        
+        default T required_int64_group(float value) {
+            var instance = getInstance();
+            instance.put("required_int64_group", value);
+            return getBuilderAfterRequiredInt64Group(instance);
+        }
+        
+        default T required_int64_group(long value) {
+            var instance = getInstance();
+            instance.put("required_int64_group", value);
+            return getBuilderAfterRequiredInt64Group(instance);
+        }
+        
+        default T required_int64_group(double value) {
+            var instance = getInstance();
+            instance.put("required_int64_group", value);
+            return getBuilderAfterRequiredInt64Group(instance);
+        }
+    }
+    
+    public interface SetterForRequiredStringGroup <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterRequiredStringGroup(Map<String, @Nullable Object> instance);
+        
+        default T required_string_group(String value) {
+            var instance = getInstance();
+            instance.put("required_string_group", value);
+            return getBuilderAfterRequiredStringGroup(instance);
+        }
+    }
+    
+    public interface SetterForInt64Group <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt64Group(Map<String, @Nullable Object> instance);
+        
+        default T int64_group(int value) {
+            var instance = getInstance();
+            instance.put("int64_group", value);
+            return getBuilderAfterInt64Group(instance);
+        }
+        
+        default T int64_group(float value) {
+            var instance = getInstance();
+            instance.put("int64_group", value);
+            return getBuilderAfterInt64Group(instance);
+        }
+        
+        default T int64_group(long value) {
+            var instance = getInstance();
+            instance.put("int64_group", value);
+            return getBuilderAfterInt64Group(instance);
+        }
+        
+        default T int64_group(double value) {
+            var instance = getInstance();
+            instance.put("int64_group", value);
+            return getBuilderAfterInt64Group(instance);
+        }
+    }
+    
+    public interface SetterForStringGroup <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStringGroup(Map<String, @Nullable Object> instance);
+        
+        default T string_group(String value) {
+            var instance = getInstance();
+            instance.put("string_group", value);
+            return getBuilderAfterStringGroup(instance);
+        }
+    }
+    
+    public static class QueryParametersMap00Builder implements BaseBuilder<@Nullable Object>, SetterForInt64Group<QueryParametersMap00Builder>, SetterForStringGroup<QueryParametersMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "required_int64_group",
+            "required_string_group",
+            "int64_group",
+            "string_group"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap00Builder getBuilderAfterInt64Group(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public QueryParametersMap00Builder getBuilderAfterStringGroup(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class QueryParametersMap01Builder implements SetterForRequiredStringGroup<QueryParametersMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap00Builder getBuilderAfterRequiredStringGroup(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap00Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMap10Builder implements SetterForRequiredInt64Group<QueryParametersMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap00Builder getBuilderAfterRequiredInt64Group(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap00Builder(instance);
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements SetterForRequiredInt64Group<QueryParametersMap01Builder>, SetterForRequiredStringGroup<QueryParametersMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap01Builder getBuilderAfterRequiredInt64Group(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap01Builder(instance);
+        }
+        public QueryParametersMap10Builder getBuilderAfterRequiredStringGroup(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap10Builder(instance);
+        }
     }
     
     

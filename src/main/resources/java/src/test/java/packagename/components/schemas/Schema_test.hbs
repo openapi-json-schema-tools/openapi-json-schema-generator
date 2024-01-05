@@ -6,7 +6,7 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.exceptions.InvalidTypeException;
-import {{{packageName}}}.schemas.MapMaker;
+import {{{packageName}}}.schemas.validation.MapUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 {{#with schema}}
-public class {{containerJsonPathPiece.camelCase}}Test {
+public class {{containerJsonPathPiece.pascalCase}}Test {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 {{#each testCases}}
     {{#with this }}
@@ -23,12 +23,12 @@ public class {{containerJsonPathPiece.camelCase}}Test {
     @Test
     public void test{{@key}}{{#if valid}}Passes{{else}}Fails{{/if}}() {
         // {{description.codeEscaped}}
-        final var schema = {{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}.getInstance();
+        final var schema = {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance();
         {{#if valid}}
         schema.validate(
             {{#with data}}
                 {{#and (eq type "array") ../arrayInputJsonPathPiece }}
-            new {{../containerJsonPathPiece.camelCase}}.{{../arrayInputJsonPathPiece.camelCase}}(
+            new {{../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}(
                 {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
             ).build(),
                 {{else}}

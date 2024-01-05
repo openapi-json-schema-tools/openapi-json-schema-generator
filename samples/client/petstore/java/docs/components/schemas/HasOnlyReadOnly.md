@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,16 +40,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
     HasOnlyReadOnly.HasOnlyReadOnly1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "bar",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "foo",
-            "a"
-        )
-    ),
+    new HasOnlyReadOnly.HasOnlyReadOnlyMapBuilder()
+        .bar("a")
+
+        .foo("a")
+
+    .build(),
     configuration
 );
 ```
@@ -63,20 +59,34 @@ HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map<?, ?>](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map&lt;?, ?&gt;](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HasOnlyReadOnlyMapBuilder
 public class HasOnlyReadOnlyMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **bar** | String |  | [optional] |
-| **foo** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| HasOnlyReadOnlyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | bar(String value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | foo(String value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, Void value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, boolean value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, String value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, int value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, float value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, long value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, double value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, List<?> value) |
+| [HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## HasOnlyReadOnlyMap
 public static class HasOnlyReadOnlyMap<br>
@@ -90,7 +100,7 @@ A class to store validated Map payloads
 | static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | of([Map<String, ? extends @Nullable Object>](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | foo()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo
 public static class Foo<br>

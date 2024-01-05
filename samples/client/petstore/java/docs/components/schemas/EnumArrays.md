@@ -35,7 +35,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -48,18 +48,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 EnumArrays.EnumArraysMap validatedPayload =
     EnumArrays.EnumArrays1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "just_symbol",
-            ">="
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "array_enum",
+    new EnumArrays.EnumArraysMapBuilder()
+        .just_symbol(">=")
+
+        .array_enum(
             Arrays.asList(
                 "fish"
             )
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -73,20 +70,35 @@ EnumArrays.EnumArraysMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumArraysMap](#enumarraysmap) | validate([Map<?, ?>](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumArraysMap](#enumarraysmap) | validate([Map&lt;?, ?&gt;](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumArraysMapBuilder
 public class EnumArraysMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **just_symbol** | String |  | [optional] must be one of [">=", "$"] |
-| **array_enum** | List<String> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumArraysMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | just_symbol(String value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | just_symbol([StringJustSymbolEnums](#stringjustsymbolenums) value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | array_enum(List<String> value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, Void value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, boolean value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, String value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, int value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, float value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, long value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, double value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, List<?> value) |
+| [EnumArraysMapBuilder](#enumarraysmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## EnumArraysMap
 public static class EnumArraysMap<br>
@@ -100,7 +112,7 @@ A class to store validated Map payloads
 | static [EnumArraysMap](#enumarraysmap) | of([Map<String, ? extends @Nullable Object>](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
 | String | just_symbol()<br>[optional] must be one of [">=", "$"] |
 | [ArrayEnumList](#arrayenumlist) | array_enum()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ArrayEnum
 public static class ArrayEnum<br>
@@ -113,7 +125,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -126,11 +138,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 EnumArrays.ArrayEnumList validatedPayload =
     EnumArrays.ArrayEnum.validate(
-    new .ArrayEnumListBuilder(
-        Arrays.asList(
-            "fish"
-        )
-    ).build(),
+    new EnumArrays.ArrayEnumListBuilder()
+        .add("fish")
+
+    .build(),
     configuration
 );
 ```
@@ -152,7 +163,7 @@ builder for `List<String>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ArrayEnumListBuilder()<br>Creates an empty list |
@@ -187,7 +198,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -239,7 +250,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

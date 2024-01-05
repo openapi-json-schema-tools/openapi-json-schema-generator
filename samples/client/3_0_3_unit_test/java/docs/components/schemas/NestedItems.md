@@ -35,7 +35,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -48,8 +48,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NestedItems.NestedItemsList validatedPayload =
     NestedItems.NestedItems1.validate(
-    new NestedItems.NestedItemsListBuilder(
-        Arrays.asList(
+    new NestedItems.NestedItemsListBuilder()
+        .add(
             Arrays.asList(
                 Arrays.asList(
                     Arrays.asList(
@@ -58,7 +58,7 @@ NestedItems.NestedItemsList validatedPayload =
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -80,7 +80,7 @@ builder for `List<List<List<List<Number>>>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | NestedItemsListBuilder()<br>Creates an empty list |
@@ -114,7 +114,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -127,15 +127,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NestedItems.ItemsList2 validatedPayload =
     NestedItems.Items.validate(
-    new .ItemsListBuilder2(
-        Arrays.asList(
+    new NestedItems.ItemsListBuilder2()
+        .add(
             Arrays.asList(
                 Arrays.asList(
                     1
                 )
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -157,7 +157,7 @@ builder for `List<List<List<Number>>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder2()<br>Creates an empty list |
@@ -191,7 +191,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -204,13 +204,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NestedItems.ItemsList1 validatedPayload =
     NestedItems.Items1.validate(
-    new .ItemsListBuilder1(
-        Arrays.asList(
+    new NestedItems.ItemsListBuilder1()
+        .add(
             Arrays.asList(
                 1
             )
         )
-    ).build(),
+    .build(),
     configuration
 );
 ```
@@ -232,7 +232,7 @@ builder for `List<List<Number>>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder1()<br>Creates an empty list |
@@ -266,7 +266,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -279,11 +279,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 NestedItems.ItemsList validatedPayload =
     NestedItems.Items2.validate(
-    new .ItemsListBuilder(
-        Arrays.asList(
-            1
-        )
-    ).build(),
+    new NestedItems.ItemsListBuilder()
+        .add(1)
+
+    .build(),
     configuration
 );
 ```
@@ -305,7 +304,7 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ItemsListBuilder()<br>Creates an empty list |

@@ -29,7 +29,7 @@ schema that contains a property named key
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -42,12 +42,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 PublicKey.PublicKeyMap validatedPayload =
     PublicKey.PublicKey1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "key",
-            "a"
-        )
-    ),
+    new PublicKey.PublicKeyMapBuilder()
+        .key("a")
+
+    .build(),
     configuration
 );
 ```
@@ -61,19 +59,33 @@ PublicKey.PublicKeyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PublicKeyMap](#publickeymap) | validate([Map<?, ?>](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
+| [PublicKeyMap](#publickeymap) | validate([Map&lt;?, ?&gt;](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PublicKeyMapBuilder
 public class PublicKeyMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **key** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PublicKeyMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | key(String value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, Void value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, boolean value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, String value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, int value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, float value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, long value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, double value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, List<?> value) |
+| [PublicKeyMapBuilder](#publickeymapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## PublicKeyMap
 public static class PublicKeyMap<br>
@@ -86,7 +98,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [PublicKeyMap](#publickeymap) | of([Map<String, ? extends @Nullable Object>](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
 | String | key()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Key
 public static class Key<br>

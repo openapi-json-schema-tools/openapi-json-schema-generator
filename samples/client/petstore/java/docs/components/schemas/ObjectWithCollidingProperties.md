@@ -30,7 +30,7 @@ component with properties that have name collisions
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -43,8 +43,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap validatedPayload =
     ObjectWithCollidingProperties.ObjectWithCollidingProperties1.validate(
-    MapMaker.makeMap(
-    ),
+    new ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -58,20 +58,34 @@ ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap validatedPayload 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map<?, ?>](#objectwithcollidingpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map&lt;?, ?&gt;](#objectwithcollidingpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithCollidingPropertiesMapBuilder
 public class ObjectWithCollidingPropertiesMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **someProp** | Map<String, ? extends @Nullable Object> |  | [optional] |
-| **someprop** | Map<String, ? extends @Nullable Object> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithCollidingPropertiesMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | someProp(Map<String, @Nullable Object> value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | someprop(Map<String, @Nullable Object> value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, Void value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, boolean value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, String value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, int value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, float value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, long value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, double value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, List<?> value) |
+| [ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ObjectWithCollidingPropertiesMap
 public static class ObjectWithCollidingPropertiesMap<br>
@@ -85,7 +99,7 @@ A class to store validated Map payloads
 | static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithcollidingpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenMap<?> | someProp()<br>[optional] |
 | FrozenMap<?> | someprop()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Someprop
 public static class Someprop<br>

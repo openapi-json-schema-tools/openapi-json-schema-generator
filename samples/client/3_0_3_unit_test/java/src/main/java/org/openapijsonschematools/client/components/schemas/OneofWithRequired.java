@@ -17,6 +17,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -61,8 +63,188 @@ public class OneofWithRequired {
             return get(name);
         }
     }
-    public static class Schema0MapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForBar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
+        
+        default T bar(Void value) {
+            var instance = getInstance();
+            instance.put("bar", null);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(boolean value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(String value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(int value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(float value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(long value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(double value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(List<?> value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+    }
+    
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(Void value) {
+            var instance = getInstance();
+            instance.put("foo", null);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(boolean value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(int value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(float value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(long value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(double value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+        
+        default T foo(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
+    public static class Schema0Map00Builder extends UnsetAddPropsSetter<Schema0Map00Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "bar",
+            "foo"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema0Map00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0Map00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class Schema0Map01Builder implements SetterForFoo<Schema0Map00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0Map01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0Map00Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new Schema0Map00Builder(instance);
+        }
+    }
+    
+    public static class Schema0Map10Builder implements SetterForBar<Schema0Map00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0Map10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0Map00Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new Schema0Map00Builder(instance);
+        }
+    }
+    
+    public static class Schema0MapBuilder implements SetterForBar<Schema0Map01Builder>, SetterForFoo<Schema0Map10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0Map01Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new Schema0Map01Builder(instance);
+        }
+        public Schema0Map10Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new Schema0Map10Builder(instance);
+        }
     }
     
     
@@ -291,8 +473,188 @@ public class OneofWithRequired {
             return get(name);
         }
     }
-    public static class Schema1MapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForBaz <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBaz(Map<String, @Nullable Object> instance);
+        
+        default T baz(Void value) {
+            var instance = getInstance();
+            instance.put("baz", null);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(boolean value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(String value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(int value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(float value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(long value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(double value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(List<?> value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+        
+        default T baz(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("baz", value);
+            return getBuilderAfterBaz(instance);
+        }
+    }
+    
+    public interface SetterForFoo1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo1(Map<String, @Nullable Object> instance);
+        
+        default T foo(Void value) {
+            var instance = getInstance();
+            instance.put("foo", null);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(boolean value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(int value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(float value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(long value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(double value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(List<?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+        
+        default T foo(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo1(instance);
+        }
+    }
+    
+    public static class Schema1Map00Builder extends UnsetAddPropsSetter<Schema1Map00Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "baz",
+            "foo"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema1Map00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1Map00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class Schema1Map01Builder implements SetterForFoo1<Schema1Map00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1Map01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1Map00Builder getBuilderAfterFoo1(Map<String, @Nullable Object> instance) {
+            return new Schema1Map00Builder(instance);
+        }
+    }
+    
+    public static class Schema1Map10Builder implements SetterForBaz<Schema1Map00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1Map10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1Map00Builder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
+            return new Schema1Map00Builder(instance);
+        }
+    }
+    
+    public static class Schema1MapBuilder implements SetterForBaz<Schema1Map01Builder>, SetterForFoo1<Schema1Map10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1Map01Builder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
+            return new Schema1Map01Builder(instance);
+        }
+        public Schema1Map10Builder getBuilderAfterFoo1(Map<String, @Nullable Object> instance) {
+            return new Schema1Map10Builder(instance);
+        }
     }
     
     

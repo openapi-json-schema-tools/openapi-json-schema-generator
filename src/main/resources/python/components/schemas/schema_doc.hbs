@@ -56,13 +56,13 @@ type: typing.Mapping[
     str,
     typing.Union[
                     {{#each requiredProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                     {{/each}}
                     {{#each optionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                     {{/each}}
                     {{#with additionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                     {{/with}}
     ]
 ]
@@ -74,10 +74,10 @@ type: typing.Mapping[
     str,
     typing.Union[
                         {{#each requiredProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                         {{/each}}
                         {{#with additionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                         {{/with}}
     ]
 ]
@@ -88,10 +88,10 @@ type: typing.Mapping[
     str,
     typing.Union[
                             {{#each optionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                             {{/each}}
                             {{#with additionalProperties}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                             {{/with}}
     ]
 ]
@@ -100,7 +100,7 @@ type: typing.Mapping[
 type: typing.Mapping[
     str,
                             {{#with additionalProperties}}
-    {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+    {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.pascalCase }}
                             {{/with}}
 ]
                         {{/if}}
@@ -215,12 +215,12 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 type: typing.Union[
     typing.List[
         {{#with items}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
         {{/with}}
     ],
     typing.Tuple[
         {{#with items}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
         ...
         {{/with}}
     ]
@@ -274,7 +274,7 @@ Method | Input Type | Return Type | Notes
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
         {{#each allOf}}
-{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.pascalCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.kebabCase) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if anyOf}}
@@ -282,7 +282,7 @@ Schema Class | Input Type | Return Type
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
         {{#each anyOf}}
-{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.pascalCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.kebabCase) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if oneOf}}
@@ -290,7 +290,7 @@ Schema Class | Input Type | Return Type
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
         {{#each oneOf}}
-{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.pascalCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.kebabCase) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if not}}
@@ -298,7 +298,7 @@ Schema Class | Input Type | Return Type
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
         {{#with not}}
-{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.pascalCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.kebabCase) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/with}}
     {{/if}}
 {{/if}}

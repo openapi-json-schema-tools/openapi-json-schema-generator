@@ -28,7 +28,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -41,20 +41,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 ApiResponseSchema.ApiResponseMap validatedPayload =
     ApiResponseSchema.ApiResponseSchema1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "code",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "type",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "message",
-            "a"
-        )
-    ),
+    new ApiResponseSchema.ApiResponseMapBuilder()
+        .code(1)
+
+        .type("a")
+
+        .message("a")
+
+    .build(),
     configuration
 );
 ```
@@ -68,21 +62,36 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ApiResponseMap](#apiresponsemap) | validate([Map<?, ?>](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
+| [ApiResponseMap](#apiresponsemap) | validate([Map&lt;?, ?&gt;](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ApiResponseMapBuilder
 public class ApiResponseMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **code** | Number |  | [optional] value must be a 32 bit integer |
-| **type** | String |  | [optional] |
-| **message** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ApiResponseMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | code(int value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | code(float value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | type(String value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | message(String value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, Void value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, boolean value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, String value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, int value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, float value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, long value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, double value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, List<?> value) |
+| [ApiResponseMapBuilder](#apiresponsemapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## ApiResponseMap
 public static class ApiResponseMap<br>
@@ -97,7 +106,7 @@ A class to store validated Map payloads
 | Number | code()<br>[optional] value must be a 32 bit integer |
 | String | type()<br>[optional] |
 | String | message()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Message
 public static class Message<br>

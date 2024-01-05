@@ -17,7 +17,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -75,8 +77,41 @@ public class GmFruit {
             return get(name);
         }
     }
-    public static class GmFruitMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForColor <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterColor(Map<String, @Nullable Object> instance);
+        
+        default T color(String value) {
+            var instance = getInstance();
+            instance.put("color", value);
+            return getBuilderAfterColor(instance);
+        }
+    }
+    
+    public static class GmFruitMapBuilder extends UnsetAddPropsSetter<GmFruitMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForColor<GmFruitMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "color"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public GmFruitMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public GmFruitMapBuilder getBuilderAfterColor(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public GmFruitMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

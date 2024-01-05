@@ -14,12 +14,14 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -81,8 +83,72 @@ public class ObjectWithNonIntersectingValues {
             return (String) value;
         }
     }
-    public static class ObjectWithNonIntersectingValuesMapBuilder {
-        // optionalProperties + additionalProperties
+    
+    public interface SetterForA <T> {
+        Map<String, Object> getInstance();
+        T getBuilderAfterA(Map<String, Object> instance);
+        
+        default T a(int value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(float value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(long value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+        
+        default T a(double value) {
+            var instance = getInstance();
+            instance.put("a", value);
+            return getBuilderAfterA(instance);
+        }
+    }
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Object> instance);
+        
+        default T additionalProperty(String key, String value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class ObjectWithNonIntersectingValuesMapBuilder implements BaseBuilder<Object>, SetterForA<ObjectWithNonIntersectingValuesMapBuilder>, SetterForAdditionalProperties<ObjectWithNonIntersectingValuesMapBuilder> {
+        private final Map<String, Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "a"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ObjectWithNonIntersectingValuesMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Object> build() {
+            return instance;
+        }
+        public Map<String, Object> getInstance() {
+            return instance;
+        }
+        public ObjectWithNonIntersectingValuesMapBuilder getBuilderAfterA(Map<String, Object> instance) {
+            return this;
+        }
+        public ObjectWithNonIntersectingValuesMapBuilder getBuilderAfterAdditionalProperty(Map<String, Object> instance) {
+            return this;
+        }
     }
     
     

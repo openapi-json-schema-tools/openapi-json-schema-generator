@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,38 @@ public class QueryParameters {
             return getOrThrow("mapBean");
         }
     }
-    public static class QueryParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForMapBean <T> {
+        Map<String, Map<String, @Nullable Object>> getInstance();
+        T getBuilderAfterMapBean(Map<String, Map<String, @Nullable Object>> instance);
+        
+        default T mapBean(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("mapBean", value);
+            return getBuilderAfterMapBean(instance);
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements BaseBuilder<Map<String, @Nullable Object>>, SetterForMapBean<QueryParametersMapBuilder> {
+        private final Map<String, Map<String, @Nullable Object>> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "mapBean"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Map<String, @Nullable Object>> build() {
+            return instance;
+        }
+        public Map<String, Map<String, @Nullable Object>> getInstance() {
+            return instance;
+        }
+        public QueryParametersMapBuilder getBuilderAfterMapBean(Map<String, Map<String, @Nullable Object>> instance) {
+            return this;
+        }
     }
     
     

@@ -1,7 +1,7 @@
 
 
 @dataclasses.dataclass(frozen=True)
-class {{jsonPathPiece.camelCase}}(
+class {{jsonPathPiece.pascalCase}}(
     {{> components/schemas/schema_cls/__xbase_one_type }}
 ):
 {{#if componentModule}}

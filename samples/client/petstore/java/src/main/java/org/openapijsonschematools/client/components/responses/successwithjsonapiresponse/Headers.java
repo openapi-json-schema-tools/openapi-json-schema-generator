@@ -18,11 +18,13 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -86,8 +88,338 @@ public class Headers {
             return (String) value;
         }
     }
-    public static class HeadersMapBuilder {
-        // requiredProperties, optionalProperties, NO additionalProperties
+    
+    public interface SetterForInt32 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterInt32(Map<String, @Nullable Object> instance);
+        
+        default T int32(int value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+        
+        default T int32(float value) {
+            var instance = getInstance();
+            instance.put("int32", value);
+            return getBuilderAfterInt32(instance);
+        }
+    }
+    
+    public interface SetterForRefcontentschemaheader <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance);
+        
+        default T setRefHyphenMinusContentHyphenMinusSchemaHyphenMinusHeader(String value) {
+            var instance = getInstance();
+            instance.put("ref-content-schema-header", value);
+            return getBuilderAfterRefcontentschemaheader(instance);
+        }
+    }
+    
+    public interface SetterForRefschemaheader <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance);
+        
+        default T setRefHyphenMinusSchemaHyphenMinusHeader(String value) {
+            var instance = getInstance();
+            instance.put("ref-schema-header", value);
+            return getBuilderAfterRefschemaheader(instance);
+        }
+    }
+    
+    public interface SetterForStringHeader <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterStringHeader(Map<String, @Nullable Object> instance);
+        
+        default T stringHeader(String value) {
+            var instance = getInstance();
+            instance.put("stringHeader", value);
+            return getBuilderAfterStringHeader(instance);
+        }
+    }
+    
+    public interface SetterForNumberHeader <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance);
+        
+        default T numberHeader(String value) {
+            var instance = getInstance();
+            instance.put("numberHeader", value);
+            return getBuilderAfterNumberHeader(instance);
+        }
+    }
+    
+    public static class HeadersMap0000Builder implements BaseBuilder<@Nullable Object>, SetterForNumberHeader<HeadersMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "int32",
+            "ref-content-schema-header",
+            "ref-schema-header",
+            "stringHeader",
+            "numberHeader"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public HeadersMap0000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0000Builder getBuilderAfterNumberHeader(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class HeadersMap0001Builder implements SetterForStringHeader<HeadersMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap0001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0000Builder getBuilderAfterStringHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap0010Builder implements SetterForRefschemaheader<HeadersMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap0010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0000Builder getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap0011Builder implements SetterForRefschemaheader<HeadersMap0001Builder>, SetterForStringHeader<HeadersMap0010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap0011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0001Builder getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0001Builder(instance);
+        }
+        public HeadersMap0010Builder getBuilderAfterStringHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0010Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap0100Builder implements SetterForRefcontentschemaheader<HeadersMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap0100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0000Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap0101Builder implements SetterForRefcontentschemaheader<HeadersMap0001Builder>, SetterForStringHeader<HeadersMap0100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap0101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0001Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0001Builder(instance);
+        }
+        public HeadersMap0100Builder getBuilderAfterStringHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0100Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap0110Builder implements SetterForRefcontentschemaheader<HeadersMap0010Builder>, SetterForRefschemaheader<HeadersMap0100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap0110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0010Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0010Builder(instance);
+        }
+        public HeadersMap0100Builder getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0100Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap0111Builder implements SetterForRefcontentschemaheader<HeadersMap0011Builder>, SetterForRefschemaheader<HeadersMap0101Builder>, SetterForStringHeader<HeadersMap0110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap0111Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0011Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0011Builder(instance);
+        }
+        public HeadersMap0101Builder getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0101Builder(instance);
+        }
+        public HeadersMap0110Builder getBuilderAfterStringHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0110Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap1000Builder implements SetterForInt32<HeadersMap0000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap1000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0000Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap1001Builder implements SetterForInt32<HeadersMap0001Builder>, SetterForStringHeader<HeadersMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap1001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0001Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0001Builder(instance);
+        }
+        public HeadersMap1000Builder getBuilderAfterStringHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap1010Builder implements SetterForInt32<HeadersMap0010Builder>, SetterForRefschemaheader<HeadersMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap1010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0010Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0010Builder(instance);
+        }
+        public HeadersMap1000Builder getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap1011Builder implements SetterForInt32<HeadersMap0011Builder>, SetterForRefschemaheader<HeadersMap1001Builder>, SetterForStringHeader<HeadersMap1010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap1011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0011Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0011Builder(instance);
+        }
+        public HeadersMap1001Builder getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1001Builder(instance);
+        }
+        public HeadersMap1010Builder getBuilderAfterStringHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1010Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap1100Builder implements SetterForInt32<HeadersMap0100Builder>, SetterForRefcontentschemaheader<HeadersMap1000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap1100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0100Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0100Builder(instance);
+        }
+        public HeadersMap1000Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1000Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap1101Builder implements SetterForInt32<HeadersMap0101Builder>, SetterForRefcontentschemaheader<HeadersMap1001Builder>, SetterForStringHeader<HeadersMap1100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap1101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0101Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0101Builder(instance);
+        }
+        public HeadersMap1001Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1001Builder(instance);
+        }
+        public HeadersMap1100Builder getBuilderAfterStringHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1100Builder(instance);
+        }
+    }
+    
+    public static class HeadersMap1110Builder implements SetterForInt32<HeadersMap0110Builder>, SetterForRefcontentschemaheader<HeadersMap1010Builder>, SetterForRefschemaheader<HeadersMap1100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMap1110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0110Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0110Builder(instance);
+        }
+        public HeadersMap1010Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1010Builder(instance);
+        }
+        public HeadersMap1100Builder getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1100Builder(instance);
+        }
+    }
+    
+    public static class HeadersMapBuilder implements SetterForInt32<HeadersMap0111Builder>, SetterForRefcontentschemaheader<HeadersMap1011Builder>, SetterForRefschemaheader<HeadersMap1101Builder>, SetterForStringHeader<HeadersMap1110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public HeadersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public HeadersMap0111Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
+            return new HeadersMap0111Builder(instance);
+        }
+        public HeadersMap1011Builder getBuilderAfterRefcontentschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1011Builder(instance);
+        }
+        public HeadersMap1101Builder getBuilderAfterRefschemaheader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1101Builder(instance);
+        }
+        public HeadersMap1110Builder getBuilderAfterStringHeader(Map<String, @Nullable Object> instance) {
+            return new HeadersMap1110Builder(instance);
+        }
     }
     
     

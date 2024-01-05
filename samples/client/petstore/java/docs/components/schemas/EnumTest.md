@@ -38,7 +38,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -51,24 +51,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 EnumTest.EnumTestMap validatedPayload =
     EnumTest.EnumTest1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "enum_string_required",
-            "UPPER"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "enum_string",
-            "UPPER"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "enum_integer",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "enum_number",
-            3.14d
-        )
-    ),
+    new EnumTest.EnumTestMapBuilder()
+        .enum_string_required("UPPER")
+
+        .enum_string("UPPER")
+
+        .enum_integer(1)
+
+        .enum_number(3.14d)
+
+    .build(),
     configuration
 );
 ```
@@ -83,27 +75,93 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumTestMap](#enumtestmap) | validate([Map&lt;?, ?&gt;](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## EnumTestMapBuilder
-public class EnumTestMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## EnumTestMap0Builder
+public class EnumTestMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **enum_string_required** | String |  | must be one of ["UPPER", "lower", ""] |
-| **enum_string** | String |  | [optional] must be one of ["UPPER", "lower", ""] |
-| **enum_integer** | Number |  | [optional] must be one of [1, -1] value must be a 32 bit integer |
-| **enum_number** | Number |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float |
-| **stringEnum** | ? extends @Nullable String |  | [optional] |
-| **IntegerEnum** | Number |  | [optional] |
-| **StringEnumWithDefaultValue** | String |  | [optional] |
-| **IntegerEnumWithDefaultValue** | Number |  | [optional] |
-| **IntegerEnumOneValue** | Number |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumTestMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_string(String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_string([StringEnumStringEnums](#stringenumstringenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_integer(int value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_integer(float value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_integer([IntegerEnumIntegerEnums](#integerenumintegerenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_integer([LongEnumIntegerEnums](#longenumintegerenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_integer([FloatEnumIntegerEnums](#floatenumintegerenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_integer([DoubleEnumIntegerEnums](#doubleenumintegerenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_number(int value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_number(float value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_number(long value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_number(double value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_number([DoubleEnumNumberEnums](#doubleenumnumberenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_number([FloatEnumNumberEnums](#floatenumnumberenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(Void value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum(String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum([StringEnum.StringStringEnumEnums](../../components/schemas/StringEnum.md#stringstringenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | stringEnum([StringEnum.NullStringEnumEnums](../../components/schemas/StringEnum.md#nullstringenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(int value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(float value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(long value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum(double value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum([IntegerEnum.IntegerIntegerEnumEnums](../../components/schemas/IntegerEnum.md#integerintegerenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum([IntegerEnum.LongIntegerEnumEnums](../../components/schemas/IntegerEnum.md#longintegerenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum([IntegerEnum.FloatIntegerEnumEnums](../../components/schemas/IntegerEnum.md#floatintegerenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnum([IntegerEnum.DoubleIntegerEnumEnums](../../components/schemas/IntegerEnum.md#doubleintegerenumenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue(String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | StringEnumWithDefaultValue([StringEnumWithDefaultValue.StringStringEnumWithDefaultValueEnums](../../components/schemas/StringEnumWithDefaultValue.md#stringstringenumwithdefaultvalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(int value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(float value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(long value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue(double value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue([IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums](../../components/schemas/IntegerEnumWithDefaultValue.md#integerintegerenumwithdefaultvalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue([IntegerEnumWithDefaultValue.LongIntegerEnumWithDefaultValueEnums](../../components/schemas/IntegerEnumWithDefaultValue.md#longintegerenumwithdefaultvalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue([IntegerEnumWithDefaultValue.FloatIntegerEnumWithDefaultValueEnums](../../components/schemas/IntegerEnumWithDefaultValue.md#floatintegerenumwithdefaultvalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumWithDefaultValue([IntegerEnumWithDefaultValue.DoubleIntegerEnumWithDefaultValueEnums](../../components/schemas/IntegerEnumWithDefaultValue.md#doubleintegerenumwithdefaultvalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(int value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(float value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(long value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue(double value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#integerintegerenumonevalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.LongIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#longintegerenumonevalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.FloatIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#floatintegerenumonevalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | IntegerEnumOneValue([IntegerEnumOneValue.DoubleIntegerEnumOneValueEnums](../../components/schemas/IntegerEnumOneValue.md#doubleintegerenumonevalueenums) value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, Void value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, boolean value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, int value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, float value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, long value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, double value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, List<?> value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## EnumTestMapBuilder
+public class EnumTestMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumTestMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_string_required(String value) |
+| [EnumTestMap0Builder](#enumtestmap0builder) | enum_string_required([StringEnumStringRequiredEnums](#stringenumstringrequiredenums) value) |
 
 ## EnumTestMap
 public static class EnumTestMap<br>
@@ -124,7 +182,7 @@ A class to store validated Map payloads
 | String | StringEnumWithDefaultValue()<br>[optional] |
 | Number | IntegerEnumWithDefaultValue()<br>[optional] |
 | Number | IntegerEnumOneValue()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## EnumNumber
 public static class EnumNumber<br>
@@ -137,7 +195,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -201,7 +259,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -289,7 +347,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -342,7 +400,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

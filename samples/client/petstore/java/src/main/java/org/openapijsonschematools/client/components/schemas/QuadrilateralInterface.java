@@ -17,8 +17,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -150,8 +152,98 @@ public class QuadrilateralInterface {
             return get(name);
         }
     }
-    public static class QuadrilateralInterfaceMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForQuadrilateralType <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterQuadrilateralType(Map<String, @Nullable Object> instance);
+        
+        default T quadrilateralType(String value) {
+            var instance = getInstance();
+            instance.put("quadrilateralType", value);
+            return getBuilderAfterQuadrilateralType(instance);
+        }
+    }
+    
+    public interface SetterForShapeType <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterShapeType(Map<String, @Nullable Object> instance);
+        
+        default T shapeType(String value) {
+            var instance = getInstance();
+            instance.put("shapeType", value);
+            return getBuilderAfterShapeType(instance);
+        }
+        
+        default T shapeType(StringShapeTypeEnums value) {
+            var instance = getInstance();
+            instance.put("shapeType", value.value());
+            return getBuilderAfterShapeType(instance);
+        }
+    }
+    
+    public static class QuadrilateralInterfaceMap00Builder extends UnsetAddPropsSetter<QuadrilateralInterfaceMap00Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "quadrilateralType",
+            "shapeType"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QuadrilateralInterfaceMap00Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QuadrilateralInterfaceMap00Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class QuadrilateralInterfaceMap01Builder implements SetterForShapeType<QuadrilateralInterfaceMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QuadrilateralInterfaceMap01Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QuadrilateralInterfaceMap00Builder getBuilderAfterShapeType(Map<String, @Nullable Object> instance) {
+            return new QuadrilateralInterfaceMap00Builder(instance);
+        }
+    }
+    
+    public static class QuadrilateralInterfaceMap10Builder implements SetterForQuadrilateralType<QuadrilateralInterfaceMap00Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QuadrilateralInterfaceMap10Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QuadrilateralInterfaceMap00Builder getBuilderAfterQuadrilateralType(Map<String, @Nullable Object> instance) {
+            return new QuadrilateralInterfaceMap00Builder(instance);
+        }
+    }
+    
+    public static class QuadrilateralInterfaceMapBuilder implements SetterForQuadrilateralType<QuadrilateralInterfaceMap01Builder>, SetterForShapeType<QuadrilateralInterfaceMap10Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public QuadrilateralInterfaceMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public QuadrilateralInterfaceMap01Builder getBuilderAfterQuadrilateralType(Map<String, @Nullable Object> instance) {
+            return new QuadrilateralInterfaceMap01Builder(instance);
+        }
+        public QuadrilateralInterfaceMap10Builder getBuilderAfterShapeType(Map<String, @Nullable Object> instance) {
+            return new QuadrilateralInterfaceMap10Builder(instance);
+        }
     }
     
     

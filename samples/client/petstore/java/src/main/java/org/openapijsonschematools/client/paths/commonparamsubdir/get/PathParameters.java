@@ -15,11 +15,13 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.commonparamsubdir.parameters.parameter0.PathParamSchema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -56,8 +58,51 @@ public class PathParameters {
             return getOrThrow("subDir");
         }
     }
-    public static class PathParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForSubDir <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterSubDir(Map<String, String> instance);
+        
+        default T subDir(String value) {
+            var instance = getInstance();
+            instance.put("subDir", value);
+            return getBuilderAfterSubDir(instance);
+        }
+        
+        default T subDir(PathParamSchema0.StringPathParamSchemaEnums0 value) {
+            var instance = getInstance();
+            instance.put("subDir", value.value());
+            return getBuilderAfterSubDir(instance);
+        }
+    }
+    
+    public static class PathParametersMap0Builder implements BaseBuilder<String> {
+        private final Map<String, String> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "subDir"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public PathParametersMap0Builder(Map<String, String> instance) {
+            this.instance = instance;
+        }
+        public Map<String, String> build() {
+            return instance;
+        }
+    }
+    
+    public static class PathParametersMapBuilder implements SetterForSubDir<PathParametersMap0Builder> {
+        private final Map<String, String> instance;
+        public PathParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, String> getInstance() {
+            return instance;
+        }
+        public PathParametersMap0Builder getBuilderAfterSubDir(Map<String, String> instance) {
+            return new PathParametersMap0Builder(instance);
+        }
     }
     
     

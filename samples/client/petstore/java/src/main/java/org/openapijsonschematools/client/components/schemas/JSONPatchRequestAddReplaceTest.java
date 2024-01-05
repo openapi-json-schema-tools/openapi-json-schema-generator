@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -21,6 +22,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
@@ -169,8 +171,216 @@ public class JSONPatchRequestAddReplaceTest {
             return getOrThrow("value");
         }
     }
-    public static class JSONPatchRequestAddReplaceTestMapBuilder {
-        // empty mapping
+    
+    public interface SetterForOp <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterOp(Map<String, @Nullable Object> instance);
+        
+        default T op(String value) {
+            var instance = getInstance();
+            instance.put("op", value);
+            return getBuilderAfterOp(instance);
+        }
+        
+        default T op(StringOpEnums value) {
+            var instance = getInstance();
+            instance.put("op", value.value());
+            return getBuilderAfterOp(instance);
+        }
+    }
+    
+    public interface SetterForPath <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterPath(Map<String, @Nullable Object> instance);
+        
+        default T path(String value) {
+            var instance = getInstance();
+            instance.put("path", value);
+            return getBuilderAfterPath(instance);
+        }
+    }
+    
+    public interface SetterForValue <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterValue(Map<String, @Nullable Object> instance);
+        
+        default T value(Void value) {
+            var instance = getInstance();
+            instance.put("value", null);
+            return getBuilderAfterValue(instance);
+        }
+        
+        default T value(boolean value) {
+            var instance = getInstance();
+            instance.put("value", value);
+            return getBuilderAfterValue(instance);
+        }
+        
+        default T value(String value) {
+            var instance = getInstance();
+            instance.put("value", value);
+            return getBuilderAfterValue(instance);
+        }
+        
+        default T value(int value) {
+            var instance = getInstance();
+            instance.put("value", value);
+            return getBuilderAfterValue(instance);
+        }
+        
+        default T value(float value) {
+            var instance = getInstance();
+            instance.put("value", value);
+            return getBuilderAfterValue(instance);
+        }
+        
+        default T value(long value) {
+            var instance = getInstance();
+            instance.put("value", value);
+            return getBuilderAfterValue(instance);
+        }
+        
+        default T value(double value) {
+            var instance = getInstance();
+            instance.put("value", value);
+            return getBuilderAfterValue(instance);
+        }
+        
+        default T value(List<?> value) {
+            var instance = getInstance();
+            instance.put("value", value);
+            return getBuilderAfterValue(instance);
+        }
+        
+        default T value(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("value", value);
+            return getBuilderAfterValue(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestAddReplaceTestMap000Builder implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "op",
+            "path",
+            "value"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public JSONPatchRequestAddReplaceTestMap000Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+    }
+    
+    public static class JSONPatchRequestAddReplaceTestMap001Builder implements SetterForValue<JSONPatchRequestAddReplaceTestMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public JSONPatchRequestAddReplaceTestMap001Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestAddReplaceTestMap000Builder getBuilderAfterValue(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap000Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestAddReplaceTestMap010Builder implements SetterForPath<JSONPatchRequestAddReplaceTestMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public JSONPatchRequestAddReplaceTestMap010Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestAddReplaceTestMap000Builder getBuilderAfterPath(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap000Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestAddReplaceTestMap011Builder implements SetterForPath<JSONPatchRequestAddReplaceTestMap001Builder>, SetterForValue<JSONPatchRequestAddReplaceTestMap010Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public JSONPatchRequestAddReplaceTestMap011Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestAddReplaceTestMap001Builder getBuilderAfterPath(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap001Builder(instance);
+        }
+        public JSONPatchRequestAddReplaceTestMap010Builder getBuilderAfterValue(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap010Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestAddReplaceTestMap100Builder implements SetterForOp<JSONPatchRequestAddReplaceTestMap000Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public JSONPatchRequestAddReplaceTestMap100Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestAddReplaceTestMap000Builder getBuilderAfterOp(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap000Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestAddReplaceTestMap101Builder implements SetterForOp<JSONPatchRequestAddReplaceTestMap001Builder>, SetterForValue<JSONPatchRequestAddReplaceTestMap100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public JSONPatchRequestAddReplaceTestMap101Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestAddReplaceTestMap001Builder getBuilderAfterOp(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap001Builder(instance);
+        }
+        public JSONPatchRequestAddReplaceTestMap100Builder getBuilderAfterValue(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap100Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestAddReplaceTestMap110Builder implements SetterForOp<JSONPatchRequestAddReplaceTestMap010Builder>, SetterForPath<JSONPatchRequestAddReplaceTestMap100Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public JSONPatchRequestAddReplaceTestMap110Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestAddReplaceTestMap010Builder getBuilderAfterOp(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap010Builder(instance);
+        }
+        public JSONPatchRequestAddReplaceTestMap100Builder getBuilderAfterPath(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap100Builder(instance);
+        }
+    }
+    
+    public static class JSONPatchRequestAddReplaceTestMapBuilder implements SetterForOp<JSONPatchRequestAddReplaceTestMap011Builder>, SetterForPath<JSONPatchRequestAddReplaceTestMap101Builder>, SetterForValue<JSONPatchRequestAddReplaceTestMap110Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public JSONPatchRequestAddReplaceTestMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public JSONPatchRequestAddReplaceTestMap011Builder getBuilderAfterOp(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap011Builder(instance);
+        }
+        public JSONPatchRequestAddReplaceTestMap101Builder getBuilderAfterPath(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap101Builder(instance);
+        }
+        public JSONPatchRequestAddReplaceTestMap110Builder getBuilderAfterValue(Map<String, @Nullable Object> instance) {
+            return new JSONPatchRequestAddReplaceTestMap110Builder(instance);
+        }
     }
     
     

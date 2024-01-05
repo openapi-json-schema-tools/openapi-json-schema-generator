@@ -6,12 +6,12 @@ import unittest
 
 import {{packageName}}
 {{#with schema}}
-from {{packageName}}.components.schema.{{jsonPathPiece.snakeCase}} import {{jsonPathPiece.camelCase}}
+from {{packageName}}.components.schema.{{jsonPathPiece.snakeCase}} import {{jsonPathPiece.pascalCase}}
 from {{packageName}}.configurations import schema_configuration
 
 
-class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
-    """{{jsonPathPiece.camelCase}} unit test stubs"""
+class Test{{jsonPathPiece.pascalCase}}(unittest.TestCase):
+    """{{jsonPathPiece.pascalCase}} unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration(
         disabled_json_schema_keywords={'format'}
     )
@@ -21,7 +21,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         # {{description.codeEscaped}}
 {{#if valid}}
-        {{jsonPathPiece.camelCase}}.validate(
+        {{jsonPathPiece.pascalCase}}.validate(
 {{#with data}}
             {{> components/schemas/helpers/payload_renderer endChar=',' }}
 {{/with}}
@@ -29,7 +29,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
         )
 {{else}}
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
-            {{jsonPathPiece.camelCase}}.validate(
+            {{jsonPathPiece.pascalCase}}.validate(
 {{#with data}}
                 {{> components/schemas/helpers/payload_renderer endChar=','}}
 {{/with}}

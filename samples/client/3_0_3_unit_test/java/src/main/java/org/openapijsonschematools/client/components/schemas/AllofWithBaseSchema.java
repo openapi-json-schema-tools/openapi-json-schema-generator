@@ -17,9 +17,11 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -75,8 +77,51 @@ public class AllofWithBaseSchema {
             return get(name);
         }
     }
-    public static class Schema0MapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForFoo <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
+        
+        default T foo(String value) {
+            var instance = getInstance();
+            instance.put("foo", value);
+            return getBuilderAfterFoo(instance);
+        }
+    }
+    
+    public static class Schema0Map0Builder extends UnsetAddPropsSetter<Schema0Map0Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "foo"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema0Map0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0Map0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class Schema0MapBuilder implements SetterForFoo<Schema0Map0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema0MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema0Map0Builder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
+            return new Schema0Map0Builder(instance);
+        }
     }
     
     
@@ -317,8 +362,51 @@ public class AllofWithBaseSchema {
             return get(name);
         }
     }
-    public static class Schema1MapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForBaz <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBaz(Map<String, @Nullable Object> instance);
+        
+        default T baz(Void value) {
+            var instance = getInstance();
+            instance.put("baz", null);
+            return getBuilderAfterBaz(instance);
+        }
+    }
+    
+    public static class Schema1Map0Builder extends UnsetAddPropsSetter<Schema1Map0Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "baz"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema1Map0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1Map0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class Schema1MapBuilder implements SetterForBaz<Schema1Map0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1Map0Builder getBuilderAfterBaz(Map<String, @Nullable Object> instance) {
+            return new Schema1Map0Builder(instance);
+        }
     }
     
     
@@ -559,8 +647,69 @@ public class AllofWithBaseSchema {
             return get(name);
         }
     }
-    public static class AllofWithBaseSchemaMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForBar <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
+        
+        default T bar(int value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(float value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(long value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+        
+        default T bar(double value) {
+            var instance = getInstance();
+            instance.put("bar", value);
+            return getBuilderAfterBar(instance);
+        }
+    }
+    
+    public static class AllofWithBaseSchemaMap0Builder extends UnsetAddPropsSetter<AllofWithBaseSchemaMap0Builder> implements BaseBuilder<@Nullable Object> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "bar"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public AllofWithBaseSchemaMap0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AllofWithBaseSchemaMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class AllofWithBaseSchemaMapBuilder implements SetterForBar<AllofWithBaseSchemaMap0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public AllofWithBaseSchemaMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public AllofWithBaseSchemaMap0Builder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
+            return new AllofWithBaseSchemaMap0Builder(instance);
+        }
     }
     
     

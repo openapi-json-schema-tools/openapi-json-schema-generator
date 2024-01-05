@@ -154,42 +154,42 @@
                                     {{#if fullRefModule}}
                                         {{#if optional}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
-    {{fullRefModule}}.{{arrayInputJsonPathPiece.camelCase}},
-    {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}},
+    {{fullRefModule}}.{{arrayInputJsonPathPiece.pascalCase}},
+    {{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                         {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
-    {{fullRefModule}}.{{arrayInputJsonPathPiece.camelCase}},
-    {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
+    {{fullRefModule}}.{{arrayInputJsonPathPiece.pascalCase}},
+    {{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}
 ]{{endChar}}
                                         {{/if}}
                                     {{else}}
-                                        {{#eq rootClass arrayInputJsonPathPiece.camelCase}}
+                                        {{#eq rootClass arrayInputJsonPathPiece.pascalCase}}
                                             {{! self reference }}
                                             {{#if optional}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
-    '{{arrayInputJsonPathPiece.camelCase}}',
-    {{arrayOutputJsonPathPiece.camelCase}},
+    '{{arrayInputJsonPathPiece.pascalCase}}',
+    {{arrayOutputJsonPathPiece.pascalCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                             {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
-    '{{arrayInputJsonPathPiece.camelCase}}',
-    {{arrayOutputJsonPathPiece.camelCase}}
+    '{{arrayInputJsonPathPiece.pascalCase}}',
+    {{arrayOutputJsonPathPiece.pascalCase}}
 ]{{endChar}}
                                             {{/if}}
                                         {{else}}
                                             {{#if optional}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
-    {{arrayInputJsonPathPiece.camelCase}},
-    {{arrayOutputJsonPathPiece.camelCase}},
+    {{arrayInputJsonPathPiece.pascalCase}},
+    {{arrayOutputJsonPathPiece.pascalCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                             {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
-    {{arrayInputJsonPathPiece.camelCase}},
-    {{arrayOutputJsonPathPiece.camelCase}}
+    {{arrayInputJsonPathPiece.pascalCase}},
+    {{arrayOutputJsonPathPiece.pascalCase}}
 ]{{endChar}}
                                             {{/if}}
                                         {{/eq}}
@@ -215,38 +215,38 @@
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{#if rootClass}}
         {{#if fullRefModule}}
-    {{fullRefModule}}.{{mapInputJsonPathPiece.camelCase}},
+    {{fullRefModule}}.{{mapInputJsonPathPiece.pascalCase}},
         {{else}}
-            {{#eq rootClass mapInputJsonPathPiece.camelCase}}
+            {{#eq rootClass mapInputJsonPathPiece.pascalCase}}
                 {{! self reference }}
-    '{{mapInputJsonPathPiece.camelCase}}',
+    '{{mapInputJsonPathPiece.pascalCase}}',
             {{else}}
-    {{mapInputJsonPathPiece.camelCase}},
+    {{mapInputJsonPathPiece.pascalCase}},
             {{/eq}}
         {{/if}}
     {{else}}
-    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.camelCase}},
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.pascalCase}},
     {{/if}}
-    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.pascalCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                         {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{#if rootClass}}
         {{#if fullRefModule}}
-    {{fullRefModule}}.{{mapInputJsonPathPiece.camelCase}},
+    {{fullRefModule}}.{{mapInputJsonPathPiece.pascalCase}},
         {{else}}
-            {{#eq rootClass mapInputJsonPathPiece.camelCase}}
+            {{#eq rootClass mapInputJsonPathPiece.pascalCase}}
                 {{! self reference }}
-    '{{mapInputJsonPathPiece.camelCase}}',
+    '{{mapInputJsonPathPiece.pascalCase}}',
             {{else}}
-    {{mapInputJsonPathPiece.camelCase}},
+    {{mapInputJsonPathPiece.pascalCase}},
             {{/eq}}
         {{/if}}
     {{else}}
-    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.camelCase}},
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.pascalCase}},
     {{/if}}
-    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.pascalCase}},
 ]{{endChar}}
                                         {{/if}}
                                     {{else}}

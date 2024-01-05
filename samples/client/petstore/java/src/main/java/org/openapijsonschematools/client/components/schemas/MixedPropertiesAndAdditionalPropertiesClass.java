@@ -14,12 +14,15 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.UuidJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -64,8 +67,38 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return getOrThrow(name);
         }
     }
-    public static class MapMapBuilder {
-        // Map<String, additionalProperties>
+    
+    public interface SetterForAdditionalProperties<T> {
+        Set<String> getKnownKeys();
+        Map<String, Map<String, @Nullable Object>> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, Map<String, @Nullable Object>> instance);
+        
+        default T additionalProperty(String key, Map<String, @Nullable Object> value) throws InvalidAdditionalPropertyException {
+            MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
+            var instance = getInstance();
+            instance.put(key, value);
+            return getBuilderAfterAdditionalProperty(instance);
+        }
+    }
+    
+    public static class MapMapBuilder implements BaseBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties<MapMapBuilder> {
+        private final Map<String, Map<String, @Nullable Object>> instance;
+        private static final Set<String> knownKeys = Set.of();
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MapMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, Map<String, @Nullable Object>> build() {
+            return instance;
+        }
+        public Map<String, Map<String, @Nullable Object>> getInstance() {
+            return instance;
+        }
+        public MapMapBuilder getBuilderAfterAdditionalProperty(Map<String, Map<String, @Nullable Object>> instance) {
+            return this;
+        }
     }
     
     
@@ -170,8 +203,71 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return get(name);
         }
     }
-    public static class MixedPropertiesAndAdditionalPropertiesClassMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForUuidSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
+        
+        default T setUuid(String value) {
+            var instance = getInstance();
+            instance.put("uuid", value);
+            return getBuilderAfterUuidSchema(instance);
+        }
+    }
+    
+    public interface SetterForDateTime <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterDateTime(Map<String, @Nullable Object> instance);
+        
+        default T dateTime(String value) {
+            var instance = getInstance();
+            instance.put("dateTime", value);
+            return getBuilderAfterDateTime(instance);
+        }
+    }
+    
+    public interface SetterForMapSchema <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterMapSchema(Map<String, @Nullable Object> instance);
+        
+        default T setMap(Map<String, Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("map", value);
+            return getBuilderAfterMapSchema(instance);
+        }
+    }
+    
+    public static class MixedPropertiesAndAdditionalPropertiesClassMapBuilder extends UnsetAddPropsSetter<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForUuidSchema<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForDateTime<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForMapSchema<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "uuid",
+            "dateTime",
+            "map"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterDateTime(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterMapSchema(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

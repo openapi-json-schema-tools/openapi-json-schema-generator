@@ -14,6 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -165,8 +167,56 @@ public class FileSchemaTestClass {
             return get(name);
         }
     }
-    public static class FileSchemaTestClassMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForFile <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFile(Map<String, @Nullable Object> instance);
+        
+        default T file(Map<String, @Nullable Object> value) {
+            var instance = getInstance();
+            instance.put("file", value);
+            return getBuilderAfterFile(instance);
+        }
+    }
+    
+    public interface SetterForFiles <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFiles(Map<String, @Nullable Object> instance);
+        
+        default T files(List<Map<String, @Nullable Object>> value) {
+            var instance = getInstance();
+            instance.put("files", value);
+            return getBuilderAfterFiles(instance);
+        }
+    }
+    
+    public static class FileSchemaTestClassMapBuilder extends UnsetAddPropsSetter<FileSchemaTestClassMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFile<FileSchemaTestClassMapBuilder>, SetterForFiles<FileSchemaTestClassMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "file",
+            "files"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public FileSchemaTestClassMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FileSchemaTestClassMapBuilder getBuilderAfterFile(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public FileSchemaTestClassMapBuilder getBuilderAfterFiles(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public FileSchemaTestClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

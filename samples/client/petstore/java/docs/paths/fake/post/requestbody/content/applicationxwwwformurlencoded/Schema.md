@@ -39,7 +39,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -52,64 +52,36 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Schema.SchemaMap validatedPayload =
     Schema.Schema1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "byte",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "double",
-            3.14d
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "number",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "pattern_without_delimiter",
-            "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "integer",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "int32",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "int64",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "float",
-            3.14f
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "string",
-            "A"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "binary",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "date",
-            "2020-12-13"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "dateTime",
-            "1970-01-01T00:00:00.00Z"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "password",
-            "a"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "callback",
-            "a"
-        )
-    ),
+    new Schema.SchemaMapBuilder()
+        .setByte("a")
+
+        .setDouble(3.14d)
+
+        .setNumber(1)
+
+        .pattern_without_delimiter("AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>")
+
+        .setInteger(1L)
+
+        .int32(1)
+
+        .int64(1L)
+
+        .setFloat(3.14f)
+
+        .setString("A")
+
+        .binary("a")
+
+        .date("2020-12-13")
+
+        .dateTime("1970-01-01T00:00:00.00Z")
+
+        .password("a")
+
+        .callback("a")
+
+    .build(),
     configuration
 );
 ```
@@ -124,32 +96,357 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [SchemaMap](#schemamap) | validate([Map<?, ?>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
+| [SchemaMap](#schemamap) | validate([Map&lt;?, ?&gt;](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## SchemaMapBuilder
-public class SchemaMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## SchemaMap0000Builder
+public class SchemaMap0000Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **byte** | String | None | |
-| **double** | Number | None | value must be a 64 bit float |
-| **number** | Number | None | |
-| **pattern_without_delimiter** | String | None | |
-| **integer** | Number | None | [optional] |
-| **int32** | Number | None | [optional] value must be a 32 bit integer |
-| **int64** | Number | None | [optional] value must be a 64 bit integer |
-| **float** | Number | None | [optional] value must be a 32 bit float |
-| **string** | String | None | [optional] |
-| **binary** | String | None | [optional] |
-| **date** | String | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
-| **dateTime** | String | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time |
-| **password** | String | None | [optional] |
-| **callback** | String | None | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap0000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [SchemaMap0000Builder](#schemamap0000builder) | setInteger(int value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setInteger(float value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setInteger(long value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setInteger(double value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | int32(int value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | int32(float value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | int64(int value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | int64(float value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | int64(long value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | int64(double value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setFloat(int value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setFloat(float value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setFloat(long value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setFloat(double value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setString(String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | binary(String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | date(String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | dateTime(String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | password(String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | callback(String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, Void value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, boolean value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, String value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, int value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, float value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, long value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, double value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, List<?> value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## SchemaMap0001Builder
+public class SchemaMap0001Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap0001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0000Builder](#schemamap0000builder) | pattern_without_delimiter(String value) |
+
+## SchemaMap0010Builder
+public class SchemaMap0010Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap0010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0000Builder](#schemamap0000builder) | setNumber(int value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setNumber(float value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setNumber(long value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setNumber(double value) |
+
+## SchemaMap0011Builder
+public class SchemaMap0011Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap0011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0001Builder](#schemamap0001builder) | setNumber(int value) |
+| [SchemaMap0001Builder](#schemamap0001builder) | setNumber(float value) |
+| [SchemaMap0001Builder](#schemamap0001builder) | setNumber(long value) |
+| [SchemaMap0001Builder](#schemamap0001builder) | setNumber(double value) |
+| [SchemaMap0010Builder](#schemamap0010builder) | pattern_without_delimiter(String value) |
+
+## SchemaMap0100Builder
+public class SchemaMap0100Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap0100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0000Builder](#schemamap0000builder) | setDouble(int value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setDouble(float value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setDouble(long value) |
+| [SchemaMap0000Builder](#schemamap0000builder) | setDouble(double value) |
+
+## SchemaMap0101Builder
+public class SchemaMap0101Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap0101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0001Builder](#schemamap0001builder) | setDouble(int value) |
+| [SchemaMap0001Builder](#schemamap0001builder) | setDouble(float value) |
+| [SchemaMap0001Builder](#schemamap0001builder) | setDouble(long value) |
+| [SchemaMap0001Builder](#schemamap0001builder) | setDouble(double value) |
+| [SchemaMap0100Builder](#schemamap0100builder) | pattern_without_delimiter(String value) |
+
+## SchemaMap0110Builder
+public class SchemaMap0110Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap0110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0010Builder](#schemamap0010builder) | setDouble(int value) |
+| [SchemaMap0010Builder](#schemamap0010builder) | setDouble(float value) |
+| [SchemaMap0010Builder](#schemamap0010builder) | setDouble(long value) |
+| [SchemaMap0010Builder](#schemamap0010builder) | setDouble(double value) |
+| [SchemaMap0100Builder](#schemamap0100builder) | setNumber(int value) |
+| [SchemaMap0100Builder](#schemamap0100builder) | setNumber(float value) |
+| [SchemaMap0100Builder](#schemamap0100builder) | setNumber(long value) |
+| [SchemaMap0100Builder](#schemamap0100builder) | setNumber(double value) |
+
+## SchemaMap0111Builder
+public class SchemaMap0111Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap0111Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0011Builder](#schemamap0011builder) | setDouble(int value) |
+| [SchemaMap0011Builder](#schemamap0011builder) | setDouble(float value) |
+| [SchemaMap0011Builder](#schemamap0011builder) | setDouble(long value) |
+| [SchemaMap0011Builder](#schemamap0011builder) | setDouble(double value) |
+| [SchemaMap0101Builder](#schemamap0101builder) | setNumber(int value) |
+| [SchemaMap0101Builder](#schemamap0101builder) | setNumber(float value) |
+| [SchemaMap0101Builder](#schemamap0101builder) | setNumber(long value) |
+| [SchemaMap0101Builder](#schemamap0101builder) | setNumber(double value) |
+| [SchemaMap0110Builder](#schemamap0110builder) | pattern_without_delimiter(String value) |
+
+## SchemaMap1000Builder
+public class SchemaMap1000Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap1000Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0000Builder](#schemamap0000builder) | setByte(String value) |
+
+## SchemaMap1001Builder
+public class SchemaMap1001Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap1001Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0001Builder](#schemamap0001builder) | setByte(String value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | pattern_without_delimiter(String value) |
+
+## SchemaMap1010Builder
+public class SchemaMap1010Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap1010Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0010Builder](#schemamap0010builder) | setByte(String value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | setNumber(int value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | setNumber(float value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | setNumber(long value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | setNumber(double value) |
+
+## SchemaMap1011Builder
+public class SchemaMap1011Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap1011Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0011Builder](#schemamap0011builder) | setByte(String value) |
+| [SchemaMap1001Builder](#schemamap1001builder) | setNumber(int value) |
+| [SchemaMap1001Builder](#schemamap1001builder) | setNumber(float value) |
+| [SchemaMap1001Builder](#schemamap1001builder) | setNumber(long value) |
+| [SchemaMap1001Builder](#schemamap1001builder) | setNumber(double value) |
+| [SchemaMap1010Builder](#schemamap1010builder) | pattern_without_delimiter(String value) |
+
+## SchemaMap1100Builder
+public class SchemaMap1100Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap1100Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0100Builder](#schemamap0100builder) | setByte(String value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | setDouble(int value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | setDouble(float value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | setDouble(long value) |
+| [SchemaMap1000Builder](#schemamap1000builder) | setDouble(double value) |
+
+## SchemaMap1101Builder
+public class SchemaMap1101Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap1101Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0101Builder](#schemamap0101builder) | setByte(String value) |
+| [SchemaMap1001Builder](#schemamap1001builder) | setDouble(int value) |
+| [SchemaMap1001Builder](#schemamap1001builder) | setDouble(float value) |
+| [SchemaMap1001Builder](#schemamap1001builder) | setDouble(long value) |
+| [SchemaMap1001Builder](#schemamap1001builder) | setDouble(double value) |
+| [SchemaMap1100Builder](#schemamap1100builder) | pattern_without_delimiter(String value) |
+
+## SchemaMap1110Builder
+public class SchemaMap1110Builder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMap1110Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0110Builder](#schemamap0110builder) | setByte(String value) |
+| [SchemaMap1010Builder](#schemamap1010builder) | setDouble(int value) |
+| [SchemaMap1010Builder](#schemamap1010builder) | setDouble(float value) |
+| [SchemaMap1010Builder](#schemamap1010builder) | setDouble(long value) |
+| [SchemaMap1010Builder](#schemamap1010builder) | setDouble(double value) |
+| [SchemaMap1100Builder](#schemamap1100builder) | setNumber(int value) |
+| [SchemaMap1100Builder](#schemamap1100builder) | setNumber(float value) |
+| [SchemaMap1100Builder](#schemamap1100builder) | setNumber(long value) |
+| [SchemaMap1100Builder](#schemamap1100builder) | setNumber(double value) |
+
+## SchemaMapBuilder
+public class SchemaMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SchemaMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0111Builder](#schemamap0111builder) | setByte(String value) |
+| [SchemaMap1011Builder](#schemamap1011builder) | setDouble(int value) |
+| [SchemaMap1011Builder](#schemamap1011builder) | setDouble(float value) |
+| [SchemaMap1011Builder](#schemamap1011builder) | setDouble(long value) |
+| [SchemaMap1011Builder](#schemamap1011builder) | setDouble(double value) |
+| [SchemaMap1101Builder](#schemamap1101builder) | setNumber(int value) |
+| [SchemaMap1101Builder](#schemamap1101builder) | setNumber(float value) |
+| [SchemaMap1101Builder](#schemamap1101builder) | setNumber(long value) |
+| [SchemaMap1101Builder](#schemamap1101builder) | setNumber(double value) |
+| [SchemaMap1110Builder](#schemamap1110builder) | pattern_without_delimiter(String value) |
 
 ## SchemaMap
 public static class SchemaMap<br>
@@ -170,7 +467,7 @@ A class to store validated Map payloads
 | String | password()<br>[optional] |
 | String | callback()<br>[optional] |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Callback
 public static class Callback<br>
@@ -199,7 +496,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -243,7 +540,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -316,7 +613,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -358,7 +655,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -400,7 +697,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -444,7 +741,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -487,7 +784,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -543,7 +840,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -587,7 +884,7 @@ None
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

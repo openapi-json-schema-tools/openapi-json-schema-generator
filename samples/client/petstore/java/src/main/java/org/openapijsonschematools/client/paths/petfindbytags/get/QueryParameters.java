@@ -15,12 +15,14 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.petfindbytags.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -57,8 +59,45 @@ public class QueryParameters {
             return getOrThrow("tags");
         }
     }
-    public static class QueryParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForTags <T> {
+        Map<String, List<String>> getInstance();
+        T getBuilderAfterTags(Map<String, List<String>> instance);
+        
+        default T tags(List<String> value) {
+            var instance = getInstance();
+            instance.put("tags", value);
+            return getBuilderAfterTags(instance);
+        }
+    }
+    
+    public static class QueryParametersMap0Builder implements BaseBuilder<List<String>> {
+        private final Map<String, List<String>> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "tags"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public QueryParametersMap0Builder(Map<String, List<String>> instance) {
+            this.instance = instance;
+        }
+        public Map<String, List<String>> build() {
+            return instance;
+        }
+    }
+    
+    public static class QueryParametersMapBuilder implements SetterForTags<QueryParametersMap0Builder> {
+        private final Map<String, List<String>> instance;
+        public QueryParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, List<String>> getInstance() {
+            return instance;
+        }
+        public QueryParametersMap0Builder getBuilderAfterTags(Map<String, List<String>> instance) {
+            return new QueryParametersMap0Builder(instance);
+        }
     }
     
     

@@ -30,7 +30,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -43,16 +43,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 EnumsInProperties.EnumsInPropertiesMap validatedPayload =
     EnumsInProperties.EnumsInProperties1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "bar",
-            "bar"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "foo",
-            "foo"
-        )
-    ),
+    new EnumsInProperties.EnumsInPropertiesMapBuilder()
+        .bar("bar")
+
+        .foo("foo")
+
+    .build(),
     configuration
 );
 ```
@@ -67,20 +63,51 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<?, ?>](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map&lt;?, ?&gt;](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## EnumsInPropertiesMapBuilder
-public class EnumsInPropertiesMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## EnumsInPropertiesMap0Builder
+public class EnumsInPropertiesMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **bar** | String |  | must be one of ["bar"] |
-| **foo** | String |  | [optional] must be one of ["foo"] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumsInPropertiesMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | foo(String value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | foo([StringFooEnums](#stringfooenums) value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, Void value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, boolean value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, String value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, int value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, float value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, long value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, double value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, List<?> value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## EnumsInPropertiesMapBuilder
+public class EnumsInPropertiesMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumsInPropertiesMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | bar(String value) |
+| [EnumsInPropertiesMap0Builder](#enumsinpropertiesmap0builder) | bar([StringBarEnums](#stringbarenums) value) |
 
 ## EnumsInPropertiesMap
 public static class EnumsInPropertiesMap<br>
@@ -94,7 +121,7 @@ A class to store validated Map payloads
 | static [EnumsInPropertiesMap](#enumsinpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br> must be one of ["bar"] |
 | String | foo()<br>[optional] must be one of ["foo"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar
 public static class Bar<br>
@@ -107,7 +134,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -158,7 +185,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

@@ -30,7 +30,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -43,16 +43,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
     JSONPatchRequestRemove.JSONPatchRequestRemove1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, String>(
-            "op",
-            "remove"
-        ),
-        new AbstractMap.SimpleEntry<String, String>(
-            "path",
-            "a"
-        )
-    ),
+    new JSONPatchRequestRemove.JSONPatchRequestRemoveMapBuilder()
+        .op("remove")
+
+        .path("a")
+
+    .build(),
     configuration
 );
 ```
@@ -68,19 +64,74 @@ JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<?, ?>](#jsonpatchrequestremovemapbuilder) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map&lt;?, ?&gt;](#jsonpatchrequestremovemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## JSONPatchRequestRemoveMap00Builder
+public class JSONPatchRequestRemoveMap00Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestRemoveMap00Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+
+## JSONPatchRequestRemoveMap01Builder
+public class JSONPatchRequestRemoveMap01Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestRemoveMap01Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestRemoveMap00Builder](#jsonpatchrequestremovemap00builder) | path(String value) |
+
+## JSONPatchRequestRemoveMap10Builder
+public class JSONPatchRequestRemoveMap10Builder<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestRemoveMap10Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestRemoveMap00Builder](#jsonpatchrequestremovemap00builder) | op(String value) |
+| [JSONPatchRequestRemoveMap00Builder](#jsonpatchrequestremovemap00builder) | op([StringOpEnums](#stringopenums) value) |
+
 ## JSONPatchRequestRemoveMapBuilder
 public class JSONPatchRequestRemoveMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **op** | String | The operation to perform. | must be one of ["remove"] |
-| **path** | String | A JSON Pointer path. | |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestRemoveMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [JSONPatchRequestRemoveMap01Builder](#jsonpatchrequestremovemap01builder) | op(String value) |
+| [JSONPatchRequestRemoveMap01Builder](#jsonpatchrequestremovemap01builder) | op([StringOpEnums](#stringopenums) value) |
+| [JSONPatchRequestRemoveMap10Builder](#jsonpatchrequestremovemap10builder) | path(String value) |
 
 ## JSONPatchRequestRemoveMap
 public static class JSONPatchRequestRemoveMap<br>
@@ -109,7 +160,7 @@ The operation to perform.
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

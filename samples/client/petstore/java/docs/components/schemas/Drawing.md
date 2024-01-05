@@ -30,7 +30,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -43,13 +43,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Drawing.DrawingMap validatedPayload =
     Drawing.Drawing1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "shapes",
+    new Drawing.DrawingMapBuilder()
+        .shapes(
             Arrays.asList(
             )
         )
-    ),
+    .build(),
     configuration
 );
 ```
@@ -64,22 +63,60 @@ Drawing.DrawingMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [DrawingMap](#drawingmap) | validate([Map<?, ?>](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
+| [DrawingMap](#drawingmap) | validate([Map&lt;?, ?&gt;](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DrawingMapBuilder
 public class DrawingMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **mainShape** | ? extends @Nullable Object |  | [optional] |
-| **shapeOrNull** | ? extends @Nullable Object |  | [optional] |
-| **nullableShape** | ? extends @Nullable Object |  | [optional] |
-| **shapes** | List<? extends @Nullable Object> |  | [optional] |
-| **anyStringName** | ? extends @Nullable Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DrawingMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(Void value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(boolean value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(String value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(int value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(float value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(long value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(double value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(List<?> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | mainShape(Map<String, ?> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(Void value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(boolean value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(String value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(int value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(float value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(long value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(double value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(List<?> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapeOrNull(Map<String, ?> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(Void value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(boolean value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(String value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(int value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(float value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(long value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(double value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(List<?> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | nullableShape(Map<String, ?> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | shapes(List<@Nullable Object> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, Void value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, boolean value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, String value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, int value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, float value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, long value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, double value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, List<?> value) |
+| [DrawingMapBuilder](#drawingmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## DrawingMap
 public static class DrawingMap<br>
@@ -108,7 +145,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -121,10 +158,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // List validation
 Drawing.ShapesList validatedPayload =
     Drawing.Shapes.validate(
-    new .ShapesListBuilder(
-        Arrays.asList(
-        )
-    ).build(),
+    new Drawing.ShapesListBuilder()
+    .build(),
     configuration
 );
 ```
@@ -146,7 +181,7 @@ builder for `List<@Nullable Object>`
 
 A class that builds the List input type
 
-## Constructor Summary
+### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
 | ShapesListBuilder()<br>Creates an empty list |

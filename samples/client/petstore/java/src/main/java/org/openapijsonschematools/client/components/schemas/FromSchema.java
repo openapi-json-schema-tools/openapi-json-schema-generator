@@ -14,8 +14,10 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -89,8 +91,74 @@ public class FromSchema {
             return get(name);
         }
     }
-    public static class FromSchemaMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForData <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterData(Map<String, @Nullable Object> instance);
+        
+        default T data(String value) {
+            var instance = getInstance();
+            instance.put("data", value);
+            return getBuilderAfterData(instance);
+        }
+    }
+    
+    public interface SetterForId <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterId(Map<String, @Nullable Object> instance);
+        
+        default T id(int value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(float value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(long value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+        
+        default T id(double value) {
+            var instance = getInstance();
+            instance.put("id", value);
+            return getBuilderAfterId(instance);
+        }
+    }
+    
+    public static class FromSchemaMapBuilder extends UnsetAddPropsSetter<FromSchemaMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForData<FromSchemaMapBuilder>, SetterForId<FromSchemaMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "data",
+            "id"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public FromSchemaMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public FromSchemaMapBuilder getBuilderAfterData(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public FromSchemaMapBuilder getBuilderAfterId(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public FromSchemaMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

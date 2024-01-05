@@ -25,7 +25,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -38,8 +38,8 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
     RefInAdditionalproperties.RefInAdditionalproperties1.validate(
-    MapMaker.makeMap(
-    ),
+    new RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder()
+    .build(),
     configuration
 );
 ```
@@ -53,18 +53,32 @@ RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<?, ?>](#refinadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#refinadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RefInAdditionalpropertiesMapBuilder
 public class RefInAdditionalpropertiesMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | ? extends @Nullable Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RefInAdditionalpropertiesMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, Void value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, boolean value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, String value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, int value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, float value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, long value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, double value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, List<?> value) |
+| [RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## RefInAdditionalpropertiesMap
 public static class RefInAdditionalpropertiesMap<br>

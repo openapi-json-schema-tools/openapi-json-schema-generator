@@ -8,7 +8,7 @@
 
     {{/if}}
 {{> _helper_imports }}
-{{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{jsonPathPiece.pascalCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 ApiResponse = {{refInfo.refModule}}.ApiResponse
 {{else}}
 from {{packageName}}.shared_imports.response_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
@@ -30,7 +30,7 @@ from .headers import {{jsonPathPiece.snakeCase}}
 from . import header_parameters
 parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
 {{#each headers}}
-    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+    '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.pascalCase}},
 {{/each}}
 }
     {{/if}}
@@ -66,11 +66,11 @@ class ApiResponse(api_response.ApiResponse):
         {{else}}
     body: schemas.Unset
         {{/if}}
-    headers: header_parameters.{{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
+    headers: header_parameters.{{headersObjectSchema.mapOutputJsonPathPiece.pascalCase}}
     {{else}}
         {{#or headers content}}
             {{#if headers}}
-    headers: header_parameters.{{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
+    headers: header_parameters.{{headersObjectSchema.mapOutputJsonPathPiece.pascalCase}}
     body: schemas.Unset
             {{else}}
                 {{#if hasContentSchema}}
@@ -112,14 +112,14 @@ class ApiResponse(api_response.ApiResponse):
     {{/unless}}
 
 
-class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[ApiResponse]):
+class {{jsonPathPiece.pascalCase}}(api_client.OpenApiResponse[ApiResponse]):
     @classmethod
     def get_response(cls, response, headers, body) -> ApiResponse:
         return ApiResponse(response=response, body=body, headers=headers)
     {{#each content}}
 
 
-    class {{@key.camelCase}}MediaType(api_client.MediaType):
+    class {{@key.pascalCase}}MediaType(api_client.MediaType):
         {{#with this}}
             {{#with schema}}
         {{> components/_helper_content_schema_type paramName="schema" contentTypeModule=../@key.snakeCase }}
@@ -131,13 +131,13 @@ class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[ApiResponse]):
     {{#if content}}
     content = {
         {{#each content}}
-        '{{{@key.original}}}': {{@key.camelCase}}MediaType,
+        '{{{@key.original}}}': {{@key.pascalCase}}MediaType,
         {{/each}}
     }
     {{/if}}
     {{#if headers}}
     headers=parameters
-    headers_schema = header_parameters.{{headersObjectSchema.jsonPathPiece.camelCase}}
+    headers_schema = header_parameters.{{headersObjectSchema.jsonPathPiece.pascalCase}}
     {{/if}}
 {{/if}}
 {{/with}}

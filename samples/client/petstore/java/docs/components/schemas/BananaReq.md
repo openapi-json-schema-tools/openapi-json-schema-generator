@@ -28,7 +28,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -41,16 +41,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 BananaReq.BananaReqMap validatedPayload =
     BananaReq.BananaReq1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "lengthCm",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "sweet",
-            true
-        )
-    ),
+    new BananaReq.BananaReqMapBuilder()
+        .lengthCm(1)
+
+        .sweet(true)
+
+    .build(),
     configuration
 );
 ```
@@ -66,19 +62,43 @@ BananaReq.BananaReqMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [BananaReqMap](#bananareqmap) | validate([Map<?, ?>](#bananareqmapbuilder) arg, SchemaConfiguration configuration) |
+| [BananaReqMap](#bananareqmap) | validate([Map&lt;?, ?&gt;](#bananareqmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## BananaReqMap0Builder
+public class BananaReqMap0Builder<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BananaReqMap0Builder(Map<String, Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [BananaReqMap0Builder](#bananareqmap0builder) | sweet(boolean value) |
+
 ## BananaReqMapBuilder
 public class BananaReqMapBuilder<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **lengthCm** | Number |  | |
-| **sweet** | boolean |  | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BananaReqMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [BananaReqMap0Builder](#bananareqmap0builder) | lengthCm(int value) |
+| [BananaReqMap0Builder](#bananareqmap0builder) | lengthCm(float value) |
+| [BananaReqMap0Builder](#bananareqmap0builder) | lengthCm(long value) |
+| [BananaReqMap0Builder](#bananareqmap0builder) | lengthCm(double value) |
 
 ## BananaReqMap
 public static class BananaReqMap<br>

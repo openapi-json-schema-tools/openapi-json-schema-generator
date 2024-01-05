@@ -27,7 +27,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -40,12 +40,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 MyObjectDto.MyObjectDtoMap validatedPayload =
     MyObjectDto.MyObjectDto1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "id",
-            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
-        )
-    ),
+    new MyObjectDto.MyObjectDtoMapBuilder()
+        .id("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+
+    .build(),
     configuration
 );
 ```
@@ -60,7 +58,7 @@ MyObjectDto.MyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [MyObjectDtoMap](#myobjectdtomap) | validate([Map<?, ?>](#myobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
+| [MyObjectDtoMap](#myobjectdtomap) | validate([Map&lt;?, ?&gt;](#myobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MyObjectDtoMapBuilder
 public class MyObjectDtoMapBuilder<br>
@@ -68,10 +66,16 @@ builder for `Map<String, String>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **id** | String |  | [optional] value must be a uuid |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MyObjectDtoMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
+| [MyObjectDtoMapBuilder](#myobjectdtomapbuilder) | id(String value) |
 
 ## MyObjectDtoMap
 public static class MyObjectDtoMap<br>

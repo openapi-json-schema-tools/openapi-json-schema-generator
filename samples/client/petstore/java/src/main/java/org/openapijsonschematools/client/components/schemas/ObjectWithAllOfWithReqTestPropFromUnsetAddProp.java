@@ -17,7 +17,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -81,8 +83,114 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             return get(name);
         }
     }
-    public static class Schema1MapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForTest <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterTest(Map<String, @Nullable Object> instance);
+        
+        default T test(Void value) {
+            var instance = getInstance();
+            instance.put("test", null);
+            return getBuilderAfterTest(instance);
+        }
+        
+        default T test(boolean value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+        
+        default T test(String value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+        
+        default T test(int value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+        
+        default T test(float value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+        
+        default T test(long value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+        
+        default T test(double value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+        
+        default T test(List<?> value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+        
+        default T test(Map<String, ?> value) {
+            var instance = getInstance();
+            instance.put("test", value);
+            return getBuilderAfterTest(instance);
+        }
+    }
+    
+    public interface SetterForName <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterName(Map<String, @Nullable Object> instance);
+        
+        default T name(String value) {
+            var instance = getInstance();
+            instance.put("name", value);
+            return getBuilderAfterName(instance);
+        }
+    }
+    
+    public static class Schema1Map0Builder extends UnsetAddPropsSetter<Schema1Map0Builder> implements BaseBuilder<@Nullable Object>, SetterForName<Schema1Map0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "test",
+            "name"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public Schema1Map0Builder(Map<String, @Nullable Object> instance) {
+            this.instance = instance;
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1Map0Builder getBuilderAfterName(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public Schema1Map0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+    }
+    
+    public static class Schema1MapBuilder implements SetterForTest<Schema1Map0Builder> {
+        private final Map<String, @Nullable Object> instance;
+        public Schema1MapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public Schema1Map0Builder getBuilderAfterTest(Map<String, @Nullable Object> instance) {
+            return new Schema1Map0Builder(instance);
+        }
     }
     
     

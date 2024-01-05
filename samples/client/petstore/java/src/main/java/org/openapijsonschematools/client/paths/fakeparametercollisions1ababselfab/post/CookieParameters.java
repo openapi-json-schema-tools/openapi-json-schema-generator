@@ -19,11 +19,13 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter17.Schema17;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter18.Schema18;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -90,8 +92,98 @@ public class CookieParameters {
             return (String) value;
         }
     }
-    public static class CookieParametersMapBuilder {
-        // empty mapping
+    
+    public interface SetterForSchema1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSchema1(Map<String, @Nullable Object> instance);
+        
+        default T setPositive1(String value) {
+            var instance = getInstance();
+            instance.put("1", value);
+            return getBuilderAfterSchema1(instance);
+        }
+    }
+    
+    public interface SetterForAB <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAB(Map<String, @Nullable Object> instance);
+        
+        default T aB(String value) {
+            var instance = getInstance();
+            instance.put("aB", value);
+            return getBuilderAfterAB(instance);
+        }
+    }
+    
+    public interface SetterForAb <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAb(Map<String, @Nullable Object> instance);
+        
+        default T Ab(String value) {
+            var instance = getInstance();
+            instance.put("Ab", value);
+            return getBuilderAfterAb(instance);
+        }
+    }
+    
+    public interface SetterForAB1 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAB1(Map<String, @Nullable Object> instance);
+        
+        default T setAHyphenMinusB(String value) {
+            var instance = getInstance();
+            instance.put("A-B", value);
+            return getBuilderAfterAB1(instance);
+        }
+    }
+    
+    public interface SetterForSelf <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterSelf(Map<String, @Nullable Object> instance);
+        
+        default T self(String value) {
+            var instance = getInstance();
+            instance.put("self", value);
+            return getBuilderAfterSelf(instance);
+        }
+    }
+    
+    public static class CookieParametersMapBuilder implements BaseBuilder<@Nullable Object>, SetterForSchema1<CookieParametersMapBuilder>, SetterForAB<CookieParametersMapBuilder>, SetterForAb<CookieParametersMapBuilder>, SetterForAB1<CookieParametersMapBuilder>, SetterForSelf<CookieParametersMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "1",
+            "aB",
+            "Ab",
+            "A-B",
+            "self"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public CookieParametersMapBuilder() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public CookieParametersMapBuilder getBuilderAfterSchema1(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public CookieParametersMapBuilder getBuilderAfterAB(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public CookieParametersMapBuilder getBuilderAfterAb(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public CookieParametersMapBuilder getBuilderAfterAB1(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public CookieParametersMapBuilder getBuilderAfterSelf(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

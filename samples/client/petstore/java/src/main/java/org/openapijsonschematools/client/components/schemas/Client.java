@@ -14,7 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -66,8 +68,41 @@ public class Client {
             return get(name);
         }
     }
-    public static class ClientMapBuilder {
-        // Map<String, Object> because addProps is unset
+    
+    public interface SetterForClient2 <T> {
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterClient2(Map<String, @Nullable Object> instance);
+        
+        default T client(String value) {
+            var instance = getInstance();
+            instance.put("client", value);
+            return getBuilderAfterClient2(instance);
+        }
+    }
+    
+    public static class ClientMapBuilder1 extends UnsetAddPropsSetter<ClientMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForClient2<ClientMapBuilder1> {
+        private final Map<String, @Nullable Object> instance;
+        private static final Set<String> knownKeys = Set.of(
+            "client"
+        );
+        public Set<String> getKnownKeys() {
+            return knownKeys;
+        }
+        public ClientMapBuilder1() {
+            this.instance = new LinkedHashMap<>();
+        }
+        public Map<String, @Nullable Object> build() {
+            return instance;
+        }
+        public Map<String, @Nullable Object> getInstance() {
+            return instance;
+        }
+        public ClientMapBuilder1 getBuilderAfterClient2(Map<String, @Nullable Object> instance) {
+            return this;
+        }
+        public ClientMapBuilder1 getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
+            return this;
+        }
     }
     
     

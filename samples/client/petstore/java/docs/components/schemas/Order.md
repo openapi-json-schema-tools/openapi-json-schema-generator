@@ -33,7 +33,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -46,32 +46,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Order.OrderMap validatedPayload =
     Order.Order1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "id",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "petId",
-            1L
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "quantity",
-            1
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "shipDate",
-            "1970-01-01T00:00:00.00Z"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "status",
-            "placed"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "complete",
-            true
-        )
-    ),
+    new Order.OrderMapBuilder()
+        .id(1L)
+
+        .petId(1L)
+
+        .quantity(1)
+
+        .shipDate("1970-01-01T00:00:00.00Z")
+
+        .status("placed")
+
+        .complete(true)
+
+    .build(),
     configuration
 );
 ```
@@ -85,24 +73,46 @@ Order.OrderMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [OrderMap](#ordermap) | validate([Map<?, ?>](#ordermapbuilder) arg, SchemaConfiguration configuration) |
+| [OrderMap](#ordermap) | validate([Map&lt;?, ?&gt;](#ordermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## OrderMapBuilder
 public class OrderMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **id** | Number |  | [optional] value must be a 64 bit integer |
-| **petId** | Number |  | [optional] value must be a 64 bit integer |
-| **quantity** | Number |  | [optional] value must be a 32 bit integer |
-| **shipDate** | String |  | [optional] value must conform to RFC-3339 date-time |
-| **status** | String | Order Status | [optional] must be one of ["placed", "approved", "delivered"] |
-| **complete** | boolean |  | [optional] if omitted the server will use the default value of false |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| OrderMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [OrderMapBuilder](#ordermapbuilder) | id(int value) |
+| [OrderMapBuilder](#ordermapbuilder) | id(float value) |
+| [OrderMapBuilder](#ordermapbuilder) | id(long value) |
+| [OrderMapBuilder](#ordermapbuilder) | id(double value) |
+| [OrderMapBuilder](#ordermapbuilder) | petId(int value) |
+| [OrderMapBuilder](#ordermapbuilder) | petId(float value) |
+| [OrderMapBuilder](#ordermapbuilder) | petId(long value) |
+| [OrderMapBuilder](#ordermapbuilder) | petId(double value) |
+| [OrderMapBuilder](#ordermapbuilder) | quantity(int value) |
+| [OrderMapBuilder](#ordermapbuilder) | quantity(float value) |
+| [OrderMapBuilder](#ordermapbuilder) | shipDate(String value) |
+| [OrderMapBuilder](#ordermapbuilder) | status(String value) |
+| [OrderMapBuilder](#ordermapbuilder) | status([StringStatusEnums](#stringstatusenums) value) |
+| [OrderMapBuilder](#ordermapbuilder) | complete(boolean value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, Void value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, boolean value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, String value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, int value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, float value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, long value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, double value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, List<?> value) |
+| [OrderMapBuilder](#ordermapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## OrderMap
 public static class OrderMap<br>
@@ -120,7 +130,7 @@ A class to store validated Map payloads
 | String | shipDate()<br>[optional] value must conform to RFC-3339 date-time |
 | String | status()<br>[optional] must be one of ["placed", "approved", "delivered"] |
 | boolean | complete()<br>[optional] if omitted the server will use the default value of false |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Complete
 public static class Complete<br>
@@ -146,7 +156,7 @@ Order Status
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

@@ -2,25 +2,25 @@
     {{#each typeToValues}}
 
         {{#eq @key "null"}}
-public enum Null{{../jsonPathPiece.camelCase}} implements NullValueMethod {
+public enum Null{{../jsonPathPiece.pascalCase}} implements NullValueMethod {
         {{else}}
             {{#eq @key "boolean"}}
-public enum Boolean{{../jsonPathPiece.camelCase}} implements BooleanValueMethod {
+public enum Boolean{{../jsonPathPiece.pascalCase}} implements BooleanValueMethod {
             {{else}}
                 {{#eq @key "string"}}
-public enum String{{../jsonPathPiece.camelCase}} implements StringValueMethod {
+public enum String{{../jsonPathPiece.pascalCase}} implements StringValueMethod {
                 {{else}}
                     {{#eq @key "Integer"}}
-public enum Integer{{../jsonPathPiece.camelCase}} implements IntegerValueMethod {
+public enum Integer{{../jsonPathPiece.pascalCase}} implements IntegerValueMethod {
                     {{else}}
                         {{#eq @key "Long"}}
-public enum Long{{../jsonPathPiece.camelCase}} implements LongValueMethod {
+public enum Long{{../jsonPathPiece.pascalCase}} implements LongValueMethod {
                         {{else}}
                             {{#eq @key "Float"}}
-public enum Float{{../jsonPathPiece.camelCase}} implements FloatValueMethod {
+public enum Float{{../jsonPathPiece.pascalCase}} implements FloatValueMethod {
                             {{else}}
                                 {{#eq @key "Double"}}
-public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
+public enum Double{{../jsonPathPiece.pascalCase}} implements DoubleValueMethod {
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}
@@ -60,7 +60,7 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
         {{#eq @key "null"}}
     private final Void value;
 
-    Null{{../jsonPathPiece.camelCase}}(Void value) {
+    Null{{../jsonPathPiece.pascalCase}}(Void value) {
         this.value = value;
     }
     public Void value() {
@@ -70,7 +70,7 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
             {{#eq @key "boolean"}}
     private final boolean value;
 
-    Boolean{{../jsonPathPiece.camelCase}}(boolean value) {
+    Boolean{{../jsonPathPiece.pascalCase}}(boolean value) {
         this.value = value;
     }
     public boolean value() {
@@ -80,7 +80,7 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
                 {{#eq @key "string"}}
     private final String value;
 
-    String{{../jsonPathPiece.camelCase}}(String value) {
+    String{{../jsonPathPiece.pascalCase}}(String value) {
         this.value = value;
     }
     public String value() {
@@ -90,7 +90,7 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
                     {{#eq @key "Integer"}}
     private final int value;
 
-    Integer{{../jsonPathPiece.camelCase}}(int value) {
+    Integer{{../jsonPathPiece.pascalCase}}(int value) {
         this.value = value;
     }
     public int value() {
@@ -100,7 +100,7 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
                         {{#eq @key "Long"}}
     private final long value;
 
-    Long{{../jsonPathPiece.camelCase}}(long value) {
+    Long{{../jsonPathPiece.pascalCase}}(long value) {
         this.value = value;
     }
     public long value() {
@@ -110,7 +110,7 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
                             {{#eq @key "Float"}}
     private final float value;
 
-    Float{{../jsonPathPiece.camelCase}}(float value) {
+    Float{{../jsonPathPiece.pascalCase}}(float value) {
         this.value = value;
     }
     public float value() {
@@ -120,7 +120,7 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
                                 {{#eq @key "Double"}}
     private final double value;
 
-    Double{{../jsonPathPiece.camelCase}}(double value) {
+    Double{{../jsonPathPiece.pascalCase}}(double value) {
         this.value = value;
     }
     public double value() {

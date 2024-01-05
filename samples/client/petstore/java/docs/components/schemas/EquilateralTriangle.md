@@ -39,7 +39,7 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1
@@ -53,7 +53,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -66,12 +66,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 EquilateralTriangle.Schema1Map validatedPayload =
     EquilateralTriangle.Schema1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
-            "triangleType",
-            "EquilateralTriangle"
-        )
-    ),
+    new EquilateralTriangle.Schema1MapBuilder()
+        .triangleType("EquilateralTriangle")
+
+    .build(),
     configuration
 );
 ```
@@ -85,19 +83,34 @@ EquilateralTriangle.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **triangleType** | String |  | [optional] must be one of ["EquilateralTriangle"] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1MapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [Schema1MapBuilder](#schema1mapbuilder) | triangleType(String value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | triangleType([StringTriangleTypeEnums](#stringtriangletypeenums) value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, Void value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, boolean value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, String value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, int value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, float value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, long value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, double value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, List<?> value) |
+| [Schema1MapBuilder](#schema1mapbuilder) | additionalProperty(String key, Map<String, ?> value) |
 
 ## Schema1Map
 public static class Schema1Map<br>
@@ -110,7 +123,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | String | triangleType()<br>[optional] must be one of ["EquilateralTriangle"] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## TriangleType
 public static class TriangleType<br>
@@ -123,7 +136,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 

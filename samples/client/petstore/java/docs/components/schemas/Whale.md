@@ -30,7 +30,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -43,20 +43,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 // Map validation
 Whale.WhaleMap validatedPayload =
     Whale.Whale1.validate(
-    MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Object>(
-            "className",
-            "whale"
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "hasBaleen",
-            true
-        ),
-        new AbstractMap.SimpleEntry<String, Object>(
-            "hasTeeth",
-            true
-        )
-    ),
+    new Whale.WhaleMapBuilder()
+        .className("whale")
+
+        .hasBaleen(true)
+
+        .hasTeeth(true)
+
+    .build(),
     configuration
 );
 ```
@@ -71,21 +65,51 @@ Whale.WhaleMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [WhaleMap](#whalemap) | validate([Map<?, ?>](#whalemapbuilder) arg, SchemaConfiguration configuration) |
+| [WhaleMap](#whalemap) | validate([Map&lt;?, ?&gt;](#whalemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## WhaleMapBuilder
-public class WhaleMapBuilder<br>
-builder for `Map<String, ? extends @Nullable Object>`
+## WhaleMap0Builder
+public class WhaleMap0Builder<br>
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **className** | String |  | must be one of ["whale"] |
-| **hasBaleen** | boolean |  | [optional] |
-| **hasTeeth** | boolean |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| WhaleMap0Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
+| [WhaleMap0Builder](#whalemap0builder) | hasBaleen(boolean value) |
+| [WhaleMap0Builder](#whalemap0builder) | hasTeeth(boolean value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, Void value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, boolean value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, String value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, int value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, float value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, long value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, double value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, List<?> value) |
+| [WhaleMap0Builder](#whalemap0builder) | additionalProperty(String key, Map<String, ?> value) |
+
+## WhaleMapBuilder
+public class WhaleMapBuilder<br>
+builder for `Map<String, @Nullable Object>`
+
+A class that builds the Map input type
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| WhaleMapBuilder()<br>Creates a builder that contains an empty map |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| [WhaleMap0Builder](#whalemap0builder) | className(String value) |
+| [WhaleMap0Builder](#whalemap0builder) | className([StringClassNameEnums](#stringclassnameenums) value) |
 
 ## WhaleMap
 public static class WhaleMap<br>
@@ -100,7 +124,7 @@ A class to store validated Map payloads
 | String | className()<br> must be one of ["whale"] |
 | boolean | hasBaleen()<br>[optional] |
 | boolean | hasTeeth()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassName
 public static class ClassName<br>
@@ -113,7 +137,7 @@ A schema class that validates payloads
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
