@@ -58,7 +58,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public static final String SUPPORT_ASYNC = "supportAsync";
     public static final String WITH_XML = "withXml";
     public static final String SUPPORT_JAVA6 = "supportJava6";
-    public static final String OPENAPI_NULLABLE = "openApiNullable";
     public static final String JACKSON = "jackson";
     public static final String TEST_OUTPUT = "testOutput";
     public static final String DEFAULT_TEST_FOLDER = "${project.build.directory}/generated-test-sources/openapi";
@@ -93,7 +92,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected String parentArtifactId = "";
     protected String parentVersion = "";
     protected boolean parentOverridden = false;
-    protected boolean openApiNullable = true;
     protected String outputTestFolder = "";
     protected DocumentationProvider documentationProvider;
     protected AnnotationLibrary annotationLibrary;
@@ -180,8 +178,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(CliOption.newBoolean(CodegenConstants.SERIALIZABLE_MODEL, CodegenConstants.SERIALIZABLE_MODEL_DESC, this.getSerializableModel()));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
         cliOptions.add(CliOption.newBoolean(WITH_XML, "whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML)"));
-
-        cliOptions.add(CliOption.newBoolean(OPENAPI_NULLABLE, "Enable OpenAPI Jackson Nullable library", this.openApiNullable));
 
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
@@ -394,11 +390,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             this.setWithXml(Boolean.parseBoolean(additionalProperties.get(WITH_XML).toString()));
         }
         additionalProperties.put(WITH_XML, withXml);
-
-        if (additionalProperties.containsKey(OPENAPI_NULLABLE)) {
-            this.setOpenApiNullable(Boolean.parseBoolean(additionalProperties.get(OPENAPI_NULLABLE).toString()));
-        }
-        additionalProperties.put(OPENAPI_NULLABLE, openApiNullable);
 
         if (additionalProperties.containsKey(CodegenConstants.PARENT_GROUP_ID)) {
             this.setParentGroupId((String) additionalProperties.get(CodegenConstants.PARENT_GROUP_ID));
@@ -783,13 +774,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             model.imports.add("ApiModel");
         }
 
-        if (openApiNullable) {
-            if (Boolean.TRUE.equals(property.nullable)) {
-                model.imports.add("JsonNullable");
-                model.vendorExtensions.put("x-jackson-optional-nullable-helpers", true);
-            }
-        }
-
         if (property.readOnly) {
             model.vendorExtensions.put("x-has-readonly-properties", true);
         }
@@ -1042,15 +1026,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
     }
-
-    public boolean isOpenApiNullable() {
-        return openApiNullable;
-    }
-
-    public void setOpenApiNullable(final boolean openApiNullable) {
-        this.openApiNullable = openApiNullable;
-    }
-
+    
     @Override
     public void setOutputDir(String dir) {
         super.setOutputDir(dir);
