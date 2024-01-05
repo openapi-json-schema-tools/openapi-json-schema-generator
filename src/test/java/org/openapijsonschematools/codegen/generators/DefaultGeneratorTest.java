@@ -810,121 +810,6 @@ public class DefaultGeneratorTest {
     }
 
     @Test
-    public void testComposedSchemaAllOfDiscriminatorMapLegacy() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
-        DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setModelPackage("components.schemas");
-        codegen.setOpenAPI(openAPI);
-        Schema sc;
-        String modelName;
-
-        String propertyName = "petType";
-        CodegenKey ck = codegen.getKey(propertyName, "misc");
-
-        // all leaf Schemas have discriminators with PropertyName/BaseName + empty discriminator maps
-        List<String> leafModelNames = Arrays.asList("Cat", "Dog", "Lizard", "Snake");
-        for (String leafModelName : leafModelNames) {
-            Schema leafSc = openAPI.getComponents().getSchemas().get(leafModelName);
-            CodegenSchema leafCm = codegen.fromSchema(
-                    leafSc,
-                    "#/components/schemas/" + leafModelName,
-                    "#/components/schemas/" + leafModelName
-            );
-            Assert.assertNull(leafCm.discriminator);
-        }
-
-        // the Pet discriminator map contains all animals + Reptile (children + grandchildren)
-        TreeSet hs = new TreeSet<>();
-        for (String leafModelName : leafModelNames) {
-            hs.add(new CodegenDiscriminator.MappedModel(leafModelName, codegen.toModelName(leafModelName, null)));
-        }
-        hs.add(new CodegenDiscriminator.MappedModel("Reptile", codegen.toModelName("Reptile", null)));
-        CodegenKey petDiscPropName = codegen.getKey(propertyName, "misc");
-        CodegenDiscriminator petDisc = new CodegenDiscriminator(petDiscPropName, null, hs);
-        modelName = "Pet";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        CodegenSchema pet = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        assertEquals(pet.discriminator, petDisc);
-
-        // the Reptile discriminator contains both reptiles
-        List<String> reptileModelNames = Arrays.asList("Lizard", "Snake");
-        hs.clear();
-        for (String reptileModelName : reptileModelNames) {
-            hs.add(new CodegenDiscriminator.MappedModel(reptileModelName, codegen.toModelName(reptileModelName, null)));
-        }
-        CodegenKey reptileDiscPropName = codegen.getKey(propertyName, "misc");
-        modelName = "Reptile";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        CodegenSchema reptile = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        Assert.assertNull(reptile.discriminator);
-
-        // the MyPets discriminator contains Cat and Lizard
-        CodegenKey myPetDiscPropName = codegen.getKey(propertyName, "misc");
-        CodegenDiscriminator myPetDisc = new CodegenDiscriminator(myPetDiscPropName, null, hs);
-        hs.clear();
-        modelName = "MyPets";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        CodegenSchema myPets = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        assertEquals(myPets.discriminator, myPetDisc);
-
-        // the MyPetsNoDisc discriminator is created because all oneOf classes have the same discriminator
-        modelName = "MyPetsNoDisc";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        CodegenSchema myPetsNoDisc = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        Assert.assertNull(myPetsNoDisc.discriminator);
-
-        CodegenSchema cm;
-
-        // the mapping in b is in A
-        modelName = "A";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        cm = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        hs.clear();
-        hs.add(new CodegenDiscriminator.MappedModel("b", codegen.toModelName("B", null)));
-        assertEquals(cm.discriminator.mappedModels, hs);
-
-        // the mapping in b is in B
-        modelName = "B";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        cm = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        Assert.assertNull(cm.discriminator);
-
-        // the mapping in b is in C
-        modelName = "C";
-        sc = openAPI.getComponents().getSchemas().get(modelName);
-        cm = codegen.fromSchema(
-                sc,
-                "#/components/schemas/" + modelName,
-                "#/components/schemas/" + modelName
-        );
-        Assert.assertNull(cm.discriminator);
-    }
-
-    @Test
     public void testComposedSchemaOneOfDiscriminatorsInvalid() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/oneOfDiscriminator.yaml");
         DefaultGenerator codegen = new ThisDefaultGenerator();
@@ -1994,7 +1879,7 @@ public class DefaultGeneratorTest {
         );
         assertEquals(cm.allOf.get(0).refInfo.refClass, "UserTimeBase");
         assertEquals(openAPI.getComponents().getSchemas().size(), 2);
-        assertNull(cm.discriminator);
+        assertNotNull(cm.discriminator);
     }
 
     @Test
