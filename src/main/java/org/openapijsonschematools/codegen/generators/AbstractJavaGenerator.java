@@ -99,7 +99,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected boolean discriminatorCaseSensitive = true; // True if the discriminator value lookup should be case-sensitive.
     protected String javaUtilPrefix = "";
     protected Boolean serializableModel = false;
-    protected boolean serializeBigDecimalAsString = false;
     protected String apiDocPath = "docs/";
     protected String modelDocPath = "docs/";
     protected boolean supportJava6 = false;
@@ -198,7 +197,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(new CliOption(CodegenConstants.LICENSE_URL, CodegenConstants.LICENSE_URL_DESC).defaultValue(this.getLicenseUrl()));
         cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.SERIALIZABLE_MODEL, CodegenConstants.SERIALIZABLE_MODEL_DESC, this.getSerializableModel()));
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.SERIALIZE_BIG_DECIMAL_AS_STRING, CodegenConstants.SERIALIZE_BIG_DECIMAL_AS_STRING_DESC, serializeBigDecimalAsString));
         cliOptions.add(CliOption.newBoolean(FULL_JAVA_UTIL, "whether to use fully qualified name for classes under java.util. This option only works for Java API client", fullJavaUtil));
         cliOptions.add(CliOption.newBoolean(DISCRIMINATOR_CASE_SENSITIVE, "Whether the discriminator value lookup should be case-sensitive or not. This option only works for Java API client", discriminatorCaseSensitive));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
@@ -437,10 +435,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
         if (additionalProperties.containsKey(CodegenConstants.LIBRARY)) {
             this.setLibrary((String) additionalProperties.get(CodegenConstants.LIBRARY));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.SERIALIZE_BIG_DECIMAL_AS_STRING)) {
-            this.setSerializeBigDecimalAsString(Boolean.parseBoolean(additionalProperties.get(CodegenConstants.SERIALIZE_BIG_DECIMAL_AS_STRING).toString()));
         }
 
         // need to put back serializableModel (boolean) into additionalProperties as value in additionalProperties is string
@@ -893,17 +887,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             model.imports.add("JsonTypeName");
         }
 
-        if (serializeBigDecimalAsString) {
-            if (property.types.contains("string") && property.format.equals("number")) {
-                // we serialize BigDecimal as `string` to avoid precision loss
-                property.vendorExtensions.put("x-extra-annotation", "@JsonSerialize(using = ToStringSerializer.class)");
-
-                // this requires some more imports to be added for this model...
-                model.imports.add("ToStringSerializer");
-                model.imports.add("JsonSerialize");
-            }
-        }
-
         if (!fullJavaUtil) {
             if (property.types != null && property.types.contains("array") && !property.uniqueItems) {
                 model.imports.add("ArrayList");
@@ -1186,11 +1169,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setTestFolder(String testFolder) {
         this.testFolder = testFolder;
     }
-
-    public void setSerializeBigDecimalAsString(boolean s) {
-        this.serializeBigDecimalAsString = s;
-    }
-
+    
     public Boolean getSerializableModel() {
         return serializableModel;
     }

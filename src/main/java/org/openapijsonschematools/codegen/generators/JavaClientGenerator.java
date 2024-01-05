@@ -598,7 +598,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         if (additionalProperties.containsKey(CONFIG_KEY)) {
             this.setConfigKey(additionalProperties.get(CONFIG_KEY).toString());
         }
-        
+
         if (additionalProperties.containsKey(PARCELABLE_MODEL)) {
             this.setParcelableModel(Boolean.parseBoolean(additionalProperties.get(PARCELABLE_MODEL).toString()));
         }
