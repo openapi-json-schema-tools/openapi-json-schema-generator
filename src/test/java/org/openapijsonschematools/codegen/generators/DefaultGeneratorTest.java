@@ -1159,7 +1159,7 @@ public class DefaultGeneratorTest {
         CodegenDiscriminator expectedDiscriminator = new CodegenDiscriminator(expectedDiscriminatorPropName, mapping, mappedModels);
         assertEquals(discriminator, expectedDiscriminator);
     }
-    
+
     @Test
     public void testAllOfSingleRefNoOwnProps() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/composed-allof.yaml");
