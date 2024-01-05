@@ -279,7 +279,7 @@ SYNOPSIS
                 [--skip-operation-example] [--skip-validate-spec]
                 [--strict-spec <true/false strict behavior>]
                 [(-t <template directory> | --template-dir <template directory>)]
-                [--type-mappings <type mappings>...] [(-v | --verbose)]
+                [(-v | --verbose)]
 ```
 
 <details>
@@ -457,12 +457,6 @@ OPTIONS
         -t <template directory>, --template-dir <template directory>
             folder containing the template files
 
-        --type-mappings <type mappings>
-            sets mappings between OpenAPI spec types and generated code types in
-            the format of OpenAPIType=generatedType,OpenAPIType=generatedType.
-            For example: array=List,map=Map,string=String. You can also have
-            multiple occurrences of this option.
-
         -v, --verbose
             verbose mode
 ```
@@ -499,13 +493,12 @@ Pass more options via comma delimited key/value pairs:
 
 For the full list of generator-specific parameters, refer to [generators docs](./generators.md).
 
-#### Type Mappings and Import Mappings
+#### Import Mappings
 
 Most generators allow for types bound to the OpenAPI Specification's types to be remapped to a user's desired types. Not _all_ type mappings can be reassigned, as some generators define mappings which are tightly coupled to the built-in templates.
 
-If you're not using your own templates with star/glob package imports, you will most likely need to combine `--type-mappings` and `--import-mappings` together.
+If you're not using your own templates with star/glob package imports, you will most likely need to combine `--import-mappings` together.
 
-* `--type-mappings` Defines the user's target type
 * `--import-mappings` Informs the template of the type to be imported
 
 Here's how one might change the `kotlin-spring` server generator's default of `OffsetDateTime` to `LocalDateTime`:
@@ -516,8 +509,7 @@ openapi-generator-cli generate \
     -g kotlin-spring \
     -o out \
     --additional-properties=library=spring-boot,beanValidations=true,serviceImplementation=true \
-    --import-mappings=DateTime=java.time.LocalDateTime \
-    --type-mappings=DateTime=java.time.LocalDateTime
+    --import-mappings=DateTime=java.time.LocalDateTime
 ```
 
 > NOTE: mappings are applied to `DateTime`, as this is the representation of the primitive type. See [DefaultCodegen](https://github.com/OpenAPITools/openapi-generator/blob/7cee999543fcc00b7c1eb9f70f0456b707c7f9e2/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java#L1431).

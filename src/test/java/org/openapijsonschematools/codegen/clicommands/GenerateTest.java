@@ -381,25 +381,6 @@ public class GenerateTest {
     }
 
     @Test
-    public void testTypeMappingsLong() {
-        setupAndRunGenericTest("--type-mappings", "hello=world,key=,foo=bar,key2");
-        verify(configurator).addTypeMapping("hello", "world");
-        verify(configurator).addTypeMapping("foo", "bar");
-        verify(configurator).addTypeMapping("key", "");
-        verify(configurator).addTypeMapping("key2", "");
-    }
-
-    @Test
-    public void testTypeMappingsLongMultiple() {
-        setupAndRunGenericTest("--type-mappings", "hello=world", "--type-mappings", "key=",
-                "--type-mappings", "foo=bar", "--type-mappings", "key2");
-        verify(configurator).addTypeMapping("hello", "world");
-        verify(configurator).addTypeMapping("foo", "bar");
-        verify(configurator).addTypeMapping("key", "");
-        verify(configurator).addTypeMapping("key2", "");
-    }
-
-    @Test
     public void testVerboseLong() {
         setupAndRunGenericTest("--verbose");
         verify(configurator).setVerbose(true);

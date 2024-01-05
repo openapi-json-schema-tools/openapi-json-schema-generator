@@ -46,7 +46,6 @@ public final class GeneratorSettings implements Serializable {
     private String artifactVersion;
 
     private final Map<String, String> instantiationTypes;
-    private final Map<String, String> typeMappings;
     private final Map<String, Object> additionalProperties;
     private final Map<String, String> importMappings;
     private final Map<String, String> schemaMappings;
@@ -185,25 +184,11 @@ public final class GeneratorSettings implements Serializable {
      * <p>
      * For example, "array" to "ArrayList" applied to the Java generator will cause all array properties to be instantiated as ArrayList.
      * <p>
-     * This option differs from {@link GeneratorSettings#getTypeMappings()} in that values provided here are generally used for type construction (what is applied to "new").
      *
      * @return the instantiation types
      */
     public Map<String, String> getInstantiationTypes() {
         return instantiationTypes;
-    }
-
-    /**
-     * Gets type mappings. These allow for customizing type definitions.
-     * <p>
-     * For example, "array" to "List" applied to the Java generator will cause all variable assignments for array properties to be of type <code>List</code>.
-     * <p>
-     * This option differs from {@link GeneratorSettings#getInstantiationTypes()} in that values provided here are variable reference types rather than concrete instantiation types.
-     *
-     * @return the type mappings
-     */
-    public Map<String, String> getTypeMappings() {
-        return typeMappings;
     }
 
     /**
@@ -365,7 +350,6 @@ public final class GeneratorSettings implements Serializable {
         artifactId = builder.artifactId;
         artifactVersion = builder.artifactVersion;
         instantiationTypes = Collections.unmodifiableMap(builder.instantiationTypes);
-        typeMappings = Collections.unmodifiableMap(builder.typeMappings);
         importMappings = Collections.unmodifiableMap(builder.importMappings);
         schemaMappings = Collections.unmodifiableMap(builder.schemaMappings);
         inlineSchemaNameMappings = Collections.unmodifiableMap(builder.inlineSchemaNameMappings);
@@ -437,7 +421,6 @@ public final class GeneratorSettings implements Serializable {
     public GeneratorSettings() {
         setDefaults();
         instantiationTypes = Collections.unmodifiableMap(new HashMap<>(0));
-        typeMappings = Collections.unmodifiableMap(new HashMap<>(0));
         additionalProperties = Collections.unmodifiableMap(new HashMap<>(0));
         importMappings = Collections.unmodifiableMap(new HashMap<>(0));
         schemaMappings = Collections.unmodifiableMap(new HashMap<>(0));
@@ -482,9 +465,6 @@ public final class GeneratorSettings implements Serializable {
         builder.artifactVersion = copy.getArtifactVersion();
         if (copy.getInstantiationTypes() != null) {
             builder.instantiationTypes.putAll(copy.getInstantiationTypes());
-        }
-        if (copy.getTypeMappings() != null) {
-            builder.typeMappings.putAll(copy.getTypeMappings());
         }
         if (copy.getAdditionalProperties() != null) {
             builder.additionalProperties.putAll(copy.getAdditionalProperties());
@@ -535,7 +515,6 @@ public final class GeneratorSettings implements Serializable {
         private String artifactId;
         private String artifactVersion;
         private Map<String, String> instantiationTypes;
-        private Map<String, String> typeMappings;
         private Map<String, Object> additionalProperties;
         private Map<String, String> importMappings;
         private Map<String, String> schemaMappings;
@@ -555,7 +534,6 @@ public final class GeneratorSettings implements Serializable {
          */
         public Builder() {
             instantiationTypes = new HashMap<>();
-            typeMappings = new HashMap<>();
             additionalProperties = new HashMap<>();
             importMappings = new HashMap<>();
             schemaMappings = new HashMap<>();
@@ -715,17 +693,6 @@ public final class GeneratorSettings implements Serializable {
          */
         public Builder withServerVariables(Map<String, String> serverVariables) {
             this.serverVariables = serverVariables;
-            return this;
-        }
-
-        /**
-         * Sets the {@code typeMappings} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param typeMappings the {@code typeMappings} to set
-         * @return a reference to this Builder
-         */
-        public Builder withTypeMappings(Map<String, String> typeMappings) {
-            this.typeMappings = typeMappings;
             return this;
         }
 
@@ -1009,7 +976,6 @@ public final class GeneratorSettings implements Serializable {
                 ", artifactId='" + artifactId + '\'' +
                 ", artifactVersion='" + artifactVersion + '\'' +
                 ", instantiationTypes=" + instantiationTypes +
-                ", typeMappings=" + typeMappings +
                 ", additionalProperties=" + additionalProperties +
                 ", importMappings=" + importMappings +
                 ", languageSpecificPrimitives=" + languageSpecificPrimitives +
@@ -1039,7 +1005,6 @@ public final class GeneratorSettings implements Serializable {
                 Objects.equals(getArtifactId(), that.getArtifactId()) &&
                 Objects.equals(getArtifactVersion(), that.getArtifactVersion()) &&
                 Objects.equals(getInstantiationTypes(), that.getInstantiationTypes()) &&
-                Objects.equals(getTypeMappings(), that.getTypeMappings()) &&
                 Objects.equals(getAdditionalProperties(), that.getAdditionalProperties()) &&
                 Objects.equals(getImportMappings(), that.getImportMappings()) &&
                 Objects.equals(getSchemaMappings(), that.getSchemaMappings()) &&
@@ -1069,7 +1034,6 @@ public final class GeneratorSettings implements Serializable {
                 getArtifactId(),
                 getArtifactVersion(),
                 getInstantiationTypes(),
-                getTypeMappings(),
                 getAdditionalProperties(),
                 getImportMappings(),
                 getSchemaMappings(),

@@ -19,9 +19,6 @@
     "instantiationTypes" : {
         "hello" : "world"
     },
-    "typeMappings" : {
-        "foo" : "bar"
-    },
     "additionalProperties" : {
         "addtProp1" : "value2"
     },

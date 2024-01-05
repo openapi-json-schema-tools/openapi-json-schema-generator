@@ -381,9 +381,9 @@ One can map the schema to someting else (e.g. external objects/models outside of
 ```sh
 java -jar target/openapi-generator-cli.jar generate -g java -i src/test/resources/3_0/type-alias.yaml -o /tmp/java2/ --schema-mapping TypeAlias=foo.bar.TypeAlias
 ```
-Another example (in conjunction with --type-mappings):
+Another example:
 ```sh
-java -jar target/openapi-generator-cli.jar generate -g java -i /tmp/alias.yaml -o /tmp/alias/ --schema-mappings stream=org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody --type-mappings string+binary=stream
+java -jar target/openapi-generator-cli.jar generate -g java -i /tmp/alias.yaml -o /tmp/alias/ --schema-mappings stream=org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody
 ```
 while /tmp/alias.yaml is as follows:
 ```yaml

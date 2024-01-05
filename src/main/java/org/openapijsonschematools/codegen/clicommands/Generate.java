@@ -125,15 +125,6 @@ public class Generate extends AbstractCommand {
     private List<String> instantiationTypes = new ArrayList<>();
 
     @Option(
-            name = {"--type-mappings"},
-            title = "type mappings",
-            description = "sets mappings between OpenAPI spec types and generated code types "
-                    + "in the format of OpenAPIType=generatedType,OpenAPIType=generatedType. For example: array=List,map=Map,string=String."
-                    + " You can also have multiple occurrences of this option."
-                    + " To map a specified format, use type+format, e.g. string+password=EncryptedString will map `type: string, format: password` to `EncryptedString`.")
-    private List<String> typeMappings = new ArrayList<>();
-
-    @Option(
             name = {"-p", "--additional-properties"},
             title = "additional properties",
             description = "sets additional properties that can be referenced by the mustache templates in the format of name=value,name=value."
@@ -404,7 +395,6 @@ public class Generate extends AbstractCommand {
         CodegenConfiguratorUtils.applySchemaMappingsKvpList(schemaMappings, configurator);
         CodegenConfiguratorUtils.applyInlineSchemaNameMappingsKvpList(inlineSchemaNameMappings, configurator);
         CodegenConfiguratorUtils.applyInlineSchemaNameDefaultsKvpList(inlineSchemaNameDefaults, configurator);
-        CodegenConfiguratorUtils.applyTypeMappingsKvpList(typeMappings, configurator);
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);
         CodegenConfiguratorUtils.applyLanguageSpecificPrimitivesCsvList(languageSpecificPrimitives, configurator);
         CodegenConfiguratorUtils.applyReservedWordsMappingsKvpList(reservedWordsMappings, configurator);

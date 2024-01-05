@@ -65,7 +65,6 @@ public class CodegenConfigurator {
     private String templatingEngineName;
     private Map<String, String> globalProperties = new HashMap<>();
     private Map<String, String> instantiationTypes = new HashMap<>();
-    private Map<String, String> typeMappings = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
     private Map<String, String> importMappings = new HashMap<>();
     private Map<String, String> schemaMappings = new HashMap<>();
@@ -104,9 +103,6 @@ public class CodegenConfigurator {
             }
             if(generatorSettings.getInstantiationTypes() != null) {
                 configurator.instantiationTypes.putAll(generatorSettings.getInstantiationTypes());
-            }
-            if(generatorSettings.getTypeMappings() != null) {
-                configurator.typeMappings.putAll(generatorSettings.getTypeMappings());
             }
             if(generatorSettings.getAdditionalProperties() != null) {
                 configurator.additionalProperties.putAll(generatorSettings.getAdditionalProperties());
@@ -225,12 +221,6 @@ public class CodegenConfigurator {
     public CodegenConfigurator addGlobalProperty(String key, String value) {
         this.globalProperties.put(key, value);
         workflowSettingsBuilder.withGlobalProperty(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addTypeMapping(String key, String value) {
-        this.typeMappings.put(key, value);
-        generatorSettingsBuilder.withTypeMappings(this.typeMappings);
         return this;
     }
 
@@ -490,12 +480,6 @@ public class CodegenConfigurator {
         return this;
     }
 
-    public CodegenConfigurator setTypeMappings(Map<String, String> typeMappings) {
-        this.typeMappings = typeMappings;
-        generatorSettingsBuilder.withTypeMappings(typeMappings);
-        return this;
-    }
-
     public CodegenConfigurator setValidateSpec(final boolean validateSpec) {
         workflowSettingsBuilder.withValidateSpec(validateSpec);
         return this;
@@ -632,7 +616,6 @@ public class CodegenConfigurator {
 
         // TODO: Work toward Generator having a "GeneratorSettings" property.
         config.instantiationTypes().putAll(generatorSettings.getInstantiationTypes());
-        config.typeMapping().putAll(generatorSettings.getTypeMappings());
         config.schemaMapping().putAll(generatorSettings.getSchemaMappings());
         config.inlineSchemaNameMapping().putAll(generatorSettings.getInlineSchemaNameMappings());
         config.inlineSchemaNameDefault().putAll(generatorSettings.getInlineSchemaNameDefaults());
