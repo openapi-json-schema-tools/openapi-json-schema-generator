@@ -345,7 +345,7 @@ public class Zebra {
         }
     }
     
-    public static class ZebraMapBuilder implements SetterForClassName<ZebraMap0Builder>, SetterForAdditionalProperties<ZebraMapBuilder> {
+    public static class ZebraMapBuilder implements SetterForClassName<ZebraMap0Builder> {
         private final Map<String, @Nullable Object> instance;
         public ZebraMapBuilder() {
             this.instance = new LinkedHashMap<>();

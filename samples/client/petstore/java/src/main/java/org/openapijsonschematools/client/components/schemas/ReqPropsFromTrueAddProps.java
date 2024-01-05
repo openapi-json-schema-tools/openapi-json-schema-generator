@@ -272,7 +272,7 @@ public class ReqPropsFromTrueAddProps {
         }
     }
     
-    public static class ReqPropsFromTrueAddPropsMap01Builder implements SetterForValidName<ReqPropsFromTrueAddPropsMap00Builder>, SetterForAdditionalProperties<ReqPropsFromTrueAddPropsMap01Builder> {
+    public static class ReqPropsFromTrueAddPropsMap01Builder implements SetterForValidName<ReqPropsFromTrueAddPropsMap00Builder> {
         private final Map<String, @Nullable Object> instance;
         public ReqPropsFromTrueAddPropsMap01Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -285,7 +285,7 @@ public class ReqPropsFromTrueAddProps {
         }
     }
     
-    public static class ReqPropsFromTrueAddPropsMap10Builder implements SetterForInvalidname<ReqPropsFromTrueAddPropsMap00Builder>, SetterForAdditionalProperties<ReqPropsFromTrueAddPropsMap10Builder> {
+    public static class ReqPropsFromTrueAddPropsMap10Builder implements SetterForInvalidname<ReqPropsFromTrueAddPropsMap00Builder> {
         private final Map<String, @Nullable Object> instance;
         public ReqPropsFromTrueAddPropsMap10Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -298,7 +298,7 @@ public class ReqPropsFromTrueAddProps {
         }
     }
     
-    public static class ReqPropsFromTrueAddPropsMapBuilder implements SetterForInvalidname<ReqPropsFromTrueAddPropsMap01Builder>, SetterForValidName<ReqPropsFromTrueAddPropsMap10Builder>, SetterForAdditionalProperties<ReqPropsFromTrueAddPropsMapBuilder> {
+    public static class ReqPropsFromTrueAddPropsMapBuilder implements SetterForInvalidname<ReqPropsFromTrueAddPropsMap01Builder>, SetterForValidName<ReqPropsFromTrueAddPropsMap10Builder> {
         private final Map<String, @Nullable Object> instance;
         public ReqPropsFromTrueAddPropsMapBuilder() {
             this.instance = new LinkedHashMap<>();

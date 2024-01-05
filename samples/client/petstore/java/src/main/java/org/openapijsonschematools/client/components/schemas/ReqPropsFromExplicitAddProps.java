@@ -120,7 +120,7 @@ public class ReqPropsFromExplicitAddProps {
         }
     }
     
-    public static class ReqPropsFromExplicitAddPropsMap01Builder implements SetterForValidName<ReqPropsFromExplicitAddPropsMap00Builder>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMap01Builder> {
+    public static class ReqPropsFromExplicitAddPropsMap01Builder implements SetterForValidName<ReqPropsFromExplicitAddPropsMap00Builder> {
         private final Map<String, String> instance;
         public ReqPropsFromExplicitAddPropsMap01Builder(Map<String, String> instance) {
             this.instance = instance;
@@ -133,7 +133,7 @@ public class ReqPropsFromExplicitAddProps {
         }
     }
     
-    public static class ReqPropsFromExplicitAddPropsMap10Builder implements SetterForInvalidname<ReqPropsFromExplicitAddPropsMap00Builder>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMap10Builder> {
+    public static class ReqPropsFromExplicitAddPropsMap10Builder implements SetterForInvalidname<ReqPropsFromExplicitAddPropsMap00Builder> {
         private final Map<String, String> instance;
         public ReqPropsFromExplicitAddPropsMap10Builder(Map<String, String> instance) {
             this.instance = instance;
@@ -146,7 +146,7 @@ public class ReqPropsFromExplicitAddProps {
         }
     }
     
-    public static class ReqPropsFromExplicitAddPropsMapBuilder implements SetterForInvalidname<ReqPropsFromExplicitAddPropsMap01Builder>, SetterForValidName<ReqPropsFromExplicitAddPropsMap10Builder>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMapBuilder> {
+    public static class ReqPropsFromExplicitAddPropsMapBuilder implements SetterForInvalidname<ReqPropsFromExplicitAddPropsMap01Builder>, SetterForValidName<ReqPropsFromExplicitAddPropsMap10Builder> {
         private final Map<String, String> instance;
         public ReqPropsFromExplicitAddPropsMapBuilder() {
             this.instance = new LinkedHashMap<>();
