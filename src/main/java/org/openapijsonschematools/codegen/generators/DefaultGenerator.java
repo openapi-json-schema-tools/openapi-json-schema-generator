@@ -292,7 +292,6 @@ public class DefaultGenerator implements Generator {
     protected Map<String, String> supportedLibraries = new LinkedHashMap<>();
     protected String library;
     protected Boolean sortParamsByRequiredFlag = true;
-    protected Boolean sortModelPropertiesByRequiredFlag = false;
     protected Boolean allowUnicodeIdentifiers = false;
     protected String httpUserAgent;
     protected Boolean hideGenerationTimestamp = true;
@@ -368,11 +367,6 @@ public class DefaultGenerator implements Generator {
         if (additionalProperties.containsKey(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG)) {
             this.setSortParamsByRequiredFlag(Boolean.valueOf(additionalProperties
                     .get(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG).toString()));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG)) {
-            this.setSortModelPropertiesByRequiredFlag(Boolean.valueOf(additionalProperties
-                    .get(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG).toString()));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS)) {
@@ -944,13 +938,6 @@ public class DefaultGenerator implements Generator {
         this.sortParamsByRequiredFlag = sortParamsByRequiredFlag;
     }
 
-    public Boolean getSortModelPropertiesByRequiredFlag() {
-        return sortModelPropertiesByRequiredFlag;
-    }
-
-    public void setSortModelPropertiesByRequiredFlag(Boolean sortModelPropertiesByRequiredFlag) {
-        this.sortModelPropertiesByRequiredFlag = sortModelPropertiesByRequiredFlag;
-    }
     public void setAllowUnicodeIdentifiers(Boolean allowUnicodeIdentifiers) {
         this.allowUnicodeIdentifiers = allowUnicodeIdentifiers;
     }
@@ -1256,8 +1243,6 @@ public class DefaultGenerator implements Generator {
 
         cliOptions.add(CliOption.newBoolean(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG,
                 CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG_DESC).defaultValue(Boolean.TRUE.toString()));
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG,
-                CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG_DESC).defaultValue(Boolean.TRUE.toString()));
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
                 .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));

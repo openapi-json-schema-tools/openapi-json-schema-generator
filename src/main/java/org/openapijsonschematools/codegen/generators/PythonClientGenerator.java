@@ -101,7 +101,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         loadDeepObjectIntoItems = false;
         importBaseType = false;
         addSchemaImportsFromV3SpecLocations = true;
-        sortModelPropertiesByRequiredFlag = Boolean.TRUE;
         // this must be false for parameter numbers to stay the same as the ones in the spec
         // if another schema $refs a schema in a parameter, the json path
         // and generated module must have the same parameter index as the spec
