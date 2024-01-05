@@ -356,7 +356,6 @@ public final class GeneratorSettings implements Serializable {
 
         generatorName = builder.generatorName;
         apiPackage = builder.apiPackage;
-        modelPackage = builder.modelPackage;
         invokerPackage = builder.invokerPackage;
         packageName = builder.packageName;
         apiNameSuffix = builder.apiNameSuffix;
@@ -473,7 +472,6 @@ public final class GeneratorSettings implements Serializable {
         Builder builder = new Builder();
         builder.generatorName = copy.getGeneratorName();
         builder.apiPackage = copy.getApiPackage();
-        builder.modelPackage = copy.getModelPackage();
         builder.invokerPackage = copy.getInvokerPackage();
         builder.packageName = copy.getPackageName();
         builder.apiNameSuffix = copy.getApiNameSuffix();
@@ -528,7 +526,6 @@ public final class GeneratorSettings implements Serializable {
     public static final class Builder {
         private String generatorName;
         private String apiPackage;
-        private String modelPackage;
         private String invokerPackage;
         private String packageName;
         private String apiNameSuffix;
@@ -593,17 +590,6 @@ public final class GeneratorSettings implements Serializable {
          */
         public Builder withApiPackage(String apiPackage) {
             this.apiPackage = apiPackage;
-            return this;
-        }
-
-        /**
-         * Sets the {@code modelPackage} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param modelPackage the {@code modelPackage} to set
-         * @return a reference to this Builder
-         */
-        public Builder withModelPackage(String modelPackage) {
-            this.modelPackage = modelPackage;
             return this;
         }
 

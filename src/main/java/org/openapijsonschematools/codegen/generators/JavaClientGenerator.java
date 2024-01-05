@@ -22,7 +22,6 @@ import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
-import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
@@ -61,20 +60,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     private final Logger LOGGER = LoggerFactory.getLogger(JavaClientGenerator.class);
 
-    public static final String FEIGN = "feign";
-    public static final String GOOGLE_API_CLIENT = "google-api-client";
-    public static final String JERSEY1 = "jersey1";
-    public static final String JERSEY2 = "jersey2";
-    public static final String JERSEY3 = "jersey3";
-    public static final String NATIVE = "native";
-    public static final String OKHTTP_GSON = "okhttp-gson";
-    public static final String RESTEASY = "resteasy";
-    public static final String RESTTEMPLATE = "resttemplate";
-    public static final String WEBCLIENT = "webclient";
-    public static final String REST_ASSURED = "rest-assured";
-    public static final String RETROFIT_2 = "retrofit2";
-    public static final String VERTX = "vertx";
-    public static final String MICROPROFILE = "microprofile";
     public static final String APACHE = "apache-httpclient";
     public static final String MICROPROFILE_REST_CLIENT_DEFAULT_ROOT_PACKAGE = "javax";
 
@@ -189,7 +174,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         updateOption(CodegenConstants.INVOKER_PACKAGE, this.getInvokerPackage());
         updateOption(CodegenConstants.ARTIFACT_ID, this.getArtifactId());
         updateOption(CodegenConstants.API_PACKAGE, apiPackage);
-        updateOption(CodegenConstants.MODEL_PACKAGE, modelPackage);
 
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,

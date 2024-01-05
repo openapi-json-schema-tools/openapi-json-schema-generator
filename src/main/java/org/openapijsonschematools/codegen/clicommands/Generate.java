@@ -104,10 +104,6 @@ public class Generate extends AbstractCommand {
             description = CodegenConstants.API_PACKAGE_DESC)
     private String apiPackage;
 
-    @Option(name = {"--model-package"}, title = "model package",
-            description = CodegenConstants.MODEL_PACKAGE_DESC)
-    private String modelPackage;
-
     @Option(name = {"--api-name-suffix"}, title = "api name suffix",
             description = CodegenConstants.API_NAME_SUFFIX_DESC)
     private String apiNameSuffix;
@@ -326,10 +322,6 @@ public class Generate extends AbstractCommand {
 
         if (isNotEmpty(apiPackage)) {
             configurator.setApiPackage(apiPackage);
-        }
-
-        if (isNotEmpty(modelPackage)) {
-            configurator.setModelPackage(modelPackage);
         }
 
         if (isNotEmpty(apiNameSuffix)) {

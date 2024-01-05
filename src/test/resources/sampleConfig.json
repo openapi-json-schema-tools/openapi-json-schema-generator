@@ -7,7 +7,6 @@
     "templateDir" : "src/main/resources",
     "auth" : "hello:world",
     "apiPackage" : "io.something.api",
-    "modelPackage" : "io.something.models",
     "invokerPackage" : "io.something.invoker",
     "groupId" : "io.something",
     "artifactId" : "awesome-api",

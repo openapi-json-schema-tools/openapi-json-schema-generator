@@ -432,14 +432,6 @@ public class CodegenConfigurator {
         return this;
     }
 
-    public CodegenConfigurator setModelPackage(String modelPackage) {
-        if (StringUtils.isNotEmpty(modelPackage)) {
-            addAdditionalProperty(CodegenConstants.MODEL_PACKAGE, modelPackage);
-        }
-        generatorSettingsBuilder.withModelPackage(modelPackage);
-        return this;
-    }
-
     public CodegenConfigurator setOutputDir(String outputDir) {
         workflowSettingsBuilder.withOutputDir(outputDir);
         return this;

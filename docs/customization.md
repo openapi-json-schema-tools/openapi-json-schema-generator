@@ -306,22 +306,9 @@ Output
 
 ```
 CONFIG OPTIONS
-	modelPackage
-	    package for generated models
-
 	apiPackage
 	    package for generated api classes
 ...... (results omitted)
-	library
-	    library template (sub-template) to use:
-	    jersey1 - HTTP client: Jersey client 1.18. JSON processing: Jackson 2.4.2
-	    jersey2 - HTTP client: Jersey client 2.6
-	    feign - HTTP client: Netflix Feign 8.1.1.  JSON processing: Jackson 2.6.3
-	    okhttp-gson (default) - HTTP client: OkHttp 2.4.0. JSON processing: Gson 2.3.1
-	    retrofit - HTTP client: OkHttp 2.4.0. JSON processing: Gson 2.3.1 (Retrofit 1.9.0)
-        retrofit2 - HTTP client: OkHttp 2.5.0. JSON processing: Gson 2.4 (Retrofit 2.0.0-beta2)
-        google-api-client - HTTP client: google-api-client 1.23.0. JSON processing: Jackson 2.8.9
-        rest-assured - HTTP client: rest-assured : 4.3.0. JSON processing: Gson 2.8.6. Only for Java8
 ```
 
 Your config file for Java can look like
@@ -330,8 +317,7 @@ Your config file for Java can look like
 {
   "groupId":"com.my.company",
   "artifactId":"MyClient",
-  "artifactVersion":"1.2.0",
-  "library":"feign"
+  "artifactVersion":"1.2.0"
 }
 ```
 

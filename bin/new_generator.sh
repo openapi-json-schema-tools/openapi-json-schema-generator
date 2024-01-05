@@ -180,7 +180,6 @@ public class ${lang_classname} extends DefaultCodegen implements CodegenConfig {
         apiTemplateFiles.put("api.mustache", ".zz");
         embeddedTemplateDir = templateDir = "${gen_name_camel}";
         apiPackage = "Apis";
-        modelPackage = "Models";
         supportingFiles.add(new SupportingFile("README.mustache", "", "README.md"));
         // TODO: Fill this out.
     }

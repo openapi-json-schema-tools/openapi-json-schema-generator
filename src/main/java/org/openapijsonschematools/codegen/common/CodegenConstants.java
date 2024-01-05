@@ -61,10 +61,6 @@ public class CodegenConstants {
 
     public static final String API_SUFFIX = "apiSuffix";
     public static final String API_SUFFIX_DESC = "suffix for api classes";
-
-    public static final String MODEL_PACKAGE = "modelPackage";
-    public static final String MODEL_PACKAGE_DESC = "package for generated models";
-
     public static final String TEMPLATE_DIR = "templateDir";
 
     public static final String ALLOW_UNICODE_IDENTIFIERS = "allowUnicodeIdentifiers";
