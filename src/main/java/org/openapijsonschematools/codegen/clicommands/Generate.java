@@ -178,13 +178,6 @@ public class Generate extends AbstractCommand {
             description = CodegenConstants.HTTP_USER_AGENT_DESC)
     private String httpUserAgent;
 
-    @Option(
-            name = {"--reserved-words-mappings"},
-            title = "reserved word mappings",
-            description = "specifies how a reserved name should be escaped to. Otherwise, the default _<name> is used. For example id=identifier."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> reservedWordsMappings = new ArrayList<>();
-
     @Option(name = {"--ignore-file-override"}, title = "ignore file override location",
             description = CodegenConstants.IGNORE_FILE_OVERRIDE_DESC)
     private String ignoreFileOverride;
@@ -365,7 +358,6 @@ public class Generate extends AbstractCommand {
         CodegenConfiguratorUtils.applyInstantiationTypesKvpList(instantiationTypes, configurator);
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);
         CodegenConfiguratorUtils.applyLanguageSpecificPrimitivesCsvList(languageSpecificPrimitives, configurator);
-        CodegenConfiguratorUtils.applyReservedWordsMappingsKvpList(reservedWordsMappings, configurator);
         CodegenConfiguratorUtils.applyServerVariablesKvpList(serverVariableOverrides, configurator);
 
         try {

@@ -107,19 +107,6 @@ public final class CodegenConfiguratorUtils {
         }
     }
 
-    public static void applyReservedWordsMappingsKvpList(List<String> reservedWordsMappings, CodegenConfigurator configurator) {
-        for (String propString : reservedWordsMappings) {
-            applyReservedWordsMappingsKvp(propString, configurator);
-        }
-    }
-
-    public static void applyReservedWordsMappingsKvp(String reservedWordsMappings, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(reservedWordsMappings);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addAdditionalReservedWordMapping(entry.getKey(), entry.getValue());
-        }
-    }
-
     private static Set<String> createSetFromCsvList(String csvProperty) {
         final List<String> values = OptionUtils.splitCommaSeparatedList(csvProperty);
         return new HashSet<String>(values);

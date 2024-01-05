@@ -246,7 +246,6 @@ public class DefaultGenerator implements Generator {
     // for writing test files
     protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles = new HashMap<>();
 
-    protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
     protected Map<String, Object> additionalProperties = new HashMap<>();
@@ -751,16 +750,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public Map<String, String> inlineSchemaNameMapping() {
-        return inlineSchemaNameMapping;
-    }
-
-    @Override
-    public Map<String, String> inlineSchemaNameDefault() {
-        return inlineSchemaNameDefault;
-    }
-
-    @Override
     public String testPackage() {
         return testPackage;
     }
@@ -788,12 +777,6 @@ public class DefaultGenerator implements Generator {
             return templateDir;
         }
     }
-
-    @Override
-    public Map<String, String> reservedWordsMappings() {
-        return reservedWordsMappings;
-    }
-
     @Override
     public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles() {
         return jsonPathTemplateFiles;

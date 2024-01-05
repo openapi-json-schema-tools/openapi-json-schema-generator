@@ -189,8 +189,6 @@ public interface Generator {
 
     Set<String> languageSpecificPrimitives();
 
-    Map<String, String> reservedWordsMappings();
-
     void preprocessOpenAPI(OpenAPI openAPI);
 
     void processOpenAPI(OpenAPI openAPI);

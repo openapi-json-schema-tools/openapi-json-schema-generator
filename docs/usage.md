@@ -268,7 +268,6 @@ SYNOPSIS
                 [(-o <output directory> | --output <output directory>)] [(-p <additional properties> | --additional-properties <additional properties>)...]
                 [--package-name <package name>] [--release-note <release note>]
                 [--remove-operation-id-prefix]
-                [--reserved-words-mappings <reserved word mappings>...]
                 [(-s | --skip-overwrite)] [--server-variables <server variables>...]
                 [--skip-operation-example] [--skip-validate-spec]
                 [--strict-spec <true/false strict behavior>]
@@ -418,11 +417,6 @@ OPTIONS
 
         --remove-operation-id-prefix
             Remove prefix of operationId, e.g. config_getId => getId
-
-        --reserved-words-mappings <reserved word mappings>
-            specifies how a reserved name should be escaped to. Otherwise, the
-            default _<name> is used. For example id=identifier. You can also
-            have multiple occurrences of this option.
 
         -s, --skip-overwrite
             specifies if the existing files should be overwritten during the

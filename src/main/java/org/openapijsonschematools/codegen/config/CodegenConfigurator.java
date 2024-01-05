@@ -67,7 +67,6 @@ public class CodegenConfigurator {
     private Map<String, String> instantiationTypes = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
     private Set<String> languageSpecificPrimitives = new HashSet<>();
-    private Map<String, String> reservedWordsMappings = new HashMap<>();
     private Map<String, String> serverVariables = new HashMap<>();
     private String auth;
 
@@ -105,9 +104,6 @@ public class CodegenConfigurator {
             }
             if(generatorSettings.getLanguageSpecificPrimitives() != null) {
                 configurator.languageSpecificPrimitives.addAll(generatorSettings.getLanguageSpecificPrimitives());
-            }
-            if(generatorSettings.getReservedWordsMappings() != null) {
-                configurator.reservedWordsMappings.putAll(generatorSettings.getReservedWordsMappings());
             }
             if(generatorSettings.getServerVariables() != null) {
                 configurator.serverVariables.putAll(generatorSettings.getServerVariables());
@@ -160,12 +156,6 @@ public class CodegenConfigurator {
         return this;
     }
 
-    public CodegenConfigurator addAdditionalReservedWordMapping(String key, String value) {
-        this.reservedWordsMappings.put(key, value);
-        generatorSettingsBuilder.withReservedWordMapping(key, value);
-        return this;
-    }
-
     public CodegenConfigurator addInstantiationType(String key, String value) {
         this.instantiationTypes.put(key, value);
         generatorSettingsBuilder.withInstantiationType(key, value);
@@ -193,12 +183,6 @@ public class CodegenConfigurator {
     public CodegenConfigurator setServerVariables(Map<String, String> serverVariables) {
         this.serverVariables = serverVariables;
         generatorSettingsBuilder.withServerVariables(serverVariables);
-        return this;
-    }
-
-    public CodegenConfigurator setReservedWordsMappings(Map<String, String> reservedWordsMappings) {
-        this.reservedWordsMappings = reservedWordsMappings;
-        generatorSettingsBuilder.withReservedWordsMappings(reservedWordsMappings);
         return this;
     }
 
@@ -553,7 +537,6 @@ public class CodegenConfigurator {
         // TODO: Work toward Generator having a "GeneratorSettings" property.
         config.instantiationTypes().putAll(generatorSettings.getInstantiationTypes());
         config.languageSpecificPrimitives().addAll(generatorSettings.getLanguageSpecificPrimitives());
-        config.reservedWordsMappings().putAll(generatorSettings.getReservedWordsMappings());
         config.additionalProperties().putAll(generatorSettings.getAdditionalProperties());
 
         Map<String, String> serverVariables = generatorSettings.getServerVariables();

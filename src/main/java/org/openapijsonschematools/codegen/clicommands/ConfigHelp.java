@@ -410,7 +410,7 @@ public class ConfigHelp extends AbstractCommand {
                     .replaceAll("\n", System.lineSeparator() + optNestedIndent));
             sb.append(newline).append(newline);
         });
-        
+
         if (Boolean.TRUE.equals(instantiationTypes)) {
             sb.append(newline).append("INSTANTIATION TYPES").append(newline).append(newline);
             Map<String, String> map = config.instantiationTypes()
