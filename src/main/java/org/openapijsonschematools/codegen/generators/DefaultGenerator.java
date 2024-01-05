@@ -2853,76 +2853,8 @@ public class DefaultGenerator implements Generator {
         return property;
     }
 
-    private List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
-        List<MapBuilder> builders = new ArrayList<>();
-        if (sourceJsonPath == null) {
-            return builders;
-        }
-        String schemaName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
-        schemaName = ModelUtils.decodeSlashes(schemaName);
-        int qtyBuilders = 1;
-        int reqPropsSize = 0;
-        if (schema.requiredProperties != null) {
-            qtyBuilders = (int) Math.pow(2, schema.requiredProperties.size());
-            reqPropsSize = schema.requiredProperties.size();
-        }
-        Map<String, MapBuilder> bitStrToBuilder = new HashMap<>();
-        List<CodegenKey> reqPropKeys = new ArrayList<>();
-        if (schema.requiredProperties != null) {
-            reqPropKeys.addAll(schema.requiredProperties.keySet());
-        }
-        MapBuilder lastBuilder = null;
-        // builders are built last to first, last builder has build method
-        for (int i=0; i < qtyBuilders; i++) {
-            String bitStr = "";
-            if (reqPropsSize != 0) {
-                bitStr = String.format("%"+reqPropsSize+"s", Integer.toBinaryString(i)).replace(' ', '0');
-            }
-            CodegenKey builderClassName;
-            if (i == qtyBuilders - 1) {
-                // first invoked builder has the simplest name with no bitStr
-                if (schema.mapInputJsonPathPiece != null) {
-                    builderClassName = schema.mapInputJsonPathPiece;
-                } else {
-                    builderClassName = getKey(schemaName + objectIOClassNamePiece + "Builder", "schemas", sourceJsonPath);
-                }
-            } else {
-                builderClassName = getKey(schemaName + objectIOClassNamePiece + bitStr + "Builder", "schemas", sourceJsonPath);
-            }
-            MapBuilder builder;
-            if (i == 0) {
-                builder = new MapBuilder(builderClassName, new LinkedHashMap<>());
-                lastBuilder = builder;
-            } else {
-                LinkedHashMap<CodegenKey, MapBuilder.BuilderSchemaPair> keyToBuilder = new LinkedHashMap<>();
-                for (int c=0; c < reqPropsSize; c++) {
-                    if (bitStr.charAt(c) == '1') {
-                        StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
-                        nextBuilderBitStr.setCharAt(c, '0');
-                        CodegenKey key = reqPropKeys.get(c);
-                        if (key == null) {
-                            throw new RuntimeException("key must exist at c="+c);
-                        }
-                        MapBuilder nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
-                        if (nextBuilder == null) {
-                            throw new RuntimeException("Next builder must exist for bitStr="+nextBuilderBitStr.toString());
-                        }
-                        var pair = new MapBuilder.BuilderSchemaPair(nextBuilder, schema.requiredProperties.get(key));
-                        keyToBuilder.put(key, pair);
-                    }
-                }
-                builder = new MapBuilder(builderClassName, keyToBuilder);
-            }
-            bitStrToBuilder.put(bitStr, builder);
-            builders.add(builder);
-        }
-        if (lastBuilder != null && schema.optionalProperties != null) {
-            for (Entry<CodegenKey, CodegenSchema> entry: schema.optionalProperties.entrySet()) {
-                var pair = new MapBuilder.BuilderSchemaPair(lastBuilder, entry.getValue());
-                lastBuilder.keyToBuilder.put(entry.getKey(), pair);
-            }
-        }
-        return builders;
+    protected List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
+        return null;
     }
 
     @Override
