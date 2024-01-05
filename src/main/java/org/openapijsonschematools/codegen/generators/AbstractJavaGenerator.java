@@ -144,9 +144,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
                 "Object",
                 "byte[]"
         );
-        instantiationTypes.put("array", "ArrayList");
-        instantiationTypes.put("set", "LinkedHashSet");
-        instantiationTypes.put("map", "HashMap");
         typeMapping.put("date", "Date");
         typeMapping.put("file", "File");
         typeMapping.put("AnyType", "Object");

@@ -24,7 +24,6 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Stability
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
-import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
@@ -112,6 +111,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         arrayIOClassNamePiece = "List";
         arrayObjectInputClassNameSuffix = "Builder";
 
+        // this tells users what openapi types turn in to
+        instantiationTypes.put("object", "FrozenMap");
+        instantiationTypes.put("array", "FrozenList");
+        instantiationTypes.put("string", "String");
+        instantiationTypes.put("number", "Number (int, long, float, double)");
+        instantiationTypes.put("integer", "Number (int, long, float, double with integer values)");
+        instantiationTypes.put("boolean", "boolean");
+        instantiationTypes.put("null", "Void (null)");
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
