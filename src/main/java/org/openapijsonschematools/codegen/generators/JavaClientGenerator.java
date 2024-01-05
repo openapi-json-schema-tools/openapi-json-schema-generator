@@ -743,7 +743,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public void setUseBeanValidation(boolean useBeanValidation) {
         this.useBeanValidation = useBeanValidation;
     }
-    
+
     public void setUseGzipFeature(boolean useGzipFeature) {
         this.useGzipFeature = useGzipFeature;
     }

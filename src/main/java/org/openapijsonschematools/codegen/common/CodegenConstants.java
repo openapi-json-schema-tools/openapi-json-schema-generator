@@ -164,9 +164,6 @@ public class CodegenConstants {
     public static final String SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG = "sortModelPropertiesByRequiredFlag";
     public static final String SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG_DESC = "Sort model properties to place required parameters before optional parameters.";
 
-    public static final String PREPEND_FORM_OR_BODY_PARAMETERS = "prependFormOrBodyParameters";
-    public static final String PREPEND_FORM_OR_BODY_PARAMETERS_DESC = "Add form or body parameters to the beginning of the parameter list.";
-
     public static final String USE_DATETIME_OFFSET = "useDateTimeOffset";
     public static final String USE_DATETIME_OFFSET_DESC = "Use DateTimeOffset to model date-time properties";
 
