@@ -370,9 +370,6 @@ public class CodegenConstants {
     public static final String REMOVE_ENUM_VALUE_PREFIX = "removeEnumValuePrefix";
     public static final String REMOVE_ENUM_VALUE_PREFIX_DESC = "Remove the common prefix of enum values";
 
-    public static final String USE_SINGLE_REQUEST_PARAMETER = "useSingleRequestParameter";
-    public static final String USE_SINGLE_REQUEST_PARAMETER_DESC = "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter.";
-
     public static final String INIT_REQUIRED_VARS = "initRequiredVars";
     public static final String INIT_REQUIRED_VARS_DESC = "If set to true then the required variables are included as positional arguments in __init__ and _from_openapi_data methods. Note: this can break some composition use cases. To learn more read PR #8802.";
 

@@ -86,7 +86,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
     protected String authFolder;
     protected String rootJavaEEPackage;
     protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
-    protected boolean useSingleRequestParameter = false;
     protected HashMap<String, String> schemaJsonPathToModelName = new HashMap<>();
 
     private static class MpRestClientVersion {
@@ -198,8 +197,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                     put("src/test/java/packagename/components/schemas/Schema_test.hbs", ".java");
                 }}
         );
-
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter. ONLY jersey2, jersey3, okhttp-gson support this option."));
 
         supportedLibraries.put(JERSEY1, "HTTP client: Jersey client 1.19.x. JSON processing: Jackson 2.9.x. IMPORTANT NOTE: jersey 1.x is no longer actively maintained so please upgrade to 'jersey3' or other HTTP libraries instead.");
         supportedLibraries.put(JERSEY2, "HTTP client: Jersey client 2.25.1. JSON processing: Jackson 2.9.x");
@@ -435,11 +432,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
         super.processOpts();
 
-        if (additionalProperties.containsKey(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER)) {
-            this.setUseSingleRequestParameter(convertPropertyToBoolean(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER));
-        }
-        writePropertyBack(CodegenConstants.USE_SINGLE_REQUEST_PARAMETER, getUseSingleRequestParameter());
-
         if (!additionalProperties.containsKey("rootJavaEEPackage")) {
             additionalProperties.put("rootJavaEEPackage", rootJavaEEPackage);
         }
@@ -549,15 +541,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         }
 
     }
-
-    private boolean getUseSingleRequestParameter() {
-        return useSingleRequestParameter;
-    }
-
-    private void setUseSingleRequestParameter(boolean useSingleRequestParameter) {
-        this.useSingleRequestParameter = useSingleRequestParameter;
-    }
-
+    
     @Override
     public Map<String, Object> postProcessSupportingFileData(Map<String, Object> data) {
         generateYAMLSpecFile(data);
