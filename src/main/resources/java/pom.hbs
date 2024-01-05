@@ -298,15 +298,6 @@
                 <artifactId>jackson-datatype-jsr310</artifactId>
                 <version>${jackson-version}</version>
             </dependency>
-        {{#if useBeanValidation}}
-            <!-- Bean Validation API support -->
-            <dependency>
-                <groupId>jakarta.validation</groupId>
-                <artifactId>jakarta.validation-api</artifactId>
-                <version>${beanvalidation-version}</version>
-                <scope>provided</scope>
-            </dependency>
-        {{/if}}
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
@@ -330,9 +321,6 @@
         <jackson-version>2.12.6</jackson-version>
         <jackson-databind-version>2.12.6.1</jackson-databind-version>
         <jakarta-annotation-version>1.3.5</jakarta-annotation-version>
-{{#if useBeanValidation}}
-        <beanvalidation-version>2.0.2</beanvalidation-version>
-{{/if}}
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.2</junit-version>
     </properties>

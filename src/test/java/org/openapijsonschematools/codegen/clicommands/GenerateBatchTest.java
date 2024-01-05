@@ -66,7 +66,6 @@ public class GenerateBatchTest {
         expectedAdditionalProperties.put("hideGenerationTimestamp", true);
         expectedAdditionalProperties.put("withXml", true);
         expectedAdditionalProperties.put("java8", true);
-        expectedAdditionalProperties.put("useBeanValidation", true);
 
         assertNotNull(loaded);
 
