@@ -27,6 +27,7 @@ You can join us here: https://discord.gg/mHB8WEQuYQ
 ## Reasons To Use the Python Generator
 
 - v3.0.0 - [v3.1.0*](#openapi-v310-support) OpenAPI Specification support
+- Very [thorough documentation generated in the style of javadocs, includes code samples](samples/client/petstore/java/docs/components/schemas/Money.md#money)
 - Type hints on
   - schema payload inputs in SomeSchema.validate ![validate screen capture](docs/schema_validate.gif)
     - Note: to make input dictionaries TypedDicts like the Money.validate example, set additionalProperties to false in the schema in your openapi document
