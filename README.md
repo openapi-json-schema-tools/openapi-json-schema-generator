@@ -92,7 +92,7 @@ And many more!
   - schema property names (a fallback setter is written in the MapBuilder)
 - Generated interfaces are largely consistent with the python code
 - Openapi spec inline schemas supported at any depth in any location
-- Format support for: int32, int64, float, double, binary, date, datetime, uuid
+- Format support for: int32, int64, float, double, date, datetime, uuid
 - Payload values are not coerced when validated, so a datetime value can pass other validations that describe the payload only as type string
 - types are generated for enums of type string/integer/boolean using typing.Literal
 - String transmission of numbers supported with type: string, format: number, value can be accessed as a Decimal with schemas.as_decimal(inst)
