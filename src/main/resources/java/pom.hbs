@@ -307,14 +307,6 @@
                 <scope>provided</scope>
             </dependency>
         {{/if}}
-        {{#if performBeanValidation}}
-            <!-- Bean Validation Impl. used to perform BeanValidation -->
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>5.4.1.Final</version>
-            </dependency>
-        {{/if}}
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
