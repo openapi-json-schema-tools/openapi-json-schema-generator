@@ -1026,7 +1026,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
     }
-    
+
     @Override
     public void setOutputDir(String dir) {
         super.setOutputDir(dir);
