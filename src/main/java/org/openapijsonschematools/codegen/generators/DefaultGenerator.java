@@ -1296,9 +1296,6 @@ public class DefaultGenerator implements Generator {
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
                 .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));
-        // option to change the order of form/body parameter
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS,
-                CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS_DESC).defaultValue(Boolean.FALSE.toString()));
 
         // option to change how we process + set the data in the discriminator mapping
         CliOption legacyDiscriminatorBehaviorOpt = CliOption.newBoolean(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR, CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR_DESC).defaultValue(Boolean.TRUE.toString());
@@ -1319,7 +1316,7 @@ public class DefaultGenerator implements Generator {
                 "Keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.");
         disallowAdditionalPropertiesIfNotPresentOpt.setEnum(disallowAdditionalPropertiesIfNotPresentOpts);
         cliOptions.add(disallowAdditionalPropertiesIfNotPresentOpt);
-        
+
         // initialize special character mapping
         initializeSpecialCharacterMapping();
 
