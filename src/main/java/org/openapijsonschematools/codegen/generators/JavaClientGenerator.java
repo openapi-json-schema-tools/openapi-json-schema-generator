@@ -513,13 +513,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
     }
 
     @Override
-    public List<VendorExtension> getSupportedVendorExtensions() {
-        List<VendorExtension> extensions = super.getSupportedVendorExtensions();
-        extensions.add(VendorExtension.X_WEBCLIENT_BLOCKING);
-        return extensions;
-    }
-
-    @Override
     public String defaultTemplatingEngine() {
         return "handlebars";
     }

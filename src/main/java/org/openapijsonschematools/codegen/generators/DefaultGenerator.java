@@ -1830,18 +1830,6 @@ public class DefaultGenerator implements Generator {
                 String refClass = getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath);
                 MappedModel mm = new MappedModel(modelName, refClass);
                 descendantSchemas.add(mm);
-                Schema cs = ModelUtils.getSchema(openAPI, modelName);
-                if (cs == null) { // cannot look up the model based on the name
-                    LOGGER.error("Failed to lookup the schema '{}' when processing oneOf/anyOf. Please check to ensure it's defined properly.", modelName);
-                } else {
-                    Map vendorExtensions = cs.getExtensions();
-                    if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
-                        String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                        refClass = getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath);
-                        mm = new MappedModel(xDiscriminatorValue, refClass);
-                        descendantSchemas.add(mm);
-                    }
-                }
             }
         }
         return descendantSchemas;
@@ -1894,14 +1882,6 @@ public class DefaultGenerator implements Generator {
             String refClass = getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath);
             MappedModel mm = new MappedModel(currentSchemaName, refClass);
             descendantSchemas.add(mm);
-            Schema cs = schemas.get(currentSchemaName);
-            Map vendorExtensions = cs.getExtensions();
-            if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
-                String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                refClass = getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath);
-                mm = new MappedModel(xDiscriminatorValue, refClass);
-                descendantSchemas.add(mm);
-            }
         }
         return descendantSchemas;
     }
@@ -5628,11 +5608,6 @@ public class DefaultGenerator implements Generator {
         return null;
     }
 
-    @Override
-    public List<VendorExtension> getSupportedVendorExtensions() {
-        return new ArrayList<>();
-    }
-
     /**
      * Used to ensure that null or Schema is returned given an input Boolean/Schema/null
      * This will be used in openapi 3.1.0 spec processing to ensure that Booleans become Schemas
@@ -5671,5 +5646,13 @@ public class DefaultGenerator implements Generator {
         String result = charName.replaceAll("[\\-\\s]", "_");
         // remove parentheses
         return result.replaceAll("[()]", "");
+    }
+
+    @Override
+    public List<VendorExtension> getSupportedVendorExtensions() {
+        List<VendorExtension> extensions = new ArrayList<>();
+        extensions.add(VendorExtension.X_ENUM_VARNAMES);
+        extensions.add(VendorExtension.X_ENUM_DESCRIPTIONS);
+        return extensions;
     }
 }

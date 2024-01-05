@@ -21,7 +21,6 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
@@ -30,7 +29,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
-import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.features.DocumentationProviderFeatures;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
@@ -748,26 +746,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         if (openAPI == null) {
             return;
         }
-        if (openAPI.getPaths() != null) {
-            for (Map.Entry<String, PathItem> openAPIGetPathsEntry : openAPI.getPaths().entrySet()) {
-                String pathname = openAPIGetPathsEntry.getKey();
-                PathItem path = openAPIGetPathsEntry.getValue();
-                if (path.readOperations() == null) {
-                    continue;
-                }
-                for (Operation operation : path.readOperations()) {
-                    LOGGER.info("Processing operation {}", operation.getOperationId());
-                    if (hasBodyParameter(openAPI, operation) || hasFormParameter(openAPI, operation)) {
-                        String defaultContentType = hasFormParameter(openAPI, operation) ? "application/x-www-form-urlencoded" : "application/json";
-                        List<String> consumes = new ArrayList<>(getConsumesInfo(openAPI, operation));
-                        String contentType = consumes.isEmpty() ? defaultContentType : consumes.get(0);
-                        operation.addExtension("x-content-type", contentType);
-                    }
-                    String accepts = getAccept(openAPI, operation);
-                    operation.addExtension("x-accepts", accepts);
-                }
-            }
-        }
 
         // TODO: Setting additionalProperties is not the responsibility of this method. These side-effects should be moved elsewhere to prevent unexpected behaviors.
         if (artifactVersion == null) {
@@ -1135,19 +1113,5 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         return properties.stream()
             .filter(p -> p.jsonPathPiece.original.equals(name))
             .findFirst();
-    }
-
-    @Override
-    public List<VendorExtension> getSupportedVendorExtensions() {
-        List<VendorExtension> extensions = super.getSupportedVendorExtensions();
-        extensions.add(VendorExtension.X_DISCRIMINATOR_VALUE);
-        extensions.add(VendorExtension.X_IMPLEMENTS);
-        extensions.add(VendorExtension.X_SETTER_EXTRA_ANNOTATION);
-        extensions.add(VendorExtension.X_TAGS);
-        extensions.add(VendorExtension.X_ACCEPTS);
-        extensions.add(VendorExtension.X_CONTENT_TYPE);
-        extensions.add(VendorExtension.X_CLASS_EXTRA_ANNOTATION);
-        extensions.add(VendorExtension.X_FIELD_EXTRA_ANNOTATION);
-        return extensions;
     }
 }

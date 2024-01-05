@@ -30,6 +30,14 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |templatingEngine|template engine|<dl><dt>**handlebars**</dt><dd>handlebars templating engine</dd></dl>|handlebars|
 |useNose|use the nose test framework| |false|
 
+## SUPPORTED VENDOR EXTENSIONS
+
+| Extension name | Description | Applicable for | Default value |
+| -------------- | ----------- | -------------- | ------------- |
+|x-enum-varnames|A list of strings that defines the enum variable names, must be adjacent to enums|SCHEMA|[]
+|x-enum-descriptions|A list of strings that defines the enum descriptions, must be adjacent to enums|SCHEMA|[]
+
+
 ## INSTANTIATION TYPES
 
 | Type/Alias | Instantiated By |

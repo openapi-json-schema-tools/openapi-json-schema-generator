@@ -887,27 +887,6 @@ operationId: addPet
 x-objc-operationId: CreateNewPet
 ```  
 
-### Java (Feign)
-#### x-accepts
-
-A single `Accepts` value as the Feign API client needs a single value for `Accepts` header, e.g.
-```yaml
-consumes:
-  - application/json
-  - application/xml
-x-accepts: application/json
-```
-
-### x-content-type
-
-A single "Content-Type" value as the Feign API client needs a single value for `Content-Type` header, e.g.
-```yaml
-produces:
-  - application/xml
-  - application/json
-x-content-type: application/json
-```
-
 ### Rust-server
 
 #### x-response-id
