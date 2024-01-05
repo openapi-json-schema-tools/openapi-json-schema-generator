@@ -73,7 +73,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public static final String PARCELABLE_MODEL = "parcelableModel";
     public static final String USE_RUNTIME_EXCEPTION = "useRuntimeException";
     public static final String USE_REFLECTION_EQUALS_HASHCODE = "useReflectionEqualsHashCode";
-    public static final String MICROPROFILE_FRAMEWORK = "microprofileFramework";
     public static final String USE_ABSTRACTION_FOR_FILES = "useAbstractionForFiles";
     public static final String SUPPORT_STREAMING = "supportStreaming";
     public static final String FEIGN = "feign";
@@ -94,8 +93,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public static final String MICROPROFILE_REST_CLIENT_VERSION = "microprofileRestClientVersion";
     public static final String MICROPROFILE_REST_CLIENT_DEFAULT_VERSION = "2.0";
     public static final String MICROPROFILE_REST_CLIENT_DEFAULT_ROOT_PACKAGE = "javax";
-    public static final String MICROPROFILE_DEFAULT = "default";
-    public static final String MICROPROFILE_KUMULUZEE = "kumuluzee";
 
     public static final String SERIALIZATION_LIBRARY_GSON = "gson";
     public static final String SERIALIZATION_LIBRARY_JACKSON = "jackson";
@@ -109,7 +106,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     // (mustache does not allow for boolean operators so we need this extra field)
     protected boolean doNotUseRx = true;
     protected boolean usePlayWS = false;
-    protected String microprofileFramework = MICROPROFILE_DEFAULT;
     protected boolean parcelableModel = false;
     protected boolean useBeanValidation = false;
     protected boolean performBeanValidation = false;
@@ -249,7 +245,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         cliOptions.add(CliOption.newBoolean(USE_GZIP_FEATURE, "Send gzip-encoded requests"));
         cliOptions.add(CliOption.newBoolean(USE_RUNTIME_EXCEPTION, "Use RuntimeException instead of Exception"));
         cliOptions.add(CliOption.newBoolean(USE_REFLECTION_EQUALS_HASHCODE, "Use org.apache.commons.lang3.builder for equals and hashCode in the models. WARNING: This will fail under a security manager, unless the appropriate permissions are set up correctly and also there's potential performance impact."));
-        cliOptions.add(CliOption.newString(MICROPROFILE_FRAMEWORK, "Framework for microprofile. Possible values \"kumuluzee\""));
         cliOptions.add(CliOption.newBoolean(USE_ABSTRACTION_FOR_FILES, "Use alternative types instead of java.io.File to allow passing bytes without a file on disk. Available on resttemplate, webclient, libraries"));
         cliOptions.add(CliOption.newBoolean(SUPPORT_STREAMING, "Support streaming endpoint (beta)", this.supportStreaming));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP, CodegenConstants.USE_ONEOF_DISCRIMINATOR_LOOKUP_DESC + " Only jersey2, jersey3, native, okhttp-gson support this option."));
@@ -542,15 +537,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         additionalProperties.put(USE_PLAY_WS, usePlayWS);
 
-        // Microprofile framework
-        if (additionalProperties.containsKey(MICROPROFILE_FRAMEWORK)) {
-            if (!MICROPROFILE_KUMULUZEE.equals(microprofileFramework)) {
-                throw new RuntimeException("Invalid microprofileFramework '" + microprofileFramework + "'. Must be 'kumuluzee' or none.");
-            }
-            this.setMicroprofileFramework(additionalProperties.get(MICROPROFILE_FRAMEWORK).toString());
-        }
-        additionalProperties.put(MICROPROFILE_FRAMEWORK, microprofileFramework);
-
         if (!additionalProperties.containsKey(MICROPROFILE_REST_CLIENT_VERSION)) {
             additionalProperties.put(MICROPROFILE_REST_CLIENT_VERSION, MICROPROFILE_REST_CLIENT_DEFAULT_VERSION);
         } else {
@@ -788,10 +774,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     public void setUsePlayWS(boolean usePlayWS) {
         this.usePlayWS = usePlayWS;
-    }
-
-    public void setMicroprofileFramework(String microprofileFramework) {
-        this.microprofileFramework = microprofileFramework;
     }
 
     public void setParcelableModel(boolean parcelableModel) {

@@ -1089,7 +1089,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public void setAnnotationLibrary(AnnotationLibrary annotationLibrary) {
         this.annotationLibrary = annotationLibrary;
     }
-    
+
     @Override
     public String escapeQuotationMark(String input) {
         // remove " to avoid code injection
