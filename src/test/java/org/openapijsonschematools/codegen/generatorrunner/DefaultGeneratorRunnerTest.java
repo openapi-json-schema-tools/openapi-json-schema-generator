@@ -278,11 +278,13 @@ public class DefaultGeneratorRunnerTest {
         openAPI.getPaths().addPathItem("path1/", new PathItem().get(new Operation().operationId("op1").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
         openAPI.getPaths().addPathItem("path2/", new PathItem().get(new Operation().operationId("op2").addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
 
-        ClientOptInput opts = new ClientOptInput();
-        opts.openAPI(openAPI);
         Generator config = new DefaultGenerator();
         config.setStrictSpecBehavior(false);
-        opts.config(config);
+        ClientOptInput opts = new ClientOptInput(
+                openAPI,
+                config,
+                null
+        );
 
         DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         generator.opts(opts);
@@ -306,10 +308,12 @@ public class DefaultGeneratorRunnerTest {
         openAPI.getPaths().addPathItem("/path3", new PathItem().addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).get(new Operation().operationId("op3").addParametersItem(new QueryParameter().name("p2").schema(new IntegerSchema())).responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
         openAPI.getPaths().addPathItem("/path4", new PathItem().addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).get(new Operation().operationId("op4").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
 
-        ClientOptInput opts = new ClientOptInput();
-        opts.openAPI(openAPI);
         Generator config = new DefaultGenerator();
-        opts.config(config);
+        ClientOptInput opts = new ClientOptInput(
+                openAPI,
+                config,
+                null
+        );
 
         DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         generator.opts(opts);
@@ -330,12 +334,14 @@ public class DefaultGeneratorRunnerTest {
     @Test
     public void testRefModelValidationProperties() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/refAliasedPrimitiveWithValidation.yml");
-        ClientOptInput opts = new ClientOptInput();
-        opts.openAPI(openAPI);
         DefaultGenerator config = new DefaultGenerator();
         config.setModelPackage("components.schema");
         config.setStrictSpecBehavior(false);
-        opts.config(config);
+        ClientOptInput opts = new ClientOptInput(
+                openAPI,
+                config,
+                null
+        );
 
         DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         generator.opts(opts);
@@ -591,11 +597,13 @@ public class DefaultGeneratorRunnerTest {
     @Test
     public void testHandlesTrailingSlashInServers() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7533.yaml");
-        ClientOptInput opts = new ClientOptInput();
-        opts.openAPI(openAPI);
         DefaultGenerator config = new DefaultGenerator();
         config.setStrictSpecBehavior(false);
-        opts.config(config);
+        ClientOptInput opts = new ClientOptInput(
+                openAPI,
+                config,
+                null
+        );
         final DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         generator.opts(opts);
         generator.configureGeneratorProperties();
@@ -613,11 +621,13 @@ public class DefaultGeneratorRunnerTest {
     @Test
     public void testHandlesRelativeUrlsInServers() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_10056.yaml");
-        ClientOptInput opts = new ClientOptInput();
-        opts.openAPI(openAPI);
         DefaultGenerator config = new DefaultGenerator();
         config.setStrictSpecBehavior(true);
-        opts.config(config);
+        ClientOptInput opts = new ClientOptInput(
+                openAPI,
+                config,
+                null
+        );
         final DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         generator.opts(opts);
         generator.configureGeneratorProperties();
@@ -693,11 +703,13 @@ public class DefaultGeneratorRunnerTest {
     @Test
     public void testRecursionBug4650() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/bugs/recursion-bug-4650.yaml");
-        ClientOptInput opts = new ClientOptInput();
-        opts.openAPI(openAPI);
         DefaultGenerator config = new DefaultGenerator();
         config.setStrictSpecBehavior(false);
-        opts.config(config);
+        ClientOptInput opts = new ClientOptInput(
+                openAPI,
+                config,
+                null
+        );
         final DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         generator.opts(opts);
         generator.configureGeneratorProperties();

@@ -208,7 +208,7 @@ public class GenerateBatch extends AbstractCommand {
                 GlobalSettings.reset();
 
                 ClientOptInput opts = configurator.toClientOptInput();
-                Generator config = opts.getConfig();
+                Generator config = opts.config;
                 name = config.getName();
                 
                 Path target = Paths.get(config.getOutputDir());

@@ -92,7 +92,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     protected final Logger LOGGER = LoggerFactory.getLogger(DefaultGeneratorRunner.class);
     private final boolean dryRun;
     public Generator generator;
-    protected ClientOptInput opts;
     public OpenAPI openAPI;
     protected CodegenIgnoreProcessor ignoreProcessor;
     private Boolean generateApis = null;
@@ -146,10 +145,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     @SuppressWarnings("deprecation")
     @Override
     public GeneratorRunner opts(ClientOptInput opts) {
-        this.opts = opts;
-        this.openAPI = opts.getOpenAPI();
-        this.generator = opts.getConfig();
-        List<TemplateDefinition> userFiles = opts.getUserDefinedTemplates();
+        this.openAPI = opts.openAPI;
+        this.generator = opts.config;
+        List<TemplateDefinition> userFiles = opts.userDefinedTemplates;
         if (userFiles != null) {
             this.userDefinedTemplates = Collections.unmodifiableList(userFiles);
         }
