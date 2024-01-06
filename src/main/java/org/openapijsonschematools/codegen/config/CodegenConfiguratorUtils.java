@@ -55,84 +55,6 @@ public final class CodegenConfiguratorUtils {
         }
     }
 
-    public static void applyInstantiationTypesKvpList(List<String> instantiationTypes, CodegenConfigurator configurator) {
-        for (String propString : instantiationTypes) {
-            applyInstantiationTypesKvp(propString, configurator);
-        }
-    }
-
-    public static void applyInstantiationTypesKvp(String instantiationTypes, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(instantiationTypes);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addInstantiationType(entry.getKey(), entry.getValue());
-        }
-    }
-
-    public static void applyImportMappingsKvpList(List<String> importMappings, CodegenConfigurator configurator) {
-        for (String propString : importMappings) {
-            applyImportMappingsKvp(propString, configurator);
-        }
-    }
-
-    public static void applyImportMappingsKvp(String importMappings, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(importMappings);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addImportMapping(entry.getKey().trim(), entry.getValue().trim());
-        }
-    }
-
-    public static void applySchemaMappingsKvpList(List<String> schemaMappings, CodegenConfigurator configurator) {
-        for (String propString : schemaMappings) {
-            applySchemaMappingsKvp(propString, configurator);
-        }
-    }
-
-    public static void applySchemaMappingsKvp(String schemaMappings, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(schemaMappings);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addSchemaMapping(entry.getKey().trim(), entry.getValue().trim());
-        }
-    }
-
-    public static void applyInlineSchemaNameMappingsKvpList(List<String> inlineSchemaNameMappings, CodegenConfigurator configurator) {
-        for (String propString : inlineSchemaNameMappings) {
-            applyInlineSchemaNameMappingsKvp(propString, configurator);
-        }
-    }
-
-    public static void applyInlineSchemaNameMappingsKvp(String inlineSchemaNameMappings, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(inlineSchemaNameMappings);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addInlineSchemaNameMapping(entry.getKey().trim(), entry.getValue().trim());
-        }
-    }
-
-    public static void applyInlineSchemaNameDefaultsKvpList(List<String> inlineSchemaNameDefaults, CodegenConfigurator configurator) {
-        for (String propString : inlineSchemaNameDefaults) {
-            applyInlineSchemaNameDefaultsKvp(propString, configurator);
-        }
-    }
-
-    public static void applyInlineSchemaNameDefaultsKvp(String inlineSchemaNameDefaults, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(inlineSchemaNameDefaults);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addInlineSchemaNameDefault(entry.getKey().trim(), entry.getValue().trim());
-        }
-    }
-
-    public static void applyTypeMappingsKvpList(List<String> typeMappings, CodegenConfigurator configurator) {
-        for (String propString : typeMappings) {
-            applyTypeMappingsKvp(propString, configurator);
-        }
-    }
-
-    public static void applyTypeMappingsKvp(String typeMappings, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(typeMappings);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addTypeMapping(entry.getKey(), entry.getValue());
-        }
-    }
-
     public static void applyAdditionalPropertiesKvpList(List<String> additionalProperties, CodegenConfigurator configurator) {
         for (String propString : additionalProperties) {
             applyAdditionalPropertiesKvp(propString, configurator);
@@ -143,45 +65,6 @@ public final class CodegenConfiguratorUtils {
         final Map<String, String> map = createMapFromKeyValuePairs(additionalProperties);
         for (Map.Entry<String, String> entry : map.entrySet()) {
             configurator.addAdditionalProperty(entry.getKey(), entry.getValue());
-        }
-    }
-
-    public static void applyServerVariablesKvpList(List<String> values, CodegenConfigurator configurator) {
-        for (String value : values) {
-            applyServerVariablesKvp(value, configurator);
-        }
-    }
-
-    public static void applyServerVariablesKvp(String values, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(values);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addServerVariable(entry.getKey(), entry.getValue());
-        }
-    }
-
-    public static void applyLanguageSpecificPrimitivesCsvList(List<String> languageSpecificPrimitives, CodegenConfigurator configurator) {
-        for (String propString : languageSpecificPrimitives) {
-            applyLanguageSpecificPrimitivesCsv(propString, configurator);
-        }
-    }
-
-    public static void applyLanguageSpecificPrimitivesCsv(String languageSpecificPrimitives, CodegenConfigurator configurator) {
-        final Set<String> set = createSetFromCsvList(languageSpecificPrimitives);
-        for (String item : set) {
-            configurator.addLanguageSpecificPrimitive(item);
-        }
-    }
-
-    public static void applyReservedWordsMappingsKvpList(List<String> reservedWordsMappings, CodegenConfigurator configurator) {
-        for (String propString : reservedWordsMappings) {
-            applyReservedWordsMappingsKvp(propString, configurator);
-        }
-    }
-
-    public static void applyReservedWordsMappingsKvp(String reservedWordsMappings, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(reservedWordsMappings);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addAdditionalReservedWordMapping(entry.getKey(), entry.getValue());
         }
     }
 

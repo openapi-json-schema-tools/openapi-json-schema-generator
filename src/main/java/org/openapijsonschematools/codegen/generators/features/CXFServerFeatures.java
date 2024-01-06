@@ -21,7 +21,7 @@ package org.openapijsonschematools.codegen.generators.features;
  * Features supported by CXF 3 server
  */
 public interface CXFServerFeatures
-        extends CXFFeatures, SwaggerFeatures, SpringFeatures, JbossFeature, BeanValidationExtendedFeatures, SwaggerUIFeatures {
+        extends CXFFeatures, SwaggerFeatures, SpringFeatures, JbossFeature, SwaggerUIFeatures {
 
     String USE_WADL_FEATURE = "useWadlFeature";
 

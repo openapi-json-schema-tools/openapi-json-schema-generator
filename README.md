@@ -308,11 +308,7 @@ SYNOPSIS
                 [--http-user-agent <http user agent>]
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
-                [--import-mappings <import mappings>...]
-                [--instantiation-types <instantiation types>...]
                 [--invoker-package <invoker package>]
-                [--language-specific-primitives <language specific primitives>...]
-                [--legacy-discriminator-behavior] [--library <library>]
                 [--log-to-stderr] [--minimal-update]
                 [--model-name-prefix <model name prefix>]
                 [--model-name-suffix <model name suffix>]
@@ -320,11 +316,10 @@ SYNOPSIS
                 [(-o <output directory> | --output <output directory>)] [(-p <additional properties> | --additional-properties <additional properties>)...]
                 [--package-name <package name>] [--release-note <release note>]
                 [--remove-operation-id-prefix]
-                [--reserved-words-mappings <reserved word mappings>...]
-                [(-s | --skip-overwrite)] [--server-variables <server variables>...]
+                [(-s | --skip-overwrite)]
                 [--skip-validate-spec] [--strict-spec <true/false strict behavior>]
                 [(-t <template directory> | --template-dir <template directory>)]
-                [--type-mappings <type mappings>...] [(-v | --verbose)]
+                [(-v | --verbose)]
 
 OPTIONS
         -a <authorization>, --auth <authorization>

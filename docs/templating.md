@@ -59,7 +59,7 @@ You will need to find and retrieve the templates for your desired generator in o
 In OpenAPI Generator 5.0 and later, you can use the CLI command `author template` to extract embedded templates for your target generator. For example:
 
 ```
-openapi-generator author template -g java --library webclient
+openapi-generator author template -g java
 ```
 
 For OpenAPI Generator versions prior to 5.0, you will want to find the [resources directory](https://github.com/OpenAPITools/openapi-generator/tree/master/src/main/resources) for the generator you want to extend. This is generally easy to find as directories commonly follow the convention of `resources/<generator name>`. In cases where you're unsure, you will need to find the `embeddedTemplateDir` assignment in your desired generator. This is almost always assigned in the constructor of the generator class. The C# .Net Core generator assigns this as:
@@ -244,7 +244,7 @@ index b7a3647..3d9d088 100644
 Now we're ready to generate the client with our simple changes. When we pass the template directory option to our toolset, we _must_ pass the generator's root directory and _not_ the library-only directory.
 
 ```bash
-openapi-generator generate -g java --library resteasy \
+openapi-generator generate -g java \
     -t ~/.openapi-generator/templates/Java \
     -o ~/.openapi-generator/example \
     -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml
@@ -886,27 +886,6 @@ description: ''
 operationId: addPet
 x-objc-operationId: CreateNewPet
 ```  
-
-### Java (Feign)
-#### x-accepts
-
-A single `Accepts` value as the Feign API client needs a single value for `Accepts` header, e.g.
-```yaml
-consumes:
-  - application/json
-  - application/xml
-x-accepts: application/json
-```
-
-### x-content-type
-
-A single "Content-Type" value as the Feign API client needs a single value for `Content-Type` header, e.g.
-```yaml
-produces:
-  - application/xml
-  - application/json
-x-content-type: application/json
-```
 
 ### Rust-server
 

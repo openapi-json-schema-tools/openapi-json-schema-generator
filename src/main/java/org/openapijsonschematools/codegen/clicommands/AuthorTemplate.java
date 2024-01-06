@@ -5,7 +5,6 @@ import io.airlift.airline.Option;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorLoader;
-import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,9 +28,6 @@ public class AuthorTemplate extends AbstractCommand {
             description = "generatorRunner to use (see list command for list)",
             required = true)
     private String generatorName;
-
-    @Option(name = {"--library"}, title = "library", description = CodegenConstants.LIBRARY_DESC)
-    private String library;
 
     @Option(name = {"-o", "--output"}, title = "output directory",
             description = "where to write the template files (defaults to 'out')")
@@ -91,53 +87,25 @@ public class AuthorTemplate extends AbstractCommand {
                 templates.forEach(template -> {
                     log("Found template: {}", template.toAbsolutePath());
                     Path relativePath = embeddedTemplatePath.relativize(template);
-                    if (shouldCopy(relativePath)) {
-                        Path target = outputDirPath.resolve(relativePath.toString());
-                        generatedFiles.add(target);
-                        try {
-                            if (Files.isDirectory(template)) {
-                                if (Files.notExists(target)) {
-                                    log("Creating directory: {}", target.toAbsolutePath());
-                                    Files.createDirectories(target);
-                                }
-                            } else {
-                                if (target.getParent() != null && Files.notExists(target.getParent())) {
-                                    log("Creating directory: {}", target.getParent());
-                                    Files.createDirectories(target.getParent());
-                                }
-                                log("Copying to: {}", target.toAbsolutePath());
-                                Files.copy(template, target, StandardCopyOption.REPLACE_EXISTING);
+                    Path target = outputDirPath.resolve(relativePath.toString());
+                    generatedFiles.add(target);
+                    try {
+                        if (Files.isDirectory(template)) {
+                            if (Files.notExists(target)) {
+                                log("Creating directory: {}", target.toAbsolutePath());
+                                Files.createDirectories(target);
                             }
-                        } catch (IOException e) {
-                            LOGGER.error("Unable to create target location '{}'.", target);
+                        } else {
+                            if (target.getParent() != null && Files.notExists(target.getParent())) {
+                                log("Creating directory: {}", target.getParent());
+                                Files.createDirectories(target.getParent());
+                            }
+                            log("Copying to: {}", target.toAbsolutePath());
+                            Files.copy(template, target, StandardCopyOption.REPLACE_EXISTING);
                         }
-                    } else {
-                        log("Directory is excluded by library option: {}", relativePath);
+                    } catch (IOException e) {
+                        LOGGER.error("Unable to create target location '{}'.", target);
                     }
-                });
-            }
-
-            if (StringUtils.isNotEmpty(library) && !generatedFiles.isEmpty()) {
-                Path librariesPath = outputDirPath.resolve("libraries");
-                Path targetLibrary = librariesPath.resolve(library);
-                String librariesPrefix = librariesPath.toString();
-                if (!Files.isDirectory(targetLibrary)) {
-                    LOGGER.warn("The library '{}' was not extracted. Please verify the spelling and retry.", targetLibrary);
-                }
-                generatedFiles.stream()
-                        .filter(p -> p.startsWith(librariesPrefix))
-                        .forEach(p -> {
-                            if (p.startsWith(targetLibrary)) {
-                                // We don't care about empty directories, and not need to check directory for files.
-                                if (!Files.isDirectory(p)) {
-                                    // warn if the file was not written
-                                    if (Files.notExists(p)) {
-                                        LOGGER.warn("An expected library file was not extracted: {}", p.toAbsolutePath());
-                                    }
-                                }
-                            } else {
-                                LOGGER.warn("The library filter '{}' extracted an unexpected library path: {}", library, p.toAbsolutePath());
-                            }
                 });
             }
 
@@ -151,18 +119,5 @@ public class AuthorTemplate extends AbstractCommand {
         if (verbose) {
             LOGGER.info(format, arguments);
         }
-    }
-
-    private boolean shouldCopy(Path relativePath) {
-        String path = relativePath.toString();
-        if (StringUtils.isNotEmpty(library) && path.contains("libraries")) {
-            if (pattern == null) {
-                pattern = Pattern.compile(String.format(Locale.ROOT, "libraries[/\\\\]{1}%s[/\\\\]{1}.*", Pattern.quote(library)));
-            }
-
-            return pattern.matcher(path).matches();
-        }
-
-        return true;
     }
 }

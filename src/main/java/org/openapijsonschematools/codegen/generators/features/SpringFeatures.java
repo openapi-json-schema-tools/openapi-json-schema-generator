@@ -17,7 +17,7 @@
 
 package org.openapijsonschematools.codegen.generators.features;
 
-public interface SpringFeatures extends BeanValidationFeatures {
+public interface SpringFeatures {
 
     String GENERATE_SPRING_APPLICATION = "generateSpringApplication";
 

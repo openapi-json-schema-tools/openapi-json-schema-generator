@@ -63,12 +63,8 @@ public class GenerateBatchTest {
 
         Map<String, Object> expectedAdditionalProperties = new HashMap<>();
         expectedAdditionalProperties.put("serverPort", "8082");
-        expectedAdditionalProperties.put("dateLibrary", "java8");
         expectedAdditionalProperties.put("hideGenerationTimestamp", true);
-        expectedAdditionalProperties.put("serializableModel", true);
-        expectedAdditionalProperties.put("withXml", true);
         expectedAdditionalProperties.put("java8", true);
-        expectedAdditionalProperties.put("useBeanValidation", true);
 
         assertNotNull(loaded);
 

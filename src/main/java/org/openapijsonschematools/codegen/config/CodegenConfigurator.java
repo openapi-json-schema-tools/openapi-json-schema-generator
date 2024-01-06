@@ -33,9 +33,7 @@ import org.apache.commons.lang3.Validate;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorLoader;
-import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.openapijsonschematools.codegen.templating.TemplateDefinition;
-import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,16 +64,7 @@ public class CodegenConfigurator {
     private String inputSpec;
     private String templatingEngineName;
     private Map<String, String> globalProperties = new HashMap<>();
-    private Map<String, String> instantiationTypes = new HashMap<>();
-    private Map<String, String> typeMappings = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
-    private Map<String, String> importMappings = new HashMap<>();
-    private Map<String, String> schemaMappings = new HashMap<>();
-    private Map<String, String> inlineSchemaNameMappings = new HashMap<>();
-    private Map<String, String> inlineSchemaNameDefaults = new HashMap<>();
-    private Set<String> languageSpecificPrimitives = new HashSet<>();
-    private Map<String, String> reservedWordsMappings = new HashMap<>();
-    private Map<String, String> serverVariables = new HashMap<>();
     private String auth;
 
     private List<TemplateDefinition> userDefinedTemplates = new ArrayList<>();
@@ -104,35 +93,8 @@ public class CodegenConfigurator {
             if (workflowSettings.getGlobalProperties() != null) {
                 configurator.globalProperties.putAll(workflowSettings.getGlobalProperties());
             }
-            if(generatorSettings.getInstantiationTypes() != null) {
-                configurator.instantiationTypes.putAll(generatorSettings.getInstantiationTypes());
-            }
-            if(generatorSettings.getTypeMappings() != null) {
-                configurator.typeMappings.putAll(generatorSettings.getTypeMappings());
-            }
             if(generatorSettings.getAdditionalProperties() != null) {
                 configurator.additionalProperties.putAll(generatorSettings.getAdditionalProperties());
-            }
-            if(generatorSettings.getImportMappings() != null) {
-                configurator.importMappings.putAll(generatorSettings.getImportMappings());
-            }
-            if(generatorSettings.getSchemaMappings() != null) {
-                configurator.schemaMappings.putAll(generatorSettings.getSchemaMappings());
-            }
-            if(generatorSettings.getInlineSchemaNameMappings() != null) {
-                configurator.inlineSchemaNameMappings.putAll(generatorSettings.getInlineSchemaNameMappings());
-            }
-            if(generatorSettings.getInlineSchemaNameDefaults() != null) {
-                configurator.inlineSchemaNameDefaults.putAll(generatorSettings.getInlineSchemaNameDefaults());
-            }
-            if(generatorSettings.getLanguageSpecificPrimitives() != null) {
-                configurator.languageSpecificPrimitives.addAll(generatorSettings.getLanguageSpecificPrimitives());
-            }
-            if(generatorSettings.getReservedWordsMappings() != null) {
-                configurator.reservedWordsMappings.putAll(generatorSettings.getReservedWordsMappings());
-            }
-            if(generatorSettings.getServerVariables() != null) {
-                configurator.serverVariables.putAll(generatorSettings.getServerVariables());
             }
 
             configurator.generatorSettingsBuilder = GeneratorSettings.newBuilder(generatorSettings);
@@ -170,57 +132,9 @@ public class CodegenConfigurator {
         }
     }
 
-    public CodegenConfigurator addServerVariable(String key, String value) {
-        this.serverVariables.put(key, value);
-        generatorSettingsBuilder.withServerVariable(key, value);
-        return this;
-    }
-
     public CodegenConfigurator addAdditionalProperty(String key, Object value) {
         this.additionalProperties.put(key, value);
         generatorSettingsBuilder.withAdditionalProperty(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addAdditionalReservedWordMapping(String key, String value) {
-        this.reservedWordsMappings.put(key, value);
-        generatorSettingsBuilder.withReservedWordMapping(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addImportMapping(String key, String value) {
-        this.importMappings.put(key, value);
-        generatorSettingsBuilder.withImportMapping(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addSchemaMapping(String key, String value) {
-        this.schemaMappings.put(key, value);
-        generatorSettingsBuilder.withSchemaMapping(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addInlineSchemaNameMapping(String key, String value) {
-        this.inlineSchemaNameMappings.put(key, value);
-        generatorSettingsBuilder.withInlineSchemaNameMapping(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addInlineSchemaNameDefault(String key, String value) {
-        this.inlineSchemaNameDefaults.put(key, value);
-        generatorSettingsBuilder.withInlineSchemaNameDefault(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addInstantiationType(String key, String value) {
-        this.instantiationTypes.put(key, value);
-        generatorSettingsBuilder.withInstantiationType(key, value);
-        return this;
-    }
-
-    public CodegenConfigurator addLanguageSpecificPrimitive(String value) {
-        this.languageSpecificPrimitives.add(value);
-        generatorSettingsBuilder.withLanguageSpecificPrimitive(value);
         return this;
     }
 
@@ -230,27 +144,9 @@ public class CodegenConfigurator {
         return this;
     }
 
-    public CodegenConfigurator addTypeMapping(String key, String value) {
-        this.typeMappings.put(key, value);
-        generatorSettingsBuilder.withTypeMappings(this.typeMappings);
-        return this;
-    }
-
     public CodegenConfigurator setAdditionalProperties(Map<String, Object> additionalProperties) {
         this.additionalProperties = additionalProperties;
         generatorSettingsBuilder.withAdditionalProperties(additionalProperties);
-        return this;
-    }
-
-    public CodegenConfigurator setServerVariables(Map<String, String> serverVariables) {
-        this.serverVariables = serverVariables;
-        generatorSettingsBuilder.withServerVariables(serverVariables);
-        return this;
-    }
-
-    public CodegenConfigurator setReservedWordsMappings(Map<String, String> reservedWordsMappings) {
-        this.reservedWordsMappings = reservedWordsMappings;
-        generatorSettingsBuilder.withReservedWordsMappings(reservedWordsMappings);
         return this;
     }
 
@@ -354,39 +250,9 @@ public class CodegenConfigurator {
         return this;
     }
 
-    public CodegenConfigurator setImportMappings(Map<String, String> importMappings) {
-        this.importMappings = importMappings;
-        generatorSettingsBuilder.withImportMappings(importMappings);
-        return this;
-    }
-
-    public CodegenConfigurator setSchemaMappings(Map<String, String> schemaMappings) {
-        this.schemaMappings = schemaMappings;
-        generatorSettingsBuilder.withSchemaMappings(schemaMappings);
-        return this;
-    }
-
-    public CodegenConfigurator setInlineSchemaNameMappings(Map<String, String> inlineSchemaNameMappings) {
-        this.inlineSchemaNameMappings = inlineSchemaNameMappings;
-        generatorSettingsBuilder.withInlineSchemaNameMappings(inlineSchemaNameMappings);
-        return this;
-    }
-
-    public CodegenConfigurator setInlineSchemaNameDefaults(Map<String, String> inlineSchemaNameDefaults) {
-        this.inlineSchemaNameDefaults = inlineSchemaNameDefaults;
-        generatorSettingsBuilder.withInlineSchemaNameDefaults(inlineSchemaNameDefaults);
-        return this;
-    }
-
     public CodegenConfigurator setInputSpec(String inputSpec) {
         this.inputSpec = inputSpec;
         workflowSettingsBuilder.withInputSpec(inputSpec);
-        return this;
-    }
-
-    public CodegenConfigurator setInstantiationTypes(Map<String, String> instantiationTypes) {
-        this.instantiationTypes = instantiationTypes;
-        generatorSettingsBuilder.withInstantiationTypes(instantiationTypes);
         return this;
     }
 
@@ -395,18 +261,6 @@ public class CodegenConfigurator {
             addAdditionalProperty(CodegenConstants.INVOKER_PACKAGE, invokerPackage);
         }
         generatorSettingsBuilder.withInvokerPackage(invokerPackage);
-        return this;
-    }
-
-    public CodegenConfigurator setLanguageSpecificPrimitives(
-            Set<String> languageSpecificPrimitives) {
-        this.languageSpecificPrimitives = languageSpecificPrimitives;
-        generatorSettingsBuilder.withLanguageSpecificPrimitives(languageSpecificPrimitives);
-        return this;
-    }
-
-    public CodegenConfigurator setLibrary(String library) {
-        generatorSettingsBuilder.withLibrary(library);
         return this;
     }
 
@@ -436,14 +290,6 @@ public class CodegenConfigurator {
             addAdditionalProperty(CodegenConstants.MODEL_NAME_SUFFIX, suffix);
         }
         generatorSettingsBuilder.withModelNameSuffix(suffix);
-        return this;
-    }
-
-    public CodegenConfigurator setModelPackage(String modelPackage) {
-        if (StringUtils.isNotEmpty(modelPackage)) {
-            addAdditionalProperty(CodegenConstants.MODEL_PACKAGE, modelPackage);
-        }
-        generatorSettingsBuilder.withModelPackage(modelPackage);
         return this;
     }
 
@@ -502,12 +348,6 @@ public class CodegenConfigurator {
     public CodegenConfigurator setTemplatingEngineName(String templatingEngineName) {
         this.templatingEngineName = templatingEngineName;
         workflowSettingsBuilder.withTemplatingEngineName(templatingEngineName);
-        return this;
-    }
-
-    public CodegenConfigurator setTypeMappings(Map<String, String> typeMappings) {
-        this.typeMappings = typeMappings;
-        generatorSettingsBuilder.withTypeMappings(typeMappings);
         return this;
     }
 
@@ -632,10 +472,6 @@ public class CodegenConfigurator {
         // regardless of entrypoint (CLI sets properties on this type, config deserialization sets on generatorSettings).
         Generator config = GeneratorLoader.forName(generatorSettings.getGeneratorName());
 
-        if (isNotEmpty(generatorSettings.getLibrary())) {
-            config.setLibrary(generatorSettings.getLibrary());
-        }
-
         // TODO: Work toward Generator having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
         config.setInputSpec(workflowSettings.getInputSpec());
         config.setOutputDir(workflowSettings.getOutputDir());
@@ -650,21 +486,7 @@ public class CodegenConfigurator {
         config.additionalProperties().put(CodegenConstants.TEMPLATING_ENGINE, workflowSettings.getTemplatingEngineName());
 
         // TODO: Work toward Generator having a "GeneratorSettings" property.
-        config.instantiationTypes().putAll(generatorSettings.getInstantiationTypes());
-        config.typeMapping().putAll(generatorSettings.getTypeMappings());
-        config.schemaMapping().putAll(generatorSettings.getSchemaMappings());
-        config.inlineSchemaNameMapping().putAll(generatorSettings.getInlineSchemaNameMappings());
-        config.inlineSchemaNameDefault().putAll(generatorSettings.getInlineSchemaNameDefaults());
-        config.languageSpecificPrimitives().addAll(generatorSettings.getLanguageSpecificPrimitives());
-        config.reservedWordsMappings().putAll(generatorSettings.getReservedWordsMappings());
         config.additionalProperties().putAll(generatorSettings.getAdditionalProperties());
-
-        Map<String, String> serverVariables = generatorSettings.getServerVariables();
-        if (!serverVariables.isEmpty()) {
-            // This is currently experimental due to vagueness in the specification
-            LOGGER.warn("user-defined server variable support is experimental.");
-            config.serverVariableOverrides().putAll(serverVariables);
-        }
 
         // any other additional properties?
         String templateDir = workflowSettings.getTemplateDir();

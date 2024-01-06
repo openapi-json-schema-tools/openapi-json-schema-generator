@@ -105,7 +105,6 @@ Beginning with the "Codegen" file (`CommonMarkDocumentationCodegen.java`), the c
         apiTemplateFiles.put("api.mustache", ".zz");
         embeddedTemplateDir = templateDir = "common-mark-documentation";
         apiPackage = File.separator + "Apis";
-        modelPackage = File.separator + "Models";
         supportingFiles.add(new SupportingFile("README.mustache", "", "README.md"));
         // TODO: Fill this out.
     }
@@ -156,14 +155,6 @@ apiPackage = "Apis";
 This sets the "package" location for anything considered an API document. You might want to change this setting if, for instance, your language doesn't support uppercase letters in the path. We don't need to worry about that here.
 
 Every templated output from `api.mustache` (registered via `apiTemplateFiles` above) will end up in the directory defined by `apiPackage` here.
-
-```java
-modelPackage = "Models";
-```
-
-Similarly, this sets the package for `Models`.
-
-Every templated output from `model.mustache` (registered via `modelTemplateFiles` above) will end up in the directory defined by `modelPackage` here.
 
 ```java
 supportingFiles.add(new SupportingFile("README.mustache", "", "README.md"));

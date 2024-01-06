@@ -52,8 +52,6 @@ public class CodegenConstants {
     public static final String API_TESTS = "apiTests";
     public static final String API_DOCS = "apiDocs";
 
-    public static final String WITH_XML = "withXml";
-    public static final String SKIP_FORM_MODEL = "skipFormModel";
     /* /end System Properties */
 
     public static final String API_NAME = "apiName";
@@ -63,10 +61,6 @@ public class CodegenConstants {
 
     public static final String API_SUFFIX = "apiSuffix";
     public static final String API_SUFFIX_DESC = "suffix for api classes";
-
-    public static final String MODEL_PACKAGE = "modelPackage";
-    public static final String MODEL_PACKAGE_DESC = "package for generated models";
-
     public static final String TEMPLATE_DIR = "templateDir";
 
     public static final String ALLOW_UNICODE_IDENTIFIERS = "allowUnicodeIdentifiers";
@@ -153,29 +147,8 @@ public class CodegenConstants {
     public static final String IMPL_FOLDER = "implFolder";
     public static final String IMPL_FOLDER_DESC = "folder for generated implementation code";
 
-    public static final String SERIALIZABLE_MODEL = "serializableModel";
-    public static final String SERIALIZABLE_MODEL_DESC = "boolean - toggle \"implements Serializable\" for generated models";
-
-    public static final String SERIALIZE_BIG_DECIMAL_AS_STRING = "bigDecimalAsString";
-    public static final String SERIALIZE_BIG_DECIMAL_AS_STRING_DESC = "Treat BigDecimal values as Strings to avoid precision loss.";
-
-    public static final String LIBRARY = "library";
-    public static final String LIBRARY_DESC = "library template (sub-template)";
-
-    public static final String SORT_PARAMS_BY_REQUIRED_FLAG = "sortParamsByRequiredFlag";
-    public static final String SORT_PARAMS_BY_REQUIRED_FLAG_DESC = "Sort method arguments to place required parameters before optional parameters.";
-
-    public static final String SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG = "sortModelPropertiesByRequiredFlag";
-    public static final String SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG_DESC = "Sort model properties to place required parameters before optional parameters.";
-
-    public static final String PREPEND_FORM_OR_BODY_PARAMETERS = "prependFormOrBodyParameters";
-    public static final String PREPEND_FORM_OR_BODY_PARAMETERS_DESC = "Add form or body parameters to the beginning of the parameter list.";
-
     public static final String USE_DATETIME_OFFSET = "useDateTimeOffset";
     public static final String USE_DATETIME_OFFSET_DESC = "Use DateTimeOffset to model date-time properties";
-
-    public static final String ENSURE_UNIQUE_PARAMS = "ensureUniqueParams";
-    public static final String ENSURE_UNIQUE_PARAMS_DESC = "Whether to ensure parameter names are unique in an operation (rename parameters that are not).";
 
     public static final String PROJECT_NAME = "projectName";
     public static final String PACKAGE_NAME = "packageName";
@@ -254,10 +227,6 @@ public class CodegenConstants {
     public static final String ENUM_PROPERTY_NAMING = "enumPropertyNaming";
     public static final String ENUM_PROPERTY_NAMING_DESC = "Naming convention for enum properties: 'camelCase', 'PascalCase', 'snake_case', 'UPPERCASE', and 'original'";
 
-    // Allow different language generators to offer an option of serialization library. Each language specific
-    // Codegen constants should define a description and provide proper input validation for the value of serializationLibrary
-    public static final String SERIALIZATION_LIBRARY = "serializationLibrary";
-
     public static final String API_NAME_PREFIX = "apiNamePrefix";
     public static final String API_NAME_PREFIX_DESC = "Prefix that will be appended to all API names ('tags'). Default: empty string. e.g. Pet => Pet.";
 
@@ -305,9 +274,6 @@ public class CodegenConstants {
 
     public static final String PARCELIZE_MODELS = "parcelizeModels";
     public static final String PARCELIZE_MODELS_DESC = "toggle \"@Parcelize\" for generated models";
-
-    public static final String CASE_INSENSITIVE_RESPONSE_HEADERS = "caseInsensitiveResponseHeaders";
-    public static final String CASE_INSENSITIVE_RESPONSE_HEADERS_DESC = "Make API response's headers case-insensitive";
 
     // Not user-configurable. System provided for use in templates.
 
@@ -395,27 +361,8 @@ public class CodegenConstants {
     public static final String REMOVE_ENUM_VALUE_PREFIX = "removeEnumValuePrefix";
     public static final String REMOVE_ENUM_VALUE_PREFIX_DESC = "Remove the common prefix of enum values";
 
-    public static final String LEGACY_DISCRIMINATOR_BEHAVIOR = "legacyDiscriminatorBehavior";
-    public static final String LEGACY_DISCRIMINATOR_BEHAVIOR_DESC = "Set to false for generators with better support for discriminators. (Python, Java, Go, PowerShell, C#have this enabled by default).";
-
-    public static final String USE_SINGLE_REQUEST_PARAMETER = "useSingleRequestParameter";
-    public static final String USE_SINGLE_REQUEST_PARAMETER_DESC = "Setting this property to true will generate functions with a single argument containing all API endpoint parameters instead of one argument per parameter.";
-
-    public static final String DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT = "disallowAdditionalPropertiesIfNotPresent";
-    public static final String DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT_DESC =
-        "If false, the 'additionalProperties' implementation (set to true by default) is compliant with the OAS and JSON schema specifications. " +
-        "If true (default), keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.";
-    public static final String ENUM_UNKNOWN_DEFAULT_CASE = "enumUnknownDefaultCase";
-    public static final String ENUM_UNKNOWN_DEFAULT_CASE_DESC =
-            "If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response." +
-            "With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fallback to this case.";
-
-    public static final String USE_ONEOF_DISCRIMINATOR_LOOKUP = "useOneOfDiscriminatorLookup";
-    public static final String USE_ONEOF_DISCRIMINATOR_LOOKUP_DESC = "Use the discriminator's mapping in oneOf to speed up the model lookup. IMPORTANT: Validation (e.g. one and only one match in oneOf's schemas) will be skipped.";
     public static final String INIT_REQUIRED_VARS = "initRequiredVars";
     public static final String INIT_REQUIRED_VARS_DESC = "If set to true then the required variables are included as positional arguments in __init__ and _from_openapi_data methods. Note: this can break some composition use cases. To learn more read PR #8802.";
-
-    public static final String ERROR_OBJECT_TYPE = "errorObjectType";
 
     public static final String NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS = "nonCompliantUseDiscriminatorIfCompositionFails";
 

@@ -33,8 +33,6 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
-import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
@@ -44,7 +42,6 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
-import org.openapijsonschematools.codegen.config.GlobalSettings;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.security.SecurityScheme;
@@ -54,7 +51,6 @@ import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.common.ModelUtils;
-import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -105,11 +101,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         loadDeepObjectIntoItems = false;
         importBaseType = false;
         addSchemaImportsFromV3SpecLocations = true;
-        sortModelPropertiesByRequiredFlag = Boolean.TRUE;
-        // this must be false for parameter numbers to stay the same as the ones in the spec
-        // if another schema $refs a schema in a parameter, the json path
-        // and generated module must have the same parameter index as the spec
-        sortParamsByRequiredFlag = Boolean.FALSE;
         removeEnumValuePrefix = false;
 
         modifyFeatureSet(features -> features
@@ -309,21 +300,10 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
         cliOptions.add(nonCompliantUseDiscrIfCompositionFails);
 
-        supportedLibraries.put("urllib3", "urllib3-based client");
-        CliOption libraryOption = new CliOption(CodegenConstants.LIBRARY, "library template (sub-template) to use: urllib3");
-        libraryOption.setDefault(DEFAULT_LIBRARY);
-        cliOptions.add(libraryOption);
-        setLibrary(DEFAULT_LIBRARY);
-
         // Composed schemas can have the 'additionalProperties' keyword, as specified in JSON schema.
         // In principle, this should be enabled by default for all code generators. However, due to limitations
         // in other code generators, support needs to be enabled on a case-by-case basis.
         supportsAdditionalPropertiesWithComposedSchema = true;
-
-        // When the 'additionalProperties' keyword is not present in an OAS schema, allow
-        // undeclared properties. This is compliant with the JSON schema specification.
-        this.setDisallowAdditionalPropertiesIfNotPresent(false);
-        GlobalSettings.setProperty("x-disallow-additional-properties-if-not-present", "false");
 
         // this tells users what openapi types turn in to
         instantiationTypes.put("object", "immutabledict.immutabledict");
@@ -353,7 +333,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
     @Override
     public void processOpts() {
-        this.setLegacyDiscriminatorBehavior(false);
 
         super.processOpts();
 
@@ -789,11 +768,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                     break;
                 }
             }
-        }
-
-        // check library option to ensure only urllib3 is supported
-        if (!DEFAULT_LIBRARY.equals(getLibrary())) {
-            throw new RuntimeException("Only the `urllib3` library is supported in the refactored `python` client generator at the moment. Please fall back to `python-legacy` client generator for the time being. We welcome contributions to add back `asyncio`, `tornado` support to the `python` client generator.");
         }
     }
 

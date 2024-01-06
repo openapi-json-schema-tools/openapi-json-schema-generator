@@ -21,7 +21,6 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
@@ -30,8 +29,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
-import org.openapijsonschematools.codegen.generators.models.VendorExtension;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.features.DocumentationProviderFeatures;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
@@ -55,29 +52,13 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractJavaGenerator.class);
     private static final String ARTIFACT_VERSION_DEFAULT_VALUE = "1.0.0";
 
-    public static final String FULL_JAVA_UTIL = "fullJavaUtil";
-    public static final String DEFAULT_LIBRARY = "<default>";
-    public static final String DATE_LIBRARY = "dateLibrary";
     public static final String SUPPORT_ASYNC = "supportAsync";
-    public static final String WITH_XML = "withXml";
     public static final String SUPPORT_JAVA6 = "supportJava6";
-    public static final String DISABLE_HTML_ESCAPING = "disableHtmlEscaping";
-    public static final String BOOLEAN_GETTER_PREFIX = "booleanGetterPrefix";
-    public static final String IGNORE_ANYOF_IN_ENUM = "ignoreAnyOfInEnum";
-    public static final String ADDITIONAL_MODEL_TYPE_ANNOTATIONS = "additionalModelTypeAnnotations";
-    public static final String ADDITIONAL_ENUM_TYPE_ANNOTATIONS = "additionalEnumTypeAnnotations";
-    public static final String DISCRIMINATOR_CASE_SENSITIVE = "discriminatorCaseSensitive";
-    public static final String OPENAPI_NULLABLE = "openApiNullable";
     public static final String JACKSON = "jackson";
     public static final String TEST_OUTPUT = "testOutput";
-    public static final String IMPLICIT_HEADERS = "implicitHeaders";
-    public static final String IMPLICIT_HEADERS_REGEX = "implicitHeadersRegex";
-
     public static final String DEFAULT_TEST_FOLDER = "${project.build.directory}/generated-test-sources/openapi";
 
-    protected String dateLibrary = "java8";
     protected boolean supportAsync = false;
-    protected boolean withXml = false;
     protected String invokerPackage = "org.openapijsonschematools";
     protected String groupId = "org.openapijsonschematools";
     protected String artifactId = "openapi-java";
@@ -98,30 +79,16 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     // this must not be OS-specific
     protected String sourceFolder = projectFolder + "/java";
     protected String testFolder = projectTestFolder + "/java";
-    protected boolean fullJavaUtil;
-    protected boolean discriminatorCaseSensitive = true; // True if the discriminator value lookup should be case-sensitive.
-    protected String javaUtilPrefix = "";
-    protected Boolean serializableModel = false;
-    protected boolean serializeBigDecimalAsString = false;
     protected String apiDocPath = "docs/";
     protected String modelDocPath = "docs/";
     protected boolean supportJava6 = false;
-    protected boolean disableHtmlEscaping = false;
-    protected String booleanGetterPrefix = "get";
-    protected boolean ignoreAnyOfInEnum = false;
     protected String parentGroupId = "";
     protected String parentArtifactId = "";
     protected String parentVersion = "";
     protected boolean parentOverridden = false;
-    protected List<String> additionalModelTypeAnnotations = new LinkedList<>();
-    protected List<String> additionalEnumTypeAnnotations = new LinkedList<>();
-    protected boolean openApiNullable = true;
     protected String outputTestFolder = "";
     protected DocumentationProvider documentationProvider;
     protected AnnotationLibrary annotationLibrary;
-    protected boolean implicitHeaders = false;
-    protected String implicitHeadersRegex = null;
-
     private Map<String, String> schemaKeyToModelNameCache = new HashMap<>();
 
     public AbstractJavaGenerator() {
@@ -177,14 +144,10 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
                 "Object",
                 "byte[]"
         );
-        instantiationTypes.put("array", "ArrayList");
-        instantiationTypes.put("set", "LinkedHashSet");
-        instantiationTypes.put("map", "HashMap");
         typeMapping.put("date", "Date");
         typeMapping.put("file", "File");
         typeMapping.put("AnyType", "Object");
 
-        cliOptions.add(new CliOption(CodegenConstants.MODEL_PACKAGE, CodegenConstants.MODEL_PACKAGE_DESC));
         cliOptions.add(new CliOption(CodegenConstants.API_PACKAGE, CodegenConstants.API_PACKAGE_DESC));
         cliOptions.add(new CliOption(CodegenConstants.INVOKER_PACKAGE, CodegenConstants.INVOKER_PACKAGE_DESC).defaultValue(this.getInvokerPackage()));
         cliOptions.add(new CliOption(CodegenConstants.GROUP_ID, CodegenConstants.GROUP_ID_DESC).defaultValue(this.getGroupId()));
@@ -202,30 +165,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         cliOptions.add(new CliOption(CodegenConstants.LICENSE_NAME, CodegenConstants.LICENSE_NAME_DESC).defaultValue(this.getLicenseName()));
         cliOptions.add(new CliOption(CodegenConstants.LICENSE_URL, CodegenConstants.LICENSE_URL_DESC).defaultValue(this.getLicenseUrl()));
         cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.SERIALIZABLE_MODEL, CodegenConstants.SERIALIZABLE_MODEL_DESC, this.getSerializableModel()));
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.SERIALIZE_BIG_DECIMAL_AS_STRING, CodegenConstants.SERIALIZE_BIG_DECIMAL_AS_STRING_DESC, serializeBigDecimalAsString));
-        cliOptions.add(CliOption.newBoolean(FULL_JAVA_UTIL, "whether to use fully qualified name for classes under java.util. This option only works for Java API client", fullJavaUtil));
-        cliOptions.add(CliOption.newBoolean(DISCRIMINATOR_CASE_SENSITIVE, "Whether the discriminator value lookup should be case-sensitive or not. This option only works for Java API client", discriminatorCaseSensitive));
         cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
-        cliOptions.add(CliOption.newBoolean(WITH_XML, "whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML)"));
-
-        CliOption dateLibrary = new CliOption(DATE_LIBRARY, "Option. Date library to use").defaultValue(this.getDateLibrary());
-        Map<String, String> dateOptions = new HashMap<>();
-        dateOptions.put("java8", "Java 8 native JSR310 (preferred for jdk 1.8+)");
-        dateOptions.put("java8-localdatetime", "Java 8 using LocalDateTime (for legacy app only)");
-        dateOptions.put("joda", "Joda (for legacy app only)");
-        dateOptions.put("legacy", "Legacy java.util.Date");
-        dateLibrary.setEnum(dateOptions);
-        cliOptions.add(dateLibrary);
-
-        cliOptions.add(CliOption.newBoolean(DISABLE_HTML_ESCAPING, "Disable HTML escaping of JSON strings when using gson (needed to avoid problems with byte[] fields)", disableHtmlEscaping));
-        cliOptions.add(CliOption.newString(BOOLEAN_GETTER_PREFIX, "Set booleanGetterPrefix").defaultValue(this.getBooleanGetterPrefix()));
-        cliOptions.add(CliOption.newBoolean(IGNORE_ANYOF_IN_ENUM, "Ignore anyOf keyword in enum", ignoreAnyOfInEnum));
-        cliOptions.add(CliOption.newString(ADDITIONAL_ENUM_TYPE_ANNOTATIONS, "Additional annotations for enum type(class level annotations)"));
-        cliOptions.add(CliOption.newString(ADDITIONAL_MODEL_TYPE_ANNOTATIONS, "Additional annotations for model type(class level annotations). List separated by semicolon(;) or new line (Linux or Windows)"));
-        cliOptions.add(CliOption.newBoolean(OPENAPI_NULLABLE, "Enable OpenAPI Jackson Nullable library", this.openApiNullable));
-        cliOptions.add(CliOption.newBoolean(IMPLICIT_HEADERS, "Skip header parameters in the generated API methods using @ApiImplicitParams annotation.", implicitHeaders));
-        cliOptions.add(CliOption.newString(IMPLICIT_HEADERS_REGEX, "Skip header parameters that matches given regex in the generated API methods using @ApiImplicitParams annotation. Note: this parameter is ignored when implicitHeaders=true"));
 
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
@@ -310,32 +250,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         }
         additionalProperties.put(SUPPORT_JAVA6, supportJava6);
 
-        if (additionalProperties.containsKey(DISABLE_HTML_ESCAPING)) {
-            this.setDisableHtmlEscaping(Boolean.parseBoolean(additionalProperties.get(DISABLE_HTML_ESCAPING).toString()));
-        }
-        additionalProperties.put(DISABLE_HTML_ESCAPING, disableHtmlEscaping);
-
-        if (additionalProperties.containsKey(BOOLEAN_GETTER_PREFIX)) {
-            this.setBooleanGetterPrefix(additionalProperties.get(BOOLEAN_GETTER_PREFIX).toString());
-        }
-        additionalProperties.put(BOOLEAN_GETTER_PREFIX, booleanGetterPrefix);
-
-        if (additionalProperties.containsKey(IGNORE_ANYOF_IN_ENUM)) {
-            this.setIgnoreAnyOfInEnum(Boolean.parseBoolean(additionalProperties.get(IGNORE_ANYOF_IN_ENUM).toString()));
-        }
-        additionalProperties.put(IGNORE_ANYOF_IN_ENUM, ignoreAnyOfInEnum);
-
-        if (additionalProperties.containsKey(ADDITIONAL_MODEL_TYPE_ANNOTATIONS)) {
-            String additionalAnnotationsList = additionalProperties.get(ADDITIONAL_MODEL_TYPE_ANNOTATIONS).toString();
-            this.setAdditionalModelTypeAnnotations(Arrays.asList(additionalAnnotationsList.trim().split("\\s*(;|\\r?\\n)\\s*")));
-        }
-
-        if (additionalProperties.containsKey(ADDITIONAL_ENUM_TYPE_ANNOTATIONS)) {
-            String additionalAnnotationsList = additionalProperties.get(ADDITIONAL_ENUM_TYPE_ANNOTATIONS).toString();
-
-            this.setAdditionalEnumTypeAnnotations(Arrays.asList(additionalAnnotationsList.split(";")));
-        }
-
         if (additionalProperties.containsKey(CodegenConstants.INVOKER_PACKAGE)) {
             this.setInvokerPackage((String) additionalProperties.get(CodegenConstants.INVOKER_PACKAGE));
         } else if (additionalProperties.containsKey(CodegenConstants.API_PACKAGE)) {
@@ -344,20 +258,9 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             this.additionalProperties.put(CodegenConstants.INVOKER_PACKAGE, derivedInvokerPackage);
             this.setInvokerPackage((String) additionalProperties.get(CodegenConstants.INVOKER_PACKAGE));
             LOGGER.info("Invoker Package Name, originally not set, is now derived from api package name: {}", derivedInvokerPackage);
-        } else if (additionalProperties.containsKey(CodegenConstants.MODEL_PACKAGE)) {
-            // guess from model package
-            String derivedInvokerPackage = deriveInvokerPackageName((String) additionalProperties.get(CodegenConstants.MODEL_PACKAGE));
-            this.additionalProperties.put(CodegenConstants.INVOKER_PACKAGE, derivedInvokerPackage);
-            this.setInvokerPackage((String) additionalProperties.get(CodegenConstants.INVOKER_PACKAGE));
-            LOGGER.info("Invoker Package Name, originally not set, is now derived from model package name: {}",
-                    derivedInvokerPackage);
         } else {
             //not set, use default to be passed to template
             additionalProperties.put(CodegenConstants.INVOKER_PACKAGE, invokerPackage);
-        }
-
-        if (!additionalProperties.containsKey(CodegenConstants.MODEL_PACKAGE)) {
-            additionalProperties.put(CodegenConstants.MODEL_PACKAGE, modelPackage);
         }
 
         if (!additionalProperties.containsKey(CodegenConstants.API_PACKAGE)) {
@@ -449,50 +352,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         }
         additionalProperties.put(CodegenConstants.SOURCE_FOLDER, sourceFolder);
 
-        if (additionalProperties.containsKey(CodegenConstants.SERIALIZABLE_MODEL)) {
-            this.setSerializableModel(Boolean.valueOf(additionalProperties.get(CodegenConstants.SERIALIZABLE_MODEL).toString()));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.LIBRARY)) {
-            this.setLibrary((String) additionalProperties.get(CodegenConstants.LIBRARY));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.SERIALIZE_BIG_DECIMAL_AS_STRING)) {
-            this.setSerializeBigDecimalAsString(Boolean.parseBoolean(additionalProperties.get(CodegenConstants.SERIALIZE_BIG_DECIMAL_AS_STRING).toString()));
-        }
-
-        // need to put back serializableModel (boolean) into additionalProperties as value in additionalProperties is string
-        additionalProperties.put(CodegenConstants.SERIALIZABLE_MODEL, serializableModel);
-
-        if (additionalProperties.containsKey(FULL_JAVA_UTIL)) {
-            this.setFullJavaUtil(Boolean.parseBoolean(additionalProperties.get(FULL_JAVA_UTIL).toString()));
-        }
-        if (additionalProperties.containsKey(DISCRIMINATOR_CASE_SENSITIVE)) {
-            this.setDiscriminatorCaseSensitive(Boolean.parseBoolean(additionalProperties.get(DISCRIMINATOR_CASE_SENSITIVE).toString()));
-        } else {
-            // By default, the discriminator lookup should be case sensitive. There is nothing in the OpenAPI specification
-            // that indicates the lookup should be case insensitive. However, some implementations perform
-            // a case-insensitive lookup.
-            this.setDiscriminatorCaseSensitive(Boolean.TRUE);
-        }
-        additionalProperties.put(DISCRIMINATOR_CASE_SENSITIVE, this.discriminatorCaseSensitive);
-
-        if (fullJavaUtil) {
-            javaUtilPrefix = "java.util.";
-        }
-        additionalProperties.put(FULL_JAVA_UTIL, fullJavaUtil);
-        additionalProperties.put("javaUtilPrefix", javaUtilPrefix);
-
-        if (additionalProperties.containsKey(WITH_XML)) {
-            this.setWithXml(Boolean.parseBoolean(additionalProperties.get(WITH_XML).toString()));
-        }
-        additionalProperties.put(WITH_XML, withXml);
-
-        if (additionalProperties.containsKey(OPENAPI_NULLABLE)) {
-            this.setOpenApiNullable(Boolean.parseBoolean(additionalProperties.get(OPENAPI_NULLABLE).toString()));
-        }
-        additionalProperties.put(OPENAPI_NULLABLE, openApiNullable);
-
         if (additionalProperties.containsKey(CodegenConstants.PARENT_GROUP_ID)) {
             this.setParentGroupId((String) additionalProperties.get(CodegenConstants.PARENT_GROUP_ID));
         }
@@ -505,14 +364,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             this.setParentVersion((String) additionalProperties.get(CodegenConstants.PARENT_VERSION));
         }
 
-        if (additionalProperties.containsKey(IMPLICIT_HEADERS)) {
-            this.setImplicitHeaders(Boolean.parseBoolean(additionalProperties.get(IMPLICIT_HEADERS).toString()));
-        }
-
-        if (additionalProperties.containsKey(IMPLICIT_HEADERS_REGEX)) {
-            this.setImplicitHeadersRegex(additionalProperties.get(IMPLICIT_HEADERS_REGEX).toString());
-        }
-
         if (!StringUtils.isEmpty(parentGroupId) && !StringUtils.isEmpty(parentArtifactId) && !StringUtils.isEmpty(parentVersion)) {
             additionalProperties.put("parentOverridden", true);
         }
@@ -520,18 +371,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         // make api and model doc path available in mustache template
         additionalProperties.put("apiDocPath", apiDocPath);
         additionalProperties.put("modelDocPath", modelDocPath);
-
-        if (fullJavaUtil) {
-            typeMapping.put("array", "java.util.List");
-            typeMapping.put("set", "java.util.Set");
-            typeMapping.put("map", "java.util.Map");
-            typeMapping.put("DateTime", "java.util.Date");
-            typeMapping.put("UUID", "java.util.UUID");
-            typeMapping.remove("List");
-            instantiationTypes.put("array", "java.util.ArrayList");
-            instantiationTypes.put("set", "java.util.LinkedHashSet");
-            instantiationTypes.put("map", "java.util.HashMap");
-        }
 
         this.sanitizeConfig();
 
@@ -547,27 +386,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             }
         }
 
-        if (additionalProperties.containsKey(DATE_LIBRARY)) {
-            setDateLibrary(additionalProperties.get("dateLibrary").toString());
-        }
-
-        if ("joda".equals(dateLibrary)) {
-            additionalProperties.put("joda", "true");
-            typeMapping.put("date", "LocalDate");
-            typeMapping.put("DateTime", "DateTime");
-        } else if (dateLibrary.startsWith("java8")) {
-            additionalProperties.put("java8", "true");
-            additionalProperties.put("jsr310", "true");
-            typeMapping.put("date", "LocalDate");
-            if ("java8-localdatetime".equals(dateLibrary)) {
-                typeMapping.put("DateTime", "LocalDateTime");
-            } else {
-                typeMapping.put("DateTime", "OffsetDateTime");
-            }
-        } else if (dateLibrary.equals("legacy")) {
-            additionalProperties.put("legacyDates", "true");
-        }
-
         if (additionalProperties.containsKey(TEST_OUTPUT)) {
             setOutputTestFolder(additionalProperties.get(TEST_OUTPUT).toString());
         }
@@ -577,20 +395,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> objs) {
         objs = super.postProcessAllModels(objs);
         objs = super.updateAllModels(objs);
-
-        if (!additionalModelTypeAnnotations.isEmpty()) {
-            for (String modelName : objs.keySet()) {
-                Map<String, Object> models = (Map<String, Object>) objs.get(modelName);
-                models.put(ADDITIONAL_MODEL_TYPE_ANNOTATIONS, additionalModelTypeAnnotations);
-            }
-        }
-
-        if (!additionalEnumTypeAnnotations.isEmpty()) {
-            for (String modelName : objs.keySet()) {
-                Map<String, Object> models = (Map<String, Object>) objs.get(modelName);
-                models.put(ADDITIONAL_ENUM_TYPE_ANNOTATIONS, additionalEnumTypeAnnotations);
-            }
-        }
 
         return objs;
     }
@@ -605,9 +409,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         }
 
         this.setModelPackage(sanitizePackageName(modelPackage));
-        if (additionalProperties.containsKey(CodegenConstants.MODEL_PACKAGE)) {
-            this.additionalProperties.put(CodegenConstants.MODEL_PACKAGE, modelPackage);
-        }
 
         this.setInvokerPackage(sanitizePackageName(invokerPackage));
         if (additionalProperties.containsKey(CodegenConstants.INVOKER_PACKAGE)) {
@@ -617,9 +418,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
     @Override
     public String escapeReservedWord(String name) {
-        if (this.reservedWordsMappings().containsKey(name)) {
-            return this.reservedWordsMappings().get(name);
-        }
         return "_" + name;
     }
 
@@ -925,43 +723,10 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             model.imports.add("JsonTypeName");
         }
 
-        if (serializeBigDecimalAsString) {
-            if (property.types.contains("string") && property.format.equals("number")) {
-                // we serialize BigDecimal as `string` to avoid precision loss
-                property.vendorExtensions.put("x-extra-annotation", "@JsonSerialize(using = ToStringSerializer.class)");
-
-                // this requires some more imports to be added for this model...
-                model.imports.add("ToStringSerializer");
-                model.imports.add("JsonSerialize");
-            }
-        }
-
-        if (!fullJavaUtil) {
-            if (property.types != null && property.types.contains("array") && !property.uniqueItems) {
-                model.imports.add("ArrayList");
-            } else if (property.types != null && property.types.contains("array") && property.uniqueItems) {
-                model.imports.add("LinkedHashSet");
-                boolean canNotBeWrappedToNullable = !openApiNullable || Boolean.FALSE.equals(property.nullable);
-                if (canNotBeWrappedToNullable) {
-                    model.imports.add("JsonDeserialize");
-                    property.vendorExtensions.put("x-setter-extra-annotation", "@JsonDeserialize(as = LinkedHashSet.class)");
-                }
-            } else if (property.types != null && property.types.contains("object")) {
-                model.imports.add("HashMap");
-            }
-        }
-
         if (model.enumInfo == null) {
             // needed by all pojos, but not enums
             model.imports.add("ApiModelProperty");
             model.imports.add("ApiModel");
-        }
-
-        if (openApiNullable) {
-            if (Boolean.TRUE.equals(property.nullable)) {
-                model.imports.add("JsonNullable");
-                model.vendorExtensions.put("x-jackson-optional-nullable-helpers", true);
-            }
         }
 
         if (property.readOnly) {
@@ -974,26 +739,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         super.preprocessOpenAPI(openAPI);
         if (openAPI == null) {
             return;
-        }
-        if (openAPI.getPaths() != null) {
-            for (Map.Entry<String, PathItem> openAPIGetPathsEntry : openAPI.getPaths().entrySet()) {
-                String pathname = openAPIGetPathsEntry.getKey();
-                PathItem path = openAPIGetPathsEntry.getValue();
-                if (path.readOperations() == null) {
-                    continue;
-                }
-                for (Operation operation : path.readOperations()) {
-                    LOGGER.info("Processing operation {}", operation.getOperationId());
-                    if (hasBodyParameter(openAPI, operation) || hasFormParameter(openAPI, operation)) {
-                        String defaultContentType = hasFormParameter(openAPI, operation) ? "application/x-www-form-urlencoded" : "application/json";
-                        List<String> consumes = new ArrayList<>(getConsumesInfo(openAPI, operation));
-                        String contentType = consumes.isEmpty() ? defaultContentType : consumes.get(0);
-                        operation.addExtension("x-content-type", contentType);
-                    }
-                    String accepts = getAccept(openAPI, operation);
-                    operation.addExtension("x-accepts", accepts);
-                }
-            }
         }
 
         // TODO: Setting additionalProperties is not the responsibility of this method. These side-effects should be moved elsewhere to prevent unexpected behaviors.
@@ -1016,29 +761,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             }
         }
         additionalProperties.put(CodegenConstants.ARTIFACT_VERSION, artifactVersion);
-
-        if (ignoreAnyOfInEnum) {
-            // Alter OpenAPI schemas ignore anyOf keyword if it consist of an enum. Example:
-            //     anyOf:
-            //     - type: string
-            //       enum:
-            //       - ENUM_A
-            //       - ENUM_B
-            Stream.concat(
-                            Stream.of(openAPI.getComponents().getSchemas()),
-                            openAPI.getComponents().getSchemas().values().stream()
-                                    .filter(schema -> schema.getProperties() != null)
-                                    .map(Schema::getProperties))
-                    .forEach(schemas -> schemas.replaceAll(
-                            (name, s) -> Stream.of(s)
-                                    .filter(schema -> schema instanceof ComposedSchema)
-                                    .map(schema -> (ComposedSchema) schema)
-                                    .filter(schema -> Objects.nonNull(schema.getAnyOf()))
-                                    .flatMap(schema -> schema.getAnyOf().stream())
-                                    .filter(schema -> Objects.nonNull(schema.getEnum()))
-                                    .findFirst()
-                                    .orElse((Schema) s)));
-        }
     }
 
     private static String getAccept(OpenAPI openAPI, Operation operation) {
@@ -1219,74 +941,12 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         this.testFolder = testFolder;
     }
 
-    public void setSerializeBigDecimalAsString(boolean s) {
-        this.serializeBigDecimalAsString = s;
-    }
-
-    public Boolean getSerializableModel() {
-        return serializableModel;
-    }
-
-    public void setSerializableModel(Boolean serializableModel) {
-        this.serializableModel = serializableModel;
-    }
-
     private String sanitizePath(String p) {
         //prefer replace a ", instead of a fuLL URL encode for readability
         return p.replaceAll("\"", "%22");
     }
-
-    public void setFullJavaUtil(boolean fullJavaUtil) {
-        this.fullJavaUtil = fullJavaUtil;
-    }
-
-    /**
-     * Set whether discriminator value lookup is case-sensitive or not.
-     *
-     * @param discriminatorCaseSensitive true if the discriminator value lookup should be case sensitive.
-     */
-    public void setDiscriminatorCaseSensitive(boolean discriminatorCaseSensitive) {
-        this.discriminatorCaseSensitive = discriminatorCaseSensitive;
-    }
-
-    public void setWithXml(boolean withXml) {
-        this.withXml = withXml;
-    }
-
-    public String getDateLibrary() {
-        return dateLibrary;
-    }
-
-    public void setDateLibrary(String library) {
-        this.dateLibrary = library;
-    }
-
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
-    }
-
-    public void setDisableHtmlEscaping(boolean disabled) {
-        this.disableHtmlEscaping = disabled;
-    }
-
-    public String getBooleanGetterPrefix() {
-        return booleanGetterPrefix;
-    }
-
-    public void setBooleanGetterPrefix(String booleanGetterPrefix) {
-        this.booleanGetterPrefix = booleanGetterPrefix;
-    }
-
-    public void setIgnoreAnyOfInEnum(boolean ignoreAnyOfInEnum) {
-        this.ignoreAnyOfInEnum = ignoreAnyOfInEnum;
-    }
-
-    public boolean isOpenApiNullable() {
-        return openApiNullable;
-    }
-
-    public void setOpenApiNullable(final boolean openApiNullable) {
-        this.openApiNullable = openApiNullable;
     }
 
     @Override
@@ -1326,14 +986,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     @Override
     public void setAnnotationLibrary(AnnotationLibrary annotationLibrary) {
         this.annotationLibrary = annotationLibrary;
-    }
-
-    public void setImplicitHeaders(boolean implicitHeaders) {
-        this.implicitHeaders = implicitHeaders;
-    }
-
-    public void setImplicitHeadersRegex(String implicitHeadersRegex) {
-        this.implicitHeadersRegex = implicitHeadersRegex;
     }
 
     @Override
@@ -1441,18 +1093,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         this.parentOverridden = parentOverridden;
     }
 
-    public List<String> getAdditionalModelTypeAnnotations() {
-        return additionalModelTypeAnnotations;
-    }
-
-    public void setAdditionalModelTypeAnnotations(final List<String> additionalModelTypeAnnotations) {
-        this.additionalModelTypeAnnotations = additionalModelTypeAnnotations;
-    }
-
-    public void setAdditionalEnumTypeAnnotations(final List<String> additionalEnumTypeAnnotations) {
-        this.additionalEnumTypeAnnotations = additionalEnumTypeAnnotations;
-    }
-
     /**
      * Search for property by {@link CodegenSchema#jsonPathPiece}
      * @param name - name to search for
@@ -1467,19 +1107,5 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         return properties.stream()
             .filter(p -> p.jsonPathPiece.original.equals(name))
             .findFirst();
-    }
-
-    @Override
-    public List<VendorExtension> getSupportedVendorExtensions() {
-        List<VendorExtension> extensions = super.getSupportedVendorExtensions();
-        extensions.add(VendorExtension.X_DISCRIMINATOR_VALUE);
-        extensions.add(VendorExtension.X_IMPLEMENTS);
-        extensions.add(VendorExtension.X_SETTER_EXTRA_ANNOTATION);
-        extensions.add(VendorExtension.X_TAGS);
-        extensions.add(VendorExtension.X_ACCEPTS);
-        extensions.add(VendorExtension.X_CONTENT_TYPE);
-        extensions.add(VendorExtension.X_CLASS_EXTRA_ANNOTATION);
-        extensions.add(VendorExtension.X_FIELD_EXTRA_ANNOTATION);
-        return extensions;
     }
 }

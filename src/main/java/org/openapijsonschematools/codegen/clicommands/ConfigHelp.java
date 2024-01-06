@@ -68,26 +68,11 @@ public class ConfigHelp extends AbstractCommand {
             FORMAT_TEXT, FORMAT_MARKDOWN, FORMAT_YAMLSAMPLE})
     private String format;
 
-    @Option(name = {"--schema-mappings"}, title = "schema mappings", description = "display the schema mappings (none)")
-    private Boolean schemaMappings;
-
-    @Option(name = {"--inline-schema-name-mappings"}, title = "inline schema name mappings", description = "displays the inline schema name mappings (none)")
-    private Boolean inlineSchemaNameMappings;
-
-    @Option(name = {"--inline-schema-name-defaults"}, title = "inline schema name defaults", description = "default values used when naming inline schema name")
-    private Boolean inlineSchemaNameDefaults;
-
     @Option(name = {"--metadata"}, title = "metadata", description = "displays the generator metadata like the help txt for the generator and generator type etc")
     private Boolean metadata;
 
-    @Option(name = {"--language-specific-primitive"}, title = "language specific primitives", description = "displays the language specific primitives (types which require no additional imports, or which may conflict with user defined model names)")
-    private Boolean languageSpecificPrimitives;
-
     @Option(name = {"--reserved-words"}, title = "language specific reserved words", description = "displays the reserved words which may result in renamed model or property names")
     private Boolean reservedWords;
-
-    @Option(name = {"--instantiation-types"}, title = "instantiation types", description = "displays types used to instantiate simple type/alias names")
-    private Boolean instantiationTypes;
 
     @Option(name = {"--feature-set"}, title = "feature set", description = "displays feature set as supported by the generator")
     private Boolean featureSets;
@@ -100,7 +85,7 @@ public class ConfigHelp extends AbstractCommand {
         "--supported-vendor-extensions"}, title = "supported vendor extensions", description = "List supported vendor extensions")
     private Boolean supportedVendorExtensions;
 
-    @Option(name = {"--full-details"}, title = "full generator details", description = "displays CLI options as well as other configs/mappings (implies --instantiation-types, --reserved-words, --language-specific-primitives, --import-mappings, --feature-set)")
+    @Option(name = {"--full-details"}, title = "full generator details", description = "displays CLI options as well as other configs/mappings (implies --reserved-words, --feature-set)")
     private Boolean fullDetails;
 
     private String newline = System.lineSeparator();
@@ -113,9 +98,7 @@ public class ConfigHelp extends AbstractCommand {
         }
 
         if (Boolean.TRUE.equals(fullDetails)) {
-            instantiationTypes = Boolean.TRUE;
             reservedWords = Boolean.TRUE;
-            languageSpecificPrimitives = Boolean.TRUE;
             featureSets = Boolean.TRUE;
             metadata = Boolean.TRUE;
             supportedVendorExtensions = Boolean.TRUE;
@@ -350,13 +333,9 @@ public class ConfigHelp extends AbstractCommand {
             generateMdSupportedVendorExtensions(sb, config);
         }
 
-        if (Boolean.TRUE.equals(instantiationTypes)) {
-            generateMdInstantiationTypes(sb, config);
-        }
+        generateMdInstantiationTypes(sb, config);
 
-        if (Boolean.TRUE.equals(languageSpecificPrimitives)) {
-            generateMdLanguageSpecificPrimitives(sb, config);
-        }
+        generateMdLanguageSpecificPrimitives(sb, config);
 
         if (Boolean.TRUE.equals(reservedWords)) {
             generateMdReservedWords(sb, config);
@@ -420,45 +399,10 @@ public class ConfigHelp extends AbstractCommand {
             sb.append(newline).append(newline);
         });
 
-        if (Boolean.TRUE.equals(schemaMappings)) {
-            sb.append(newline).append("SCHEMA MAPPING").append(newline).append(newline);
-            Map<String, String> map = config.schemaMapping()
-                    .entrySet()
-                    .stream()
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> {
-                        throw new IllegalStateException(String.format(Locale.ROOT, "Duplicated options! %s and %s", a, b));
-                    }, TreeMap::new));
-            writePlainTextFromMap(sb, map, optIndent, optNestedIndent, "Scheme", "Mapped to");
-            sb.append(newline);
-        }
-
-        if (Boolean.TRUE.equals(inlineSchemaNameMappings)) {
-            sb.append(newline).append("INLINE SCHEMA NAME MAPPING").append(newline).append(newline);
-            Map<String, String> map = config.inlineSchemaNameMapping()
-                    .entrySet()
-                    .stream()
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> {
-                        throw new IllegalStateException(String.format(Locale.ROOT, "Duplicated options! %s and %s", a, b));
-                    }, TreeMap::new));
-            writePlainTextFromMap(sb, map, optIndent, optNestedIndent, "Inline scheme name", "Mapped to");
-            sb.append(newline);
-        }
-
-        if (Boolean.TRUE.equals(inlineSchemaNameDefaults)) {
-            sb.append(newline).append("INLINE SCHEMA NAME DEFAULTS").append(newline).append(newline);
-            Map<String, String> map = config.inlineSchemaNameDefault()
-                    .entrySet()
-                    .stream()
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> {
-                        throw new IllegalStateException(String.format(Locale.ROOT, "Duplicated options! %s and %s", a, b));
-                    }, TreeMap::new));
-            writePlainTextFromMap(sb, map, optIndent, optNestedIndent, "Inline scheme naming convention", "Defaulted to");
-            sb.append(newline);
-        }
-
-        if (Boolean.TRUE.equals(instantiationTypes)) {
+        Map<String, String> instantiationTypes = config.instantiationTypes();
+        if (instantiationTypes != null) {
             sb.append(newline).append("INSTANTIATION TYPES").append(newline).append(newline);
-            Map<String, String> map = config.instantiationTypes()
+            Map<String, String> map = instantiationTypes
                     .entrySet()
                     .stream()
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> {
@@ -468,7 +412,7 @@ public class ConfigHelp extends AbstractCommand {
             sb.append(newline);
         }
 
-        if (Boolean.TRUE.equals(languageSpecificPrimitives)) {
+        {
             sb.append(newline).append("LANGUAGE PRIMITIVES").append(newline).append(newline);
             String[] arr = config.languageSpecificPrimitives().stream().sorted().toArray(String[]::new);
             writePlainTextFromArray(sb, arr, optIndent);

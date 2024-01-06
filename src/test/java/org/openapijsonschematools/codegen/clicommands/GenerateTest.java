@@ -20,7 +20,6 @@ package org.openapijsonschematools.codegen.clicommands;
 import io.airlift.airline.Cli;
 import org.apache.commons.lang3.ArrayUtils;
 import org.mockito.MockSettings;
-import org.openapijsonschematools.codegen.clicommands.Generate;
 import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
@@ -219,75 +218,10 @@ public class GenerateTest {
     }
 
     @Test
-    public void testImportMappingsLong() {
-        setupAndRunGenericTest("--import-mappings", "hello=world,key=,foo=bar,key2");
-
-        verify(configurator).addImportMapping("hello", "world");
-        verify(configurator).addImportMapping("foo", "bar");
-        verify(configurator).addImportMapping("key", "");
-        verify(configurator).addImportMapping("key2", "");
-    }
-
-    @Test
-    public void testImportMappingsLongMultiple() {
-        setupAndRunGenericTest("--import-mappings", "hello=world", "--import-mappings", "key=",
-                "--import-mappings", "foo=bar", "--import-mappings", "key2");
-
-        verify(configurator).addImportMapping("hello", "world");
-        verify(configurator).addImportMapping("foo", "bar");
-        verify(configurator).addImportMapping("key", "");
-        verify(configurator).addImportMapping("key2", "");
-    }
-
-    @Test
-    public void testInstantiationTypesLong() {
-        setupAndRunGenericTest("--instantiation-types", "hello=world,key=,foo=bar,key2");
-        verify(configurator).addInstantiationType("hello", "world");
-        verify(configurator).addInstantiationType("foo", "bar");
-        verify(configurator).addInstantiationType("key", "");
-        verify(configurator).addInstantiationType("key2", "");
-    }
-
-    @Test
-    public void testInstantiationTypesLongMultiple() {
-        setupAndRunGenericTest("--instantiation-types", "hello=world", "--instantiation-types",
-                "key=", "--instantiation-types", "foo=bar", "--instantiation-types", "key2");
-        verify(configurator).addInstantiationType("hello", "world");
-        verify(configurator).addInstantiationType("foo", "bar");
-        verify(configurator).addInstantiationType("key", "");
-        verify(configurator).addInstantiationType("key2", "");
-    }
-
-    @Test
     public void testInvokerPackage() {
         final String value = "io.foo.bar.api";
         setupAndRunGenericTest("--invoker-package", value);
         verify(configurator).setInvokerPackage(value);
-    }
-
-    @Test
-    public void testLanguageSpecificPrimitives() {
-        setupAndRunGenericTest("--language-specific-primitives", "foo,,bar",
-                "--language-specific-primitives", "hello,world");
-
-        verify(configurator).addLanguageSpecificPrimitive("foo");
-        verify(configurator).addLanguageSpecificPrimitive("bar");
-        verify(configurator).addLanguageSpecificPrimitive("hello");
-        verify(configurator).addLanguageSpecificPrimitive("world");
-    }
-
-    @Test
-    public void testLibrary() {
-        final String value = "feign";
-        setupAndRunGenericTest("--library", value);
-        verify(configurator).setLibrary(value);
-    }
-
-    @Test
-    public void testModelPackage() {
-        final String value = "io.foo.bar.api";
-        setupAndRunGenericTest("--model-package", value);
-        verify(configurator).setModelPackage(value);
     }
 
     @Test
@@ -393,25 +327,6 @@ public class GenerateTest {
                 System.out.println("Directory didn't delete. You can ignore this.");
             }
         }
-    }
-
-    @Test
-    public void testTypeMappingsLong() {
-        setupAndRunGenericTest("--type-mappings", "hello=world,key=,foo=bar,key2");
-        verify(configurator).addTypeMapping("hello", "world");
-        verify(configurator).addTypeMapping("foo", "bar");
-        verify(configurator).addTypeMapping("key", "");
-        verify(configurator).addTypeMapping("key2", "");
-    }
-
-    @Test
-    public void testTypeMappingsLongMultiple() {
-        setupAndRunGenericTest("--type-mappings", "hello=world", "--type-mappings", "key=",
-                "--type-mappings", "foo=bar", "--type-mappings", "key2");
-        verify(configurator).addTypeMapping("hello", "world");
-        verify(configurator).addTypeMapping("foo", "bar");
-        verify(configurator).addTypeMapping("key", "");
-        verify(configurator).addTypeMapping("key2", "");
     }
 
     @Test

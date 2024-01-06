@@ -60,9 +60,6 @@ public class ModelUtils {
     // A vendor extension to track the value of the 'swagger' field in a 2.0 doc, if applicable.
     private static final String openapiDocVersion = "x-original-swagger-version";
 
-    // A vendor extension to track the value of the 'disallowAdditionalPropertiesIfNotPresent' CLI
-    private static final String disallowAdditionalPropertiesIfNotPresent = "x-disallow-additional-properties-if-not-present";
-
     private static final String freeFormExplicit = "x-is-free-form";
 
     private static ObjectMapper JSON_MAPPER, YAML_MAPPER;
@@ -70,14 +67,6 @@ public class ModelUtils {
     static {
         JSON_MAPPER = ObjectMapperFactory.createJson();
         YAML_MAPPER = ObjectMapperFactory.createYaml();
-    }
-
-    public static void setDisallowAdditionalPropertiesIfNotPresent(boolean value) {
-        GlobalSettings.setProperty(disallowAdditionalPropertiesIfNotPresent, Boolean.toString(value));
-    }
-
-    public static boolean isDisallowAdditionalPropertiesIfNotPresent() {
-        return Boolean.parseBoolean(GlobalSettings.getProperty(disallowAdditionalPropertiesIfNotPresent, "true"));
     }
 
     /**
@@ -1046,26 +1035,12 @@ public class ModelUtils {
     /**
      * Get the actual schema from aliases. If the provided schema is not an alias, the schema itself will be returned.
      *
-     * @param openAPI specification being checked
-     * @param schema  schema (alias or direct reference)
+     * @param openAPI        OpenAPI document containing the schemas.
+     * @param schema         schema (alias or direct reference)
      * @return actual schema
      */
     public static Schema unaliasSchema(OpenAPI openAPI,
                                        Schema schema) {
-        return unaliasSchema(openAPI, schema, Collections.emptyMap());
-    }
-
-    /**
-     * Get the actual schema from aliases. If the provided schema is not an alias, the schema itself will be returned.
-     *
-     * @param openAPI        OpenAPI document containing the schemas.
-     * @param schema         schema (alias or direct reference)
-     * @param schemaMappings mappings of external types to be omitted by unaliasing
-     * @return actual schema
-     */
-    public static Schema unaliasSchema(OpenAPI openAPI,
-                                       Schema schema,
-                                       Map<String, String> schemaMappings) {
         Map<String, Schema> allSchemas = getSchemas(openAPI);
         if (allSchemas == null || allSchemas.isEmpty()) {
             // skip the warning as the spec can have no model defined
@@ -1075,10 +1050,6 @@ public class ModelUtils {
 
         if (schema != null && StringUtils.isNotEmpty(schema.get$ref())) {
             String simpleRef = ModelUtils.getSimpleRef(schema.get$ref());
-            if (schemaMappings.containsKey(simpleRef)) {
-                LOGGER.debug("Schema unaliasing of {} omitted because aliased class is to be mapped to {}", simpleRef, schemaMappings.get(simpleRef));
-                return schema;
-            }
             Schema ref = allSchemas.get(simpleRef);
             if (ref == null) {
                 OnceLogger.once(LOGGER).warn("{} is not defined", schema.get$ref());
@@ -1103,11 +1074,13 @@ public class ModelUtils {
                     // which is the last reference to the actual model/object
                     return schema;
                 } else { // free form object (type: object)
-                    return unaliasSchema(openAPI, allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())),
-                            schemaMappings);
+                    return unaliasSchema(
+                            openAPI,
+                            allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref()))
+                    );
                 }
             } else {
-                return unaliasSchema(openAPI, allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())), schemaMappings);
+                return unaliasSchema(openAPI, allSchemas.get(ModelUtils.getSimpleRef(schema.get$ref())));
             }
         }
         return schema;
@@ -1133,41 +1106,6 @@ public class ModelUtils {
         Object addProps = schema.getAdditionalProperties();
         if (addProps instanceof Schema) {
             return (Schema) addProps;
-        }
-        if (addProps == null) {
-            // When reaching this code path, this should indicate the 'additionalProperties' keyword is
-            // not present in the OAS schema. This is true for OAS 3.0 documents.
-            // However, the parsing logic is broken for OAS 2.0 documents because of the
-            // https://github.com/swagger-api/swagger-parser/issues/1369 issue.
-            // When OAS 2.0 documents are parsed, the swagger-v2-converter ignores the 'additionalProperties'
-            // keyword if the value is boolean. That means codegen is unable to determine whether
-            // additional properties are allowed or not.
-            //
-            // The original behavior was to assume additionalProperties had been set to false.
-            if (isDisallowAdditionalPropertiesIfNotPresent()) {
-                // If the 'additionalProperties' keyword is not present in a OAS schema,
-                // interpret as if the 'additionalProperties' keyword had been set to false.
-                // This is NOT compliant with the JSON schema specification. It is the original
-                // 'openapi-generator' behavior.
-                return null;
-            }
-            /*
-            // The disallowAdditionalPropertiesIfNotPresent CLI option has been set to true,
-            // but for now that only works with OAS 3.0 documents.
-            // The new behavior does not work with OAS 2.0 documents.
-            if (extensions == null || !extensions.containsKey(EXTENSION_OPENAPI_DOC_VERSION)) {
-                // Fallback to the legacy behavior.
-                return null;
-            }
-            // Get original swagger version from OAS extension.
-            // Note openAPI.getOpenapi() is always set to 3.x even when the document
-            // is converted from a OAS/Swagger 2.0 document.
-            // https://github.com/swagger-api/swagger-parser/pull/1374
-            SemVer version = new SemVer((String)extensions.get(EXTENSION_OPENAPI_DOC_VERSION));
-            if (version.major != 3) {
-                return null;
-            }
-            */
         }
         if (addProps == null || (addProps instanceof Boolean && (Boolean) addProps)) {
             // Return an empty schema as the properties can take on any type per

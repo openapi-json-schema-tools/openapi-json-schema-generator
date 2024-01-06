@@ -113,7 +113,7 @@ public class URLPathUtils {
     }
 
     public static String getScheme(OpenAPI openAPI, Generator config) {
-        URL url = getServerURL(openAPI, config.serverVariableOverrides());
+        URL url = getServerURL(openAPI, null);
         return getScheme(url, config);
     }
 

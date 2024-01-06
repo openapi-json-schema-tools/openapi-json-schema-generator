@@ -246,7 +246,6 @@ public class DefaultGenerator implements Generator {
     // for writing test files
     protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles = new HashMap<>();
 
-    protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
     protected Map<String, Object> additionalProperties = new HashMap<>();
@@ -289,11 +288,6 @@ public class DefaultGenerator implements Generator {
      * Note: all language generators should support this to comply with the OAS specification.
      */
     protected boolean supportsAdditionalPropertiesWithComposedSchema = true;
-    protected Map<String, String> supportedLibraries = new LinkedHashMap<>();
-    protected String library;
-    protected Boolean sortParamsByRequiredFlag = true;
-    protected Boolean sortModelPropertiesByRequiredFlag = false;
-    protected Boolean ensureUniqueParams = true;
     protected Boolean allowUnicodeIdentifiers = false;
     protected String httpUserAgent;
     protected Boolean hideGenerationTimestamp = true;
@@ -314,18 +308,6 @@ public class DefaultGenerator implements Generator {
     protected boolean strictSpecBehavior = true;
     // flag to indicate whether enum value prefixes are removed
     protected boolean removeEnumValuePrefix = true;
-
-    // Support legacy logic for evaluating discriminators
-    protected boolean legacyDiscriminatorBehavior = true;
-
-    // Specify what to do if the 'additionalProperties' keyword is not present in a schema.
-    // See CodegenConstants.java for more details.
-    // This should be false for generators that support openapi + json schema
-    protected boolean disallowAdditionalPropertiesIfNotPresent = false;
-
-    // If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.
-    // With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fall back to this case.
-    protected boolean enumUnknownDefaultCase = false;
 
     // make openapi available to all methods
     protected OpenAPI openAPI;
@@ -364,10 +346,6 @@ public class DefaultGenerator implements Generator {
             this.setTemplateDir((String) additionalProperties.get(CodegenConstants.TEMPLATE_DIR));
         }
 
-        if (additionalProperties.containsKey(CodegenConstants.MODEL_PACKAGE)) {
-            this.setModelPackage((String) additionalProperties.get(CodegenConstants.MODEL_PACKAGE));
-        }
-
         if (additionalProperties.containsKey(CodegenConstants.API_PACKAGE)) {
             this.setApiPackage((String) additionalProperties.get(CodegenConstants.API_PACKAGE));
         }
@@ -376,21 +354,6 @@ public class DefaultGenerator implements Generator {
             setHideGenerationTimestamp(convertPropertyToBooleanAndWriteBack(CodegenConstants.HIDE_GENERATION_TIMESTAMP));
         } else {
             additionalProperties.put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, hideGenerationTimestamp);
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG)) {
-            this.setSortParamsByRequiredFlag(Boolean.valueOf(additionalProperties
-                    .get(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG).toString()));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG)) {
-            this.setSortModelPropertiesByRequiredFlag(Boolean.valueOf(additionalProperties
-                    .get(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG).toString()));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.ENSURE_UNIQUE_PARAMS)) {
-            this.setEnsureUniqueParams(Boolean.valueOf(additionalProperties
-                    .get(CodegenConstants.ENSURE_UNIQUE_PARAMS).toString()));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS)) {
@@ -449,18 +412,6 @@ public class DefaultGenerator implements Generator {
                     .get(CodegenConstants.REMOVE_ENUM_VALUE_PREFIX).toString()));
         }
 
-        if (additionalProperties.containsKey(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR)) {
-            this.setLegacyDiscriminatorBehavior(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR).toString()));
-        }
-        if (additionalProperties.containsKey(CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT)) {
-            this.setDisallowAdditionalPropertiesIfNotPresent(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT).toString()));
-        }
-        if (additionalProperties.containsKey(CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE)) {
-            this.setEnumUnknownDefaultCase(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE).toString()));
-        }
         requiredAddPropUnsetSchema = fromSchema(new JsonSchema(), null, null);
 
     }
@@ -624,9 +575,6 @@ public class DefaultGenerator implements Generator {
         int specMinorVersion = Integer.parseInt(originalSpecVersion.substring(2, 3));
         boolean specVersionGreaterThanOrEqualTo310 = (specMajorVersion == 3 && specMinorVersion >= 1);
         this.openAPI = openAPI;
-        // Set global settings such that helper functions in ModelUtils can look up the value
-        // of the CLI option.
-        ModelUtils.setDisallowAdditionalPropertiesIfNotPresent(getDisallowAdditionalPropertiesIfNotPresent());
     }
 
     // override with any message to be shown right before the process finishes
@@ -802,16 +750,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public Map<String, String> inlineSchemaNameMapping() {
-        return inlineSchemaNameMapping;
-    }
-
-    @Override
-    public Map<String, String> inlineSchemaNameDefault() {
-        return inlineSchemaNameDefault;
-    }
-
-    @Override
     public String testPackage() {
         return testPackage;
     }
@@ -839,12 +777,6 @@ public class DefaultGenerator implements Generator {
             return templateDir;
         }
     }
-
-    @Override
-    public Map<String, String> reservedWordsMappings() {
-        return reservedWordsMappings;
-    }
-
     @Override
     public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles() {
         return jsonPathTemplateFiles;
@@ -889,11 +821,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public Map<String, Object> additionalProperties() {
         return additionalProperties;
-    }
-
-    @Override
-    public Map<String, String> serverVariableOverrides() {
-        return serverVariables;
     }
 
     @Override
@@ -967,49 +894,6 @@ public class DefaultGenerator implements Generator {
 
     public void setApiPackage(String apiPackage) {
         this.apiPackage = apiPackage;
-    }
-
-    public Boolean getSortParamsByRequiredFlag() {
-        return sortParamsByRequiredFlag;
-    }
-
-    public void setSortParamsByRequiredFlag(Boolean sortParamsByRequiredFlag) {
-        this.sortParamsByRequiredFlag = sortParamsByRequiredFlag;
-    }
-
-    public Boolean getSortModelPropertiesByRequiredFlag() {
-        return sortModelPropertiesByRequiredFlag;
-    }
-
-    public void setSortModelPropertiesByRequiredFlag(Boolean sortModelPropertiesByRequiredFlag) {
-        this.sortModelPropertiesByRequiredFlag = sortModelPropertiesByRequiredFlag;
-    }
-    public void setEnsureUniqueParams(Boolean ensureUniqueParams) {
-        this.ensureUniqueParams = ensureUniqueParams;
-    }
-
-    public Boolean getLegacyDiscriminatorBehavior() {
-        return legacyDiscriminatorBehavior;
-    }
-
-    public void setLegacyDiscriminatorBehavior(boolean val) {
-        this.legacyDiscriminatorBehavior = val;
-    }
-
-    public Boolean getDisallowAdditionalPropertiesIfNotPresent() {
-        return disallowAdditionalPropertiesIfNotPresent;
-    }
-
-    public void setDisallowAdditionalPropertiesIfNotPresent(boolean val) {
-        this.disallowAdditionalPropertiesIfNotPresent = val;
-    }
-
-    public Boolean getEnumUnknownDefaultCase() {
-        return enumUnknownDefaultCase;
-    }
-
-    public void setEnumUnknownDefaultCase(boolean val) {
-        this.enumUnknownDefaultCase = val;
     }
 
     public void setAllowUnicodeIdentifiers(Boolean allowUnicodeIdentifiers) {
@@ -1315,50 +1199,9 @@ public class DefaultGenerator implements Generator {
 
         reservedWords = new HashSet<>();
 
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG,
-                CodegenConstants.SORT_PARAMS_BY_REQUIRED_FLAG_DESC).defaultValue(Boolean.TRUE.toString()));
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG,
-                CodegenConstants.SORT_MODEL_PROPERTIES_BY_REQUIRED_FLAG_DESC).defaultValue(Boolean.TRUE.toString()));
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.ENSURE_UNIQUE_PARAMS, CodegenConstants
-                .ENSURE_UNIQUE_PARAMS_DESC).defaultValue(Boolean.TRUE.toString()));
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
                 .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));
-        // option to change the order of form/body parameter
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS,
-                CodegenConstants.PREPEND_FORM_OR_BODY_PARAMETERS_DESC).defaultValue(Boolean.FALSE.toString()));
-
-        // option to change how we process + set the data in the discriminator mapping
-        CliOption legacyDiscriminatorBehaviorOpt = CliOption.newBoolean(CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR, CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR_DESC).defaultValue(Boolean.TRUE.toString());
-        Map<String, String> legacyDiscriminatorBehaviorOpts = new HashMap<>();
-        legacyDiscriminatorBehaviorOpts.put("true", "The mapping in the discriminator includes descendant schemas that allOf inherit from self and the discriminator mapping schemas in the OAS document.");
-        legacyDiscriminatorBehaviorOpts.put("false", "The mapping in the discriminator includes any descendant schemas that allOf inherit from self, any oneOf schemas, any anyOf schemas, any x-discriminator-values, and the discriminator mapping schemas in the OAS document AND Codegen validates that oneOf and anyOf schemas contain the required discriminator and throws an error if the discriminator is missing.");
-        legacyDiscriminatorBehaviorOpt.setEnum(legacyDiscriminatorBehaviorOpts);
-        cliOptions.add(legacyDiscriminatorBehaviorOpt);
-
-        // option to change how we process + set the data in the 'additionalProperties' keyword.
-        CliOption disallowAdditionalPropertiesIfNotPresentOpt = CliOption.newBoolean(
-                CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT,
-                CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT_DESC).defaultValue(Boolean.TRUE.toString());
-        Map<String, String> disallowAdditionalPropertiesIfNotPresentOpts = new HashMap<>();
-        disallowAdditionalPropertiesIfNotPresentOpts.put("false",
-                "The 'additionalProperties' implementation is compliant with the OAS and JSON schema specifications.");
-        disallowAdditionalPropertiesIfNotPresentOpts.put("true",
-                "Keep the old (incorrect) behaviour that 'additionalProperties' is set to false by default.");
-        disallowAdditionalPropertiesIfNotPresentOpt.setEnum(disallowAdditionalPropertiesIfNotPresentOpts);
-        cliOptions.add(disallowAdditionalPropertiesIfNotPresentOpt);
-
-        CliOption enumUnknownDefaultCaseOpt = CliOption.newBoolean(
-                CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE,
-                CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE_DESC).defaultValue(Boolean.FALSE.toString());
-        Map<String, String> enumUnknownDefaultCaseOpts = new HashMap<>();
-        enumUnknownDefaultCaseOpts.put("false",
-                "No changes to the enum's are made, this is the default option.");
-        enumUnknownDefaultCaseOpts.put("true",
-                "With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the enum case sent by the server is not known by the client/spec, can safely be decoded to this case.");
-        enumUnknownDefaultCaseOpt.setEnum(enumUnknownDefaultCaseOpts);
-        cliOptions.add(enumUnknownDefaultCaseOpt);
-        this.setEnumUnknownDefaultCase(false);
 
         // initialize special character mapping
         initializeSpecialCharacterMapping();
@@ -1839,9 +1682,6 @@ public class DefaultGenerator implements Generator {
             return foundDisc;
         }
 
-        if (this.getLegacyDiscriminatorBehavior()) {
-            return null;
-        }
         Discriminator disc = new Discriminator();
         if (ModelUtils.isComposedSchema(refSchema)) {
             ComposedSchema composedSchema = (ComposedSchema) refSchema;
@@ -1968,18 +1808,6 @@ public class DefaultGenerator implements Generator {
                 String refClass = getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath);
                 MappedModel mm = new MappedModel(modelName, refClass);
                 descendantSchemas.add(mm);
-                Schema cs = ModelUtils.getSchema(openAPI, modelName);
-                if (cs == null) { // cannot look up the model based on the name
-                    LOGGER.error("Failed to lookup the schema '{}' when processing oneOf/anyOf. Please check to ensure it's defined properly.", modelName);
-                } else {
-                    Map vendorExtensions = cs.getExtensions();
-                    if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
-                        String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                        refClass = getRefClassWithModule("#/components/schemas/" + modelName, sourceJsonPath);
-                        mm = new MappedModel(xDiscriminatorValue, refClass);
-                        descendantSchemas.add(mm);
-                    }
-                }
             }
         }
         return descendantSchemas;
@@ -2032,14 +1860,6 @@ public class DefaultGenerator implements Generator {
             String refClass = getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath);
             MappedModel mm = new MappedModel(currentSchemaName, refClass);
             descendantSchemas.add(mm);
-            Schema cs = schemas.get(currentSchemaName);
-            Map vendorExtensions = cs.getExtensions();
-            if (vendorExtensions != null && !vendorExtensions.isEmpty() && vendorExtensions.containsKey("x-discriminator-value")) {
-                String xDiscriminatorValue = (String) vendorExtensions.get("x-discriminator-value");
-                refClass = getRefClassWithModule("#/components/schemas/" + currentSchemaName, sourceJsonPath);
-                mm = new MappedModel(xDiscriminatorValue, refClass);
-                descendantSchemas.add(mm);
-            }
         }
         return descendantSchemas;
     }
@@ -2080,29 +1900,26 @@ public class DefaultGenerator implements Generator {
             }
         }
 
-        boolean legacyUseCase = (this.getLegacyDiscriminatorBehavior() && mappedModels.isEmpty());
-        if (!this.getLegacyDiscriminatorBehavior() || legacyUseCase) {
-            // for schemas that allOf inherit from this schema, add those descendants to this discriminator map
-            List<MappedModel> otherDescendants = getAllOfDescendants(schemaName, openAPI, sourceJsonPath);
-            for (MappedModel otherDescendant : otherDescendants) {
-                // add only if the mapping names are not the same
-                boolean matched = false;
-                for (MappedModel uniqueDescendant : mappedModels) {
-                    if (uniqueDescendant.mappingName.equals(otherDescendant.mappingName)) {
-                        matched = true;
-                        break;
-                    }
+        // for schemas that allOf inherit from this schema, add those descendants to this discriminator map
+        List<MappedModel> otherDescendants = getAllOfDescendants(schemaName, openAPI, sourceJsonPath);
+        for (MappedModel otherDescendant : otherDescendants) {
+            // add only if the mapping names are not the same
+            boolean matched = false;
+            for (MappedModel uniqueDescendant : mappedModels) {
+                if (uniqueDescendant.mappingName.equals(otherDescendant.mappingName)) {
+                    matched = true;
+                    break;
                 }
+            }
 
-                if (!matched) {
-                    mappedModels.add(otherDescendant);
-                }
+            if (!matched) {
+                mappedModels.add(otherDescendant);
             }
         }
         // if there are composed oneOf/anyOf schemas, add them to this discriminator
-        if (ModelUtils.isComposedSchema(schema) && !this.getLegacyDiscriminatorBehavior()) {
-            List<MappedModel> otherDescendants = getOneOfAnyOfDescendants(schemaName, discPropName, (ComposedSchema) schema, openAPI, sourceJsonPath);
-            mappedModels.addAll(otherDescendants);
+        if (ModelUtils.isComposedSchema(schema)) {
+            List<MappedModel> composedDescendants = getOneOfAnyOfDescendants(schemaName, discPropName, (ComposedSchema) schema, openAPI, sourceJsonPath);
+            mappedModels.addAll(composedDescendants);
         }
 
         return new CodegenDiscriminator(propertyName, mapping, mappedModels);
@@ -3203,17 +3020,6 @@ public class DefaultGenerator implements Generator {
                     hasOptionalParamOrBody = true;
                 }
             }
-        }
-        // move "required" parameters in front of "optional" parameters
-        if (sortParamsByRequiredFlag) {
-            allParams.sort((one, another) -> {
-                if (one.required == another.required)
-                    return 0;
-                else if (one.required)
-                    return -1;
-                else
-                    return 1;
-            });
         }
         List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
@@ -4444,47 +4250,6 @@ public class DefaultGenerator implements Generator {
     }
 
     /**
-     * Set library template (sub-template).
-     *
-     * @param library Library template
-     */
-    @Override
-    public void setLibrary(String library) {
-        if (library != null && !supportedLibraries.containsKey(library)) {
-            StringBuilder sb = new StringBuilder("Unknown library: " + library + "\nAvailable libraries:");
-            if (supportedLibraries.size() == 0) {
-                sb.append("\n  ").append("NONE");
-            } else {
-                for (String lib : supportedLibraries.keySet()) {
-                    sb.append("\n  ").append(lib);
-                }
-            }
-            throw new RuntimeException(sb.toString());
-        }
-        this.library = library;
-    }
-
-    /**
-     * Library template (sub-template).
-     *
-     * @return Library template
-     */
-    @Override
-    public String getLibrary() {
-        return library;
-    }
-
-    /**
-     * check if current active library equals to passed
-     *
-     * @param library - library to be compared with
-     * @return {@code true} if passed library is active, {@code false} otherwise
-     */
-    public final boolean isLibrary(String library) {
-        return library.equals(this.library);
-    }
-
-    /**
      * Documentation files extension
      *
      * @return Documentation files extension
@@ -5393,7 +5158,7 @@ public class DefaultGenerator implements Generator {
                 throw new RuntimeException("Required property defined with name="+requiredPropertyName+" but property is missing from properties. Add it there.");
             } else {
                 // required property is not defined in properties
-                if (supportsAdditionalPropertiesWithComposedSchema && !disallowAdditionalPropertiesIfNotPresent) {
+                if (supportsAdditionalPropertiesWithComposedSchema) {
                     CodegenSchema prop;
                     requiredPropsWithDefAllFromProp = false;
                     reqPropsWithDef++;
@@ -5821,11 +5586,6 @@ public class DefaultGenerator implements Generator {
         return null;
     }
 
-    @Override
-    public List<VendorExtension> getSupportedVendorExtensions() {
-        return new ArrayList<>();
-    }
-
     /**
      * Used to ensure that null or Schema is returned given an input Boolean/Schema/null
      * This will be used in openapi 3.1.0 spec processing to ensure that Booleans become Schemas
@@ -5864,5 +5624,13 @@ public class DefaultGenerator implements Generator {
         String result = charName.replaceAll("[\\-\\s]", "_");
         // remove parentheses
         return result.replaceAll("[()]", "");
+    }
+
+    @Override
+    public List<VendorExtension> getSupportedVendorExtensions() {
+        List<VendorExtension> extensions = new ArrayList<>();
+        extensions.add(VendorExtension.X_ENUM_VARNAMES);
+        extensions.add(VendorExtension.X_ENUM_DESCRIPTIONS);
+        return extensions;
     }
 }

@@ -16,8 +16,6 @@ You might have an external configuration file named `config.yaml` which defines 
 ```yaml
 additionalProperties:
   artifactId: kotlin-petstore-client
-  serializableModel: "true"
-  dateLibrary: java8
 ```
 
 You would generate via CLI with the command:
@@ -32,8 +30,6 @@ To support the above scenario with custom templates, ensure that you're pointing
 templateDir: my_custom_templates
 additionalProperties:
   artifactId: kotlin-petstore-client
-  serializableModel: "true"
-  dateLibrary: java8
 files:
   AUTHORS.md: {}
   api_interfaces.mustache:
@@ -310,22 +306,9 @@ Output
 
 ```
 CONFIG OPTIONS
-	modelPackage
-	    package for generated models
-
 	apiPackage
 	    package for generated api classes
 ...... (results omitted)
-	library
-	    library template (sub-template) to use:
-	    jersey1 - HTTP client: Jersey client 1.18. JSON processing: Jackson 2.4.2
-	    jersey2 - HTTP client: Jersey client 2.6
-	    feign - HTTP client: Netflix Feign 8.1.1.  JSON processing: Jackson 2.6.3
-	    okhttp-gson (default) - HTTP client: OkHttp 2.4.0. JSON processing: Gson 2.3.1
-	    retrofit - HTTP client: OkHttp 2.4.0. JSON processing: Gson 2.3.1 (Retrofit 1.9.0)
-        retrofit2 - HTTP client: OkHttp 2.5.0. JSON processing: Gson 2.4 (Retrofit 2.0.0-beta2)
-        google-api-client - HTTP client: google-api-client 1.23.0. JSON processing: Jackson 2.8.9
-        rest-assured - HTTP client: rest-assured : 4.3.0. JSON processing: Gson 2.8.6. Only for Java8
 ```
 
 Your config file for Java can look like
@@ -334,8 +317,7 @@ Your config file for Java can look like
 {
   "groupId":"com.my.company",
   "artifactId":"MyClient",
-  "artifactVersion":"1.2.0",
-  "library":"feign"
+  "artifactVersion":"1.2.0"
 }
 ```
 
@@ -371,72 +353,6 @@ and specify the `classname` when running the generator:
 
 Your subclass will now be loaded and overrides the `PREFIX` value in the superclass.
 
-## Bringing your own models
-
-Sometimes you don't want a model generated.  In this case, you can simply specify an import mapping to tell
-the codegen what _not_ to create.  When doing this, every location that references a specific model will
-refer back to your classes.  Note, this may not apply to all languages...
-
-To specify an import mapping, use the `--import-mappings` argument and specify the model-to-import logic as such:
-
-```
---import-mappings Pet=my.models.MyPet
-```
-
-Or for multiple mappings:
-
-```
---import-mappings Pet=my.models.MyPet,Order=my.models.MyOrder
-```
-or
-```
---import-mappings Pet=my.models.MyPet --import-mappings Order=my.models.MyOrder
-```
-
-## Schema Mapping
-
-One can map the schema to someting else (e.g. external objects/models outside of the package) using the `schemaMappings` option, e.g. in CLI
-```sh
-java -jar target/openapi-generator-cli.jar generate -g java -i src/test/resources/3_0/type-alias.yaml -o /tmp/java2/ --schema-mapping TypeAlias=foo.bar.TypeAlias
-```
-Another example (in conjunction with --type-mappings):
-```sh
-java -jar target/openapi-generator-cli.jar generate -g java -i /tmp/alias.yaml -o /tmp/alias/ --schema-mappings stream=org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody --type-mappings string+binary=stream
-```
-while /tmp/alias.yaml is as follows:
-```yaml
-openapi: 3.0.3
-info:
-  title: Demo app
-  version: 1.0.0
-servers:
-  - url: /api/v1
-paths:
-  /demo:
-    get:
-      summary: Demo
-      operationId: demo
-      responses:
-        '200':
-          description: Demo response
-          content:
-            text/csv:
-              schema:
-                type: string
-                format: binary
-```
-
 ## Inline Schema Naming
 
-Inline schemas are created as separate schemas automatically and the auto-generated schema name may not look good to everyone. One can customize the name using the `title` field or the `inlineSchemaNameMapping` option, e.g. in CLI
-
-```
-java -jar target/openapi-generator-cli.jar generate -g java -i  src/test/resources/3_0/inline_model_resolver.yaml -o /tmp/java3/ --skip-validate-spec --inline-schema-name-mappings inline_object_2=SomethingMapped,inline_object_4=nothing_new
-```
-
-Another useful option is `inlineSchemaNameDefaults`, which allows you to customize the suffix of the auto-generated inline schema name, e.g. in CLI
-```
---inline-schema-name-defaults arrayItemSuffix=_array_item
-```
-
-Note: Only arrayItemSuffix, mapItemSuffix are supported at the moment.
+Inline schemas are created as separate schemas automatically and the auto-generated schema name may not look good to everyone. One can customize the name using the `title` field

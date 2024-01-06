@@ -82,7 +82,7 @@ For other languages, feel free to suggest.
 You may find the current code base not 100% conform to the coding style and we welcome contributions to fix those.
 
 For [Vendor Extensions](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#vendorExtensions), please follow the naming convention below:
-- For general vendor extension, use lower case and hyphen. e.g. `x-is-unique`, `x-content-type`
+- For general vendor extension, use lower case and hyphen. e.g. `x-is-unique`,
 - For language-specified vendor extension, put it in the form of `x-{lang}-{extension-name}`. e.g. `x-objc-operation-id`, `x-java-feign-retry-limit`
 - For a list of existing vendor extensions in use, please refer to https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/wiki/Vendor-Extensions. If you've added new vendor extensions as part of your PR, please update the wiki page.
 

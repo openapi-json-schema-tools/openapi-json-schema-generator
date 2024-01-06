@@ -112,9 +112,7 @@ openApiGenerate {
     outputDir = "$buildDir/generated".toString()
     apiPackage = "org.openapi.example.api"
     invokerPackage = "org.openapi.example.invoker"
-    modelPackage = "org.openapi.example.model"
     configOptions = [
-        dateLibrary: "java8"
     ]
 }
 ```

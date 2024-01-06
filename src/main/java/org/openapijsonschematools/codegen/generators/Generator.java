@@ -81,8 +81,6 @@ public interface Generator {
 
     Map<String, Object> additionalProperties();
 
-    Map<String, String> serverVariableOverrides();
-
     Map<String, Object> vendorExtensions();
 
     String testPackage();
@@ -181,10 +179,6 @@ public interface Generator {
 
     Map<String, String> schemaMapping();
 
-    Map<String, String> inlineSchemaNameMapping();
-
-    Map<String, String> inlineSchemaNameDefault();
-
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles();
 
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles();
@@ -192,8 +186,6 @@ public interface Generator {
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles();
 
     Set<String> languageSpecificPrimitives();
-
-    Map<String, String> reservedWordsMappings();
 
     void preprocessOpenAPI(OpenAPI openAPI);
 
@@ -267,15 +259,6 @@ public interface Generator {
     boolean isHideGenerationTimestamp();
 
     void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
-
-    void setLibrary(String library);
-
-    /**
-     * Library template (sub-template).
-     *
-     * @return library template
-     */
-    String getLibrary();
 
     void setHttpUserAgent(String httpUserAgent);
 

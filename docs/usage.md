@@ -93,7 +93,6 @@ SYNOPSIS
                 [(-f <output format> | --format <output format>)] [--feature-set]
                 [--full-details]
                 [(-g <generator name> | --generator-name <generator name>)]
-                [--import-mappings] [--instantiation-types]
                 [--language-specific-primitive] [--markdown-header] [--named-header]
                 [(-o <output location> | --output <output location>)] [--reserved-words]
 
@@ -107,19 +106,11 @@ OPTIONS
 
         --full-details
             displays CLI options as well as other configs/mappings (implies
-            --instantiation-types, --reserved-words,
-            --language-specific-primitives, --import-mappings,
+            --reserved-words,
             --supporting-files)
 
         -g <generator name>, --generator-name <generator name>
             generator to get config help for
-
-        --import-mappings
-            displays the default import mappings (types and aliases, and what
-            imports they will pull into the template)
-
-        --instantiation-types
-            displays types used to instantiate simple type/alias names
 
         --language-specific-primitive
             displays the language specific primitives (types which require no
@@ -168,11 +159,6 @@ CONFIG OPTIONS
 	withGoCodegenComment
 	    whether to include Go codegen comment to disable Go Lint and collapse by default in GitHub PRs and diffs (Default: false)
 
-	withXml
-	    whether to include support for application/xml content type and include XML annotations in the model (works with libraries that provide support for JSON and XML) (Default: false)
-
-	prependFormOrBodyParameters
-	    Add form or body parameters to the beginning of the parameter list. (Default: false)
 ```
 
 To pass these go client generator-specific options to the `generate` command for a go client, use the `--additional-properties` option. See the [generate](#generate) command section for an example.
@@ -267,11 +253,7 @@ SYNOPSIS
                 [--http-user-agent <http user agent>]
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
-                [--import-mappings <import mappings>...]
-                [--instantiation-types <instantiation types>...]
                 [--invoker-package <invoker package>]
-                [--language-specific-primitives <language specific primitives>...]
-                [--legacy-discriminator-behavior] [--library <library>]
                 [--log-to-stderr] [--minimal-update]
                 [--model-name-prefix <model name prefix>]
                 [--model-name-suffix <model name suffix>]
@@ -279,12 +261,11 @@ SYNOPSIS
                 [(-o <output directory> | --output <output directory>)] [(-p <additional properties> | --additional-properties <additional properties>)...]
                 [--package-name <package name>] [--release-note <release note>]
                 [--remove-operation-id-prefix]
-                [--reserved-words-mappings <reserved word mappings>...]
-                [(-s | --skip-overwrite)] [--server-variables <server variables>...]
+                [(-s | --skip-overwrite)]
                 [--skip-operation-example] [--skip-validate-spec]
                 [--strict-spec <true/false strict behavior>]
                 [(-t <template directory> | --template-dir <template directory>)]
-                [--type-mappings <type mappings>...] [(-v | --verbose)]
+                [(-v | --verbose)]
 ```
 
 <details>
@@ -371,33 +352,8 @@ OPTIONS
             Specifies an override location for the .openapi-generator-ignore
             file. Most useful on initial generation.
 
-        --import-mappings <import mappings>
-            specifies mappings between a given class and the import that should
-            be used for that class in the format of type=import,type=import. You
-            can also have multiple occurrences of this option.
-
-        --instantiation-types <instantiation types>
-            sets instantiation type mappings in the format of
-            type=instantiatedType,type=instantiatedType.For example (in Java):
-            array=ArrayList,map=HashMap. In other words array types will get
-            instantiated as ArrayList in generated code. You can also have
-            multiple occurrences of this option.
-
         --invoker-package <invoker package>
             root package for generated code
-
-        --language-specific-primitives <language specific primitives>
-            specifies additional language specific primitive types in the format
-            of type1,type2,type3,type3. For example:
-            String,boolean,Boolean,Double. You can also have multiple
-            occurrences of this option.
-
-        --legacy-discriminator-behavior
-            Set to false for generators with better support for discriminators.
-            (Python, Java, Go, PowerShell, C#have this enabled by default).
-
-        --library <library>
-            library template (sub-template)
 
         --log-to-stderr
             write all log messages (not just errors) to STDOUT. Useful for
@@ -435,18 +391,9 @@ OPTIONS
         --remove-operation-id-prefix
             Remove prefix of operationId, e.g. config_getId => getId
 
-        --reserved-words-mappings <reserved word mappings>
-            specifies how a reserved name should be escaped to. Otherwise, the
-            default _<name> is used. For example id=identifier. You can also
-            have multiple occurrences of this option.
-
         -s, --skip-overwrite
             specifies if the existing files should be overwritten during the
             generation.
-
-        --server-variables <server variables>
-            sets server variables overrides for spec documents which support
-            variable templating of servers.
 
         --skip-operation-example
             Skip examples defined in operations to avoid out of memory errors.
@@ -461,12 +408,6 @@ OPTIONS
 
         -t <template directory>, --template-dir <template directory>
             folder containing the template files
-
-        --type-mappings <type mappings>
-            sets mappings between OpenAPI spec types and generated code types in
-            the format of OpenAPIType=generatedType,OpenAPIType=generatedType.
-            For example: array=List,map=Map,string=String. You can also have
-            multiple occurrences of this option.
 
         -v, --verbose
             verbose mode
@@ -504,61 +445,11 @@ Pass more options via comma delimited key/value pairs:
 
 For the full list of generator-specific parameters, refer to [generators docs](./generators.md).
 
-#### Type Mappings and Import Mappings
-
-Most generators allow for types bound to the OpenAPI Specification's types to be remapped to a user's desired types. Not _all_ type mappings can be reassigned, as some generators define mappings which are tightly coupled to the built-in templates.
-
-If you're not using your own templates with star/glob package imports, you will most likely need to combine `--type-mappings` and `--import-mappings` together.
-
-* `--type-mappings` Defines the user's target type
-* `--import-mappings` Informs the template of the type to be imported
-
-Here's how one might change the `kotlin-spring` server generator's default of `OffsetDateTime` to `LocalDateTime`:
-
-```bash
-openapi-generator-cli generate \
-    -i petstore.yaml \
-    -g kotlin-spring \
-    -o out \
-    --additional-properties=library=spring-boot,beanValidations=true,serviceImplementation=true \
-    --import-mappings=DateTime=java.time.LocalDateTime \
-    --type-mappings=DateTime=java.time.LocalDateTime
-```
-
-> NOTE: mappings are applied to `DateTime`, as this is the representation of the primitive type. See [DefaultCodegen](https://github.com/OpenAPITools/openapi-generator/blob/7cee999543fcc00b7c1eb9f70f0456b707c7f9e2/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java#L1431).
-
 #### File Post-Processing
 
 The `--enable-post-process-file` option enables specific generators to invoke some external language-specific formatting script. Each filename is passed _individually_ to this external script, allowing for linting, formatting, or other custom clean-up.
 
 For more details, see [File Post-Processing](./file-post-processing.md).
-
-### Target External Models
-
-Sometimes you don't want the codegen to make a model for you--you might want to just include one that already exists in your codebase.  Say you already have a `User` object and want to reuse that, which has a different model package from the other generated files:
-
-First, indicate that the class is already included by default. This will keep the codegen from trying to generate the class.
-
-```bash
---language-specific-primitives=Pet
-```
-
-This command line option will tell the generator to consider `Pet` a "primitive" type.
-
-Next, if the `Pet` class is a different package, add an `--import-mapping` to tell the generator to include that import wherever `Pet` is used:
-
-```bash
---import-mappings=Pet=com.yourpackage.models.Pet
-```
-
-Now the codegen will know what to import from that specific package.
-
-NOTE: `import-mappings` is assigned a key-value pair in this example, but multiple values can be comma-separate. For instance:
-
-```bash
---import-mappings=Pet=com.yourpackage.models.Pet,User=com.yourpackage.models.User
-```
-
 
 #### Configuration File
 
@@ -669,7 +560,6 @@ outputDir: out/kotlin
 generatorName: kotlin
 artifactId: kotlin-petstore-string
 additionalProperties:
-  dateLibrary: string
   serializableModel: "true"
 EOF
 
@@ -698,7 +588,7 @@ NAME
 
 SYNOPSIS
         openapi-generator-cli author
-        openapi-generator-cli author template [--library <library>]
+        openapi-generator-cli author template 
                 [(-v | --verbose)]
                 [(-o <output directory> | --output <output directory>)]
                 (-g <generator name> | --generator-name <generator name>)
@@ -715,8 +605,6 @@ COMMANDS
 
         template
             Retrieve templates for local modification
-
-            With --library option, library template (sub-template)
 
             With --verbose option, verbose mode
 
@@ -740,16 +628,12 @@ NAME
 SYNOPSIS
         openapi-generator-cli author template
                 (-g <generator name> | --generator-name <generator name>)
-                [--library <library>]
                 [(-o <output directory> | --output <output directory>)]
                 [(-v | --verbose)]
 
 OPTIONS
         -g <generator name>, --generator-name <generator name>
             generator to use (see list command for list)
-
-        --library <library>
-            library template (sub-template)
 
         -o <output directory>, --output <output directory>
             where to write the template files (defaults to 'out')
@@ -763,7 +647,7 @@ Example:
 Extract Java templates, limiting to the `webclient` library.
 
 ```bash
-openapi-generator-cli author template -g java --library webclient
+openapi-generator-cli author template -g java
 ```
 
 Extract all Java templates:

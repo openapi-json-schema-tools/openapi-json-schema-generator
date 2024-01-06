@@ -104,10 +104,6 @@ public class Generate extends AbstractCommand {
             description = CodegenConstants.API_PACKAGE_DESC)
     private String apiPackage;
 
-    @Option(name = {"--model-package"}, title = "model package",
-            description = CodegenConstants.MODEL_PACKAGE_DESC)
-    private String modelPackage;
-
     @Option(name = {"--api-name-suffix"}, title = "api name suffix",
             description = CodegenConstants.API_NAME_SUFFIX_DESC)
     private String apiNameSuffix;
@@ -121,69 +117,11 @@ public class Generate extends AbstractCommand {
     private String modelNameSuffix;
 
     @Option(
-            name = {"--instantiation-types"},
-            title = "instantiation types",
-            description = "sets instantiation type mappings in the format of type=instantiatedType,type=instantiatedType."
-                    + "For example (in Java): array=ArrayList,map=HashMap. In other words array types will get instantiated as ArrayList in generated code."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> instantiationTypes = new ArrayList<>();
-
-    @Option(
-            name = {"--type-mappings"},
-            title = "type mappings",
-            description = "sets mappings between OpenAPI spec types and generated code types "
-                    + "in the format of OpenAPIType=generatedType,OpenAPIType=generatedType. For example: array=List,map=Map,string=String."
-                    + " You can also have multiple occurrences of this option."
-                    + " To map a specified format, use type+format, e.g. string+password=EncryptedString will map `type: string, format: password` to `EncryptedString`.")
-    private List<String> typeMappings = new ArrayList<>();
-
-    @Option(
             name = {"-p", "--additional-properties"},
             title = "additional properties",
             description = "sets additional properties that can be referenced by the mustache templates in the format of name=value,name=value."
                     + " You can also have multiple occurrences of this option.")
     private List<String> additionalProperties = new ArrayList<>();
-
-    @Option(
-            name = {"--language-specific-primitives"},
-            title = "language specific primitives",
-            description = "specifies additional language specific primitive types in the format of type1,type2,type3,type3. For example: String,boolean,Boolean,Double."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> languageSpecificPrimitives = new ArrayList<>();
-
-    @Option(
-            name = {"--import-mappings"},
-            title = "import mappings",
-            description = "specifies mappings between a given class and the import that should be used for that class in the format of type=import,type=import."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> importMappings = new ArrayList<>();
-
-    @Option(
-            name = {"--schema-mappings"},
-            title = "schema mappings",
-            description = "specifies mappings between the schema and the new name in the format of schema_a=Cat,schema_b=Bird."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> schemaMappings = new ArrayList<>();
-
-    @Option(
-            name = {"--inline-schema-name-mappings"},
-            title = "inline schema name mappings",
-            description = "specifies mappings between the inline schema name and the new name in the format of inline_object_2=Cat,inline_object_5=Bird."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> inlineSchemaNameMappings = new ArrayList<>();
-
-    @Option(
-            name = {"--inline-schema-name-defaults"},
-            title = "inline schema name defaults",
-            description = "specifies the default values used when naming inline schema as such array items in the format of arrayItemSuffix=_inner,mapItemSuffix=_value. "
-                    + " ONLY arrayItemSuffix, mapItemSuffix at the moment.")
-    private List<String> inlineSchemaNameDefaults = new ArrayList<>();
-
-    @Option(
-            name = {"--server-variables"},
-            title = "server variables",
-            description = "sets server variables overrides for spec documents which support variable templating of servers.")
-    private List<String> serverVariableOverrides = new ArrayList<>();
 
     @Option(name = {"--invoker-package"}, title = "invoker package",
             description = CodegenConstants.INVOKER_PACKAGE_DESC)
@@ -199,10 +137,6 @@ public class Generate extends AbstractCommand {
     @Option(name = {"--artifact-version"}, title = "artifact version",
             description = CodegenConstants.ARTIFACT_VERSION_DESC)
     private String artifactVersion;
-
-    @Option(name = {"--library"}, title = "library", description = CodegenConstants.LIBRARY_DESC)
-    private String library;
-
     @Option(name = {"--git-host"}, title = "git host",
             description = CodegenConstants.GIT_HOST_DESC)
     private String gitHost;
@@ -222,13 +156,6 @@ public class Generate extends AbstractCommand {
     @Option(name = {"--http-user-agent"}, title = "http user agent",
             description = CodegenConstants.HTTP_USER_AGENT_DESC)
     private String httpUserAgent;
-
-    @Option(
-            name = {"--reserved-words-mappings"},
-            title = "reserved word mappings",
-            description = "specifies how a reserved name should be escaped to. Otherwise, the default _<name> is used. For example id=identifier."
-                    + " You can also have multiple occurrences of this option.")
-    private List<String> reservedWordsMappings = new ArrayList<>();
 
     @Option(name = {"--ignore-file-override"}, title = "ignore file override location",
             description = CodegenConstants.IGNORE_FILE_OVERRIDE_DESC)
@@ -255,9 +182,6 @@ public class Generate extends AbstractCommand {
 
     @Option(name = {"--enable-post-process-file"}, title = "enable post-processing of files (in generators supporting it)", description = CodegenConstants.ENABLE_POST_PROCESS_FILE_DESC)
     private Boolean enablePostProcessFile;
-
-    @Option(name = {"--legacy-discriminator-behavior"}, title = "Support legacy logic for evaluating discriminators", description = CodegenConstants.LEGACY_DISCRIMINATOR_BEHAVIOR_DESC)
-    private Boolean legacyDiscriminatorBehavior;
 
     @Option(name = {"--minimal-update"},
         title = "Minimal update",
@@ -335,10 +259,6 @@ public class Generate extends AbstractCommand {
             configurator.setApiPackage(apiPackage);
         }
 
-        if (isNotEmpty(modelPackage)) {
-            configurator.setModelPackage(modelPackage);
-        }
-
         if (isNotEmpty(apiNameSuffix)) {
             configurator.setApiNameSuffix(apiNameSuffix);
         }
@@ -365,10 +285,6 @@ public class Generate extends AbstractCommand {
 
         if (isNotEmpty(artifactVersion)) {
             configurator.setArtifactVersion(artifactVersion);
-        }
-
-        if (isNotEmpty(library)) {
-            configurator.setLibrary(library);
         }
 
         if (isNotEmpty(gitHost)) {
@@ -418,16 +334,7 @@ public class Generate extends AbstractCommand {
         if (globalProperties != null && !globalProperties.isEmpty()) {
             CodegenConfiguratorUtils.applyGlobalPropertiesKvpList(globalProperties, configurator);
         }
-        CodegenConfiguratorUtils.applyInstantiationTypesKvpList(instantiationTypes, configurator);
-        CodegenConfiguratorUtils.applyImportMappingsKvpList(importMappings, configurator);
-        CodegenConfiguratorUtils.applySchemaMappingsKvpList(schemaMappings, configurator);
-        CodegenConfiguratorUtils.applyInlineSchemaNameMappingsKvpList(inlineSchemaNameMappings, configurator);
-        CodegenConfiguratorUtils.applyInlineSchemaNameDefaultsKvpList(inlineSchemaNameDefaults, configurator);
-        CodegenConfiguratorUtils.applyTypeMappingsKvpList(typeMappings, configurator);
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);
-        CodegenConfiguratorUtils.applyLanguageSpecificPrimitivesCsvList(languageSpecificPrimitives, configurator);
-        CodegenConfiguratorUtils.applyReservedWordsMappingsKvpList(reservedWordsMappings, configurator);
-        CodegenConfiguratorUtils.applyServerVariablesKvpList(serverVariableOverrides, configurator);
 
         try {
             final ClientOptInput clientOptInput = configurator.toClientOptInput();
