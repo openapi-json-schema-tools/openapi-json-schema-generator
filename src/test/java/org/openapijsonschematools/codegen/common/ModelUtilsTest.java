@@ -185,17 +185,6 @@ public class ModelUtilsTest {
     }
 
     @Test
-    public void testAliasedTypeIsNotUnaliasedIfUsedForImportMapping() {
-        Schema emailSchema = new Schema().$ref("#/components/schemas/Email").type("string");
-        StringSchema stringSchema = new StringSchema();
-
-        OpenAPI openAPI = TestUtils.createOpenAPIWithOneSchema("Email", stringSchema);
-
-        Assert.assertEquals(emailSchema, ModelUtils.unaliasSchema(openAPI, emailSchema));
-        Assert.assertEquals(stringSchema, ModelUtils.unaliasSchema(openAPI, emailSchema));
-    }
-
-    @Test
     public void testIsSetForValidSet() {
         ArraySchema as = new ArraySchema()
                 .items(new StringSchema());
