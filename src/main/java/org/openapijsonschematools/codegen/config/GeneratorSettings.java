@@ -46,7 +46,6 @@ public final class GeneratorSettings implements Serializable {
     private String artifactVersion;
 
     private final Map<String, Object> additionalProperties;
-    private final Map<String, String> serverVariables;
 
     private String gitHost;
     private String gitUserId;
@@ -181,15 +180,6 @@ public final class GeneratorSettings implements Serializable {
     }
 
     /**
-     * Gets server variable. Values defined here will be attempted to be replaced within a templated server object.
-     *
-     * @return the server variables
-     */
-    public Map<String, String> getServerVariables() {
-        return serverVariables;
-    }
-
-    /**
      * Gets git host. e.g. <strong>gitlab.com</strong>.
      * <p>
      * Generally used by git_push.sh in generated sources which support it.
@@ -261,7 +251,6 @@ public final class GeneratorSettings implements Serializable {
         groupId = builder.groupId;
         artifactId = builder.artifactId;
         artifactVersion = builder.artifactVersion;
-        serverVariables = Collections.unmodifiableMap(builder.serverVariables);
         gitHost = builder.gitHost;
         gitUserId = builder.gitUserId;
         gitRepoId = builder.gitRepoId;
@@ -326,7 +315,6 @@ public final class GeneratorSettings implements Serializable {
     public GeneratorSettings() {
         setDefaults();
         additionalProperties = Collections.unmodifiableMap(new HashMap<>(0));
-        serverVariables = Collections.unmodifiableMap(new HashMap<>(0));
     }
 
     private void setDefaults() {
@@ -364,9 +352,6 @@ public final class GeneratorSettings implements Serializable {
         if (copy.getAdditionalProperties() != null) {
             builder.additionalProperties.putAll(copy.getAdditionalProperties());
         }
-        if (copy.getServerVariables() != null) {
-            builder.serverVariables.putAll(copy.getServerVariables());
-        }
         builder.gitHost = copy.getGitHost();
         builder.gitUserId = copy.getGitUserId();
         builder.gitRepoId = copy.getGitRepoId();
@@ -392,7 +377,6 @@ public final class GeneratorSettings implements Serializable {
         private String artifactId;
         private String artifactVersion;
         private Map<String, Object> additionalProperties;
-        private Map<String, String> serverVariables;
         private String gitHost;
         private String gitUserId;
         private String gitRepoId;
@@ -404,7 +388,6 @@ public final class GeneratorSettings implements Serializable {
          */
         public Builder() {
             additionalProperties = new HashMap<>();
-            serverVariables = new HashMap<>();
 
             gitHost = DEFAULT_GIT_HOST;
             gitUserId = DEFAULT_GIT_USER_ID;
@@ -523,17 +506,6 @@ public final class GeneratorSettings implements Serializable {
         }
 
         /**
-         * Sets the {@code serverVariables} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param serverVariables the {@code serverVariables} to set
-         * @return a reference to this Builder
-         */
-        public Builder withServerVariables(Map<String, String> serverVariables) {
-            this.serverVariables = serverVariables;
-            return this;
-        }
-
-        /**
          * Sets the {@code additionalProperties} and returns a reference to this Builder so that the methods can be chained together.
          *
          * @param additionalProperties the {@code additionalProperties} to set
@@ -556,21 +528,6 @@ public final class GeneratorSettings implements Serializable {
                 this.additionalProperties = new HashMap<>();
             }
             this.additionalProperties.put(key, value);
-            return this;
-        }
-
-        /**
-         * Sets a single {@code serverVariables} and returns a reference to this Builder so that the methods can be chained together.
-         *
-         * @param key   A key for some server variable
-         * @param value The value of some server variable to be replaced in a templated server object.
-         * @return a reference to this Builder
-         */
-        public Builder withServerVariable(String key, String value) {
-            if (this.serverVariables == null) {
-                this.serverVariables = new HashMap<>();
-            }
-            this.serverVariables.put(key, value);
             return this;
         }
 

@@ -316,7 +316,7 @@ SYNOPSIS
                 [(-o <output directory> | --output <output directory>)] [(-p <additional properties> | --additional-properties <additional properties>)...]
                 [--package-name <package name>] [--release-note <release note>]
                 [--remove-operation-id-prefix]
-                [(-s | --skip-overwrite)] [--server-variables <server variables>...]
+                [(-s | --skip-overwrite)]
                 [--skip-validate-spec] [--strict-spec <true/false strict behavior>]
                 [(-t <template directory> | --template-dir <template directory>)]
                 [(-v | --verbose)]

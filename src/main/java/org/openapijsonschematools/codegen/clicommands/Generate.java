@@ -123,12 +123,6 @@ public class Generate extends AbstractCommand {
                     + " You can also have multiple occurrences of this option.")
     private List<String> additionalProperties = new ArrayList<>();
 
-    @Option(
-            name = {"--server-variables"},
-            title = "server variables",
-            description = "sets server variables overrides for spec documents which support variable templating of servers.")
-    private List<String> serverVariableOverrides = new ArrayList<>();
-
     @Option(name = {"--invoker-package"}, title = "invoker package",
             description = CodegenConstants.INVOKER_PACKAGE_DESC)
     private String invokerPackage;
@@ -341,7 +335,6 @@ public class Generate extends AbstractCommand {
             CodegenConfiguratorUtils.applyGlobalPropertiesKvpList(globalProperties, configurator);
         }
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);
-        CodegenConfiguratorUtils.applyServerVariablesKvpList(serverVariableOverrides, configurator);
 
         try {
             final ClientOptInput clientOptInput = configurator.toClientOptInput();

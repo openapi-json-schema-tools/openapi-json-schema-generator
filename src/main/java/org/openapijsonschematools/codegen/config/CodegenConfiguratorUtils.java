@@ -68,19 +68,6 @@ public final class CodegenConfiguratorUtils {
         }
     }
 
-    public static void applyServerVariablesKvpList(List<String> values, CodegenConfigurator configurator) {
-        for (String value : values) {
-            applyServerVariablesKvp(value, configurator);
-        }
-    }
-
-    public static void applyServerVariablesKvp(String values, CodegenConfigurator configurator) {
-        final Map<String, String> map = createMapFromKeyValuePairs(values);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            configurator.addServerVariable(entry.getKey(), entry.getValue());
-        }
-    }
-
     private static Set<String> createSetFromCsvList(String csvProperty) {
         final List<String> values = OptionUtils.splitCommaSeparatedList(csvProperty);
         return new HashSet<String>(values);

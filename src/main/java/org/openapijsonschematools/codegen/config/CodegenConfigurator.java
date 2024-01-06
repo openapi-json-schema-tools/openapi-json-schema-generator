@@ -65,7 +65,6 @@ public class CodegenConfigurator {
     private String templatingEngineName;
     private Map<String, String> globalProperties = new HashMap<>();
     private Map<String, Object> additionalProperties = new HashMap<>();
-    private Map<String, String> serverVariables = new HashMap<>();
     private String auth;
 
     private List<TemplateDefinition> userDefinedTemplates = new ArrayList<>();
@@ -96,9 +95,6 @@ public class CodegenConfigurator {
             }
             if(generatorSettings.getAdditionalProperties() != null) {
                 configurator.additionalProperties.putAll(generatorSettings.getAdditionalProperties());
-            }
-            if(generatorSettings.getServerVariables() != null) {
-                configurator.serverVariables.putAll(generatorSettings.getServerVariables());
             }
 
             configurator.generatorSettingsBuilder = GeneratorSettings.newBuilder(generatorSettings);
@@ -136,12 +132,6 @@ public class CodegenConfigurator {
         }
     }
 
-    public CodegenConfigurator addServerVariable(String key, String value) {
-        this.serverVariables.put(key, value);
-        generatorSettingsBuilder.withServerVariable(key, value);
-        return this;
-    }
-
     public CodegenConfigurator addAdditionalProperty(String key, Object value) {
         this.additionalProperties.put(key, value);
         generatorSettingsBuilder.withAdditionalProperty(key, value);
@@ -157,12 +147,6 @@ public class CodegenConfigurator {
     public CodegenConfigurator setAdditionalProperties(Map<String, Object> additionalProperties) {
         this.additionalProperties = additionalProperties;
         generatorSettingsBuilder.withAdditionalProperties(additionalProperties);
-        return this;
-    }
-
-    public CodegenConfigurator setServerVariables(Map<String, String> serverVariables) {
-        this.serverVariables = serverVariables;
-        generatorSettingsBuilder.withServerVariables(serverVariables);
         return this;
     }
 
@@ -503,13 +487,6 @@ public class CodegenConfigurator {
 
         // TODO: Work toward Generator having a "GeneratorSettings" property.
         config.additionalProperties().putAll(generatorSettings.getAdditionalProperties());
-
-        Map<String, String> serverVariables = generatorSettings.getServerVariables();
-        if (!serverVariables.isEmpty()) {
-            // This is currently experimental due to vagueness in the specification
-            LOGGER.warn("user-defined server variable support is experimental.");
-            config.serverVariableOverrides().putAll(serverVariables);
-        }
 
         // any other additional properties?
         String templateDir = workflowSettings.getTemplateDir();

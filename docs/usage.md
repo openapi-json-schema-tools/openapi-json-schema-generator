@@ -261,7 +261,7 @@ SYNOPSIS
                 [(-o <output directory> | --output <output directory>)] [(-p <additional properties> | --additional-properties <additional properties>)...]
                 [--package-name <package name>] [--release-note <release note>]
                 [--remove-operation-id-prefix]
-                [(-s | --skip-overwrite)] [--server-variables <server variables>...]
+                [(-s | --skip-overwrite)]
                 [--skip-operation-example] [--skip-validate-spec]
                 [--strict-spec <true/false strict behavior>]
                 [(-t <template directory> | --template-dir <template directory>)]
@@ -394,10 +394,6 @@ OPTIONS
         -s, --skip-overwrite
             specifies if the existing files should be overwritten during the
             generation.
-
-        --server-variables <server variables>
-            sets server variables overrides for spec documents which support
-            variable templating of servers.
 
         --skip-operation-example
             Skip examples defined in operations to avoid out of memory errors.
