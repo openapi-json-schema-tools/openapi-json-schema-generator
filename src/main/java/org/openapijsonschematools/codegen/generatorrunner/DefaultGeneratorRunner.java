@@ -284,7 +284,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         // TODO: Allow user to define _which_ servers object in the array to target.
         // Configures contextPath/basePath according to api document's servers
-        URL url = URLPathUtils.getServerURL(openAPI, generator.serverVariableOverrides());
+        URL url = URLPathUtils.getServerURL(openAPI, null);
         contextPath = removeTrailingSlash(generator.escapeText(url.getPath())); // for backward compatibility
     }
 
@@ -1325,7 +1325,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> bundle = new HashMap<>(generator.additionalProperties());
         bundle.put("apiPackage", generator.apiPackage());
 
-        URL url = URLPathUtils.getServerURL(openAPI, generator.serverVariableOverrides());
+        URL url = URLPathUtils.getServerURL(openAPI, null);
         boolean hasServers = false;
         if (servers != null) {
             hasServers = true;

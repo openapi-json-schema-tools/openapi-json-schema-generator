@@ -822,7 +822,7 @@ public class DefaultGenerator implements Generator {
     public Map<String, Object> additionalProperties() {
         return additionalProperties;
     }
-    
+
     @Override
     public Map<String, Object> vendorExtensions() {
         return vendorExtensions;
