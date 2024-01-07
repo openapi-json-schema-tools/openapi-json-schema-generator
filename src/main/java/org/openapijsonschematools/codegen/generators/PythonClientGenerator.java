@@ -497,21 +497,18 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                     put("components/responses/response.hbs", File.separatorChar + "__init__.py");
                 }}
         );
-        if (openAPI != null && openAPI.getServers() != null) {
-            jsonPathTemplateFiles.put(
-                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
-                    new HashMap<String, String>() {{
-                        put("__init__.hbs", File.separatorChar + "__init__.py");
-                    }}
-            );
-            jsonPathTemplateFiles.put(
-                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
-                    new HashMap<String, String>() {{
-                        put("servers/server.hbs", ".py");
-                    }}
-            );
-
-        }
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                new HashMap<String, String>() {{
+                    put("servers/server.hbs", ".py");
+                }}
+        );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
                 new HashMap<String, String>() {{
