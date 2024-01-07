@@ -55,7 +55,6 @@ import java.util.stream.Stream;
 import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 
 public class JavaClientGenerator extends AbstractJavaGenerator {
-    static final String MEDIA_TYPE = "mediaType";
 
     private final Logger LOGGER = LoggerFactory.getLogger(JavaClientGenerator.class);
 
@@ -64,23 +63,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     public static final String SERIALIZATION_LIBRARY_GSON = "gson";
     public static final String SERIALIZATION_LIBRARY_JACKSON = "jackson";
-    public static final String SERIALIZATION_LIBRARY_JSONB = "jsonb";
 
-    protected String gradleWrapperPackage = "gradle.wrapper";
     protected String authFolder;
     protected String rootJavaEEPackage;
-    protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
     protected HashMap<String, String> schemaJsonPathToModelName = new HashMap<>();
-
-    private static class MpRestClientVersion {
-        public final String rootPackage;
-        public final String pomTemplate;
-
-        public MpRestClientVersion(String rootPackage, String pomTemplate) {
-            this.rootPackage = rootPackage;
-            this.pomTemplate = pomTemplate;
-        }
-    }
 
     protected Stability getStability() {
         return Stability.EXPERIMENTAL;
@@ -184,18 +170,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("src/test/java/packagename/components/schemas/Schema_test.hbs", ".java");
                 }}
         );
-
-        initMpRestClientVersionToRootPackage();
-    }
-
-    private void initMpRestClientVersionToRootPackage() {
-        mpRestClientVersions.put("1.4.1", new MpRestClientVersion("javax", "pom.mustache"));
-        mpRestClientVersions.put("2.0", new MpRestClientVersion("javax", "pom.mustache"));
-        mpRestClientVersions.put("3.0", new MpRestClientVersion("jakarta", "pom_3.0.mustache"));
     }
 
     @Override
@@ -223,7 +201,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     @Override
     public void processOpts() {
-        HashMap<String, String> schemaDocs = new HashMap<>();
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
         schemaSupportingFiles.add("AnyTypeJsonSchema");
@@ -393,7 +370,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("src/main/java/packagename/components/schemas/Schema_doc.hbs", ".md");
                 }}
         );
@@ -404,74 +381,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
             additionalProperties.put("rootJavaEEPackage", rootJavaEEPackage);
         }
 
-        final String invokerFolder = (sourceFolder + '/' + invokerPackage).replace(".", "/");
-        final String apiFolder = (sourceFolder + '/' + apiPackage).replace(".", "/");
-        final String modelsFolder = (sourceFolder + File.separator + modelPackage().replace('.', File.separatorChar)).replace('/', File.separatorChar);
         authFolder = (sourceFolder + '/' + invokerPackage + ".auth").replace(".", "/");
 
         //Common files
         supportingFiles.add(new SupportingFile("pom.hbs", "", "pom.xml").doNotOverwrite());
         supportingFiles.add(new SupportingFile("README.hbs", "", "README.md").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("build.gradle.mustache", "", "build.gradle").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("build.sbt.mustache", "", "build.sbt").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("settings.gradle.mustache", "", "settings.gradle").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("gradle.properties.mustache", "", "gradle.properties").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("manifest.mustache", projectFolder, "AndroidManifest.xml").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("travis.mustache", "", ".travis.yml"));
-//        supportingFiles.add(new SupportingFile("ApiClient.mustache", invokerFolder, "ApiClient.java"));
-//        supportingFiles.add(new SupportingFile("ServerConfiguration.mustache", invokerFolder, "ServerConfiguration.java"));
-//        supportingFiles.add(new SupportingFile("ServerVariable.mustache", invokerFolder, "ServerVariable.java"));
-//        supportingFiles.add(new SupportingFile("maven.yml.mustache", ".github/workflows", "maven.yml"));
-
-//        supportingFiles.add(new SupportingFile("gradlew.mustache", "", "gradlew"));
-//        supportingFiles.add(new SupportingFile("gradlew.bat.mustache", "", "gradlew.bat"));
-//        supportingFiles.add(new SupportingFile("gradle-wrapper.properties.mustache",
-//                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.properties"));
-//        supportingFiles.add(new SupportingFile("gradle-wrapper.jar",
-//                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.jar"));
-//        supportingFiles.add(new SupportingFile("git_push.sh.mustache", "", "git_push.sh"));
-//        supportingFiles.add(new SupportingFile("gitignore.mustache", "", ".gitignore"));
-    }
-
-    /**
-     * Prioritizes consumes mime-type list by moving json-vendor and json mime-types up front, but
-     * otherwise preserves original consumes definition order.
-     * [application/vnd...+json,... application/json, ..as is..]
-     *
-     * @param consumes consumes mime-type list
-     * @return
-     */
-    static List<Map<String, String>> prioritizeContentTypes(List<Map<String, String>> consumes) {
-        if (consumes.size() <= 1)
-            return consumes;
-
-        List<Map<String, String>> prioritizedContentTypes = new ArrayList<>(consumes.size());
-
-        List<Map<String, String>> jsonVendorMimeTypes = new ArrayList<>(consumes.size());
-        List<Map<String, String>> jsonMimeTypes = new ArrayList<>(consumes.size());
-
-        for (Map<String, String> consume : consumes) {
-            if (isJsonVendorMimeType(consume.get(MEDIA_TYPE))) {
-                jsonVendorMimeTypes.add(consume);
-            } else if (isJsonMimeType(consume.get(MEDIA_TYPE))) {
-                jsonMimeTypes.add(consume);
-            } else
-                prioritizedContentTypes.add(consume);
-        }
-
-        prioritizedContentTypes.addAll(0, jsonMimeTypes);
-        prioritizedContentTypes.addAll(0, jsonVendorMimeTypes);
-        return prioritizedContentTypes;
-    }
-
-    private static boolean isMultipartType(List<Map<String, String>> consumes) {
-        Map<String, String> firstType = consumes.get(0);
-        if (firstType != null) {
-            if ("multipart/form-data".equals(firstType.get(MEDIA_TYPE))) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
@@ -682,8 +596,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
             keyToQty.put(usedKey, qty);
             String suffix = "";
             if (qty > 1) {
-                Integer schemaNumber = qty-1;
-                suffix = schemaNumber.toString();
+                int schemaNumber = qty-1;
+                suffix = Integer.toString(schemaNumber);
             }
             if (qty == 1 && sourceJsonPath.endsWith("/" + name)) {
                 schemaJsonPathToModelName.put(sourceJsonPath, usedKey);
@@ -825,7 +739,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         String smallerRef = ref.substring(0, ref.lastIndexOf("/"));
         String filePath = getFilepath(smallerRef);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
-        String localFilepath = filePath.substring(prefix.length(), filePath.length());
+        String localFilepath = filePath.substring(prefix.length());
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
@@ -846,7 +760,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         }
         if (schema.refInfo != null && schema.refInfo.refModule != null) {
             CodegenSchema ref = schema.refInfo.ref;
-            if (ref.refInfo != null && schema.refInfo.refModule != null && deepestRefSchemaImportNeeded) {
+            if (deepestRefSchemaImportNeeded) {
                 CodegenRefInfo<CodegenSchema> deepestRefInfo = schema.refInfo;
                 while (deepestRefInfo.ref.refInfo != null) {
                     deepestRefInfo = deepestRefInfo.ref.refInfo;
@@ -1296,12 +1210,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
         if (schema.format != null) {
-            if (schema.format.equals("date")) {
-                imports.add("import java.time.LocalDate;");
-            } else if (schema.format.equals("date-time")) {
-                imports.add("import java.time.ZonedDateTime;");
-            } else if (schema.format.equals("uuid")) {
-                imports.add("import java.util.UUID;");
+            switch (schema.format) {
+                case "date":
+                    imports.add("import java.time.LocalDate;");
+                    break;
+                case "date-time":
+                    imports.add("import java.time.ZonedDateTime;");
+                    break;
+                case "uuid":
+                    imports.add("import java.util.UUID;");
+                    break;
             }
         }
         imports.add("import " + packageName + ".schemas.validation.StringSchemaValidator;");
@@ -1314,7 +1232,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
 
     @Override
-    public String getImport(CodegenRefInfo refInfo) {
+    public String getImport(CodegenRefInfo<?> refInfo) {
         String prefix = "import " + packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
@@ -1369,9 +1287,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, Schema prop) {
+    public String toEnumVarName(String value, Schema<?> prop) {
         // our enum var names are keys in a python dict, so change spaces to underscores
-        if (value.length() == 0) {
+        if (value.isEmpty()) {
             return "EMPTY";
         }
         if (value.equals("null")) {
@@ -1426,7 +1344,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         while (matcher.find()) {
             matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
         }
-        char underscore = "_".charAt(0);
+        char underscore = '_';
         while (!matchStartToGroup.isEmpty()) {
             AbstractMap.SimpleEntry<Integer, String> entry = matchStartToGroup.pop();
             Integer startIndex = entry.getKey();
@@ -1470,14 +1388,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     @Override
     public Function<CodegenSchema, List<CodegenSchema>> getSchemasFn() {
-        Function<CodegenSchema, List<CodegenSchema>> getSchemasFn = codegenSchema -> {
+        return codegenSchema -> {
             ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
             ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
             codegenSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, true);
             schemasBeforeImports.addAll(schemasAfterImports);
             return schemasBeforeImports;
         };
-        return getSchemasFn;
     }
 
     private void addToTypeToValue(LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, EnumValue enumValue, String type, String name) {
@@ -1487,7 +1404,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         typeToValues.get(type).put(enumValue, name);
     }
 
-    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
+    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema<?> schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
         LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
         LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
@@ -1508,7 +1425,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                 xEnumVariableNames = new ArrayList<>();
                 Object result = schema.getExtensions().get(xEnumVariablenamesKey);
                 if (result instanceof List) {
-                    for (Object item: (List) result) {
+                    for (Object item: (List<?>) result) {
                         if (item instanceof String) {
                             xEnumVariableNames.add((String) item);
                         }
@@ -1519,7 +1436,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                 xEnumDescriptions = new ArrayList<>();
                 Object result = schema.getExtensions().get(xEnumDescriptionsKey);
                 if (result instanceof List) {
-                    for (Object item: (List) result) {
+                    for (Object item: (List<?>) result) {
                         if (item instanceof String) {
                             xEnumDescriptions.add((String) item);
                         }
@@ -1573,9 +1490,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                 addToTypeToValue(typeToValues, enumValue, "Integer", usedName);
                 EnumValue longEnumValue = getEnumValue(Long.parseLong(value.toString()), description);
                 addToTypeToValue(typeToValues, longEnumValue, "Long", usedName);
-                EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description);
+                EnumValue floatEnumValue = getEnumValue(Float.valueOf(value +".0"), description);
                 addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
-                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description);
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value +".0"), description);
                 addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
             } else if (value instanceof Long) {
                 addLongEnum(typeToValues, enumValue, (Long) value, usedName);
@@ -1612,7 +1529,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         if (value >= -2147483648L && value <= 2147483647L) {
             EnumValue integerEnumValue = getEnumValue(Integer.valueOf(value.toString()), enumValue.description);
             addToTypeToValue(typeToValues, integerEnumValue, "Integer", usedName);
-            EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), enumValue.description);
+            EnumValue floatEnumValue = getEnumValue(Float.valueOf(value +".0"), enumValue.description);
             addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
         }
     }
@@ -1677,7 +1594,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                         }
                         MapBuilder nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
                         if (nextBuilder == null) {
-                            throw new RuntimeException("Next builder must exist for bitStr="+nextBuilderBitStr.toString());
+                            throw new RuntimeException("Next builder must exist for bitStr="+ nextBuilderBitStr);
                         }
                         var pair = new MapBuilder.BuilderSchemaPair(nextBuilder, schema.requiredProperties.get(key));
                         keyToBuilder.put(key, pair);

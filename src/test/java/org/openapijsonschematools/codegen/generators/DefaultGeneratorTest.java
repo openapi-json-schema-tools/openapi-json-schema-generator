@@ -1606,26 +1606,6 @@ public class DefaultGeneratorTest {
     }
 
     @Test
-    public void schemaMapping() {
-        DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.schemaMapping.put("TypeAlias", "foo.bar.TypeAlias");
-
-        OpenAPI openAPI = new OpenAPIParser()
-                .readLocation("src/test/resources/3_0/type-alias.yaml", null, new ParseOptions()).getOpenAPI();
-        codegen.setOpenAPI(openAPI);
-
-        CodegenSchema codegenModel = codegen.fromSchema(
-                openAPI.getComponents().getSchemas().get("ParentType"),
-                "#/components/schemas/ParentType",
-                "#/components/schemas/ParentType"
-        );
-
-        assertEquals(codegenModel.properties.size(), 1);
-
-        Assert.assertEquals(codegenModel.properties.get(codegen.getKey("typeAlias", "misc")).refInfo.refClass, "TypeAlias");
-    }
-
-    @Test
     public void modelWithPrefixDoNotContainInheritedVars() {
         DefaultGenerator codegen = new ThisDefaultGenerator();
         codegen.supportsInheritance = true;

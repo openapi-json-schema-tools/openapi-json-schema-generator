@@ -73,10 +73,8 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected String licenseName = "Unlicense";
     protected String licenseUrl = "http://unlicense.org";
     protected String projectFolder = "src/main";
-    protected String projectTestFolder = "src/test";
     // this must not be OS-specific
     protected String sourceFolder = projectFolder + "/java";
-    protected String testFolder = projectTestFolder + "/java";
     protected String apiDocPath = "docs/";
     protected String modelDocPath = "docs/";
     protected boolean supportJava6 = false;
@@ -419,26 +417,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     }
 
     @Override
-    public String apiFileFolder() {
-        return (outputFolder + File.separator + sourceFolder + File.separator + apiPackage().replace('.', File.separatorChar)).replace('/', File.separatorChar);
-    }
-
-    @Override
-    public String apiTestFileFolder() {
-        return (outputTestFolder + File.separator + testFolder + File.separator + apiPackage().replace('.', File.separatorChar)).replace('/', File.separatorChar);
-    }
-
-    @Override
-    public String modelTestFileFolder() {
-        return (outputTestFolder + File.separator + testFolder + File.separator + modelPackage().replace('.', File.separatorChar)).replace('/', File.separatorChar);
-    }
-
-    @Override
-    public String apiDocFileFolder() {
-        return (outputFolder + File.separator + apiDocPath).replace('/', File.separatorChar);
-    }
-
-    @Override
     public String toVarName(String name) {
         // sanitize name
         name = sanitizeName(name, "\\W-[\\$]"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
@@ -508,9 +486,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     public String toModelName(final String name, String jsonPath) {
         // We need to check if schema-mapping has a different model for this class, so we use it
         // instead of the auto-generated one.
-        if (schemaMapping.containsKey(name)) {
-            return schemaMapping.get(name);
-        }
 
         // memoization
         if (schemaKeyToModelNameCache.containsKey(name)) {
@@ -554,12 +529,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         return camelizedName;
     }
 
-    @Override
-    public String toModelFilename(String name, String jsonPath) {
-        // should be the same as the model name
-        return toModelName(name, jsonPath);
-    }
-
     /**
      * Return the example value of the parameter. Overrides the
      * getParameterExampleValue(Parameter) method in
@@ -581,7 +550,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             }
         }
 
-        Schema schema = parameter.getSchema();
+        Schema<?> schema = parameter.getSchema();
 
         if (schema == null && parameter.getContent() != null) {
             String contentType = (String) parameter.getContent().keySet().toArray()[0];
@@ -981,17 +950,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
     public void setSupportJava6(boolean value) {
         this.supportJava6 = value;
-    }
-
-    @Override
-    public String sanitizeTag(String tag) {
-        tag = camelize(underscore(sanitizeName(tag)));
-
-        // tag starts with numbers
-        if (tag.matches("^\\d.*")) {
-            tag = "Class" + tag;
-        }
-        return tag;
     }
 
     @Override

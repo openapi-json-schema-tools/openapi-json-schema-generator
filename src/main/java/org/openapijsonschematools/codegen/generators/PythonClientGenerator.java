@@ -1755,11 +1755,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String apiDocFileFolder() {
-        return (outputFolder + File.separator + apiDocPath);
-    }
-
-    @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
         if (!jsonPath.startsWith("#/components/responses/")) {
             return "response_" + componentName.toLowerCase(Locale.ROOT);
@@ -1778,21 +1773,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename("header_" + componentName, null); }
-
-    @Override
-    public String apiFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar +  apiPackage() + File.separatorChar + "tags";
-    }
-
-    @Override
-    public String apiTestFileFolder() {
-        return outputFolder + File.separatorChar + testFolder;
-    }
-
-    @Override
-    public String modelTestFileFolder() {
-        return outputFolder + File.separatorChar + testFolder + File.separatorChar + modelPackage.replace('.', File.separatorChar);
-    }
 
     public void setUseNose(String val) {
         this.useNose = Boolean.parseBoolean(val);
@@ -1834,17 +1814,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         if (specMajorVersion < 3) {
             throw new RuntimeException("Your spec version of "+originalSpecVersion+" is too low. " + getName() + " only works with specs with version >= 3.X.X. Please use a tool like Swagger Editor or Swagger Converter to convert your spec to v3");
         }
-    }
-
-    /**
-     * Note: a custom version of this function is used so the original tag value can be used
-     *
-     * @param tag Tag
-     * @return the tag to use
-     */
-    @Override
-    public String sanitizeTag(String tag) {
-        return tag;
     }
 
     public Map<String, Object> postProcessSupportingFileData(Map<String, Object> data) {
