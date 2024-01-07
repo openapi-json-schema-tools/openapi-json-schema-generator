@@ -809,23 +809,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         // add the models and apis folders
         Boolean generateModels = (Boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
-        Components components = null;
-        if (openAPI != null) {
-            components = openAPI.getComponents();
-        }
         if (Boolean.TRUE.equals(generateModels)) {
             supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separator + "components" + File.separator + "schemas", "__init__.py"));
-        }
-        // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
-        Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
-                (components != null ? components.getSecuritySchemes() : null) : null;
-        if (securitySchemeMap != null) {
-            for (SecurityScheme securityScheme: securitySchemeMap.values()) {
-                if (securityScheme.getType() == SecurityScheme.Type.HTTP && securityScheme.getScheme().equals("signature")) {
-                    supportingFiles.add(new SupportingFile("signing.hbs", packagePath(), "signing.py"));
-                    break;
-                }
-            }
         }
     }
 
@@ -2270,4 +2255,20 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     @Override
     public GeneratorLanguage generatorLanguage() { return GeneratorLanguage.PYTHON; }
+
+    @Override
+    public void setOpenAPI(OpenAPI openAPI) {
+        super.setOpenAPI(openAPI);
+        Components components = openAPI.getComponents();
+        // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
+        Map<String, SecurityScheme> securitySchemeMap = components != null ? components.getSecuritySchemes() : null;
+        if (securitySchemeMap != null) {
+            for (SecurityScheme securityScheme: securitySchemeMap.values()) {
+                if (securityScheme.getType() == SecurityScheme.Type.HTTP && securityScheme.getScheme().equals("signature")) {
+                    supportingFiles.add(new SupportingFile("signing.hbs", packagePath(), "signing.py"));
+                    break;
+                }
+            }
+        }
+    }
 }
