@@ -143,15 +143,5 @@ public class FakeJavaGeneratorTest {
         public String getHelp() {
             return null;
         }
-
-        /**
-         * Gets artifact version.
-         * Only for testing purposes.
-         *
-         * @return version
-         */
-        public String getArtifactVersion() {
-            return this.artifactVersion;
-        }
     }
 }
