@@ -20,7 +20,6 @@ package org.openapijsonschematools.codegen.generators;
 import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
@@ -42,7 +41,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 import static org.openapijsonschematools.codegen.common.StringUtils.*;
 
@@ -85,11 +83,10 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     protected String parentGroupId = "";
     protected String parentArtifactId = "";
     protected String parentVersion = "";
-    protected boolean parentOverridden = false;
     protected String outputTestFolder = "";
     protected DocumentationProvider documentationProvider;
     protected AnnotationLibrary annotationLibrary;
-    private Map<String, String> schemaKeyToModelNameCache = new HashMap<>();
+    private final Map<String, String> schemaKeyToModelNameCache = new HashMap<>();
 
     public AbstractJavaGenerator() {
         super();
@@ -442,11 +439,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     }
 
     @Override
-    public String toApiFilename(String name) {
-        return toApiName(name);
-    }
-
-    @Override
     public String toVarName(String name) {
         // sanitize name
         name = sanitizeName(name, "\\W-[\\$]"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
@@ -521,14 +513,11 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         }
 
         // memoization
-        String origName = name;
-        if (schemaKeyToModelNameCache.containsKey(origName)) {
-            return schemaKeyToModelNameCache.get(origName);
+        if (schemaKeyToModelNameCache.containsKey(name)) {
+            return schemaKeyToModelNameCache.get(name);
         }
 
-        final String sanitizedName = sanitizeName(name);
-
-        String nameWithPrefixSuffix = sanitizedName;
+        String nameWithPrefixSuffix = sanitizeName(name);
         if (!StringUtils.isEmpty(modelNamePrefix)) {
             // add '_' so that model name can be camelized correctly
             nameWithPrefixSuffix = modelNamePrefix + "_" + nameWithPrefixSuffix;
@@ -546,7 +535,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         // model name cannot use reserved keyword, e.g. return
         if (isReservedWord(camelizedName)) {
             final String modelName = "Model" + camelizedName;
-            schemaKeyToModelNameCache.put(origName, modelName);
+            schemaKeyToModelNameCache.put(name, modelName);
             LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
             return modelName;
         }
@@ -554,13 +543,13 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         // model name starts with number
         if (camelizedName.matches("^\\d.*")) {
             final String modelName = "Model" + camelizedName; // e.g. 200Response => Model200Response (after camelize)
-            schemaKeyToModelNameCache.put(origName, modelName);
+            schemaKeyToModelNameCache.put(name, modelName);
             LOGGER.warn("{} (model name starts with number) cannot be used as model name. Renamed to {}", name,
                     modelName);
             return modelName;
         }
 
-        schemaKeyToModelNameCache.put(origName, camelizedName);
+        schemaKeyToModelNameCache.put(name, camelizedName);
 
         return camelizedName;
     }
@@ -632,31 +621,37 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         if (types.contains("string")) {
             String format = schema.getFormat();
             if (format != null) {
-                if (format.equals("uuid")) {
-                    if (example == null) {
-                        example = "UUID.randomUUID()";
-                    } else {
-                        example = "UUID.fromString(\"" + example + "\")";
-                    }
-                } else if (format.equals("binary")) {
-                    if (example == null) {
-                        example = "/path/to/file";
-                    }
-                    example = "new File(\"" + escapeText(example) + "\")";
-                } else if (format.equals("date")) {
-                    example = "new Date()";
-                } else if (format.equals("date-time")) {
-                    if (example == null) {
-                        example = "LocalDate.now()";
-                    } else {
-                        example = "LocalDate.parse(\"" + example + "\")";
-                    }
-                } else if (format.equals("number")) {
-                    if (example == null) {
-                        example = "new BigDecimal(78)";
-                    } else {
-                        example = "new BigDecimal(\"" + example + "\")";
-                    }
+                switch (format) {
+                    case "uuid":
+                        if (example == null) {
+                            example = "UUID.randomUUID()";
+                        } else {
+                            example = "UUID.fromString(\"" + example + "\")";
+                        }
+                        break;
+                    case "binary":
+                        if (example == null) {
+                            example = "/path/to/file";
+                        }
+                        example = "new File(\"" + escapeText(example) + "\")";
+                        break;
+                    case "date":
+                        example = "new Date()";
+                        break;
+                    case "date-time":
+                        if (example == null) {
+                            example = "LocalDate.now()";
+                        } else {
+                            example = "LocalDate.parse(\"" + example + "\")";
+                        }
+                        break;
+                    case "number":
+                        if (example == null) {
+                            example = "new BigDecimal(78)";
+                        } else {
+                            example = "new BigDecimal(\"" + example + "\")";
+                        }
+                        break;
                 }
             } else {
                 if (example == null) {
@@ -761,34 +756,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
             }
         }
         additionalProperties.put(CodegenConstants.ARTIFACT_VERSION, artifactVersion);
-    }
-
-    private static String getAccept(OpenAPI openAPI, Operation operation) {
-        String accepts = null;
-        String defaultContentType = "application/json";
-        Set<String> producesInfo = getProducesInfo(openAPI, operation);
-        if (producesInfo != null && !producesInfo.isEmpty()) {
-            ArrayList<String> produces = new ArrayList<>(producesInfo);
-            StringBuilder sb = new StringBuilder();
-            for (String produce : produces) {
-                if (defaultContentType.equalsIgnoreCase(produce)) {
-                    accepts = defaultContentType;
-                    break;
-                } else {
-                    if (sb.length() > 0) {
-                        sb.append(",");
-                    }
-                    sb.append(produce);
-                }
-            }
-            if (accepts == null) {
-                accepts = sb.toString();
-            }
-        } else {
-            accepts = defaultContentType;
-        }
-
-        return accepts;
     }
 
     @Override
@@ -933,18 +900,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         this.sourceFolder = sourceFolder;
     }
 
-    public String getTestFolder() {
-        return testFolder;
-    }
-
-    public void setTestFolder(String testFolder) {
-        this.testFolder = testFolder;
-    }
-
-    private String sanitizePath(String p) {
-        //prefer replace a ", instead of a fuLL URL encode for readability
-        return p.replaceAll("\"", "%22");
-    }
     public void setSupportAsync(boolean enabled) {
         this.supportAsync = enabled;
     }
@@ -955,13 +910,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         if (this.outputTestFolder.isEmpty()) {
             setOutputTestFolder(dir);
         }
-    }
-
-    public String getOutputTestFolder() {
-        if (outputTestFolder.isEmpty()) {
-            return DEFAULT_TEST_FOLDER;
-        }
-        return outputTestFolder;
     }
 
     public void setOutputTestFolder(String outputTestFolder) {
@@ -1021,7 +969,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     /**
      * Builds a SNAPSHOT version from a given version.
      *
-     * @param version
+     * @param version the version
      * @return SNAPSHOT version
      */
     private String buildSnapshotVersion(String version) {
@@ -1087,25 +1035,5 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
     public void setParentVersion(final String parentVersion) {
         this.parentVersion = parentVersion;
-    }
-
-    public void setParentOverridden(final boolean parentOverridden) {
-        this.parentOverridden = parentOverridden;
-    }
-
-    /**
-     * Search for property by {@link CodegenSchema#jsonPathPiece}
-     * @param name - name to search for
-     * @param properties - list of properties
-     * @return either found property or {@link Optional#empty()} if nothing has been found
-     */
-    protected Optional<CodegenSchema> findByName(String name, List<CodegenSchema> properties) {
-        if (properties == null || properties.isEmpty()) {
-            return Optional.empty();
-        }
-
-        return properties.stream()
-            .filter(p -> p.jsonPathPiece.original.equals(name))
-            .findFirst();
     }
 }
