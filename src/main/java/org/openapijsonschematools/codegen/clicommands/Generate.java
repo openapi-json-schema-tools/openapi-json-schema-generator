@@ -35,7 +35,7 @@ import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
 
 @SuppressWarnings({"java:S106"})
-@Command(name = "generate", description = "Generate code with the specified generatorRunner.")
+@Command(name = "generate", description = "Generate code with the specified generator.")
 public class Generate extends AbstractCommand {
 
     CodegenConfigurator configurator;
@@ -44,8 +44,8 @@ public class Generate extends AbstractCommand {
     @Option(name = {"-v", "--verbose"}, description = "verbose mode")
     private Boolean verbose;
 
-    @Option(name = {"-g", "--generatorRunner-name"}, title = "generatorRunner name",
-            description = "generatorRunner to use (see list command for list)")
+    @Option(name = {"-g", "--generator-name"}, title = "generator name",
+            description = "generator to use (see list command for list)")
     private String generatorName;
 
     @Option(name = {"-o", "--output"}, title = "output directory",
@@ -84,7 +84,7 @@ public class Generate extends AbstractCommand {
             description = "Path to configuration file. It can be JSON or YAML. "
                     + "If file is JSON, the content should have the format {\"optionKey\":\"optionValue\", \"optionKey1\":\"optionValue1\"...}. "
                     + "If file is YAML, the content should have the format optionKey: optionValue. "
-                    + "Supported options can be different for each language. Run config-help -g {generatorRunner name} command for language-specific config options.")
+                    + "Supported options can be different for each language. Run config-help -g {generator name} command for language-specific config options.")
     private String configFile;
 
     @Option(name = {"-s", "--skip-overwrite"}, title = "skip overwrite",
@@ -348,7 +348,7 @@ public class Generate extends AbstractCommand {
             generatorRunner.generate();
         } catch (GeneratorNotFoundException e) {
             System.err.println(e.getMessage());
-            System.err.println("[error] Check the spelling of the generatorRunner's name and try again.");
+            System.err.println("[error] Check the spelling of the generator's name and try again.");
             System.exit(1);
         }
     }

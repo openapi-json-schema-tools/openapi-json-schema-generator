@@ -24,8 +24,8 @@ public class AuthorTemplate extends AbstractCommand {
 
     private final Logger LOGGER = LoggerFactory.getLogger(AuthorTemplate.class);
 
-    @Option(name = {"-g", "--generatorRunner-name"}, title = "generatorRunner name",
-            description = "generatorRunner to use (see list command for list)",
+    @Option(name = {"-g", "--generator-name"}, title = "generator name",
+            description = "generator to use (see list command for list)",
             required = true)
     private String generatorName;
 

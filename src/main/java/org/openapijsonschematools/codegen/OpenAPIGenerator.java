@@ -40,7 +40,7 @@ import java.util.Locale;
 /**
  * User: lanwen Date: 24.03.15 Time: 17:56
  * <p>
- * Command line interface for OpenAPI JSON Schema GeneratorRunner use `openapi-generator-cli.jar help` for more info
+ * Command line interface for OpenAPI JSON Schema Generator use `openapi-generator-cli.jar help` for more info
  */
 public class OpenAPIGenerator {
 
@@ -51,7 +51,7 @@ public class OpenAPIGenerator {
                         .withDescription(
                                 String.format(
                                         Locale.ROOT,
-                                        "OpenAPI JSON Schema GeneratorRunner CLI %s (%s).",
+                                        "OpenAPI JSON Schema Generator CLI %s (%s).",
                                         buildInfo.getVersion(),
                                         buildInfo.getSha()))
                         .withDefaultCommand(Help.class)
