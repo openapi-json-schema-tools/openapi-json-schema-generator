@@ -678,28 +678,6 @@ public class ModelUtils {
         return false;
     }
 
-    /*
-    Remove this in the 4.0.0 release because it is unused
-     */
-    @Deprecated
-    public static boolean hasValidation(Schema sc) {
-        return (
-                sc.getMaxItems() != null ||
-                        sc.getMinProperties() != null ||
-                        sc.getMaxProperties() != null ||
-                        sc.getMinLength() != null ||
-                        sc.getMinItems() != null ||
-                        sc.getMultipleOf() != null ||
-                        sc.getPattern() != null ||
-                        sc.getMaxLength() != null ||
-                        sc.getMinimum() != null ||
-                        sc.getMaximum() != null ||
-                        sc.getExclusiveMaximum() != null ||
-                        sc.getExclusiveMinimum() != null ||
-                        sc.getUniqueItems() != null
-        );
-    }
-
     /**
      * If a Schema contains a reference to another Schema with '$ref', returns the referenced Schema if it is found or the actual Schema in the other cases.
      *

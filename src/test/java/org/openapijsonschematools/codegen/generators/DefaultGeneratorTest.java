@@ -2426,7 +2426,7 @@ public class DefaultGeneratorTest {
                     "#/components/schemas/" + modelName,
                     "#/components/schemas/" + modelName
             );
-            assertTrue(cm.hasValidation());
+            assertTrue(cm.isCustomSchema());
         }
     }
 
@@ -2447,7 +2447,7 @@ public class DefaultGeneratorTest {
         List<CodegenSchema> props = cm.properties.values().stream().collect(Collectors.toList());
         assertEquals(props.size(), 50);
         for (CodegenSchema prop : props) {
-            assertTrue(prop.hasValidation());
+            assertTrue(prop.isCustomSchema());
         }
     }
 
@@ -2463,7 +2463,7 @@ public class DefaultGeneratorTest {
         List<CodegenParameter> params = co.parameters.queryParameters;
         assertEquals(params.size(), 50);
         for (CodegenParameter param : params) {
-            assertTrue(param.schema.hasValidation());
+            assertTrue(param.schema.isCustomSchema());
         }
     }
 
@@ -2479,7 +2479,7 @@ public class DefaultGeneratorTest {
         List<CodegenParameter> params = co.parameters.headerParameters;
         assertEquals(params.size(), 50);
         for (CodegenParameter param : params) {
-            assertTrue(param.schema.hasValidation());
+            assertTrue(param.schema.isCustomSchema());
         }
     }
 
@@ -2495,7 +2495,7 @@ public class DefaultGeneratorTest {
         List<CodegenParameter> params = co.parameters.cookieParameters;
         assertEquals(params.size(), 50);
         for (CodegenParameter param : params) {
-            assertTrue(param.schema.hasValidation());
+            assertTrue(param.schema.isCustomSchema());
         }
     }
 
@@ -2511,7 +2511,7 @@ public class DefaultGeneratorTest {
         List<CodegenParameter> params = co.parameters.pathParameters;
         assertEquals(params.size(), 50);
         for (CodegenParameter param : params) {
-            assertTrue(param.schema.hasValidation());
+            assertTrue(param.schema.isCustomSchema());
         }
     }
 
@@ -2583,8 +2583,8 @@ public class DefaultGeneratorTest {
             operation = openAPI.getPaths().get(path).getPost();
             co = codegen.fromOperation(operation, getOperationPath(path, "post"), null);
             CodegenKey ck = codegen.getKey("application/json", "misc");
-            assertTrue(co.requestBody.content.get(ck).schema.hasValidation());
-            assertTrue(co.responses.get("200").content.get(ck).schema.hasValidation());
+            assertTrue(co.requestBody.content.get(ck).schema.isCustomSchema());
+            assertTrue(co.responses.get("200").content.get(ck).schema.isCustomSchema());
         }
     }
 
