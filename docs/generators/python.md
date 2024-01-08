@@ -34,8 +34,8 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 
 | Extension name | Description | Applicable for | Default value |
 | -------------- | ----------- | -------------- | ------------- |
-|x-enum-varnames|A list of strings that defines the enum variable names, must be adjacent to enums|SCHEMA|[]
-|x-enum-descriptions|A list of strings that defines the enum descriptions, must be adjacent to enums|SCHEMA|[]
+|x-enum-varnames|A list of strings that defines the enum variable names, must be adjacent to enum|SCHEMA|[]
+|x-enum-descriptions|A list of strings that defines the enum descriptions, must be adjacent to enum|SCHEMA|[]
 
 
 ## INSTANTIATION TYPES

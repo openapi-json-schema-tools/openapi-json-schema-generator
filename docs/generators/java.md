@@ -12,7 +12,7 @@ title: Documentation for the java generator
 | generator language | Java | |
 | generator language version | 17 | |
 | generator default templating engine | handlebars | |
-| helpTxt | Generates a Java client library (HTTP lib: Jersey (1.x, 2.x), Retrofit (2.x), OpenFeign (10.x) and more. | |
+| helpTxt | Generates a Java client library<br /><br />Features in this generator:<br />- v3.0.0 - [v3.0.3](docs/generators/java.md#schema-feature) OpenAPI Specification support for component schemas<br />- Very [thorough documentation generated in the style of javadocs, includes code samples](samples/client/petstore/java/docs/components/schemas/Money.md#money)<br />- Input types constrained for a Schema in SomeSchema.validate<br />  - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data<br />- Immutable List output classes generated and returned by validate for List&lt;?&gt; input<br />- Immutable Map output classes generated and returned by validate for Map&lt;?, ?&gt; input<br />- Strictly typed list input can be instantiated in client code using generated ListBuilders<br />- Strictly typed map input can be instantiated in client code using generated MapBuilders<br />  - Sequential map builders are generated ensuring that required properties are set before build is invoked. Looks like:<br />  - `new MapBuilder().requiredA(&quot;a&quot;).requiredB(&quot;b&quot;).build()`<br />  - `new MapBuilder().requiredA(&quot;a&quot;).requiredB(&quot;b&quot;).optionalProp(&quot;c&quot;).additionalProperty(&quot;someAddProp&quot;, &quot;d&quot;).build()`<br />- Run time type checking and validation when<br />  - validating schema payloads<br />  - instantiating List output class (validation run)<br />  - instantiating Map output class (validation run)<br />  - Note: if needed, validation of json schema keywords can be deactivated via a SchemaConfiguration class<br />- Enums classes are generated and may be input into Schema.validate or the List/MapBuilder add/setter methods<br />- The [Checker-Framework's](https://github.com/typetools/checker-framework) NullnessChecker and @Nullable annotations are used in the java client<br />  - ensuring that null pointer exceptions will not happen<br />- Invalid (in java) property names supported like `class`, `1var`, `hi-there` etc in<br />  - component schema names<br />  - schema property names (a fallback setter is written in the MapBuilder)<br />- Generated interfaces are largely consistent with the python code<br />- Openapi spec inline schemas supported at any depth in any location<br />- Format support for: int32, int64, float, double, date, datetime, uuid<br />- Payload values are not coerced when validated, so a datetime value can pass other validations that describe the payload only as type string<br />- types are generated for enums of type string/integer/boolean using typing.Literal<br />- String transmission of numbers supported with type: string, format: number | |
 
 ## CONFIG OPTIONS
 These options may be applied as additional-properties (cli) or configOptions (plugins). Refer to [configuration docs](https://openapi-generator.tech/docs/configuration) for more details.
@@ -48,8 +48,8 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 
 | Extension name | Description | Applicable for | Default value |
 | -------------- | ----------- | -------------- | ------------- |
-|x-enum-varnames|A list of strings that defines the enum variable names, must be adjacent to enums|SCHEMA|[]
-|x-enum-descriptions|A list of strings that defines the enum descriptions, must be adjacent to enums|SCHEMA|[]
+|x-enum-varnames|A list of strings that defines the enum variable names, must be adjacent to enum|SCHEMA|[]
+|x-enum-descriptions|A list of strings that defines the enum descriptions, must be adjacent to enum|SCHEMA|[]
 
 
 ## INSTANTIATION TYPES
