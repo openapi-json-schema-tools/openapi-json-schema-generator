@@ -19,10 +19,8 @@ from .. import ApiTestMixin
 
 
 class TestPut(ApiTestMixin, unittest.TestCase):
-    """
-    Put unit test stubs
-        Update an existing pet  # noqa: E501
-    """
+    # Put unit test stubs
+    # Update an existing pet  # noqa: E501
     api_config = api_configuration.ApiConfiguration()
     schema_config = schema_configuration.SchemaConfiguration(
         disabled_json_schema_keywords={'format'}

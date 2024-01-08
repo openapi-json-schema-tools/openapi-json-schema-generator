@@ -19,9 +19,7 @@ from .. import ApiTestMixin
 
 
 class TestGet(ApiTestMixin, unittest.TestCase):
-    """
-    Get unit test stubs
-    """
+    # Get unit test stubs
     api_config = api_configuration.ApiConfiguration()
     schema_config = schema_configuration.SchemaConfiguration(
         disabled_json_schema_keywords={'format'}

@@ -291,6 +291,9 @@ docs/paths/fake_parameter_collisions1_abab_self_ab/post/parameters/parameter_8/s
 docs/paths/fake_parameter_collisions1_abab_self_ab/post/parameters/parameter_9/schema.md
 docs/paths/fake_parameter_collisions1_abab_self_ab/post/request_body/content/application_json/schema.md
 docs/paths/fake_parameter_collisions1_abab_self_ab/post/responses/response_200/content/application_json/schema.md
+docs/paths/fake_pem_content_type/get.md
+docs/paths/fake_pem_content_type/get/request_body/content/application_x_pem_file/schema.md
+docs/paths/fake_pem_content_type/get/responses/response_200/content/application_x_pem_file/schema.md
 docs/paths/fake_pet_id_upload_image_with_required_file/post.md
 docs/paths/fake_pet_id_upload_image_with_required_file/post/parameters/parameter_0/schema.md
 docs/paths/fake_pet_id_upload_image_with_required_file/post/request_body/content/multipart_form_data/schema.md
@@ -437,6 +440,7 @@ src/petstore_api/apis/paths/fake_multiple_response_bodies.py
 src/petstore_api/apis/paths/fake_multiple_securities.py
 src/petstore_api/apis/paths/fake_obj_in_query.py
 src/petstore_api/apis/paths/fake_parameter_collisions1_abab_self_ab.py
+src/petstore_api/apis/paths/fake_pem_content_type.py
 src/petstore_api/apis/paths/fake_pet_id_upload_image_with_required_file.py
 src/petstore_api/apis/paths/fake_query_param_with_json_content_type.py
 src/petstore_api/apis/paths/fake_redirection.py
@@ -1061,6 +1065,18 @@ src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/responses/re
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/responses/response_200/content/__init__.py
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/responses/response_200/content/application_json/__init__.py
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/responses/response_200/content/application_json/schema.py
+src/petstore_api/paths/fake_pem_content_type/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/operation.py
+src/petstore_api/paths/fake_pem_content_type/get/request_body/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/request_body/content/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/request_body/content/application_x_pem_file/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/request_body/content/application_x_pem_file/schema.py
+src/petstore_api/paths/fake_pem_content_type/get/responses/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/responses/response_200/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/responses/response_200/content/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/responses/response_200/content/application_x_pem_file/__init__.py
+src/petstore_api/paths/fake_pem_content_type/get/responses/response_200/content/application_x_pem_file/schema.py
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/__init__.py
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/__init__.py
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/operation.py

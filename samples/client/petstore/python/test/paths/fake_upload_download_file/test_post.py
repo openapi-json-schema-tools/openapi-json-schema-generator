@@ -19,10 +19,8 @@ from .. import ApiTestMixin
 
 
 class TestPost(ApiTestMixin, unittest.TestCase):
-    """
-    Post unit test stubs
-        uploads a file and downloads a file using application/octet-stream  # noqa: E501
-    """
+    # Post unit test stubs
+    # uploads a file and downloads a file using application/octet-stream  # noqa: E501
     api_config = api_configuration.ApiConfiguration()
     schema_config = schema_configuration.SchemaConfiguration(
         disabled_json_schema_keywords={'format'}

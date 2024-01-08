@@ -19,10 +19,8 @@ from .. import ApiTestMixin
 
 
 class TestGet(ApiTestMixin, unittest.TestCase):
-    """
-    Get unit test stubs
-        receives a response without schema  # noqa: E501
-    """
+    # Get unit test stubs
+    # receives a response without schema  # noqa: E501
     api_config = api_configuration.ApiConfiguration()
     schema_config = schema_configuration.SchemaConfiguration(
         disabled_json_schema_keywords={'format'}

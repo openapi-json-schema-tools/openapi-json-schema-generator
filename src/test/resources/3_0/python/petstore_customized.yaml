@@ -2,8 +2,7 @@ openapi: 3.0.0
 info:
   description: >-
     This spec is mainly for testing Petstore server and contains fake endpoints,
-    models. Please do not use this for any other purpose. Special characters: "
-    \
+    models. Please do not use this for any other purpose.
   version: 1.0.0
   title: OpenAPI Petstore
   license:
@@ -1779,6 +1778,24 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/SuccessDescriptionOnly'
+  /fake/pemContentType:
+    get:
+      operationId: pemContentType
+      summary: route with tx and rx pem content type
+      tags:
+        - fake
+      requestBody:
+        content:
+          application/x-pem-file:
+            schema:
+              type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/x-pem-file:
+              schema:
+                type: string
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server

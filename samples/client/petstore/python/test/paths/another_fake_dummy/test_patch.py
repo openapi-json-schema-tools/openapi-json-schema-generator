@@ -19,10 +19,8 @@ from .. import ApiTestMixin
 
 
 class TestPatch(ApiTestMixin, unittest.TestCase):
-    """
-    Patch unit test stubs
-        To test special tags  # noqa: E501
-    """
+    # Patch unit test stubs
+    # To test special tags  # noqa: E501
     api_config = api_configuration.ApiConfiguration()
     schema_config = schema_configuration.SchemaConfiguration(
         disabled_json_schema_keywords={'format'}

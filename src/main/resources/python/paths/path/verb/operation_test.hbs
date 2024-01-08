@@ -18,7 +18,7 @@ from .. import ApiTestMixin
 
 {{#with operation}}
 class Test{{httpMethod.pascalCase}}(ApiTestMixin, unittest.TestCase):
-    {{httpMethod.pascalCase}} unit test stubs
+    # {{httpMethod.pascalCase}} unit test stubs
 {{#if summary}}
     # {{{summary.codeEscaped}}}  # noqa: E501
 {{/if}}

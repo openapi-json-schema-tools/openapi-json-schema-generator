@@ -14,6 +14,7 @@ from petstore_api.paths.common_param_sub_dir.post.operation import PostCommonPar
 from petstore_api.paths.fake_body_with_file_schema.put.operation import BodyWithFileSchema
 from petstore_api.paths.fake_json_patch.patch.operation import JsonPatch
 from petstore_api.paths.fake_response_without_schema.get.operation import ResponseWithoutSchema
+from petstore_api.paths.fake_pem_content_type.get.operation import PemContentType
 from petstore_api.paths.fake_refs_boolean.post.operation import Boolean
 from petstore_api.paths.fake_refs_string.post.operation import String
 from petstore_api.paths.fake_wild_card_responses.get.operation import WildCardResponses
@@ -59,6 +60,7 @@ class FakeApi(
     BodyWithFileSchema,
     JsonPatch,
     ResponseWithoutSchema,
+    PemContentType,
     Boolean,
     String,
     WildCardResponses,

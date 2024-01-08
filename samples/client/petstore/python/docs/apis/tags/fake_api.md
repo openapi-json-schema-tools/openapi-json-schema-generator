@@ -38,6 +38,7 @@ Method | Description
 [**object_in_query**](../../paths/fake_obj_in_query/get.md) | user list
 [**object_model_with_ref_props**](../../paths/fake_refs_object_model_with_ref_props/post.md) | 
 [**parameter_collisions**](../../paths/fake_parameter_collisions1_abab_self_ab/post.md) | parameter collision case
+[**pem_content_type**](../../paths/fake_pem_content_type/get.md) | route with tx and rx pem content type
 [**post_common_param**](../../paths/common_param_sub_dir/post.md) | 
 [**query_param_with_json_content_type**](../../paths/fake_query_param_with_json_content_type/get.md) | query param with json content-type
 [**query_parameter_collection_format**](../../paths/fake_test_query_paramters/put.md) | 
