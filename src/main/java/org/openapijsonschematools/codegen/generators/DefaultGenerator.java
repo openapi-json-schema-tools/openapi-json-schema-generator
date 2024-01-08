@@ -4580,15 +4580,13 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
             instance.componentModule = true;
         }
-        if (currentJsonPath != null && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+        if (sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             instance.subpackage = getSubpackage(sourceJsonPath);
         }
-        if (currentJsonPath != null) {
-            instance.moduleLocation = getModuleLocation(sourceJsonPath);
-            instance.pathFromDocRoot = schemaPathFromDocRoot(instance.moduleLocation);
-            if (!currentJsonPath.equals(sourceJsonPath)) {
-                instance.isInline = true;
-            }
+        instance.moduleLocation = getModuleLocation(sourceJsonPath);
+        instance.pathFromDocRoot = schemaPathFromDocRoot(instance.moduleLocation);
+        if (!currentJsonPath.equals(sourceJsonPath)) {
+            instance.isInline = true;
         }
     }
 
