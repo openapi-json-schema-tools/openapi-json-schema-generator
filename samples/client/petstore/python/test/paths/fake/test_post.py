@@ -19,10 +19,8 @@ from .. import ApiTestMixin
 
 
 class TestPost(ApiTestMixin, unittest.TestCase):
-    """
-    Post unit test stubs
-        Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트   # noqa: E501
-    """
+    # Post unit test stubs
+    # Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트   # noqa: E501
     api_config = api_configuration.ApiConfiguration()
     schema_config = schema_configuration.SchemaConfiguration(
         disabled_json_schema_keywords={'format'}

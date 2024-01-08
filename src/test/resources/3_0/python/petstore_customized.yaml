@@ -2,8 +2,7 @@ openapi: 3.0.0
 info:
   description: >-
     This spec is mainly for testing Petstore server and contains fake endpoints,
-    models. Please do not use this for any other purpose. Special characters: "
-    \
+    models. Please do not use this for any other purpose.
   version: 1.0.0
   title: OpenAPI Petstore
   license:

@@ -228,6 +228,8 @@ docs/paths/fakeparametercollisions1ababselfab/post/parameters/parameter8/Schema8
 docs/paths/fakeparametercollisions1ababselfab/post/parameters/parameter9/Schema9.md
 docs/paths/fakeparametercollisions1ababselfab/post/requestbody/content/applicationjson/Schema.md
 docs/paths/fakeparametercollisions1ababselfab/post/responses/response200/content/applicationjson/Schema.md
+docs/paths/fakepemcontenttype/get/requestbody/content/applicationxpemfile/Schema.md
+docs/paths/fakepemcontenttype/get/responses/response200/content/applicationxpemfile/Schema.md
 docs/paths/fakepetiduploadimagewithrequiredfile/post/parameters/parameter0/Schema0.md
 docs/paths/fakepetiduploadimagewithrequiredfile/post/requestbody/content/multipartformdata/Schema.md
 docs/paths/fakepetiduploadimagewithrequiredfile/post/responses/response200/content/applicationjson/Schema.md
@@ -558,6 +560,8 @@ src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ab
 src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/parameters/parameter9/Schema9.java
 src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/requestbody/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/client/paths/fakeparametercollisions1ababselfab/post/responses/response200/content/applicationjson/Schema.java
+src/main/java/org/openapijsonschematools/client/paths/fakepemcontenttype/get/requestbody/content/applicationxpemfile/Schema.java
+src/main/java/org/openapijsonschematools/client/paths/fakepemcontenttype/get/responses/response200/content/applicationxpemfile/Schema.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/fakepetiduploadimagewithrequiredfile/post/requestbody/content/multipartformdata/Schema.java

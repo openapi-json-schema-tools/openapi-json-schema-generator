@@ -19,7 +19,7 @@ from .. import ApiTestMixin
 
 
 class TestGet(ApiTestMixin, unittest.TestCase):
-    Get unit test stubs
+    # Get unit test stubs
     # route with tx and rx pem content type  # noqa: E501
     api_config = api_configuration.ApiConfiguration()
     schema_config = schema_configuration.SchemaConfiguration(
