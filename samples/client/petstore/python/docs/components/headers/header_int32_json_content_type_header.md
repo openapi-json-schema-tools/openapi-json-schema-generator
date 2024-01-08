@@ -10,7 +10,6 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ## content ApplicationJson Schema
-petstore_api.components.headers.header_int32_json_content_type_header.content.application_json.schema
 ```
 type: schemas.Schema
 ```

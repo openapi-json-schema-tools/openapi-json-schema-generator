@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_patternproperties_validates_properties_matching_a_regex_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

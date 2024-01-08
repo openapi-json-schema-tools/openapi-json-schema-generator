@@ -1,5 +1,4 @@
 # Schema
-org.openapijsonschematools.client.paths.storeorder.post.responses.response200.content.applicationxml.Schema.java
 public class Schema
 
 A class that contains necessary nested

@@ -1,5 +1,4 @@
 # Schema9
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter9.Schema9.java
 public class Schema9
 
 A class that contains necessary nested

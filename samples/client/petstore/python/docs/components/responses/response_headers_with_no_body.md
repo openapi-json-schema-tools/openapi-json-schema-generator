@@ -13,7 +13,6 @@ body | Unset | body was not defined |
 
 ## Headers
 ### Headers
-petstore_api.components.responses.response_headers_with_no_body.header_parameters
 ```
 type: schemas.Schema
 ```
@@ -58,7 +57,6 @@ from_dict_ | [HeadersDictInput](#headers-headersdictinput), [HeadersDict](#heade
 Where to find the newly added key.
 
 #### headers Location Schema
-petstore_api.components.responses.response_headers_with_no_body.headers.header_location.schema
 ```
 type: schemas.Schema
 ```

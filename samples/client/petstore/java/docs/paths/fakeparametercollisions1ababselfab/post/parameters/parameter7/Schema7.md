@@ -1,5 +1,4 @@
 # Schema7
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter7.Schema7.java
 public class Schema7
 
 A class that contains necessary nested

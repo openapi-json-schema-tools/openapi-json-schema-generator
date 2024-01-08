@@ -1,5 +1,4 @@
 # Schema5
-org.openapijsonschematools.client.paths.fake.delete.parameters.parameter5.Schema5.java
 public class Schema5
 
 A class that contains necessary nested

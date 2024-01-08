@@ -1,5 +1,4 @@
 # Schema
-unit_test_api.paths.response_body_post_ref_in_items_response_body_for_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

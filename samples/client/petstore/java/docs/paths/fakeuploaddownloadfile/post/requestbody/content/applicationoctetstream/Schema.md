@@ -1,5 +1,4 @@
 # Schema
-org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.requestbody.content.applicationoctetstream.Schema.java
 public class Schema
 
 A class that contains necessary nested

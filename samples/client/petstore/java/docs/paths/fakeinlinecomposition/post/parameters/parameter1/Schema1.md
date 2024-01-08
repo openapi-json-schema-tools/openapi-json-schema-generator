@@ -1,5 +1,4 @@
 # Schema1
-org.openapijsonschematools.client.paths.fakeinlinecomposition.post.parameters.parameter1.Schema1.java
 public class Schema1
 
 A class that contains necessary nested

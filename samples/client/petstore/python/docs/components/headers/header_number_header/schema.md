@@ -1,5 +1,4 @@
 # Schema
-petstore_api.components.headers.header_number_header.schema
 ```
 type: schemas.Schema
 ```

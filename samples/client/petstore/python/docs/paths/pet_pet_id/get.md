@@ -36,7 +36,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
 ### path_params
 ### PathParameters
-petstore_api.paths.pet_pet_id.get.path_parameters
 ```
 type: schemas.Schema
 ```
@@ -103,7 +102,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
-petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_xml.schema
 ```
 type: schemas.Schema
 ```
@@ -113,7 +111,6 @@ Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
 [**pet.Pet**](../../components/schema/pet.md) | [pet.PetDictInput](../../components/schema/pet.md#petdictinput), [pet.PetDict](../../components/schema/pet.md#petdict) | [pet.PetDict](../../components/schema/pet.md#petdict)
 #### ResponseFor200 content ApplicationJson Schema
-petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,4 @@
 # Schema
-org.openapijsonschematools.client.paths.fake.get.responses.response404.content.applicationjson.Schema.java
 public class Schema
 
 A class that contains necessary nested

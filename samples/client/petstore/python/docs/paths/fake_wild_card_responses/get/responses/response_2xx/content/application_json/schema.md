@@ -1,5 +1,4 @@
 # Schema
-petstore_api.paths.fake_wild_card_responses.get.responses.response_2xx.content.application_json.schema
 ```
 type: schemas.Schema
 ```

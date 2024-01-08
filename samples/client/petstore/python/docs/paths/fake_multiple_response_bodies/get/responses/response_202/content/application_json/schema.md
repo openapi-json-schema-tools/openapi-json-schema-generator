@@ -1,5 +1,4 @@
 # Schema
-petstore_api.paths.fake_multiple_response_bodies.get.responses.response_202.content.application_json.schema
 ```
 type: schemas.Schema
 ```

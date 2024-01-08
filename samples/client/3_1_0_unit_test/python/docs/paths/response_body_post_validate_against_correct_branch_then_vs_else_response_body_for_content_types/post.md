@@ -59,7 +59,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema2
-unit_test_api.paths.response_body_post_validate_against_correct_branch_then_vs_else_response_body_for_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

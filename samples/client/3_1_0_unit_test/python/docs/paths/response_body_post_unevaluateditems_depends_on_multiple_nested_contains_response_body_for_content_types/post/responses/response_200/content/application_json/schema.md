@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.response_body_post_unevaluateditems_depends_on_multiple_nested_contains_response_body_for_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

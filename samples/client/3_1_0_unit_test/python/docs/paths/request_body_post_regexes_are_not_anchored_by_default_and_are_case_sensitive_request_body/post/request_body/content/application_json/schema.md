@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_regexes_are_not_anchored_by_default_and_are_case_sensitive_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

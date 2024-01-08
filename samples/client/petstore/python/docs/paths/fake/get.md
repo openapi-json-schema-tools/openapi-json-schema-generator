@@ -44,7 +44,6 @@ Content-Type | Schema
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
-petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded.schema
 ```
 type: schemas.Schema
 ```
@@ -142,7 +141,6 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 ### query_params
 ### QueryParameters
-petstore_api.paths.fake.get.query_parameters
 ```
 type: schemas.Schema
 ```
@@ -190,7 +188,6 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 ### header_params
 ### HeaderParameters
-petstore_api.paths.fake.get.header_parameters
 ```
 type: schemas.Schema
 ```
@@ -258,7 +255,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor404 content ApplicationJson Schema
-petstore_api.paths.fake.get.responses.response_404.content.application_json.schema
 ```
 type: schemas.Schema
 ```

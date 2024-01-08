@@ -42,7 +42,6 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
 #### RequestBody content ApplicationJson Schema
-unit_test_api.paths.request_body_post_required_with_escaped_characters_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

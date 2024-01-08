@@ -1,5 +1,4 @@
 # Int32JsonContentTypeHeaderSchema
-org.openapijsonschematools.client.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema.java
 public class Int32JsonContentTypeHeaderSchema
 
 A class that contains necessary nested

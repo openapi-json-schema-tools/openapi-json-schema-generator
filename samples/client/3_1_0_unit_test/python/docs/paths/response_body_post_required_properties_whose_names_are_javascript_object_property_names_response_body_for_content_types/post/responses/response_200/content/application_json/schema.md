@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.response_body_post_required_properties_whose_names_are_javascript_object_property_names_response_body_for_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

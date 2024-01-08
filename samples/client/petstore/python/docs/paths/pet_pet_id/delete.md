@@ -36,7 +36,6 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
 ### header_params
 ### HeaderParameters
-petstore_api.paths.pet_pet_id.delete.header_parameters
 ```
 type: schemas.Schema
 ```
@@ -75,7 +74,6 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
 ### path_params
 ### PathParameters
-petstore_api.paths.pet_pet_id.delete.path_parameters
 ```
 type: schemas.Schema
 ```

@@ -4585,9 +4585,6 @@ public class DefaultGenerator implements Generator {
         }
         instance.moduleLocation = getModuleLocation(sourceJsonPath);
         instance.pathFromDocRoot = schemaPathFromDocRoot(instance.moduleLocation);
-        if (!currentJsonPath.equals(sourceJsonPath)) {
-            instance.isInline = true;
-        }
     }
 
     protected String getModuleLocation(String ref) {

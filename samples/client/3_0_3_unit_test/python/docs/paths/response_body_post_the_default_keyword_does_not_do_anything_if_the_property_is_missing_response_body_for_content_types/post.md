@@ -59,7 +59,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
-unit_test_api.paths.response_body_post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_response_body_for_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

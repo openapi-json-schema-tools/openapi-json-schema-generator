@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_object_type_matches_objects_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

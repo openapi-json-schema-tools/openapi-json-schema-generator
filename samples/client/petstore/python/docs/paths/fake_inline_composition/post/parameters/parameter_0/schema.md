@@ -1,5 +1,4 @@
 # Schema
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema
 ```
 type: schemas.Schema
 ```

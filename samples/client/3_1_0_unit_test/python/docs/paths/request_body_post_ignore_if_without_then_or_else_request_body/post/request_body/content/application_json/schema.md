@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_ignore_if_without_then_or_else_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

@@ -44,7 +44,6 @@ Content-Type | Schema
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
-petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded.schema
 ```
 type: schemas.Schema
 ```
@@ -89,7 +88,6 @@ from_dict_ | [SchemaDictInput](#requestbody-content-applicationxwwwformurlencode
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 ### path_params
 ### PathParameters
-petstore_api.paths.pet_pet_id.post.path_parameters
 ```
 type: schemas.Schema
 ```

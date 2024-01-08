@@ -1,5 +1,4 @@
 # Schema
-org.openapijsonschematools.client.components.parameters.componentrefschemastringwithvalidation.content.applicationjson.Schema.java
 public class Schema
 
 A class that contains necessary nested

@@ -1,5 +1,4 @@
 # Schema
-unit_test_api.paths.request_body_post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

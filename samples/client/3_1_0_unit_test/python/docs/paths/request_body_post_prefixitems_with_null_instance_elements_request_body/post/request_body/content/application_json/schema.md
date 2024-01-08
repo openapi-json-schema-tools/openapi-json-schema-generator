@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_prefixitems_with_null_instance_elements_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

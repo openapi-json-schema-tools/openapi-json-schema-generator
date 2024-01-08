@@ -1,5 +1,4 @@
 # Schema4
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter4.Schema4.java
 public class Schema4
 
 A class that contains necessary nested

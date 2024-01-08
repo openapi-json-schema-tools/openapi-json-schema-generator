@@ -45,7 +45,6 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
 #### RequestBody content MultipartFormData Schema
-petstore_api.paths.pet_pet_id_upload_image.post.request_body.content.multipart_form_data.schema
 ```
 type: schemas.Schema
 ```
@@ -90,7 +89,6 @@ from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-sch
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 ### path_params
 ### PathParameters
-petstore_api.paths.pet_pet_id_upload_image.post.path_parameters
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,4 @@
 # Schema6
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter6.Schema6.java
 public class Schema6
 
 A class that contains necessary nested

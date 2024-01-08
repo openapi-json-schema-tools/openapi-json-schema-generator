@@ -1,5 +1,4 @@
 # RefSchemaHeaderSchema
-org.openapijsonschematools.client.components.headers.refschemaheader.RefSchemaHeaderSchema.java
 public class RefSchemaHeaderSchema
 
 A class that contains necessary nested

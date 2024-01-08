@@ -1,5 +1,4 @@
 # Schema
-unit_test_api.paths.request_body_post_required_validation_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

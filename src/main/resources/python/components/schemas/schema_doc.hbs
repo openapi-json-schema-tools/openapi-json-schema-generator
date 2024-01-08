@@ -6,10 +6,6 @@
 {{/eq}}
 {{#if componentModule}}
 {{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
-{{else}}
-    {{#unless isInline}}
-{{moduleLocation}}
-    {{/unless}}
 {{/if}}
 ```
 type: schemas.Schema

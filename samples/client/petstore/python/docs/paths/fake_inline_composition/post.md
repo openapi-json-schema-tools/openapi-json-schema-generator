@@ -47,7 +47,6 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
 #### RequestBody content ApplicationJson Schema
-petstore_api.paths.fake_inline_composition.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```
@@ -73,7 +72,6 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
 #### RequestBody content MultipartFormData Schema
-petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data.schema
 ```
 type: schemas.Schema
 ```
@@ -141,7 +139,6 @@ Input Type | Return Type | Notes
 str | str |
 ### query_params
 ### QueryParameters
-petstore_api.paths.fake_inline_composition.post.query_parameters
 ```
 type: schemas.Schema
 ```
@@ -209,7 +206,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
-petstore_api.paths.fake_inline_composition.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```
@@ -235,7 +231,6 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
 #### ResponseFor200 content MultipartFormData Schema
-petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data.schema
 ```
 type: schemas.Schema
 ```

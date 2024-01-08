@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_additionalproperties_does_not_look_in_applicators_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

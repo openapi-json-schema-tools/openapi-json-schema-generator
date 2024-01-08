@@ -1,5 +1,4 @@
 # SomeHeaderSchema
-org.openapijsonschematools.client.components.responses.successinlinecontentandheader.headers.someheader.SomeHeaderSchema.java
 public class SomeHeaderSchema
 
 A class that contains necessary nested

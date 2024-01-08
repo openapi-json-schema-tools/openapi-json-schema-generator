@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.response_body_post_if_appears_at_the_end_when_serialized_keyword_processing_sequence_response_body_for_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

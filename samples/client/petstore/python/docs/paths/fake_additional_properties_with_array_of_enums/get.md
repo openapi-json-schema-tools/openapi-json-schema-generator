@@ -44,7 +44,6 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
 #### RequestBody content ApplicationJson Schema
-petstore_api.paths.fake_additional_properties_with_array_of_enums.get.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```
@@ -80,7 +79,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
-petstore_api.paths.fake_additional_properties_with_array_of_enums.get.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```
