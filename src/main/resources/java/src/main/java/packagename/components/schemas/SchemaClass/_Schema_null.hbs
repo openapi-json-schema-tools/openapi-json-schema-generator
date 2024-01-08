@@ -35,6 +35,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements N
         {{#if enumInfo}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
         {{/if}}
+        {{#if defaultValue}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_default }}
+        {{/if}}
         );
     }
 

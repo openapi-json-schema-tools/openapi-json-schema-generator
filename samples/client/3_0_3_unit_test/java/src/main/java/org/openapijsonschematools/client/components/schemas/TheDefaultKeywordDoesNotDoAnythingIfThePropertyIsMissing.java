@@ -41,6 +41,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
                     Double.class
                 ))
                 .maximum(3)
+                .default(5.0)
             );
         }
     

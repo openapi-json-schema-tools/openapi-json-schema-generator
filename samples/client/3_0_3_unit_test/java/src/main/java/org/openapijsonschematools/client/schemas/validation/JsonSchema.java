@@ -214,6 +214,7 @@ public abstract class JsonSchema {
                     new PatternValidator(this.pattern)
             );
         }
+        this.default = jsonSchemaInfo.default;
         this.keywordToValidator = keywordToValidator;
     }
 
