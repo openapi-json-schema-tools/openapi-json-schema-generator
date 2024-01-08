@@ -1,5 +1,4 @@
 # Schema
-petstore_api.paths.pet_pet_id.post.parameters.parameter_0.schema
 ```
 type: schemas.Schema
 ```

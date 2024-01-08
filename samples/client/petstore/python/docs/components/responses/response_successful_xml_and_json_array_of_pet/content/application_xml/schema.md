@@ -1,5 +1,4 @@
 # Schema
-petstore_api.components.responses.response_successful_xml_and_json_array_of_pet.content.application_xml.schema
 ```
 type: schemas.Schema
 ```

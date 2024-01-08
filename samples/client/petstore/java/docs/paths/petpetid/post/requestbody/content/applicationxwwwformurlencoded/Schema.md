@@ -1,5 +1,4 @@
 # Schema
-org.openapijsonschematools.client.paths.petpetid.post.requestbody.content.applicationxwwwformurlencoded.Schema.java
 public class Schema
 
 A class that contains necessary nested

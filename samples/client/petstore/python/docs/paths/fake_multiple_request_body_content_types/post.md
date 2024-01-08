@@ -46,7 +46,6 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
 #### RequestBody content ApplicationJson Schema
-petstore_api.paths.fake_multiple_request_body_content_types.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```
@@ -87,7 +86,6 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 #### RequestBody content MultipartFormData Schema
-petstore_api.paths.fake_multiple_request_body_content_types.post.request_body.content.multipart_form_data.schema
 ```
 type: schemas.Schema
 ```
@@ -154,7 +152,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
-petstore_api.paths.fake_multiple_request_body_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

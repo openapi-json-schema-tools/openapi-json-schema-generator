@@ -1,5 +1,4 @@
 # Schema
-petstore_api.paths.common_param_sub_dir.delete.parameters.parameter_1.schema
 ```
 type: schemas.Schema
 ```

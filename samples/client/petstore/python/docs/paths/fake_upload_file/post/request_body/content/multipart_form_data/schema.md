@@ -1,5 +1,4 @@
 # Schema
-petstore_api.paths.fake_upload_file.post.request_body.content.multipart_form_data.schema
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,4 @@
 # Schema8
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter8.Schema8.java
 public class Schema8
 
 A class that contains necessary nested

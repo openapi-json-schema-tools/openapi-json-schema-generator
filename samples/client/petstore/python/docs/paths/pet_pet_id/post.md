@@ -44,7 +44,6 @@ Content-Type | Schema
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
-petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded.schema
 ```
 type: schemas.Schema
 ```

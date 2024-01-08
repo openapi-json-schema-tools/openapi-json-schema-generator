@@ -5,7 +5,6 @@ petstore_api.components.parameters.parameter_path_user_name
 the use name to use
 
 ## Schema
-petstore_api.components.parameters.parameter_path_user_name.schema
 ```
 type: schemas.Schema
 ```

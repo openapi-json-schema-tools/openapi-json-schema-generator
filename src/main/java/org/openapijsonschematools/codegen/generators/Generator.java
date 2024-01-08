@@ -83,23 +83,13 @@ public interface Generator {
 
     Map<String, Object> vendorExtensions();
 
-    String testPackage();
-
     String apiPackage();
-
-    String apiFileFolder();
-
-    String apiTestFileFolder();
-
-    String apiDocFileFolder();
 
     String outputFolder();
 
     String templateDir();
 
     String embeddedTemplateDir();
-
-    String modelTestFileFolder();
 
     String modelPackage();
 
@@ -124,8 +114,6 @@ public interface Generator {
     String escapeText(String text);
 
     String escapeTextWhileAllowingNewLines(String text);
-
-    String encodePath(String text);
 
     String escapeUnsafeCharacters(String input);
 
@@ -173,11 +161,7 @@ public interface Generator {
 
     CodegenSchema fromServerVariables(Map<String, ServerVariable> variables, String jsonPath);
 
-    Map<String, String> typeMapping();
-
     Map<String, String> instantiationTypes();
-
-    Map<String, String> schemaMapping();
 
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles();
 
@@ -192,8 +176,6 @@ public interface Generator {
     void processOpenAPI(OpenAPI openAPI);
 
     Compiler processCompiler(Compiler compiler);
-
-    String sanitizeTag(String tag);
 
     String toApiFilename(String name);
 
@@ -219,12 +201,6 @@ public interface Generator {
 
     String toModelImport(String refClass);
 
-    Map<String, String> toModelImportMap(String name);
-
-    String toApiImport(String name);
-
-    void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations);
-
     TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
 
     void postProcess();
@@ -240,7 +216,7 @@ public interface Generator {
     // handles almost all files to be written
     String getFilepath(String jsonPath);
 
-    String getImport(CodegenRefInfo refInfo);
+    String getImport(CodegenRefInfo<?> refInfo);
     String getRefModuleLocation(String ref);
     String getSubpackage(String jsonPath);
 
@@ -260,13 +236,7 @@ public interface Generator {
 
     void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
 
-    void setHttpUserAgent(String httpUserAgent);
-
-    String getHttpUserAgent();
-
     void setDocExtension(String docExtension);
-
-    String getDocExtension();
 
     void setIgnoreFilePathOverride(String ignoreFileOverride);
 
@@ -294,8 +264,6 @@ public interface Generator {
     boolean isEnableMinimalUpdate();
 
     void setEnableMinimalUpdate(boolean isEnableMinimalUpdate);
-
-    boolean isStrictSpecBehavior();
 
     void setStrictSpecBehavior(boolean strictSpecBehavior);
 

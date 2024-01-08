@@ -1,5 +1,4 @@
 # LocationSchema
-org.openapijsonschematools.client.components.responses.headerswithnobody.headers.location.LocationSchema.java
 public class LocationSchema
 
 A class that contains necessary nested

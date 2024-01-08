@@ -17,13 +17,24 @@
 
 package org.openapijsonschematools.codegen.generators;
 
+import com.google.common.base.Strings;
+import com.google.common.collect.Sets;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.parameters.Parameter;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
@@ -44,6 +55,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.NotNull;
 import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Function;
@@ -53,34 +65,45 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
+import static org.openapijsonschematools.codegen.common.StringUtils.escape;
 
-public class JavaClientGenerator extends AbstractJavaGenerator {
-    static final String MEDIA_TYPE = "mediaType";
+public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     private final Logger LOGGER = LoggerFactory.getLogger(JavaClientGenerator.class);
 
-    public static final String APACHE = "apache-httpclient";
-    public static final String MICROPROFILE_REST_CLIENT_DEFAULT_ROOT_PACKAGE = "javax";
-
-    public static final String SERIALIZATION_LIBRARY_GSON = "gson";
-    public static final String SERIALIZATION_LIBRARY_JACKSON = "jackson";
-    public static final String SERIALIZATION_LIBRARY_JSONB = "jsonb";
-
-    protected String gradleWrapperPackage = "gradle.wrapper";
     protected String authFolder;
-    protected String rootJavaEEPackage;
-    protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
     protected HashMap<String, String> schemaJsonPathToModelName = new HashMap<>();
 
-    private static class MpRestClientVersion {
-        public final String rootPackage;
-        public final String pomTemplate;
+    private static final String ARTIFACT_VERSION_DEFAULT_VALUE = "1.0.0";
 
-        public MpRestClientVersion(String rootPackage, String pomTemplate) {
-            this.rootPackage = rootPackage;
-            this.pomTemplate = pomTemplate;
-        }
-    }
+    public static final String TEST_OUTPUT = "testOutput";
+    public static final String DEFAULT_TEST_FOLDER = "${project.build.directory}/generated-test-sources/openapi";
+
+    protected String invokerPackage = "org.openapijsonschematools";
+    protected String groupId = "org.openapijsonschematools";
+    protected String artifactId = "openapi-java";
+    protected String artifactVersion = null;
+    protected String artifactUrl = "https://github.com/openapi-json-schema-tools/openapi-json-schema-generator";
+    protected String artifactDescription = "OpenAPI Java";
+    protected String developerName = "OpenAPI-Generator Contributors";
+    protected String developerEmail = "team@openapijsonschematools.org";
+    protected String developerOrganization = "OpenAPITools.org";
+    protected String developerOrganizationUrl = "http://openapijsonschematools.org";
+    protected String scmConnection = "scm:git:git@github.com:openapi-json-schema-tools/openapi-json-schema-generator.git";
+    protected String scmDeveloperConnection = "scm:git:git@github.com:openapi-json-schema-tools/openapi-json-schema-generator.git";
+    protected String scmUrl = "https://github.com/openapi-json-schema-tools/openapi-json-schema-generator";
+    protected String licenseName = "Unlicense";
+    protected String licenseUrl = "http://unlicense.org";
+    protected String projectFolder = "src/main";
+    // this must not be OS-specific
+    protected String sourceFolder = projectFolder + "/java";
+    protected String apiDocPath = "docs/";
+    protected String modelDocPath = "docs/";
+    protected String parentGroupId = "";
+    protected String parentArtifactId = "";
+    protected String parentVersion = "";
+    protected String outputTestFolder = "";
+    private final Map<String, String> schemaKeyToModelNameCache = new HashMap<>();
 
     protected Stability getStability() {
         return Stability.EXPERIMENTAL;
@@ -100,6 +123,90 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     public JavaClientGenerator() {
         super();
+
+        modifyFeatureSet(features -> features
+                .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))
+                .securityFeatures(EnumSet.noneOf(
+                        SecurityFeature.class
+                ))
+                .excludeSchemaFeatures(
+                        SchemaFeature.Not
+                )
+                .includeClientModificationFeatures(
+                        ClientModificationFeature.BasePath
+                )
+        );
+
+        supportsInheritance = true;
+
+        hideGenerationTimestamp = false;
+
+        setReservedWordsLowerCase(
+                Arrays.asList(
+                        // used as internal variables, can collide with parameter names
+                        "localVarPath", "localVarQueryParams", "localVarCollectionQueryParams",
+                        "localVarHeaderParams", "localVarCookieParams", "localVarFormParams", "localVarPostBody",
+                        "localVarAccepts", "localVarAccept", "localVarContentTypes",
+                        "localVarContentType", "localVarAuthNames", "localReturnType",
+                        "ApiClient", "ApiException", "ApiResponse", "Configuration", "StringUtil",
+
+                        // language reserved words
+                        "abstract", "continue", "for", "new", "switch", "assert",
+                        "default", "if", "package", "synchronized", "boolean", "do", "goto", "private",
+                        "this", "break", "double", "implements", "protected", "throw", "byte", "else",
+                        "import", "public", "throws", "case", "enum", "instanceof", "return", "transient",
+                        "catch", "extends", "int", "short", "try", "char", "final", "interface", "static",
+                        "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
+                        "native", "super", "while", "null",
+                        // additional types
+                        "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer"
+                )
+        );
+
+        languageSpecificPrimitives = Sets.newHashSet("String",
+                "boolean",
+                "Boolean",
+                "Double",
+                "Integer",
+                "Long",
+                "Float",
+                "Object",
+                "byte[]"
+        );
+        typeMapping.put("date", "Date");
+        typeMapping.put("file", "File");
+        typeMapping.put("AnyType", "Object");
+
+        cliOptions.add(new CliOption(CodegenConstants.API_PACKAGE, CodegenConstants.API_PACKAGE_DESC));
+        cliOptions.add(new CliOption(CodegenConstants.INVOKER_PACKAGE, CodegenConstants.INVOKER_PACKAGE_DESC).defaultValue(this.getInvokerPackage()));
+        cliOptions.add(new CliOption(CodegenConstants.GROUP_ID, CodegenConstants.GROUP_ID_DESC).defaultValue(this.getGroupId()));
+        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_ID, CodegenConstants.ARTIFACT_ID_DESC).defaultValue(this.getArtifactId()));
+        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_VERSION, CodegenConstants.ARTIFACT_VERSION_DESC).defaultValue(ARTIFACT_VERSION_DEFAULT_VALUE));
+        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_URL, CodegenConstants.ARTIFACT_URL_DESC).defaultValue(this.getArtifactUrl()));
+        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_DESCRIPTION, CodegenConstants.ARTIFACT_DESCRIPTION_DESC).defaultValue(this.getArtifactDescription()));
+        cliOptions.add(new CliOption(CodegenConstants.SCM_CONNECTION, CodegenConstants.SCM_CONNECTION_DESC).defaultValue(this.getScmConnection()));
+        cliOptions.add(new CliOption(CodegenConstants.SCM_DEVELOPER_CONNECTION, CodegenConstants.SCM_DEVELOPER_CONNECTION_DESC).defaultValue(this.getScmDeveloperConnection()));
+        cliOptions.add(new CliOption(CodegenConstants.SCM_URL, CodegenConstants.SCM_URL_DESC).defaultValue(this.getScmUrl()));
+        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_NAME, CodegenConstants.DEVELOPER_NAME_DESC).defaultValue(this.getDeveloperName()));
+        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_EMAIL, CodegenConstants.DEVELOPER_EMAIL_DESC).defaultValue(this.getDeveloperEmail()));
+        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_ORGANIZATION, CodegenConstants.DEVELOPER_ORGANIZATION_DESC).defaultValue(this.getDeveloperOrganization()));
+        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_ORGANIZATION_URL, CodegenConstants.DEVELOPER_ORGANIZATION_URL_DESC).defaultValue(this.getDeveloperOrganizationUrl()));
+        cliOptions.add(new CliOption(CodegenConstants.LICENSE_NAME, CodegenConstants.LICENSE_NAME_DESC).defaultValue(this.getLicenseName()));
+        cliOptions.add(new CliOption(CodegenConstants.LICENSE_URL, CodegenConstants.LICENSE_URL_DESC).defaultValue(this.getLicenseUrl()));
+        cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
+        cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
+
+        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
+        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
+        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_VERSION, CodegenConstants.PARENT_VERSION_DESC));
+        CliOption snapShotVersion = CliOption.newString(CodegenConstants.SNAPSHOT_VERSION, CodegenConstants.SNAPSHOT_VERSION_DESC);
+        Map<String, String> snapShotVersionOptions = new HashMap<>();
+        snapShotVersionOptions.put("true", "Use a SnapShot Version");
+        snapShotVersionOptions.put("false", "Use a Release Version");
+        snapShotVersion.setEnum(snapShotVersionOptions);
+        cliOptions.add(snapShotVersion);
+        cliOptions.add(CliOption.newString(TEST_OUTPUT, "Set output folder for models and APIs tests").defaultValue(DEFAULT_TEST_FOLDER));
 
         requestBodiesIdentifier = "requestbodies";
         securitySchemesIdentifier = "securityschemes";
@@ -175,7 +282,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         artifactId = "openapi-java-client";
         apiPackage = "apis";
         modelPackage = "components.schemas";
-        rootJavaEEPackage = MICROPROFILE_REST_CLIENT_DEFAULT_ROOT_PACKAGE;
 
         // cliOptions default redefinition need to be updated
         updateOption(CodegenConstants.INVOKER_PACKAGE, this.getInvokerPackage());
@@ -184,18 +290,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("src/test/java/packagename/components/schemas/Schema_test.hbs", ".java");
                 }}
         );
-
-        initMpRestClientVersionToRootPackage();
-    }
-
-    private void initMpRestClientVersionToRootPackage() {
-        mpRestClientVersions.put("1.4.1", new MpRestClientVersion("javax", "pom.mustache"));
-        mpRestClientVersions.put("2.0", new MpRestClientVersion("javax", "pom.mustache"));
-        mpRestClientVersions.put("3.0", new MpRestClientVersion("jakarta", "pom_3.0.mustache"));
     }
 
     @Override
@@ -223,7 +321,139 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     @Override
     public void processOpts() {
-        HashMap<String, String> schemaDocs = new HashMap<>();
+        if (StringUtils.isEmpty(System.getenv("JAVA_POST_PROCESS_FILE"))) {
+            LOGGER.info("Environment variable JAVA_POST_PROCESS_FILE not defined so the Java code may not be properly formatted. To define it, try 'export JAVA_POST_PROCESS_FILE=\"/usr/local/bin/clang-format -i\"' (Linux/Mac)");
+            LOGGER.info("NOTE: To enable file post-processing, 'enablePostProcessFile' must be set to `true` (--enable-post-process-file for CLI).");
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.INVOKER_PACKAGE)) {
+            this.setInvokerPackage((String) additionalProperties.get(CodegenConstants.INVOKER_PACKAGE));
+        } else if (additionalProperties.containsKey(CodegenConstants.API_PACKAGE)) {
+            // guess from api package
+            String derivedInvokerPackage = deriveInvokerPackageName((String) additionalProperties.get(CodegenConstants.API_PACKAGE));
+            this.additionalProperties.put(CodegenConstants.INVOKER_PACKAGE, derivedInvokerPackage);
+            this.setInvokerPackage((String) additionalProperties.get(CodegenConstants.INVOKER_PACKAGE));
+            LOGGER.info("Invoker Package Name, originally not set, is now derived from api package name: {}", derivedInvokerPackage);
+        } else {
+            //not set, use default to be passed to template
+            additionalProperties.put(CodegenConstants.INVOKER_PACKAGE, invokerPackage);
+        }
+
+        if (!additionalProperties.containsKey(CodegenConstants.API_PACKAGE)) {
+            additionalProperties.put(CodegenConstants.API_PACKAGE, apiPackage);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.GROUP_ID)) {
+            this.setGroupId((String) additionalProperties.get(CodegenConstants.GROUP_ID));
+        } else {
+            //not set, use to be passed to template
+            additionalProperties.put(CodegenConstants.GROUP_ID, groupId);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.ARTIFACT_ID)) {
+            this.setArtifactId((String) additionalProperties.get(CodegenConstants.ARTIFACT_ID));
+        } else {
+            //not set, use to be passed to template
+            additionalProperties.put(CodegenConstants.ARTIFACT_ID, artifactId);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.ARTIFACT_URL)) {
+            this.setArtifactUrl((String) additionalProperties.get(CodegenConstants.ARTIFACT_URL));
+        } else {
+            additionalProperties.put(CodegenConstants.ARTIFACT_URL, artifactUrl);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.ARTIFACT_DESCRIPTION)) {
+            this.setArtifactDescription((String) additionalProperties.get(CodegenConstants.ARTIFACT_DESCRIPTION));
+        } else {
+            additionalProperties.put(CodegenConstants.ARTIFACT_DESCRIPTION, artifactDescription);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.SCM_CONNECTION)) {
+            this.setScmConnection((String) additionalProperties.get(CodegenConstants.SCM_CONNECTION));
+        } else {
+            additionalProperties.put(CodegenConstants.SCM_CONNECTION, scmConnection);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.SCM_DEVELOPER_CONNECTION)) {
+            this.setScmDeveloperConnection((String) additionalProperties.get(CodegenConstants.SCM_DEVELOPER_CONNECTION));
+        } else {
+            additionalProperties.put(CodegenConstants.SCM_DEVELOPER_CONNECTION, scmDeveloperConnection);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.SCM_URL)) {
+            this.setScmUrl((String) additionalProperties.get(CodegenConstants.SCM_URL));
+        } else {
+            additionalProperties.put(CodegenConstants.SCM_URL, scmUrl);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.DEVELOPER_NAME)) {
+            this.setDeveloperName((String) additionalProperties.get(CodegenConstants.DEVELOPER_NAME));
+        } else {
+            additionalProperties.put(CodegenConstants.DEVELOPER_NAME, developerName);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.DEVELOPER_EMAIL)) {
+            this.setDeveloperEmail((String) additionalProperties.get(CodegenConstants.DEVELOPER_EMAIL));
+        } else {
+            additionalProperties.put(CodegenConstants.DEVELOPER_EMAIL, developerEmail);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.DEVELOPER_ORGANIZATION)) {
+            this.setDeveloperOrganization((String) additionalProperties.get(CodegenConstants.DEVELOPER_ORGANIZATION));
+        } else {
+            additionalProperties.put(CodegenConstants.DEVELOPER_ORGANIZATION, developerOrganization);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.DEVELOPER_ORGANIZATION_URL)) {
+            this.setDeveloperOrganizationUrl((String) additionalProperties.get(CodegenConstants.DEVELOPER_ORGANIZATION_URL));
+        } else {
+            additionalProperties.put(CodegenConstants.DEVELOPER_ORGANIZATION_URL, developerOrganizationUrl);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.LICENSE_NAME)) {
+            this.setLicenseName((String) additionalProperties.get(CodegenConstants.LICENSE_NAME));
+        } else {
+            additionalProperties.put(CodegenConstants.LICENSE_NAME, licenseName);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.LICENSE_URL)) {
+            this.setLicenseUrl((String) additionalProperties.get(CodegenConstants.LICENSE_URL));
+        } else {
+            additionalProperties.put(CodegenConstants.LICENSE_URL, licenseUrl);
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.SOURCE_FOLDER)) {
+            this.setSourceFolder((String) additionalProperties.get(CodegenConstants.SOURCE_FOLDER));
+        }
+        additionalProperties.put(CodegenConstants.SOURCE_FOLDER, sourceFolder);
+
+        if (additionalProperties.containsKey(CodegenConstants.PARENT_GROUP_ID)) {
+            this.setParentGroupId((String) additionalProperties.get(CodegenConstants.PARENT_GROUP_ID));
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.PARENT_ARTIFACT_ID)) {
+            this.setParentArtifactId((String) additionalProperties.get(CodegenConstants.PARENT_ARTIFACT_ID));
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.PARENT_VERSION)) {
+            this.setParentVersion((String) additionalProperties.get(CodegenConstants.PARENT_VERSION));
+        }
+
+        if (!StringUtils.isEmpty(parentGroupId) && !StringUtils.isEmpty(parentArtifactId) && !StringUtils.isEmpty(parentVersion)) {
+            additionalProperties.put("parentOverridden", true);
+        }
+
+        // make api and model doc path available in mustache template
+        additionalProperties.put("apiDocPath", apiDocPath);
+        additionalProperties.put("modelDocPath", modelDocPath);
+
+        this.sanitizeConfig();
+
+        if (additionalProperties.containsKey(TEST_OUTPUT)) {
+            setOutputTestFolder(additionalProperties.get(TEST_OUTPUT).toString());
+        }
+
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
         schemaSupportingFiles.add("AnyTypeJsonSchema");
@@ -393,115 +623,23 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("src/main/java/packagename/components/schemas/Schema_doc.hbs", ".md");
                 }}
         );
 
         super.processOpts();
 
-        if (!additionalProperties.containsKey("rootJavaEEPackage")) {
-            additionalProperties.put("rootJavaEEPackage", rootJavaEEPackage);
-        }
-
-        final String invokerFolder = (sourceFolder + '/' + invokerPackage).replace(".", "/");
-        final String apiFolder = (sourceFolder + '/' + apiPackage).replace(".", "/");
-        final String modelsFolder = (sourceFolder + File.separator + modelPackage().replace('.', File.separatorChar)).replace('/', File.separatorChar);
         authFolder = (sourceFolder + '/' + invokerPackage + ".auth").replace(".", "/");
 
         //Common files
         supportingFiles.add(new SupportingFile("pom.hbs", "", "pom.xml").doNotOverwrite());
         supportingFiles.add(new SupportingFile("README.hbs", "", "README.md").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("build.gradle.mustache", "", "build.gradle").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("build.sbt.mustache", "", "build.sbt").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("settings.gradle.mustache", "", "settings.gradle").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("gradle.properties.mustache", "", "gradle.properties").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("manifest.mustache", projectFolder, "AndroidManifest.xml").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("travis.mustache", "", ".travis.yml"));
-//        supportingFiles.add(new SupportingFile("ApiClient.mustache", invokerFolder, "ApiClient.java"));
-//        supportingFiles.add(new SupportingFile("ServerConfiguration.mustache", invokerFolder, "ServerConfiguration.java"));
-//        supportingFiles.add(new SupportingFile("ServerVariable.mustache", invokerFolder, "ServerVariable.java"));
-//        supportingFiles.add(new SupportingFile("maven.yml.mustache", ".github/workflows", "maven.yml"));
-
-//        supportingFiles.add(new SupportingFile("gradlew.mustache", "", "gradlew"));
-//        supportingFiles.add(new SupportingFile("gradlew.bat.mustache", "", "gradlew.bat"));
-//        supportingFiles.add(new SupportingFile("gradle-wrapper.properties.mustache",
-//                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.properties"));
-//        supportingFiles.add(new SupportingFile("gradle-wrapper.jar",
-//                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.jar"));
-//        supportingFiles.add(new SupportingFile("git_push.sh.mustache", "", "git_push.sh"));
-//        supportingFiles.add(new SupportingFile("gitignore.mustache", "", ".gitignore"));
-    }
-
-    /**
-     * Prioritizes consumes mime-type list by moving json-vendor and json mime-types up front, but
-     * otherwise preserves original consumes definition order.
-     * [application/vnd...+json,... application/json, ..as is..]
-     *
-     * @param consumes consumes mime-type list
-     * @return
-     */
-    static List<Map<String, String>> prioritizeContentTypes(List<Map<String, String>> consumes) {
-        if (consumes.size() <= 1)
-            return consumes;
-
-        List<Map<String, String>> prioritizedContentTypes = new ArrayList<>(consumes.size());
-
-        List<Map<String, String>> jsonVendorMimeTypes = new ArrayList<>(consumes.size());
-        List<Map<String, String>> jsonMimeTypes = new ArrayList<>(consumes.size());
-
-        for (Map<String, String> consume : consumes) {
-            if (isJsonVendorMimeType(consume.get(MEDIA_TYPE))) {
-                jsonVendorMimeTypes.add(consume);
-            } else if (isJsonMimeType(consume.get(MEDIA_TYPE))) {
-                jsonMimeTypes.add(consume);
-            } else
-                prioritizedContentTypes.add(consume);
-        }
-
-        prioritizedContentTypes.addAll(0, jsonMimeTypes);
-        prioritizedContentTypes.addAll(0, jsonVendorMimeTypes);
-        return prioritizedContentTypes;
-    }
-
-    private static boolean isMultipartType(List<Map<String, String>> consumes) {
-        Map<String, String> firstType = consumes.get(0);
-        if (firstType != null) {
-            if ("multipart/form-data".equals(firstType.get(MEDIA_TYPE))) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
     public void postProcessModelProperty(CodegenSchema model, CodegenSchema property) {
         super.postProcessModelProperty(model, property);
-        if (model.enumInfo == null) {
-            //final String lib = getLibrary();
-            //Needed imports for Jackson based libraries
-            if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_JACKSON)) {
-                model.imports.add("JsonProperty");
-                model.imports.add("JsonValue");
-                model.imports.add("JsonInclude");
-                model.imports.add("JsonTypeName");
-            }
-            if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_GSON)) {
-                model.imports.add("SerializedName");
-                model.imports.add("TypeAdapter");
-                model.imports.add("JsonAdapter");
-                model.imports.add("JsonReader");
-                model.imports.add("JsonWriter");
-                model.imports.add("IOException");
-            }
-        } else { // enum class
-            //Needed imports for Jackson's JsonCreator
-            if (additionalProperties.containsKey(SERIALIZATION_LIBRARY_JACKSON)) {
-                model.imports.add("JsonValue");
-                model.imports.add("JsonCreator");
-            }
-        }
-
     }
 
     @Override
@@ -682,8 +820,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
             keyToQty.put(usedKey, qty);
             String suffix = "";
             if (qty > 1) {
-                Integer schemaNumber = qty-1;
-                suffix = schemaNumber.toString();
+                int schemaNumber = qty-1;
+                suffix = Integer.toString(schemaNumber);
             }
             if (qty == 1 && sourceJsonPath.endsWith("/" + name)) {
                 schemaJsonPathToModelName.put(sourceJsonPath, usedKey);
@@ -825,7 +963,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         String smallerRef = ref.substring(0, ref.lastIndexOf("/"));
         String filePath = getFilepath(smallerRef);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
-        String localFilepath = filePath.substring(prefix.length(), filePath.length());
+        String localFilepath = filePath.substring(prefix.length());
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
@@ -846,7 +984,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         }
         if (schema.refInfo != null && schema.refInfo.refModule != null) {
             CodegenSchema ref = schema.refInfo.ref;
-            if (ref.refInfo != null && schema.refInfo.refModule != null && deepestRefSchemaImportNeeded) {
+            if (deepestRefSchemaImportNeeded) {
                 CodegenRefInfo<CodegenSchema> deepestRefInfo = schema.refInfo;
                 while (deepestRefInfo.ref.refInfo != null) {
                     deepestRefInfo = deepestRefInfo.ref.refInfo;
@@ -1296,12 +1434,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
         if (schema.format != null) {
-            if (schema.format.equals("date")) {
-                imports.add("import java.time.LocalDate;");
-            } else if (schema.format.equals("date-time")) {
-                imports.add("import java.time.ZonedDateTime;");
-            } else if (schema.format.equals("uuid")) {
-                imports.add("import java.util.UUID;");
+            switch (schema.format) {
+                case "date":
+                    imports.add("import java.time.LocalDate;");
+                    break;
+                case "date-time":
+                    imports.add("import java.time.ZonedDateTime;");
+                    break;
+                case "uuid":
+                    imports.add("import java.util.UUID;");
+                    break;
             }
         }
         imports.add("import " + packageName + ".schemas.validation.StringSchemaValidator;");
@@ -1314,7 +1456,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
 
     @Override
-    public String getImport(CodegenRefInfo refInfo) {
+    public String getImport(CodegenRefInfo<?> refInfo) {
         String prefix = "import " + packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
@@ -1369,9 +1511,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
      * @return the sanitized variable name for enum
      */
     @Override
-    public String toEnumVarName(String value, Schema prop) {
+    public String toEnumVarName(String value, Schema<?> prop) {
         // our enum var names are keys in a python dict, so change spaces to underscores
-        if (value.length() == 0) {
+        if (value.isEmpty()) {
             return "EMPTY";
         }
         if (value.equals("null")) {
@@ -1426,7 +1568,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         while (matcher.find()) {
             matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
         }
-        char underscore = "_".charAt(0);
+        char underscore = '_';
         while (!matchStartToGroup.isEmpty()) {
             AbstractMap.SimpleEntry<Integer, String> entry = matchStartToGroup.pop();
             Integer startIndex = entry.getKey();
@@ -1470,14 +1612,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
 
     @Override
     public Function<CodegenSchema, List<CodegenSchema>> getSchemasFn() {
-        Function<CodegenSchema, List<CodegenSchema>> getSchemasFn = codegenSchema -> {
+        return codegenSchema -> {
             ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
             ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
             codegenSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, true);
             schemasBeforeImports.addAll(schemasAfterImports);
             return schemasBeforeImports;
         };
-        return getSchemasFn;
     }
 
     private void addToTypeToValue(LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, EnumValue enumValue, String type, String name) {
@@ -1487,7 +1628,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         typeToValues.get(type).put(enumValue, name);
     }
 
-    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
+    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema<?> schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
         LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
         LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
@@ -1508,7 +1649,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                 xEnumVariableNames = new ArrayList<>();
                 Object result = schema.getExtensions().get(xEnumVariablenamesKey);
                 if (result instanceof List) {
-                    for (Object item: (List) result) {
+                    for (Object item: (List<?>) result) {
                         if (item instanceof String) {
                             xEnumVariableNames.add((String) item);
                         }
@@ -1519,7 +1660,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                 xEnumDescriptions = new ArrayList<>();
                 Object result = schema.getExtensions().get(xEnumDescriptionsKey);
                 if (result instanceof List) {
-                    for (Object item: (List) result) {
+                    for (Object item: (List<?>) result) {
                         if (item instanceof String) {
                             xEnumDescriptions.add((String) item);
                         }
@@ -1573,9 +1714,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                 addToTypeToValue(typeToValues, enumValue, "Integer", usedName);
                 EnumValue longEnumValue = getEnumValue(Long.parseLong(value.toString()), description);
                 addToTypeToValue(typeToValues, longEnumValue, "Long", usedName);
-                EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description);
+                EnumValue floatEnumValue = getEnumValue(Float.valueOf(value +".0"), description);
                 addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
-                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description);
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value +".0"), description);
                 addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
             } else if (value instanceof Long) {
                 addLongEnum(typeToValues, enumValue, (Long) value, usedName);
@@ -1612,7 +1753,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
         if (value >= -2147483648L && value <= 2147483647L) {
             EnumValue integerEnumValue = getEnumValue(Integer.valueOf(value.toString()), enumValue.description);
             addToTypeToValue(typeToValues, integerEnumValue, "Integer", usedName);
-            EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), enumValue.description);
+            EnumValue floatEnumValue = getEnumValue(Float.valueOf(value +".0"), enumValue.description);
             addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
         }
     }
@@ -1677,7 +1818,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
                         }
                         MapBuilder nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
                         if (nextBuilder == null) {
-                            throw new RuntimeException("Next builder must exist for bitStr="+nextBuilderBitStr.toString());
+                            throw new RuntimeException("Next builder must exist for bitStr="+ nextBuilderBitStr);
                         }
                         var pair = new MapBuilder.BuilderSchemaPair(nextBuilder, schema.requiredProperties.get(key));
                         keyToBuilder.put(key, pair);
@@ -1695,5 +1836,559 @@ public class JavaClientGenerator extends AbstractJavaGenerator {
             }
         }
         return builders;
+    }
+
+    @Override
+    public TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> objs) {
+        objs = super.postProcessAllModels(objs);
+        objs = super.updateAllModels(objs);
+
+        return objs;
+    }
+
+    private void sanitizeConfig() {
+        // Sanitize any config options here. We also have to update the additionalProperties because
+        // the whole additionalProperties object is injected into the main object passed to the mustache layer
+
+        this.setApiPackage(sanitizePackageName(apiPackage));
+        if (additionalProperties.containsKey(CodegenConstants.API_PACKAGE)) {
+            this.additionalProperties.put(CodegenConstants.API_PACKAGE, apiPackage);
+        }
+
+        this.setModelPackage(sanitizePackageName(modelPackage));
+
+        this.setInvokerPackage(sanitizePackageName(invokerPackage));
+        if (additionalProperties.containsKey(CodegenConstants.INVOKER_PACKAGE)) {
+            this.additionalProperties.put(CodegenConstants.INVOKER_PACKAGE, invokerPackage);
+        }
+    }
+
+    @Override
+    public String escapeReservedWord(String name) {
+        return "_" + name;
+    }
+
+    @Override
+    public String toVarName(String name) {
+        // sanitize name
+        name = sanitizeName(name, "\\W-[\\$]"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+
+        if (name.toLowerCase(Locale.ROOT).matches("^_*class$")) {
+            return "propertyClass";
+        }
+
+        if ("_".equals(name)) {
+            name = "_u";
+        }
+
+        // numbers are not allowed at the beginning
+        if (name.matches("^\\d.*")) {
+            name = "_" + name;
+        }
+
+        // if it's all upper case, do nothing
+        if (name.matches("^[A-Z0-9_]*$")) {
+            return name;
+        }
+
+        if (startsWithTwoUppercaseLetters(name)) {
+            name = name.substring(0, 2).toLowerCase(Locale.ROOT) + name.substring(2);
+        }
+
+        // If name contains special chars -> replace them.
+        if ((((CharSequence) name).chars().anyMatch(character -> specialCharReplacements.containsKey(String.valueOf((char) character))))) {
+            List<String> allowedCharacters = new ArrayList<>();
+            allowedCharacters.add("_");
+            allowedCharacters.add("$");
+            name = escape(name, specialCharReplacements, allowedCharacters, "_");
+        }
+
+        // camelize (lower first character) the variable name
+        // pet_id => petId
+        name = camelize(name, true);
+
+        // for reserved word or word starting with number, append _
+        if (isReservedWord(name) || name.matches("^\\d.*")) {
+            name = escapeReservedWord(name);
+        }
+
+        return name;
+    }
+
+    private boolean startsWithTwoUppercaseLetters(String name) {
+        boolean startsWithTwoUppercaseLetters = false;
+        if (name.length() > 1) {
+            startsWithTwoUppercaseLetters = name.substring(0, 2).equals(name.substring(0, 2).toUpperCase(Locale.ROOT));
+        }
+        return startsWithTwoUppercaseLetters;
+    }
+
+    @Override
+    public String toParamName(String name) {
+        // to avoid conflicts with 'callback' parameter for async call
+        if ("callback".equals(name)) {
+            return "paramCallback";
+        }
+
+        // should be the same as variable name
+        return toVarName(name);
+    }
+
+    @Override
+    public String toModelName(final String name, String jsonPath) {
+        // We need to check if schema-mapping has a different model for this class, so we use it
+        // instead of the auto-generated one.
+
+        // memoization
+        if (schemaKeyToModelNameCache.containsKey(name)) {
+            return schemaKeyToModelNameCache.get(name);
+        }
+
+        String nameWithPrefixSuffix = sanitizeName(name);
+        if (!StringUtils.isEmpty(modelNamePrefix)) {
+            // add '_' so that model name can be camelized correctly
+            nameWithPrefixSuffix = modelNamePrefix + "_" + nameWithPrefixSuffix;
+        }
+
+        if (!StringUtils.isEmpty(modelNameSuffix)) {
+            // add '_' so that model name can be camelized correctly
+            nameWithPrefixSuffix = nameWithPrefixSuffix + "_" + modelNameSuffix;
+        }
+
+        // camelize the model name
+        // phone_number => PhoneNumber
+        final String camelizedName = camelize(nameWithPrefixSuffix);
+
+        // model name cannot use reserved keyword, e.g. return
+        if (isReservedWord(camelizedName)) {
+            final String modelName = "Model" + camelizedName;
+            schemaKeyToModelNameCache.put(name, modelName);
+            LOGGER.warn("{} (reserved word) cannot be used as model name. Renamed to {}", camelizedName, modelName);
+            return modelName;
+        }
+
+        // model name starts with number
+        if (camelizedName.matches("^\\d.*")) {
+            final String modelName = "Model" + camelizedName; // e.g. 200Response => Model200Response (after camelize)
+            schemaKeyToModelNameCache.put(name, modelName);
+            LOGGER.warn("{} (model name starts with number) cannot be used as model name. Renamed to {}", name,
+                    modelName);
+            return modelName;
+        }
+
+        schemaKeyToModelNameCache.put(name, camelizedName);
+
+        return camelizedName;
+    }
+
+    /**
+     * Return the example value of the parameter. Overrides the
+     * getParameterExampleValue(Parameter) method in
+     * DefaultGenerator to always call setParameterExampleValue(CodegenParameter)
+     * in this class, which adds single quotes around strings from the
+     * x-example property.
+     *
+     * @param parameter        Parameter
+     */
+    @Override
+    public String getParameterExampleValue(Parameter parameter) {
+        String example = null;
+        if (parameter.getExample() != null) {
+            example = parameter.getExample().toString();
+        } else if (parameter.getExamples() != null && !parameter.getExamples().isEmpty()) {
+            Example examplesExample = parameter.getExamples().values().iterator().next();
+            if (examplesExample.getValue() != null) {
+                example = examplesExample.getValue().toString();
+            }
+        }
+
+        Schema<?> schema = parameter.getSchema();
+
+        if (schema == null && parameter.getContent() != null) {
+            String contentType = (String) parameter.getContent().keySet().toArray()[0];
+            schema = parameter.getContent().get(contentType).getSchema();
+        }
+
+        if (schema == null) {
+            return null;
+        }
+
+        if (schema.getExample() != null) {
+            example = schema.getExample().toString();
+        } else if (schema.getExamples() != null && !schema.getExamples().isEmpty()) {
+            example = schema.getExamples().get(0).toString();
+        }
+
+        boolean hasAllowableValues = schema.getEnum() != null && !schema.getEnum().isEmpty();
+        if (hasAllowableValues) {
+            //support examples for inline enums
+            final List<Object> values = (List<Object>) schema.getEnum();
+            example = String.valueOf(values.get(0));
+        } else if (schema.getDefault() != null) {
+            example = schema.getDefault().toString();
+        } else if (schema.getExample() != null) {
+            example = schema.getExample().toString();
+        } else if (schema.getExamples() != null && !schema.getExamples().isEmpty()) {
+            example = schema.getExamples().get(0).toString();
+        }
+
+        Set<String> types = schema.getTypes();
+        if (types == null) {
+            types = new HashSet<>();
+            if (schema.getType() != null) {
+                types.add(schema.getType());
+            }
+        }
+        if (types.contains("string")) {
+            String format = schema.getFormat();
+            if (format != null) {
+                switch (format) {
+                    case "uuid":
+                        if (example == null) {
+                            example = "UUID.randomUUID()";
+                        } else {
+                            example = "UUID.fromString(\"" + example + "\")";
+                        }
+                        break;
+                    case "binary":
+                        if (example == null) {
+                            example = "/path/to/file";
+                        }
+                        example = "new File(\"" + escapeText(example) + "\")";
+                        break;
+                    case "date":
+                        example = "new Date()";
+                        break;
+                    case "date-time":
+                        if (example == null) {
+                            example = "LocalDate.now()";
+                        } else {
+                            example = "LocalDate.parse(\"" + example + "\")";
+                        }
+                        break;
+                    case "number":
+                        if (example == null) {
+                            example = "new BigDecimal(78)";
+                        } else {
+                            example = "new BigDecimal(\"" + example + "\")";
+                        }
+                        break;
+                }
+            } else {
+                if (example == null) {
+                    example = parameter.getName() + "_example";
+                }
+                example = "\"" + escapeText(example) + "\"";
+            }
+        } else if (types.contains("integer")) {
+            if (example == null) {
+                example = "56";
+            }
+            if (schema.getFormat().equals("int64")) {
+                example = StringUtils.appendIfMissingIgnoreCase(example, "L");
+            }
+        } else if (types.contains("number")) {
+            if (example == null) {
+                example = "3.4";
+            }
+            if (schema.getFormat().equals("float")) {
+                example = StringUtils.appendIfMissingIgnoreCase(example, "F");
+            } else if (schema.getFormat().equals("double")) {
+                example = StringUtils.appendIfMissingIgnoreCase(example, "D");
+            }
+        } else if (types.contains("boolean")) {
+            if (example == null) {
+                example = "true";
+            }
+        } else if (types.contains("array")) {
+            if (example == null) {
+                example = "Arrays.asList()";
+            }
+        } else if (types.contains("object")) {
+            if (example == null) {
+                example = "new HashMap()";
+            }
+        } else if (types.contains("null")) {
+            if (example == null) {
+                example = "null";
+            }
+        } else if (hasAllowableValues) {
+            //parameter is enum defined as a schema component
+            example = ".fromValue(\"" + example + "\")";
+        }
+
+        if (example == null) {
+            example = "null";
+        }
+
+        return example;
+    }
+
+    @Override
+    public String toExampleValue(Schema p) {
+        if (p.getExample() != null) {
+            return escapeText(p.getExample().toString());
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public void preprocessOpenAPI(OpenAPI openAPI) {
+        super.preprocessOpenAPI(openAPI);
+        if (openAPI == null) {
+            return;
+        }
+
+        // TODO: Setting additionalProperties is not the responsibility of this method. These side-effects should be moved elsewhere to prevent unexpected behaviors.
+        if (artifactVersion == null) {
+            // If no artifactVersion is provided in additional properties, version from API specification is used.
+            // If none of them is provided then fallbacks to default version
+            if (additionalProperties.containsKey(CodegenConstants.ARTIFACT_VERSION) && additionalProperties.get(CodegenConstants.ARTIFACT_VERSION) != null) {
+                this.setArtifactVersion((String) additionalProperties.get(CodegenConstants.ARTIFACT_VERSION));
+            } else if (openAPI.getInfo() != null && openAPI.getInfo().getVersion() != null) {
+                this.setArtifactVersion(openAPI.getInfo().getVersion());
+            } else {
+                this.setArtifactVersion(ARTIFACT_VERSION_DEFAULT_VALUE);
+            }
+        }
+        additionalProperties.put(CodegenConstants.ARTIFACT_VERSION, artifactVersion);
+
+        if (additionalProperties.containsKey(CodegenConstants.SNAPSHOT_VERSION)) {
+            if (convertPropertyToBooleanAndWriteBack(CodegenConstants.SNAPSHOT_VERSION)) {
+                this.setArtifactVersion(this.buildSnapshotVersion(this.getArtifactVersion()));
+            }
+        }
+        additionalProperties.put(CodegenConstants.ARTIFACT_VERSION, artifactVersion);
+    }
+
+    private static String sanitizePackageName(String packageName) {
+        packageName = packageName.trim(); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        packageName = packageName.replaceAll("[^a-zA-Z0-9_\\.]", "_");
+        if (Strings.isNullOrEmpty(packageName)) {
+            return "invalidPackageName";
+        }
+        return packageName;
+    }
+
+    public String getInvokerPackage() {
+        return invokerPackage;
+    }
+
+    public void setInvokerPackage(String invokerPackage) {
+        this.invokerPackage = invokerPackage;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getArtifactId() {
+        return artifactId;
+    }
+
+    public void setArtifactId(String artifactId) {
+        this.artifactId = artifactId;
+    }
+
+    public String getArtifactVersion() {
+        return artifactVersion;
+    }
+
+    public void setArtifactVersion(String artifactVersion) {
+        this.artifactVersion = artifactVersion;
+    }
+
+    public String getArtifactUrl() {
+        return artifactUrl;
+    }
+
+    public void setArtifactUrl(String artifactUrl) {
+        this.artifactUrl = artifactUrl;
+    }
+
+    public String getArtifactDescription() {
+        return artifactDescription;
+    }
+
+    public void setArtifactDescription(String artifactDescription) {
+        this.artifactDescription = artifactDescription;
+    }
+
+    public String getScmConnection() {
+        return scmConnection;
+    }
+
+    public void setScmConnection(String scmConnection) {
+        this.scmConnection = scmConnection;
+    }
+
+    public String getScmDeveloperConnection() {
+        return scmDeveloperConnection;
+    }
+
+    public void setScmDeveloperConnection(String scmDeveloperConnection) {
+        this.scmDeveloperConnection = scmDeveloperConnection;
+    }
+
+    public String getScmUrl() {
+        return scmUrl;
+    }
+
+    public void setScmUrl(String scmUrl) {
+        this.scmUrl = scmUrl;
+    }
+
+    public String getDeveloperName() {
+        return developerName;
+    }
+
+    public void setDeveloperName(String developerName) {
+        this.developerName = developerName;
+    }
+
+    public String getDeveloperEmail() {
+        return developerEmail;
+    }
+
+    public void setDeveloperEmail(String developerEmail) {
+        this.developerEmail = developerEmail;
+    }
+
+    public String getDeveloperOrganization() {
+        return developerOrganization;
+    }
+
+    public void setDeveloperOrganization(String developerOrganization) {
+        this.developerOrganization = developerOrganization;
+    }
+
+    public String getDeveloperOrganizationUrl() {
+        return developerOrganizationUrl;
+    }
+
+    public void setDeveloperOrganizationUrl(String developerOrganizationUrl) {
+        this.developerOrganizationUrl = developerOrganizationUrl;
+    }
+
+    public String getLicenseName() {
+        return licenseName;
+    }
+
+    public void setLicenseName(String licenseName) {
+        this.licenseName = licenseName;
+    }
+
+    public String getLicenseUrl() {
+        return licenseUrl;
+    }
+
+    public void setLicenseUrl(String licenseUrl) {
+        this.licenseUrl = licenseUrl;
+    }
+
+    public String getSourceFolder() {
+        return sourceFolder;
+    }
+
+    public void setSourceFolder(String sourceFolder) {
+        this.sourceFolder = sourceFolder;
+    }
+
+    @Override
+    public void setOutputDir(String dir) {
+        super.setOutputDir(dir);
+        if (this.outputTestFolder.isEmpty()) {
+            setOutputTestFolder(dir);
+        }
+    }
+
+    public void setOutputTestFolder(String outputTestFolder) {
+        this.outputTestFolder = outputTestFolder;
+    }
+
+    @Override
+    public String escapeQuotationMark(String input) {
+        // remove " to avoid code injection
+        return input.replace("\"", "");
+    }
+
+    /*
+     * Derive invoker package name based on the input
+     * e.g. foo.bar.model => foo.bar
+     *
+     * @param input API package/model name
+     * @return Derived invoker package name based on API package/model name
+     */
+    private String deriveInvokerPackageName(String input) {
+        String[] parts = input.split(Pattern.quote(".")); // Split on period.
+
+        StringBuilder sb = new StringBuilder();
+        String delim = "";
+        for (String p : Arrays.copyOf(parts, parts.length - 1)) {
+            sb.append(delim).append(p);
+            delim = ".";
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Builds a SNAPSHOT version from a given version.
+     *
+     * @param version the version
+     * @return SNAPSHOT version
+     */
+    private String buildSnapshotVersion(String version) {
+        if (version.endsWith("-SNAPSHOT")) {
+            return version;
+        }
+        return version + "-SNAPSHOT";
+    }
+
+    @Override
+    public void postProcessFile(File file, String fileType) {
+        if (file == null) {
+            return;
+        }
+
+        String javaPostProcessFile = System.getenv("JAVA_POST_PROCESS_FILE");
+        if (StringUtils.isEmpty(javaPostProcessFile)) {
+            return; // skip if JAVA_POST_PROCESS_FILE env variable is not defined
+        }
+
+        // only process files with java extension
+        if ("java".equals(FilenameUtils.getExtension(file.toString()))) {
+            String command = javaPostProcessFile + " " + file;
+            try {
+                Process p = Runtime.getRuntime().exec(command);
+                p.waitFor();
+                int exitValue = p.exitValue();
+                if (exitValue != 0) {
+                    LOGGER.error("Error running the command ({}). Exit value: {}", command, exitValue);
+                } else {
+                    LOGGER.info("Successfully executed: {}", command);
+                }
+            } catch (InterruptedException | IOException e) {
+                LOGGER.error("Error running the command ({}). Exception: {}", command, e.getMessage());
+                // Restore interrupted state
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+
+    public void setParentGroupId(final String parentGroupId) {
+        this.parentGroupId = parentGroupId;
+    }
+
+    public void setParentArtifactId(final String parentArtifactId) {
+        this.parentArtifactId = parentArtifactId;
+    }
+
+    public void setParentVersion(final String parentVersion) {
+        this.parentVersion = parentVersion;
     }
 }

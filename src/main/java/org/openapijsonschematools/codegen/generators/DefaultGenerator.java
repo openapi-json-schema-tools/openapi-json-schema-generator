@@ -83,7 +83,6 @@ import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.ParameterCollection;
 import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCase;
-import org.openapijsonschematools.codegen.generatorrunner.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
@@ -118,7 +117,6 @@ import java.util.stream.Stream;
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.callbacks.Callback;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.media.*;
@@ -147,7 +145,6 @@ public class DefaultGenerator implements Generator {
     protected static Schema falseSchema;
     protected static Schema trueSchema = new Schema();
 
-    protected CodegenIgnoreProcessor ignoreProcessor;
     protected String requestBodiesIdentifier = "request_bodies";
     protected String securitySchemesIdentifier = "security_schemes";
     protected String requestBodyIdentifier = "request_body";
@@ -224,15 +221,10 @@ public class DefaultGenerator implements Generator {
     protected Set<String> reservedWords;
     protected Set<String> languageSpecificPrimitives = new HashSet<>();
     // a map to store the mapping between a schema and the new one
-    protected Map<String, String> schemaMapping = new HashMap<>();
     // a map to store the mapping between inline schema and the name provided by the user
-    protected Map<String, String> inlineSchemaNameMapping = new HashMap<>();
-    // a map to store the inline schema naming conventions
-    protected Map<String, String> inlineSchemaNameDefault = new HashMap<>();
     protected String modelPackage = "components.schema", apiPackage = "";
     protected String modelNamePrefix = "", modelNameSuffix = "";
     protected String apiNamePrefix = "", apiNameSuffix = "Api";
-    protected String testPackage = "";
     protected String filesMetadataFilename = "FILES";
     protected String versionMetadataFilename = "VERSION";
 
@@ -249,7 +241,6 @@ public class DefaultGenerator implements Generator {
     protected String templateDir;
     protected String embeddedTemplateDir;
     protected Map<String, Object> additionalProperties = new HashMap<>();
-    protected Map<String, String> serverVariables = new HashMap<>();
     protected Map<String, Object> vendorExtensions = new HashMap<>();
     /*
     Supporting files are those which aren't models, APIs, or docs.
@@ -263,8 +254,6 @@ public class DefaultGenerator implements Generator {
     protected int removeOperationIdPrefixCount = 1;
     protected boolean skipOperationExample;
 
-    protected final static Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)application/json(;.*)?");
-    protected final static Pattern JSON_VENDOR_MIME_PATTERN = Pattern.compile("(?i)application/vnd.(.*)+json(;.*)?");
     private static final Pattern COMMON_PREFIX_ENUM_NAME = Pattern.compile("[a-zA-Z\\d]+\\z");
 
     /**
@@ -289,7 +278,6 @@ public class DefaultGenerator implements Generator {
      */
     protected boolean supportsAdditionalPropertiesWithComposedSchema = true;
     protected Boolean allowUnicodeIdentifiers = false;
-    protected String httpUserAgent;
     protected Boolean hideGenerationTimestamp = true;
     // How to encode special characters like $
     // They are translated to words like "Dollar" and prefixed with '
@@ -418,10 +406,10 @@ public class DefaultGenerator implements Generator {
 
     /***
      * Preset map builder with commonly used Mustache lambdas.
-     *
+     * <p>
      * To extend the map, override addMustacheLambdas(), call parent method
      * first and then add additional lambdas to the returned builder.
-     *
+     * <p>
      * If common lambdas are not desired, override addMustacheLambdas() method
      * and return empty builder.
      *
@@ -446,7 +434,7 @@ public class DefaultGenerator implements Generator {
     private void registerMustacheLambdas() {
         ImmutableMap<String, Lambda> lambdas = addMustacheLambdas().build();
 
-        if (lambdas.size() == 0) {
+        if (lambdas.isEmpty()) {
             return;
         }
 
@@ -545,8 +533,8 @@ public class DefaultGenerator implements Generator {
      * @param prop the property that holds the data type booleans
      * @return the sanitized variable name for enum
      */
-    public String toEnumVarName(String value, Schema prop) {
-        if (value.length() == 0) {
+    public String toEnumVarName(String value, Schema<?> prop) {
+        if (value.isEmpty()) {
             return "EMPTY";
         }
 
@@ -564,16 +552,6 @@ public class DefaultGenerator implements Generator {
      */
     @Override
     public void setOpenAPI(OpenAPI openAPI) {
-        String originalSpecVersion;
-        String xOriginalSwaggerVersion = "x-original-swagger-version";
-        if (openAPI.getExtensions() != null && !openAPI.getExtensions().isEmpty() && openAPI.getExtensions().containsValue(xOriginalSwaggerVersion)) {
-            originalSpecVersion = (String) openAPI.getExtensions().get(xOriginalSwaggerVersion);
-        } else {
-            originalSpecVersion = openAPI.getOpenapi();
-        }
-        int specMajorVersion = Integer.parseInt(originalSpecVersion.substring(0, 1));
-        int specMinorVersion = Integer.parseInt(originalSpecVersion.substring(2, 3));
-        boolean specVersionGreaterThanOrEqualTo310 = (specMajorVersion == 3 && specMinorVersion >= 1);
         this.openAPI = openAPI;
     }
 
@@ -686,13 +664,6 @@ public class DefaultGenerator implements Generator {
                         .replace("\"", "\\\""));
     }
 
-    // override with any special encoding and escaping logic
-    @Override
-    @SuppressWarnings("static-method")
-    public String encodePath(String input) {
-        return escapeText(input);
-    }
-
     /**
      * override with any special text escaping logic to handle unsafe
      * characters to avoid code injection
@@ -725,11 +696,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public Map<String, String> typeMapping() {
-        return typeMapping;
-    }
-
-    @Override
     public Map<String, String> instantiationTypes() {
         return instantiationTypes;
     }
@@ -742,16 +708,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public Set<String> languageSpecificPrimitives() {
         return languageSpecificPrimitives;
-    }
-
-    @Override
-    public Map<String, String> schemaMapping() {
-        return schemaMapping;
-    }
-
-    @Override
-    public String testPackage() {
-        return testPackage;
     }
 
     @Override
@@ -797,26 +753,6 @@ public class DefaultGenerator implements Generator {
     public String getPascalCaseResponse(String componentName) { return toModelName(componentName, null); }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
-
-    @Override
-    public String apiFileFolder() {
-        return outputFolder + File.separator + apiPackage().replace('.', File.separatorChar);
-    }
-
-    @Override
-    public String apiTestFileFolder() {
-        return outputFolder + File.separator + testPackage().replace('.', File.separatorChar);
-    }
-
-    @Override
-    public String modelTestFileFolder() {
-        return outputFolder + File.separator + testPackage().replace('.', File.separatorChar);
-    }
-
-    @Override
-    public String apiDocFileFolder() {
-        return outputFolder;
-    }
 
     @Override
     public Map<String, Object> additionalProperties() {
@@ -905,9 +841,9 @@ public class DefaultGenerator implements Generator {
      * RgxGen does not support our ECMA dialect
      * <a href="https://github.com/curious-odd-man/RgxGen/issues/56">...</a>
      * So strip off the leading / and trailing / and turn on ignore case if we have it
-     *
+     * <p>
      * json schema test cases omit the leading and trailing /s, so make sure that the regex allows that
-     *
+     * <p>
      * Flags:
      * <a href="https://262.ecma-international.org/13.0/#sec-get-regexp.prototype.flags">...</a>
      * d hasIndices: indicates that the result of a regular expression match should contain the start and end indices of the substrings of each capture group
@@ -917,7 +853,7 @@ public class DefaultGenerator implements Generator {
      * s dotAll: the dot special character (.) should additionally match 4 line terminator ("newline") characters in a string
      * u unicode: enables various Unicode-related features such as unicode code point escapes
      * y sticky: the regex attempts to match the target string only from the index indicated by the lastIndex property
-     *
+     * <p>
      * Python flags:
      * <a href="https://docs.python.org/3/library/re.html#flags">...</a>
      * i, m, s u
@@ -1107,29 +1043,6 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    /**
-     * Returns the same content as [[toModelImport]] with key the fully-qualified Model name and value the initial input.
-     * In case of union types this method has a key for each separate model and import.
-     *
-     * @param name the name of the "Model"
-     * @return Map of fully-qualified models.
-     */
-    @Override
-    public Map<String, String> toModelImportMap(String name) {
-        return Collections.singletonMap(this.toModelImport(name), name);
-    }
-
-    /**
-     * Return the fully-qualified "Api" name for import
-     *
-     * @param name the name of the "Api"
-     * @return the fully-qualified "Api" name for import
-     */
-    @Override
-    public String toApiImport(String name) {
-        return apiPackage() + "." + name;
-    }
-
     protected Stability getStability() {
         return Stability.STABLE;
     }
@@ -1253,16 +1166,6 @@ public class DefaultGenerator implements Generator {
         specialCharReplacements.put("!=", "Not_Equal");
         specialCharReplacements.put("<>", "Not_Equal");
         specialCharReplacements.put("~=", "Tilde_Equal");
-    }
-
-    /**
-     * Return the symbol name of a symbol
-     *
-     * @param input Symbol (e.g. $)
-     * @return Symbol name (e.g. Dollar)
-     */
-    protected String getSymbolName(String input) {
-        return specialCharReplacements.get(input);
     }
 
     public String toExampleValue(Schema schema, Object objExample) {
@@ -1396,7 +1299,7 @@ public class DefaultGenerator implements Generator {
      */
     @SuppressWarnings("static-method")
     public String lowerCamelCase(String name) {
-        return (name.length() > 0) ? (Character.toLowerCase(name.charAt(0)) + name.substring(1)) : "";
+        return (!name.isEmpty()) ? (Character.toLowerCase(name.charAt(0)) + name.substring(1)) : "";
     }
 
     /**
@@ -1408,7 +1311,7 @@ public class DefaultGenerator implements Generator {
      */
     @Override
     public String toApiName(String name) {
-        if (name.length() == 0) {
+        if (name.isEmpty()) {
             return "DefaultApi";
         }
         return org.openapijsonschematools.codegen.common.StringUtils.camelize(apiNamePrefix + "_" + name + "_" + apiNameSuffix);
@@ -1617,7 +1520,7 @@ public class DefaultGenerator implements Generator {
                     }
                 }
             }
-            if (composedSchema.getOneOf() != null && composedSchema.getOneOf().size() != 0) {
+            if (composedSchema.getOneOf() != null && !composedSchema.getOneOf().isEmpty()) {
                 // All oneOf definitions must contain the discriminator
                 CodegenSchema cp = new CodegenSchema();
                 for (Schema oneOf : composedSchema.getOneOf()) {
@@ -1640,7 +1543,7 @@ public class DefaultGenerator implements Generator {
                 }
                 return cp;
             }
-            if (composedSchema.getAnyOf() != null && composedSchema.getAnyOf().size() != 0) {
+            if (composedSchema.getAnyOf() != null && !composedSchema.getAnyOf().isEmpty()) {
                 // All anyOf definitions must contain the discriminator because a min of one must be selected
                 CodegenSchema cp = new CodegenSchema();
                 for (Schema anyOf : composedSchema.getAnyOf()) {
@@ -1696,7 +1599,7 @@ public class DefaultGenerator implements Generator {
                     }
                 }
             }
-            if (composedSchema.getOneOf() != null && composedSchema.getOneOf().size() != 0) {
+            if (composedSchema.getOneOf() != null && !composedSchema.getOneOf().isEmpty()) {
                 // All oneOf definitions must contain the discriminator
                 Integer hasDiscriminatorCnt = 0;
                 Integer hasNullTypeCnt = 0;
@@ -1721,7 +1624,7 @@ public class DefaultGenerator implements Generator {
                 // If the scenario when oneOf has two children and one of them is the 'null' type,
                 // there is no need for a discriminator.
             }
-            if (composedSchema.getAnyOf() != null && composedSchema.getAnyOf().size() != 0) {
+            if (composedSchema.getAnyOf() != null && !composedSchema.getAnyOf().isEmpty()) {
                 // All anyOf definitions must contain the discriminator because a min of one must be selected
                 Integer hasDiscriminatorCnt = 0;
                 Integer hasNullTypeCnt = 0;
@@ -1853,7 +1756,7 @@ public class DefaultGenerator implements Generator {
                     }
                 }
             }
-            if (queue.size() == 0) {
+            if (queue.isEmpty()) {
                 break;
             }
             currentSchemaName = queue.remove(0);
@@ -1930,7 +1833,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String getImport(CodegenRefInfo refInfo) {
+    public String getImport(CodegenRefInfo<?> refInfo) {
         String prefix = "from " + packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
@@ -2199,8 +2102,7 @@ public class DefaultGenerator implements Generator {
 
         // this seed makes it so if we have [a-z] we pick a
         Random random = new Random(18);
-        String result = rgxGen.generate(random);
-        return result;
+        return rgxGen.generate(random);
     }
 
     private Object getStringFromSchema(CodegenSchema schema) {
@@ -2917,7 +2819,7 @@ public class DefaultGenerator implements Generator {
             }
             // current json path used because
             // schemas are imported into a python file generated from that jsonPath
-            requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<String>(), jsonPath, jsonPath);
+            requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<>(), jsonPath, jsonPath);
         }
 
         HashMap<String, Schema> pathParametersProperties = new HashMap<>();
@@ -3186,66 +3088,6 @@ public class DefaultGenerator implements Generator {
         return r;
     }
 
-    /**
-     * Convert OAS Callback object to Codegen Callback object
-     *
-     * @param name     callback name
-     * @param callback OAS Callback object
-     * @param servers  list of servers
-     * @return Codegen Response object
-     */
-    public CodegenCallback fromCallback(String name, Callback callback, List<Server> servers) {
-        CodegenCallback c = new CodegenCallback();
-        c.name = name;
-
-        if (callback.getExtensions() != null && !callback.getExtensions().isEmpty()) {
-            c.vendorExtensions.putAll(callback.getExtensions());
-        }
-
-        callback.forEach((expression, pi) -> {
-            CodegenCallback.Url u = new CodegenCallback.Url();
-            u.expression = expression;
-
-            if (pi.getExtensions() != null && !pi.getExtensions().isEmpty()) {
-                u.vendorExtensions.putAll(pi.getExtensions());
-            }
-
-            Stream.of(
-                            Pair.of("get", pi.getGet()),
-                            Pair.of("head", pi.getHead()),
-                            Pair.of("put", pi.getPut()),
-                            Pair.of("post", pi.getPost()),
-                            Pair.of("delete", pi.getDelete()),
-                            Pair.of("patch", pi.getPatch()),
-                            Pair.of("options", pi.getOptions()))
-                    .filter(p -> p.getValue() != null)
-                    .forEach(p -> {
-                        String method = p.getKey();
-                        Operation op = p.getValue();
-
-                        boolean genId = op.getOperationId() == null;
-                        if (genId) {
-                            op.setOperationId(getOrGenerateOperationId(op, c.name + "_" + expression.replaceAll("\\{\\$.*}", ""), method));
-                        }
-
-                        if (op.getExtensions() == null) {
-                            op.setExtensions(new HashMap<>());
-                        }
-                        // This extension will be removed later by `fromOperation()` as it is only needed here to
-                        // distinguish between normal operations and callback requests
-                        op.getExtensions().put("x-callback-request", true);
-
-                        // CodegenOperation co = fromOperation(expression, method, op, servers);
-                        CodegenOperation co = null;
-                        u.requests.add(co);
-                    });
-
-            c.urls.add(u);
-        });
-
-        return c;
-    }
-
     public CodegenTag fromTag(String name, String description) {
         CodegenTag tag = codegenTagCache.getOrDefault(name, null);
         if (tag != null) {
@@ -3422,14 +3264,13 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public Function<CodegenSchema, List<CodegenSchema>> getSchemasFn() {
-        Function<CodegenSchema, List<CodegenSchema>> getSchemasFn = codegenSchema -> {
+        return codegenSchema -> {
             ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
             ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
             codegenSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, false);
             schemasBeforeImports.addAll(schemasAfterImports);
             return schemasBeforeImports;
         };
-        return getSchemasFn;
     }
 
     @Override
@@ -3632,8 +3473,8 @@ public class DefaultGenerator implements Generator {
             builder.append("root");
         }
         for (String part : parts) {
-            if (part.length() > 0) {
-                if (builder.toString().length() == 0) {
+            if (!part.isEmpty()) {
+                if (builder.toString().isEmpty()) {
                     part = Character.toLowerCase(part.charAt(0)) + part.substring(1);
                 } else {
                     part = org.openapijsonschematools.codegen.common.StringUtils.camelize(part);
@@ -3655,34 +3496,6 @@ public class DefaultGenerator implements Generator {
     protected boolean needToImport(String type) {
         return StringUtils.isNotBlank(type) && !defaultIncludes.contains(type)
                 && !languageSpecificPrimitives.contains(type);
-    }
-
-    /**
-     * Add operation to group
-     *
-     * @param tag          name of the tag
-     * @param resourcePath path of the resource
-     * @param operation    OAS Operation object
-     * @param co           Codegen Operation object
-     * @param operations   map of Codegen operations
-     */
-    @Override
-    @SuppressWarnings("static-method")
-    public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation
-            co, Map<String, List<CodegenOperation>> operations) {
-        List<CodegenOperation> opList = operations.computeIfAbsent(tag, k -> new ArrayList<>());
-        // check for operationId uniqueness
-        String operationId = co.operationId.original;
-        int counter = 0;
-        for (CodegenOperation op : opList) {
-            if (operationId.equals(op.operationId.original)) {
-                counter++;
-                if (counter > 1) {
-                    LOGGER.error("Invalid spec contains multiple operations with the same operationId=`{}` in tag='{}'.Update your spec to use unique operationIds.", operationId, tag);
-                }
-            }
-        }
-        opList.add(co);
     }
 
     protected void addImports(Set<String> importsToBeAddedTo, Set<String> importsToAdd) {
@@ -3846,7 +3659,7 @@ public class DefaultGenerator implements Generator {
         String result = Arrays.stream(name.split(nonNameElementPattern))
                 .map(StringUtils::capitalize)
                 .collect(Collectors.joining(""));
-        if (result.length() > 0) {
+        if (!result.isEmpty()) {
             result = result.substring(0, 1).toLowerCase(Locale.ROOT) + result.substring(1);
         }
         return result;
@@ -3985,7 +3798,7 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 5) {
             return;
         }
-        Set<String> xParameters = new HashSet<String>();
+        Set<String> xParameters = new HashSet<>();
         xParameters.add("PathParameters");
         xParameters.add("QueryParameters");
         xParameters.add("HeaderParameters");
@@ -4250,16 +4063,6 @@ public class DefaultGenerator implements Generator {
     }
 
     /**
-     * Documentation files extension
-     *
-     * @return Documentation files extension
-     */
-    @Override
-    public String getDocExtension() {
-        return docExtension;
-    }
-
-    /**
      * Set Documentation files extension
      *
      * @param userDocExtension documentation files extension
@@ -4267,26 +4070,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public void setDocExtension(String userDocExtension) {
         this.docExtension = userDocExtension;
-    }
-
-    /**
-     * Set HTTP user agent.
-     *
-     * @param httpUserAgent HTTP user agent
-     */
-    @Override
-    public void setHttpUserAgent(String httpUserAgent) {
-        this.httpUserAgent = httpUserAgent;
-    }
-
-    /**
-     * HTTP user agent
-     *
-     * @return HTTP user agent
-     */
-    @Override
-    public String getHttpUserAgent() {
-        return httpUserAgent;
     }
 
     /**
@@ -4397,45 +4180,13 @@ public class DefaultGenerator implements Generator {
     }
 
     private String sanitizeValue(String value, String replaceMatch, String replaceValue, List<String> exceptionList) {
-        if (exceptionList.size() == 0 || !exceptionList.contains(replaceMatch)) {
+        if (exceptionList.isEmpty() || !exceptionList.contains(replaceMatch)) {
             return value.replaceAll(replaceMatch, replaceValue);
         }
         return value;
     }
 
-    /**
-     * Sanitize tag
-     *
-     * @param tag Tag
-     * @return Sanitized tag
-     */
-    @Override
-    public String sanitizeTag(String tag) {
-        tag = org.openapijsonschematools.codegen.common.StringUtils.camelize(sanitizeName(tag));
-
-        // tag starts with numbers
-        if (tag.matches("^\\d.*")) {
-            tag = "Class" + tag;
-        }
-
-        return tag;
-    }
-
-    private BigDecimal getBigDecimal(Number arg) {
-        if (arg instanceof Integer) {
-            return new BigDecimal((Integer) arg);
-        } else if (arg instanceof Long) {
-            return new BigDecimal((Long) arg);
-        } else if (arg instanceof Float) {
-            return new BigDecimal(Float.toString((Float) arg));
-        } else if (arg instanceof  Double) {
-            return new BigDecimal(Double.toString((Double) arg));
-        } else {
-            throw new RuntimeException("Invalid type input for arg");
-        }
-    }
-
-    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
+    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema<?> schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
         LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
         LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
@@ -4610,24 +4361,6 @@ public class DefaultGenerator implements Generator {
             return Collections.emptySet(); // return empty set
         }
         return requestBody.getContent().keySet();
-    }
-
-    public boolean hasFormParameter(OpenAPI openAPI, Operation operation) {
-        Set<String> consumesInfo = getConsumesInfo(openAPI, operation);
-
-        if (consumesInfo == null || consumesInfo.isEmpty()) {
-            return false;
-        }
-
-        for (String consume : consumesInfo) {
-            if (consume != null &&
-                    (consume.toLowerCase(Locale.ROOT).startsWith("application/x-www-form-urlencoded") ||
-                            consume.toLowerCase(Locale.ROOT).startsWith("multipart"))) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     public boolean hasBodyParameter(OpenAPI openAPI, Operation operation) {
@@ -4847,16 +4580,11 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
             instance.componentModule = true;
         }
-        if (currentJsonPath != null && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+        if (sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             instance.subpackage = getSubpackage(sourceJsonPath);
         }
-        if (currentJsonPath != null) {
-            instance.moduleLocation = getModuleLocation(sourceJsonPath);
-            instance.pathFromDocRoot = schemaPathFromDocRoot(instance.moduleLocation);
-            if (currentJsonPath != sourceJsonPath) {
-                instance.isInline = true;
-            }
-        }
+        instance.moduleLocation = getModuleLocation(sourceJsonPath);
+        instance.pathFromDocRoot = schemaPathFromDocRoot(instance.moduleLocation);
     }
 
     protected String getModuleLocation(String ref) {
@@ -5050,7 +4778,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                pascalCaseName = camelize(toPathFilename(usedKey, null));;
+                pascalCaseName = camelize(toPathFilename(usedKey, null));
                 break;
             case "misc":
             case "verb":
@@ -5408,16 +5136,6 @@ public class DefaultGenerator implements Generator {
     }
 
     /**
-     * Indicates whether the codegen configuration should treat documents as strictly defined by the OpenAPI specification.
-     *
-     * @return true to act strictly upon spec documents, potentially modifying the spec to strictly fit the spec.
-     */
-    @Override
-    public boolean isStrictSpecBehavior() {
-        return this.strictSpecBehavior;
-    }
-
-    /**
      * Sets the boolean valid indicating whether generation will work strictly against the specification, potentially making
      * minor changes to the input document.
      *
@@ -5502,52 +5220,6 @@ public class DefaultGenerator implements Generator {
         public int hashCode() {
             return Objects.hash(getName(), getRemoveCharRegEx(), getExceptions());
         }
-    }
-
-    /**
-     * Returns the additionalProperties Schema for the specified input schema.
-     * <p>
-     * The additionalProperties keyword is used to control the handling of additional, undeclared
-     * properties, that is, properties whose names are not listed in (json schema) properties (keyword).
-     * The additionalProperties keyword may be either a boolean or an object.
-     * If additionalProperties is a boolean and set to false, no additional properties are allowed.
-     * By default, when the additionalProperties keyword is not specified in the input schema,
-     * any additional properties are allowed. This is equivalent to setting additionalProperties
-     * to the boolean value True or setting additionalProperties: {}
-     *
-     * @param schema the input schema that may or may not have the additionalProperties keyword.
-     * @return the Schema of the additionalProperties. The null value is returned if no additional
-     * properties are allowed.
-     */
-    protected Schema getAdditionalProperties(Schema schema) {
-        return ModelUtils.getAdditionalProperties(openAPI, schema);
-    }
-
-    /**
-     * Check if the given MIME is a JSON MIME.
-     * JSON MIME examples:
-     * application/json
-     * application/json; charset=UTF8
-     * APPLICATION/JSON
-     *
-     * @param mime MIME string
-     * @return true if the input matches the JSON MIME
-     */
-    protected static boolean isJsonMimeType(String mime) {
-        return mime != null && (JSON_MIME_PATTERN.matcher(mime).matches());
-    }
-
-    /**
-     * Check if the given MIME is a JSON Vendor MIME.
-     * JSON MIME examples:
-     * application/vnd.company+json
-     * application/vnd.company.resourceA.version1+json
-     *
-     * @param mime MIME string
-     * @return true if the input matches the JSON vendor MIME
-     */
-    protected static boolean isJsonVendorMimeType(String mime) {
-        return mime != null && JSON_VENDOR_MIME_PATTERN.matcher(mime).matches();
     }
 
     private ArrayListWithContext<CodegenSchema> getComposedProperties(List<Schema> xOfCollection, String collectionName, String sourceJsonPath, String currentJsonPath) {

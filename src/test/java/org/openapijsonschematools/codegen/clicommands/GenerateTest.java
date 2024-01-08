@@ -108,7 +108,7 @@ public class GenerateTest {
         String[] argsToUse = ArrayUtils.addAll(commonArgs, additionalParameters);
 
         Cli.CliBuilder<Runnable> builder =
-                Cli.<Runnable>builder("openapi-generatorRunner-cli")
+                Cli.<Runnable>builder("openapi-generator-cli")
                         .withCommands(Generate.class);
 
         Generate generate = (Generate) builder.build().parse(argsToUse);
@@ -233,7 +233,7 @@ public class GenerateTest {
 
     @Test
     public void testRequiredArgs_LongArgs() {
-        setupAndRunTest("--input-spec", "src/test/resources/swagger.yaml", "--generatorRunner-name", "java", "--output",
+        setupAndRunTest("--input-spec", "src/test/resources/swagger.yaml", "--generator-name", "java", "--output",
                 "src/main/java", false, null);
 
         // on top of those in setupAndRunTest:

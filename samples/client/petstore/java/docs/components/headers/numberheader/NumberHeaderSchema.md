@@ -1,5 +1,4 @@
 # NumberHeaderSchema
-org.openapijsonschematools.client.components.headers.numberheader.NumberHeaderSchema.java
 public class NumberHeaderSchema
 
 A class that contains necessary nested

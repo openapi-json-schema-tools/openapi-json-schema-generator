@@ -1,5 +1,4 @@
 # PathParamSchema0
-org.openapijsonschematools.client.paths.commonparamsubdir.parameters.parameter0.PathParamSchema0.java
 public class PathParamSchema0
 
 A class that contains necessary nested

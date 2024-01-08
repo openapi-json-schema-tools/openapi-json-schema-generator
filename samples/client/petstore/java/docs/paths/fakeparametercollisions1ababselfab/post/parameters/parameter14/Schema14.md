@@ -1,5 +1,4 @@
 # Schema14
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter14.Schema14.java
 public class Schema14
 
 A class that contains necessary nested

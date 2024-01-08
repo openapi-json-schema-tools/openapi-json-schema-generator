@@ -494,10 +494,10 @@ public class CodegenConfigurator {
             config.additionalProperties().put(CodegenConstants.TEMPLATE_DIR, workflowSettings.getTemplateDir());
         }
 
-        ClientOptInput input = new ClientOptInput()
-                .config(config)
-                .userDefinedTemplates(userDefinedTemplates);
-
-        return input.openAPI((OpenAPI)context.getSpecDocument());
+        return new ClientOptInput(
+                (OpenAPI)context.getSpecDocument(),
+                config,
+                userDefinedTemplates
+        );
     }
 }

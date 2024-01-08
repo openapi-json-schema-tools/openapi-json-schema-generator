@@ -59,7 +59,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema2
-unit_test_api.paths.response_body_post_maxproperties0_means_the_object_is_empty_response_body_for_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

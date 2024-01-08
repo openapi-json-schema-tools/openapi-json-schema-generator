@@ -1,5 +1,4 @@
 # Schema3
-org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.parameter3.Schema3.java
 public class Schema3
 
 A class that contains necessary nested

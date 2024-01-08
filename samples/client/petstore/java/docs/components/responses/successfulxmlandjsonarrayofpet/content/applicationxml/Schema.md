@@ -1,5 +1,4 @@
 # Schema
-org.openapijsonschematools.client.components.responses.successfulxmlandjsonarrayofpet.content.applicationxml.Schema.java
 public class Schema
 
 A class that contains necessary nested

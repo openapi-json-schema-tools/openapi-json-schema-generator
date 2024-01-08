@@ -5,7 +5,6 @@ petstore_api.components.headers.header_string_header
 string header description
 
 ## Schema
-petstore_api.components.headers.header_string_header.schema
 ```
 type: schemas.Schema
 ```

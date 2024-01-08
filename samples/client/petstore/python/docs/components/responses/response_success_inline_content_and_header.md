@@ -18,7 +18,6 @@ Content-Type | Schema
 
 ## Body Details
 ### content ApplicationJson Schema
-petstore_api.components.responses.response_success_inline_content_and_header.content.application_json.schema
 ```
 type: schemas.Schema
 ```
@@ -98,7 +97,6 @@ from_dict_ | [HeadersDictInput](#headers-headersdictinput), [HeadersDict](#heade
 ### headers SomeHeader
 
 #### headers SomeHeader Schema
-petstore_api.components.responses.response_success_inline_content_and_header.headers.header_some_header.schema
 ```
 type: schemas.Schema
 ```

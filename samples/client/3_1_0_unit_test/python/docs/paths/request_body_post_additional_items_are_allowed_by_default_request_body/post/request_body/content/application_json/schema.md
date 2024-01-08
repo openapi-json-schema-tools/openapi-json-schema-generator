@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_additional_items_are_allowed_by_default_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

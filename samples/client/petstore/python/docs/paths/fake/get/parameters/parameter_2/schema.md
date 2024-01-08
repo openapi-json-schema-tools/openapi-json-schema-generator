@@ -1,5 +1,4 @@
 # Schema
-petstore_api.paths.fake.get.parameters.parameter_2.schema
 ```
 type: schemas.Schema
 ```

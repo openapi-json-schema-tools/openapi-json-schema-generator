@@ -21,15 +21,14 @@ import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
-import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-public class FakeJavaGeneratorTest {
+public class JavaClientGeneratorTest {
 
-    private final AbstractJavaGenerator fakeJavaCodegen = new FakeJavaGenerator();
+    private final JavaClientGenerator generator = new JavaClientGenerator();
 
     @Test
     void inlineEnum() {
@@ -40,7 +39,7 @@ public class FakeJavaGeneratorTest {
         );
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/inlineEnum");
+        final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/inlineEnum");
         Assert.assertEquals(p.example, "\"first\"");
     }
 
@@ -55,7 +54,7 @@ public class FakeJavaGeneratorTest {
         sc.setItems(items);
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/inlineEnumArray");
+        final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/inlineEnumArray");
         Assert.assertEquals(p.example, "Arrays.asList()");
     }
 
@@ -66,7 +65,7 @@ public class FakeJavaGeneratorTest {
         sc.setFormat("date");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/dateDefault");
+        final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/dateDefault");
         Assert.assertEquals(p.example, "new Date()");
     }
 
@@ -78,7 +77,7 @@ public class FakeJavaGeneratorTest {
         sc.setExample("2017-03-30");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/dateGivenExample");
+        final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/dateGivenExample");
         Assert.assertEquals(p.example, "new Date()");
     }
 
@@ -89,7 +88,7 @@ public class FakeJavaGeneratorTest {
         sc.setFormat("date-time");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/dateTimeDefault");
+        final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/dateTimeDefault");
         Assert.assertEquals(p.example, "LocalDate.now()");
     }
 
@@ -101,7 +100,7 @@ public class FakeJavaGeneratorTest {
         sc.setExample("2007-12-03T10:15:30+01:00");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/dateTimeGivenExample");
+        final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/dateTimeGivenExample");
         Assert.assertEquals(p.example, "LocalDate.parse(\"2007-12-03T10:15:30+01:00\")");
     }
 
@@ -112,7 +111,7 @@ public class FakeJavaGeneratorTest {
         sc.setFormat("uuid");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/uuidDefault");
+        final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/uuidDefault");
         Assert.assertEquals(p.example, "UUID.randomUUID()");
     }
 
@@ -124,34 +123,7 @@ public class FakeJavaGeneratorTest {
         sc.setExample("13b48713-b931-45ea-bd60-b07491245960");
         Parameter parameter = new Parameter();
         parameter.setSchema(sc);
-        final CodegenParameter p = fakeJavaCodegen.fromParameter(parameter, "#/components/parameters/uuidGivenExample");
+        final CodegenParameter p = generator.fromParameter(parameter, "#/components/parameters/uuidGivenExample");
         Assert.assertEquals(p.example, "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
-    }
-
-    private static class FakeJavaGenerator extends AbstractJavaGenerator {
-        @Override
-        public GeneratorType getTag() {
-            return null;
-        }
-
-        @Override
-        public String getName() {
-            return null;
-        }
-
-        @Override
-        public String getHelp() {
-            return null;
-        }
-
-        /**
-         * Gets artifact version.
-         * Only for testing purposes.
-         *
-         * @return version
-         */
-        public String getArtifactVersion() {
-            return this.artifactVersion;
-        }
     }
 }

@@ -1,5 +1,4 @@
 # XExpiresAfterSchema
-org.openapijsonschematools.client.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema.java
 public class XExpiresAfterSchema
 
 A class that contains necessary nested

@@ -119,19 +119,10 @@ public class CodegenSchema {
     public String moduleLocation = null;
     // stores the location of the documentation file
     public String pathFromDocRoot = null;
-    public boolean isInline = false;
     public String subpackage;  // the current schema's subpackage, needed by java
-    public CodegenKey containerJsonPathPiece; // needed by java, outer classs that has inner nested schema classes
+    public CodegenKey containerJsonPathPiece; // needed by java, outer class that has inner nested schema classes
     public LinkedHashMap<String, EnumValue> typeToExample = null;
     public List<MapBuilder> mapBuilders = null; // used by java
-
-    /*
-    Remove this in the 4.0.0 release because it is unused
-     */
-    @Deprecated
-    public boolean hasValidation() {
-        return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
-    }
 
     public boolean isCustomSchema() {
         // true when schema class is directly extended, false otherwise
@@ -905,7 +896,6 @@ public class CodegenSchema {
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
         sb.append(", vendorExtensions=").append(vendorExtensions);
-        sb.append(", hasValidation=").append(hasValidation());
         sb.append(", maxItems=").append(maxItems);
         sb.append(", minItems=").append(minItems);
         sb.append(", maxProperties=").append(maxProperties);

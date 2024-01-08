@@ -44,7 +44,6 @@ Content-Type | Schema
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
-petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded.schema
 ```
 type: schemas.Schema
 ```
@@ -256,7 +255,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor404 content ApplicationJson Schema
-petstore_api.paths.fake.get.responses.response_404.content.application_json.schema
 ```
 type: schemas.Schema
 ```

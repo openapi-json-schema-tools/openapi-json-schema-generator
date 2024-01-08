@@ -45,7 +45,6 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
 #### RequestBody content MultipartFormData Schema
-petstore_api.paths.pet_pet_id_upload_image.post.request_body.content.multipart_form_data.schema
 ```
 type: schemas.Schema
 ```

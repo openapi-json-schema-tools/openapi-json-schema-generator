@@ -1,5 +1,4 @@
 # Schema
-petstore_api.paths.pet_find_by_tags.get.parameters.parameter_0.schema
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,4 @@
 # Schema17
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter17.Schema17.java
 public class Schema17
 
 A class that contains necessary nested

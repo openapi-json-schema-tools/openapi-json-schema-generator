@@ -24,6 +24,8 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -68,11 +70,10 @@ import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 import static org.openapijsonschematools.codegen.common.StringUtils.underscore;
 
 @SuppressWarnings("rawtypes")
-public class PythonClientGenerator extends AbstractPythonGenerator {
+public class PythonClientGenerator extends DefaultGenerator implements Generator {
     private final Logger LOGGER = LoggerFactory.getLogger(PythonClientGenerator.class);
 
     public static final String PACKAGE_URL = "packageUrl";
-    public static final String DEFAULT_LIBRARY = "urllib3";
     // nose is a python testing framework, we use pytest if USE_NOSE is unset
     public static final String USE_NOSE = "useNose";
     public static final String RECURSION_LIMIT = "recursionLimit";
@@ -94,7 +95,8 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     private final DateTimeFormatter iso8601DateTime = DateTimeFormatter.ISO_DATE_TIME;
     private boolean nonCompliantUseDiscrIfCompositionFails = false;
     private final HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
-    protected TemplatingEngineAdapter templatingEngine = new HandlebarsEngineAdapter();
+    protected String packageVersion = "1.0.0";
+    protected String projectName; // for setup.py, e.g. petstore-api
 
     public PythonClientGenerator() {
         super();
@@ -102,6 +104,66 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         importBaseType = false;
         addSchemaImportsFromV3SpecLocations = true;
         removeEnumValuePrefix = false;
+
+        packageName = "openapi_client";
+
+        // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
+        setReservedWordsLowerCase(
+                Arrays.asList(
+                        // local variable name used in API methods (endpoints)
+                        "all_params", "resource_path", "path_params", "query_params",
+                        "header_params", "form_params", "local_var_files", "body_params", "auth_settings",
+                        // @property
+                        "property",
+                        // python reserved words
+                        "and", "del", "from", "not", "while", "as", "elif", "global", "or", "with",
+                        "assert", "else", "if", "pass", "yield", "break", "except", "import",
+                        "print", "class", "exec", "in", "raise", "continue", "finally", "is",
+                        "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
+                        "False", "async", "await",
+                        // imports, imports_schema_types.handlebars, include these to prevent name collision
+                        "datetime", "decimal", "functools", "io", "re",
+                        "typing", "typing_extensions", "uuid", "immutabledict", "schemas"
+                ));
+
+        languageSpecificPrimitives.clear();
+        languageSpecificPrimitives.add("int");
+        languageSpecificPrimitives.add("float");
+        languageSpecificPrimitives.add("list");
+        languageSpecificPrimitives.add("dict");
+        languageSpecificPrimitives.add("bool");
+        languageSpecificPrimitives.add("str");
+        languageSpecificPrimitives.add("datetime");
+        languageSpecificPrimitives.add("date");
+        languageSpecificPrimitives.add("object");
+        // TODO file and binary is mapped as `file`
+        languageSpecificPrimitives.add("file");
+        languageSpecificPrimitives.add("bytes");
+
+        typeMapping.clear();
+        typeMapping.put("integer", "int");
+        typeMapping.put("float", "float");
+        typeMapping.put("number", "float");
+        typeMapping.put("long", "int");
+        typeMapping.put("double", "float");
+        typeMapping.put("array", "list");
+        typeMapping.put("set", "list");
+        typeMapping.put("map", "dict");
+        typeMapping.put("boolean", "bool");
+        typeMapping.put("string", "str");
+        typeMapping.put("date", "date");
+        typeMapping.put("DateTime", "datetime");
+        typeMapping.put("object", "object");
+        typeMapping.put("AnyType", "object");
+        typeMapping.put("file", "file");
+        // TODO binary should be mapped to byte array
+        // mapped to String as a workaround
+        typeMapping.put("binary", "str");
+        typeMapping.put("ByteArray", "str");
+        // map uuid to string for the time being
+        typeMapping.put("UUID", "str");
+        typeMapping.put("URI", "str");
+        typeMapping.put("null", "none_type");
 
         modifyFeatureSet(features -> features
                 .includeDataTypeFeatures(
@@ -342,7 +404,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("apis/tags/api_doc.hbs", ".md");
                 }}
         );
@@ -358,74 +420,74 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("apis/paths/api.hbs", ".py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATHS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("apis/paths/__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("apis/tags/api.hbs", ".py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAGS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("apis/tags/__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
 
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("paths/path/verb/operation_doc.hbs", ".md");
                 }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/schemas/schema_doc.hbs", ".md");
                 }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/request_bodies/request_body_doc.hbs", ".md");
                 }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/parameters/parameter_doc.hbs", ".md");
                 }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/responses/response_doc.hbs", ".md");
                 }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/headers/header_doc.hbs", ".md");
                 }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/security_schemes/security_scheme_doc.hbs", ".md");
                 }}
         );
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("servers/server_doc.hbs", ".md");
                 }}
         );
@@ -439,154 +501,151 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         // there is no deeper info so the filenames can be individually generated
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/security_schemes/security_scheme.hbs", ".py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADER,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/headers/header.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/parameters/parameter.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/request_bodies/request_body.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSE,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/responses/response.hbs", File.separatorChar + "__init__.py");
                 }}
         );
-        if (openAPI != null && openAPI.getServers() != null) {
-            jsonPathTemplateFiles.put(
-                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
-                    new HashMap<String, String>() {{
-                        put("__init__.hbs", File.separatorChar + "__init__.py");
-                    }}
-            );
-            jsonPathTemplateFiles.put(
-                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
-                    new HashMap<String, String>() {{
-                        put("servers/server.hbs", ".py");
-                    }}
-            );
-
-        }
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
+                new HashMap<>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                new HashMap<>() {{
+                    put("servers/server.hbs", ".py");
+                }}
+        );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/schemas/__init__schema.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("security/security.hbs", ".py");
                 }}
         );
 
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("paths/__init__paths.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("paths/path/__init__path.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("paths/__init__test.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
 
         );
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.TEST_ROOT,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
 
         );
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("paths/path/verb/operation_test.hbs", ".py");
                 }}
 
         );
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
 
         );
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
 
         );
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("components/schemas/schema_test.hbs", ".py");
                 }}
 
@@ -600,19 +659,19 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
-                new HashMap<String, String>() {{
+                new HashMap<>() {{
                     put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
@@ -749,31 +808,15 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         supportingFiles.add(new SupportingFile("server.hbs", packagePath(), "server.py"));
 
         // add the models and apis folders
-        String modelPackages = modelPackage + "s";
         Boolean generateModels = (Boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
-        Components components = null;
-        if (openAPI != null) {
-            components = openAPI.getComponents();
-        }
         if (Boolean.TRUE.equals(generateModels)) {
             supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separator + "components" + File.separator + "schemas", "__init__.py"));
-        }
-        // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
-        Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
-                (components != null ? components.getSecuritySchemes() : null) : null;
-        if (securitySchemeMap != null) {
-            for (SecurityScheme securityScheme: securitySchemeMap.values()) {
-                if (securityScheme.getType() == SecurityScheme.Type.HTTP && securityScheme.getScheme().equals("signature")) {
-                    supportingFiles.add(new SupportingFile("signing.hbs", packagePath(), "signing.py"));
-                    break;
-                }
-            }
         }
     }
 
     @Override
     public String toApiName(String name) {
-        if (name.length() == 0) {
+        if (name.isEmpty()) {
             return "DefaultApi";
         }
         return toModelName(name, null) + apiNameSuffix;
@@ -1020,7 +1063,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     @Override
     public String toEnumVarName(String value, Schema prop) {
         // our enum var names are keys in a python dict, so change spaces to underscores
-        if (value.length() == 0) {
+        if (value.isEmpty()) {
             return "EMPTY";
         }
         if (value.equals("null")) {
@@ -1075,7 +1118,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         while (matcher.find()) {
             matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
         }
-        char underscore = "_".charAt(0);
+        char underscore = '_';
         while (!matchStartToGroup.isEmpty()) {
             AbstractMap.SimpleEntry<Integer, String> entry = matchStartToGroup.pop();
             Integer startIndex = entry.getKey();
@@ -1278,7 +1321,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
      * @return the string example
      */
     private String toExampleValueRecursive(String modelName, Schema schema, Object objExample, int indentationLevel, String prefix, Integer exampleLine, List<Schema> includedSchemas) {
-        boolean couldHaveCycle = includedSchemas.size() > 0 && potentiallySelfReferencingSchema(schema);
+        boolean couldHaveCycle = !includedSchemas.isEmpty() && potentiallySelfReferencingSchema(schema);
         // If we have seen the ContextAwareSchemaNode more than once before, we must be in a cycle.
         boolean cycleFound = false;
         if (couldHaveCycle) {
@@ -1287,7 +1330,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         final String indentionConst = "    ";
         StringBuilder currentIndentation = new StringBuilder();
         String closingIndentation;
-        for (int i = 0; i < indentationLevel; i++) currentIndentation.append(indentionConst);
+        currentIndentation.append(indentionConst.repeat(Math.max(0, indentationLevel)));
         if (exampleLine.equals(0)) {
             closingIndentation = currentIndentation.toString();
             currentIndentation = new StringBuilder();
@@ -1410,17 +1453,9 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                 return fullPrefix + ensureQuotes(escapeUnsafeCharacters(example)) + closeChars;
             }
             if (ModelUtils.isDateSchema(schema)) {
-                if (objExample == null) {
-                    example = pythonDate("1970-01-01");
-                } else {
-                    example = pythonDate(objExample);
-                }
+                example = pythonDate(Objects.requireNonNullElse(objExample, "1970-01-01"));
             } else if (ModelUtils.isDateTimeSchema(schema)) {
-                if (objExample == null) {
-                    example = pythonDateTime("1970-01-01T00:00:00.00Z");
-                } else {
-                    example = pythonDateTime(objExample);
-                }
+                example = pythonDateTime(Objects.requireNonNullElse(objExample, "1970-01-01T00:00:00.00Z"));
             } else if (ModelUtils.isBinarySchema(schema)) {
                 if (objExample == null) {
                     example = "/path/to/file";
@@ -1459,9 +1494,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             } else if (schema.getMinLength() != null) {
                 example = "";
                 int len = schema.getMinLength();
-                StringBuilder exampleBuilder = new StringBuilder(example);
-                for (int i = 0; i < len; i++) exampleBuilder.append("a");
-                example = exampleBuilder.toString();
+                example = example + "a".repeat(Math.max(0, len));
             } else if (ModelUtils.isUUIDSchema(schema)) {
                 example = "046b6c7f-0b8a-43b9-b35d-6489e6daee91";
             } else {
@@ -1674,7 +1707,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
 
     /***
-     *
      * Set the codegenParameter example value
      * We have a custom version of this function, so we can invoke toExampleValue
      *
@@ -1723,11 +1755,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     }
 
     @Override
-    public String apiDocFileFolder() {
-        return (outputFolder + File.separator + apiDocPath);
-    }
-
-    @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
         if (!jsonPath.startsWith("#/components/responses/")) {
             return "response_" + componentName.toLowerCase(Locale.ROOT);
@@ -1747,21 +1774,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename("header_" + componentName, null); }
 
-    @Override
-    public String apiFileFolder() {
-        return outputFolder + File.separatorChar + packagePath() + File.separatorChar +  apiPackage() + File.separatorChar + "tags";
-    }
-
-    @Override
-    public String apiTestFileFolder() {
-        return outputFolder + File.separatorChar + testFolder;
-    }
-
-    @Override
-    public String modelTestFileFolder() {
-        return outputFolder + File.separatorChar + testFolder + File.separatorChar + modelPackage.replace('.', File.separatorChar);
-    }
-
     public void setUseNose(String val) {
         this.useNose = Boolean.parseBoolean(val);
     }
@@ -1773,12 +1785,9 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     public String packagePath() {
         // src is needed for modern packaging per
         // https://packaging.python.org/en/latest/tutorials/packaging-projects/
-        return "src" + File.separatorChar + packageName.replace('.', File.separatorChar);    }
-
-    @Override
-    public String packageName() {
-        return packageName;
+        return "src" + File.separatorChar + packageName.replace('.', File.separatorChar);
     }
+
 
     protected boolean needToImport(String refClass) {
         return refClass.contains(".");
@@ -1805,17 +1814,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         if (specMajorVersion < 3) {
             throw new RuntimeException("Your spec version of "+originalSpecVersion+" is too low. " + getName() + " only works with specs with version >= 3.X.X. Please use a tool like Swagger Editor or Swagger Converter to convert your spec to v3");
         }
-    }
-
-    /**
-     * Note: a custom version of this function is used so the original tag value can be used
-     *
-     * @param tag Tag
-     * @return the tag to use
-     */
-    @Override
-    public String sanitizeTag(String tag) {
-        return tag;
     }
 
     public Map<String, Object> postProcessSupportingFileData(Map<String, Object> data) {
@@ -2119,5 +2117,127 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             return "header_parameters";
         }
         return toModelFilename(name, jsonPath);
+    }
+
+    @Override
+    public String escapeReservedWord(String name) {
+        return "_" + name;
+    }
+
+    @Override
+    public String toVarName(String name) {
+        // sanitize name
+        name = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+
+        // remove dollar sign
+        name = name.replaceAll("$", "");
+
+        // if it's all upper case, convert to lower case
+        if (name.matches("^[A-Z_]*$")) {
+            name = name.toLowerCase(Locale.ROOT);
+        }
+
+        // underscore the variable name
+        // petId => pet_id
+        name = underscore(name);
+
+        // remove leading underscore
+        name = name.replaceAll("^_*", "");
+
+        // for reserved word or word starting with number, append _
+        if (isReservedWord(name) || name.matches("^\\d.*")) {
+            name = escapeReservedWord(name);
+        }
+
+        return name;
+    }
+
+    @Override
+    public String escapeQuotationMark(String input) {
+        // remove ' to avoid code injection
+        return input.replace("'", "");
+    }
+
+    @Override
+    public void postProcessFile(File file, String fileType) {
+        if (file == null) {
+            return;
+        }
+        String pythonPostProcessFile = System.getenv("PYTHON_POST_PROCESS_FILE");
+        if (StringUtils.isEmpty(pythonPostProcessFile)) {
+            return; // skip if PYTHON_POST_PROCESS_FILE env variable is not defined
+        }
+
+        // only process files with py extension
+        if ("py".equals(FilenameUtils.getExtension(file.toString()))) {
+            String command = pythonPostProcessFile + " " + file;
+            try {
+                Process p = Runtime.getRuntime().exec(command);
+                int exitValue = p.waitFor();
+                if (exitValue != 0) {
+                    LOGGER.error("Error running the command ({}). Exit value: {}", command, exitValue);
+                } else {
+                    LOGGER.info("Successfully executed: {}", command);
+                }
+            } catch (InterruptedException | IOException e) {
+                LOGGER.error("Error running the command ({}). Exception: {}", command, e.getMessage());
+                // Restore interrupted state
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+        additionalProperties.put(CodegenConstants.PACKAGE_NAME, this.packageName);
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public void setPackageVersion(String packageVersion) {
+        this.packageVersion = packageVersion;
+    }
+
+    @Override
+    public String toModelFilename(String name, String jsonPath) {
+        // underscore the model file name
+        // PhoneNumber => phone_number
+        return toModuleFilename(name, jsonPath);
+    }
+
+    @Override
+    public String toApiFilename(String name) {
+        // e.g. PhoneNumberApi.py => phone_number_api.py
+        return underscore(toApiName(name));
+    }
+
+    @Override
+    public String toApiVarName(String name) {
+        return underscore(toApiName(name));
+    }
+
+    protected static String dropDots(String str) {
+        return str.replaceAll("\\.", "_");
+    }
+
+    @Override
+    public GeneratorLanguage generatorLanguage() { return GeneratorLanguage.PYTHON; }
+
+    @Override
+    public void setOpenAPI(OpenAPI openAPI) {
+        super.setOpenAPI(openAPI);
+        Components components = openAPI.getComponents();
+        // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
+        Map<String, SecurityScheme> securitySchemeMap = components != null ? components.getSecuritySchemes() : null;
+        if (securitySchemeMap != null) {
+            for (SecurityScheme securityScheme: securitySchemeMap.values()) {
+                if (securityScheme.getType() == SecurityScheme.Type.HTTP && securityScheme.getScheme().equals("signature")) {
+                    supportingFiles.add(new SupportingFile("signing.hbs", packagePath(), "signing.py"));
+                    break;
+                }
+            }
+        }
     }
 }

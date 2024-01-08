@@ -1,5 +1,4 @@
 # Schema0
-org.openapijsonschematools.client.paths.storeorderorderid.delete.parameters.parameter0.Schema0.java
 public class Schema0
 
 A class that contains necessary nested

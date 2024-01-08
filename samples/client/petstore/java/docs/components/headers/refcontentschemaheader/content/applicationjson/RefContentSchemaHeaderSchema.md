@@ -1,5 +1,4 @@
 # RefContentSchemaHeaderSchema
-org.openapijsonschematools.client.components.headers.refcontentschemaheader.content.applicationjson.RefContentSchemaHeaderSchema.java
 public class RefContentSchemaHeaderSchema
 
 A class that contains necessary nested

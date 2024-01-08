@@ -1,5 +1,4 @@
 # Schema11
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter11.Schema11.java
 public class Schema11
 
 A class that contains necessary nested

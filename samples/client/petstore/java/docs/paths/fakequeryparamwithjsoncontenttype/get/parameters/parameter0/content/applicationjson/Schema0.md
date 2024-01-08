@@ -1,5 +1,4 @@
 # Schema0
-org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0.java
 public class Schema0
 
 A class that contains necessary nested

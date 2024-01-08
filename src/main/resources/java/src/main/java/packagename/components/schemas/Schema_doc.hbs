@@ -6,10 +6,6 @@
 {{/eq}}
 {{#if componentModule}}
 {{moduleLocation}}.java
-{{else}}
-    {{#unless isInline}}
-{{moduleLocation}}.java
-    {{/unless}}
 {{/if}}
 public class {{containerJsonPathPiece.pascalCase}}
 

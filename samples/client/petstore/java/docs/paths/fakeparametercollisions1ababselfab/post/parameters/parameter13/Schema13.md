@@ -1,5 +1,4 @@
 # Schema13
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter13.Schema13.java
 public class Schema13
 
 A class that contains necessary nested

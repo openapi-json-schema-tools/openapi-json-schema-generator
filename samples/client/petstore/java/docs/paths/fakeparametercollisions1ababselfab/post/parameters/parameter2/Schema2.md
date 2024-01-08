@@ -1,5 +1,4 @@
 # Schema2
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter2.Schema2.java
 public class Schema2
 
 A class that contains necessary nested

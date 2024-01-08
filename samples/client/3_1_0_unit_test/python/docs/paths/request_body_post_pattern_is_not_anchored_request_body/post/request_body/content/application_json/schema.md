@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_pattern_is_not_anchored_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

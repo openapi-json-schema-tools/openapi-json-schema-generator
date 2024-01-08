@@ -1,5 +1,4 @@
 # Schema
-org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.response3xx.content.applicationjson.Schema.java
 public class Schema
 
 A class that contains necessary nested

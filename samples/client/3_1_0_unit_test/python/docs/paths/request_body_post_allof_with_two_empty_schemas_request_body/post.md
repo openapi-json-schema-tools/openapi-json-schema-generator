@@ -42,7 +42,6 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema2](#requestbody-content-applicationjson-schema2)
 
 #### RequestBody content ApplicationJson Schema2
-unit_test_api.paths.request_body_post_allof_with_two_empty_schemas_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

@@ -45,7 +45,6 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
 #### RequestBody content ApplicationJson Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```
@@ -258,7 +257,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

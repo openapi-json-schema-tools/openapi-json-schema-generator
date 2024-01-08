@@ -1,5 +1,4 @@
 # Schema2
-unit_test_api.paths.request_body_post_dependent_schemas_dependent_subschema_incompatible_with_root_request_body.post.request_body.content.application_json.schema
 ```
 type: schemas.Schema
 ```

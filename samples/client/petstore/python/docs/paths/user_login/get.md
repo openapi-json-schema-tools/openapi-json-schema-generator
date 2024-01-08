@@ -102,7 +102,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
-petstore_api.paths.user_login.get.responses.response_200.content.application_xml.schema
 ```
 type: schemas.Schema
 ```
@@ -112,7 +111,6 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
 #### ResponseFor200 content ApplicationJson Schema
-petstore_api.paths.user_login.get.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```
@@ -180,7 +178,6 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-headers-xratelimit-content-applicationjson-schema)
 
 ##### ResponseFor200 headers XRateLimit content ApplicationJson Schema
-petstore_api.paths.user_login.get.responses.response_200.headers.header_x_rate_limit.content.application_json.schema
 ```
 type: schemas.Schema
 ```
@@ -195,7 +192,6 @@ int | int | value must be a 32 bit integer
 date in UTC when token expires
 
 ##### ResponseFor200 headers XExpiresAfter Schema
-petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after.schema
 ```
 type: schemas.Schema
 ```

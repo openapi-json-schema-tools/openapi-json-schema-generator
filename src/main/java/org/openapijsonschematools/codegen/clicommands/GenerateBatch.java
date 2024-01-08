@@ -68,7 +68,7 @@ public class GenerateBatch extends AbstractCommand {
     @Option(name = {"-r", "--threads"}, description = "thread count")
     private Integer threads;
 
-    @Arguments(description = "GeneratorRunner configuration files.", required = true)
+    @Arguments(description = "Generator configuration files.", required = true)
     private List<String> configs;
 
     @Option(name = {"--fail-fast"}, description = "fail fast on any errors")
@@ -208,7 +208,7 @@ public class GenerateBatch extends AbstractCommand {
                 GlobalSettings.reset();
 
                 ClientOptInput opts = configurator.toClientOptInput();
-                Generator config = opts.getConfig();
+                Generator config = opts.config;
                 name = config.getName();
                 
                 Path target = Paths.get(config.getOutputDir());
@@ -246,7 +246,7 @@ public class GenerateBatch extends AbstractCommand {
 
         private void cleanPreviousFiles(final String name, Path outDir) throws IOException {
             System.out.printf(Locale.ROOT, "[%s] Cleaning previous contents for %s in %s…%n", Thread.currentThread().getName(), name, outDir.toString());
-            Path filesMeta = Paths.get(outDir.toAbsolutePath().toString(), ".openapi-generatorRunner", "FILES");
+            Path filesMeta = Paths.get(outDir.toAbsolutePath().toString(), ".openapi-generator", "FILES");
             if (filesMeta.toFile().exists()) {
                 FileUtils.readLines(filesMeta.toFile(), StandardCharsets.UTF_8).forEach(relativePath -> {
                     if (!StringUtils.startsWith(relativePath, ".")) {
@@ -256,11 +256,11 @@ public class GenerateBatch extends AbstractCommand {
                             try {
                                 Files.delete(file);
                             } catch (Throwable e) {
-                                System.out.printf(Locale.ROOT, "[%s] GeneratorRunner %s failed to clean file %s…%n", Thread.currentThread().getName(), name, file);
+                                System.out.printf(Locale.ROOT, "[%s] Generator %s failed to clean file %s…%n", Thread.currentThread().getName(), name, file);
                             }
                         }
                     } else {
-                        System.out.printf(Locale.ROOT, "[%s] GeneratorRunner %s skip cleaning special filename %s…%n", Thread.currentThread().getName(), name, relativePath);
+                        System.out.printf(Locale.ROOT, "[%s] Generator %s skip cleaning special filename %s…%n", Thread.currentThread().getName(), name, relativePath);
                     }
                 });
             }

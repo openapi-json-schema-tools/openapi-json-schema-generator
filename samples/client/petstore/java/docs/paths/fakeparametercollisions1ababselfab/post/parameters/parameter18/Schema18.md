@@ -1,5 +1,4 @@
 # Schema18
-org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter18.Schema18.java
 public class Schema18
 
 A class that contains necessary nested

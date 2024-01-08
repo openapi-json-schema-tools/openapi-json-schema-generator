@@ -59,7 +59,6 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
-unit_test_api.paths.response_body_post_minimum_validation_with_signed_integer_response_body_for_content_types.post.responses.response_200.content.application_json.schema
 ```
 type: schemas.Schema
 ```

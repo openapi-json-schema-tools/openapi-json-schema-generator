@@ -1,5 +1,4 @@
 # StringHeaderSchema
-org.openapijsonschematools.client.components.headers.stringheader.StringHeaderSchema.java
 public class StringHeaderSchema
 
 A class that contains necessary nested
