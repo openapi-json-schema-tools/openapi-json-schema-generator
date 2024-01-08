@@ -5,8 +5,8 @@ import java.util.List;
 
 public enum VendorExtension {
 
-    X_ENUM_VARNAMES("x-enum-varnames", ExtensionLevel.SCHEMA, "A list of strings that defines the enum variable names, must be adjacent to enums", "[]"),
-    X_ENUM_DESCRIPTIONS("x-enum-descriptions", ExtensionLevel.SCHEMA, "A list of strings that defines the enum descriptions, must be adjacent to enums", "[]"),
+    X_ENUM_VARNAMES("x-enum-varnames", ExtensionLevel.SCHEMA, "A list of strings that defines the enum variable names, must be adjacent to enum", "[]"),
+    X_ENUM_DESCRIPTIONS("x-enum-descriptions", ExtensionLevel.SCHEMA, "A list of strings that defines the enum descriptions, must be adjacent to enum", "[]"),
     ;
 
     private final String name;
