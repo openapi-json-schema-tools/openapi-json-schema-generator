@@ -142,6 +142,7 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 ### query_params
 ### QueryParameters
+petstore_api.paths.fake.get.query_parameters
 ```
 type: schemas.Schema
 ```
@@ -189,6 +190,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 ### header_params
 ### HeaderParameters
+petstore_api.paths.fake.get.header_parameters
 ```
 type: schemas.Schema
 ```

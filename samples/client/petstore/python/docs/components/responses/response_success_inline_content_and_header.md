@@ -57,6 +57,7 @@ get_additional_property_ | str | int, schemas.Unset | provides type safety for a
 
 ## Headers
 ### Headers
+petstore_api.components.responses.response_success_inline_content_and_header.header_parameters
 ```
 type: schemas.Schema
 ```

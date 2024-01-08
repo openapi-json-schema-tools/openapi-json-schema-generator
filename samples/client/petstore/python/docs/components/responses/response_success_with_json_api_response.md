@@ -30,6 +30,7 @@ Ref Schema | Input Type | Output Type
 
 ## Headers
 ### Headers
+petstore_api.components.responses.response_success_with_json_api_response.header_parameters
 ```
 type: schemas.Schema
 ```

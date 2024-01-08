@@ -56,6 +56,7 @@ Ref Schema | Input Type | Output Type
 [**user.User**](../../components/schema/user.md) | [user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict) | [user.UserDict](../../components/schema/user.md#userdict)
 ### path_params
 ### PathParameters
+petstore_api.paths.user_username.put.path_parameters
 ```
 type: schemas.Schema
 ```

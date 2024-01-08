@@ -141,6 +141,7 @@ Input Type | Return Type | Notes
 str | str |
 ### query_params
 ### QueryParameters
+petstore_api.paths.fake_inline_composition.post.query_parameters
 ```
 type: schemas.Schema
 ```

@@ -13,6 +13,7 @@ body | Unset | body was not defined |
 
 ## Headers
 ### Headers
+petstore_api.components.responses.response_headers_with_no_body.header_parameters
 ```
 type: schemas.Schema
 ```

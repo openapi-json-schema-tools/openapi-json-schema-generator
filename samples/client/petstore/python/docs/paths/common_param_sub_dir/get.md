@@ -32,6 +32,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
 ### query_params
 ### QueryParameters
+petstore_api.paths.common_param_sub_dir.get.query_parameters
 ```
 type: schemas.Schema
 ```
@@ -70,6 +71,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 ### path_params
 ### PathParameters
+petstore_api.paths.common_param_sub_dir.get.path_parameters
 ```
 type: schemas.Schema
 ```

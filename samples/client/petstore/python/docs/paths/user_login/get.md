@@ -34,6 +34,7 @@ timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | t
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
 ### query_params
 ### QueryParameters
+petstore_api.paths.user_login.get.query_parameters
 ```
 type: schemas.Schema
 ```
@@ -124,6 +125,7 @@ str | str |
 
 ### Headers
 #### ResponseFor200 Headers
+petstore_api.paths.user_login.get.responses.response_200.header_parameters
 ```
 type: schemas.Schema
 ```

@@ -56,6 +56,7 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 ### query_params
 ### QueryParameters
+petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.query_parameters
 ```
 type: schemas.Schema
 ```
@@ -101,6 +102,7 @@ from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinpu
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 ### header_params
 ### HeaderParameters
+petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.header_parameters
 ```
 type: schemas.Schema
 ```
@@ -143,6 +145,7 @@ from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdicti
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 ### path_params
 ### PathParameters
+petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.path_parameters
 ```
 type: schemas.Schema
 ```
@@ -188,6 +191,7 @@ from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput),
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 ### cookie_params
 ### CookieParameters
+petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.cookie_parameters
 ```
 type: schemas.Schema
 ```

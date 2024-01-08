@@ -51,6 +51,7 @@ Ref Schema | Input Type | Output Type
 [**user.User**](../../components/schema/user.md) | [user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict) | [user.UserDict](../../components/schema/user.md#userdict)
 ### query_params
 ### QueryParameters
+petstore_api.paths.fake_body_with_query_params.put.query_parameters
 ```
 type: schemas.Schema
 ```
