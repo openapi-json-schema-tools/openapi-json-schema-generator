@@ -195,6 +195,7 @@ HTTP request | Method | Description
 /fake/multipleSecurities **get** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_securities](docs/paths/fake_multiple_securities/get.md)  | multiple security requirements
 /fake/objInQuery **get** | [FakeApi](docs/apis/tags/fake_api.md).[object_in_query](docs/paths/fake_obj_in_query/get.md)  | user list
 /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [FakeApi](docs/apis/tags/fake_api.md).[parameter_collisions](docs/paths/fake_parameter_collisions1_abab_self_ab/post.md)  | parameter collision case
+/fake/pemContentType **get** | [FakeApi](docs/apis/tags/fake_api.md).[pem_content_type](docs/paths/fake_pem_content_type/get.md)  | route with tx and rx pem content type
 /fake/queryParamWithJsonContentType **get** | [FakeApi](docs/apis/tags/fake_api.md).[query_param_with_json_content_type](docs/paths/fake_query_param_with_json_content_type/get.md)  | query param with json content-type
 /fake/redirection **get** | [FakeApi](docs/apis/tags/fake_api.md).[redirection](docs/paths/fake_redirection/get.md)  | operation with redirection responses
 /fake/refObjInQuery **get** | [FakeApi](docs/apis/tags/fake_api.md).[ref_object_in_query](docs/paths/fake_ref_obj_in_query/get.md)  | user list

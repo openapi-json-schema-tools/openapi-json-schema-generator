@@ -1779,6 +1779,24 @@ paths:
       responses:
         200:
           $ref: '#/components/responses/SuccessDescriptionOnly'
+  /fake/pemContentType:
+    get:
+      operationId: pemContentType
+      summary: route with tx and rx pem content type
+      tags:
+        - fake
+      requestBody:
+        content:
+          application/x-pem-file:
+            schema:
+              type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/x-pem-file:
+              schema:
+                type: string
 servers:
   - url: 'http://{server}.swagger.io:{port}/v2'
     description: petstore server
