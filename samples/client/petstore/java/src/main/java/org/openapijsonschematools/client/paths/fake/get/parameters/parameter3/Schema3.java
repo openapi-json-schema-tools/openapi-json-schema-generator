@@ -49,6 +49,7 @@ public class Schema3 {
                     "-efg",
                     "(xyz)"
                 ))
+                .default("-efg")
             );
         }
     

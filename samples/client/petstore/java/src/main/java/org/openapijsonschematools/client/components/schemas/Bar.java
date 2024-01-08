@@ -33,6 +33,7 @@ public class Bar {
                 .type(Set.of(
                     String.class
                 ))
+                .default("bar")
             );
         }
     

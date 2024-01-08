@@ -45,6 +45,7 @@ String validatedPayload = StringEnumWithDefaultValue.StringEnumWithDefaultValue1
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
 | Set<Object> | enumValues = SetMaker.makeSet(<br>&nbsp;&nbsp;&nbsp;&nbsp;"placed",<br>&nbsp;&nbsp;&nbsp;&nbsp;"approved",<br>&nbsp;&nbsp;&nbsp;&nbsp;"delivered"<br>)<br> |
+| default | default = "placed" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

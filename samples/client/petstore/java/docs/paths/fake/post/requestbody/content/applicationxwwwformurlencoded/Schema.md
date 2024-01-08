@@ -561,6 +561,7 @@ String validatedPayload = Schema.DateTime.validate(
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
 | String | type = "date-time"; |
+| default |  |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

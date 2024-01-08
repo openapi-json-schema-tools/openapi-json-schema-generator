@@ -53,6 +53,7 @@ public class Schema0 {
                     "pending",
                     "sold"
                 ))
+                .default("available")
             );
         }
     

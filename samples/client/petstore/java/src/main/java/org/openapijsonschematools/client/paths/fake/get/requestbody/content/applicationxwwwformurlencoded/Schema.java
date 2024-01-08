@@ -59,6 +59,7 @@ public class Schema {
                     ">",
                     "$"
                 ))
+                .default("$")
             );
         }
     
@@ -231,6 +232,7 @@ public class Schema {
                     "-efg",
                     "(xyz)"
                 ))
+                .default("-efg")
             );
         }
     

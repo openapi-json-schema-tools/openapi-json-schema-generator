@@ -23,6 +23,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
+import io.swagger.v3.oas.models.servers.Server;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
@@ -2162,6 +2163,23 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return escapeText(p.getExample().toString());
         } else {
             return null;
+        }
+    }
+
+    @Override
+    public void setOpenAPI(OpenAPI openAPI) {
+        super.setOpenAPI(openAPI);
+        List<Server> servers = openAPI.getServers();
+        if (servers != null && !servers.isEmpty()) {
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/servers/ServerWithoutVariables.hbs",
+                    packagePath() + File.separatorChar + "servers",
+                    "ServerWithoutVariables.java"));
+
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/servers/ServerWithVariables.hbs",
+                    packagePath() + File.separatorChar + "servers",
+                    "ServerWithVariables.java"));
         }
     }
 

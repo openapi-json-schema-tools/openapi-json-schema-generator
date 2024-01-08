@@ -49,6 +49,7 @@ public class Animal {
                 .type(Set.of(
                     String.class
                 ))
+                .default("red")
             );
         }
     

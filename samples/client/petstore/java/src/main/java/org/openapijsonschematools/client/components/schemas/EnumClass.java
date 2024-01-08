@@ -59,6 +59,7 @@ public class EnumClass {
                     "COUNT_1M",
                     "COUNT_50M"
                 ))
+                .default("-efg")
             );
         }
     
