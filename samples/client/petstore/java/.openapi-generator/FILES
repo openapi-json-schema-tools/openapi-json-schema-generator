@@ -609,9 +609,9 @@ src/main/java/org/openapijsonschematools/client/paths/fakewildcardresponses/get/
 src/main/java/org/openapijsonschematools/client/paths/fakewildcardresponses/get/responses/response4xx/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/client/paths/fakewildcardresponses/get/responses/response5xx/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/client/paths/foo/get/responses/responsedefault/content/applicationjson/Schema.java
-src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/Server0.java
-src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/Server1.java
-src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/Server1/variables.java
+src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/FooGetServer0.java
+src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/FooGetServer1.java
+src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/server1/Variables.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/PetfindbystatusServer0.java

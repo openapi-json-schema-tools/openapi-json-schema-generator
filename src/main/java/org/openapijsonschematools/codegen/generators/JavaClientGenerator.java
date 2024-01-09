@@ -126,9 +126,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 return "Server"+pathPieces[2];
             } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 5) {
                 // #/paths/somePath/servers/0
-                // is slash decoding needed?
                 CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
                 return pathKey.pascalCase + "Server"+ pathPieces[4];
+            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 6) {
+                // #/paths/somePath/get/servers/0
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+                return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Server"+ pathPieces[5];
             }
         }
         return "Server" + basename;

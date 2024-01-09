@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.paths.foo.get.servers.Server1;
+package org.openapijsonschematools.client.paths.foo.get.servers.server1;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;

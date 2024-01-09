@@ -2,13 +2,13 @@ package org.openapijsonschematools.client.paths.foo.get.servers;
 
 import org.openapijsonschematools.client.servers.ServerWithVariables;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.paths.foo.get.servers.Server1.Variables;
+import org.openapijsonschematools.client.paths.foo.get.servers.server1.Variables;
 
 import java.util.AbstractMap;
 
-class Server1 extends ServerWithVariables<Variables.VariablesMap> {
+class FooGetServer1 extends ServerWithVariables<Variables.VariablesMap> {
 
-    public Server1() {
+    public FooGetServer1() {
         super(
             "https://petstore.swagger.io/{version}",
             Variables.Variables1.getInstance().validate(
@@ -19,7 +19,7 @@ class Server1 extends ServerWithVariables<Variables.VariablesMap> {
             )
         );
     }
-    public Server1(Variables.VariablesMap variables) {
+    public FooGetServer1(Variables.VariablesMap variables) {
         super("https://petstore.swagger.io/{version}", variables);
     }
 }

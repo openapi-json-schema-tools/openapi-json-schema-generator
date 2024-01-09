@@ -3845,8 +3845,14 @@ public class DefaultGenerator implements Generator {
             return;
         }
         if (pathPieces[4].equals("servers")) {
-            // #/paths/somePath/get/servers/someServer
-            pathPieces[5] = toServerFilename(pathPieces[5], null);
+            if (pathPieces.length == 6) {
+                // #/paths/somePath/get/servers/0
+                pathPieces[5] = toServerFilename(pathPieces[5], jsonPath);
+            } else {
+                // #/paths/somePath/get/servers/0/variables
+                pathPieces[5] = "server" + pathPieces[5];
+                pathPieces[6] = "Variables";
+            }
         } else if (pathPieces[4].equals("security")) {
             // #/paths/somePath/get/security/0
             pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], null);
