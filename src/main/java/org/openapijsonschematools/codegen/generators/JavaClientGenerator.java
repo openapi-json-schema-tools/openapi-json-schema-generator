@@ -569,6 +569,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("BooleanValueMethod");
         keywordValidatorFiles.add("BigDecimalValidator");
         keywordValidatorFiles.add("CustomIsoparser");
+        keywordValidatorFiles.add("DefaultValueMethod");
         keywordValidatorFiles.add("DoubleEnumValidator");
         keywordValidatorFiles.add("DoubleValueMethod");
         keywordValidatorFiles.add("EnumValidator");
@@ -1309,6 +1310,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 addPatternValidator(schema, imports);
                 addMultipleOfValidator(schema, imports);
                 addAdditionalPropertiesImports(schema, imports);
+                addDefaultValueImport(schema, imports);
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1329,6 +1331,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import java.util.regex.Pattern;");
         }
     }
+
+    private void addDefaultValueImport(CodegenSchema schema, Set<String> imports) {
+        if (schema.defaultValue != null) {
+            imports.add("import "+packageName + ".schemas.validation.DefaultValueMethod;");
+        }
+    }
+
 
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
@@ -1446,6 +1455,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
+        addDefaultValueImport(schema, imports);
     }
 
     private void addNullSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1454,6 +1464,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
+        addDefaultValueImport(schema, imports);
     }
 
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1488,6 +1499,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
         addMultipleOfValidator(schema, imports);
+        addDefaultValueImport(schema, imports);
     }
 
     private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1510,6 +1522,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
         addPatternValidator(schema, imports);
+        addDefaultValueImport(schema, imports);
     }
 
 

@@ -11,6 +11,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.DefaultValueMethod;
 import org.openapijsonschematools.client.schemas.validation.DoubleEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.DoubleValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FloatEnumValidator;

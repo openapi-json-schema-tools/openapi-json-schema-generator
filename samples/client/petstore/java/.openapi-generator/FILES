@@ -685,6 +685,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/BooleanEnumVa
 src/main/java/org/openapijsonschematools/client/schemas/validation/BooleanSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/BooleanValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/DefaultValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/EnumValidator.java
