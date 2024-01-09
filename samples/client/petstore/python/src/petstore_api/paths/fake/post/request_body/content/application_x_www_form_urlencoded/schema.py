@@ -110,6 +110,7 @@ class DateTime(
         str,
     })
     format: str = 'date-time'
+    default: typing.Literal["2010-02-01T10:20:10.111110+01:00"] = "2010-02-01T10:20:10.111110+01:00"
 
 
 @dataclasses.dataclass(frozen=True)

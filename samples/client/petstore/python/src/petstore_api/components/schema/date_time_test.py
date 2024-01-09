@@ -25,3 +25,4 @@ class DateTimeTest(
         str,
     })
     format: str = 'date-time'
+    default: typing.Literal["2010-01-01T10:10:10.000111+01:00"] = "2010-01-01T10:10:10.000111+01:00"
