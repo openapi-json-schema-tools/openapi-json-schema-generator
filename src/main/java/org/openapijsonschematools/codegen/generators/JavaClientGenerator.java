@@ -119,8 +119,24 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
+    public String getPascalCaseServer(String basename, String jsonPath) {
+        if (jsonPath != null) {
+            String[] pathPieces = jsonPath.split("/");
+            if (jsonPath.startsWith("#/servers/")) {
+                return "Server"+pathPieces[2];
+            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 5) {
+                // #/paths/somePath/servers/0
+                // is slash decoding needed?
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+                return pathKey.pascalCase + "Server"+ pathPieces[4];
+            }
+        }
+        return "Server" + basename;
+    }
+
+    @Override
     public String toServerFilename(String basename, String jsonPath) {
-        return getPascalCaseServer(basename);
+        return getPascalCaseServer(basename, jsonPath);
     }
 
     @Override

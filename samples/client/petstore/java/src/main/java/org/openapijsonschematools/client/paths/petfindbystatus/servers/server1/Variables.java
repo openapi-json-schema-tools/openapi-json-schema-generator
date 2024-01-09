@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.paths.petfindbystatus.servers.Server1;
+package org.openapijsonschematools.client.paths.petfindbystatus.servers.server1;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;

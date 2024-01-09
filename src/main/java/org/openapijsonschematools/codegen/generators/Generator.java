@@ -197,7 +197,7 @@ public interface Generator {
 
     String toSecurityRequirementObjectFilename(String baseName, String jsonPath);
 
-    String getPascalCaseServer(String baseName);
+    String getPascalCaseServer(String baseName, String jsonPath);
 
     String toModelImport(String refClass);
 

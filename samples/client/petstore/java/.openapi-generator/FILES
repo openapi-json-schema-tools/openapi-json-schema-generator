@@ -614,9 +614,9 @@ src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/Server1.ja
 src/main/java/org/openapijsonschematools/client/paths/foo/get/servers/Server1/variables.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/get/parameters/parameter0/Schema0.java
-src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/Server0.java
-src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/Server1.java
-src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/Server1/variables.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/PetfindbystatusServer0.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/PetfindbystatusServer1.java
+src/main/java/org/openapijsonschematools/client/paths/petfindbystatus/servers/server1/Variables.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/client/paths/petfindbytags/get/parameters/parameter0/Schema0.java
 src/main/java/org/openapijsonschematools/client/paths/petpetid/delete/HeaderParameters.java

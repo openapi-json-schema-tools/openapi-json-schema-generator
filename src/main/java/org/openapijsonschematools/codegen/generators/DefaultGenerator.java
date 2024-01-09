@@ -961,7 +961,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String getPascalCaseServer(String basename) {
+    public String getPascalCaseServer(String basename, String jsonPath) {
         return "Server" + basename;
     }
 
@@ -3809,8 +3809,14 @@ public class DefaultGenerator implements Generator {
         xParameters.add("HeaderParameters");
         xParameters.add("CookieParameters");
         if (pathPieces[3].equals("servers")) {
-            // #/paths/somePath/servers/0
-            pathPieces[4] = toServerFilename(pathPieces[4], null);
+            if (pathPieces.length == 5) {
+                // #/paths/somePath/servers/0
+                pathPieces[4] = toServerFilename(pathPieces[4], jsonPath);
+            } else {
+                // #/paths/somePath/servers/0/variables
+                pathPieces[4] = "server" + pathPieces[4];
+                pathPieces[5] = "Variables";
+            }
         } else if (pathPieces[3].equals("parameters")) {
             // #/paths/somePath/parameters/0
             pathPieces[4] = toParameterFilename(pathPieces[4], null);
@@ -3913,7 +3919,8 @@ public class DefaultGenerator implements Generator {
             return;
         } else if (pathPieces.length == 3) {
             // #/servers/0
-            pathPieces[2] = toServerFilename(pathPieces[2], null);
+            String jsonPath = "#/servers/" + pathPieces[2];
+            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
         } else {
             // #/servers/0/variables
             pathPieces[2] = toServerFilename(pathPieces[2], null).toLowerCase(Locale.ROOT);
@@ -4833,7 +4840,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseServer(usedKey);
+                pascalCaseName = getPascalCaseServer(usedKey, sourceJsonPath);
                 break;
         }
         if (pascalCaseName != null) {
@@ -5049,7 +5056,7 @@ public class DefaultGenerator implements Generator {
         boolean rootServer = jsonPath.equals("#/servers");
         for (Server server : servers) {
             String serverJsonPath = jsonPath + "/" + i;
-            CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers");
+            CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers", serverJsonPath);
             CodegenText description = getCodegenText(server.getDescription());
             String subpackage = getSubpackage(serverJsonPath);
             CodegenServer cs = new CodegenServer(

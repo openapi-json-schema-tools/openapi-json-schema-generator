@@ -2,13 +2,13 @@ package org.openapijsonschematools.client.paths.petfindbystatus.servers;
 
 import org.openapijsonschematools.client.servers.ServerWithVariables;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.paths.petfindbystatus.servers.Server1.Variables;
+import org.openapijsonschematools.client.paths.petfindbystatus.servers.server1.Variables;
 
 import java.util.AbstractMap;
 
-class Server1 extends ServerWithVariables<Variables.VariablesMap> {
+class PetfindbystatusServer1 extends ServerWithVariables<Variables.VariablesMap> {
 
-    public Server1() {
+    public PetfindbystatusServer1() {
         super(
             "https://petstore.swagger.io/{version}",
             Variables.Variables1.getInstance().validate(
@@ -19,7 +19,7 @@ class Server1 extends ServerWithVariables<Variables.VariablesMap> {
             )
         );
     }
-    public Server1(Variables.VariablesMap variables) {
+    public PetfindbystatusServer1(Variables.VariablesMap variables) {
         super("https://petstore.swagger.io/{version}", variables);
     }
 }
