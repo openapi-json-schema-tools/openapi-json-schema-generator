@@ -48,7 +48,7 @@ public class Schema {
     }
     
     
-    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums> {
+    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums>, DefaultValueMethod<String> {
         private static @Nullable Items instance = null;
     
         protected Items() {
@@ -100,6 +100,12 @@ public class Schema {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     
@@ -220,7 +226,7 @@ public class Schema {
     }
     
     
-    public static class EnumFormString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumFormStringEnums> {
+    public static class EnumFormString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumFormStringEnums>, DefaultValueMethod<String> {
         private static @Nullable EnumFormString instance = null;
     
         protected EnumFormString() {
@@ -273,6 +279,12 @@ public class Schema {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

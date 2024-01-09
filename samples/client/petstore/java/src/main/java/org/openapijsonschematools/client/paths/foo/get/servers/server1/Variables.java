@@ -59,7 +59,7 @@ public class Variables {
     }
     
     
-    public static class Version extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringVersionEnums> {
+    public static class Version extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
         private static @Nullable Version instance = null;
     
         protected Version() {
@@ -111,6 +111,12 @@ public class Variables {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

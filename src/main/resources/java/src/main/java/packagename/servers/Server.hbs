@@ -2,6 +2,8 @@
 package {{{packageName}}}.{{subpackage}};
 
     {{#with variables}}
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
         {{#neq ../subpackage "servers"}}
 import {{{packageName}}}.servers.ServerWithVariables;
         {{/neq}}
@@ -23,10 +25,10 @@ class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{containerJso
             {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().validate(
                 MapUtils.makeMap(
         {{#each requiredProperties}}
-                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", (String) {{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().defaultValue){{#unless @last}},{{/unless}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", {{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().defaultValue()){{#unless @last}},{{/unless}}
         {{/each}}
                 ),
-                null
+                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
             )
         );
     }

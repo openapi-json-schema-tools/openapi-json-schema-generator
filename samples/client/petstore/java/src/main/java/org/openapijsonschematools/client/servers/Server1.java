@@ -1,5 +1,7 @@
 package org.openapijsonschematools.client.servers;
 
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.servers.server1.Variables;
 
@@ -15,9 +17,9 @@ class Server1 extends ServerWithVariables<Variables.VariablesMap> {
             "https://localhost:8080/{version}",
             Variables.Variables1.getInstance().validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>("version", (String) Variables.Version.getInstance().defaultValue)
+                    new AbstractMap.SimpleEntry<>("version", Variables.Version.getInstance().defaultValue())
                 ),
-                null
+                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
             )
         );
     }

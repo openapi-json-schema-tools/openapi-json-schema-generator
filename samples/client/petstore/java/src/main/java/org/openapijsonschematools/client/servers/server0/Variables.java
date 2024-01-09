@@ -60,7 +60,7 @@ public class Variables {
     }
     
     
-    public static class Server extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringServerEnums> {
+    public static class Server extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringServerEnums>, DefaultValueMethod<String> {
         private static @Nullable Server instance = null;
     
         protected Server() {
@@ -114,6 +114,12 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
+        }
     }    
     public enum StringPortEnums implements StringValueMethod {
         POSITIVE_80("80"),
@@ -129,7 +135,7 @@ public class Variables {
     }
     
     
-    public static class Port extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringPortEnums> {
+    public static class Port extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringPortEnums>, DefaultValueMethod<String> {
         private static @Nullable Port instance = null;
     
         protected Port() {
@@ -181,6 +187,12 @@ public class Variables {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

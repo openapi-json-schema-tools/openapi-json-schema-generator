@@ -41,7 +41,7 @@ public class Schema0 {
     }
     
     
-    public static class Items0 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums0> {
+    public static class Items0 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums0>, DefaultValueMethod<String> {
         private static @Nullable Items0 instance = null;
     
         protected Items0() {
@@ -94,6 +94,12 @@ public class Schema0 {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

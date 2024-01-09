@@ -476,7 +476,7 @@ public class Schema {
     }
     
     
-    public static class DateTime extends JsonSchema implements StringSchemaValidator {
+    public static class DateTime extends JsonSchema implements StringSchemaValidator, DefaultValueMethod<String> {
         private static @Nullable DateTime instance = null;
     
         protected DateTime() {
@@ -520,6 +520,12 @@ public class Schema {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

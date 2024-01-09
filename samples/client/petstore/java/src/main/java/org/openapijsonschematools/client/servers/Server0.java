@@ -1,5 +1,7 @@
 package org.openapijsonschematools.client.servers;
 
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.servers.server0.Variables;
 
@@ -15,10 +17,10 @@ class Server0 extends ServerWithVariables<Variables.VariablesMap> {
             "http://{server}.swagger.io:{port}/v2",
             Variables.Variables1.getInstance().validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>("port", (String) Variables.Port.getInstance().defaultValue),
-                    new AbstractMap.SimpleEntry<>("server", (String) Variables.Server.getInstance().defaultValue)
+                    new AbstractMap.SimpleEntry<>("port", Variables.Port.getInstance().defaultValue()),
+                    new AbstractMap.SimpleEntry<>("server", Variables.Server.getInstance().defaultValue())
                 ),
-                null
+                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
             )
         );
     }
