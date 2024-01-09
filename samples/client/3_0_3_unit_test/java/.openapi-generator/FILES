@@ -261,6 +261,9 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/TypeValidator
 src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMetadata.java
+src/main/java/org/openapijsonschematools/client/servers/Server0.java
+src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
+src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.java

@@ -46,7 +46,7 @@ public class InvalidStringValueForDefault {
                     String.class
                 ))
                 .minLength(4)
-                .default("bad")
+                .defaultValue("bad")
             );
         }
     
