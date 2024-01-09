@@ -301,6 +301,9 @@ docs/paths/userlogin/get/responses/response200/headers/xratelimit/content/applic
 docs/paths/userusername/get/responses/response200/content/applicationjson/Schema.md
 docs/paths/userusername/get/responses/response200/content/applicationxml/Schema.md
 docs/paths/userusername/put/requestbody/content/applicationjson/Schema.md
+docs/servers/Server0.md
+docs/servers/Server1.md
+docs/servers/Server2.md
 pom.xml
 src/main/java/org/openapijsonschematools/client/components/headers/int32jsoncontenttypeheader/content/applicationjson/Int32JsonContentTypeHeaderSchema.java
 src/main/java/org/openapijsonschematools/client/components/headers/numberheader/NumberHeaderSchema.java
