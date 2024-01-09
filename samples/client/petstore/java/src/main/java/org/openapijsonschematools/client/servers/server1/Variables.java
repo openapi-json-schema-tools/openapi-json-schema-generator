@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.components.schemas;
+package org.openapijsonschematools.client.servers.server1;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -10,52 +10,73 @@ import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
-import org.openapijsonschematools.client.schemas.StringJsonSchema;
-import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
+import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
-public class Animal {
+public class Variables {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ClassName extends StringJsonSchema {
-        private static @Nullable ClassName instance = null;
-        public static ClassName getInstance() {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
+        // NotAnyTypeSchema
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new ClassName();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
+    public enum StringVersionEnums implements StringValueMethod {
+        V1("v1"),
+        V2("v2");
+        private final String value;
     
-    public static class Color extends JsonSchema implements StringSchemaValidator {
-        private static @Nullable Color instance = null;
+        StringVersionEnums(String value) {
+            this.value = value;
+        }
+        public String value() {
+            return this.value;
+        }
+    }
     
-        protected Color() {
+    
+    public static class Version extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringVersionEnums> {
+        private static @Nullable Version instance = null;
+    
+        protected Version() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
                 ))
-                .defaultValue("red")
+                .enumValues(SetMaker.makeSet(
+                    "v1",
+                    "v2"
+                ))
+                .defaultValue("v2")
             );
         }
     
-        public static Color getInstance() {
+        public static Version getInstance() {
             if (instance == null) {
-                instance = new Color();
+                instance = new Version();
             }
             return instance;
         }
@@ -69,6 +90,11 @@ public class Animal {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringVersionEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
         }
         
         @Override
@@ -87,138 +113,95 @@ public class Animal {
         }
     }    
     
-    public static class AnimalMap extends FrozenMap<@Nullable Object> {
-        protected AnimalMap(FrozenMap<@Nullable Object> m) {
+    public static class VariablesMap extends FrozenMap<String> {
+        protected VariablesMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
-            "className"
+            "version"
         );
-        public static final Set<String> optionalKeys = Set.of(
-            "color"
-        );
-        public static AnimalMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Animal1.getInstance().validate(arg, configuration);
+        public static final Set<String> optionalKeys = Set.of();
+        public static VariablesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+            return Variables1.getInstance().validate(arg, configuration);
         }
         
-        public String className() {
-                        @Nullable Object value = get("className");
-            if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for className");
-            }
-            return (String) value;
-        }
-        
-        public String color() throws UnsetPropertyException {
-            String key = "color";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
-                throw new InvalidTypeException("Invalid value stored for color");
-            }
-            return (String) value;
-        }
-        
-        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
-            throwIfKeyKnown(name, requiredKeys, optionalKeys);
-            throwIfKeyNotPresent(name);
-            return get(name);
+        public String version() {
+            return getOrThrow("version");
         }
     }
     
-    public interface SetterForClassName <T> {
-        Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterClassName(Map<String, @Nullable Object> instance);
+    public interface SetterForVersion <T> {
+        Map<String, String> getInstance();
+        T getBuilderAfterVersion(Map<String, String> instance);
         
-        default T className(String value) {
+        default T version(String value) {
             var instance = getInstance();
-            instance.put("className", value);
-            return getBuilderAfterClassName(instance);
+            instance.put("version", value);
+            return getBuilderAfterVersion(instance);
         }
-    }
-    
-    public interface SetterForColor <T> {
-        Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterColor(Map<String, @Nullable Object> instance);
         
-        default T color(String value) {
+        default T version(StringVersionEnums value) {
             var instance = getInstance();
-            instance.put("color", value);
-            return getBuilderAfterColor(instance);
+            instance.put("version", value.value());
+            return getBuilderAfterVersion(instance);
         }
     }
     
-    public static class AnimalMap0Builder extends UnsetAddPropsSetter<AnimalMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForColor<AnimalMap0Builder> {
-        private final Map<String, @Nullable Object> instance;
+    public static class VariablesMap0Builder implements BaseBuilder<String> {
+        private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
-            "className",
-            "color"
+            "version"
         );
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public AnimalMap0Builder(Map<String, @Nullable Object> instance) {
+        public VariablesMap0Builder(Map<String, String> instance) {
             this.instance = instance;
         }
-        public Map<String, @Nullable Object> build() {
+        public Map<String, String> build() {
             return instance;
-        }
-        public Map<String, @Nullable Object> getInstance() {
-            return instance;
-        }
-        public AnimalMap0Builder getBuilderAfterColor(Map<String, @Nullable Object> instance) {
-            return this;
-        }
-        public AnimalMap0Builder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
-            return this;
         }
     }
     
-    public static class AnimalMapBuilder implements SetterForClassName<AnimalMap0Builder> {
-        private final Map<String, @Nullable Object> instance;
-        public AnimalMapBuilder() {
+    public static class VariablesMapBuilder implements SetterForVersion<VariablesMap0Builder> {
+        private final Map<String, String> instance;
+        public VariablesMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
-        public Map<String, @Nullable Object> getInstance() {
+        public Map<String, String> getInstance() {
             return instance;
         }
-        public AnimalMap0Builder getBuilderAfterClassName(Map<String, @Nullable Object> instance) {
-            return new AnimalMap0Builder(instance);
+        public VariablesMap0Builder getBuilderAfterVersion(Map<String, String> instance) {
+            return new VariablesMap0Builder(instance);
         }
     }
     
     
-    public static class Animal1 extends JsonSchema implements MapSchemaValidator<AnimalMap> {
-        /*
-        NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
-        Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
+    public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap> {
+        private static @Nullable Variables1 instance = null;
     
-        Do not edit the class manually.
-        */
-        private static @Nullable Animal1 instance = null;
-    
-        protected Animal1() {
+        protected Variables1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("className", ClassName.class),
-                    new PropertyEntry("color", Color.class)
+                    new PropertyEntry("version", Version.class)
                 ))
                 .required(Set.of(
-                    "className"
+                    "version"
                 ))
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
-        public static Animal1 getInstance() {
+        public static Variables1 getInstance() {
             if (instance == null) {
-                instance = new Animal1();
+                instance = new Variables1();
             }
             return instance;
         }
         
-        public AnimalMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
+        public VariablesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
@@ -234,13 +217,16 @@ public class Animal {
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, propertyInstance);
+                if (!(propertyInstance instanceof String)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                properties.put(propertyName, (String) propertyInstance);
             }
-            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new AnimalMap(castProperties);
+            FrozenMap<String> castProperties = new FrozenMap<>(properties);
+            return new VariablesMap(castProperties);
         }
         
-        public AnimalMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public VariablesMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

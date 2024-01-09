@@ -55,7 +55,7 @@ public class StringEnumWithDefaultValue {
                     "approved",
                     "delivered"
                 ))
-                .default("placed")
+                .defaultValue("placed")
             );
         }
     

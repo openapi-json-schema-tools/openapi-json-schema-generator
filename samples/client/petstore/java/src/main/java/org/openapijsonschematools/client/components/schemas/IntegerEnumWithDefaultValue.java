@@ -107,7 +107,7 @@ public class IntegerEnumWithDefaultValue {
                     new BigDecimal("1"),
                     new BigDecimal("2")
                 ))
-                .default(0)
+                .defaultValue(0)
             );
         }
     

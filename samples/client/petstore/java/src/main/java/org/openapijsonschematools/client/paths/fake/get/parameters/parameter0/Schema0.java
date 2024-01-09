@@ -51,7 +51,7 @@ public class Schema0 {
                     ">",
                     "$"
                 ))
-                .default("$")
+                .defaultValue("$")
             );
         }
     

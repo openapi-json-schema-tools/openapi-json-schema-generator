@@ -114,7 +114,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String toModuleFilename(String name, String jsonPath) {
         String usedName = sanitizeName(name, "[^a-zA-Z0-9]+");
         // todo check if empty and if so them use enum name
+        // todo fix this, this does not handle names starting with numbers
         return usedName.toLowerCase(Locale.ROOT);
+    }
+
+    @Override
+    public String toServerFilename(String basename, String jsonPath) {
+        return getPascalCaseServer(basename);
     }
 
     @Override
@@ -2180,6 +2186,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     "src/main/java/packagename/servers/ServerWithVariables.hbs",
                     packagePath() + File.separatorChar + "servers",
                     "ServerWithVariables.java"));
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/servers/Server.hbs", ".java");
+                    }}
+            );
         }
     }
 
@@ -2440,5 +2452,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     public void setParentVersion(final String parentVersion) {
         this.parentVersion = parentVersion;
+    }
+
+    @Override
+    public boolean generateSeparateServerSchemas() {
+        return true;
     }
 }

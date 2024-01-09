@@ -1,9 +1,16 @@
 package {{{packageName}}}.servers;
 
-public abstract class ServerWithVariables {
-    public final String url;
+import java.util.Map;
 
-    protected ServerWithVariables(String url) {
+public abstract class ServerWithVariables<T extends Map<String, String>> {
+    public final String url;
+    public final T variables;
+
+    protected ServerWithVariables(String url, T variables) {
+        this.variables = variables;
+        for (Map.Entry<String, String> entry: variables.entrySet()) {
+            url = url.replace("{" + entry.getKey() + "}", entry.getValue());
+        }
         this.url = url;
     }
 }

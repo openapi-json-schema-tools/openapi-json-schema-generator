@@ -962,7 +962,7 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public String getPascalCaseServer(String basename) {
-        return toModelName(basename, null);
+        return "Server" + basename;
     }
 
     public String getPascalCaseParameter(String basename) {
@@ -3274,6 +3274,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public boolean generateSeparateServerSchemas() {
+        return false;
+    }
+
+    @Override
     @SuppressWarnings("static-method")
     public HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityRequirement, String sourceJsonPath) {
         if (securityRequirement == null) {
@@ -3903,10 +3908,17 @@ public class DefaultGenerator implements Generator {
     }
 
     private void updateServersFilepath(String[] pathPieces) {
-        if (pathPieces.length < 3) {
+        if (pathPieces.length == 2) {
+            // #/servers
             return;
+        } else if (pathPieces.length == 3) {
+            // #/servers/0
+            pathPieces[2] = toServerFilename(pathPieces[2], null);
+        } else {
+            // #/servers/0/variables
+            pathPieces[2] = toServerFilename(pathPieces[2], null).toLowerCase(Locale.ROOT);
+            pathPieces[3] = "Variables";
         }
-        pathPieces[2] = toServerFilename(pathPieces[2], null);
     }
 
     private void updateSecurityFilepath(String[] pathPieces) {
@@ -5039,12 +5051,14 @@ public class DefaultGenerator implements Generator {
             String serverJsonPath = jsonPath + "/" + i;
             CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers");
             CodegenText description = getCodegenText(server.getDescription());
+            String subpackage = getSubpackage(serverJsonPath);
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 description,
                 fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
                 jsonPathPiece,
-                rootServer
+                rootServer,
+                subpackage
             );
             codegenServers.add(cs);
             i ++;

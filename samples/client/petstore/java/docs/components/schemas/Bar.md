@@ -42,7 +42,7 @@ String validatedPayload = Bar.Bar1.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
-| default | default = "bar" |
+| defaultValue | defaultValue = "bar" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -1860,11 +1860,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String getPascalCaseServer(String basename) {
-        return "Server" + basename;
-    }
-
-    @Override
     public String getPascalCaseParameter(String name) {
         try {
             Integer.parseInt(name);

@@ -298,4 +298,6 @@ public interface Generator {
     CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath);
 
     Function<CodegenSchema, List<CodegenSchema>> getSchemasFn();
+
+    boolean generateSeparateServerSchemas();
 }

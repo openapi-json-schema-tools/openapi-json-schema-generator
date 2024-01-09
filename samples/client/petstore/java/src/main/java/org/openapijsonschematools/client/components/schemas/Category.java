@@ -49,7 +49,7 @@ public class Category {
                 .type(Set.of(
                     String.class
                 ))
-                .default("default-name")
+                .defaultValue("default-name")
             );
         }
     
