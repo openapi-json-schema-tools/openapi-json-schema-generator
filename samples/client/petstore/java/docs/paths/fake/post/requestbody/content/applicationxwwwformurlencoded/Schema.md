@@ -561,7 +561,7 @@ String validatedPayload = Schema.DateTime.validate(
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
 | String | type = "date-time"; |
-| defaultValue | defaultValue = "2010-02-01T10:20:10.111110+01:00" |
+| @Nullable Object | defaultValue = "2010-02-01T10:20:10.111110+01:00" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

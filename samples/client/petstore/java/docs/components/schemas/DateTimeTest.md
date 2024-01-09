@@ -43,7 +43,7 @@ String validatedPayload = DateTimeTest.DateTimeTest1.validate(
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
 | String | type = "date-time"; |
-| defaultValue | defaultValue = "2010-01-01T10:10:10.000111+01:00" |
+| @Nullable Object | defaultValue = "2010-01-01T10:10:10.000111+01:00" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

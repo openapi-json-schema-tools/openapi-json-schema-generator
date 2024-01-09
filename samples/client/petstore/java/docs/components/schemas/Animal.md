@@ -150,7 +150,7 @@ String validatedPayload = Animal.Color.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
-| defaultValue | defaultValue = "red" |
+| @Nullable Object | defaultValue = "red" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

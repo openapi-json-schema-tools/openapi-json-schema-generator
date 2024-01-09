@@ -111,7 +111,7 @@ String validatedPayload = InvalidStringValueForDefault.Bar.validate(
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
 | Integer | minLength = 4 |
-| defaultValue | defaultValue = "bad" |
+| @Nullable Object | defaultValue = "bad" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

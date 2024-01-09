@@ -48,7 +48,7 @@ long validatedPayload = IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br/>)<br/> |
 | Set<Object> | enumValues = SetMaker.makeSet(<br>&nbsp;&nbsp;&nbsp;&nbsp;0,<br>&nbsp;&nbsp;&nbsp;&nbsp;1,<br>&nbsp;&nbsp;&nbsp;&nbsp;2<br>)<br> |
-| defaultValue | defaultValue = 0 |
+| @Nullable Object | defaultValue = 0 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

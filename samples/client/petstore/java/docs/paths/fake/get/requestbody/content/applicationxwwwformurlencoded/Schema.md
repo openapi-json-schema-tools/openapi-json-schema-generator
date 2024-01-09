@@ -149,7 +149,7 @@ String validatedPayload = Schema.EnumFormString.validate(
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
 | Set<Object> | enumValues = SetMaker.makeSet(<br>&nbsp;&nbsp;&nbsp;&nbsp;"_abc",<br>&nbsp;&nbsp;&nbsp;&nbsp;"-efg",<br>&nbsp;&nbsp;&nbsp;&nbsp;"(xyz)"<br>)<br> |
-| defaultValue | defaultValue = "-efg" |
+| @Nullable Object | defaultValue = "-efg" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -279,7 +279,7 @@ String validatedPayload = Schema.Items.validate(
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
 | Set<Object> | enumValues = SetMaker.makeSet(<br>&nbsp;&nbsp;&nbsp;&nbsp;">",<br>&nbsp;&nbsp;&nbsp;&nbsp;"$"<br>)<br> |
-| defaultValue | defaultValue = "$" |
+| @Nullable Object | defaultValue = "$" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
