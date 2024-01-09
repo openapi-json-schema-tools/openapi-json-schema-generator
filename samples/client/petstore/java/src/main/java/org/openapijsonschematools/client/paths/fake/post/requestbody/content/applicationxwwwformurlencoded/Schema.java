@@ -484,6 +484,7 @@ public class Schema {
                     String.class
                 ))
                 .format("date-time")
+                .defaultValue("2010-02-01T10:20:10.111110+01:00")
             );
         }
     

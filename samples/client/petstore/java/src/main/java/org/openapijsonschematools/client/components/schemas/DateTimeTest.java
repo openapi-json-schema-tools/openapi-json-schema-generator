@@ -35,6 +35,7 @@ public class DateTimeTest {
                     String.class
                 ))
                 .format("date-time")
+                .defaultValue("2010-01-01T10:10:10.000111+01:00")
             );
         }
     

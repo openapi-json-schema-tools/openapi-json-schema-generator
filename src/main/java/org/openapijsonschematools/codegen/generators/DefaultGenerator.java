@@ -103,6 +103,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -1419,6 +1420,9 @@ public class DefaultGenerator implements Generator {
             type = "boolean";
         } else if (value == null) {
             type = "null";
+        } else if (value instanceof OffsetDateTime) {
+            type = "string";
+            usedValue = value.toString();
         }
         return new EnumValue(usedValue, type, description);
     }
