@@ -30,6 +30,7 @@ import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -151,7 +152,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         super();
 
         modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .includeDocumentationFeatures(DocumentationFeature.Readme, DocumentationFeature.Servers)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))
                 .securityFeatures(EnumSet.noneOf(
                         SecurityFeature.class
@@ -159,8 +160,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .excludeSchemaFeatures(
                         SchemaFeature.Not
                 )
-                .includeClientModificationFeatures(
-                        ClientModificationFeature.BasePath
+                .includeGlobalFeatures(
+                        GlobalFeature.Servers
                 )
         );
 
