@@ -153,6 +153,7 @@ String validatedPayload = Category.Name.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
+| @Nullable Object | defaultValue = "default-name" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

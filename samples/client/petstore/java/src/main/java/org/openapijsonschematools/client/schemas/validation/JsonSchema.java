@@ -42,6 +42,7 @@ public abstract class JsonSchema {
     public final @Nullable Boolean uniqueItems;
     public final @Nullable Set<@Nullable Object> enumValues;
     public final @Nullable Pattern pattern;
+    public final @Nullable Object defaultValue;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -214,6 +215,7 @@ public abstract class JsonSchema {
                     new PatternValidator(this.pattern)
             );
         }
+        this.defaultValue = jsonSchemaInfo.defaultValue;
         this.keywordToValidator = keywordToValidator;
     }
 

@@ -152,6 +152,15 @@ Please follow the [installation procedure](#installation) and then use the JsonS
 {{packageName}}.components.schemas to validate input payloads and instances of validated Map and List
 output classes. Json schemas allow multiple types for one schema, so a schema's validate method can have
 allowed input and output types.
+{{#if servers}}
+
+## Servers
+| server_index | Class | Description |
+| ------------ | ----- | ----------- |
+{{#each servers}}
+| {{@key}} | [{{jsonPathPiece.pascalCase}}](docs/servers/{{jsonPathPiece.pascalCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}} |
+{{/each}}
+{{/if}}
 {{#if schemas}}
 
 ## Component Schemas

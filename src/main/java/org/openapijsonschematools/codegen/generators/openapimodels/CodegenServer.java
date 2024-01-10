@@ -9,8 +9,9 @@ public class CodegenServer {
     public final CodegenSchema variables;
     public final CodegenKey jsonPathPiece;
     public final boolean rootServer;
+    public final String subpackage; // needed to define java package
 
-    public CodegenServer(String url, CodegenText description, CodegenSchema variables, CodegenKey jsonPathPiece, boolean rootServer) {
+    public CodegenServer(String url, CodegenText description, CodegenSchema variables, CodegenKey jsonPathPiece, boolean rootServer, String subpackage) {
         this.url = url;
         this.description = description;
         this.variables = variables;
@@ -25,6 +26,7 @@ public class CodegenServer {
             }
             this.defaultUrl = defaultUrl;
         }
+        this.subpackage = subpackage;
     }
 
     @Override
@@ -37,12 +39,13 @@ public class CodegenServer {
                 Objects.equals(variables, that.variables) &&
                 Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(rootServer, that.rootServer) &&
-                Objects.equals(defaultUrl, that.defaultUrl);
+                Objects.equals(defaultUrl, that.defaultUrl) &&
+                Objects.equals(subpackage, that.subpackage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(url, description, variables, jsonPathPiece, rootServer, defaultUrl);
+        return Objects.hash(url, description, variables, jsonPathPiece, rootServer, defaultUrl, subpackage);
     }
 
     @Override

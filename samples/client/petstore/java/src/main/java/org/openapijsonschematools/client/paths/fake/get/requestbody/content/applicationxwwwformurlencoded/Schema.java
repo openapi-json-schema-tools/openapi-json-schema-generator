@@ -17,6 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
+import org.openapijsonschematools.client.schemas.validation.DefaultValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -47,7 +48,7 @@ public class Schema {
     }
     
     
-    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums> {
+    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums>, DefaultValueMethod<String> {
         private static @Nullable Items instance = null;
     
         protected Items() {
@@ -59,6 +60,7 @@ public class Schema {
                     ">",
                     "$"
                 ))
+                .defaultValue("$")
             );
         }
     
@@ -98,6 +100,12 @@ public class Schema {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     
@@ -218,7 +226,7 @@ public class Schema {
     }
     
     
-    public static class EnumFormString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumFormStringEnums> {
+    public static class EnumFormString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumFormStringEnums>, DefaultValueMethod<String> {
         private static @Nullable EnumFormString instance = null;
     
         protected EnumFormString() {
@@ -231,6 +239,7 @@ public class Schema {
                     "-efg",
                     "(xyz)"
                 ))
+                .defaultValue("-efg")
             );
         }
     
@@ -270,6 +279,12 @@ public class Schema {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

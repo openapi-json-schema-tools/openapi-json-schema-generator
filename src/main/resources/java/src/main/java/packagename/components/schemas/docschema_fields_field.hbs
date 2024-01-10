@@ -70,3 +70,6 @@
 {{#if patternInfo}}
 | Pattern | {{> src/main/java/packagename/components/schemas/SchemaClass/_pattern }} |
 {{/if}}
+{{#if defaultValue}}
+| @Nullable Object | {{> src/main/java/packagename/components/schemas/SchemaClass/_default }} |
+{{/if}}

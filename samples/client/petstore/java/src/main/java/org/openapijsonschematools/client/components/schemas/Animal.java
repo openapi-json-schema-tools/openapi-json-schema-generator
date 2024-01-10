@@ -17,6 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
+import org.openapijsonschematools.client.schemas.validation.DefaultValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -41,7 +42,7 @@ public class Animal {
     }
     
     
-    public static class Color extends JsonSchema implements StringSchemaValidator {
+    public static class Color extends JsonSchema implements StringSchemaValidator, DefaultValueMethod<String> {
         private static @Nullable Color instance = null;
     
         protected Color() {
@@ -49,6 +50,7 @@ public class Animal {
                 .type(Set.of(
                     String.class
                 ))
+                .defaultValue("red")
             );
         }
     
@@ -83,6 +85,12 @@ public class Animal {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

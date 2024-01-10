@@ -103,6 +103,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -961,8 +962,8 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String getPascalCaseServer(String basename) {
-        return toModelName(basename, null);
+    public String getPascalCaseServer(String basename, String jsonPath) {
+        return "Server" + basename;
     }
 
     public String getPascalCaseParameter(String basename) {
@@ -1419,6 +1420,9 @@ public class DefaultGenerator implements Generator {
             type = "boolean";
         } else if (value == null) {
             type = "null";
+        } else if (value instanceof OffsetDateTime) {
+            type = "string";
+            usedValue = value.toString();
         }
         return new EnumValue(usedValue, type, description);
     }
@@ -3274,6 +3278,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public boolean generateSeparateServerSchemas() {
+        return false;
+    }
+
+    @Override
     @SuppressWarnings("static-method")
     public HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityRequirement, String sourceJsonPath) {
         if (securityRequirement == null) {
@@ -3804,8 +3813,14 @@ public class DefaultGenerator implements Generator {
         xParameters.add("HeaderParameters");
         xParameters.add("CookieParameters");
         if (pathPieces[3].equals("servers")) {
-            // #/paths/somePath/servers/0
-            pathPieces[4] = toServerFilename(pathPieces[4], null);
+            if (pathPieces.length == 5) {
+                // #/paths/somePath/servers/0
+                pathPieces[4] = toServerFilename(pathPieces[4], jsonPath);
+            } else {
+                // #/paths/somePath/servers/0/variables
+                pathPieces[4] = "server" + pathPieces[4];
+                pathPieces[5] = "Variables";
+            }
         } else if (pathPieces[3].equals("parameters")) {
             // #/paths/somePath/parameters/0
             pathPieces[4] = toParameterFilename(pathPieces[4], null);
@@ -3834,8 +3849,14 @@ public class DefaultGenerator implements Generator {
             return;
         }
         if (pathPieces[4].equals("servers")) {
-            // #/paths/somePath/get/servers/someServer
-            pathPieces[5] = toServerFilename(pathPieces[5], null);
+            if (pathPieces.length == 6) {
+                // #/paths/somePath/get/servers/0
+                pathPieces[5] = toServerFilename(pathPieces[5], jsonPath);
+            } else {
+                // #/paths/somePath/get/servers/0/variables
+                pathPieces[5] = "server" + pathPieces[5];
+                pathPieces[6] = "Variables";
+            }
         } else if (pathPieces[4].equals("security")) {
             // #/paths/somePath/get/security/0
             pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], null);
@@ -3903,10 +3924,18 @@ public class DefaultGenerator implements Generator {
     }
 
     private void updateServersFilepath(String[] pathPieces) {
-        if (pathPieces.length < 3) {
+        if (pathPieces.length == 2) {
+            // #/servers
             return;
+        } else if (pathPieces.length == 3) {
+            // #/servers/0
+            String jsonPath = "#/servers/" + pathPieces[2];
+            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
+        } else {
+            // #/servers/0/variables
+            pathPieces[2] = toServerFilename(pathPieces[2], null).toLowerCase(Locale.ROOT);
+            pathPieces[3] = "Variables";
         }
-        pathPieces[2] = toServerFilename(pathPieces[2], null);
     }
 
     private void updateSecurityFilepath(String[] pathPieces) {
@@ -4821,7 +4850,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
-                pascalCaseName = getPascalCaseServer(usedKey);
+                pascalCaseName = getPascalCaseServer(usedKey, sourceJsonPath);
                 break;
         }
         if (pascalCaseName != null) {
@@ -5037,14 +5066,16 @@ public class DefaultGenerator implements Generator {
         boolean rootServer = jsonPath.equals("#/servers");
         for (Server server : servers) {
             String serverJsonPath = jsonPath + "/" + i;
-            CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers");
+            CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers", serverJsonPath);
             CodegenText description = getCodegenText(server.getDescription());
+            String subpackage = getSubpackage(serverJsonPath);
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
                 description,
                 fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
                 jsonPathPiece,
-                rootServer
+                rootServer,
+                subpackage
             );
             codegenServers.add(cs);
             i ++;

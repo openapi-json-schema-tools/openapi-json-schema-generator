@@ -148,6 +148,11 @@ org.openapijsonschematools.client.components.schemas to validate input payloads 
 output classes. Json schemas allow multiple types for one schema, so a schema's validate method can have
 allowed input and output types.
 
+## Servers
+| server_index | Class | Description |
+| ------------ | ----- | ----------- |
+| 0 | [Server0](docs/servers/Server0.md) | |
+
 ## Component Schemas
 
 | Class | Description |

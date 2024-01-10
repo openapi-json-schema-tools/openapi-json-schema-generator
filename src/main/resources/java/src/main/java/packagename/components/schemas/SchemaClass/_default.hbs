@@ -1,0 +1,43 @@
+{{#with defaultValue}}
+    {{#if forDocs}}
+        {{#eq type "string"}}
+defaultValue = "{{{value}}}"
+        {{~else}}
+            {{#or (eq type "number") (eq type "integer")}}
+defaultValue = {{{value}}}
+            {{~else}}
+                {{#eq type "boolean"}}
+                    {{#if value}}
+defaultValue = true
+                    {{~else}}
+defaultValue = false
+                    {{~/if}}
+                {{else}}
+                    {{#eq type "null"}}
+defaultValue = null
+                    {{~/eq}}
+                {{/eq}}
+            {{/or}}
+        {{/eq}}
+    {{else}}
+        {{#eq type "string"}}
+.defaultValue("{{{value}}}")
+        {{else}}
+            {{#or (eq type "number") (eq type "integer")}}
+.defaultValue({{{value}}})
+            {{else}}
+                {{#eq type "boolean"}}
+                    {{#if value}}
+.defaultValue(true)
+                    {{else}}
+.defaultValue(false)
+                    {{/if}}
+                {{else}}
+                    {{#eq type "null"}}
+.defaultValue(null)
+                    {{/eq}}
+                {{/eq}}
+            {{/or}}
+        {{/eq}}
+    {{/if}}
+{{/with}}

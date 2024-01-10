@@ -23,12 +23,14 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
+import io.swagger.v3.oas.models.servers.Server;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -113,7 +115,32 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String toModuleFilename(String name, String jsonPath) {
         String usedName = sanitizeName(name, "[^a-zA-Z0-9]+");
         // todo check if empty and if so them use enum name
+        // todo fix this, this does not handle names starting with numbers
         return usedName.toLowerCase(Locale.ROOT);
+    }
+
+    @Override
+    public String getPascalCaseServer(String basename, String jsonPath) {
+        if (jsonPath != null) {
+            String[] pathPieces = jsonPath.split("/");
+            if (jsonPath.startsWith("#/servers/")) {
+                return "Server"+pathPieces[2];
+            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 5) {
+                // #/paths/somePath/servers/0
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+                return pathKey.pascalCase + "Server"+ pathPieces[4];
+            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 6) {
+                // #/paths/somePath/get/servers/0
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+                return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Server"+ pathPieces[5];
+            }
+        }
+        return "Server" + basename;
+    }
+
+    @Override
+    public String toServerFilename(String basename, String jsonPath) {
+        return getPascalCaseServer(basename, jsonPath);
     }
 
     @Override
@@ -125,7 +152,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         super();
 
         modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .includeDocumentationFeatures(DocumentationFeature.Readme, DocumentationFeature.Servers)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))
                 .securityFeatures(EnumSet.noneOf(
                         SecurityFeature.class
@@ -133,8 +160,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .excludeSchemaFeatures(
                         SchemaFeature.Not
                 )
-                .includeClientModificationFeatures(
-                        ClientModificationFeature.BasePath
+                .includeGlobalFeatures(
+                        GlobalFeature.Servers
                 )
         );
 
@@ -543,6 +570,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("BooleanValueMethod");
         keywordValidatorFiles.add("BigDecimalValidator");
         keywordValidatorFiles.add("CustomIsoparser");
+        keywordValidatorFiles.add("DefaultValueMethod");
         keywordValidatorFiles.add("DoubleEnumValidator");
         keywordValidatorFiles.add("DoubleValueMethod");
         keywordValidatorFiles.add("EnumValidator");
@@ -1283,6 +1311,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 addPatternValidator(schema, imports);
                 addMultipleOfValidator(schema, imports);
                 addAdditionalPropertiesImports(schema, imports);
+                addDefaultValueImport(schema, imports);
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1303,6 +1332,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import java.util.regex.Pattern;");
         }
     }
+
+    private void addDefaultValueImport(CodegenSchema schema, Set<String> imports) {
+        if (schema.defaultValue != null) {
+            imports.add("import "+packageName + ".schemas.validation.DefaultValueMethod;");
+        }
+    }
+
 
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
@@ -1420,6 +1456,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
+        addDefaultValueImport(schema, imports);
     }
 
     private void addNullSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1428,6 +1465,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
+        addDefaultValueImport(schema, imports);
     }
 
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1462,6 +1500,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
         addMultipleOfValidator(schema, imports);
+        addDefaultValueImport(schema, imports);
     }
 
     private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1484,6 +1523,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
         addPatternValidator(schema, imports);
+        addDefaultValueImport(schema, imports);
     }
 
 
@@ -2166,6 +2206,35 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
+    public void setOpenAPI(OpenAPI openAPI) {
+        super.setOpenAPI(openAPI);
+        List<Server> servers = openAPI.getServers();
+        if (servers != null && !servers.isEmpty()) {
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/servers/ServerWithoutVariables.hbs",
+                    packagePath() + File.separatorChar + "servers",
+                    "ServerWithoutVariables.java"));
+
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/servers/ServerWithVariables.hbs",
+                    packagePath() + File.separatorChar + "servers",
+                    "ServerWithVariables.java"));
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/servers/Server.hbs", ".java");
+                    }}
+            );
+            jsonPathDocTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/servers/ServerDoc.hbs", ".md");
+                    }}
+            );
+        }
+    }
+
+    @Override
     public void preprocessOpenAPI(OpenAPI openAPI) {
         super.preprocessOpenAPI(openAPI);
         if (openAPI == null) {
@@ -2422,5 +2491,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     public void setParentVersion(final String parentVersion) {
         this.parentVersion = parentVersion;
+    }
+
+    @Override
+    public boolean generateSeparateServerSchemas() {
+        return true;
     }
 }

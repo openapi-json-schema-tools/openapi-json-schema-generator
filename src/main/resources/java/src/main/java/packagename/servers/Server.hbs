@@ -1,0 +1,53 @@
+{{#with server}}
+package {{{packageName}}}.{{subpackage}};
+
+    {{#with variables}}
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+        {{#neq ../subpackage "servers"}}
+import {{{packageName}}}.servers.ServerWithVariables;
+        {{/neq}}
+import {{{packageName}}}.schemas.validation.MapUtils;
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+
+import java.util.AbstractMap;
+
+class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}> {
+        {{#if ../description}}
+    /*
+    {{../description.original}}
+    */
+        {{/if}}
+
+    public {{../jsonPathPiece.pascalCase}}() {
+        super(
+            "{{../url}}",
+            {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().validate(
+                MapUtils.makeMap(
+        {{#each requiredProperties}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", {{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance().defaultValue()){{#unless @last}},{{/unless}}
+        {{/each}}
+                ),
+                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone())
+            )
+        );
+    }
+    public {{../jsonPathPiece.pascalCase}}({{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}} variables) {
+        super("{{../url}}", variables);
+    }
+}
+    {{else}}
+import {{{packageName}}}.servers.ServerWithoutVariables;
+
+class {{jsonPathPiece.pascalCase}} extends ServerWithoutVariables {
+        {{#if ../description}}
+    /*
+    {{../description.original}}
+    */
+        {{/if}}
+    public {{jsonPathPiece.pascalCase}}() {
+        super("{{url}}");
+    }
+}
+    {{/with}}
+{{/with}}

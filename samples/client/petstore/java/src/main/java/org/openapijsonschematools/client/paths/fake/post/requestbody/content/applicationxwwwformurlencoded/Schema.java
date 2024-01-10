@@ -21,6 +21,7 @@ import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
+import org.openapijsonschematools.client.schemas.validation.DefaultValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -475,7 +476,7 @@ public class Schema {
     }
     
     
-    public static class DateTime extends JsonSchema implements StringSchemaValidator {
+    public static class DateTime extends JsonSchema implements StringSchemaValidator, DefaultValueMethod<String> {
         private static @Nullable DateTime instance = null;
     
         protected DateTime() {
@@ -484,6 +485,7 @@ public class Schema {
                     String.class
                 ))
                 .format("date-time")
+                .defaultValue("2010-02-01T10:20:10.111110+01:00")
             );
         }
     
@@ -518,6 +520,12 @@ public class Schema {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

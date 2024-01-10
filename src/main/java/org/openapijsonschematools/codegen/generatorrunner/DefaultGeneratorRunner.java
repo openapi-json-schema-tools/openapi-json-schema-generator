@@ -1401,6 +1401,11 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             String serverJsonPath = jsonPath + "/" + i;
             generateXs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER, CodegenConstants.SERVERS, templateData, true);
 
+            if (generator.generateSeparateServerSchemas() && server.variables != null) {
+                String variablesJsonPath = serverJsonPath + "/variables";
+                generateSchema(files, server.variables, variablesJsonPath);
+            }
+
             // doc generation
             if (server.rootServer) {
                 templateData.put("headerSize", "#");

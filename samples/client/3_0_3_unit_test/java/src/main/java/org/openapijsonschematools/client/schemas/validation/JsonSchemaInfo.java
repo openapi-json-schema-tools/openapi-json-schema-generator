@@ -128,4 +128,9 @@ public class JsonSchemaInfo {
         this.pattern = pattern;
         return this;
     }
+    public @Nullable Object defaultValue = null;
+    public JsonSchemaInfo defaultValue(@Nullable Object defaultValue) {
+        this.defaultValue = defaultValue;
+        return this;
+    }
 }

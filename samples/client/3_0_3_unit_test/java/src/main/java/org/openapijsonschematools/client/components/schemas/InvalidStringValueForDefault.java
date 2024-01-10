@@ -20,6 +20,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.DefaultValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -37,7 +38,7 @@ public class InvalidStringValueForDefault {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Bar extends JsonSchema implements StringSchemaValidator {
+    public static class Bar extends JsonSchema implements StringSchemaValidator, DefaultValueMethod<String> {
         private static @Nullable Bar instance = null;
     
         protected Bar() {
@@ -46,6 +47,7 @@ public class InvalidStringValueForDefault {
                     String.class
                 ))
                 .minLength(4)
+                .defaultValue("bad")
             );
         }
     
@@ -80,6 +82,12 @@ public class InvalidStringValueForDefault {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public String defaultValue() {
+            if (defaultValue instanceof String) {
+                return (String) defaultValue;
+            }
+            throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
     }    
     

@@ -133,6 +133,7 @@ int validatedPayload = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br/>)<br/> |
 | Number | maximum = 3 |
+| @Nullable Object | defaultValue = 5.0 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
