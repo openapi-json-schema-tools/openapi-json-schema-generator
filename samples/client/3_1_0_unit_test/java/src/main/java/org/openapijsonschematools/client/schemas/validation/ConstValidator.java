@@ -4,7 +4,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.Objects;
 
 public class ConstValidator extends BigDecimalValidator implements KeywordValidator {
     public final @Nullable Object constValue;
@@ -15,9 +15,6 @@ public class ConstValidator extends BigDecimalValidator implements KeywordValida
 
     @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
-        if (enumValues.isEmpty()) {
-            throw new ValidationException("No value can match enum because enum is empty");
-        }
         if (arg instanceof Number) {
             BigDecimal castArg = getBigDecimal((Number) arg);
             if (Objects.equals(castArg, constValue)) {

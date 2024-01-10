@@ -77,15 +77,15 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(Void value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(boolean value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(String value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(int value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(float value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(long value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(double value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(List<?> value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | toString(Map<String, ?> value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(Void value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(boolean value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(String value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(int value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(float value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(long value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(double value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(List<?> value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap000builder) | setToString(Map<String, ?> value) |
 
 ## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder
 public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder<br>
@@ -134,15 +134,15 @@ A class that builds the Map input type
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap001builder) | constructor(double value) |
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap001builder) | constructor(List<?> value) |
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap001builder) | constructor(Map<String, ?> value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(Void value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(boolean value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(String value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(int value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(float value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(long value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(double value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(List<?> value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | toString(Map<String, ?> value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(Void value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(boolean value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(String value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(int value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(float value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(long value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(double value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(List<?> value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap010builder) | setToString(Map<String, ?> value) |
 
 ## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder
 public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder<br>
@@ -191,15 +191,15 @@ A class that builds the Map input type
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap001builder) | setProto(double value) |
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap001builder) | setProto(List<?> value) |
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap001builder) | setProto(Map<String, ?> value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(Void value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(boolean value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(String value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(int value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(float value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(long value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(double value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(List<?> value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | toString(Map<String, ?> value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(Void value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(boolean value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(String value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(int value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(float value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(long value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(double value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(List<?> value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap100builder) | setToString(Map<String, ?> value) |
 
 ## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder
 public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder<br>
@@ -266,15 +266,15 @@ A class that builds the Map input type
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap101builder) | constructor(double value) |
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap101builder) | constructor(List<?> value) |
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap101builder) | constructor(Map<String, ?> value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(Void value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(boolean value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(String value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(int value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(float value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(long value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(double value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(List<?> value) |
-| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | toString(Map<String, ?> value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(Void value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(boolean value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(String value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(int value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(float value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(long value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(double value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(List<?> value) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap110builder) | setToString(Map<String, ?> value) |
 
 ## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap
 public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap<br>
@@ -287,8 +287,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap) | of([Map<String, ? extends @Nullable Object>](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | constructor()<br> |
-| @Nullable Object | toString()<br> |
-| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["__proto__"],  |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["__proto__"], instance["toString"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
