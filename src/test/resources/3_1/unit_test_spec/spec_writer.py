@@ -713,7 +713,7 @@ def write_openapi_spec():
         'UnevaluateditemsDependsOnMultipleNestedContains',
         'DependentSchemasSingleDependency',
         'DependentSchemasDependenciesWithEscapedCharacters',
-        'DependentSchemasDependentSubschemaIncompatibleWithRoot'
+        'DependentSchemasDependentSubschemaIncompatibleWithRoot',
         'IgnoreIfWithoutThenOrElse',
         'IfAndThenWithoutElse',
         'IfAndElseWithoutThen',
