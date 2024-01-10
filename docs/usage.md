@@ -257,7 +257,6 @@ SYNOPSIS
                 [--log-to-stderr] [--minimal-update]
                 [--model-name-prefix <model name prefix>]
                 [--model-name-suffix <model name suffix>]
-                [--model-package <model package>]
                 [(-o <output directory> | --output <output directory>)] [(-p <additional properties> | --additional-properties <additional properties>)...]
                 [--package-name <package name>] [--release-note <release note>]
                 [--remove-operation-id-prefix]
@@ -369,9 +368,6 @@ OPTIONS
 
         --model-name-suffix <model name suffix>
             Suffix that will be appended to all model names.
-
-        --model-package <model package>
-            package for generated models
 
         -o <output directory>, --output <output directory>
             where to write the generated files (current dir by default)
