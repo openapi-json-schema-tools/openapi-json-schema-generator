@@ -58,6 +58,7 @@ public class ConstNulCharactersInStrings {
     
         protected ConstNulCharactersInStrings1() {
             super(new JsonSchemaInfo()
+                .constValue("hello\0there")
             );
         }
     

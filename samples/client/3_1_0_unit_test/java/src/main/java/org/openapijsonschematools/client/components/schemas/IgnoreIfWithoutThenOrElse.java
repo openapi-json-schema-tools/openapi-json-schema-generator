@@ -52,6 +52,7 @@ public class IgnoreIfWithoutThenOrElse {
     
         protected IfSchema() {
             super(new JsonSchemaInfo()
+                .constValue("0")
             );
         }
     

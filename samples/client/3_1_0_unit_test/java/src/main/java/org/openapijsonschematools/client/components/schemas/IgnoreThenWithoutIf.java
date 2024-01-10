@@ -52,6 +52,7 @@ public class IgnoreThenWithoutIf {
     
         protected Then() {
             super(new JsonSchemaInfo()
+                .constValue("0")
             );
         }
     

@@ -93,7 +93,7 @@ public record JsonSchemaKeywordFlags(
         if (additionalProperties) { enabledKeywords.add("additionalProperties"); }
         if (allOf) { enabledKeywords.add("allOf"); }
         if (anyOf) { enabledKeywords.add("anyOf"); }
-        if (const_) { enabledKeywords.add("const_"); }
+        if (const_) { enabledKeywords.add("const"); }
         if (contains) { enabledKeywords.add("contains"); }
         if (dependentRequired) { enabledKeywords.add("dependentRequired"); }
         if (dependentSchemas) { enabledKeywords.add("dependentSchemas"); }

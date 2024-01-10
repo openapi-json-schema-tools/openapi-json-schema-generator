@@ -238,7 +238,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
     }    
     
-    public static class Foo extends JsonSchema implements ListSchemaValidator<> {
+    public static class Foo extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>> {
         private static @Nullable Foo instance = null;
     
         protected Foo() {

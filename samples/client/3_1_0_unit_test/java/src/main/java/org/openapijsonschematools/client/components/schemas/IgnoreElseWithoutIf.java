@@ -52,6 +52,7 @@ public class IgnoreElseWithoutIf {
     
         protected ElseSchema() {
             super(new JsonSchemaInfo()
+                .constValue("0")
             );
         }
     

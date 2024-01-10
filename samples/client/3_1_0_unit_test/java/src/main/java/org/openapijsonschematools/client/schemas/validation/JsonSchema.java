@@ -219,6 +219,15 @@ public abstract class JsonSchema {
             );
         }
         this.defaultValue = jsonSchemaInfo.defaultValue;
+        this.defaultValueSet = jsonSchemaInfo.defaultValueSet;
+        this.constValue = jsonSchemaInfo.constValue;
+        this.constValueSet = jsonSchemaInfo.constValueSet;
+        if (this.constValueSet) {
+            keywordToValidator.put(
+                    "const",
+                    new ConstValidator(this.constValue)
+            );
+        }
         this.keywordToValidator = keywordToValidator;
     }
 

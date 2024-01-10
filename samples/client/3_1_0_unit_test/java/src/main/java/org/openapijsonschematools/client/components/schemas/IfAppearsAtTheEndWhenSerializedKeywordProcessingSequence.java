@@ -52,6 +52,7 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     
         protected ElseSchema() {
             super(new JsonSchemaInfo()
+                .constValue("other")
             );
         }
     
@@ -453,6 +454,7 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     
         protected Then() {
             super(new JsonSchemaInfo()
+                .constValue("yes")
             );
         }
     
