@@ -136,6 +136,10 @@ extends IntJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema123list
 public static class Schema123list<br>
 extends StringJsonSchema

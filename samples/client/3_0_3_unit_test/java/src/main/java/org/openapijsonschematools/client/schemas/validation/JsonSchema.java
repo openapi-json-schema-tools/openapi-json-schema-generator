@@ -245,7 +245,10 @@ public abstract class JsonSchema {
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
             if (disabledKeywords.contains(jsonKeyword)) {
-               continue;
+                boolean typeIntegerUseCase = jsonKeyword.equals("format") && "int".equals(jsonSchema.format);
+                if (!typeIntegerUseCase) {
+                    continue;
+                }
             }
             KeywordValidator validator = entry.getValue();
             @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(
