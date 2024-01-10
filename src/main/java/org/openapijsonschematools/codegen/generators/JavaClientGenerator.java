@@ -1121,6 +1121,22 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 imports.addAll(getImports(sourceJsonPath, cs, featureSet));
             }
         }
+        if (schema.patternProperties != null && !schema.patternProperties.isEmpty()) {
+            for (CodegenSchema cs: schema.patternProperties.values()) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
+        }
+        if (schema.unevaluatedItems != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.unevaluatedItems, featureSet));
+        }
+        if (schema.unevaluatedProperties != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.unevaluatedProperties, featureSet));
+        }
+        if (schema.prefixItems != null && !schema.prefixItems.isEmpty()) {
+            for (CodegenSchema cs: schema.prefixItems) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
+        }
         // referenced or inline schemas
         if (!sourceJsonPath.startsWith("#/components/schemas/") && schema.refInfo != null && schema.refInfo.refModule != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.Ref)) {
             imports.add(getImport(schema.refInfo));
