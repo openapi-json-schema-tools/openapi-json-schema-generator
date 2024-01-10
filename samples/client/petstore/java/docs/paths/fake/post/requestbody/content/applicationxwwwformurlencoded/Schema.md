@@ -60,7 +60,7 @@ Schema.SchemaMap validatedPayload =
 
         .pattern_without_delimiter("AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>")
 
-        .setInteger(1L)
+        .setInteger(1)
 
         .int32(1)
 
@@ -894,8 +894,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// long validation
-long validatedPayload = Schema.IntegerSchema.validate(
+// int validation
+int validatedPayload = Schema.IntegerSchema.validate(
     1L,
     configuration
 );
@@ -905,6 +905,7 @@ long validatedPayload = Schema.IntegerSchema.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br/>)<br/> |
+| String | type = "int"; |
 | Number | maximum = 100 |
 | Number | minimum = 10 |
 

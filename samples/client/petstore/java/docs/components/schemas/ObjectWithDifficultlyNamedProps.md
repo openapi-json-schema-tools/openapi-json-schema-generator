@@ -49,7 +49,7 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 
         .setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(1L)
 
-        .set123number(1L)
+        .set123number(1)
 
     .build(),
     configuration

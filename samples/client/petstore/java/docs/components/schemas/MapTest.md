@@ -58,10 +58,10 @@ MapTest.MapTestMap validatedPayload =
     new MapTest.MapTestMapBuilder()
         .map_map_of_string(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                     "someAdditionalProperty",
                     MapUtils.makeMap(
-                        new AbstractMap.SimpleEntry<>(
+                        new AbstractMap.SimpleEntry<String, String>(
                             "someAdditionalProperty",
                             "a"
                         )
@@ -71,7 +71,7 @@ MapTest.MapTestMap validatedPayload =
         )
         .map_of_enum_string(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "someAdditionalProperty",
                     "UPPER"
                 )
@@ -79,7 +79,7 @@ MapTest.MapTestMap validatedPayload =
         )
         .direct_map(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Boolean>(
                     "someAdditionalProperty",
                     true
                 )
@@ -381,7 +381,7 @@ MapTest.MapMapOfStringMap validatedPayload =
         .additionalProperty(
             "someAdditionalProperty",
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "someAdditionalProperty",
                     "a"
                 )

@@ -67,7 +67,7 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
     new AdditionalPropertiesClass.AdditionalPropertiesClassMapBuilder()
         .map_property(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "someAdditionalProperty",
                     "a"
                 )
@@ -75,10 +75,10 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
         )
         .map_of_map_property(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                     "someAdditionalProperty",
                     MapUtils.makeMap(
-                        new AbstractMap.SimpleEntry<>(
+                        new AbstractMap.SimpleEntry<String, String>(
                             "someAdditionalProperty",
                             "a"
                         )
@@ -96,7 +96,7 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
         )
         .map_with_undeclared_properties_string(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "someAdditionalProperty",
                     "a"
                 )
@@ -488,7 +488,7 @@ AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
         .additionalProperty(
             "someAdditionalProperty",
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "someAdditionalProperty",
                     "a"
                 )

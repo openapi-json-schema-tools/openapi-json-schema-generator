@@ -99,7 +99,7 @@ NullableClass.NullableClassMap validatedPayload =
 
         .object_items_nullable(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Void>(
                     "someAdditionalProperty",
                     null
                 )
@@ -1084,8 +1084,8 @@ Void validatedPayload = NullableClass.IntegerProp.validate(
     configuration
 );
 
-// long validation
-long validatedPayload = NullableClass.IntegerProp.validate(
+// int validation
+int validatedPayload = NullableClass.IntegerProp.validate(
     1L,
     configuration
 );
@@ -1095,6 +1095,7 @@ long validatedPayload = NullableClass.IntegerProp.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br/>)<br/> |
+| String | type = "int"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

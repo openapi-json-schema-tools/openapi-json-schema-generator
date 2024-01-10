@@ -43,7 +43,7 @@ FromSchema.FromSchemaMap validatedPayload =
     new FromSchema.FromSchemaMapBuilder()
         .data("a")
 
-        .id(1L)
+        .id(1)
 
     .build(),
     configuration

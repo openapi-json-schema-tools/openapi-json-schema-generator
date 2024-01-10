@@ -696,5 +696,55 @@ def write_openapi_spec():
         )
     print(f'spec written to {spec_out}')
 
+    spec_out = '3_1_0_unit_test_spec_nopaths.yaml'
+    openapi.paths = {}
+    openapi.tags = []
+    removed_cases = {
+        'ItemsDoesNotLookInApplicatorsValidCase',
+        'PrefixitemsValidationAdjustsTheStartingIndexForItems',
+        'ASchemaGivenForPrefixitems',
+        'AdditionalItemsAreAllowedByDefault',
+        'PrefixitemsWithNullInstanceElements',
+        'UniqueitemsWithAnArrayOfItems',
+        'UniqueitemsFalseWithAnArrayOfItems',
+        'ContainsKeywordValidation',
+        'ItemsContains',
+        'ContainsWithNullInstanceElements',
+        'UnevaluateditemsDependsOnMultipleNestedContains',
+        'DependentSchemasSingleDependency',
+        'DependentSchemasDependenciesWithEscapedCharacters',
+        'DependentSchemasDependentSubschemaIncompatibleWithRoot',
+        'IgnoreIfWithoutThenOrElse',
+        'IfAndThenWithoutElse',
+        'IfAndElseWithoutThen',
+        'ValidateAgainstCorrectBranchThenVsElse',
+        'NonInterferenceAcrossCombinedSchemas',
+        'IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence',
+        'IgnoreThenWithoutIf',
+        'IgnoreElseWithoutIf',
+        'MultipleDependentsRequired',
+        'MultipleSimultaneousPatternpropertiesAreValidated',
+        'NonAsciiPatternWithAdditionalproperties',
+        'PatternpropertiesValidatesPropertiesMatchingARegex',
+        'PropertiesPatternpropertiesAdditionalpropertiesInteraction',
+        'PropertynamesValidation',
+        'RegexesAreNotAnchoredByDefaultAndAreCaseSensitive',
+        'SingleDependency',
+        'UnevaluateditemsAsSchema',
+        'UnevaluateditemsWithNullInstanceElements',
+        'UnevaluatedpropertiesNotAffectedByPropertynames',
+        'UnevaluatedpropertiesSchema'
+    }
+    for removed_case in removed_cases:
+        del openapi.components['schemas'][removed_case]
+        del openapi.components['x-schema-test-examples'][removed_case]
+    with open(spec_out, 'w') as yaml_out:
+        yaml_out.write(
+            yaml.dump(
+                dataclasses.asdict(openapi),
+                sort_keys=False
+            )
+        )
+    print(f'spec written to {spec_out}')
 
 write_openapi_spec()

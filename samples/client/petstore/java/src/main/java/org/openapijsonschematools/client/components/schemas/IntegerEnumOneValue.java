@@ -94,6 +94,7 @@ public class IntegerEnumOneValue {
                     Float.class,
                     Double.class
                 ))
+                .format("int")
                 .enumValues(SetMaker.makeSet(
                     new BigDecimal("0")
                 ))

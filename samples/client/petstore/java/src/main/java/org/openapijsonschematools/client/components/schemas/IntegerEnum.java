@@ -102,6 +102,7 @@ public class IntegerEnum {
                     Float.class,
                     Double.class
                 ))
+                .format("int")
                 .enumValues(SetMaker.makeSet(
                     new BigDecimal("0"),
                     new BigDecimal("1"),

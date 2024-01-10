@@ -55,6 +55,7 @@ public class FormatTest {
                     Float.class,
                     Double.class
                 ))
+                .format("int")
                 .maximum(100)
                 .minimum(10)
                 .multipleOf(new BigDecimal("2"))

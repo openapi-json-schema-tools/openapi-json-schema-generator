@@ -129,8 +129,17 @@ public class JsonSchemaInfo {
         return this;
     }
     public @Nullable Object defaultValue = null;
+    public boolean defaultValueSet = false;
     public JsonSchemaInfo defaultValue(@Nullable Object defaultValue) {
         this.defaultValue = defaultValue;
+        this.defaultValueSet = true;
+        return this;
+    }
+    public @Nullable Object constValue = null;
+    public boolean constValueSet = false;
+    public JsonSchemaInfo constValue(@Nullable Object constValue) {
+        this.constValue = constValue;
+        this.constValueSet = true;
         return this;
     }
 }

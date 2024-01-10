@@ -43,6 +43,9 @@ public abstract class JsonSchema {
     public final @Nullable Set<@Nullable Object> enumValues;
     public final @Nullable Pattern pattern;
     public final @Nullable Object defaultValue;
+    public final boolean defaultValueSet;
+    public final @Nullable Object constValue;
+    public final boolean constValueSet;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -216,6 +219,15 @@ public abstract class JsonSchema {
             );
         }
         this.defaultValue = jsonSchemaInfo.defaultValue;
+        this.defaultValueSet = jsonSchemaInfo.defaultValueSet;
+        this.constValue = jsonSchemaInfo.constValue;
+        this.constValueSet = jsonSchemaInfo.constValueSet;
+        if (this.constValueSet) {
+            keywordToValidator.put(
+                    "const",
+                    new ConstValidator(this.constValue)
+            );
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
@@ -233,7 +245,10 @@ public abstract class JsonSchema {
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
             if (disabledKeywords.contains(jsonKeyword)) {
-               continue;
+                boolean typeIntegerUseCase = jsonKeyword.equals("format") && "int".equals(jsonSchema.format);
+                if (!typeIntegerUseCase) {
+                    continue;
+                }
             }
             KeywordValidator validator = entry.getValue();
             @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(

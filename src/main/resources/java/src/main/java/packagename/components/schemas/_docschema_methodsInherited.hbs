@@ -34,6 +34,9 @@
                                     {{#eq ../format null }}
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="IntJsonSchema" }}
                                     {{/eq}}
+                                    {{#eq ../format "int" }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="IntJsonSchema" }}
+                                    {{/eq}}
                                     {{#eq ../format "int32"}}
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="Int32JsonSchema" }}
                                     {{/eq}}

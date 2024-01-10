@@ -151,20 +151,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public JavaClientGenerator() {
         super();
 
-        modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(DocumentationFeature.Readme, DocumentationFeature.Servers)
-                .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))
-                .securityFeatures(EnumSet.noneOf(
-                        SecurityFeature.class
-                ))
-                .excludeSchemaFeatures(
-                        SchemaFeature.Not
-                )
-                .includeGlobalFeatures(
-                        GlobalFeature.Servers
-                )
-        );
-
         supportsInheritance = true;
 
         hideGenerationTimestamp = false;
@@ -187,7 +173,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
                         "native", "super", "while", "null",
                         // additional types
-                        "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer"
+                        "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer", "toString"
                 )
         );
 
@@ -254,16 +240,21 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         instantiationTypes.put("boolean", "boolean");
         instantiationTypes.put("null", "Void (null)");
 
-        // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .includeDocumentationFeatures(DocumentationFeature.Readme, DocumentationFeature.Servers)
+                .securityFeatures(EnumSet.noneOf(
+                        SecurityFeature.class
+                ))
+                .includeGlobalFeatures(
+                        GlobalFeature.Servers
+                )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,
                         SchemaFeature.AllOf,
                         SchemaFeature.AnyOf,
-                        // SchemaFeature.Const,
+                        SchemaFeature.Const,
                         // SchemaFeature.Contains,
-                        // SchemaFeature.Default,
+                        SchemaFeature.Default,
                         // SchemaFeature.DependentRequired,
                         // SchemaFeature.DependentSchemas,
                         // SchemaFeature.Discriminator,
@@ -568,6 +559,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("BooleanEnumValidator");
         keywordValidatorFiles.add("BooleanSchemaValidator");
         keywordValidatorFiles.add("BooleanValueMethod");
+        keywordValidatorFiles.add("ConstValidator");
         keywordValidatorFiles.add("BigDecimalValidator");
         keywordValidatorFiles.add("CustomIsoparser");
         keywordValidatorFiles.add("DefaultValueMethod");
@@ -1120,6 +1112,39 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 imports.addAll(getImports(sourceJsonPath, cs, featureSet));
             }
         }
+        if (schema.patternProperties != null && !schema.patternProperties.isEmpty()) {
+            for (CodegenSchema cs: schema.patternProperties.values()) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
+        }
+        if (schema.dependentSchemas != null && !schema.dependentSchemas.isEmpty()) {
+            for (CodegenSchema cs: schema.dependentSchemas.values()) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
+        }
+        if (schema.unevaluatedItems != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.unevaluatedItems, featureSet));
+        }
+        if (schema.if_ != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.if_, featureSet));
+        }
+        if (schema.then != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.then, featureSet));
+        }
+        if (schema.else_ != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.else_, featureSet));
+        }
+        if (schema.contains != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.contains, featureSet));
+        }
+        if (schema.unevaluatedProperties != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.unevaluatedProperties, featureSet));
+        }
+        if (schema.prefixItems != null && !schema.prefixItems.isEmpty()) {
+            for (CodegenSchema cs: schema.prefixItems) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
+        }
         // referenced or inline schemas
         if (!sourceJsonPath.startsWith("#/components/schemas/") && schema.refInfo != null && schema.refInfo.refModule != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.Ref)) {
             imports.add(getImport(schema.refInfo));
@@ -1160,7 +1185,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 } else if (schema.types.contains("integer")) {
                     if (schema.isSimpleInteger()) {
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                        if (schema.format == null) {
+                        if (schema.format == null || schema.format.equals("int")) {
                             imports.add("import "+packageName + ".schemas.IntJsonSchema;");
                         } else if (schema.format.equals("int32")) {
                             imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
@@ -1308,6 +1333,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 addAnyOfValidator(schema, imports);
                 addOneOfValidator(schema, imports);
                 addEnumValidator(schema, imports);
+                addConstImports(schema, imports);
                 addPatternValidator(schema, imports);
                 addMultipleOfValidator(schema, imports);
                 addAdditionalPropertiesImports(schema, imports);
@@ -1371,6 +1397,43 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 imports.add("import "+packageName + ".schemas.validation.FloatValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Double")) {
+                imports.add("import java.math.BigDecimal;");
+                imports.add("import "+packageName + ".schemas.validation.DoubleEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.DoubleValueMethod;");
+            }
+        }
+    }
+
+    private void addConstImports(CodegenSchema schema, Set<String> imports) {
+        if (schema.constInfo != null) {
+            if (schema.constInfo.typeToValues.containsKey("null")) {
+                imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.NullValueMethod;");
+            }
+            if (schema.constInfo.typeToValues.containsKey("boolean")) {
+                imports.add("import "+packageName + ".schemas.validation.BooleanEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.BooleanValueMethod;");
+            }
+            if (schema.constInfo.typeToValues.containsKey("string")) {
+                imports.add("import "+packageName + ".schemas.validation.StringEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.StringValueMethod;");
+            }
+            if (schema.constInfo.typeToValues.containsKey("Integer")) {
+                imports.add("import java.math.BigDecimal;");
+                imports.add("import "+packageName + ".schemas.validation.IntegerEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.IntegerValueMethod;");
+            }
+            if (schema.constInfo.typeToValues.containsKey("Long")) {
+                imports.add("import java.math.BigDecimal;");
+                imports.add("import "+packageName + ".schemas.validation.LongEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.LongValueMethod;");
+            }
+            if (schema.constInfo.typeToValues.containsKey("Float")) {
+                imports.add("import java.math.BigDecimal;");
+                imports.add("import "+packageName + ".schemas.validation.FloatEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.FloatValueMethod;");
+            }
+            if (schema.constInfo.typeToValues.containsKey("Double")) {
                 imports.add("import java.math.BigDecimal;");
                 imports.add("import "+packageName + ".schemas.validation.DoubleEnumValidator;");
                 imports.add("import "+packageName + ".schemas.validation.DoubleValueMethod;");
@@ -1457,6 +1520,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
         addDefaultValueImport(schema, imports);
+        addConstImports(schema, imports);
     }
 
     private void addNullSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1466,6 +1530,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
         addDefaultValueImport(schema, imports);
+        addConstImports(schema, imports);
     }
 
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1501,6 +1566,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addEnumValidator(schema, imports);
         addMultipleOfValidator(schema, imports);
         addDefaultValueImport(schema, imports);
+        addConstImports(schema, imports);
     }
 
     private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1524,6 +1590,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addEnumValidator(schema, imports);
         addPatternValidator(schema, imports);
         addDefaultValueImport(schema, imports);
+        addConstImports(schema, imports);
     }
 
 
@@ -2496,5 +2563,26 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public boolean generateSeparateServerSchemas() {
         return true;
+    }
+
+    /**
+     * Convert OAS Property object to Codegen Property object
+     * We have a custom version of this method to always set allowableValues.enumVars on all enum variables
+     * Together with unaliasSchema this sets primitive types with validations as models
+     * This method is used by fromResponse
+     *
+     * @param p OAS property schema
+     * @return Codegen Property object
+     */
+    @Override
+    public CodegenSchema fromSchema(Schema p, String sourceJsonPath, String currentJsonPath) {
+        // fix needed for values with /n /t etc. in them
+        CodegenSchema cp = super.fromSchema(p, sourceJsonPath, currentJsonPath);
+        if (cp.types != null && cp.types.contains("integer") && cp.format == null) {
+            // this generator treats integers as type number
+            // so integer validation info must be set using formatting
+            cp.format = "int";
+        }
+        return cp;
     }
 }

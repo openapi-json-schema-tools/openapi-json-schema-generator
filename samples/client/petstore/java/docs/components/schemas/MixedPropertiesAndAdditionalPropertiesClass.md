@@ -50,7 +50,7 @@ MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalProperti
 
         .setMap(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                     "someAdditionalProperty",
                     MapUtils.makeMap(
                         new AbstractMap.SimpleEntry<String, String>(

@@ -56,6 +56,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#if defaultValue}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_default }}
         {{/if}}
+        {{#if constInfo}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_const }}
+        {{/if}}
         );
     }
 
@@ -65,9 +68,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         }
         return instance;
     }
-{{#if constInfo}}
-    {{!> components/schemas/schema_cls/_const }}
-{{/if}}
 {{#if if_}}
     {{!> components/schemas/schema_cls/_if }}
 {{/if}}

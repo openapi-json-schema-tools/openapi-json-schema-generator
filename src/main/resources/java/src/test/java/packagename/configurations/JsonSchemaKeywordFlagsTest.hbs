@@ -54,7 +54,7 @@ public final class JsonSchemaKeywordFlagsTest {
         expectedEnabledKeywords.add("additionalProperties");
         expectedEnabledKeywords.add("allOf");
         expectedEnabledKeywords.add("anyOf");
-        expectedEnabledKeywords.add("const_");
+        expectedEnabledKeywords.add("const");
         expectedEnabledKeywords.add("contains");
         expectedEnabledKeywords.add("dependentRequired");
         expectedEnabledKeywords.add("dependentSchemas");

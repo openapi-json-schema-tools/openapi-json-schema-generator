@@ -46,7 +46,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
     PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1.validate(
     new PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapBuilder()
-        .count(1L)
+        .count(1)
 
         .results(
             Arrays.asList(

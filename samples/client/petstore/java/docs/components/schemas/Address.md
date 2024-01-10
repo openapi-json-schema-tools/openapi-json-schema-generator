@@ -40,7 +40,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Address.AddressMap validatedPayload =
     Address.Address1.validate(
     new Address.AddressMapBuilder()
-        .additionalProperty("someAdditionalProperty", 1L)
+        .additionalProperty("someAdditionalProperty", 1)
 
     .build(),
     configuration

@@ -196,7 +196,7 @@ public class DefaultGenerator implements Generator {
                         // OpenIDConnect not yet supported
                 )
                 .includeWireFormatFeatures(
-                        WireFormatFeature.JSON, WireFormatFeature.XML
+                        WireFormatFeature.JSON
                         // PROTOBUF and Custom are generator specific
                 )
                 .build();

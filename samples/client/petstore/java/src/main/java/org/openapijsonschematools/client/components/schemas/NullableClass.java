@@ -134,6 +134,7 @@ public class NullableClass {
                     Float.class,
                     Double.class
                 ))
+                .format("int")
             );
         }
     

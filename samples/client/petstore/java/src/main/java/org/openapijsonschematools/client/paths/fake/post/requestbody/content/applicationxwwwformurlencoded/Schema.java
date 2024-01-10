@@ -47,6 +47,7 @@ public class Schema {
                     Float.class,
                     Double.class
                 ))
+                .format("int")
                 .maximum(100)
                 .minimum(10)
             );
