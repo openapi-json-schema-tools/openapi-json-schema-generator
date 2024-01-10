@@ -24,7 +24,7 @@ public class UnevaluatedpropertiesSchemaTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "fo"
                     )
@@ -54,7 +54,7 @@ public class UnevaluatedpropertiesSchemaTest {
         final var schema = UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo",
                     "foo"
                 )

@@ -24,7 +24,7 @@ public class DependentSchemasDependenciesWithEscapedCharactersTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "foo'bar",
                         1
                     )
@@ -95,10 +95,10 @@ public class DependentSchemasDependenciesWithEscapedCharactersTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo'bar",
                         MapUtils.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Number>(
                                 "foo\"bar",
                                 1
                             )

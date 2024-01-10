@@ -23,7 +23,7 @@ public class NotMoreComplexSchemaTest {
         final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
                     1
                 )
@@ -39,7 +39,7 @@ public class NotMoreComplexSchemaTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )

@@ -23,7 +23,7 @@ public class AdditionalpropertiesCanExistByItselfTest {
         final var schema = AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Boolean>(
                     "foo",
                     true
                 )
@@ -39,7 +39,7 @@ public class AdditionalpropertiesCanExistByItselfTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "foo",
                         1
                     )

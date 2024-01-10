@@ -23,7 +23,7 @@ public class MaxpropertiesValidationTest {
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
                     1
                 )

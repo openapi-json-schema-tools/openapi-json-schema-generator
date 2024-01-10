@@ -23,7 +23,7 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitiveTest {
         final var schema = RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "a_x_3",
                     3
                 )
@@ -38,7 +38,7 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitiveTest {
         final var schema = RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "answer 1",
                     "42"
                 )
@@ -54,7 +54,7 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitiveTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Void>(
                         "a31b",
                         null
                     )
@@ -74,7 +74,7 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitiveTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "a_X_3",
                         3
                     )

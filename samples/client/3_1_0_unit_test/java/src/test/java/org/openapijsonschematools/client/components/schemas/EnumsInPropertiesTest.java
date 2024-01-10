@@ -106,7 +106,7 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "bar",
                     "bar"
                 )
@@ -122,7 +122,7 @@ public class EnumsInPropertiesTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "foo"
                     )

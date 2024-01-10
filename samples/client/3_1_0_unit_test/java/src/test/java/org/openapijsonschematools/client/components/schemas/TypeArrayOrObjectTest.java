@@ -82,7 +82,7 @@ public class TypeArrayOrObjectTest {
         final var schema = TypeArrayOrObject.TypeArrayOrObject1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
                     123
                 )

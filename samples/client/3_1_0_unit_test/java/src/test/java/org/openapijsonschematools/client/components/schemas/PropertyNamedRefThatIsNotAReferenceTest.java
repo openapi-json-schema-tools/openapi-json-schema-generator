@@ -23,7 +23,7 @@ public class PropertyNamedRefThatIsNotAReferenceTest {
         final var schema = PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "$ref",
                     "a"
                 )
@@ -39,7 +39,7 @@ public class PropertyNamedRefThatIsNotAReferenceTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "$ref",
                         2
                     )

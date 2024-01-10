@@ -24,7 +24,7 @@ public class NonAsciiPatternWithAdditionalpropertiesTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "élmény",
                         2
                     )
@@ -43,7 +43,7 @@ public class NonAsciiPatternWithAdditionalpropertiesTest {
         final var schema = NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "ármányos",
                     2
                 )

@@ -47,7 +47,7 @@ public class PatternpropertiesValidatesPropertiesMatchingARegexTest {
         final var schema = PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
                     1
                 )

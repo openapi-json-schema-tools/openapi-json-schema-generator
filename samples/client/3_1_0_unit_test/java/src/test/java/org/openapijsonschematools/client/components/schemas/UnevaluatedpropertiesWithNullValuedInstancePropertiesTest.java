@@ -23,7 +23,7 @@ public class UnevaluatedpropertiesWithNullValuedInstancePropertiesTest {
         final var schema = UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Void>(
                     "foo",
                     null
                 )

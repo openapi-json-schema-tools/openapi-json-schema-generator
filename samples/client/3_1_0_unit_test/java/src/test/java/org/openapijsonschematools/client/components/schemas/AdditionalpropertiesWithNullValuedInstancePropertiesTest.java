@@ -23,7 +23,7 @@ public class AdditionalpropertiesWithNullValuedInstancePropertiesTest {
         final var schema = AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstanceProperties1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Void>(
                     "foo",
                     null
                 )

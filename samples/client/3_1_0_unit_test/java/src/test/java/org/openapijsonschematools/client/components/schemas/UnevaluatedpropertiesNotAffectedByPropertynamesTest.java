@@ -23,7 +23,7 @@ public class UnevaluatedpropertiesNotAffectedByPropertynamesTest {
         final var schema = UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "a",
                     1
                 )
@@ -39,7 +39,7 @@ public class UnevaluatedpropertiesNotAffectedByPropertynamesTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "a",
                         "b"
                     )

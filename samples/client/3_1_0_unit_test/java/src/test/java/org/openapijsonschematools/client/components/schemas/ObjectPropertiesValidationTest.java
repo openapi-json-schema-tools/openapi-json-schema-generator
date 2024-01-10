@@ -42,7 +42,7 @@ public class ObjectPropertiesValidationTest {
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, List<?>>(
                     "quux",
                     Arrays.asList(
                     )

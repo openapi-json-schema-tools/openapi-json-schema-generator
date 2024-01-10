@@ -24,7 +24,7 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "__proto__",
                         "foo"
                     )
@@ -71,7 +71,7 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesTest {
                 new AbstractMap.SimpleEntry<String, Object>(
                     "toString",
                     MapUtils.makeMap(
-                        new AbstractMap.SimpleEntry<>(
+                        new AbstractMap.SimpleEntry<String, String>(
                             "length",
                             "foo"
                         )
@@ -93,10 +93,10 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "constructor",
                         MapUtils.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Number>(
                                 "length",
                                 37
                             )
@@ -129,10 +129,10 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "toString",
                         MapUtils.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Number>(
                                 "length",
                                 37
                             )

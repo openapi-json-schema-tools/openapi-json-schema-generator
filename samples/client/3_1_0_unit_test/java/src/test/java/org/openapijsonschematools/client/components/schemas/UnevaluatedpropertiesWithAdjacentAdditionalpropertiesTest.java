@@ -42,7 +42,7 @@ public class UnevaluatedpropertiesWithAdjacentAdditionalpropertiesTest {
         final var schema = UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo",
                     "foo"
                 )

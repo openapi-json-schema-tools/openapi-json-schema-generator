@@ -66,7 +66,7 @@ public class DependentSchemasSingleDependencyTest {
         final var schema = DependentSchemasSingleDependency.DependentSchemasSingleDependency1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo",
                     "quux"
                 )

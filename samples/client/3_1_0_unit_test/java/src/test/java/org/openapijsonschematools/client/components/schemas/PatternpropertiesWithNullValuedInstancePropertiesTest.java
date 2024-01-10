@@ -23,7 +23,7 @@ public class PatternpropertiesWithNullValuedInstancePropertiesTest {
         final var schema = PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Void>(
                     "foobar",
                     null
                 )

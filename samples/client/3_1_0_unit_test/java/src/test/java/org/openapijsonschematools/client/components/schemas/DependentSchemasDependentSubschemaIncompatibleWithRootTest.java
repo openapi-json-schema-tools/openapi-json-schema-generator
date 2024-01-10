@@ -24,7 +24,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRootTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "foo",
                         1
                     )
@@ -43,7 +43,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRootTest {
         final var schema = DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "bar",
                     1
                 )
@@ -58,7 +58,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRootTest {
         final var schema = DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "baz",
                     1
                 )

@@ -23,7 +23,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
         final var schema = PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, List<?>>(
                     "foo",
                     Arrays.asList(
                         1,
@@ -41,7 +41,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
         final var schema = PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, List<?>>(
                     "bar",
                     Arrays.asList(
                     )
@@ -58,7 +58,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, List<?>>(
                         "foo",
                         Arrays.asList(
                         )
@@ -78,7 +78,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
         final var schema = PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, List<?>>(
                     "fxo",
                     Arrays.asList(
                         1,
@@ -97,7 +97,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, List<?>>(
                         "fxo",
                         Arrays.asList(
                         )
@@ -118,7 +118,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, List<?>>(
                         "foo",
                         Arrays.asList(
                             1,
@@ -143,7 +143,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "quux",
                         "foo"
                     )
@@ -162,7 +162,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteractionTest {
         final var schema = PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "quux",
                     3
                 )

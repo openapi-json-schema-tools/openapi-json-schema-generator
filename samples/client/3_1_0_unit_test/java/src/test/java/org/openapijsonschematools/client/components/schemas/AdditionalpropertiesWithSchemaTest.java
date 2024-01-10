@@ -23,7 +23,7 @@ public class AdditionalpropertiesWithSchemaTest {
         final var schema = AdditionalpropertiesWithSchema.AdditionalpropertiesWithSchema1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
                     1
                 )

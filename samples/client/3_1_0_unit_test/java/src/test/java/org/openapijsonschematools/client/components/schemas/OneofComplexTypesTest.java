@@ -23,7 +23,7 @@ public class OneofComplexTypesTest {
         final var schema = OneofComplexTypes.OneofComplexTypes1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo",
                     "baz"
                 )
@@ -62,7 +62,7 @@ public class OneofComplexTypesTest {
         final var schema = OneofComplexTypes.OneofComplexTypes1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "bar",
                     2
                 )

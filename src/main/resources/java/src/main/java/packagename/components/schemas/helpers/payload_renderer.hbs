@@ -23,11 +23,7 @@
     {{else}}
 MapUtils.makeMap(
         {{#each value}}
-            {{#eq ../value.size 1}}
-    new AbstractMap.SimpleEntry<>(
-            {{else}}
     new AbstractMap.SimpleEntry<String, {{#with ../schema.mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type forceNull=true noExtends=true }}{{/with}}>(
-            {{/eq}}
             {{#if @key.original }}
         "{{{@key.original}}}",
             {{else}}

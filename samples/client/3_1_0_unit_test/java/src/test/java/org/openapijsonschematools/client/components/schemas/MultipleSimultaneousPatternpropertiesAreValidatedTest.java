@@ -23,7 +23,7 @@ public class MultipleSimultaneousPatternpropertiesAreValidatedTest {
         final var schema = MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "aaaa",
                     18
                 )
@@ -38,7 +38,7 @@ public class MultipleSimultaneousPatternpropertiesAreValidatedTest {
         final var schema = MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1.getInstance();
         schema.validate(
             MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Number>(
                     "a",
                     21
                 )
@@ -54,7 +54,7 @@ public class MultipleSimultaneousPatternpropertiesAreValidatedTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "aaaa",
                         31
                     )
@@ -93,7 +93,7 @@ public class MultipleSimultaneousPatternpropertiesAreValidatedTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "a",
                         "bar"
                     )

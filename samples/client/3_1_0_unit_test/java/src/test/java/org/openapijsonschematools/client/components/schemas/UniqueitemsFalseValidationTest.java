@@ -51,13 +51,13 @@ public class UniqueitemsFalseValidationTest {
         schema.validate(
             Arrays.asList(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
                 ),
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
@@ -104,13 +104,13 @@ public class UniqueitemsFalseValidationTest {
         schema.validate(
             Arrays.asList(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo",
                         MapUtils.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                                 "bar",
                                 MapUtils.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )
@@ -120,13 +120,13 @@ public class UniqueitemsFalseValidationTest {
                     )
                 ),
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo",
                         MapUtils.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                                 "bar",
                                 MapUtils.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         false
                                     )
@@ -256,13 +256,13 @@ public class UniqueitemsFalseValidationTest {
         schema.validate(
             Arrays.asList(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
                 ),
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "baz"
                     )
@@ -279,13 +279,13 @@ public class UniqueitemsFalseValidationTest {
         schema.validate(
             Arrays.asList(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo",
                         MapUtils.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                                 "bar",
                                 MapUtils.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )
@@ -295,13 +295,13 @@ public class UniqueitemsFalseValidationTest {
                     )
                 ),
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo",
                         MapUtils.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                                 "bar",
                                 MapUtils.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )

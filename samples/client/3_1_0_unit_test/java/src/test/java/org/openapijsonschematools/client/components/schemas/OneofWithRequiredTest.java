@@ -90,7 +90,7 @@ public class OneofWithRequiredTest {
         try {
             schema.validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "bar",
                         2
                     )
