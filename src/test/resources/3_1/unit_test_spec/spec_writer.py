@@ -699,6 +699,19 @@ def write_openapi_spec():
     spec_out = '3_1_0_unit_test_spec_nopaths.yaml'
     openapi.paths = {}
     openapi.tags = []
+    removed_cases = {
+        'ItemsDoesNotLookInApplicatorsValidCase',
+        'PrefixitemsValidationAdjustsTheStartingIndexForItems',
+        'ASchemaGivenForPrefixitems',
+        'AdditionalItemsAreAllowedByDefault',
+        'PrefixitemsWithNullInstanceElements',
+        'UniqueitemsWithAnArrayOfItems',
+        'UniqueitemsFalseWithAnArrayOfItems',
+
+    }
+    for removed_case in removed_cases:
+        del openapi.components['schemas'][removed_case]
+        del openapi.components['x-schema-test-examples'][removed_case]
     with open(spec_out, 'w') as yaml_out:
         yaml_out.write(
             yaml.dump(
