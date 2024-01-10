@@ -30,7 +30,9 @@ import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -247,6 +249,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 ))
                 .includeGlobalFeatures(
                         GlobalFeature.Servers
+                )
+                .includeComponentsFeatures(
+                        ComponentsFeature.schemas
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,
