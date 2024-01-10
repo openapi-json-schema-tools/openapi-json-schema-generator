@@ -41,14 +41,16 @@ public class UnevaluateditemsWithItemsTest {
         // valid under items
         final var schema = UnevaluateditemsWithItems.UnevaluateditemsWithItems1.getInstance();
         schema.validate(
-            new UnevaluateditemsWithItems.UnevaluateditemsWithItemsListBuilder(
-                Arrays.asList(
-                    5,
-                    6,
-                    7,
-                    8
-                )
-            ).build(),
+            new UnevaluateditemsWithItems.UnevaluateditemsWithItemsListBuilder()
+                .add(5)
+
+                .add(6)
+
+                .add(7)
+
+                .add(8)
+
+            .build(),
             configuration
         );
     }

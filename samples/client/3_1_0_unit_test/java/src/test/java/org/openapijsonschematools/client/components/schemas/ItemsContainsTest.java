@@ -78,12 +78,12 @@ public class ItemsContainsTest {
         // matches both items and contains
         final var schema = ItemsContains.ItemsContains1.getInstance();
         schema.validate(
-            new ItemsContains.ItemsContainsListBuilder(
-                Arrays.asList(
-                    6,
-                    12
-                )
-            ).build(),
+            new ItemsContains.ItemsContainsListBuilder()
+                .add(6)
+
+                .add(12)
+
+            .build(),
             configuration
         );
     }

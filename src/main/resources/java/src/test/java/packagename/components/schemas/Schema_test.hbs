@@ -28,9 +28,9 @@ public class {{containerJsonPathPiece.pascalCase}}Test {
         schema.validate(
             {{#with data}}
                 {{#and (eq type "array") ../arrayInputJsonPathPiece }}
-            new {{../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}(
-                {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
-            ).build(),
+            new {{../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}()
+                {{> src/main/java/packagename/components/schemas/helpers/payload_renderer constructor=true endChar="" }}
+            .build(),
                 {{else}}
             {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}
                 {{/and}}

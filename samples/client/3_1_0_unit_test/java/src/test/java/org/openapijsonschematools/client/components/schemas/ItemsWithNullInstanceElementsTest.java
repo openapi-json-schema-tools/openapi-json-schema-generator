@@ -22,11 +22,10 @@ public class ItemsWithNullInstanceElementsTest {
         // allows null elements
         final var schema = ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1.getInstance();
         schema.validate(
-            new ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder(
-                Arrays.asList(
-                    null
-                )
-            ).build(),
+            new ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder()
+                .add(null)
+
+            .build(),
             configuration
         );
     }

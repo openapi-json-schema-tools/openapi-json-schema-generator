@@ -104,8 +104,8 @@ public class NestedItemsTest {
         // valid nested array
         final var schema = NestedItems.NestedItems1.getInstance();
         schema.validate(
-            new NestedItems.NestedItemsListBuilder(
-                Arrays.asList(
+            new NestedItems.NestedItemsListBuilder()
+                .add(
                     Arrays.asList(
                         Arrays.asList(
                             Arrays.asList(
@@ -120,7 +120,9 @@ public class NestedItemsTest {
                                 3
                             )
                         )
-                    ),
+                    )
+                )
+                .add(
                     Arrays.asList(
                         Arrays.asList(
                             Arrays.asList(
@@ -135,7 +137,7 @@ public class NestedItemsTest {
                         )
                     )
                 )
-            ).build(),
+            .build(),
             configuration
         );
     }
