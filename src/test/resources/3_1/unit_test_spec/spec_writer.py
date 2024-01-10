@@ -696,5 +696,16 @@ def write_openapi_spec():
         )
     print(f'spec written to {spec_out}')
 
+    spec_out = '3_1_0_unit_test_spec_nopaths.yaml'
+    openapi.paths = {}
+    openapi.tags = []
+    with open(spec_out, 'w') as yaml_out:
+        yaml_out.write(
+            yaml.dump(
+                dataclasses.asdict(openapi),
+                sort_keys=False
+            )
+        )
+    print(f'spec written to {spec_out}')
 
 write_openapi_spec()

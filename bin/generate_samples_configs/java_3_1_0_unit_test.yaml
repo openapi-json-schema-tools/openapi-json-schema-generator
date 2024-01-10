@@ -1,5 +1,5 @@
 generatorName: java
 outputDir: samples/client/3_1_0_unit_test/java
-inputSpec: src/test/resources/3_1/unit_test_spec/3_1_0_unit_test_spec.yaml
+inputSpec: src/test/resources/3_1/unit_test_spec/3_1_0_unit_test_spec_nopaths.yaml
 additionalProperties:
   packageName: unit_test_api
