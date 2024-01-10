@@ -243,11 +243,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         instantiationTypes.put("null", "Void (null)");
 
         modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(DocumentationFeature.Readme, DocumentationFeature.Servers)
-                .securityFeatures(EnumSet.noneOf(
-                        SecurityFeature.class
-                ))
+                .includeDocumentationFeatures(
+                        DocumentationFeature.Readme,
+                        DocumentationFeature.Servers,
+                        DocumentationFeature.ComponentSchemas
+                )
                 .includeGlobalFeatures(
+                        GlobalFeature.Components,
                         GlobalFeature.Servers
                 )
                 .includeComponentsFeatures(

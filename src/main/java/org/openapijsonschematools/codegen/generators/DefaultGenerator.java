@@ -160,21 +160,17 @@ public class DefaultGenerator implements Generator {
         DefaultFeatureSet = FeatureSet.newBuilder()
                 .includeDataTypeFeatures(
                         DataTypeFeature.Int32, DataTypeFeature.Int64, DataTypeFeature.Integer, DataTypeFeature.Float, DataTypeFeature.Double,
-                        DataTypeFeature.String, DataTypeFeature.Byte, DataTypeFeature.Binary,
+                        DataTypeFeature.String,
                         DataTypeFeature.Boolean, DataTypeFeature.Date, DataTypeFeature.DateTime,
-                        DataTypeFeature.Array, DataTypeFeature.Object, DataTypeFeature.Enum, DataTypeFeature.Uuid
-                        // Custom types are template specific
+                        DataTypeFeature.Array, DataTypeFeature.Object, DataTypeFeature.Enum, DataTypeFeature.Uuid,
+                        DataTypeFeature.Null, DataTypeFeature.AnyType
                 )
                 .includeDocumentationFeatures(
-                        DocumentationFeature.Api, DocumentationFeature.ComponentSchemas
-                        // README is template specific
                 )
                 .includeComponentsFeatures(
-                        ComponentsFeature.schemas
                 )
                 .includeGlobalFeatures(
-                        GlobalFeature.Info,
-                        GlobalFeature.Components
+                        GlobalFeature.Info
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.Type, SchemaFeature.Format,

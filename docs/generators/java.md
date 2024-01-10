@@ -177,7 +177,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Components Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|schemas|✗|OAS3
+|schemas|✓|OAS3
 |responses|✗|OAS3
 |parameters|✗|OAS3
 |examples|✗|OAS3
@@ -194,22 +194,22 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Custom|✗|OAS2,OAS3
 |Int32|✓|OAS2,OAS3
 |Int64|✓|OAS2,OAS3
-|Integer|✗|OAS2,OAS3
+|Integer|✓|OAS2,OAS3
 |Float|✓|OAS2,OAS3
 |Double|✓|OAS2,OAS3
 |Number|✗|OAS2,OAS3
 |String|✓|OAS2,OAS3
-|Byte|✓|OAS2,OAS3
-|Binary|✓|OAS2,OAS3
+|Byte|✗|OAS2,OAS3
+|Binary|✗|OAS2,OAS3
 |Boolean|✓|OAS2,OAS3
 |Date|✓|OAS2,OAS3
 |DateTime|✓|OAS2,OAS3
-|Password|✓|OAS2,OAS3
-|File|✓|OAS2
-|Uuid|✗|OAS2,OAS3
+|Password|✗|OAS2,OAS3
+|File|✗|OAS2
+|Uuid|✓|OAS2,OAS3
 |Array|✓|OAS2,OAS3
-|Null|✗|OAS3
-|AnyType|✗|OAS2,OAS3
+|Null|✓|OAS3
+|AnyType|✓|OAS2,OAS3
 |Object|✓|OAS2,OAS3
 |Enum|✓|OAS2,OAS3
 
@@ -228,7 +228,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |ComponentLinks|✗|OAS3
 |ComponentCallbacks|✗|OAS3
 |ComponentPathItems|✗|OAS3
-|Api|✓|ToolingExtension
+|Api|✗|ToolingExtension
 
 ### Global Feature
 | Name | Supported | Defined By |
@@ -245,9 +245,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Operation Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Responses_HttpStatusCode|✓|OAS3
+|Responses_HttpStatusCode|✗|OAS3
 |Responses_RangedResponseCodes|✗|OAS3
-|Responses_Default|✓|OAS3
+|Responses_Default|✗|OAS3
 |Responses_RedirectionResponse|✗|OAS3
 
 ### Parameter Feature
@@ -255,10 +255,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | ---- | --------- | ---------- |
 |Name|✗|OAS2,OAS3
 |Required|✗|OAS2,OAS3
-|In_Path|✓|OAS2,OAS3
-|In_Query|✓|OAS2,OAS3
-|In_Header|✓|OAS2,OAS3
-|In_Cookie|✓|OAS3
+|In_Path|✗|OAS2,OAS3
+|In_Query|✗|OAS2,OAS3
+|In_Header|✗|OAS2,OAS3
+|In_Cookie|✗|OAS3
 |Style_Matrix|✗|OAS3
 |Style_Label|✗|OAS3
 |Style_Form|✗|OAS3
