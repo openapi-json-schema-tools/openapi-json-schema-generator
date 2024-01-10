@@ -30,7 +30,9 @@ import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -241,12 +243,17 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         instantiationTypes.put("null", "Void (null)");
 
         modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(DocumentationFeature.Readme, DocumentationFeature.Servers)
-                .securityFeatures(EnumSet.noneOf(
-                        SecurityFeature.class
-                ))
+                .includeDocumentationFeatures(
+                        DocumentationFeature.Readme,
+                        DocumentationFeature.Servers,
+                        DocumentationFeature.ComponentSchemas
+                )
                 .includeGlobalFeatures(
+                        GlobalFeature.Components,
                         GlobalFeature.Servers
+                )
+                .includeComponentsFeatures(
+                        ComponentsFeature.schemas
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,

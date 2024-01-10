@@ -246,15 +246,11 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                         DocumentationFeature.ComponentSecuritySchemes,
                         DocumentationFeature.Api
                 )
-                .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.Custom))
-                .securityFeatures(EnumSet.of(
+                .includeWireFormatFeatures(WireFormatFeature.JSON, WireFormatFeature.Custom)
+                .includeSecurityFeatures(
                         SecurityFeature.ApiKey,
                         SecurityFeature.HTTP_Basic,
                         SecurityFeature.HTTP_Bearer
-                ))
-                .excludeSecurityFeatures(
-                        SecurityFeature.OAuth2_Implicit, SecurityFeature.OAuth2_Password,
-                        SecurityFeature.OAuth2_ClientCredentials, SecurityFeature.OAuth2_AuthorizationCode
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Info,
@@ -289,11 +285,10 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                         ParameterFeature.Content
                 )
                 .includeOperationFeatures(
+                        OperationFeature.Responses_Default,
+                        OperationFeature.Responses_HttpStatusCode,
                         OperationFeature.Responses_RangedResponseCodes,
                         OperationFeature.Responses_RedirectionResponse
-                )
-                .excludeParameterFeatures(
-                        ParameterFeature.In_Cookie
                 )
         );
 

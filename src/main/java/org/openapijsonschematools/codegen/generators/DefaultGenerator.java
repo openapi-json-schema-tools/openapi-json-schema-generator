@@ -159,22 +159,18 @@ public class DefaultGenerator implements Generator {
     static {
         DefaultFeatureSet = FeatureSet.newBuilder()
                 .includeDataTypeFeatures(
-                        DataTypeFeature.Int32, DataTypeFeature.Int64, DataTypeFeature.Float, DataTypeFeature.Double,
-                        DataTypeFeature.String, DataTypeFeature.Byte, DataTypeFeature.Binary,
-                        DataTypeFeature.Boolean, DataTypeFeature.Date, DataTypeFeature.DateTime, DataTypeFeature.Password,
-                        DataTypeFeature.File, DataTypeFeature.Array, DataTypeFeature.Object, DataTypeFeature.Enum
-                        // Custom types are template specific
+                        DataTypeFeature.Int32, DataTypeFeature.Int64, DataTypeFeature.Integer, DataTypeFeature.Float, DataTypeFeature.Double,
+                        DataTypeFeature.String,
+                        DataTypeFeature.Boolean, DataTypeFeature.Date, DataTypeFeature.DateTime,
+                        DataTypeFeature.Array, DataTypeFeature.Object, DataTypeFeature.Enum, DataTypeFeature.Uuid,
+                        DataTypeFeature.Null, DataTypeFeature.AnyType
                 )
                 .includeDocumentationFeatures(
-                        DocumentationFeature.Api, DocumentationFeature.ComponentSchemas
-                        // README is template specific
                 )
                 .includeComponentsFeatures(
-                        ComponentsFeature.schemas
                 )
                 .includeGlobalFeatures(
-                        GlobalFeature.Info,
-                        GlobalFeature.Components
+                        GlobalFeature.Info
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.Type, SchemaFeature.Format,
@@ -182,19 +178,9 @@ public class DefaultGenerator implements Generator {
                         SchemaFeature.Required, SchemaFeature.AdditionalProperties,
                         SchemaFeature.Ref
                 )
-                .includeParameterFeatures(
-                        ParameterFeature.In_Path, ParameterFeature.In_Query, ParameterFeature.In_Header,
-                        ParameterFeature.In_Cookie
-                )
-                .includeOperationFeatures(
-                        OperationFeature.Responses_Default, OperationFeature.Responses_HttpStatusCode
-                )
-                .includeSecurityFeatures(
-                        SecurityFeature.ApiKey, SecurityFeature.HTTP_Basic, SecurityFeature.HTTP_Bearer,
-                        SecurityFeature.OAuth2_Implicit, SecurityFeature.OAuth2_Password,
-                        SecurityFeature.OAuth2_ClientCredentials, SecurityFeature.OAuth2_AuthorizationCode
-                        // OpenIDConnect not yet supported
-                )
+                .includeParameterFeatures()
+                .includeOperationFeatures()
+                .includeSecurityFeatures()
                 .includeWireFormatFeatures(
                         WireFormatFeature.JSON
                         // PROTOBUF and Custom are generator specific
