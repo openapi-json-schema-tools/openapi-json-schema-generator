@@ -43,6 +43,9 @@ public abstract class JsonSchema {
     public final @Nullable Set<@Nullable Object> enumValues;
     public final @Nullable Pattern pattern;
     public final @Nullable Object defaultValue;
+    public final boolean defaultValueSet;
+    public final @Nullable Object constValue;
+    public final boolean constValueSet;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
