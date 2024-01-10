@@ -88,6 +88,50 @@ public record JsonSchemaKeywordFlags(
         );
     }
 
+    public static JsonSchemaKeywordFlags onlyFormat() {
+        return new JsonSchemaKeywordFlags(
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+        );
+    }
+
     public LinkedHashSet<String> getKeywords() {
         LinkedHashSet<String> enabledKeywords = new LinkedHashSet<>();
         if (additionalProperties) { enabledKeywords.add("additionalProperties"); }

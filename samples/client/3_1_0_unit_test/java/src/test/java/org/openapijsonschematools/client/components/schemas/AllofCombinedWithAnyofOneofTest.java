@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class AllofCombinedWithAnyofOneofTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
     public void testAllofFalseAnyofFalseOneofTrueFails() {

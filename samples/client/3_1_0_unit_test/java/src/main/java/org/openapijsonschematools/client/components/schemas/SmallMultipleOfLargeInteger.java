@@ -37,6 +37,7 @@ public class SmallMultipleOfLargeInteger {
                     Float.class,
                     Double.class
                 ))
+                .format("int")
                 .multipleOf(new BigDecimal("1.0E-8"))
             );
         }

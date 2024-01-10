@@ -1185,7 +1185,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 } else if (schema.types.contains("integer")) {
                     if (schema.isSimpleInteger()) {
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                        if (schema.format == null) {
+                        if (schema.format == null || schema.format.equals("int")) {
                             imports.add("import "+packageName + ".schemas.IntJsonSchema;");
                         } else if (schema.format.equals("int32")) {
                             imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
@@ -2563,5 +2563,26 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public boolean generateSeparateServerSchemas() {
         return true;
+    }
+
+    /**
+     * Convert OAS Property object to Codegen Property object
+     * We have a custom version of this method to always set allowableValues.enumVars on all enum variables
+     * Together with unaliasSchema this sets primitive types with validations as models
+     * This method is used by fromResponse
+     *
+     * @param p OAS property schema
+     * @return Codegen Property object
+     */
+    @Override
+    public CodegenSchema fromSchema(Schema p, String sourceJsonPath, String currentJsonPath) {
+        // fix needed for values with /n /t etc. in them
+        CodegenSchema cp = super.fromSchema(p, sourceJsonPath, currentJsonPath);
+        if (cp.types != null && cp.types.contains("integer") && cp.format == null) {
+            // this generator treats integers as type number
+            // so integer validation info must be set using formatting
+            cp.format = "int";
+        }
+        return cp;
     }
 }

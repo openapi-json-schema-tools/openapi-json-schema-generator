@@ -31,8 +31,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// long validation
-long validatedPayload = FloatDivisionInf.FloatDivisionInf1.validate(
+// int validation
+int validatedPayload = FloatDivisionInf.FloatDivisionInf1.validate(
     1L,
     configuration
 );
@@ -42,6 +42,7 @@ long validatedPayload = FloatDivisionInf.FloatDivisionInf1.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br/>)<br/> |
+| String | type = "int"; |
 | BigDecimal | multipleOf = new BigDecimal("0.123456789") |
 
 ### Method Summary

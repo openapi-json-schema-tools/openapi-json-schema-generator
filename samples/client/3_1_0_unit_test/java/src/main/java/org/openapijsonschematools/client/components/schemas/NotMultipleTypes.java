@@ -47,6 +47,7 @@ public class NotMultipleTypes {
                     Double.class,
                     Boolean.class
                 ))
+                .format("int")
             );
         }
     

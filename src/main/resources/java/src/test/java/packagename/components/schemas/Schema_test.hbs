@@ -16,7 +16,7 @@ import java.util.AbstractMap;
 
 {{#with schema}}
 public class {{containerJsonPathPiece.pascalCase}}Test {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 {{#each testCases}}
     {{#with this }}
 

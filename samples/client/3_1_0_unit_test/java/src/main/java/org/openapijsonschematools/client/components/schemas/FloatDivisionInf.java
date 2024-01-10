@@ -37,6 +37,7 @@ public class FloatDivisionInf {
                     Float.class,
                     Double.class
                 ))
+                .format("int")
                 .multipleOf(new BigDecimal("0.123456789"))
             );
         }

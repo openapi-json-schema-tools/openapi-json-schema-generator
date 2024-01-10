@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class SmallMultipleOfLargeIntegerTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
     public void testAnyIntegerIsAMultipleOf1E8Passes() {

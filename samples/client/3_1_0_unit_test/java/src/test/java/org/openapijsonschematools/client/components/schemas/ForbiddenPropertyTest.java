@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.AbstractMap;
 
 public class ForbiddenPropertyTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
     public void testPropertyPresentFails() {

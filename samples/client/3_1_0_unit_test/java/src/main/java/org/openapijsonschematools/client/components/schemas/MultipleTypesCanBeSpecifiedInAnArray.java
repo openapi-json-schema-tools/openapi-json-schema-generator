@@ -39,6 +39,7 @@ public class MultipleTypesCanBeSpecifiedInAnArray {
                     Double.class,
                     String.class
                 ))
+                .format("int")
             );
         }
     

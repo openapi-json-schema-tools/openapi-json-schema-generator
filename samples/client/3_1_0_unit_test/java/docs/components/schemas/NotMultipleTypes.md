@@ -56,8 +56,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// long validation
-long validatedPayload = NotMultipleTypes.Not.validate(
+// int validation
+int validatedPayload = NotMultipleTypes.Not.validate(
     1L,
     configuration
 );
@@ -73,6 +73,7 @@ boolean validatedPayload = NotMultipleTypes.Not.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Boolean.class<br/>)<br/> |
+| String | type = "int"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

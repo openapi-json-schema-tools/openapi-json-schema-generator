@@ -153,6 +153,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>this</li>
 <li>throw</li>
 <li>throws</li>
+<li>tostring</li>
 <li>transient</li>
 <li>try</li>
 <li>uuid</li>
@@ -275,9 +276,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |AdditionalProperties|✓|OAS2,OAS3
 |AllOf|✓|OAS2,OAS3
 |AnyOf|✓|OAS3
-|Const|✗|OAS3
+|Const|✓|OAS3
 |Contains|✗|OAS3
-|Default|✗|OAS2,OAS3
+|Default|✓|OAS2,OAS3
 |DependentRequired|✗|OAS3
 |DependentSchemas|✗|OAS3
 |Discriminator|✗|OAS2,OAS3
@@ -332,6 +333,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |JSON|✓|OAS2,OAS3
-|XML|✓|OAS2,OAS3
+|XML|✗|OAS2,OAS3
 |PROTOBUF|✗|ToolingExtension
 |Custom|✗|OAS2,OAS3
