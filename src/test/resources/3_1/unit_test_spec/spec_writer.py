@@ -714,6 +714,14 @@ def write_openapi_spec():
         'DependentSchemasSingleDependency',
         'DependentSchemasDependenciesWithEscapedCharacters',
         'DependentSchemasDependentSubschemaIncompatibleWithRoot'
+        'IgnoreIfWithoutThenOrElse',
+        'IfAndThenWithoutElse',
+        'IfAndElseWithoutThen',
+        'ValidateAgainstCorrectBranchThenVsElse',
+        'NonInterferenceAcrossCombinedSchemas',
+        'IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence',
+        'IgnoreThenWithoutIf',
+        'IgnoreElseWithoutIf',
     }
     for removed_case in removed_cases:
         del openapi.components['schemas'][removed_case]
