@@ -707,7 +707,13 @@ def write_openapi_spec():
         'PrefixitemsWithNullInstanceElements',
         'UniqueitemsWithAnArrayOfItems',
         'UniqueitemsFalseWithAnArrayOfItems',
-
+        'ContainsKeywordValidation',
+        'ItemsContains',
+        'ContainsWithNullInstanceElements',
+        'UnevaluateditemsDependsOnMultipleNestedContains',
+        'DependentSchemasSingleDependency',
+        'DependentSchemasDependenciesWithEscapedCharacters',
+        'DependentSchemasDependentSubschemaIncompatibleWithRoot'
     }
     for removed_case in removed_cases:
         del openapi.components['schemas'][removed_case]

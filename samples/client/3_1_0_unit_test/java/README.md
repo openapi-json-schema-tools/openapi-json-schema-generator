@@ -180,13 +180,8 @@ allowed input and output types.
 | [ByNumber.ByNumber1](docs/components/schemas/ByNumber.md#bynumber1) | |
 | [BySmallNumber.BySmallNumber1](docs/components/schemas/BySmallNumber.md#bysmallnumber1) | |
 | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1](docs/components/schemas/ConstNulCharactersInStrings.md#constnulcharactersinstrings1) | |
-| [ContainsKeywordValidation.ContainsKeywordValidation1](docs/components/schemas/ContainsKeywordValidation.md#containskeywordvalidation1) | |
-| [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1](docs/components/schemas/ContainsWithNullInstanceElements.md#containswithnullinstanceelements1) | |
 | [DateFormat.DateFormat1](docs/components/schemas/DateFormat.md#dateformat1) | |
 | [DateTimeFormat.DateTimeFormat1](docs/components/schemas/DateTimeFormat.md#datetimeformat1) | |
-| [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1](docs/components/schemas/DependentSchemasDependenciesWithEscapedCharacters.md#dependentschemasdependencieswithescapedcharacters1) | |
-| [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1](docs/components/schemas/DependentSchemasDependentSubschemaIncompatibleWithRoot.md#dependentschemasdependentsubschemaincompatiblewithroot1) | |
-| [DependentSchemasSingleDependency.DependentSchemasSingleDependency1](docs/components/schemas/DependentSchemasSingleDependency.md#dependentschemassingledependency1) | |
 | [DurationFormat.DurationFormat1](docs/components/schemas/DurationFormat.md#durationformat1) | |
 | [EmailFormat.EmailFormat1](docs/components/schemas/EmailFormat.md#emailformat1) | |
 | [EmptyDependents.EmptyDependents1](docs/components/schemas/EmptyDependents.md#emptydependents1) | |
@@ -214,7 +209,6 @@ allowed input and output types.
 | [Ipv6Format.Ipv6Format1](docs/components/schemas/Ipv6Format.md#ipv6format1) | |
 | [IriFormat.IriFormat1](docs/components/schemas/IriFormat.md#iriformat1) | |
 | [IriReferenceFormat.IriReferenceFormat1](docs/components/schemas/IriReferenceFormat.md#irireferenceformat1) | |
-| [ItemsContains.ItemsContains1](docs/components/schemas/ItemsContains.md#itemscontains1) | |
 | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1](docs/components/schemas/ItemsWithNullInstanceElements.md#itemswithnullinstanceelements1) | |
 | [JsonPointerFormat.JsonPointerFormat1](docs/components/schemas/JsonPointerFormat.md#jsonpointerformat1) | |
 | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1](docs/components/schemas/MaxcontainsWithoutContainsIsIgnored.md#maxcontainswithoutcontainsisignored1) | |
@@ -279,7 +273,6 @@ allowed input and output types.
 | [TypeArrayOrObject.TypeArrayOrObject1](docs/components/schemas/TypeArrayOrObject.md#typearrayorobject1) | |
 | [TypeAsArrayWithOneItem.TypeAsArrayWithOneItem1](docs/components/schemas/TypeAsArrayWithOneItem.md#typeasarraywithoneitem1) | |
 | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1](docs/components/schemas/UnevaluateditemsAsSchema.md#unevaluateditemsasschema1) | |
-| [UnevaluateditemsDependsOnMultipleNestedContains.UnevaluateditemsDependsOnMultipleNestedContains1](docs/components/schemas/UnevaluateditemsDependsOnMultipleNestedContains.md#unevaluateditemsdependsonmultiplenestedcontains1) | |
 | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1](docs/components/schemas/UnevaluateditemsWithItems.md#unevaluateditemswithitems1) | |
 | [UnevaluateditemsWithNullInstanceElements.UnevaluateditemsWithNullInstanceElements1](docs/components/schemas/UnevaluateditemsWithNullInstanceElements.md#unevaluateditemswithnullinstanceelements1) | |
 | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1](docs/components/schemas/UnevaluatedpropertiesNotAffectedByPropertynames.md#unevaluatedpropertiesnotaffectedbypropertynames1) | |

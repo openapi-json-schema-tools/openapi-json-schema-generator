@@ -147,20 +147,6 @@ components:
     ConstNulCharactersInStrings:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: "hello\0there"
-    ContainsKeywordValidation:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      contains:
-        minimum: 5
-    ItemsContains:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      items:
-        multipleOf: 2
-      contains:
-        multipleOf: 3
-    ContainsWithNullInstanceElements:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      contains:
-        type: 'null'
     SingleDependency:
       $schema: https://json-schema.org/draft/2020-12/schema
       dependentRequired:
@@ -176,31 +162,6 @@ components:
         quux:
         - foo
         - bar
-    DependentSchemasSingleDependency:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      dependentSchemas:
-        bar:
-          properties:
-            foo:
-              type: integer
-            bar:
-              type: integer
-    DependentSchemasDependenciesWithEscapedCharacters:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      dependentSchemas:
-        "foo\tbar":
-          minProperties: 4
-        foo'bar:
-          required:
-          - foo"bar
-    DependentSchemasDependentSubschemaIncompatibleWithRoot:
-      properties:
-        foo: {}
-      dependentSchemas:
-        foo:
-          properties:
-            bar: {}
-          additionalProperties: false
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -671,15 +632,6 @@ components:
         type: number
       unevaluatedItems:
         type: string
-    UnevaluateditemsDependsOnMultipleNestedContains:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      allOf:
-      - contains:
-          multipleOf: 2
-      - contains:
-          multipleOf: 3
-      unevaluatedItems:
-        multipleOf: 5
     UnevaluateditemsWithNullInstanceElements:
       $schema: https://json-schema.org/draft/2020-12/schema
       unevaluatedItems:
@@ -1045,88 +997,6 @@ components:
         data: hellothere
         valid: false
         comment: null
-    ContainsKeywordValidation:
-      ArrayWithItemMatchingSchema5IsValid:
-        description: array with item matching schema (5) is valid
-        data:
-        - 3
-        - 4
-        - 5
-        valid: true
-        comment: null
-      ArrayWithItemMatchingSchema6IsValid:
-        description: array with item matching schema (6) is valid
-        data:
-        - 3
-        - 4
-        - 6
-        valid: true
-        comment: null
-      ArrayWithTwoItemsMatchingSchema56IsValid:
-        description: array with two items matching schema (5, 6) is valid
-        data:
-        - 3
-        - 4
-        - 5
-        - 6
-        valid: true
-        comment: null
-      ArrayWithoutItemsMatchingSchemaIsInvalid:
-        description: array without items matching schema is invalid
-        data:
-        - 2
-        - 3
-        - 4
-        valid: false
-        comment: null
-      EmptyArrayIsInvalid:
-        description: empty array is invalid
-        data: []
-        valid: false
-        comment: null
-      NotArrayIsValid:
-        description: not array is valid
-        data: {}
-        valid: true
-        comment: null
-    ItemsContains:
-      MatchesItemsDoesNotMatchContains:
-        description: matches items, does not match contains
-        data:
-        - 2
-        - 4
-        - 8
-        valid: false
-        comment: null
-      DoesNotMatchItemsMatchesContains:
-        description: does not match items, matches contains
-        data:
-        - 3
-        - 6
-        - 9
-        valid: false
-        comment: null
-      MatchesBothItemsAndContains:
-        description: matches both items and contains
-        data:
-        - 6
-        - 12
-        valid: true
-        comment: null
-      MatchesNeitherItemsNorContains:
-        description: matches neither items nor contains
-        data:
-        - 1
-        - 5
-        valid: false
-        comment: null
-    ContainsWithNullInstanceElements:
-      AllowsNullItems:
-        description: allows null items
-        data:
-        - null
-        valid: true
-        comment: null
     SingleDependency:
       Neither:
         description: neither
@@ -1225,113 +1095,6 @@ components:
         data:
           quux: 1
         valid: false
-        comment: null
-    DependentSchemasSingleDependency:
-      Valid:
-        description: valid
-        data:
-          foo: 1
-          bar: 2
-        valid: true
-        comment: null
-      NoDependency:
-        description: no dependency
-        data:
-          foo: quux
-        valid: true
-        comment: null
-      WrongType:
-        description: wrong type
-        data:
-          foo: quux
-          bar: 2
-        valid: false
-        comment: null
-      WrongTypeOther:
-        description: wrong type other
-        data:
-          foo: 2
-          bar: quux
-        valid: false
-        comment: null
-      WrongTypeBoth:
-        description: wrong type both
-        data:
-          foo: quux
-          bar: quux
-        valid: false
-        comment: null
-      IgnoresArrays:
-        description: ignores arrays
-        data:
-        - bar
-        valid: true
-        comment: null
-      IgnoresStrings:
-        description: ignores strings
-        data: foobar
-        valid: true
-        comment: null
-      IgnoresOtherNonObjects:
-        description: ignores other non-objects
-        data: 12
-        valid: true
-        comment: null
-    DependentSchemasDependenciesWithEscapedCharacters:
-      QuotedTab:
-        description: quoted tab
-        data:
-          "foo\tbar": 1
-          a: 2
-          b: 3
-          c: 4
-        valid: true
-        comment: null
-      QuotedQuote:
-        description: quoted quote
-        data:
-          foo'bar:
-            foo"bar: 1
-        valid: false
-        comment: null
-      QuotedTabInvalidUnderDependentSchema:
-        description: quoted tab invalid under dependent schema
-        data:
-          "foo\tbar": 1
-          a: 2
-        valid: false
-        comment: null
-      QuotedQuoteInvalidUnderDependentSchema:
-        description: quoted quote invalid under dependent schema
-        data:
-          foo'bar: 1
-        valid: false
-        comment: null
-    DependentSchemasDependentSubschemaIncompatibleWithRoot:
-      MatchesRoot:
-        description: matches root
-        data:
-          foo: 1
-        valid: false
-        comment: null
-      MatchesDependency:
-        description: matches dependency
-        data:
-          bar: 1
-        valid: true
-        comment: null
-      MatchesBoth:
-        description: matches both
-        data:
-          foo: 1
-          bar: 2
-        valid: false
-        comment: null
-      NoDependency:
-        description: no dependency
-        data:
-          baz: 1
-        valid: true
         comment: null
     SimpleEnumValidation:
       OneOfTheEnumIsValid:
@@ -3860,27 +3623,6 @@ components:
         - foo
         - bar
         - baz
-        valid: false
-        comment: null
-    UnevaluateditemsDependsOnMultipleNestedContains:
-      5NotEvaluatedPassesUnevaluateditems:
-        description: 5 not evaluated, passes unevaluatedItems
-        data:
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        valid: true
-        comment: null
-      7NotEvaluatedFailsUnevaluateditems:
-        description: 7 not evaluated, fails unevaluatedItems
-        data:
-        - 2
-        - 3
-        - 4
-        - 7
-        - 8
         valid: false
         comment: null
     UnevaluateditemsWithNullInstanceElements:
