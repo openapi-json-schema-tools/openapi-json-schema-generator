@@ -43,7 +43,7 @@ FromSchema.FromSchemaMap validatedPayload =
     new FromSchema.FromSchemaMapBuilder()
         .data("a")
 
-        .id(1L)
+        .id(1)
 
     .build(),
     configuration
@@ -110,10 +110,6 @@ public static class Id<br>
 extends IntJsonSchema
 
 A schema class that validates payloads
-
-| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
-| ------------------------------------------------------------------ |
-| validate                                                           |
 
 ## Data
 public static class Data<br>

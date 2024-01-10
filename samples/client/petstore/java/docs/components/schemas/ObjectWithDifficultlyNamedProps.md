@@ -49,7 +49,7 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 
         .setDollarSignSpecialLeftSquareBracketPropertyFullStopNameRightSquareBracket(1L)
 
-        .set123number(1L)
+        .set123number(1)
 
     .build(),
     configuration
@@ -135,10 +135,6 @@ public static class Schema123Number<br>
 extends IntJsonSchema
 
 A schema class that validates payloads
-
-| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
-| ------------------------------------------------------------------ |
-| validate                                                           |
 
 ## Schema123list
 public static class Schema123list<br>

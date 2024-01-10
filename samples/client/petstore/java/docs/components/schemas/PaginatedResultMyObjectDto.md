@@ -46,7 +46,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
     PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1.validate(
     new PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapBuilder()
-        .count(1L)
+        .count(1)
 
         .results(
             Arrays.asList(
@@ -229,10 +229,6 @@ public static class Count<br>
 extends IntJsonSchema
 
 A schema class that validates payloads
-
-| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
-| ------------------------------------------------------------------ |
-| validate                                                           |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

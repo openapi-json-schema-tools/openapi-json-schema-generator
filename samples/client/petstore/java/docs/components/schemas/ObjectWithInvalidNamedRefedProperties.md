@@ -52,7 +52,7 @@ ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap v
                 ),
                 new AbstractMap.SimpleEntry<String, Object>(
                     "id",
-                    1L
+                    1
                 )
             )
         )

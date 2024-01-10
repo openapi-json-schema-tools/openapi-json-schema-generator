@@ -40,7 +40,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Address.AddressMap validatedPayload =
     Address.Address1.validate(
     new Address.AddressMapBuilder()
-        .additionalProperty("someAdditionalProperty", 1L)
+        .additionalProperty("someAdditionalProperty", 1)
 
     .build(),
     configuration
@@ -95,9 +95,5 @@ public static class AdditionalProperties<br>
 extends IntJsonSchema
 
 A schema class that validates payloads
-
-| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
-| ------------------------------------------------------------------ |
-| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

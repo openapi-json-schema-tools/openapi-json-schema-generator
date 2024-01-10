@@ -80,7 +80,7 @@ Pet.PetMap validatedPayload =
         .tags(
             Arrays.asList(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "name",
                         "a"
                     )
