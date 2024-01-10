@@ -151,20 +151,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public JavaClientGenerator() {
         super();
 
-        modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(DocumentationFeature.Readme, DocumentationFeature.Servers)
-                .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))
-                .securityFeatures(EnumSet.noneOf(
-                        SecurityFeature.class
-                ))
-                .excludeSchemaFeatures(
-                        SchemaFeature.Not
-                )
-                .includeGlobalFeatures(
-                        GlobalFeature.Servers
-                )
-        );
-
         supportsInheritance = true;
 
         hideGenerationTimestamp = false;
@@ -254,16 +240,21 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         instantiationTypes.put("boolean", "boolean");
         instantiationTypes.put("null", "Void (null)");
 
-        // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
-                .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .includeDocumentationFeatures(DocumentationFeature.Readme, DocumentationFeature.Servers)
+                .securityFeatures(EnumSet.noneOf(
+                        SecurityFeature.class
+                ))
+                .includeGlobalFeatures(
+                        GlobalFeature.Servers
+                )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,
                         SchemaFeature.AllOf,
                         SchemaFeature.AnyOf,
-                        // SchemaFeature.Const,
+                        SchemaFeature.Const,
                         // SchemaFeature.Contains,
-                        // SchemaFeature.Default,
+                        SchemaFeature.Default,
                         // SchemaFeature.DependentRequired,
                         // SchemaFeature.DependentSchemas,
                         // SchemaFeature.Discriminator,

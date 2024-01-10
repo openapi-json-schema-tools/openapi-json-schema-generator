@@ -722,6 +722,18 @@ def write_openapi_spec():
         'IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence',
         'IgnoreThenWithoutIf',
         'IgnoreElseWithoutIf',
+        'MultipleDependentsRequired',
+        'MultipleSimultaneousPatternpropertiesAreValidated',
+        'NonAsciiPatternWithAdditionalproperties',
+        'PatternpropertiesValidatesPropertiesMatchingARegex',
+        'PropertiesPatternpropertiesAdditionalpropertiesInteraction',
+        'PropertynamesValidation',
+        'RegexesAreNotAnchoredByDefaultAndAreCaseSensitive',
+        'SingleDependency',
+        'UnevaluateditemsAsSchema',
+        'UnevaluateditemsWithNullInstanceElements',
+        'UnevaluatedpropertiesNotAffectedByPropertynames',
+        'UnevaluatedpropertiesSchema'
     }
     for removed_case in removed_cases:
         del openapi.components['schemas'][removed_case]

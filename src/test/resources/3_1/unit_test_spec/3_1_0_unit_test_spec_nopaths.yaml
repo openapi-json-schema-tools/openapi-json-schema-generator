@@ -10,11 +10,6 @@ tags: []
 paths: {}
 components:
   schemas:
-    NonAsciiPatternWithAdditionalproperties:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      patternProperties:
-        "^\xE1": {}
-      additionalProperties: false
     AdditionalpropertiesWithSchema:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -147,21 +142,10 @@ components:
     ConstNulCharactersInStrings:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: "hello\0there"
-    SingleDependency:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      dependentRequired:
-        bar:
-        - foo
     EmptyDependents:
       $schema: https://json-schema.org/draft/2020-12/schema
       dependentRequired:
         bar: []
-    MultipleDependentsRequired:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      dependentRequired:
-        quux:
-        - foo
-        - bar
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -413,25 +397,6 @@ components:
     PatternIsNotAnchored:
       $schema: https://json-schema.org/draft/2020-12/schema
       pattern: a+
-    PatternpropertiesValidatesPropertiesMatchingARegex:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      patternProperties:
-        f.*o:
-          type: integer
-    MultipleSimultaneousPatternpropertiesAreValidated:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      patternProperties:
-        a*:
-          type: integer
-        aaa*:
-          maximum: 20
-    RegexesAreNotAnchoredByDefaultAndAreCaseSensitive:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      patternProperties:
-        '[0-9]{2,}':
-          type: boolean
-        X_:
-          type: string
     PatternpropertiesWithNullValuedInstanceProperties:
       $schema: https://json-schema.org/draft/2020-12/schema
       patternProperties:
@@ -444,19 +409,6 @@ components:
           type: integer
         bar:
           type: string
-    PropertiesPatternpropertiesAdditionalpropertiesInteraction:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      properties:
-        foo:
-          type: array
-          maxItems: 3
-        bar:
-          type: array
-      patternProperties:
-        f.o:
-          minItems: 2
-      additionalProperties:
-        type: integer
     PropertiesWithEscapedCharacters:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -490,10 +442,6 @@ components:
               type: string
         constructor:
           type: number
-    PropertynamesValidation:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      propertyNames:
-        maxLength: 3
     PropertyNamedRefThatIsNotAReference:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -573,26 +521,12 @@ components:
       - array
       - object
       - 'null'
-    UnevaluateditemsAsSchema:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      unevaluatedItems:
-        type: string
     UnevaluateditemsWithItems:
       $schema: https://json-schema.org/draft/2020-12/schema
       items:
         type: number
       unevaluatedItems:
         type: string
-    UnevaluateditemsWithNullInstanceElements:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      unevaluatedItems:
-        type: 'null'
-    UnevaluatedpropertiesSchema:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      type: object
-      unevaluatedProperties:
-        type: string
-        minLength: 3
     UnevaluatedpropertiesWithAdjacentAdditionalproperties:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: object
@@ -605,12 +539,6 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       unevaluatedProperties:
         type: 'null'
-    UnevaluatedpropertiesNotAffectedByPropertynames:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      propertyNames:
-        maxLength: 1
-      unevaluatedProperties:
-        type: number
     UniqueitemsValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       uniqueItems: true
@@ -618,19 +546,6 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       uniqueItems: false
   x-schema-test-examples:
-    NonAsciiPatternWithAdditionalproperties:
-      MatchingThePatternIsValid:
-        description: matching the pattern is valid
-        data:
-          "\xE1rm\xE1nyos": 2
-        valid: true
-        comment: null
-      NotMatchingThePatternIsInvalid:
-        description: not matching the pattern is invalid
-        data:
-          "\xE9lm\xE9ny": 2
-        valid: false
-        comment: null
     AdditionalpropertiesWithSchema:
       NoAdditionalPropertiesIsValid:
         description: no additional properties is valid
@@ -948,47 +863,6 @@ components:
         data: hellothere
         valid: false
         comment: null
-    SingleDependency:
-      Neither:
-        description: neither
-        data: {}
-        valid: true
-        comment: null
-      Nondependant:
-        description: nondependant
-        data:
-          foo: 1
-        valid: true
-        comment: null
-      WithDependency:
-        description: with dependency
-        data:
-          foo: 1
-          bar: 2
-        valid: true
-        comment: null
-      MissingDependency:
-        description: missing dependency
-        data:
-          bar: 2
-        valid: false
-        comment: null
-      IgnoresArrays:
-        description: ignores arrays
-        data:
-        - bar
-        valid: true
-        comment: null
-      IgnoresStrings:
-        description: ignores strings
-        data: foobar
-        valid: true
-        comment: null
-      IgnoresOtherNonObjects:
-        description: ignores other non-objects
-        data: 12
-        valid: true
-        comment: null
     EmptyDependents:
       EmptyObject:
         description: empty object
@@ -1005,47 +879,6 @@ components:
         description: non-object is valid
         data: 1
         valid: true
-        comment: null
-    MultipleDependentsRequired:
-      Neither:
-        description: neither
-        data: {}
-        valid: true
-        comment: null
-      Nondependants:
-        description: nondependants
-        data:
-          foo: 1
-          bar: 2
-        valid: true
-        comment: null
-      WithDependencies:
-        description: with dependencies
-        data:
-          foo: 1
-          bar: 2
-          quux: 3
-        valid: true
-        comment: null
-      MissingDependency:
-        description: missing dependency
-        data:
-          foo: 1
-          quux: 2
-        valid: false
-        comment: null
-      MissingOtherDependency:
-        description: missing other dependency
-        data:
-          bar: 1
-          quux: 2
-        valid: false
-        comment: null
-      MissingBothDependencies:
-        description: missing both dependencies
-        data:
-          quux: 1
-        valid: false
         comment: null
     SimpleEnumValidation:
       OneOfTheEnumIsValid:
@@ -2550,114 +2383,6 @@ components:
         data: xxaayy
         valid: true
         comment: null
-    PatternpropertiesValidatesPropertiesMatchingARegex:
-      ASingleValidMatchIsValid:
-        description: a single valid match is valid
-        data:
-          foo: 1
-        valid: true
-        comment: null
-      MultipleValidMatchesIsValid:
-        description: multiple valid matches is valid
-        data:
-          foo: 1
-          foooooo: 2
-        valid: true
-        comment: null
-      ASingleInvalidMatchIsInvalid:
-        description: a single invalid match is invalid
-        data:
-          foo: bar
-          fooooo: 2
-        valid: false
-        comment: null
-      MultipleInvalidMatchesIsInvalid:
-        description: multiple invalid matches is invalid
-        data:
-          foo: bar
-          foooooo: baz
-        valid: false
-        comment: null
-      IgnoresArrays:
-        description: ignores arrays
-        data:
-        - foo
-        valid: true
-        comment: null
-      IgnoresStrings:
-        description: ignores strings
-        data: foo
-        valid: true
-        comment: null
-      IgnoresOtherNonObjects:
-        description: ignores other non-objects
-        data: 12
-        valid: true
-        comment: null
-    MultipleSimultaneousPatternpropertiesAreValidated:
-      ASingleValidMatchIsValid:
-        description: a single valid match is valid
-        data:
-          a: 21
-        valid: true
-        comment: null
-      ASimultaneousMatchIsValid:
-        description: a simultaneous match is valid
-        data:
-          aaaa: 18
-        valid: true
-        comment: null
-      MultipleMatchesIsValid:
-        description: multiple matches is valid
-        data:
-          a: 21
-          aaaa: 18
-        valid: true
-        comment: null
-      AnInvalidDueToOneIsInvalid:
-        description: an invalid due to one is invalid
-        data:
-          a: bar
-        valid: false
-        comment: null
-      AnInvalidDueToTheOtherIsInvalid:
-        description: an invalid due to the other is invalid
-        data:
-          aaaa: 31
-        valid: false
-        comment: null
-      AnInvalidDueToBothIsInvalid:
-        description: an invalid due to both is invalid
-        data:
-          aaa: foo
-          aaaa: 31
-        valid: false
-        comment: null
-    RegexesAreNotAnchoredByDefaultAndAreCaseSensitive:
-      NonRecognizedMembersAreIgnored:
-        description: non recognized members are ignored
-        data:
-          answer 1: '42'
-        valid: true
-        comment: null
-      RecognizedMembersAreAccountedFor:
-        description: recognized members are accounted for
-        data:
-          a31b: null
-        valid: false
-        comment: null
-      RegexesAreCaseSensitive:
-        description: regexes are case sensitive
-        data:
-          a_x_3: 3
-        valid: true
-        comment: null
-      RegexesAreCaseSensitive2:
-        description: regexes are case sensitive, 2
-        data:
-          a_X_3: 3
-        valid: false
-        comment: null
     PatternpropertiesWithNullValuedInstanceProperties:
       AllowsNullValues:
         description: allows null values
@@ -2702,63 +2427,6 @@ components:
         description: ignores other non-objects
         data: 12
         valid: true
-        comment: null
-    PropertiesPatternpropertiesAdditionalpropertiesInteraction:
-      PropertyValidatesProperty:
-        description: property validates property
-        data:
-          foo:
-          - 1
-          - 2
-        valid: true
-        comment: null
-      PropertyInvalidatesProperty:
-        description: property invalidates property
-        data:
-          foo:
-          - 1
-          - 2
-          - 3
-          - 4
-        valid: false
-        comment: null
-      PatternpropertyInvalidatesProperty:
-        description: patternProperty invalidates property
-        data:
-          foo: []
-        valid: false
-        comment: null
-      PatternpropertyValidatesNonproperty:
-        description: patternProperty validates nonproperty
-        data:
-          fxo:
-          - 1
-          - 2
-        valid: true
-        comment: null
-      PatternpropertyInvalidatesNonproperty:
-        description: patternProperty invalidates nonproperty
-        data:
-          fxo: []
-        valid: false
-        comment: null
-      AdditionalpropertyIgnoresProperty:
-        description: additionalProperty ignores property
-        data:
-          bar: []
-        valid: true
-        comment: null
-      AdditionalpropertyValidatesOthers:
-        description: additionalProperty validates others
-        data:
-          quux: 3
-        valid: true
-        comment: null
-      AdditionalpropertyInvalidatesOthers:
-        description: additionalProperty invalidates others
-        data:
-          quux: foo
-        valid: false
         comment: null
     PropertiesWithEscapedCharacters:
       ObjectWithAllNumbersIsValid:
@@ -2839,45 +2507,6 @@ components:
           toString:
             length: foo
           constructor: 37
-        valid: true
-        comment: null
-    PropertynamesValidation:
-      AllPropertyNamesValid:
-        description: all property names valid
-        data:
-          f: {}
-          foo: {}
-        valid: true
-        comment: null
-      SomePropertyNamesInvalid:
-        description: some property names invalid
-        data:
-          foo: {}
-          foobar: {}
-        valid: false
-        comment: null
-      ObjectWithoutPropertiesIsValid:
-        description: object without properties is valid
-        data: {}
-        valid: true
-        comment: null
-      IgnoresArrays:
-        description: ignores arrays
-        data:
-        - 1
-        - 2
-        - 3
-        - 4
-        valid: true
-        comment: null
-      IgnoresStrings:
-        description: ignores strings
-        data: foobar
-        valid: true
-        comment: null
-      IgnoresOtherNonObjects:
-        description: ignores other non-objects
-        data: 12
         valid: true
         comment: null
     PropertyNamedRefThatIsNotAReference:
@@ -3422,24 +3051,6 @@ components:
         data: foo
         valid: false
         comment: null
-    UnevaluateditemsAsSchema:
-      WithNoUnevaluatedItems:
-        description: with no unevaluated items
-        data: []
-        valid: true
-        comment: null
-      WithValidUnevaluatedItems:
-        description: with valid unevaluated items
-        data:
-        - foo
-        valid: true
-        comment: null
-      WithInvalidUnevaluatedItems:
-        description: with invalid unevaluated items
-        data:
-        - 42
-        valid: false
-        comment: null
     UnevaluateditemsWithItems:
       ValidUnderItems:
         description: valid under items
@@ -3456,31 +3067,6 @@ components:
         - foo
         - bar
         - baz
-        valid: false
-        comment: null
-    UnevaluateditemsWithNullInstanceElements:
-      AllowsNullElements:
-        description: allows null elements
-        data:
-        - null
-        valid: true
-        comment: null
-    UnevaluatedpropertiesSchema:
-      WithNoUnevaluatedProperties:
-        description: with no unevaluated properties
-        data: {}
-        valid: true
-        comment: null
-      WithValidUnevaluatedProperties:
-        description: with valid unevaluated properties
-        data:
-          foo: foo
-        valid: true
-        comment: null
-      WithInvalidUnevaluatedProperties:
-        description: with invalid unevaluated properties
-        data:
-          foo: fo
         valid: false
         comment: null
     UnevaluatedpropertiesWithAdjacentAdditionalproperties:
@@ -3503,19 +3089,6 @@ components:
         data:
           foo: null
         valid: true
-        comment: null
-    UnevaluatedpropertiesNotAffectedByPropertynames:
-      AllowsOnlyNumberProperties:
-        description: allows only number properties
-        data:
-          a: 1
-        valid: true
-        comment: null
-      StringPropertyIsInvalid:
-        description: string property is invalid
-        data:
-          a: b
-        valid: false
         comment: null
     UniqueitemsValidation:
       UniqueArrayOfIntegersIsValid:
