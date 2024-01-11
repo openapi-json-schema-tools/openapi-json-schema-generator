@@ -99,6 +99,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#if constInfo}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_const }}
         {{/if}}
+        {{#if contains}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_contains }}
+        {{/if}}
         );
     }
 
@@ -110,9 +113,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
     }
 {{#if prefixItems}}
     {{!> components/schemas/schema_cls/_prefix_items }}
-{{/if}}
-{{#if contains}}
-    {{!> components/schemas/schema_cls/_contains }}
 {{/if}}
 {{#if hasDiscriminatorWithNonEmptyMapping}}
     {{!> components/schemas/schema_cls/_discriminator }}

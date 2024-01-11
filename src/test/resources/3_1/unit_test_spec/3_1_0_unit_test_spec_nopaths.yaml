@@ -142,6 +142,20 @@ components:
     ConstNulCharactersInStrings:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: "hello\0there"
+    ContainsKeywordValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains:
+        minimum: 5
+    ItemsContains:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      items:
+        multipleOf: 2
+      contains:
+        multipleOf: 3
+    ContainsWithNullInstanceElements:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains:
+        type: 'null'
     EmptyDependents:
       $schema: https://json-schema.org/draft/2020-12/schema
       dependentRequired:
@@ -862,6 +876,88 @@ components:
         description: do not match string lacking nul
         data: hellothere
         valid: false
+        comment: null
+    ContainsKeywordValidation:
+      ArrayWithItemMatchingSchema5IsValid:
+        description: array with item matching schema (5) is valid
+        data:
+        - 3
+        - 4
+        - 5
+        valid: true
+        comment: null
+      ArrayWithItemMatchingSchema6IsValid:
+        description: array with item matching schema (6) is valid
+        data:
+        - 3
+        - 4
+        - 6
+        valid: true
+        comment: null
+      ArrayWithTwoItemsMatchingSchema56IsValid:
+        description: array with two items matching schema (5, 6) is valid
+        data:
+        - 3
+        - 4
+        - 5
+        - 6
+        valid: true
+        comment: null
+      ArrayWithoutItemsMatchingSchemaIsInvalid:
+        description: array without items matching schema is invalid
+        data:
+        - 2
+        - 3
+        - 4
+        valid: false
+        comment: null
+      EmptyArrayIsInvalid:
+        description: empty array is invalid
+        data: []
+        valid: false
+        comment: null
+      NotArrayIsValid:
+        description: not array is valid
+        data: {}
+        valid: true
+        comment: null
+    ItemsContains:
+      MatchesItemsDoesNotMatchContains:
+        description: matches items, does not match contains
+        data:
+        - 2
+        - 4
+        - 8
+        valid: false
+        comment: null
+      DoesNotMatchItemsMatchesContains:
+        description: does not match items, matches contains
+        data:
+        - 3
+        - 6
+        - 9
+        valid: false
+        comment: null
+      MatchesBothItemsAndContains:
+        description: matches both items and contains
+        data:
+        - 6
+        - 12
+        valid: true
+        comment: null
+      MatchesNeitherItemsNorContains:
+        description: matches neither items nor contains
+        data:
+        - 1
+        - 5
+        valid: false
+        comment: null
+    ContainsWithNullInstanceElements:
+      AllowsNullItems:
+        description: allows null items
+        data:
+        - null
+        valid: true
         comment: null
     EmptyDependents:
       EmptyObject:

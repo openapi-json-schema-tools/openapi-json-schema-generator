@@ -46,6 +46,7 @@ public abstract class JsonSchema {
     public final boolean defaultValueSet;
     public final @Nullable Object constValue;
     public final boolean constValueSet;
+    public final @Nullable Class<? extends JsonSchema> contains;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -226,6 +227,13 @@ public abstract class JsonSchema {
             keywordToValidator.put(
                     "const",
                     new ConstValidator(this.constValue)
+            );
+        }
+        this.contains = jsonSchemaInfo.contains;
+        if (this.contains != null) {
+            keywordToValidator.put(
+                    "contains",
+                    new ContainsValidator(this.contains)
             );
         }
         this.keywordToValidator = keywordToValidator;

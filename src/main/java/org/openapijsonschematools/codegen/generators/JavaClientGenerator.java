@@ -29,15 +29,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
@@ -260,7 +256,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.AllOf,
                         SchemaFeature.AnyOf,
                         SchemaFeature.Const,
-                        // SchemaFeature.Contains,
+                        SchemaFeature.Contains,
                         SchemaFeature.Default,
                         // SchemaFeature.DependentRequired,
                         // SchemaFeature.DependentSchemas,
