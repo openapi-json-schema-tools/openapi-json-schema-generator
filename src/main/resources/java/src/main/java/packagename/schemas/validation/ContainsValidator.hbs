@@ -1,0 +1,83 @@
+package {{{packageName}}}.schemas.validation;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ContainsValidator implements KeywordValidator {
+    public final Class<? extends JsonSchema> contains;
+
+    public ItemsValidator(Class<? extends JsonSchema> contains) {
+        this.contains = contains;
+    }
+
+    @Override
+    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
+        if (!(arg instanceof List)) {
+            return null;
+        }
+        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        // todo add handling for prefixItems
+        int i = 0;
+        for(Object itemValue: (List<?>) arg) {
+            List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            itemPathToItem.add(i);
+            ValidationMetadata itemValidationMetadata = new ValidationMetadata(
+                    itemPathToItem,
+                    validationMetadata.configuration(),
+                    validationMetadata.validatedPathToSchemas(),
+                    validationMetadata.seenClasses()
+            );
+            JsonSchema itemsSchema = JsonSchemaFactory.getInstance(items);
+            if (itemValidationMetadata.validationRanEarlier(itemsSchema)) {
+                // todo add_deeper_validated_schemas
+                i +=1;
+                continue;
+            }
+            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, itemValue, itemValidationMetadata);
+            pathToSchemas.update(otherPathToSchemas);
+            i += 1;
+        }
+        return pathToSchemas;
+    }
+
+    public List<PathToSchemasMap> getContainsPathToSchemas(
+        arg: typing.Any,
+        ValidationMetadata validation_metadata,
+        PathToSchemasMap path_to_schemas,
+    ) {
+        if (!(arg instanceof List)) {
+            return new ArrayList<>();
+        }
+        List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
+        int i = 0;
+        for(Object itemValue: (List<?>) arg) {
+            PathToSchemasMap thesePathToSchemas = new PathToSchemasMap();
+
+            List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            itemPathToItem.add(i);
+            ValidationMetadata itemValidationMetadata = new ValidationMetadata(
+                    itemPathToItem,
+                    validationMetadata.configuration(),
+                    validationMetadata.validatedPathToSchemas(),
+                    validationMetadata.seenClasses()
+            );
+            if (itemValidationMetadata.validationRanEarlier(itemsSchema)) {
+                // todo add_deeper_validated_schemas
+                containsPathToSchemas.add(thesePathToSchemas);
+                i +=1;
+                continue;
+            }
+
+            JsonSchema containsSchema = JsonSchemaFactory.getInstance(contains);
+            try {
+                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(
+                    containsSchema, itemValue, itemValidationMetadata)
+                containsPathToSchemas.append(otherPathToSchemas)
+            } except (exceptions.OpenApiException ignored) {
+                ;
+            }
+        return containsPathToSchemas;
+    }
+}
