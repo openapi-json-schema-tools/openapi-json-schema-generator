@@ -242,7 +242,7 @@ public abstract class JsonSchema {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
-        List<PathToSchemasMap> containsPathToSchemas = new ArrayList();
+        List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
         KeywordValidator containsValidator = thisKeywordToValidator.get("contains");
         if (containsValidator != null) {
             containsPathToSchemas = containsValidator.getContainsPathToSchemas(arg, validationMetadata);

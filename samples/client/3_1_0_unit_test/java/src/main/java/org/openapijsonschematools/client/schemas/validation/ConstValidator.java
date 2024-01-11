@@ -4,6 +4,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 public class ConstValidator extends BigDecimalValidator implements KeywordValidator {

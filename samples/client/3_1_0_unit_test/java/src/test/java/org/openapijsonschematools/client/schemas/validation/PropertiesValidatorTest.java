@@ -17,9 +17,8 @@ import java.util.Map;
 
 public class PropertiesValidatorTest {
     @SuppressWarnings("nullness")
-    private Void assertNull(@Nullable Object object) {
+    private void assertNull(@Nullable Object object) {
         Assert.assertNull(object);
-        return null;
     }
 
     @Test
@@ -41,7 +40,8 @@ public class PropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         if (pathToSchemas == null) {
             throw new RuntimeException("Invalid null value for pathToSchemas for this test case");
@@ -72,7 +72,8 @@ public class PropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 1,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         assertNull(pathToSchemas);
     }
@@ -96,7 +97,8 @@ public class PropertiesValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         ));
     }
 }

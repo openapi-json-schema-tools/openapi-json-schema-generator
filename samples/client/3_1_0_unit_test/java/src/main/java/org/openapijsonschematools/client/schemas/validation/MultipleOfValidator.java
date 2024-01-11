@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.List;
 import java.math.BigDecimal;
 
 public class MultipleOfValidator extends BigDecimalValidator implements KeywordValidator {

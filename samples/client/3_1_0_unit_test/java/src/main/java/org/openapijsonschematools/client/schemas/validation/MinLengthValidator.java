@@ -3,6 +3,8 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.List;
+
 public class MinLengthValidator extends LengthValidator implements KeywordValidator {
     public final int minLength;
 

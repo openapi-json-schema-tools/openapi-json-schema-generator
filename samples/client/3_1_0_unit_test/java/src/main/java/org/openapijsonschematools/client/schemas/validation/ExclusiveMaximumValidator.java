@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.List;
 
 public class ExclusiveMaximumValidator implements KeywordValidator {
     public final Number exclusiveMaximum;
