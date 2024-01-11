@@ -38,8 +38,7 @@ public class ContainsValidator implements KeywordValidator {
 
     public List<PathToSchemasMap> getContainsPathToSchemas(
         @Nullable Object arg,
-        ValidationMetadata validation_metadata,
-        PathToSchemasMap path_to_schemas,
+        ValidationMetadata validationMetadata
     ) {
         if (!(arg instanceof List)) {
             return new ArrayList<>();

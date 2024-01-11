@@ -3,6 +3,8 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.List;
+
 public class MaxLengthValidator extends LengthValidator implements KeywordValidator {
     public final int maxLength;
 
@@ -11,7 +13,12 @@ public class MaxLengthValidator extends LengthValidator implements KeywordValida
     }
 
     @Override
-    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(
+        JsonSchema schema,
+        @Nullable Object arg,
+        ValidationMetadata validationMetadata,
+        List<PathToSchemasMap> containsPathToSchemas
+    ) {
         if (!(arg instanceof String)) {
             return null;
         }

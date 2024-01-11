@@ -16,9 +16,8 @@ import java.util.Set;
 
 public class RequiredValidatorTest {
     @SuppressWarnings("nullness")
-    private Void assertNull(@Nullable Object object) {
+    private void assertNull(@Nullable Object object) {
         Assert.assertNull(object);
-        return null;
     }
 
     @Test
@@ -40,7 +39,8 @@ public class RequiredValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         assertNull(pathToSchemas);
     }
@@ -61,7 +61,8 @@ public class RequiredValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 1,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         assertNull(pathToSchemas);
     }
@@ -85,7 +86,8 @@ public class RequiredValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         ));
     }
 }

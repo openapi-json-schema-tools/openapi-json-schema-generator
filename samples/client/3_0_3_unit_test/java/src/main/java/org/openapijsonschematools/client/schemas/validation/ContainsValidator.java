@@ -1,7 +1,7 @@
-package {{{packageName}}}.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import {{{packageName}}}.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.List;

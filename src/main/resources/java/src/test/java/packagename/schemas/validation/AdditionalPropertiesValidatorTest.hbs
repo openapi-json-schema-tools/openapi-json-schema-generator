@@ -77,7 +77,8 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 ObjectWithPropsSchema.getInstance(),
                 arg,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         if (pathToSchemas == null) {
             throw new RuntimeException("Invalid null value for pathToSchemas for this test case");
@@ -106,7 +107,8 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 1,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         assertNull(pathToSchemas);
     }
@@ -128,7 +130,8 @@ public class AdditionalPropertiesValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 ObjectWithPropsSchema.getInstance(),
                 arg,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         ));
     }
 }

@@ -6,6 +6,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 import java.util.UUID;
 
 public class FormatValidator implements KeywordValidator {
@@ -143,7 +144,12 @@ public class FormatValidator implements KeywordValidator {
     }
 
     @Override
-    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(
+        JsonSchema schema,
+        @Nullable Object arg,
+        ValidationMetadata validationMetadata,
+        List<PathToSchemasMap> containsPathToSchemas
+    ) {
         if (arg instanceof Number) {
             validateNumericFormat(
                 (Number) arg,

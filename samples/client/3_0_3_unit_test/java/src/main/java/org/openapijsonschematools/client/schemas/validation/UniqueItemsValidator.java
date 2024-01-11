@@ -15,7 +15,12 @@ public class UniqueItemsValidator implements KeywordValidator {
     }
 
     @Override
-    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(
+        JsonSchema schema,
+        @Nullable Object arg,
+        ValidationMetadata validationMetadata,
+        List<PathToSchemasMap> containsPathToSchemas
+    ) {
         if (!(arg instanceof List)) {
             return null;
         }
