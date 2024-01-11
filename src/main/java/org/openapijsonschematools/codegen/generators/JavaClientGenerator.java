@@ -567,6 +567,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("BooleanSchemaValidator");
         keywordValidatorFiles.add("BooleanValueMethod");
         keywordValidatorFiles.add("ConstValidator");
+        keywordValidatorFiles.add("ContainsValidator");
         keywordValidatorFiles.add("BigDecimalValidator");
         keywordValidatorFiles.add("CustomIsoparser");
         keywordValidatorFiles.add("DefaultValueMethod");
@@ -575,7 +576,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("EnumValidator");
         keywordValidatorFiles.add("ExclusiveMaximumValidator");
         keywordValidatorFiles.add("ExclusiveMinimumValidator");
-        keywordValidatorFiles.add("FakeValidator");
         keywordValidatorFiles.add("FloatEnumValidator");
         keywordValidatorFiles.add("FloatValueMethod");
         keywordValidatorFiles.add("FormatValidator");

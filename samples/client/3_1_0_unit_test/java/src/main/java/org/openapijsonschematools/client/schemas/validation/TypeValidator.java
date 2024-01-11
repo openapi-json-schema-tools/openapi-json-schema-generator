@@ -15,7 +15,12 @@ public class TypeValidator implements KeywordValidator {
     }
 
     @Override
-    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(
+        JsonSchema schema,
+        @Nullable Object arg,
+        ValidationMetadata validationMetadata,
+        List<PathToSchemasMap> containsPathToSchemas
+    ) {
         Class<?> argClass;
         if (arg == null) {
             argClass = Void.class;

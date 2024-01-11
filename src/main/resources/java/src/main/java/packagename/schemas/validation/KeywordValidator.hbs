@@ -5,7 +5,9 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 public interface KeywordValidator {
     @Nullable PathToSchemasMap validate(
-            JsonSchema schema,
-            @Nullable Object arg,
-            ValidationMetadata validationMetadata) throws ValidationException;
+        JsonSchema schema,
+        @Nullable Object arg,
+        ValidationMetadata validationMetadata,
+        List<PathToSchemasMap> containsPathToSchemas
+    ) throws ValidationException;
 }

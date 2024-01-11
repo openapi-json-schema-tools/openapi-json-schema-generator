@@ -1,4 +1,4 @@
-package {{{packageName}}}.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 

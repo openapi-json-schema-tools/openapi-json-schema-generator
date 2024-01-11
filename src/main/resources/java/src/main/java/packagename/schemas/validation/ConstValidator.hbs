@@ -14,7 +14,12 @@ public class ConstValidator extends BigDecimalValidator implements KeywordValida
     }
 
     @Override
-    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(
+        JsonSchema schema,
+        @Nullable Object arg,
+        ValidationMetadata validationMetadata,
+        List<PathToSchemasMap> containsPathToSchemas
+    ) {
         if (arg instanceof Number) {
             BigDecimal castArg = getBigDecimal((Number) arg);
             if (Objects.equals(castArg, constValue)) {
