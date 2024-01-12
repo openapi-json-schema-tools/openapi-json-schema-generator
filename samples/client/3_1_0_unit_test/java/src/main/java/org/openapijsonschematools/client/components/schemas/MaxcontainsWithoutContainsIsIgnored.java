@@ -46,6 +46,7 @@ public class MaxcontainsWithoutContainsIsIgnored {
     
         protected MaxcontainsWithoutContainsIsIgnored1() {
             super(new JsonSchemaInfo()
+                .maxContains(1)
             );
         }
     

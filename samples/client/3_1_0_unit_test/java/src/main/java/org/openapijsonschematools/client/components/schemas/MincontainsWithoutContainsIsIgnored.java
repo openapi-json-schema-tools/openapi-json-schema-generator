@@ -46,6 +46,7 @@ public class MincontainsWithoutContainsIsIgnored {
     
         protected MincontainsWithoutContainsIsIgnored1() {
             super(new JsonSchemaInfo()
+                .minContains(1)
             );
         }
     
