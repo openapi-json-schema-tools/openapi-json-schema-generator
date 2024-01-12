@@ -236,6 +236,20 @@ public abstract class JsonSchema {
                     new ContainsValidator(this.contains)
             );
         }
+        this.maxContains = jsonSchemaInfo.maxContains;
+        if (this.maxContains != null) {
+            keywordToValidator.put(
+                    "maxContains",
+                    new MaxContainsValidator(this.maxContains)
+            );
+        }
+        this.minContains = jsonSchemaInfo.minContains;
+        if (this.minContains != null) {
+            keywordToValidator.put(
+                    "minContains",
+                    new MinContainsValidator(this.minContains)
+            );
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
