@@ -17,7 +17,7 @@ public class MaximumValidator implements KeywordValidator {
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas
     ) {
         if (!(arg instanceof Number)) {
             return null;

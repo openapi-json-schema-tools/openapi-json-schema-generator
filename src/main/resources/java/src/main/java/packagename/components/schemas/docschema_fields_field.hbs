@@ -76,3 +76,9 @@
 {{#if contains}}
 | Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_contains }} |
 {{/if}}
+{{#neq maxContains null}}
+| Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_maxContains }} |
+{{/neq}}
+{{#neq minContains null}}
+| Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_minContains }} |
+{{/neq}}

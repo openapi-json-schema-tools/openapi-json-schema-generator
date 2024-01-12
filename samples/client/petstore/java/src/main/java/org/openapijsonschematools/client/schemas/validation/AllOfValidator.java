@@ -15,7 +15,7 @@ public class AllOfValidator implements KeywordValidator {
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas
     ) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         for(Class<? extends JsonSchema> allOfClass: allOf) {

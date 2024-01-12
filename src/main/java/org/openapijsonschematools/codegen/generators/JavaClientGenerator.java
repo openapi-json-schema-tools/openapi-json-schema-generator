@@ -268,12 +268,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.Format,
                         // SchemaFeature.If,
                         SchemaFeature.Items,
-                        // SchemaFeature.MaxContains,
+                        SchemaFeature.MaxContains,
                         SchemaFeature.MaxItems,
                         SchemaFeature.MaxLength,
                         SchemaFeature.MaxProperties,
                         SchemaFeature.Maximum,
-                        // SchemaFeature.MinContains,
+                        SchemaFeature.MinContains,
                         SchemaFeature.MinItems,
                         SchemaFeature.MinLength,
                         SchemaFeature.MinProperties,
@@ -591,10 +591,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("LongValueMethod");
         keywordValidatorFiles.add("MapSchemaValidator");
         keywordValidatorFiles.add("MapUtils");
+        keywordValidatorFiles.add("MaxContainsValidator");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
         keywordValidatorFiles.add("MaxPropertiesValidator");
+        keywordValidatorFiles.add("MinContainsValidator");
         keywordValidatorFiles.add("MinimumValidator");
         keywordValidatorFiles.add("MinItemsValidator");
         keywordValidatorFiles.add("MinLengthValidator");

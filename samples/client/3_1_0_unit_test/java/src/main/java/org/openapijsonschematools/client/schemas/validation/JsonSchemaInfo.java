@@ -147,4 +147,14 @@ public class JsonSchemaInfo {
         this.contains = contains;
         return this;
     }
+    public @Nullable Integer maxContains = null;
+    public JsonSchemaInfo maxContains(Integer maxContains) {
+        this.maxContains = maxContains;
+        return this;
+    }
+    public @Nullable Integer minContains = null;
+    public JsonSchemaInfo minContains(Integer minContains) {
+        this.minContains = minContains;
+        return this;
+    }
 }

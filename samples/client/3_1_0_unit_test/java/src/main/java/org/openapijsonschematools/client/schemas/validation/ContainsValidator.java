@@ -18,12 +18,12 @@ public class ContainsValidator implements KeywordValidator {
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas
     ) {
         if (!(arg instanceof List)) {
             return null;
         }
-        if (containsPathToSchemas.isEmpty()) {
+        if (containsPathToSchemas == null || containsPathToSchemas.isEmpty()) {
             throw new ValidationException(
                 "Validation failed for contains keyword in class="+schema.getClass()
                 + " at pathToItem="+validationMetadata.pathToItem()+". No "
@@ -44,7 +44,7 @@ public class ContainsValidator implements KeywordValidator {
         if (!(arg instanceof List)) {
             return new ArrayList<>();
         }
-        List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
+        @Nullable List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
         int i = 0;
         for(Object itemValue: (List<?>) arg) {
             PathToSchemasMap thesePathToSchemas = new PathToSchemasMap();

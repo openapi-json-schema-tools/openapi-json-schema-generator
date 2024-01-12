@@ -47,6 +47,8 @@ public abstract class JsonSchema {
     public final @Nullable Object constValue;
     public final boolean constValueSet;
     public final @Nullable Class<? extends JsonSchema> contains;
+    public final @Nullable Integer maxContains;
+    public final @Nullable Integer minContains;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -236,6 +238,20 @@ public abstract class JsonSchema {
                     new ContainsValidator(this.contains)
             );
         }
+        this.maxContains = jsonSchemaInfo.maxContains;
+        if (this.maxContains != null) {
+            keywordToValidator.put(
+                    "maxContains",
+                    new MaxContainsValidator(this.maxContains)
+            );
+        }
+        this.minContains = jsonSchemaInfo.minContains;
+        if (this.minContains != null) {
+            keywordToValidator.put(
+                    "minContains",
+                    new MinContainsValidator(this.minContains)
+            );
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
@@ -250,7 +266,7 @@ public abstract class JsonSchema {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
-        List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
+        @Nullable List<PathToSchemasMap> containsPathToSchemas = null;
         KeywordValidator containsValidator = thisKeywordToValidator.get("contains");
         if (containsValidator != null) {
             containsPathToSchemas = containsValidator.getContainsPathToSchemas(arg, validationMetadata);

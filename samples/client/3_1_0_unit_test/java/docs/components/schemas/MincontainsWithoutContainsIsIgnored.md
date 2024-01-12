@@ -19,6 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
+| Integer | minContains = 1 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

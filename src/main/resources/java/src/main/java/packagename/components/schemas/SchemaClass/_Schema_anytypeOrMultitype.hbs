@@ -102,6 +102,12 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#if contains}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_contains }}
         {{/if}}
+        {{#neq maxContains null}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_maxContains }}
+        {{/neq}}
+        {{#neq minContains null}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_minContains }}
+        {{/neq}}
         );
     }
 
