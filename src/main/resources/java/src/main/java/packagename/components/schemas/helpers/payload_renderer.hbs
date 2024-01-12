@@ -50,13 +50,20 @@ MapUtils.makeMap(
         {{/each}}
     {{else}}
 Arrays.asList(
-        {{#each value}}
-            {{#unless @last}}
+        {{#eq value.length 1}}
+            {{#each value}}
+                {{! list with single null needs to describe the item as (Void) }}
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
+            {{/each}}
+        {{else}}
+            {{#each value}}
+                {{#unless @last}}
     {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," noVoid=true }}
-            {{else}}
+                {{else}}
     {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true }}
-            {{/unless}}
-        {{/each}}
+                {{/unless}}
+            {{/each}}
+        {{/eq}}
 ){{endChar}}
     {{/if}}
 {{/eq}}
