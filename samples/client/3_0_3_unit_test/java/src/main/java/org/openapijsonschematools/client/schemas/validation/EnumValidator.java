@@ -24,7 +24,7 @@ public class EnumValidator extends BigDecimalValidator implements KeywordValidat
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas
     ) {
         if (enumValues.isEmpty()) {
             throw new ValidationException("No value can match enum because enum is empty");

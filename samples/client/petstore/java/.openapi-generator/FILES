@@ -715,10 +715,12 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/LongEnumValid
 src/main/java/org/openapijsonschematools/client/schemas/validation/LongValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MapSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MapUtils.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/MaxContainsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxLengthValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaximumValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/MinContainsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MinItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MinLengthValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MinPropertiesValidator.java
