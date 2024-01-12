@@ -16,9 +16,8 @@ import java.util.List;
 
 public class ItemsValidatorTest {
     @SuppressWarnings("nullness")
-    private Void assertNull(@Nullable Object object) {
+    private void assertNull(@Nullable Object object) {
         Assert.assertNull(object);
-        return null;
     }
 
     @Test
@@ -37,7 +36,8 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 ListJsonSchema.getInstance(),
                 arg,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         if (pathToSchemas == null) {
             throw new RuntimeException("Invalid null value in pathToSchemas for this test case");
@@ -66,7 +66,8 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 ListJsonSchema.getInstance(),
                 1,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         assertNull(pathToSchemas);
     }
@@ -87,7 +88,8 @@ public class ItemsValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 ListJsonSchema.getInstance(),
                 arg,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         ));
     }
 }

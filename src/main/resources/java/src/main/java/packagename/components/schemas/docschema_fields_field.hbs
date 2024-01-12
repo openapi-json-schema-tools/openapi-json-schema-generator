@@ -73,3 +73,6 @@
 {{#if defaultValue}}
 | @Nullable Object | {{> src/main/java/packagename/components/schemas/SchemaClass/_default }} |
 {{/if}}
+{{#if contains}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_contains }} |
+{{/if}}

@@ -44,6 +44,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements L
         {{#neq uniqueItems null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_uniqueItems }}
         {{/neq}}
+        {{#if contains}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_contains }}
+        {{/if}}
         );
     }
 
@@ -55,9 +58,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements L
     }
     {{#if prefixItems}}
     {{!> components/schemas/schema_cls/_prefix_items }}
-    {{/if}}
-    {{#if contains}}
-    {{!> components/schemas/schema_cls/_contains }}
     {{/if}}
     {{#if if_}}
     {{!> components/schemas/schema_cls/_if }}

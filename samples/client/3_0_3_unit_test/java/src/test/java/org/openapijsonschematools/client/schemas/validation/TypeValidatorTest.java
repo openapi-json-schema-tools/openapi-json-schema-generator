@@ -13,9 +13,8 @@ import java.util.LinkedHashSet;
 
 public class TypeValidatorTest {
     @SuppressWarnings("nullness")
-    private Void assertNull(@Nullable Object object) {
+    private void assertNull(@Nullable Object object) {
         Assert.assertNull(object);
-        return null;
     }
 
     @Test
@@ -32,7 +31,8 @@ public class TypeValidatorTest {
         @Nullable PathToSchemasMap pathToSchemasMap = validator.validate(
                 StringJsonSchema.getInstance(),
                 "hi",
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         );
         assertNull(pathToSchemasMap);
     }
@@ -51,7 +51,8 @@ public class TypeValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 StringJsonSchema.getInstance(),
                 1,
-                validationMetadata
+                validationMetadata,
+                new ArrayList<>()
         ));
     }
 }

@@ -46,6 +46,7 @@ public abstract class JsonSchema {
     public final boolean defaultValueSet;
     public final @Nullable Object constValue;
     public final boolean constValueSet;
+    public final @Nullable Class<? extends JsonSchema> contains;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -228,6 +229,13 @@ public abstract class JsonSchema {
                     new ConstValidator(this.constValue)
             );
         }
+        this.contains = jsonSchemaInfo.contains;
+        if (this.contains != null) {
+            keywordToValidator.put(
+                    "contains",
+                    new ContainsValidator(this.contains)
+            );
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
@@ -242,6 +250,11 @@ public abstract class JsonSchema {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
+        List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
+        KeywordValidator containsValidator = thisKeywordToValidator.get("contains");
+        if (containsValidator != null) {
+            containsPathToSchemas = containsValidator.getContainsPathToSchemas(arg, validationMetadata);
+        }
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
             if (disabledKeywords.contains(jsonKeyword)) {
@@ -254,7 +267,8 @@ public abstract class JsonSchema {
             @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(
                     jsonSchema,
                     arg,
-                    validationMetadata
+                    validationMetadata,
+                    containsPathToSchemas
             );
             if (otherPathToSchemas == null) {
                 continue;

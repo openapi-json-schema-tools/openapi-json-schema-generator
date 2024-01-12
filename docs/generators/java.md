@@ -277,7 +277,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |AllOf|✓|OAS2,OAS3
 |AnyOf|✓|OAS3
 |Const|✓|OAS3
-|Contains|✗|OAS3
+|Contains|✓|OAS3
 |Default|✓|OAS2,OAS3
 |DependentRequired|✗|OAS3
 |DependentSchemas|✗|OAS3

@@ -142,4 +142,9 @@ public class JsonSchemaInfo {
         this.constValueSet = true;
         return this;
     }
+    public @Nullable Class<? extends JsonSchema> contains = null;
+    public JsonSchemaInfo contains(Class<? extends JsonSchema> contains) {
+        this.contains = contains;
+        return this;
+    }
 }

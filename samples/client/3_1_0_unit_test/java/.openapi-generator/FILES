@@ -22,6 +22,8 @@ docs/components/schemas/ByInt.md
 docs/components/schemas/ByNumber.md
 docs/components/schemas/BySmallNumber.md
 docs/components/schemas/ConstNulCharactersInStrings.md
+docs/components/schemas/ContainsKeywordValidation.md
+docs/components/schemas/ContainsWithNullInstanceElements.md
 docs/components/schemas/DateFormat.md
 docs/components/schemas/DateTimeFormat.md
 docs/components/schemas/DurationFormat.md
@@ -45,6 +47,7 @@ docs/components/schemas/Ipv4Format.md
 docs/components/schemas/Ipv6Format.md
 docs/components/schemas/IriFormat.md
 docs/components/schemas/IriReferenceFormat.md
+docs/components/schemas/ItemsContains.md
 docs/components/schemas/ItemsWithNullInstanceElements.md
 docs/components/schemas/JsonPointerFormat.md
 docs/components/schemas/MaxcontainsWithoutContainsIsIgnored.md
@@ -133,6 +136,8 @@ src/main/java/org/openapijsonschematools/client/components/schemas/ByInt.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ByNumber.java
 src/main/java/org/openapijsonschematools/client/components/schemas/BySmallNumber.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ConstNulCharactersInStrings.java
+src/main/java/org/openapijsonschematools/client/components/schemas/ContainsKeywordValidation.java
+src/main/java/org/openapijsonschematools/client/components/schemas/ContainsWithNullInstanceElements.java
 src/main/java/org/openapijsonschematools/client/components/schemas/DateFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/DateTimeFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/DurationFormat.java
@@ -156,6 +161,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/Ipv4Format.ja
 src/main/java/org/openapijsonschematools/client/components/schemas/Ipv6Format.java
 src/main/java/org/openapijsonschematools/client/components/schemas/IriFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/IriReferenceFormat.java
+src/main/java/org/openapijsonschematools/client/components/schemas/ItemsContains.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ItemsWithNullInstanceElements.java
 src/main/java/org/openapijsonschematools/client/components/schemas/JsonPointerFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/MaxcontainsWithoutContainsIsIgnored.java
@@ -254,6 +260,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/BooleanEnumVa
 src/main/java/org/openapijsonschematools/client/schemas/validation/BooleanSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/BooleanValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ConstValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/ContainsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/CustomIsoparser.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DefaultValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleEnumValidator.java
@@ -261,7 +268,6 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleValueMe
 src/main/java/org/openapijsonschematools/client/schemas/validation/EnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMaximumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMinimumValidator.java
-src/main/java/org/openapijsonschematools/client/schemas/validation/FakeValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FloatEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FloatValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FormatValidator.java
