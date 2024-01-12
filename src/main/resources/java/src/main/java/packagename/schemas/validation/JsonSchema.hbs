@@ -47,6 +47,8 @@ public abstract class JsonSchema {
     public final @Nullable Object constValue;
     public final boolean constValueSet;
     public final @Nullable Class<? extends JsonSchema> contains;
+    public final @Nullable Integer maxContains;
+    public final @Nullable Integer minContains;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {

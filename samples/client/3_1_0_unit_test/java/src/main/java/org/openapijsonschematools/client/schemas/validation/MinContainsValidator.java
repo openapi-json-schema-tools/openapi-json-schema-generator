@@ -26,7 +26,7 @@ public class MinContainsValidator implements KeywordValidator {
             throw new ValidationException(
                 "Validation failed for minContains keyword in class="+schema.getClass()+
                 " at pathToItem="+validationMetadata.pathToItem()+". Too few items validated to the contains schema."
-            )
+            );
         }
         return null;
     }

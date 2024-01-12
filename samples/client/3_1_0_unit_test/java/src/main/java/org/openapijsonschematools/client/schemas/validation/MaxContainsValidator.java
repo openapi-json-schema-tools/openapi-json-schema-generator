@@ -26,7 +26,7 @@ public class MaxContainsValidator implements KeywordValidator {
             throw new ValidationException(
                 "Validation failed for maxContains keyword in class="+schema.getClass()+
                 " at pathToItem="+validationMetadata.pathToItem()+". Too many items validated to the contains schema."
-            )
+            );
         }
         return null;
     }
