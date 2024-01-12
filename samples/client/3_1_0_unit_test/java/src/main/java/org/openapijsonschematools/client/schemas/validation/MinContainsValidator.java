@@ -17,9 +17,12 @@ public class MinContainsValidator implements KeywordValidator {
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas
     ) {
         if (!(arg instanceof List)) {
+            return null;
+        }
+        if (containsPathToSchemas == null) {
             return null;
         }
         if (containsPathToSchemas.size() < minContains) {
