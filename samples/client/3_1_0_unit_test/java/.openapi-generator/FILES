@@ -310,6 +310,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/PathToSchemas
 src/main/java/org/openapijsonschematools/client/schemas/validation/PatternValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyEntry.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyNamesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/RequiredValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringSchemaValidator.java
@@ -321,7 +322,6 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMet
 src/main/java/org/openapijsonschematools/client/servers/Server0.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
-src/test/java/org/openapijsonschematools/client/components/schemas/PropertynamesValidationTest.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.java

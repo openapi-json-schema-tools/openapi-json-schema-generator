@@ -92,6 +92,7 @@ public class PropertynamesValidation {
     
         protected PropertynamesValidation1() {
             super(new JsonSchemaInfo()
+                .propertyNames(PropertyNames.class)
             );
         }
     

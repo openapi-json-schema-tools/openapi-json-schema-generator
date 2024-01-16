@@ -108,6 +108,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#neq minContains null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_minContains }}
         {{/neq}}
+        {{#if propertyNames}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_propertyNames }}
+        {{/if}}
         );
     }
 
@@ -137,9 +140,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
 {{/if}}
 {{#if dependentSchemas}}
     {{!> components/schemas/schema_cls/_dependent_schemas }}
-{{/if}}
-{{#if propertyNames}}
-    {{!> components/schemas/schema_cls/_property_names }}
 {{/if}}
 {{#if patternProperties}}
     {{!> components/schemas/schema_cls/_pattern_properties }}

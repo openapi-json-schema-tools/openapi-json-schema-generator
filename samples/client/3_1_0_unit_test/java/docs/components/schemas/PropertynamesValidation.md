@@ -20,6 +20,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
+| Class<? extends JsonSchema> | propertyNames = [PropertyNames.class](#propertynames) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -82,3 +82,6 @@
 {{#neq minContains null}}
 | Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_minContains }} |
 {{/neq}}
+{{#if propertyNames}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_propertyNames }} |
+{{/if}}

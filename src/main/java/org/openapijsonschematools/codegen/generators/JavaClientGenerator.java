@@ -612,6 +612,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("PatternValidator");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
+        keywordValidatorFiles.add("PropertyNamesValidator");
         keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("StringEnumValidator");
         keywordValidatorFiles.add("StringSchemaValidator");
