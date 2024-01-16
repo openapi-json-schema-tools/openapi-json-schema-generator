@@ -88,6 +88,7 @@ docs/components/schemas/PropertiesWhoseNamesAreJavascriptObjectPropertyNames.md
 docs/components/schemas/PropertiesWithEscapedCharacters.md
 docs/components/schemas/PropertiesWithNullValuedInstanceProperties.md
 docs/components/schemas/PropertyNamedRefThatIsNotAReference.md
+docs/components/schemas/PropertynamesValidation.md
 docs/components/schemas/RegexFormat.md
 docs/components/schemas/RelativeJsonPointerFormat.md
 docs/components/schemas/RequiredDefaultValidation.md
@@ -202,6 +203,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesWho
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesWithEscapedCharacters.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesWithNullValuedInstanceProperties.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertyNamedRefThatIsNotAReference.java
+src/main/java/org/openapijsonschematools/client/components/schemas/PropertynamesValidation.java
 src/main/java/org/openapijsonschematools/client/components/schemas/RegexFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/RelativeJsonPointerFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/RequiredDefaultValidation.java
@@ -319,6 +321,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMet
 src/main/java/org/openapijsonschematools/client/servers/Server0.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
+src/test/java/org/openapijsonschematools/client/components/schemas/PropertynamesValidationTest.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.java

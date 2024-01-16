@@ -246,6 +246,7 @@ allowed input and output types.
 | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1](docs/components/schemas/PropertiesWithEscapedCharacters.md#propertieswithescapedcharacters1) | |
 | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1](docs/components/schemas/PropertiesWithNullValuedInstanceProperties.md#propertieswithnullvaluedinstanceproperties1) | |
 | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1](docs/components/schemas/PropertyNamedRefThatIsNotAReference.md#propertynamedrefthatisnotareference1) | |
+| [PropertynamesValidation.PropertynamesValidation1](docs/components/schemas/PropertynamesValidation.md#propertynamesvalidation1) | |
 | [RegexFormat.RegexFormat1](docs/components/schemas/RegexFormat.md#regexformat1) | |
 | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1](docs/components/schemas/RelativeJsonPointerFormat.md#relativejsonpointerformat1) | |
 | [RequiredDefaultValidation.RequiredDefaultValidation1](docs/components/schemas/RequiredDefaultValidation.md#requireddefaultvalidation1) | |
