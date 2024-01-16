@@ -49,6 +49,7 @@ public abstract class JsonSchema {
     public final @Nullable Class<? extends JsonSchema> contains;
     public final @Nullable Integer maxContains;
     public final @Nullable Integer minContains;
+    public final @Nullable Class<? extends JsonSchema> propertyNames;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -250,6 +251,13 @@ public abstract class JsonSchema {
             keywordToValidator.put(
                     "minContains",
                     new MinContainsValidator(this.minContains)
+            );
+        }
+        this.propertyNames = jsonSchemaInfo.propertyNames;
+        if (this.propertyNames != null) {
+            keywordToValidator.put(
+                    "propertyNames",
+                    new PropertyNamesValidator(this.propertyNames)
             );
         }
         this.keywordToValidator = keywordToValidator;
