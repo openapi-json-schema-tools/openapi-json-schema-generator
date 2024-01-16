@@ -1348,6 +1348,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 addMultipleOfValidator(schema, imports);
                 addAdditionalPropertiesImports(schema, imports);
                 addDefaultValueImport(schema, imports);
+                addDependentRequiredImports(schema, imports);
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1461,6 +1462,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
     }
 
+    private void addDependentRequiredImports(CodegenSchema schema, Set<String> imports) {
+        if (schema.dependentRequired != null) {
+            imports.add("import "+packageName + ".schemas.validation.MapUtils;");
+            imports.add("import java.util.AbstractMap;");
+            imports.add("import "+packageName + ".schemas.SetMaker;");
+        }
+    }
+
     private void addAllOfValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.allOf != null) {
             imports.add("import java.util.List;");
@@ -1555,6 +1564,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
         addAdditionalPropertiesImports(schema, imports);
+        addDependentRequiredImports(schema, imports);
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {

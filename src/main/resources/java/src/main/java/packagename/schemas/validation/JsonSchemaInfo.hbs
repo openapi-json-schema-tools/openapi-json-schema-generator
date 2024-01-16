@@ -163,7 +163,7 @@ public class JsonSchemaInfo {
         return this;
     }
     public @Nullable Map<String, Set<String>> dependentRequired = null;
-    public JsonSchemaInfo properties(Map<String, Set<String>> dependentRequired) {
+    public JsonSchemaInfo dependentRequired(Map<String, Set<String>> dependentRequired) {
         this.dependentRequired = dependentRequired;
         return this;
     }

@@ -1,7 +1,7 @@
 {{#if forDocs}}
 dependentRequired = MapUtils.makeMap(<br>
     {{#each dependentRequired}}
-&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key}}}",<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetMaker.makeSet(
         {{#each this}}
@@ -12,9 +12,9 @@ dependentRequired = MapUtils.makeMap(<br>
     {{/each}}
 )
 {{else}}
-dependentRequired(MapUtils.makeMap(
+.dependentRequired(MapUtils.makeMap(
     {{#each dependentRequired}}
-    new PropertyEntry(
+    new AbstractMap.SimpleEntry<>(
         "{{{@key}}}",
         SetMaker.makeSet(
         {{#each this}}
@@ -23,5 +23,5 @@ dependentRequired(MapUtils.makeMap(
         )
     ){{#unless @last}},{{/unless}}
     {{/each}}
-)
+))
 {{/if}}
