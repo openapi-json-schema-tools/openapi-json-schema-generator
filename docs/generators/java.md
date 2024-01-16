@@ -197,7 +197,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Integer|✓|OAS2,OAS3
 |Float|✓|OAS2,OAS3
 |Double|✓|OAS2,OAS3
-|Number|✗|OAS2,OAS3
+|Number|✓|OAS2,OAS3
 |String|✓|OAS2,OAS3
 |Byte|✗|OAS2,OAS3
 |Binary|✗|OAS2,OAS3
