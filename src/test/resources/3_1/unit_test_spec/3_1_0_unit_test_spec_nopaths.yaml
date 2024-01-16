@@ -456,6 +456,10 @@ components:
               type: string
         constructor:
           type: number
+    PropertynamesValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      propertyNames:
+        maxLength: 3
     PropertyNamedRefThatIsNotAReference:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -2603,6 +2607,45 @@ components:
           toString:
             length: foo
           constructor: 37
+        valid: true
+        comment: null
+    PropertynamesValidation:
+      AllPropertyNamesValid:
+        description: all property names valid
+        data:
+          f: {}
+          foo: {}
+        valid: true
+        comment: null
+      SomePropertyNamesInvalid:
+        description: some property names invalid
+        data:
+          foo: {}
+          foobar: {}
+        valid: false
+        comment: null
+      ObjectWithoutPropertiesIsValid:
+        description: object without properties is valid
+        data: {}
+        valid: true
+        comment: null
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - 1
+        - 2
+        - 3
+        - 4
+        valid: true
+        comment: null
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+        comment: null
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
         valid: true
         comment: null
     PropertyNamedRefThatIsNotAReference:

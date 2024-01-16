@@ -724,7 +724,6 @@ def write_openapi_spec():
         'NonAsciiPatternWithAdditionalproperties',
         'PatternpropertiesValidatesPropertiesMatchingARegex',
         'PropertiesPatternpropertiesAdditionalpropertiesInteraction',
-        'PropertynamesValidation',
         'RegexesAreNotAnchoredByDefaultAndAreCaseSensitive',
         'SingleDependency',
         'UnevaluateditemsAsSchema',

@@ -1145,6 +1145,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (schema.unevaluatedProperties != null) {
             imports.addAll(getImports(sourceJsonPath, schema.unevaluatedProperties, featureSet));
         }
+        if (schema.propertyNames != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.propertyNames, featureSet));
+        }
         if (schema.prefixItems != null && !schema.prefixItems.isEmpty()) {
             for (CodegenSchema cs: schema.prefixItems) {
                 imports.addAll(getImports(sourceJsonPath, cs, featureSet));
