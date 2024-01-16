@@ -85,3 +85,6 @@
 {{#if propertyNames}}
 | Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_propertyNames }} |
 {{/if}}
+{{#if dependentRequired}}
+| Map<String, Set<String>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_dependentRequired }} |
+{{/if}}

@@ -162,4 +162,9 @@ public class JsonSchemaInfo {
         this.propertyNames = propertyNames;
         return this;
     }
+    public @Nullable Map<String, Set<String>> dependentRequired = null;
+    public JsonSchemaInfo properties(Map<String, Set<String>> dependentRequired) {
+        this.dependentRequired = dependentRequired;
+        return this;
+    }
 }

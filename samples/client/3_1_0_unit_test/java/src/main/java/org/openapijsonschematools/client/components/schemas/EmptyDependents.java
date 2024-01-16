@@ -46,6 +46,13 @@ public class EmptyDependents {
     
         protected EmptyDependents1() {
             super(new JsonSchemaInfo()
+                dependentRequired(MapUtils.makeMap(
+                    new PropertyEntry(
+                        "bar",
+                        SetMaker.makeSet(
+                        )
+                    )
+                )
             );
         }
     

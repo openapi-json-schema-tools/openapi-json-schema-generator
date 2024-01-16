@@ -567,6 +567,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("BigDecimalValidator");
         keywordValidatorFiles.add("CustomIsoparser");
         keywordValidatorFiles.add("DefaultValueMethod");
+        keywordValidatorFiles.add("DependentRequiredValidator");
         keywordValidatorFiles.add("DoubleEnumValidator");
         keywordValidatorFiles.add("DoubleValueMethod");
         keywordValidatorFiles.add("EnumValidator");

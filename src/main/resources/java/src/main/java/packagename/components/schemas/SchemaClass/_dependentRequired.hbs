@@ -1,0 +1,27 @@
+{{#if forDocs}}
+dependentRequired = MapUtils.makeMap(<br>
+    {{#each dependentRequired}}
+&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key}}}",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetMaker.makeSet(
+        {{#each this}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{this}}}"{{#unless @last}},{{/unless}}<br>
+        {{/each}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;){{#unless @last}},{{/unless}}<br>
+    {{/each}}
+)
+{{else}}
+dependentRequired(MapUtils.makeMap(
+    {{#each dependentRequired}}
+    new PropertyEntry(
+        "{{{@key}}}",
+        SetMaker.makeSet(
+        {{#each this}}
+            "{{{this}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+        )
+    ){{#unless @last}},{{/unless}}
+    {{/each}}
+)
+{{/if}}

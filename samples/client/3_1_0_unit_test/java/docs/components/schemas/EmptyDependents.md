@@ -19,6 +19,14 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
+| Map<String, Set<String>> | dependentRequired = MapUtils.makeMap(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bar",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetMaker.makeSet(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+)
+ |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
