@@ -258,7 +258,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.Const,
                         SchemaFeature.Contains,
                         SchemaFeature.Default,
-                        // SchemaFeature.DependentRequired,
+                        SchemaFeature.DependentRequired,
                         // SchemaFeature.DependentSchemas,
                         // SchemaFeature.Discriminator,
                         // SchemaFeature.Else,

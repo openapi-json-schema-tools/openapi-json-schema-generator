@@ -50,6 +50,7 @@ public abstract class JsonSchema {
     public final @Nullable Integer maxContains;
     public final @Nullable Integer minContains;
     public final @Nullable Class<? extends JsonSchema> propertyNames;
+    public @Nullable Map<String, Set<String>> dependentRequired;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -258,6 +259,13 @@ public abstract class JsonSchema {
             keywordToValidator.put(
                     "propertyNames",
                     new PropertyNamesValidator(this.propertyNames)
+            );
+        }
+        this.dependentRequired = jsonSchemaInfo.dependentRequired;
+        if (this.dependentRequired != null) {
+            keywordToValidator.put(
+                    "dependentRequired",
+                    new DependentRequiredValidator(this.dependentRequired)
             );
         }
         this.keywordToValidator = keywordToValidator;
