@@ -88,6 +88,7 @@ docs/components/schemas/PropertiesWhoseNamesAreJavascriptObjectPropertyNames.md
 docs/components/schemas/PropertiesWithEscapedCharacters.md
 docs/components/schemas/PropertiesWithNullValuedInstanceProperties.md
 docs/components/schemas/PropertyNamedRefThatIsNotAReference.md
+docs/components/schemas/PropertynamesValidation.md
 docs/components/schemas/RegexFormat.md
 docs/components/schemas/RelativeJsonPointerFormat.md
 docs/components/schemas/RequiredDefaultValidation.md
@@ -202,6 +203,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesWho
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesWithEscapedCharacters.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesWithNullValuedInstanceProperties.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertyNamedRefThatIsNotAReference.java
+src/main/java/org/openapijsonschematools/client/components/schemas/PropertynamesValidation.java
 src/main/java/org/openapijsonschematools/client/components/schemas/RegexFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/RelativeJsonPointerFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/RequiredDefaultValidation.java
@@ -308,6 +310,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/PathToSchemas
 src/main/java/org/openapijsonschematools/client/schemas/validation/PatternValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyEntry.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyNamesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/RequiredValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringSchemaValidator.java

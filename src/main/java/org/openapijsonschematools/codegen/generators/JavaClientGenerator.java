@@ -286,7 +286,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         // SchemaFeature.PatternProperties,
                         // SchemaFeature.PrefixItems,
                         SchemaFeature.Properties,
-                        // SchemaFeature.PropertyNames,
+                        SchemaFeature.PropertyNames,
                         SchemaFeature.Ref,
                         SchemaFeature.Required,
                         // SchemaFeature.Then,
@@ -612,6 +612,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("PatternValidator");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
+        keywordValidatorFiles.add("PropertyNamesValidator");
         keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("StringEnumValidator");
         keywordValidatorFiles.add("StringSchemaValidator");
@@ -1144,6 +1145,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
         if (schema.unevaluatedProperties != null) {
             imports.addAll(getImports(sourceJsonPath, schema.unevaluatedProperties, featureSet));
+        }
+        if (schema.propertyNames != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.propertyNames, featureSet));
         }
         if (schema.prefixItems != null && !schema.prefixItems.isEmpty()) {
             for (CodegenSchema cs: schema.prefixItems) {

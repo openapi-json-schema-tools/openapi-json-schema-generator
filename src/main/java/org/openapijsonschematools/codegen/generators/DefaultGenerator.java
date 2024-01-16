@@ -159,7 +159,7 @@ public class DefaultGenerator implements Generator {
     static {
         DefaultFeatureSet = FeatureSet.newBuilder()
                 .includeDataTypeFeatures(
-                        DataTypeFeature.Int32, DataTypeFeature.Int64, DataTypeFeature.Integer, DataTypeFeature.Float, DataTypeFeature.Double,
+                        DataTypeFeature.Int32, DataTypeFeature.Int64, DataTypeFeature.Integer, DataTypeFeature.Float, DataTypeFeature.Double, DataTypeFeature.Number,
                         DataTypeFeature.String,
                         DataTypeFeature.Boolean, DataTypeFeature.Date, DataTypeFeature.DateTime,
                         DataTypeFeature.Array, DataTypeFeature.Object, DataTypeFeature.Enum, DataTypeFeature.Uuid,

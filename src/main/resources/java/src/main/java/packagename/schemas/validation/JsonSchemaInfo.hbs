@@ -157,4 +157,9 @@ public class JsonSchemaInfo {
         this.minContains = minContains;
         return this;
     }
+    public @Nullable Class<? extends JsonSchema> propertyNames = null;
+    public JsonSchemaInfo propertyNames(Class<? extends JsonSchema> propertyNames) {
+        this.propertyNames = propertyNames;
+        return this;
+    }
 }
