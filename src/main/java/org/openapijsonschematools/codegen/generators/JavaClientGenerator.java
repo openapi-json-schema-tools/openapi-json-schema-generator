@@ -1352,6 +1352,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 addDefaultValueImport(schema, imports);
                 addDependentRequiredImports(schema, imports);
                 addDependentSchemasImports(schema, imports);
+                addPatternPropertiesImports(schema, imports);
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1462,6 +1463,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import java.util.Set;");
             imports.add("import " + packageName + ".exceptions.UnsetPropertyException;");
             imports.add("import " + packageName + ".schemas.BaseBuilder;");
+        }
+    }
+
+    private void addPatternPropertiesImports(CodegenSchema schema, Set<String> imports) {
+        if (schema.patternProperties != null) {
+            imports.add("import java.util.AbstractMap;");
+            imports.add("import java.util.Map;");
+            imports.add("import java.util.regex.Pattern;");
         }
     }
 
@@ -1576,6 +1585,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         addAdditionalPropertiesImports(schema, imports);
         addDependentRequiredImports(schema, imports);
         addDependentSchemasImports(schema, imports);
+        addPatternPropertiesImports(schema, imports);
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
