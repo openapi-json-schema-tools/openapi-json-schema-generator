@@ -156,10 +156,46 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       contains:
         type: 'null'
+    SingleDependency:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        bar:
+        - foo
     EmptyDependents:
       $schema: https://json-schema.org/draft/2020-12/schema
       dependentRequired:
         bar: []
+    MultipleDependentsRequired:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        quux:
+        - foo
+        - bar
+    DependentSchemasSingleDependency:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentSchemas:
+        bar:
+          properties:
+            foo:
+              type: integer
+            bar:
+              type: integer
+    DependentSchemasDependenciesWithEscapedCharacters:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentSchemas:
+        "foo\tbar":
+          minProperties: 4
+        foo'bar:
+          required:
+          - foo"bar
+    DependentSchemasDependentSubschemaIncompatibleWithRoot:
+      properties:
+        foo: {}
+      dependentSchemas:
+        foo:
+          properties:
+            bar: {}
+          additionalProperties: false
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -963,6 +999,47 @@ components:
         - null
         valid: true
         comment: null
+    SingleDependency:
+      Neither:
+        description: neither
+        data: {}
+        valid: true
+        comment: null
+      Nondependant:
+        description: nondependant
+        data:
+          foo: 1
+        valid: true
+        comment: null
+      WithDependency:
+        description: with dependency
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+        comment: null
+      MissingDependency:
+        description: missing dependency
+        data:
+          bar: 2
+        valid: false
+        comment: null
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - bar
+        valid: true
+        comment: null
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+        comment: null
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+        comment: null
     EmptyDependents:
       EmptyObject:
         description: empty object
@@ -978,6 +1055,154 @@ components:
       NonObjectIsValid:
         description: non-object is valid
         data: 1
+        valid: true
+        comment: null
+    MultipleDependentsRequired:
+      Neither:
+        description: neither
+        data: {}
+        valid: true
+        comment: null
+      Nondependants:
+        description: nondependants
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+        comment: null
+      WithDependencies:
+        description: with dependencies
+        data:
+          foo: 1
+          bar: 2
+          quux: 3
+        valid: true
+        comment: null
+      MissingDependency:
+        description: missing dependency
+        data:
+          foo: 1
+          quux: 2
+        valid: false
+        comment: null
+      MissingOtherDependency:
+        description: missing other dependency
+        data:
+          bar: 1
+          quux: 2
+        valid: false
+        comment: null
+      MissingBothDependencies:
+        description: missing both dependencies
+        data:
+          quux: 1
+        valid: false
+        comment: null
+    DependentSchemasSingleDependency:
+      Valid:
+        description: valid
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+        comment: null
+      NoDependency:
+        description: no dependency
+        data:
+          foo: quux
+        valid: true
+        comment: null
+      WrongType:
+        description: wrong type
+        data:
+          foo: quux
+          bar: 2
+        valid: false
+        comment: null
+      WrongTypeOther:
+        description: wrong type other
+        data:
+          foo: 2
+          bar: quux
+        valid: false
+        comment: null
+      WrongTypeBoth:
+        description: wrong type both
+        data:
+          foo: quux
+          bar: quux
+        valid: false
+        comment: null
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - bar
+        valid: true
+        comment: null
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+        comment: null
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+        comment: null
+    DependentSchemasDependenciesWithEscapedCharacters:
+      QuotedTab:
+        description: quoted tab
+        data:
+          "foo\tbar": 1
+          a: 2
+          b: 3
+          c: 4
+        valid: true
+        comment: null
+      QuotedQuote:
+        description: quoted quote
+        data:
+          foo'bar:
+            foo"bar: 1
+        valid: false
+        comment: null
+      QuotedTabInvalidUnderDependentSchema:
+        description: quoted tab invalid under dependent schema
+        data:
+          "foo\tbar": 1
+          a: 2
+        valid: false
+        comment: null
+      QuotedQuoteInvalidUnderDependentSchema:
+        description: quoted quote invalid under dependent schema
+        data:
+          foo'bar: 1
+        valid: false
+        comment: null
+    DependentSchemasDependentSubschemaIncompatibleWithRoot:
+      MatchesRoot:
+        description: matches root
+        data:
+          foo: 1
+        valid: false
+        comment: null
+      MatchesDependency:
+        description: matches dependency
+        data:
+          bar: 1
+        valid: true
+        comment: null
+      MatchesBoth:
+        description: matches both
+        data:
+          foo: 1
+          bar: 2
+        valid: false
+        comment: null
+      NoDependency:
+        description: no dependency
+        data:
+          baz: 1
         valid: true
         comment: null
     SimpleEnumValidation:
