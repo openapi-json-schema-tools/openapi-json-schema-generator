@@ -167,4 +167,9 @@ public class JsonSchemaInfo {
         this.dependentRequired = dependentRequired;
         return this;
     }
+    public @Nullable Map<String, Class<? extends JsonSchema>> dependentSchemas = null;
+    public JsonSchemaInfo dependentSchemas(Map<String, Class<? extends JsonSchema>> dependentSchemas) {
+        this.dependentSchemas = dependentSchemas;
+        return this;
+    }
 }

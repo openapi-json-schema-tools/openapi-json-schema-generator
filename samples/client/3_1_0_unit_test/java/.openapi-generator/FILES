@@ -26,6 +26,9 @@ docs/components/schemas/ContainsKeywordValidation.md
 docs/components/schemas/ContainsWithNullInstanceElements.md
 docs/components/schemas/DateFormat.md
 docs/components/schemas/DateTimeFormat.md
+docs/components/schemas/DependentSchemasDependenciesWithEscapedCharacters.md
+docs/components/schemas/DependentSchemasDependentSubschemaIncompatibleWithRoot.md
+docs/components/schemas/DependentSchemasSingleDependency.md
 docs/components/schemas/DurationFormat.md
 docs/components/schemas/EmailFormat.md
 docs/components/schemas/EmptyDependents.md
@@ -63,6 +66,7 @@ docs/components/schemas/MinimumValidationWithSignedInteger.md
 docs/components/schemas/MinitemsValidation.md
 docs/components/schemas/MinlengthValidation.md
 docs/components/schemas/MinpropertiesValidation.md
+docs/components/schemas/MultipleDependentsRequired.md
 docs/components/schemas/MultipleTypesCanBeSpecifiedInAnArray.md
 docs/components/schemas/NestedAllofToCheckValidationSemantics.md
 docs/components/schemas/NestedAnyofToCheckValidationSemantics.md
@@ -97,6 +101,7 @@ docs/components/schemas/RequiredValidation.md
 docs/components/schemas/RequiredWithEmptyArray.md
 docs/components/schemas/RequiredWithEscapedCharacters.md
 docs/components/schemas/SimpleEnumValidation.md
+docs/components/schemas/SingleDependency.md
 docs/components/schemas/SmallMultipleOfLargeInteger.md
 docs/components/schemas/StringTypeMatchesStrings.md
 docs/components/schemas/TimeFormat.md
@@ -141,6 +146,9 @@ src/main/java/org/openapijsonschematools/client/components/schemas/ContainsKeywo
 src/main/java/org/openapijsonschematools/client/components/schemas/ContainsWithNullInstanceElements.java
 src/main/java/org/openapijsonschematools/client/components/schemas/DateFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/DateTimeFormat.java
+src/main/java/org/openapijsonschematools/client/components/schemas/DependentSchemasDependenciesWithEscapedCharacters.java
+src/main/java/org/openapijsonschematools/client/components/schemas/DependentSchemasDependentSubschemaIncompatibleWithRoot.java
+src/main/java/org/openapijsonschematools/client/components/schemas/DependentSchemasSingleDependency.java
 src/main/java/org/openapijsonschematools/client/components/schemas/DurationFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/EmailFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/EmptyDependents.java
@@ -178,6 +186,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/MinimumValida
 src/main/java/org/openapijsonschematools/client/components/schemas/MinitemsValidation.java
 src/main/java/org/openapijsonschematools/client/components/schemas/MinlengthValidation.java
 src/main/java/org/openapijsonschematools/client/components/schemas/MinpropertiesValidation.java
+src/main/java/org/openapijsonschematools/client/components/schemas/MultipleDependentsRequired.java
 src/main/java/org/openapijsonschematools/client/components/schemas/MultipleTypesCanBeSpecifiedInAnArray.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NestedAllofToCheckValidationSemantics.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NestedAnyofToCheckValidationSemantics.java
@@ -212,6 +221,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/RequiredValid
 src/main/java/org/openapijsonschematools/client/components/schemas/RequiredWithEmptyArray.java
 src/main/java/org/openapijsonschematools/client/components/schemas/RequiredWithEscapedCharacters.java
 src/main/java/org/openapijsonschematools/client/components/schemas/SimpleEnumValidation.java
+src/main/java/org/openapijsonschematools/client/components/schemas/SingleDependency.java
 src/main/java/org/openapijsonschematools/client/components/schemas/SmallMultipleOfLargeInteger.java
 src/main/java/org/openapijsonschematools/client/components/schemas/StringTypeMatchesStrings.java
 src/main/java/org/openapijsonschematools/client/components/schemas/TimeFormat.java
@@ -266,6 +276,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ContainsValid
 src/main/java/org/openapijsonschematools/client/schemas/validation/CustomIsoparser.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DefaultValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DependentRequiredValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/DependentSchemasValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/EnumValidator.java

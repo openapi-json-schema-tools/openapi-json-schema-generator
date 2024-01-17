@@ -88,3 +88,6 @@
 {{#if dependentRequired}}
 | Map<String, Set<String>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_dependentRequired }} |
 {{/if}}
+{{#if dependentSchemas}}
+| Map<String, Class<? extends JsonSchema>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_dependentSchemas }} |
+{{/if}}

@@ -259,7 +259,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.Contains,
                         SchemaFeature.Default,
                         SchemaFeature.DependentRequired,
-                        // SchemaFeature.DependentSchemas,
+                        SchemaFeature.DependentSchemas,
                         // SchemaFeature.Discriminator,
                         // SchemaFeature.Else,
                         SchemaFeature.Enum,
@@ -568,6 +568,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("CustomIsoparser");
         keywordValidatorFiles.add("DefaultValueMethod");
         keywordValidatorFiles.add("DependentRequiredValidator");
+        keywordValidatorFiles.add("DependentSchemasValidator");
         keywordValidatorFiles.add("DoubleEnumValidator");
         keywordValidatorFiles.add("DoubleValueMethod");
         keywordValidatorFiles.add("EnumValidator");
@@ -1337,7 +1338,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 imports.add("import "+packageName + ".schemas.validation.MapSchemaValidator;");
                 imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.util.ArrayList;"); // for validate
-                addPropertiesValidator(schema, imports);
+                addPropertiesImports(schema, imports);
                 addRequiredValidator(schema, imports);
                 addAllOfValidator(schema, imports);
                 addAnyOfValidator(schema, imports);
@@ -1349,6 +1350,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 addAdditionalPropertiesImports(schema, imports);
                 addDefaultValueImport(schema, imports);
                 addDependentRequiredImports(schema, imports);
+                addDependentSchemasImports(schema, imports);
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1452,13 +1454,20 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
     }
 
-    private void addPropertiesValidator(CodegenSchema schema, Set<String> imports) {
+    private void addPropertiesImports(CodegenSchema schema, Set<String> imports) {
         if (schema.properties != null) {
-            imports.add("import "+packageName + ".schemas.validation.PropertyEntry;");
+            imports.add("import " + packageName + ".schemas.validation.PropertyEntry;");
             imports.add("import java.util.Map;");
             imports.add("import java.util.Set;");
-            imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import "+packageName + ".schemas.BaseBuilder;");
+            imports.add("import " + packageName + ".exceptions.UnsetPropertyException;");
+            imports.add("import " + packageName + ".schemas.BaseBuilder;");
+        }
+    }
+
+    private void addDependentSchemasImports(CodegenSchema schema, Set<String> imports) {
+        if (schema.dependentSchemas != null) {
+            imports.add("import " + packageName + ".schemas.validation.PropertyEntry;");
+            imports.add("import java.util.Map;");
         }
     }
 
@@ -1559,12 +1568,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
         imports.add("import java.util.LinkedHashMap;");
         addRequiredValidator(schema, imports);
-        addPropertiesValidator(schema, imports);
+        addPropertiesImports(schema, imports);
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
         addAdditionalPropertiesImports(schema, imports);
         addDependentRequiredImports(schema, imports);
+        addDependentSchemasImports(schema, imports);
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
