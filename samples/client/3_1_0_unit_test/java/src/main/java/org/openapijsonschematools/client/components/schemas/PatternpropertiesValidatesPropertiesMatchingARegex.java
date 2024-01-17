@@ -58,6 +58,9 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
     
         protected PatternpropertiesValidatesPropertiesMatchingARegex1() {
             super(new JsonSchemaInfo()
+                .patternProperties(Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>(Pattern.compile("f.*o"), Fo.class)
+                ))
             );
         }
     

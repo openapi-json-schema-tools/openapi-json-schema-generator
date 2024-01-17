@@ -172,4 +172,14 @@ public class JsonSchemaInfo {
         this.dependentSchemas = dependentSchemas;
         return this;
     }
+    public @Nullable Pattern pattern = null;
+    public JsonSchemaInfo pattern(Pattern pattern) {
+        this.pattern = pattern;
+        return this;
+    }
+    public @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties = null;
+    public JsonSchemaInfo patternProperties(Map<Pattern, Class<? extends JsonSchema>> patternProperties) {
+        this.patternProperties = patternProperties;
+        return this;
+    }
 }

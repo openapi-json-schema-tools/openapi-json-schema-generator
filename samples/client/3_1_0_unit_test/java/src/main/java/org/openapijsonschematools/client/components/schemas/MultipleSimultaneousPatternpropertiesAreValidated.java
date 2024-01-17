@@ -253,6 +253,10 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
     
         protected MultipleSimultaneousPatternpropertiesAreValidated1() {
             super(new JsonSchemaInfo()
+                .patternProperties(Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>(Pattern.compile("a*"), A.class),
+                    new AbstractMap.SimpleEntry<>(Pattern.compile("aaa*"), Aaa.class)
+                ))
             );
         }
     

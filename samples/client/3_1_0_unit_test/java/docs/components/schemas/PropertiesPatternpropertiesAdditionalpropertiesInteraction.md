@@ -56,6 +56,7 @@ PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternprop
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("foo", [Foo.class](#foo))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("bar", [Bar.class](#bar)))<br>)<br> |
 | Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
+| Map<Pattern, Class<? extends JsonSchema>> | patternProperties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(Pattern.compile("f.o"), [Fo.class](#fo)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

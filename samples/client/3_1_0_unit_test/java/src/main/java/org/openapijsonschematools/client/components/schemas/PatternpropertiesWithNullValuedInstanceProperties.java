@@ -58,6 +58,9 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
     
         protected PatternpropertiesWithNullValuedInstanceProperties1() {
             super(new JsonSchemaInfo()
+                .patternProperties(Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>(Pattern.compile("^.*bar$"), Bar.class)
+                ))
             );
         }
     

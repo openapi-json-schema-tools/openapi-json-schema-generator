@@ -91,3 +91,6 @@
 {{#if dependentSchemas}}
 | Map<String, Class<? extends JsonSchema>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_dependentSchemas }} |
 {{/if}}
+{{#if patternProperties}}
+| Map<Pattern, Class<? extends JsonSchema>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_patternProperties }} |
+{{/if}}

@@ -70,6 +70,10 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
     
         protected RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1() {
             super(new JsonSchemaInfo()
+                .patternProperties(Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>(Pattern.compile("[0-9]{2,}"), Schema092.class),
+                    new AbstractMap.SimpleEntry<>(Pattern.compile("X_"), X.class)
+                ))
             );
         }
     

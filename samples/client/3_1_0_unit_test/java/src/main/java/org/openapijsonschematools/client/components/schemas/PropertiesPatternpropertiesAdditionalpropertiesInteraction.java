@@ -466,6 +466,9 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
                     new PropertyEntry("bar", Bar.class)
                 ))
                 .additionalProperties(AdditionalProperties.class)
+                .patternProperties(Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>(Pattern.compile("f.o"), Fo.class)
+                ))
             );
         }
     

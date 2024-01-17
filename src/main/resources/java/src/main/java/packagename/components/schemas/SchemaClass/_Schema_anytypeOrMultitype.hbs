@@ -117,6 +117,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#if dependentSchemas}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_dependentSchemas }}
         {{/if}}
+        {{#if patternProperties}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_patternProperties }}
+        {{/if}}
         );
     }
 
@@ -140,9 +143,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
 {{/if}}
 {{#if else_}}
     {{!> components/schemas/schema_cls/_else }}
-{{/if}}
-{{#if patternProperties}}
-    {{!> components/schemas/schema_cls/_pattern_properties }}
 {{/if}}
 {{#if unevaluatedProperties}}
     {{!> components/schemas/schema_cls/_unevaluated_properties }}
