@@ -225,6 +225,7 @@ allowed input and output types.
 | [MinlengthValidation.MinlengthValidation1](docs/components/schemas/MinlengthValidation.md#minlengthvalidation1) | |
 | [MinpropertiesValidation.MinpropertiesValidation1](docs/components/schemas/MinpropertiesValidation.md#minpropertiesvalidation1) | |
 | [MultipleDependentsRequired.MultipleDependentsRequired1](docs/components/schemas/MultipleDependentsRequired.md#multipledependentsrequired1) | |
+| [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1](docs/components/schemas/MultipleSimultaneousPatternpropertiesAreValidated.md#multiplesimultaneouspatternpropertiesarevalidated1) | |
 | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1](docs/components/schemas/MultipleTypesCanBeSpecifiedInAnArray.md#multipletypescanbespecifiedinanarray1) | |
 | [NestedAllofToCheckValidationSemantics.NestedAllofToCheckValidationSemantics1](docs/components/schemas/NestedAllofToCheckValidationSemantics.md#nestedalloftocheckvalidationsemantics1) | |
 | [NestedAnyofToCheckValidationSemantics.NestedAnyofToCheckValidationSemantics1](docs/components/schemas/NestedAnyofToCheckValidationSemantics.md#nestedanyoftocheckvalidationsemantics1) | |
@@ -245,13 +246,16 @@ allowed input and output types.
 | [OneofWithRequired.OneofWithRequired1](docs/components/schemas/OneofWithRequired.md#oneofwithrequired1) | |
 | [PatternIsNotAnchored.PatternIsNotAnchored1](docs/components/schemas/PatternIsNotAnchored.md#patternisnotanchored1) | |
 | [PatternValidation.PatternValidation1](docs/components/schemas/PatternValidation.md#patternvalidation1) | |
+| [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1](docs/components/schemas/PatternpropertiesValidatesPropertiesMatchingARegex.md#patternpropertiesvalidatespropertiesmatchingaregex1) | |
 | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1](docs/components/schemas/PatternpropertiesWithNullValuedInstanceProperties.md#patternpropertieswithnullvaluedinstanceproperties1) | |
+| [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1](docs/components/schemas/PropertiesPatternpropertiesAdditionalpropertiesInteraction.md#propertiespatternpropertiesadditionalpropertiesinteraction1) | |
 | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1](docs/components/schemas/PropertiesWhoseNamesAreJavascriptObjectPropertyNames.md#propertieswhosenamesarejavascriptobjectpropertynames1) | |
 | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1](docs/components/schemas/PropertiesWithEscapedCharacters.md#propertieswithescapedcharacters1) | |
 | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1](docs/components/schemas/PropertiesWithNullValuedInstanceProperties.md#propertieswithnullvaluedinstanceproperties1) | |
 | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1](docs/components/schemas/PropertyNamedRefThatIsNotAReference.md#propertynamedrefthatisnotareference1) | |
 | [PropertynamesValidation.PropertynamesValidation1](docs/components/schemas/PropertynamesValidation.md#propertynamesvalidation1) | |
 | [RegexFormat.RegexFormat1](docs/components/schemas/RegexFormat.md#regexformat1) | |
+| [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1](docs/components/schemas/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.md#regexesarenotanchoredbydefaultandarecasesensitive1) | |
 | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1](docs/components/schemas/RelativeJsonPointerFormat.md#relativejsonpointerformat1) | |
 | [RequiredDefaultValidation.RequiredDefaultValidation1](docs/components/schemas/RequiredDefaultValidation.md#requireddefaultvalidation1) | |
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1](docs/components/schemas/RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.md#requiredpropertieswhosenamesarejavascriptobjectpropertynames1) | |
