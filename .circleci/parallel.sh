@@ -31,6 +31,7 @@ elif [ "$JOB_ID" = "testJava17ClientSamples" ]; then
 
   (cd samples/client/petstore/java && mvn test)
   (cd samples/client/3_0_3_unit_test/java && mvn test)
+  (cd samples/client/3_1_0_unit_test/java && mvn test)
 
 else
   echo "Running job $JOB_ID"

@@ -1,0 +1,29 @@
+{{#if forDocs}}
+dependentSchemas = Map.ofEntries(<br>
+    {{~#each dependentSchemas}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})){{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}}))){{#unless @last}},{{/unless}}<br>
+            {{~/if}}
+        {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}}))){{#unless @last}},{{/unless}}<br>
+        {{~/if}}
+    {{/each}}
+)<br>
+{{~else}}
+.dependentSchemas(Map.ofEntries(
+    {{#each dependentSchemas}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+    new PropertyEntry("{{{@key.original}}}", {{refInfo.refModule}}.{{refInfo.refClass}}.class){{#unless @last}},{{/unless}}
+            {{else}}
+    new PropertyEntry("{{{@key.original}}}", {{refInfo.refClass}}.class){{#unless @last}},{{/unless}}
+            {{/if}}
+        {{else}}
+    new PropertyEntry("{{{@key.original}}}", {{jsonPathPiece.pascalCase}}.class){{#unless @last}},{{/unless}}
+        {{/if}}
+    {{/each}}
+))
+{{/if}}

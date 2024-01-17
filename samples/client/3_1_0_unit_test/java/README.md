@@ -184,6 +184,9 @@ allowed input and output types.
 | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1](docs/components/schemas/ContainsWithNullInstanceElements.md#containswithnullinstanceelements1) | |
 | [DateFormat.DateFormat1](docs/components/schemas/DateFormat.md#dateformat1) | |
 | [DateTimeFormat.DateTimeFormat1](docs/components/schemas/DateTimeFormat.md#datetimeformat1) | |
+| [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1](docs/components/schemas/DependentSchemasDependenciesWithEscapedCharacters.md#dependentschemasdependencieswithescapedcharacters1) | |
+| [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1](docs/components/schemas/DependentSchemasDependentSubschemaIncompatibleWithRoot.md#dependentschemasdependentsubschemaincompatiblewithroot1) | |
+| [DependentSchemasSingleDependency.DependentSchemasSingleDependency1](docs/components/schemas/DependentSchemasSingleDependency.md#dependentschemassingledependency1) | |
 | [DurationFormat.DurationFormat1](docs/components/schemas/DurationFormat.md#durationformat1) | |
 | [EmailFormat.EmailFormat1](docs/components/schemas/EmailFormat.md#emailformat1) | |
 | [EmptyDependents.EmptyDependents1](docs/components/schemas/EmptyDependents.md#emptydependents1) | |
@@ -221,6 +224,7 @@ allowed input and output types.
 | [MinitemsValidation.MinitemsValidation1](docs/components/schemas/MinitemsValidation.md#minitemsvalidation1) | |
 | [MinlengthValidation.MinlengthValidation1](docs/components/schemas/MinlengthValidation.md#minlengthvalidation1) | |
 | [MinpropertiesValidation.MinpropertiesValidation1](docs/components/schemas/MinpropertiesValidation.md#minpropertiesvalidation1) | |
+| [MultipleDependentsRequired.MultipleDependentsRequired1](docs/components/schemas/MultipleDependentsRequired.md#multipledependentsrequired1) | |
 | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1](docs/components/schemas/MultipleTypesCanBeSpecifiedInAnArray.md#multipletypescanbespecifiedinanarray1) | |
 | [NestedAllofToCheckValidationSemantics.NestedAllofToCheckValidationSemantics1](docs/components/schemas/NestedAllofToCheckValidationSemantics.md#nestedalloftocheckvalidationsemantics1) | |
 | [NestedAnyofToCheckValidationSemantics.NestedAnyofToCheckValidationSemantics1](docs/components/schemas/NestedAnyofToCheckValidationSemantics.md#nestedanyoftocheckvalidationsemantics1) | |
@@ -255,6 +259,7 @@ allowed input and output types.
 | [RequiredWithEmptyArray.RequiredWithEmptyArray1](docs/components/schemas/RequiredWithEmptyArray.md#requiredwithemptyarray1) | |
 | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1](docs/components/schemas/RequiredWithEscapedCharacters.md#requiredwithescapedcharacters1) | |
 | [SimpleEnumValidation.SimpleEnumValidation1](docs/components/schemas/SimpleEnumValidation.md#simpleenumvalidation1) | |
+| [SingleDependency.SingleDependency1](docs/components/schemas/SingleDependency.md#singledependency1) | |
 | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1](docs/components/schemas/SmallMultipleOfLargeInteger.md#smallmultipleoflargeinteger1) | |
 | [StringTypeMatchesStrings.StringTypeMatchesStrings1](docs/components/schemas/StringTypeMatchesStrings.md#stringtypematchesstrings1) | |
 | [TimeFormat.TimeFormat1](docs/components/schemas/TimeFormat.md#timeformat1) | |
