@@ -19,7 +19,8 @@ public class ConstValidator extends BigDecimalValidator implements KeywordValida
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas,
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
     ) {
         if (arg instanceof Number) {
             BigDecimal castArg = getBigDecimal((Number) arg);

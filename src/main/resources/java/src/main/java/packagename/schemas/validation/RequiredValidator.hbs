@@ -20,7 +20,8 @@ public class RequiredValidator implements KeywordValidator {
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas,
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
     ) {
         if (!(arg instanceof Map)) {
             return null;
