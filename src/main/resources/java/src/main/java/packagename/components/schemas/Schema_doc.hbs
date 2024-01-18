@@ -154,14 +154,14 @@ A class to store validated Map payloads
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
 public class {{arrayOutputJsonPathPiece.pascalCase}}<br>
-extends `FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>`
+extends `FrozenList<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>`
 
 A class to store validated List payloads
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | of([List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| static [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | of([List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
             {{else}}
                 {{#eq instanceType "arrayInputType"}}
 {{> src/main/java/packagename/components/schemas/docschema_arrayInput }}

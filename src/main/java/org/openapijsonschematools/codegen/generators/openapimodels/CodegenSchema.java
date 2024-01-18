@@ -621,8 +621,10 @@ public class CodegenSchema {
         if (if_ != null) {
             if_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
-        if (items != null) {
-            items.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
+        if (arrayInputJsonPathPiece != null) {
+            if (items != null) {
+                items.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
+            }
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "arrayOutputType";
             extraSchema.items = items;
@@ -633,10 +635,15 @@ public class CodegenSchema {
             // needed to invoke Schema validation from the output class
             extraSchema.jsonPathPiece = jsonPathPiece;
             extraSchema.jsonPath = jsonPath;
-            if (items.hasAnyRefs()) {
-                schemaAllAreInline = false;
-                schemasAfterImports.add(extraSchema);
+            if (items != null) {
+                if (items.hasAnyRefs()) {
+                    schemaAllAreInline = false;
+                    schemasAfterImports.add(extraSchema);
+                } else {
+                    schemasBeforeImports.add(extraSchema);
+                }
             } else {
+                // assume no refs
                 schemasBeforeImports.add(extraSchema);
             }
         }
@@ -647,9 +654,14 @@ public class CodegenSchema {
             extraSchema.listItemSchema = listItemSchema;
             extraSchema.arrayInputJsonPathPiece = arrayInputJsonPathPiece;
             extraSchema.jsonPath = jsonPath; // needed to prevent recursion when rendering template data type
-            if (items.hasAnyRefs()) {
-                schemasAfterImports.add(extraSchema);
+            if (items != null) {
+                if (items.hasAnyRefs()) {
+                    schemasAfterImports.add(extraSchema);
+                } else {
+                    schemasBeforeImports.add(extraSchema);
+                }
             } else {
+                // assume no refs
                 schemasBeforeImports.add(extraSchema);
             }
         }

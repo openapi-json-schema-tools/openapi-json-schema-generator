@@ -2382,14 +2382,10 @@ public class DefaultGenerator implements Generator {
             if (property.prefixItems == null) {
                 property.listItemSchema = property.items;
             } else if (property.items == null) {
-                for (CodegenSchema prefixItem: property.prefixItems) {
-                    if (property.listItemSchema == null) {
-                        property.listItemSchema = prefixItem;
-                    } else {
-                        property.listItemSchema = property.listItemSchema.add(prefixItem);
-                    }
-                }
+                // any type of items may be added on after prefixItems
+                property.listItemSchema = new CodegenSchema();
             } else {
+                // items + prefixItems exists
                 property.listItemSchema = property.items;
                 for (CodegenSchema prefixItem: property.prefixItems) {
                     property.listItemSchema = property.listItemSchema.add(prefixItem);
@@ -2463,7 +2459,7 @@ public class DefaultGenerator implements Generator {
                         break;
                 }
             }
-            if ((property.types == null || property.types.contains("array")) && sourceJsonPath != null && property.items != null) {
+            if ((property.types == null || property.types.contains("array")) && sourceJsonPath != null && (property.items != null || property.prefixItems != null)) {
                 property.arrayOutputJsonPathPiece = getKey(currentName + arrayIOClassNamePiece, "schemaProperty", sourceJsonPath);
                 property.arrayInputJsonPathPiece = getKey(currentName + arrayIOClassNamePiece+arrayObjectInputClassNameSuffix, "schemaProperty", sourceJsonPath);
             }

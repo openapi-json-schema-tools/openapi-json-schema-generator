@@ -35,24 +35,24 @@ public class PrefixitemsValidationAdjustsTheStartingIndexForItems {
     }
     
     
-    public static class PrefixitemsValidationAdjustsTheStartingIndexForItemsList extends FrozenList<Number> {
-        protected PrefixitemsValidationAdjustsTheStartingIndexForItemsList(FrozenList<Number> m) {
+    public static class PrefixitemsValidationAdjustsTheStartingIndexForItemsList extends FrozenList<Object> {
+        protected PrefixitemsValidationAdjustsTheStartingIndexForItemsList(FrozenList<Object> m) {
             super(m);
         }
-        public static PrefixitemsValidationAdjustsTheStartingIndexForItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PrefixitemsValidationAdjustsTheStartingIndexForItemsList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return PrefixitemsValidationAdjustsTheStartingIndexForItems1.getInstance().validate(arg, configuration);
         }
     }
     
     public static class PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder {
-        // class to build List<Number>
-        private final List<Number> list;
+        // class to build List<Object>
+        private final List<Object> list;
     
         public PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder() {
             list = new ArrayList<>();
         }
     
-        public PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder(List<Number> list) {
+        public PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder(List<Object> list) {
             this.list = list;
         }
         
@@ -75,8 +75,13 @@ public class PrefixitemsValidationAdjustsTheStartingIndexForItems {
             list.add(item);
             return this;
         }
+        
+        public PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
     
-        public List<Number> build() {
+        public List<Object> build() {
             return list;
         }
     }
@@ -121,7 +126,7 @@ public class PrefixitemsValidationAdjustsTheStartingIndexForItems {
         
         @Override
         public PrefixitemsValidationAdjustsTheStartingIndexForItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<Number> items = new ArrayList<>();
+            List<Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -132,13 +137,13 @@ public class PrefixitemsValidationAdjustsTheStartingIndexForItems {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof Number)) {
+                if (!(itemInstance instanceof Object)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((Number) itemInstance);
+                items.add((Object) itemInstance);
                 i += 1;
             }
-            FrozenList<Number> newInstanceItems = new FrozenList<>(items);
+            FrozenList<Object> newInstanceItems = new FrozenList<>(items);
             return new PrefixitemsValidationAdjustsTheStartingIndexForItemsList(newInstanceItems);
         }
         

@@ -22,11 +22,14 @@ public class AdditionalItemsAreAllowedByDefaultTest {
         // only the first item is validated
         final var schema = AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1.getInstance();
         schema.validate(
-            Arrays.asList(
-                1,
-                "foo",
-                false
-            ),
+            new AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefaultListBuilder()
+                .add(1)
+
+                .add("foo")
+
+                .add(false)
+
+            .build(),
             configuration
         );
     }

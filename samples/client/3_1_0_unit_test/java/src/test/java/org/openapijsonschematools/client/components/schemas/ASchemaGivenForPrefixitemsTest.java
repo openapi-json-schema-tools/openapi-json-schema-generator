@@ -22,10 +22,12 @@ public class ASchemaGivenForPrefixitemsTest {
         // correct types
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(
-            Arrays.asList(
-                1,
-                "foo"
-            ),
+            new ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsListBuilder()
+                .add(1)
+
+                .add("foo")
+
+            .build(),
             configuration
         );
     }
@@ -35,11 +37,14 @@ public class ASchemaGivenForPrefixitemsTest {
         // array with additional items
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(
-            Arrays.asList(
-                1,
-                "foo",
-                true
-            ),
+            new ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsListBuilder()
+                .add(1)
+
+                .add("foo")
+
+                .add(true)
+
+            .build(),
             configuration
         );
     }
@@ -72,8 +77,8 @@ public class ASchemaGivenForPrefixitemsTest {
         // empty array
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(
-            Arrays.asList(
-            ),
+            new ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsListBuilder()
+            .build(),
             configuration
         );
     }
@@ -101,9 +106,10 @@ public class ASchemaGivenForPrefixitemsTest {
         // incomplete array of items
         final var schema = ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1.getInstance();
         schema.validate(
-            Arrays.asList(
-                1
-            ),
+            new ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsListBuilder()
+                .add(1)
+
+            .build(),
             configuration
         );
     }

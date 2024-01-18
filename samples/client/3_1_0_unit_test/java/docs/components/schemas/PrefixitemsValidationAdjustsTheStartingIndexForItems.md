@@ -72,7 +72,7 @@ A schema class that validates payloads
 
 ## PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder
 public class PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder<br>
-builder for `List<Number>`
+builder for `List<Object>`
 
 A class that builds the List input type
 
@@ -80,7 +80,7 @@ A class that builds the List input type
 | Constructor and Description |
 | --------------------------- |
 | PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder()<br>Creates an empty list |
-| PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder(List<Number> items)<br>Stores the items in a list |
+| PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder(List<Object> items)<br>Stores the items in a list |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -89,18 +89,19 @@ A class that builds the List input type
 | PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder | add(float item) |
 | PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder | add(long item) |
 | PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder | add(double item) |
-| List<Number> | build()<br>Returns list input that should be used with Schema.validate |
+| PrefixitemsValidationAdjustsTheStartingIndexForItemsListBuilder | add(String item) |
+| List<Object> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## PrefixitemsValidationAdjustsTheStartingIndexForItemsList
 public class PrefixitemsValidationAdjustsTheStartingIndexForItemsList<br>
-extends `FrozenList<Number>`
+extends `FrozenList<Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PrefixitemsValidationAdjustsTheStartingIndexForItemsList](#prefixitemsvalidationadjuststhestartingindexforitemslist) | of([List<Number>](#prefixitemsvalidationadjuststhestartingindexforitemslistbuilder) arg, SchemaConfiguration configuration) |
+| static [PrefixitemsValidationAdjustsTheStartingIndexForItemsList](#prefixitemsvalidationadjuststhestartingindexforitemslist) | of([List<Object>](#prefixitemsvalidationadjuststhestartingindexforitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -40,12 +40,16 @@ public class UniqueitemsWithAnArrayOfItemsTest {
         // unique array extended from [false, true] is valid
         final var schema = UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItems1.getInstance();
         schema.validate(
-            Arrays.asList(
-                false,
-                true,
-                "foo",
-                "bar"
-            ),
+            new UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItemsListBuilder()
+                .add(false)
+
+                .add(true)
+
+                .add("foo")
+
+                .add("bar")
+
+            .build(),
             configuration
         );
     }
@@ -73,12 +77,16 @@ public class UniqueitemsWithAnArrayOfItemsTest {
         // unique array extended from [true, false] is valid
         final var schema = UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItems1.getInstance();
         schema.validate(
-            Arrays.asList(
-                true,
-                false,
-                "foo",
-                "bar"
-            ),
+            new UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItemsListBuilder()
+                .add(true)
+
+                .add(false)
+
+                .add("foo")
+
+                .add("bar")
+
+            .build(),
             configuration
         );
     }
@@ -128,10 +136,12 @@ public class UniqueitemsWithAnArrayOfItemsTest {
         // [false, true] from items array is valid
         final var schema = UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItems1.getInstance();
         schema.validate(
-            Arrays.asList(
-                false,
-                true
-            ),
+            new UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItemsListBuilder()
+                .add(false)
+
+                .add(true)
+
+            .build(),
             configuration
         );
     }
@@ -141,10 +151,12 @@ public class UniqueitemsWithAnArrayOfItemsTest {
         // [true, false] from items array is valid
         final var schema = UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItems1.getInstance();
         schema.validate(
-            Arrays.asList(
-                true,
-                false
-            ),
+            new UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItemsListBuilder()
+                .add(true)
+
+                .add(false)
+
+            .build(),
             configuration
         );
     }

@@ -22,9 +22,10 @@ public class PrefixitemsWithNullInstanceElementsTest {
         // allows null elements
         final var schema = PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1.getInstance();
         schema.validate(
-            Arrays.asList(
-                (Void) null
-            ),
+            new PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElementsListBuilder()
+                .add(null)
+
+            .build(),
             configuration
         );
     }
