@@ -49,7 +49,7 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, [additional_items_are_allowed_by_default.AdditionalItemsAreAllowedByDefaultTuple](../../components/schema/additional_items_are_allowed_by_default.md#additionalitemsareallowedbydefaulttuple), bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -66,7 +66,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**additional_items_are_allowed_by_default.AdditionalItemsAreAllowedByDefault**](../../components/schema/additional_items_are_allowed_by_default.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
+[**additional_items_are_allowed_by_default.AdditionalItemsAreAllowedByDefault**](../../components/schema/additional_items_are_allowed_by_default.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, [additional_items_are_allowed_by_default.AdditionalItemsAreAllowedByDefaultTupleInput](../../components/schema/additional_items_are_allowed_by_default.md#additionalitemsareallowedbydefaulttupleinput), [additional_items_are_allowed_by_default.AdditionalItemsAreAllowedByDefaultTuple](../../components/schema/additional_items_are_allowed_by_default.md#additionalitemsareallowedbydefaulttuple), bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, [additional_items_are_allowed_by_default.AdditionalItemsAreAllowedByDefaultTuple](../../components/schema/additional_items_are_allowed_by_default.md#additionalitemsareallowedbydefaulttuple), bytes, io.FileIO
 
 ## Servers
 

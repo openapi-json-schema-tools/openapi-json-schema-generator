@@ -27,7 +27,7 @@ unit_test_api.paths.request_body_post_uniqueitems_with_an_array_of_items_request
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | required |
+[body](#requestbody) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, [uniqueitems_with_an_array_of_items.UniqueitemsWithAnArrayOfItemsTupleInput](../../components/schema/uniqueitems_with_an_array_of_items.md#uniqueitemswithanarrayofitemstupleinput), [uniqueitems_with_an_array_of_items.UniqueitemsWithAnArrayOfItemsTuple](../../components/schema/uniqueitems_with_an_array_of_items.md#uniqueitemswithanarrayofitemstuple), bytes, io.FileIO, io.BufferedReader] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json']
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -49,7 +49,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**uniqueitems_with_an_array_of_items.UniqueitemsWithAnArrayOfItems**](../../components/schema/uniqueitems_with_an_array_of_items.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
+[**uniqueitems_with_an_array_of_items.UniqueitemsWithAnArrayOfItems**](../../components/schema/uniqueitems_with_an_array_of_items.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, [uniqueitems_with_an_array_of_items.UniqueitemsWithAnArrayOfItemsTupleInput](../../components/schema/uniqueitems_with_an_array_of_items.md#uniqueitemswithanarrayofitemstupleinput), [uniqueitems_with_an_array_of_items.UniqueitemsWithAnArrayOfItemsTuple](../../components/schema/uniqueitems_with_an_array_of_items.md#uniqueitemswithanarrayofitemstuple), bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, [uniqueitems_with_an_array_of_items.UniqueitemsWithAnArrayOfItemsTuple](../../components/schema/uniqueitems_with_an_array_of_items.md#uniqueitemswithanarrayofitemstuple), bytes, io.FileIO
 
 ## Return Types
 

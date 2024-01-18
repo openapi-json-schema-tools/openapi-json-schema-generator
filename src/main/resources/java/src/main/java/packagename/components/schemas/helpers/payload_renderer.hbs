@@ -42,10 +42,10 @@ MapUtils.makeMap(
         {{#each value}}
             {{#or (eq type "array") (eq type "object")}}
 .add(
-    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true constructor=false }}
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=false }}
 )
             {{else}}
-.add({{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar=")" noVoid=true constructor=false }}
+.add({{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar=")" constructor=false }}
             {{/or}}
         {{/each}}
     {{else}}

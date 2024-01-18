@@ -5,11 +5,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemsValidator implements KeywordValidator {
-    public final Class<? extends JsonSchema> items;
+public class PrefixItemsValidator implements KeywordValidator {
+    public final List<Class<? extends JsonSchema>> prefixItems;
 
-    public ItemsValidator(Class<? extends JsonSchema> items) {
-        this.items = items;
+    public PrefixItemsValidator(List<Class<? extends JsonSchema>> prefixItems) {
+        this.prefixItems = prefixItems;
     }
 
     @Override
@@ -27,9 +27,8 @@ public class ItemsValidator implements KeywordValidator {
             return null;
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        int minIndex = schema.prefixItems != null ? schema.prefixItems.size() : 0;
-        JsonSchema itemsSchema = JsonSchemaFactory.getInstance(items);
-        for(int i = minIndex; i < listArg.size(); i++) {
+        int maxIndex = Math.min(listArg.size(), prefixItems.size());
+        for (int i=0; i < maxIndex; i++) {
             List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             itemPathToItem.add(i);
             ValidationMetadata itemValidationMetadata = new ValidationMetadata(
@@ -38,10 +37,7 @@ public class ItemsValidator implements KeywordValidator {
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
-            if (itemValidationMetadata.validationRanEarlier(itemsSchema)) {
-                // todo add_deeper_validated_schemas
-                continue;
-            }
+            JsonSchema itemsSchema = JsonSchemaFactory.getInstance(prefixItems.get(i));
             PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, listArg.get(i), itemValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }

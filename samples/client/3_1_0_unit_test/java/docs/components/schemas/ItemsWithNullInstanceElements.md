@@ -40,7 +40,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList validatedPayload =
     ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1.validate(
     new ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder()
-        .add(null)
+        .add((Void) null)
 
     .build(),
     configuration

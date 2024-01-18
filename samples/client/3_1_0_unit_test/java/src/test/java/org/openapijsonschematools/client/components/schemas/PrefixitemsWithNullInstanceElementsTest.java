@@ -23,7 +23,7 @@ public class PrefixitemsWithNullInstanceElementsTest {
         final var schema = PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1.getInstance();
         schema.validate(
             new PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElementsListBuilder()
-                .add(null)
+                .add((Void) null)
 
             .build(),
             configuration
