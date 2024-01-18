@@ -53,6 +53,7 @@ public abstract class JsonSchema {
     public @Nullable Map<String, Set<String>> dependentRequired;
     public final @Nullable Map<String, Class<? extends JsonSchema>> dependentSchemas;
     public @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
+    public @Nullable List<Class<? extends JsonSchema>> prefixItems;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -282,6 +283,13 @@ public abstract class JsonSchema {
             keywordToValidator.put(
                     "patternProperties",
                     new PatternPropertiesValidator(this.patternProperties)
+            );
+        }
+        this.prefixItems = jsonSchemaInfo.prefixItems;
+        if (this.prefixItems != null) {
+            keywordToValidator.put(
+                    "prefixItems",
+                    new PrefixItemsValidator(this.prefixItems)
             );
         }
         this.keywordToValidator = keywordToValidator;
