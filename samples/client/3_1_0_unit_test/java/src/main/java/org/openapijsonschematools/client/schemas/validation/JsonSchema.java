@@ -299,6 +299,7 @@ public abstract class JsonSchema {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
         @Nullable List<PathToSchemasMap> containsPathToSchemas = null;
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas = null;
         KeywordValidator containsValidator = thisKeywordToValidator.get("contains");
         if (containsValidator != null) {
             containsPathToSchemas = containsValidator.getContainsPathToSchemas(arg, validationMetadata);
@@ -316,7 +317,8 @@ public abstract class JsonSchema {
                     jsonSchema,
                     arg,
                     validationMetadata,
-                    containsPathToSchemas
+                    containsPathToSchemas,
+                    patternPropertiesPathToSchemas
             );
             if (otherPathToSchemas == null) {
                 continue;

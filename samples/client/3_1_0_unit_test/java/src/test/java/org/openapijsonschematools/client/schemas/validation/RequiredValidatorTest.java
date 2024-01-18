@@ -40,7 +40,8 @@ public class RequiredValidatorTest {
                 MapJsonSchema.getInstance(),
                 arg,
                 validationMetadata,
-                new ArrayList<>()
+                new ArrayList<>(),
+                new PathToSchemasMap()
         );
         assertNull(pathToSchemas);
     }
@@ -62,7 +63,8 @@ public class RequiredValidatorTest {
                 MapJsonSchema.getInstance(),
                 1,
                 validationMetadata,
-                new ArrayList<>()
+                new ArrayList<>(),
+                new PathToSchemasMap()
         );
         assertNull(pathToSchemas);
     }
@@ -87,7 +89,8 @@ public class RequiredValidatorTest {
                 MapJsonSchema.getInstance(),
                 arg,
                 validationMetadata,
-                new ArrayList<>()
+                new ArrayList<>(),
+                new PathToSchemasMap()
         ));
     }
 }

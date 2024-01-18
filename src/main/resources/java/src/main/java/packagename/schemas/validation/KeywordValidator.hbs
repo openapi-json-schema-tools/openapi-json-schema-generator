@@ -26,6 +26,6 @@ public interface KeywordValidator {
         @Nullable Object arg,
         ValidationMetadata validationMetadata
     ) {
-        return new PathToSchemasMap<>();
+        return new PathToSchemasMap();
     }
 }

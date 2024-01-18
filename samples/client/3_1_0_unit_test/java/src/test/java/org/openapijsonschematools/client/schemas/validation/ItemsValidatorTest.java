@@ -37,7 +37,8 @@ public class ItemsValidatorTest {
                 ListJsonSchema.getInstance(),
                 arg,
                 validationMetadata,
-                new ArrayList<>()
+                new ArrayList<>(),
+                new PathToSchemasMap()
         );
         if (pathToSchemas == null) {
             throw new RuntimeException("Invalid null value in pathToSchemas for this test case");
@@ -67,7 +68,8 @@ public class ItemsValidatorTest {
                 ListJsonSchema.getInstance(),
                 1,
                 validationMetadata,
-                new ArrayList<>()
+                new ArrayList<>(),
+                new PathToSchemasMap()
         );
         assertNull(pathToSchemas);
     }
@@ -89,7 +91,8 @@ public class ItemsValidatorTest {
                 ListJsonSchema.getInstance(),
                 arg,
                 validationMetadata,
-                new ArrayList<>()
+                new ArrayList<>(),
+                new PathToSchemasMap()
         ));
     }
 }
