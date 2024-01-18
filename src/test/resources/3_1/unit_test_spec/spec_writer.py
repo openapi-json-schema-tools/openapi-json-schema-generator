@@ -700,13 +700,6 @@ def write_openapi_spec():
     openapi.paths = {}
     openapi.tags = []
     removed_cases = {
-        'ItemsDoesNotLookInApplicatorsValidCase',
-        'PrefixitemsValidationAdjustsTheStartingIndexForItems',
-        'ASchemaGivenForPrefixitems',
-        'AdditionalItemsAreAllowedByDefault',
-        'PrefixitemsWithNullInstanceElements',
-        'UniqueitemsWithAnArrayOfItems',
-        'UniqueitemsFalseWithAnArrayOfItems',
         'UnevaluateditemsDependsOnMultipleNestedContains',
         'IgnoreIfWithoutThenOrElse',
         'IfAndThenWithoutElse',
