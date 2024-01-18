@@ -283,7 +283,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.Nullable,
                         SchemaFeature.OneOf,
                         SchemaFeature.Pattern,
-                        // SchemaFeature.PatternProperties,
+                        SchemaFeature.PatternProperties,
                         // SchemaFeature.PrefixItems,
                         SchemaFeature.Properties,
                         SchemaFeature.PropertyNames,

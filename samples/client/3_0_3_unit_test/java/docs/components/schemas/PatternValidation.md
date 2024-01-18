@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Pattern | pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;"^a*$"<br>)))<br> |
+| Pattern | pattern = Pattern.compile(<br>&nbsp;&nbsp;&nbsp;&nbsp;"^a*$"<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

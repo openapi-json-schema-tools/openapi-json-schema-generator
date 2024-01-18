@@ -18,7 +18,8 @@ public class PatternValidator implements KeywordValidator {
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas,
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
     ) {
         if (!(arg instanceof String)) {
             return null;

@@ -299,10 +299,14 @@ public abstract class JsonSchema {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
         @Nullable List<PathToSchemasMap> containsPathToSchemas = null;
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas = null;
         KeywordValidator containsValidator = thisKeywordToValidator.get("contains");
         if (containsValidator != null) {
             containsPathToSchemas = containsValidator.getContainsPathToSchemas(arg, validationMetadata);
+        }
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas = null;
+        KeywordValidator patternPropertiesValidator = thisKeywordToValidator.get("patternProperties");
+        if (patternPropertiesValidator != null) {
+            patternPropertiesPathToSchemas = patternPropertiesValidator.getPatternPropertiesPathToSchemas(arg, validationMetadata);
         }
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();

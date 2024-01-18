@@ -35,11 +35,13 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
             presentAdditionalProperties.removeAll(schema.properties.keySet());
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        // todo add handling for validatedPatternProperties
         for(String addPropName: presentAdditionalProperties) {
             @Nullable Object propValue = mapArg.get(addPropName);
             List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             propPathToItem.add(addPropName);
+            if (patternPropertiesPathToSchemas != null && patternPropertiesPathToSchemas.containsKey(propPathToItem)) {
+                continue;
+            }
             ValidationMetadata propValidationMetadata = new ValidationMetadata(
                     propPathToItem,
                     validationMetadata.configuration(),
