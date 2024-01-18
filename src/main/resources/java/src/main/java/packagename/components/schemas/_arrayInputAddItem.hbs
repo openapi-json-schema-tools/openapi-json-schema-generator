@@ -67,10 +67,10 @@ public {{builderClass}} add(double item) {
                 {{else}}
                     {{#eq this "array"}}
                         {{#if forDocs }}
-| {{builderClass}} | add(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) |
+| {{builderClass}} | add(List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) |
                         {{else}}
 
-public {{builderClass}} add(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
+public {{builderClass}} add(List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
     list.add(item);
     return this;
 }

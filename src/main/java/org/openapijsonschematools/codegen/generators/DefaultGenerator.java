@@ -2378,6 +2378,24 @@ public class DefaultGenerator implements Generator {
             property.items = fromSchema(
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
+        if (property.prefixItems != null || property.items != null) {
+            if (property.prefixItems == null) {
+                property.listItemSchema = property.items;
+            } else if (property.items == null) {
+                for (CodegenSchema prefixItem: property.prefixItems) {
+                    if (property.listItemSchema == null) {
+                        property.listItemSchema = prefixItem;
+                    } else {
+                        property.listItemSchema = property.listItemSchema.add(prefixItem);
+                    }
+                }
+            } else {
+                property.listItemSchema = property.items;
+                for (CodegenSchema prefixItem: property.prefixItems) {
+                    property.listItemSchema = property.listItemSchema.add(prefixItem);
+                }
+            }
+        }
         if (p.getIf() != null) {
             property.if_ = fromSchema(p.getIf(), sourceJsonPath, currentJsonPath + "/if");
         }

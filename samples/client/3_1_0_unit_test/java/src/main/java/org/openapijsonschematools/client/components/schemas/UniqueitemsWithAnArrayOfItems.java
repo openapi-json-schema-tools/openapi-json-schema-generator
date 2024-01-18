@@ -70,6 +70,10 @@ public class UniqueitemsWithAnArrayOfItems {
         protected UniqueitemsWithAnArrayOfItems1() {
             super(new JsonSchemaInfo()
                 .uniqueItems(true)
+                .prefixItems(List.of(
+                    Schema0.class,
+                    Schema1.class
+                ))
             );
         }
     

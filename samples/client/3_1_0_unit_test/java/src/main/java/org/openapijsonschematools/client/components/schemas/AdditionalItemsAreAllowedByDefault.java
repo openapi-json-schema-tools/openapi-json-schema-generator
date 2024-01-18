@@ -58,6 +58,9 @@ public class AdditionalItemsAreAllowedByDefault {
     
         protected AdditionalItemsAreAllowedByDefault1() {
             super(new JsonSchemaInfo()
+                .prefixItems(List.of(
+                    Schema0.class
+                ))
             );
         }
     

@@ -58,6 +58,9 @@ public class PrefixitemsWithNullInstanceElements {
     
         protected PrefixitemsWithNullInstanceElements1() {
             super(new JsonSchemaInfo()
+                .prefixItems(List.of(
+                    Schema0.class
+                ))
             );
         }
     

@@ -1,17 +1,17 @@
-{{#if items}}
+{{#if listItemSchema}}
 
 public static class {{arrayInputJsonPathPiece.pascalCase}} {
-    // class to build List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}>
-    private final List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list;
+    // class to build List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}>
+    private final List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list;
 
     public {{arrayInputJsonPathPiece.pascalCase}}() {
         list = new ArrayList<>();
     }
 
-    public {{arrayInputJsonPathPiece.pascalCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list) {
+    public {{arrayInputJsonPathPiece.pascalCase}}(List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list) {
         this.list = list;
     }
-    {{#with items}}
+    {{#with listItemSchema}}
         {{#if refInfo }}
             {{#if refInfo.refModule}}
                 {{#with getDeepestRef }}
@@ -32,7 +32,7 @@ public static class {{arrayInputJsonPathPiece.pascalCase}} {
     {{! todo handle this, 3.1.0 document use-case }}
     {{/with}}
 
-    public List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> build() {
+    public List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> build() {
         return list;
     }
 }

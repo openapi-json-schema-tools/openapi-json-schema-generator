@@ -22,6 +22,7 @@ A schema class that validates payloads
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Boolean | uniqueItems = false |
+| List<Class<? extends JsonSchema>> | prefixItems = List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Schema0.class](#schema0),<br>&nbsp;&nbsp;&nbsp;&nbsp;[Schema1.class](#schema1)<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

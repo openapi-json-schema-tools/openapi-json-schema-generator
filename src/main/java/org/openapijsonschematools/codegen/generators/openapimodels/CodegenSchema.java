@@ -123,6 +123,7 @@ public class CodegenSchema {
     public CodegenKey containerJsonPathPiece; // needed by java, outer class that has inner nested schema classes
     public LinkedHashMap<String, EnumValue> typeToExample = null;
     public List<MapBuilder> mapBuilders = null; // used by java
+    public CodegenSchema listItemSchema; // 3.1.0 the type of any list item
 
     public boolean isCustomSchema() {
         // true when schema class is directly extended, false otherwise
@@ -625,6 +626,7 @@ public class CodegenSchema {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "arrayOutputType";
             extraSchema.items = items;
+            extraSchema.listItemSchema = listItemSchema;
             extraSchema.arrayOutputJsonPathPiece = arrayOutputJsonPathPiece;
             // needed to define input type for new method
             extraSchema.arrayInputJsonPathPiece = arrayInputJsonPathPiece;
@@ -642,6 +644,7 @@ public class CodegenSchema {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "arrayInputType";
             extraSchema.items = items;
+            extraSchema.listItemSchema = listItemSchema;
             extraSchema.arrayInputJsonPathPiece = arrayInputJsonPathPiece;
             extraSchema.jsonPath = jsonPath; // needed to prevent recursion when rendering template data type
             if (items.hasAnyRefs()) {

@@ -20,13 +20,16 @@ public class ItemsValidator implements KeywordValidator {
         @Nullable List<PathToSchemasMap> containsPathToSchemas,
         @Nullable PathToSchemasMap patternPropertiesPathToSchemas
     ) {
-        if (!(arg instanceof List)) {
+        if (!(arg instanceof List<?> listArg)) {
+            return null;
+        }
+        if (listArg.isEmpty()) {
             return null;
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        // todo add handling for prefixItems
-        int i = 0;
-        for(Object itemValue: (List<?>) arg) {
+        int minIndex = schema.prefixItems != null ? schema.prefixItems.size() : 0;
+        JsonSchema itemsSchema = JsonSchemaFactory.getInstance(items);
+        for(int i = minIndex; i < listArg.size(); i++) {
             List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             itemPathToItem.add(i);
             ValidationMetadata itemValidationMetadata = new ValidationMetadata(
@@ -35,15 +38,12 @@ public class ItemsValidator implements KeywordValidator {
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
-            JsonSchema itemsSchema = JsonSchemaFactory.getInstance(items);
             if (itemValidationMetadata.validationRanEarlier(itemsSchema)) {
                 // todo add_deeper_validated_schemas
-                i +=1;
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, itemValue, itemValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, listArg.get(i), itemValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
-            i += 1;
         }
         return pathToSchemas;
     }

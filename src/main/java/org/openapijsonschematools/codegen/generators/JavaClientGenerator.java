@@ -284,7 +284,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.OneOf,
                         SchemaFeature.Pattern,
                         SchemaFeature.PatternProperties,
-                        // SchemaFeature.PrefixItems,
+                        SchemaFeature.PrefixItems,
                         SchemaFeature.Properties,
                         SchemaFeature.PropertyNames,
                         SchemaFeature.Ref,

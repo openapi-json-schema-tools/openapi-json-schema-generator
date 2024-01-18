@@ -106,6 +106,9 @@ public class PrefixitemsValidationAdjustsTheStartingIndexForItems {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
                 .items(Items.class)
+                .prefixItems(List.of(
+                    Schema0.class
+                ))
             );
         }
     

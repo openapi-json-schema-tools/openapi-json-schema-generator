@@ -53,6 +53,7 @@ PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjust
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(List.class) |
 | Class<? extends JsonSchema> | items = [Items.class](#items) |
+| List<Class<? extends JsonSchema>> | prefixItems = List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Schema0.class](#schema0)<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

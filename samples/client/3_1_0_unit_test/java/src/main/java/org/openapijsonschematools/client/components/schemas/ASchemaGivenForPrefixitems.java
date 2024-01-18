@@ -70,6 +70,10 @@ public class ASchemaGivenForPrefixitems {
     
         protected ASchemaGivenForPrefixitems1() {
             super(new JsonSchemaInfo()
+                .prefixItems(List.of(
+                    Schema0.class,
+                    Schema1.class
+                ))
             );
         }
     

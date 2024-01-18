@@ -70,6 +70,10 @@ public class UniqueitemsFalseWithAnArrayOfItems {
         protected UniqueitemsFalseWithAnArrayOfItems1() {
             super(new JsonSchemaInfo()
                 .uniqueItems(false)
+                .prefixItems(List.of(
+                    Schema0.class,
+                    Schema1.class
+                ))
             );
         }
     
