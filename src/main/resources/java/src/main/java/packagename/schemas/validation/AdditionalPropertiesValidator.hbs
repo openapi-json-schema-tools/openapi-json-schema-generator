@@ -19,7 +19,8 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas,
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
     ) {
         if (!(arg instanceof Map<?, ?> mapArg)) {
             return null;
@@ -34,11 +35,13 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
             presentAdditionalProperties.removeAll(schema.properties.keySet());
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        // todo add handling for validatedPatternProperties
         for(String addPropName: presentAdditionalProperties) {
             @Nullable Object propValue = mapArg.get(addPropName);
             List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             propPathToItem.add(addPropName);
+            if (patternPropertiesPathToSchemas != null && patternPropertiesPathToSchemas.containsKey(propPathToItem)) {
+                continue;
+            }
             ValidationMetadata propValidationMetadata = new ValidationMetadata(
                     propPathToItem,
                     validationMetadata.configuration(),

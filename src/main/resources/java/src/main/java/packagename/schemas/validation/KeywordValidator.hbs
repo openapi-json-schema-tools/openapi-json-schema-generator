@@ -11,7 +11,8 @@ public interface KeywordValidator {
         JsonSchema schema,
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas
+        @Nullable List<PathToSchemasMap> containsPathToSchemas,
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
     ) throws ValidationException;
 
     default List<PathToSchemasMap> getContainsPathToSchemas(
@@ -19,5 +20,12 @@ public interface KeywordValidator {
         ValidationMetadata validationMetadata
     ) {
         return new ArrayList<>();
+    }
+
+    default PathToSchemasMap getPatternPropertiesPathToSchemas(
+        @Nullable Object arg,
+        ValidationMetadata validationMetadata
+    ) {
+        return new PathToSchemasMap();
     }
 }

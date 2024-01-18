@@ -157,7 +157,7 @@ String validatedPayload = Apple.Origin.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
-| Pattern | pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;"^[A-Z\\s]*$",<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.CASE_INSENSITIVE<br>)))<br> |
+| Pattern | pattern = Pattern.compile(<br>&nbsp;&nbsp;&nbsp;&nbsp;"^[A-Z\\s]*$",<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.CASE_INSENSITIVE<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -196,7 +196,7 @@ String validatedPayload = Apple.Cultivar.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
-| Pattern | pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;"^[a-zA-Z\\s]*$"<br>)))<br> |
+| Pattern | pattern = Pattern.compile(<br>&nbsp;&nbsp;&nbsp;&nbsp;"^[a-zA-Z\\s]*$"<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

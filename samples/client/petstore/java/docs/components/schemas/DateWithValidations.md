@@ -43,7 +43,7 @@ String validatedPayload = DateWithValidations.DateWithValidations1.validate(
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
 | String | type = "date"; |
-| Pattern | pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;"^2020.*"<br>)))<br> |
+| Pattern | pattern = Pattern.compile(<br>&nbsp;&nbsp;&nbsp;&nbsp;"^2020.*"<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

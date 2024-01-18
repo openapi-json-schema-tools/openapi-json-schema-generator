@@ -542,7 +542,7 @@ String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
-| Pattern | pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;"^image_\\d{1,3}$",<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.CASE_INSENSITIVE<br>)))<br> |
+| Pattern | pattern = Pattern.compile(<br>&nbsp;&nbsp;&nbsp;&nbsp;"^image_\\d{1,3}$",<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.CASE_INSENSITIVE<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -584,7 +584,7 @@ String validatedPayload = FormatTest.PatternWithDigits.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
-| Pattern | pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;"^\\d{10}$"<br>)))<br> |
+| Pattern | pattern = Pattern.compile(<br>&nbsp;&nbsp;&nbsp;&nbsp;"^\\d{10}$"<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -716,7 +716,7 @@ String validatedPayload = FormatTest.StringSchema.validate(
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
-| Pattern | pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;"[a-z]",<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.CASE_INSENSITIVE<br>)))<br> |
+| Pattern | pattern = Pattern.compile(<br>&nbsp;&nbsp;&nbsp;&nbsp;"[a-z]",<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.CASE_INSENSITIVE<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

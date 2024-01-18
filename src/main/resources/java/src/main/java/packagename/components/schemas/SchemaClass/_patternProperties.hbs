@@ -1,0 +1,29 @@
+{{#if forDocs}}
+patternProperties = Map.ofEntries(<br>
+    {{~#each patternProperties}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(Pattern.compile("{{{@key.pattern.codeEscaped}}}"), [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})){{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(Pattern.compile("{{{@key.pattern.codeEscaped}}}"), [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}}))){{#unless @last}},{{/unless}}<br>
+            {{~/if}}
+        {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(Pattern.compile("{{{@key.pattern.codeEscaped}}}"), [{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}}))){{#unless @last}},{{/unless}}<br>
+        {{~/if}}
+    {{/each}}
+)<br>
+{{~else}}
+.patternProperties(Map.ofEntries(
+    {{#each patternProperties}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+    new AbstractMap.SimpleEntry<>(Pattern.compile("{{{@key.pattern.codeEscaped}}}"), {{refInfo.refModule}}.{{refInfo.refClass}}.class){{#unless @last}},{{/unless}}
+            {{else}}
+    new AbstractMap.SimpleEntry<>(Pattern.compile("{{{@key.pattern.codeEscaped}}}"), {{refInfo.refClass}}.class){{#unless @last}},{{/unless}}
+            {{/if}}
+        {{else}}
+    new AbstractMap.SimpleEntry<>(Pattern.compile("{{{@key.pattern.codeEscaped}}}"), {{jsonPathPiece.pascalCase}}.class){{#unless @last}},{{/unless}}
+        {{/if}}
+    {{/each}}
+))
+{{/if}}

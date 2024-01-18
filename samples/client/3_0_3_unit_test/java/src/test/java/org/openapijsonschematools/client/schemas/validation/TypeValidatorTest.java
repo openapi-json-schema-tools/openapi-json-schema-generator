@@ -32,7 +32,8 @@ public class TypeValidatorTest {
                 StringJsonSchema.getInstance(),
                 "hi",
                 validationMetadata,
-                new ArrayList<>()
+                new ArrayList<>(),
+                new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
     }
@@ -52,7 +53,8 @@ public class TypeValidatorTest {
                 StringJsonSchema.getInstance(),
                 1,
                 validationMetadata,
-                new ArrayList<>()
+                new ArrayList<>(),
+                new PathToSchemasMap()
         ));
     }
 }

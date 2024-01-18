@@ -52,6 +52,7 @@ public abstract class JsonSchema {
     public final @Nullable Class<? extends JsonSchema> propertyNames;
     public @Nullable Map<String, Set<String>> dependentRequired;
     public final @Nullable Map<String, Class<? extends JsonSchema>> dependentSchemas;
+    public @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -276,6 +277,13 @@ public abstract class JsonSchema {
                     new DependentSchemasValidator(this.dependentSchemas)
             );
         }
+        this.patternProperties = jsonSchemaInfo.patternProperties;
+        if (this.patternProperties != null) {
+            keywordToValidator.put(
+                    "patternProperties",
+                    new PatternPropertiesValidator(this.patternProperties)
+            );
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
@@ -295,6 +303,11 @@ public abstract class JsonSchema {
         if (containsValidator != null) {
             containsPathToSchemas = containsValidator.getContainsPathToSchemas(arg, validationMetadata);
         }
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas = null;
+        KeywordValidator patternPropertiesValidator = thisKeywordToValidator.get("patternProperties");
+        if (patternPropertiesValidator != null) {
+            patternPropertiesPathToSchemas = patternPropertiesValidator.getPatternPropertiesPathToSchemas(arg, validationMetadata);
+        }
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
             if (disabledKeywords.contains(jsonKeyword)) {
@@ -308,7 +321,8 @@ public abstract class JsonSchema {
                     jsonSchema,
                     arg,
                     validationMetadata,
-                    containsPathToSchemas
+                    containsPathToSchemas,
+                    patternPropertiesPathToSchemas
             );
             if (otherPathToSchemas == null) {
                 continue;

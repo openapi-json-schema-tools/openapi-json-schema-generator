@@ -257,6 +257,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/NullValueMeth
 src/main/java/org/openapijsonschematools/client/schemas/validation/NumberSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/OneOfValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PathToSchemasMap.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/PatternPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PatternValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyEntry.java
