@@ -34,12 +34,14 @@ public class ItemsValidatorTest {
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
-                ListJsonSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    ListJsonSchema.getInstance(),
+                    arg,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         if (pathToSchemas == null) {
             throw new RuntimeException("Invalid null value in pathToSchemas for this test case");
@@ -66,12 +68,14 @@ public class ItemsValidatorTest {
         );
         final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
-                ListJsonSchema.getInstance(),
-                1,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    ListJsonSchema.getInstance(),
+                    1,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         assertNull(pathToSchemas);
     }
@@ -90,12 +94,14 @@ public class ItemsValidatorTest {
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                ListJsonSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    ListJsonSchema.getInstance(),
+                    arg,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         ));
     }
 }
