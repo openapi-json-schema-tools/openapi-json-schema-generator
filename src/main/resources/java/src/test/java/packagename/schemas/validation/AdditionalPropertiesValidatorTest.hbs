@@ -75,12 +75,14 @@ public class AdditionalPropertiesValidatorTest {
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
-                ObjectWithPropsSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    ObjectWithPropsSchema.getInstance(),
+                    arg,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         if (pathToSchemas == null) {
             throw new RuntimeException("Invalid null value for pathToSchemas for this test case");
@@ -107,12 +109,14 @@ public class AdditionalPropertiesValidatorTest {
         );
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
-                MapJsonSchema.getInstance(),
-                1,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    MapJsonSchema.getInstance(),
+                    1,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         assertNull(pathToSchemas);
     }
@@ -132,12 +136,14 @@ public class AdditionalPropertiesValidatorTest {
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator(StringJsonSchema.class);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                ObjectWithPropsSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    ObjectWithPropsSchema.getInstance(),
+                    arg,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         ));
     }
 }
