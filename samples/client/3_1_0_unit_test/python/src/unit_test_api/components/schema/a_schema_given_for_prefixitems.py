@@ -16,8 +16,7 @@ class ASchemaGivenForPrefixitemsTuple(
     typing.Tuple[
         int,
         str,
-        schemas.OUTPUT_BASE_TYPES,
-        ...
+        typing_extensions.Unpack[typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]]
     ]
 ):
 
@@ -33,8 +32,7 @@ ASchemaGivenForPrefixitemsTupleInput = typing.Union[
     typing.Tuple[
         int,
         str,
-        schemas.INPUT_TYPES_ALL,
-        ...
+        typing_extensions.Unpack[typing.Tuple[schemas.INPUT_TYPES_ALL, ...]]
     ]
 ]
 _0: typing_extensions.TypeAlias = schemas.IntSchema

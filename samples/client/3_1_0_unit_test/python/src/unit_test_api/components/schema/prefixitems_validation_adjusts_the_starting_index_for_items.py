@@ -16,8 +16,10 @@ Items: typing_extensions.TypeAlias = schemas.IntSchema
 class PrefixitemsValidationAdjustsTheStartingIndexForItemsTuple(
     typing.Tuple[
         str,
-        int,
-        ...
+        typing_extensions.Unpack[typing.Tuple[
+            int,
+            ...
+        ]]
     ]
 ):
 
@@ -32,8 +34,10 @@ PrefixitemsValidationAdjustsTheStartingIndexForItemsTupleInput = typing.Union[
     ],
     typing.Tuple[
         str,
-        int,
-        ...
+        typing_extensions.Unpack[typing.Tuple[
+            int,
+            ...
+        ]]
     ]
 ]
 _0: typing_extensions.TypeAlias = schemas.StrSchema

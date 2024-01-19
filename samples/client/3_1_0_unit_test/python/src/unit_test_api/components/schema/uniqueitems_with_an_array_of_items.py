@@ -16,8 +16,7 @@ class UniqueitemsWithAnArrayOfItemsTuple(
     typing.Tuple[
         bool,
         bool,
-        schemas.OUTPUT_BASE_TYPES,
-        ...
+        typing_extensions.Unpack[typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]]
     ]
 ):
 
@@ -33,8 +32,7 @@ UniqueitemsWithAnArrayOfItemsTupleInput = typing.Union[
     typing.Tuple[
         bool,
         bool,
-        schemas.INPUT_TYPES_ALL,
-        ...
+        typing_extensions.Unpack[typing.Tuple[schemas.INPUT_TYPES_ALL, ...]]
     ]
 ]
 _0: typing_extensions.TypeAlias = schemas.BoolSchema

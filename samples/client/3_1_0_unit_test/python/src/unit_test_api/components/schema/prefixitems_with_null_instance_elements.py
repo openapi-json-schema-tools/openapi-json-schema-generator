@@ -15,8 +15,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class PrefixitemsWithNullInstanceElementsTuple(
     typing.Tuple[
         None,
-        schemas.OUTPUT_BASE_TYPES,
-        ...
+        typing_extensions.Unpack[typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]]
     ]
 ):
 
@@ -31,8 +30,7 @@ PrefixitemsWithNullInstanceElementsTupleInput = typing.Union[
     ],
     typing.Tuple[
         None,
-        schemas.INPUT_TYPES_ALL,
-        ...
+        typing_extensions.Unpack[typing.Tuple[schemas.INPUT_TYPES_ALL, ...]]
     ]
 ]
 _0: typing_extensions.TypeAlias = schemas.NoneSchema

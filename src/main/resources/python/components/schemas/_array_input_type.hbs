@@ -5,15 +5,23 @@
     {{/with}}
     ],
     typing.Tuple[
-    {{#each prefixItems}}
+    {{#if prefixItems}}
+        {{#each prefixItems}}
         {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
-    {{/each}}
-    {{#with items}}
-        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
-        ...
+        {{/each}}
+        {{#with items}}
+        typing_extensions.Unpack[typing.Tuple[
+            {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
+            ...
+        ]]
+        {{else}}
+        typing_extensions.Unpack[typing.Tuple[schemas.INPUT_TYPES_ALL, ...]]
+        {{/with}}
     {{else}}
-        schemas.INPUT_TYPES_ALL,
+        {{#with items}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
+        {{/with}}
         ...
-    {{/with}}
+    {{/if}}
     ]
 ]

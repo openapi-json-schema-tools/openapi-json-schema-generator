@@ -2,9 +2,28 @@
 
 class {{arrayOutputJsonPathPiece.pascalCase}}(
     typing.Tuple[
+    {{#if prefixItems}}
         {{#each prefixItems}}
         {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
         {{/each}}
+        {{#with items}}
+        typing_extensions.Unpack[typing.Tuple[
+            {{#if refInfo.refClass}}
+                {{#eq refModule null}}
+                    {{! self reference }}
+            {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
+                {{else}}
+            {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+                {{/eq}}
+            {{else}}
+            {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+            {{/if}}
+            ...
+        ]]
+        {{else}}
+        typing_extensions.Unpack[typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]]
+        {{/with}}
+    {{else}}
         {{#with items}}
             {{#if refInfo.refClass}}
                 {{#eq refModule null}}
@@ -20,6 +39,7 @@ class {{arrayOutputJsonPathPiece.pascalCase}}(
         schemas.OUTPUT_BASE_TYPES,
         {{/with}}
         ...
+    {{/if}}
     ]
 ):
 
