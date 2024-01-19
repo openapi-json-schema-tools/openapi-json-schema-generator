@@ -15,17 +15,12 @@ public class OneOfValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedOneOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> oneOfClass: oneOf) {
-            if (oneOfClass == schema.getClass()) {
+            if (oneOfClass == data.schema().getClass()) {
                 /*
                 optimistically assume that schema will pass validation
                 do not invoke validate on it because that is recursive
@@ -35,7 +30,7 @@ public class OneOfValidator implements KeywordValidator {
             }
             try {
                 JsonSchema oneOfSchema = JsonSchemaFactory.getInstance(oneOfClass);
-                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(oneOfSchema, arg, validationMetadata);
+                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(oneOfSchema, data.arg(), data.validationMetadata());
                 validatedOneOfClasses.add(oneOfClass);
                 pathToSchemas.update(otherPathToSchemas);
             } catch (ValidationException e) {
@@ -43,12 +38,12 @@ public class OneOfValidator implements KeywordValidator {
             }
         }
         if (validatedOneOfClasses.isEmpty()) {
-            throw new ValidationException("Invalid inputs given to generate an instance of "+schema.getClass()+". None "+
+            throw new ValidationException("Invalid inputs given to generate an instance of "+data.schema().getClass()+". None "+
                     "of the oneOf schemas matched the input data."
             );
         }
         if (validatedOneOfClasses.size() > 1) {
-            throw new ValidationException("Invalid inputs given to generate an instance of "+schema.getClass()+". Multiple "+
+            throw new ValidationException("Invalid inputs given to generate an instance of "+data.schema().getClass()+". Multiple "+
                     "oneOf schemas validated the data, but a max of one is allowed."
             );
         }

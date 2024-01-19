@@ -3,7 +3,6 @@ package {{{packageName}}}.schemas.validation;
 import {{{packageName}}}.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.List;
 import java.util.Map;
 
 public class MinPropertiesValidator implements KeywordValidator {
@@ -15,18 +14,13 @@ public class MinPropertiesValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof Map)) {
+        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }
-        if (((Map) arg).size() < minProperties) {
-            throw new ValidationException("Value " + arg + " is invalid because has < the minProperties of " + minProperties);
+        if (mapArg.size() < minProperties) {
+            throw new ValidationException("Value " + mapArg + " is invalid because has < the minProperties of " + minProperties);
         }
         return null;
     }

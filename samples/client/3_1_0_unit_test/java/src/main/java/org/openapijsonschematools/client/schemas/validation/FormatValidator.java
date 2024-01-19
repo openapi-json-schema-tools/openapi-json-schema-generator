@@ -6,7 +6,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.format.DateTimeParseException;
-import java.util.List;
 import java.util.UUID;
 
 public class FormatValidator implements KeywordValidator {
@@ -25,12 +24,12 @@ public class FormatValidator implements KeywordValidator {
     private final static BigDecimal doubleInclusiveMinimum = BigDecimal.valueOf(-1.7976931348623157E+308d);
     private final static BigDecimal doubleInclusiveMaximum = BigDecimal.valueOf(1.7976931348623157E+308d);
 
-    private Void validateNumericFormat(Number arg, ValidationMetadata validationMetadata) {
+    private void validateNumericFormat(Number arg, ValidationMetadata validationMetadata) {
         if (format.startsWith("int")) {
             // there is a json schema test where 1.0 validates as an integer
             BigInteger intArg;
             if (arg instanceof Float || arg instanceof Double) {
-                Double doubleArg;
+                double doubleArg;
                 if (arg instanceof Float) {
                     doubleArg = arg.doubleValue();
                 } else {
@@ -60,20 +59,17 @@ public class FormatValidator implements KeywordValidator {
                             "Invalid value " + arg + " for format int32 at " + validationMetadata.pathToItem()
                     );
                 }
-                return null;
             } else if (format.equals("int64")) {
                 if (intArg.compareTo(int64InclusiveMinimum) < 0 || intArg.compareTo(int64InclusiveMaximum) > 0) {
                     throw new ValidationException(
                             "Invalid value " + arg + " for format int64 at " + validationMetadata.pathToItem()
                     );
                 }
-                return null;
             }
-            return null;
         } else if (format.equals("float") || format.equals("double")) {
             BigDecimal decimalArg;
             if (arg instanceof Float) {
-                decimalArg = new BigDecimal((Float) arg);
+                decimalArg = BigDecimal.valueOf(arg.doubleValue());
             } else if (arg instanceof Double) {
                 decimalArg = BigDecimal.valueOf((Double) arg);
             } else {
@@ -85,83 +81,75 @@ public class FormatValidator implements KeywordValidator {
                         "Invalid value "+arg+" for format float at "+validationMetadata.pathToItem()
                     );
                 }
-                return null;
-            } else if (format.equals("double")) {
+            } else {
                 if (decimalArg.compareTo(doubleInclusiveMinimum) < 0  || decimalArg.compareTo(doubleInclusiveMaximum) > 0 ){
                     throw new ValidationException(
                         "Invalid value "+arg+" for format double at "+validationMetadata.pathToItem()
                     );
                 }
-                return null;
             }
         }
-        return null;
     }
 
-    private Void validateStringFormat(String arg, ValidationMetadata validationMetadata) {
-        if (format.equals("uuid")) {
-            try {
-                UUID.fromString(arg);
-            } catch (IllegalArgumentException  e) {
-                throw new ValidationException(
-                    "Value cannot be converted to a UUID. Invalid value "+
-                            arg+" for format uuid at "+validationMetadata.pathToItem()
-                );
+    private void validateStringFormat(String arg, ValidationMetadata validationMetadata) {
+        switch (format) {
+            case "uuid" -> {
+                try {
+                    UUID.fromString(arg);
+                } catch (IllegalArgumentException e) {
+                    throw new ValidationException(
+                            "Value cannot be converted to a UUID. Invalid value " +
+                                    arg + " for format uuid at " + validationMetadata.pathToItem()
+                    );
+                }
             }
-            return null;
-        } else if (format.equals("number")) {
-            try {
-                new BigDecimal(arg);
-            } catch (NumberFormatException e) {
-                throw new ValidationException(
-                    "Value cannot be converted to a decimal. Invalid value "+
-                            arg+" for format number at "+validationMetadata.pathToItem()
-                );
+            case "number" -> {
+                try {
+                    new BigDecimal(arg);
+                } catch (NumberFormatException e) {
+                    throw new ValidationException(
+                            "Value cannot be converted to a decimal. Invalid value " +
+                                    arg + " for format number at " + validationMetadata.pathToItem()
+                    );
+                }
             }
-            return null;
-        } else if (format.equals("date")) {
-            try {
-                new CustomIsoparser().parseIsodate(arg);
-            } catch (DateTimeParseException e) {
-                throw new ValidationException(
-                        "Value does not conform to the required ISO-8601 date format. "+
-                        "Invalid value "+arg+" for format date at "+validationMetadata.pathToItem()
-                );
+            case "date" -> {
+                try {
+                    new CustomIsoparser().parseIsodate(arg);
+                } catch (DateTimeParseException e) {
+                    throw new ValidationException(
+                            "Value does not conform to the required ISO-8601 date format. " +
+                                    "Invalid value " + arg + " for format date at " + validationMetadata.pathToItem()
+                    );
+                }
             }
-            return null;
-        } else if (format.equals("date-time")) {
-            try {
-                new CustomIsoparser().parseIsodatetime(arg);
-            } catch (DateTimeParseException e) {
-                throw new ValidationException(
-                        "Value does not conform to the required ISO-8601 datetime format. "+
-                                "Invalid value "+arg+" for format datetime at "+validationMetadata.pathToItem()
-                );
+            case "date-time" -> {
+                try {
+                    new CustomIsoparser().parseIsodatetime(arg);
+                } catch (DateTimeParseException e) {
+                    throw new ValidationException(
+                            "Value does not conform to the required ISO-8601 datetime format. " +
+                                    "Invalid value " + arg + " for format datetime at " + validationMetadata.pathToItem()
+                    );
+                }
             }
-            return null;
         }
-        return null;
     }
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (arg instanceof Number) {
+        if (data.arg() instanceof Number numberArg) {
             validateNumericFormat(
-                (Number) arg,
-                validationMetadata
+                numberArg,
+                data.validationMetadata()
             );
             return null;
-        } else if (arg instanceof String) {
+        } else if (data.arg() instanceof String stringArg) {
             validateStringFormat(
-                (String) arg,
-                validationMetadata
+                stringArg,
+                data.validationMetadata()
             );
             return null;
         }

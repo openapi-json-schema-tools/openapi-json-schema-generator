@@ -3,8 +3,6 @@ package {{{packageName}}}.schemas.validation;
 import {{{packageName}}}.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.List;
-
 public class MinimumValidator implements KeywordValidator {
     public final Number minimum;
 
@@ -14,37 +12,32 @@ public class MinimumValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof Number)) {
+        if (!(data.arg() instanceof Number)) {
             return null;
         }
-        String msg = "Value " + arg + " is invalid because it is < the minimum of " + minimum;
-        if (arg instanceof Integer) {
-            if (((Integer) arg).compareTo(minimum.intValue()) == -1) {
+        String msg = "Value " + data.arg() + " is invalid because it is < the minimum of " + minimum;
+        if (data.arg() instanceof Integer intArg) {
+            if (intArg.compareTo(minimum.intValue()) < 0) {
                 throw new ValidationException(msg);
             }
             return null;
         }
-        if (arg instanceof Long) {
-            if (((Long) arg).compareTo(minimum.longValue()) == -1) {
+        if (data.arg() instanceof Long longArg) {
+            if (longArg.compareTo(minimum.longValue()) < 0) {
                 throw new ValidationException(msg);
             }
             return null;
         }
-        if (arg instanceof Float) {
-            if (((Float) arg).compareTo(minimum.floatValue()) == -1) {
+        if (data.arg() instanceof Float floatArg) {
+            if (floatArg.compareTo(minimum.floatValue()) < 0) {
                 throw new ValidationException(msg);
             }
             return null;
         }
-        if (arg instanceof Double) {
-            if (((Double) arg).compareTo(minimum.doubleValue()) == -1) {
+        if (data.arg() instanceof Double doubleArg) {
+            if (doubleArg.compareTo(minimum.doubleValue()) < 0) {
                 throw new ValidationException(msg);
             }
             return null;

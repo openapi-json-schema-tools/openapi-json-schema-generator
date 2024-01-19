@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class PatternValidator implements KeywordValidator {
@@ -15,18 +14,13 @@ public class PatternValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof String)) {
+        if (!(data.arg() instanceof String stringArg)) {
             return null;
         }
-        if (!pattern.matcher((String) arg).find()) {
-            throw new ValidationException("Invalid value "+arg+" did not find a match for pattern "+pattern);
+        if (!pattern.matcher(stringArg).find()) {
+            throw new ValidationException("Invalid value "+stringArg+" did not find a match for pattern "+pattern);
         }
         return null;
     }

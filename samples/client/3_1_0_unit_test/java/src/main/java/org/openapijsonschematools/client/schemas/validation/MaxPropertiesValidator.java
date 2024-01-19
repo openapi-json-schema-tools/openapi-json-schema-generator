@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.List;
 import java.util.Map;
 
 public class MaxPropertiesValidator implements KeywordValidator {
@@ -15,18 +14,13 @@ public class MaxPropertiesValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof Map)) {
+        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }
-        if (((Map) arg).size() > maxProperties) {
-            throw new ValidationException("Value " + arg + " is invalid because has > the maxProperties of " + maxProperties);
+        if (mapArg.size() > maxProperties) {
+            throw new ValidationException("Value " + mapArg + " is invalid because has > the maxProperties of " + maxProperties);
         }
         return null;
     }

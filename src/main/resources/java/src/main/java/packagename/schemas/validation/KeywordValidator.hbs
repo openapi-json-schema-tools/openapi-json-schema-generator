@@ -8,12 +8,7 @@ import java.util.List;
 
 public interface KeywordValidator {
     @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) throws ValidationException;
 
     default List<PathToSchemasMap> getContainsPathToSchemas(

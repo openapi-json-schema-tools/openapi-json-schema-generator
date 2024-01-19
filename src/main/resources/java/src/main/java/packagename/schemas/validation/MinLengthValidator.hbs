@@ -3,8 +3,6 @@ package {{{packageName}}}.schemas.validation;
 import {{{packageName}}}.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.List;
-
 public class MinLengthValidator extends LengthValidator implements KeywordValidator {
     public final int minLength;
 
@@ -14,19 +12,14 @@ public class MinLengthValidator extends LengthValidator implements KeywordValida
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof String)) {
+        if (!(data.arg() instanceof String stringArg)) {
             return null;
         }
-        int length = getLength((String) arg);
+        int length = getLength(stringArg);
         if (length < minLength) {
-            throw new ValidationException("Value " + arg + " is invalid because has < the minLength of " + minLength);
+            throw new ValidationException("Value " + stringArg + " is invalid because has < the minLength of " + minLength);
         }
         return null;
     }

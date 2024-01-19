@@ -15,25 +15,20 @@ public class ContainsValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof List)) {
+        if (!(data.arg() instanceof List)) {
             return null;
         }
-        if (containsPathToSchemas == null || containsPathToSchemas.isEmpty()) {
+        if (data.containsPathToSchemas() == null || data.containsPathToSchemas().isEmpty()) {
             throw new ValidationException(
-                "Validation failed for contains keyword in class="+schema.getClass()
-                + " at pathToItem="+validationMetadata.pathToItem()+". No "
+                "Validation failed for contains keyword in class="+data.schema().getClass()
+                + " at pathToItem="+data.validationMetadata().pathToItem()+". No "
                 + "items validated to the contains schema."
             );
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        for (PathToSchemasMap otherPathToSchema: containsPathToSchemas) {
+        for (PathToSchemasMap otherPathToSchema: data.containsPathToSchemas()) {
             pathToSchemas.update(otherPathToSchema);
         }
         return pathToSchemas;
@@ -70,9 +65,7 @@ public class ContainsValidator implements KeywordValidator {
                 PathToSchemasMap otherPathToSchemas = JsonSchema.validate(
                         containsSchema, itemValue, itemValidationMetadata);
                 containsPathToSchemas.add(otherPathToSchemas);
-            } catch (ValidationException ignored) {
-                ;
-            }
+            } catch (ValidationException ignored) {}
         }
         return containsPathToSchemas;
     }

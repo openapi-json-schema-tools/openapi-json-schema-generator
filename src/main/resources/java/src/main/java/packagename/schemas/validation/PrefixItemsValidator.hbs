@@ -14,14 +14,9 @@ public class PrefixItemsValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof List<?> listArg)) {
+        if (!(data.arg() instanceof List<?> listArg)) {
             return null;
         }
         if (listArg.isEmpty()) {
@@ -30,13 +25,13 @@ public class PrefixItemsValidator implements KeywordValidator {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         int maxIndex = Math.min(listArg.size(), prefixItems.size());
         for (int i=0; i < maxIndex; i++) {
-            List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            List<Object> itemPathToItem = new ArrayList<>(data.validationMetadata().pathToItem());
             itemPathToItem.add(i);
             ValidationMetadata itemValidationMetadata = new ValidationMetadata(
                     itemPathToItem,
-                    validationMetadata.configuration(),
-                    validationMetadata.validatedPathToSchemas(),
-                    validationMetadata.seenClasses()
+                    data.validationMetadata().configuration(),
+                    data.validationMetadata().validatedPathToSchemas(),
+                    data.validationMetadata().seenClasses()
             );
             JsonSchema itemsSchema = JsonSchemaFactory.getInstance(prefixItems.get(i));
             PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, listArg.get(i), itemValidationMetadata);

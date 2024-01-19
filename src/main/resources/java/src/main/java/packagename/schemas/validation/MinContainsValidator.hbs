@@ -14,23 +14,18 @@ public class MinContainsValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof List)) {
+        if (!(data.arg() instanceof List)) {
             return null;
         }
-        if (containsPathToSchemas == null) {
+        if (data.containsPathToSchemas() == null) {
             return null;
         }
-        if (containsPathToSchemas.size() < minContains) {
+        if (data.containsPathToSchemas().size() < minContains) {
             throw new ValidationException(
-                "Validation failed for minContains keyword in class="+schema.getClass()+
-                " at pathToItem="+validationMetadata.pathToItem()+". Too few items validated to the contains schema."
+                "Validation failed for minContains keyword in class="+data.schema().getClass()+
+                " at pathToItem="+data.validationMetadata().pathToItem()+". Too few items validated to the contains schema."
             );
         }
         return null;

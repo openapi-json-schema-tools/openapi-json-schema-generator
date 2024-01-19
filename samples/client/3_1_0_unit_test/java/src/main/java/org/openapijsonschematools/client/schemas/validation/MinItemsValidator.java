@@ -14,18 +14,13 @@ public class MinItemsValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof List)) {
+        if (!(data.arg() instanceof List<?> listArg)) {
             return null;
         }
-        if (((List) arg).size() < minItems) {
-            throw new ValidationException("Value " + arg + " is invalid because has < the minItems of " + minItems);
+        if (listArg.size() < minItems) {
+            throw new ValidationException("Value " + listArg + " is invalid because has < the minItems of " + minItems);
         }
         return null;
     }

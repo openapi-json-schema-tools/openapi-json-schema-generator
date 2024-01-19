@@ -14,18 +14,13 @@ public class MaxItemsValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof List)) {
+        if (!(data.arg() instanceof List listArg)) {
             return null;
         }
-        if (((List) arg).size() > maxItems) {
-            throw new ValidationException("Value " + arg + " is invalid because has > the maxItems of " + maxItems);
+        if (listArg.size() > maxItems) {
+            throw new ValidationException("Value " + listArg + " is invalid because has > the maxItems of " + maxItems);
         }
         return null;
     }

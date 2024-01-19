@@ -16,15 +16,10 @@ public class ConstValidator extends BigDecimalValidator implements KeywordValida
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (arg instanceof Number) {
-            BigDecimal castArg = getBigDecimal((Number) arg);
+        if (data.arg() instanceof Number numberArg) {
+            BigDecimal castArg = getBigDecimal(numberArg);
             if (Objects.equals(castArg, constValue)) {
                 return null;
             }
@@ -32,10 +27,10 @@ public class ConstValidator extends BigDecimalValidator implements KeywordValida
                 return null;
             }
         } else {
-            if (Objects.equals(arg, constValue)) {
+            if (Objects.equals(data.arg(), constValue)) {
                 return null;
             }
         }
-        throw new ValidationException("Invalid value "+arg+" was not equal to const "+constValue);
+        throw new ValidationException("Invalid value "+data.arg()+" was not equal to const "+constValue);
     }
 }

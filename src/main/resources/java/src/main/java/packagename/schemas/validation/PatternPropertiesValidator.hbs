@@ -17,17 +17,12 @@ public class PatternPropertiesValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof Map<?, ?>)) {
+        if (!(data.arg() instanceof Map<?, ?>)) {
             return null;
         }
-        return patternPropertiesPathToSchemas;
+        return data.patternPropertiesPathToSchemas();
     }
 
     public PathToSchemasMap getPatternPropertiesPathToSchemas(
@@ -65,4 +60,3 @@ public class PatternPropertiesValidator implements KeywordValidator {
         return pathToSchemas;
     }
 }
-

@@ -16,14 +16,9 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof Map<?, ?> mapArg)) {
+        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }
         Set<String> presentAdditionalProperties = new LinkedHashSet<>();
@@ -32,22 +27,22 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
                 presentAdditionalProperties.add((String) key);
             }
         }
-        if (schema.properties != null) {
-            presentAdditionalProperties.removeAll(schema.properties.keySet());
+        if (data.schema().properties != null) {
+            presentAdditionalProperties.removeAll(data.schema().properties.keySet());
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         for(String addPropName: presentAdditionalProperties) {
             @Nullable Object propValue = mapArg.get(addPropName);
-            List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            List<Object> propPathToItem = new ArrayList<>(data.validationMetadata().pathToItem());
             propPathToItem.add(addPropName);
-            if (patternPropertiesPathToSchemas != null && patternPropertiesPathToSchemas.containsKey(propPathToItem)) {
+            if (data.patternPropertiesPathToSchemas() != null && data.patternPropertiesPathToSchemas().containsKey(propPathToItem)) {
                 continue;
             }
             ValidationMetadata propValidationMetadata = new ValidationMetadata(
                     propPathToItem,
-                    validationMetadata.configuration(),
-                    validationMetadata.validatedPathToSchemas(),
-                    validationMetadata.seenClasses()
+                    data.validationMetadata().configuration(),
+                    data.validationMetadata().validatedPathToSchemas(),
+                    data.validationMetadata().seenClasses()
             );
             JsonSchema addPropsSchema = JsonSchemaFactory.getInstance(additionalProperties);
             if (propValidationMetadata.validationRanEarlier(addPropsSchema)) {
