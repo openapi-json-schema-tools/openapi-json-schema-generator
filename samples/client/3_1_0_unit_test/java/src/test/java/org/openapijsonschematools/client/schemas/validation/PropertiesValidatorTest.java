@@ -38,12 +38,14 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", "abc");
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         PathToSchemasMap pathToSchemas = validator.validate(
-                MapJsonSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    MapJsonSchema.getInstance(),
+                    arg,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         if (pathToSchemas == null) {
             throw new RuntimeException("Invalid null value for pathToSchemas for this test case");
@@ -72,12 +74,14 @@ public class PropertiesValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemas = validator.validate(
-                MapJsonSchema.getInstance(),
-                1,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    MapJsonSchema.getInstance(),
+                    1,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         assertNull(pathToSchemas);
     }
@@ -99,12 +103,14 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", 1);
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                MapJsonSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    MapJsonSchema.getInstance(),
+                    arg,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         ));
     }
 }

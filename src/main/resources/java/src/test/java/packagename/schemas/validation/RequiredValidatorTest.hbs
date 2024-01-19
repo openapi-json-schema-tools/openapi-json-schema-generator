@@ -37,12 +37,14 @@ public class RequiredValidatorTest {
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
         PathToSchemasMap pathToSchemas = validator.validate(
-                MapJsonSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    MapJsonSchema.getInstance(),
+                    arg,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         assertNull(pathToSchemas);
     }
@@ -61,12 +63,14 @@ public class RequiredValidatorTest {
         );
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
         PathToSchemasMap pathToSchemas = validator.validate(
-                MapJsonSchema.getInstance(),
-                1,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    MapJsonSchema.getInstance(),
+                    1,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         assertNull(pathToSchemas);
     }
@@ -88,12 +92,14 @@ public class RequiredValidatorTest {
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                MapJsonSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    MapJsonSchema.getInstance(),
+                    arg,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         ));
     }
 }
