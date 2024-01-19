@@ -29,12 +29,14 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         @Nullable PathToSchemasMap pathToSchemasMap = validator.validate(
-                StringJsonSchema.getInstance(),
-                "hi",
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    StringJsonSchema.getInstance(),
+                    "hi",
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         );
         assertNull(pathToSchemasMap);
     }
@@ -51,12 +53,14 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                StringJsonSchema.getInstance(),
-                1,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    StringJsonSchema.getInstance(),
+                    1,
+                    validationMetadata,
+                    null,
+                    null,
+                    null
+                )
         ));
     }
 }
