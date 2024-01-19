@@ -10,6 +10,11 @@ tags: []
 paths: {}
 components:
   schemas:
+    NonAsciiPatternWithAdditionalproperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        "^\xE1": {}
+      additionalProperties: false
     AdditionalpropertiesWithSchema:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -304,6 +309,10 @@ components:
     DurationFormat:
       $schema: https://json-schema.org/draft/2020-12/schema
       format: duration
+    IgnoreIfWithoutThenOrElse:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if:
+        const: 0
     NestedItems:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: array
@@ -670,6 +679,19 @@ components:
       - type: boolean
       uniqueItems: false
   x-schema-test-examples:
+    NonAsciiPatternWithAdditionalproperties:
+      MatchingThePatternIsValid:
+        description: matching the pattern is valid
+        data:
+          "\xE1rm\xE1nyos": 2
+        valid: true
+        comment: null
+      NotMatchingThePatternIsInvalid:
+        description: not matching the pattern is invalid
+        data:
+          "\xE9lm\xE9ny": 2
+        valid: false
+        comment: null
     AdditionalpropertiesWithSchema:
       NoAdditionalPropertiesIsValid:
         description: no additional properties is valid
@@ -2143,6 +2165,17 @@ components:
       InvalidDurationStringIsOnlyAnAnnotationByDefault:
         description: invalid duration string is only an annotation by default
         data: PT1D
+        valid: true
+        comment: null
+    IgnoreIfWithoutThenOrElse:
+      ValidWhenValidAgainstLoneIf:
+        description: valid when valid against lone if
+        data: 0
+        valid: true
+        comment: null
+      ValidWhenInvalidAgainstLoneIf:
+        description: valid when invalid against lone if
+        data: hello
         valid: true
         comment: null
     NestedItems:

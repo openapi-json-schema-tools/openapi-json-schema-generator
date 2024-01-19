@@ -123,6 +123,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#if prefixItems}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_prefixItems }}
         {{/if}}
+        {{#if if_}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_if }}
+        {{/if}}
         );
     }
 
@@ -132,14 +135,8 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         }
         return instance;
     }
-{{#if prefixItems}}
-    {{!> components/schemas/schema_cls/_prefix_items }}
-{{/if}}
 {{#if hasDiscriminatorWithNonEmptyMapping}}
     {{!> components/schemas/schema_cls/_discriminator }}
-{{/if}}
-{{#if if_}}
-    {{!> components/schemas/schema_cls/_if }}
 {{/if}}
 {{#if then}}
     {{!> components/schemas/schema_cls/_then }}
