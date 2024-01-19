@@ -1,7 +1,6 @@
 package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.exceptions.InvalidTypeException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class IfValidator implements KeywordValidator {
@@ -27,18 +26,5 @@ public class IfValidator implements KeywordValidator {
         so validate_then will add ifPathToSchemas data to pathToSchemas
         */
         return null;
-    }
-
-    public PathToSchemasMap getIfPathToSchemas(
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata
-    ) {
-        JsonSchema ifSchemaInstance = JsonSchemaFactory.getInstance(ifSchema);
-        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        try {
-            var otherPathToSchemas = JsonSchema.validate(ifSchemaInstance, arg, validationMetadata);
-            pathToSchemas.update(otherPathToSchemas);
-        } catch (ValidationException | InvalidTypeException ignored) {}
-        return pathToSchemas;
     }
 }

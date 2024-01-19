@@ -7,11 +7,4 @@ public interface KeywordValidator {
     @Nullable PathToSchemasMap validate(
         ValidationData data
     ) throws ValidationException;
-
-    default PathToSchemasMap getIfPathToSchemas(
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata
-    ) {
-        return new PathToSchemasMap();
-    }
 }

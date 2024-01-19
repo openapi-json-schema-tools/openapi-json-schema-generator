@@ -377,6 +377,22 @@ public abstract class JsonSchema {
         return pathToSchemas;
     }
 
+    private PathToSchemasMap getIfPathToSchemas(
+            @Nullable Object arg,
+            ValidationMetadata validationMetadata
+    ) {
+        if (ifSchema == null) {
+            return new PathToSchemasMap();
+        }
+        JsonSchema ifSchemaInstance = JsonSchemaFactory.getInstance(ifSchema);
+        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        try {
+            var otherPathToSchemas = JsonSchema.validate(ifSchemaInstance, arg, validationMetadata);
+            pathToSchemas.update(otherPathToSchemas);
+        } catch (ValidationException | InvalidTypeException ignored) {}
+        return pathToSchemas;
+    }
+
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,
             @Nullable Object arg,
@@ -394,9 +410,8 @@ public abstract class JsonSchema {
             patternPropertiesPathToSchemas = jsonSchema.getPatternPropertiesPathToSchemas(arg, validationMetadata);
         }
         @Nullable PathToSchemasMap ifPathToSchemas = null;
-        KeywordValidator ifValidator = thisKeywordToValidator.get("if");
-        if (ifValidator != null) {
-            ifPathToSchemas = ifValidator.getIfPathToSchemas(arg, validationMetadata);
+        if (thisKeywordToValidator.containsKey("if")) {
+            ifPathToSchemas = jsonSchema.getIfPathToSchemas(arg, validationMetadata);
         }
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
