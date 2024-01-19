@@ -266,7 +266,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.ExclusiveMaximum,
                         SchemaFeature.ExclusiveMinimum,
                         SchemaFeature.Format,
-                        // SchemaFeature.If,
+                        SchemaFeature.If,
                         SchemaFeature.Items,
                         SchemaFeature.MaxContains,
                         SchemaFeature.MaxItems,

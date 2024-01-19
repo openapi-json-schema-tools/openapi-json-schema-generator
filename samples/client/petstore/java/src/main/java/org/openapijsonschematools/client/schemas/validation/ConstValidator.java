@@ -20,7 +20,8 @@ public class ConstValidator extends BigDecimalValidator implements KeywordValida
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
         @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
+        @Nullable PathToSchemasMap ifPathToSchemas
     ) {
         if (arg instanceof Number) {
             BigDecimal castArg = getBigDecimal((Number) arg);
