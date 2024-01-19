@@ -19,14 +19,15 @@ public class TypeValidator implements KeywordValidator {
         ValidationData data
     ) {
         Class<?> argClass;
-        if (data.arg() == null) {
+        var arg = data.arg();
+        if (arg == null) {
             argClass = Void.class;
-        } else if (data.arg() instanceof List) {
+        } else if (arg instanceof List) {
             argClass = List.class;
-        } else if (data.arg() instanceof Map) {
+        } else if (arg instanceof Map) {
             argClass = Map.class;
         } else {
-            argClass = data.arg().getClass();
+            argClass = arg.getClass();
         }
         if (!type.contains(argClass)) {
             throw new ValidationException("invalid type");

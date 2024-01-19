@@ -19,10 +19,11 @@ public class MaxContainsValidator implements KeywordValidator {
         if (!(data.arg() instanceof List)) {
             return null;
         }
-        if (data.containsPathToSchemas() == null) {
+        var containsPathToSchemas = data.containsPathToSchemas();
+        if (containsPathToSchemas == null) {
             return null;
         }
-        if (data.containsPathToSchemas().size() > maxContains) {
+        if (containsPathToSchemas.size() > maxContains) {
             throw new ValidationException(
                 "Validation failed for maxContains keyword in class="+data.schema().getClass()+
                 " at pathToItem="+data.validationMetadata().pathToItem()+". Too many items validated to the contains schema."

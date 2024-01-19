@@ -20,7 +20,8 @@ public class ContainsValidator implements KeywordValidator {
         if (!(data.arg() instanceof List)) {
             return null;
         }
-        if (data.containsPathToSchemas() == null || data.containsPathToSchemas().isEmpty()) {
+        var containsPathToSchemas = data.containsPathToSchemas();
+        if (containsPathToSchemas == null || containsPathToSchemas.isEmpty()) {
             throw new ValidationException(
                 "Validation failed for contains keyword in class="+data.schema().getClass()
                 + " at pathToItem="+data.validationMetadata().pathToItem()+". No "
@@ -28,7 +29,7 @@ public class ContainsValidator implements KeywordValidator {
             );
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        for (PathToSchemasMap otherPathToSchema: data.containsPathToSchemas()) {
+        for (PathToSchemasMap otherPathToSchema: containsPathToSchemas) {
             pathToSchemas.update(otherPathToSchema);
         }
         return pathToSchemas;

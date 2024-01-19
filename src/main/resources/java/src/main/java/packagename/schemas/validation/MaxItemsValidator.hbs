@@ -16,7 +16,7 @@ public class MaxItemsValidator implements KeywordValidator {
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
-        if (!(data.arg() instanceof List listArg)) {
+        if (!(data.arg() instanceof List<?> listArg)) {
             return null;
         }
         if (listArg.size() > maxItems) {
