@@ -18,7 +18,8 @@ public class MaxLengthValidator extends LengthValidator implements KeywordValida
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
         @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
+        @Nullable PathToSchemasMap ifPathToSchemas
     ) {
         if (!(arg instanceof String)) {
             return null;

@@ -20,7 +20,8 @@ public class TypeValidator implements KeywordValidator {
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
         @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
+        @Nullable PathToSchemasMap ifPathToSchemas
     ) {
         Class<?> argClass;
         if (arg == null) {

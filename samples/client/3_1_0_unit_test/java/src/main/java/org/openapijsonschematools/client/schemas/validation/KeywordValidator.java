@@ -12,7 +12,8 @@ public interface KeywordValidator {
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
         @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
+        @Nullable PathToSchemasMap ifPathToSchemas
     ) throws ValidationException;
 
     default List<PathToSchemasMap> getContainsPathToSchemas(
@@ -23,6 +24,13 @@ public interface KeywordValidator {
     }
 
     default PathToSchemasMap getPatternPropertiesPathToSchemas(
+        @Nullable Object arg,
+        ValidationMetadata validationMetadata
+    ) {
+        return new PathToSchemasMap();
+    }
+
+    default PathToSchemasMap getIfPathToSchemas(
         @Nullable Object arg,
         ValidationMetadata validationMetadata
     ) {

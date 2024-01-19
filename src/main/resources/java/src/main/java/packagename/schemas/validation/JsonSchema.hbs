@@ -54,6 +54,7 @@ public abstract class JsonSchema {
     public final @Nullable Map<String, Class<? extends JsonSchema>> dependentSchemas;
     public @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
     public @Nullable List<Class<? extends JsonSchema>> prefixItems;
+    public final @Nullable Class<? extends JsonSchema> ifSchema;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -292,6 +293,13 @@ public abstract class JsonSchema {
                     new PrefixItemsValidator(this.prefixItems)
             );
         }
+        this.ifSchema = jsonSchemaInfo.ifSchema;
+        if (this.ifSchema != null) {
+            keywordToValidator.put(
+                    "if",
+                    new IfValidator(this.ifSchema)
+            );
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
@@ -316,6 +324,11 @@ public abstract class JsonSchema {
         if (patternPropertiesValidator != null) {
             patternPropertiesPathToSchemas = patternPropertiesValidator.getPatternPropertiesPathToSchemas(arg, validationMetadata);
         }
+        @Nullable PathToSchemasMap ifPathToSchemas = null;
+        KeywordValidator ifValidator = thisKeywordToValidator.get("if");
+        if (ifValidator != null) {
+            ifPathToSchemas = ifValidator.getIfPathToSchemas(arg, validationMetadata);
+        }
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
             if (disabledKeywords.contains(jsonKeyword)) {
@@ -330,7 +343,8 @@ public abstract class JsonSchema {
                     arg,
                     validationMetadata,
                     containsPathToSchemas,
-                    patternPropertiesPathToSchemas
+                    patternPropertiesPathToSchemas,
+                    ifPathToSchemas
             );
             if (otherPathToSchemas == null) {
                 continue;

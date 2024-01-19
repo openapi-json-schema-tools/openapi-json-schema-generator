@@ -182,4 +182,9 @@ public class JsonSchemaInfo {
         this.prefixItems = prefixItems;
         return this;
     }
+    public @Nullable Class<? extends JsonSchema> ifSchema = null;
+    public JsonSchemaInfo ifSchema(Class<? extends JsonSchema> ifSchema) {
+        this.ifSchema = ifSchema;
+        return this;
+    }
 }

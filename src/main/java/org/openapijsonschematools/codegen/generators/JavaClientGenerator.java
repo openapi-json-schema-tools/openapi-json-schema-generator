@@ -579,6 +579,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("FormatValidator");
         keywordValidatorFiles.add("FrozenList");
         keywordValidatorFiles.add("FrozenMap");
+        keywordValidatorFiles.add("IfValidator");
         keywordValidatorFiles.add("IntegerEnumValidator");
         keywordValidatorFiles.add("IntegerValueMethod");
         keywordValidatorFiles.add("ItemsValidator");

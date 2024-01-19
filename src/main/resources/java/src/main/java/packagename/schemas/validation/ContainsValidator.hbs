@@ -19,7 +19,8 @@ public class ContainsValidator implements KeywordValidator {
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
         @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
+        @Nullable PathToSchemasMap ifPathToSchemas
     ) {
         if (!(arg instanceof List)) {
             return null;
