@@ -41,6 +41,7 @@ public class RequiredValidatorTest {
                 arg,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemas);
@@ -64,6 +65,7 @@ public class RequiredValidatorTest {
                 1,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemas);
@@ -90,6 +92,7 @@ public class RequiredValidatorTest {
                 arg,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
