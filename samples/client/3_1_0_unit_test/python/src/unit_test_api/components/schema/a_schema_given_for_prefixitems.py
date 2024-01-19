@@ -14,12 +14,29 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 class ASchemaGivenForPrefixitemsTuple(
     typing.Tuple[
+        int,
+        str,
+        schemas.OUTPUT_BASE_TYPES,
         ...
     ]
 ):
 
     def __new__(cls, arg: typing.Union[ASchemaGivenForPrefixitemsTupleInput, ASchemaGivenForPrefixitemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ASchemaGivenForPrefixitems.validate(arg, configuration=configuration)
+ASchemaGivenForPrefixitemsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+    ],
+    typing.Tuple[
+        int,
+        str,
+        schemas.INPUT_TYPES_ALL,
+        ...
+    ]
+]
 _0: typing_extensions.TypeAlias = schemas.IntSchema
 _1: typing_extensions.TypeAlias = schemas.StrSchema
 

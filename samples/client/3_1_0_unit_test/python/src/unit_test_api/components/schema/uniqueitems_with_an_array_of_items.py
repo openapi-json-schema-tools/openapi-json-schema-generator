@@ -14,12 +14,29 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 class UniqueitemsWithAnArrayOfItemsTuple(
     typing.Tuple[
+        bool,
+        bool,
+        schemas.OUTPUT_BASE_TYPES,
         ...
     ]
 ):
 
     def __new__(cls, arg: typing.Union[UniqueitemsWithAnArrayOfItemsTupleInput, UniqueitemsWithAnArrayOfItemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return UniqueitemsWithAnArrayOfItems.validate(arg, configuration=configuration)
+UniqueitemsWithAnArrayOfItemsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+    ],
+    typing.Tuple[
+        bool,
+        bool,
+        schemas.INPUT_TYPES_ALL,
+        ...
+    ]
+]
 _0: typing_extensions.TypeAlias = schemas.BoolSchema
 _1: typing_extensions.TypeAlias = schemas.BoolSchema
 

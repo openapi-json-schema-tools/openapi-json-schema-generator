@@ -1,15 +1,19 @@
-{{#if items}}
 {{arrayInputJsonPathPiece.pascalCase}} = typing.Union[
     typing.List[
-    {{#with items}}
+    {{#with listItemSchema}}
         {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
     {{/with}}
     ],
     typing.Tuple[
+    {{#each prefixItems}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
+    {{/each}}
     {{#with items}}
         {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.pascalCase }}
+        ...
+    {{else}}
+        schemas.INPUT_TYPES_ALL,
         ...
     {{/with}}
     ]
 ]
-{{/if}}

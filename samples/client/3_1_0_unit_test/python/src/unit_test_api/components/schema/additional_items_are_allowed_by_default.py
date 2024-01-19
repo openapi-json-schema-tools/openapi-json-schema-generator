@@ -14,12 +14,27 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 class AdditionalItemsAreAllowedByDefaultTuple(
     typing.Tuple[
+        int,
+        schemas.OUTPUT_BASE_TYPES,
         ...
     ]
 ):
 
     def __new__(cls, arg: typing.Union[AdditionalItemsAreAllowedByDefaultTupleInput, AdditionalItemsAreAllowedByDefaultTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalItemsAreAllowedByDefault.validate(arg, configuration=configuration)
+AdditionalItemsAreAllowedByDefaultTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+    ],
+    typing.Tuple[
+        int,
+        schemas.INPUT_TYPES_ALL,
+        ...
+    ]
+]
 _0: typing_extensions.TypeAlias = schemas.IntSchema
 
 

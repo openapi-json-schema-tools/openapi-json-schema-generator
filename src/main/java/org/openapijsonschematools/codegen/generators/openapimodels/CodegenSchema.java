@@ -628,6 +628,7 @@ public class CodegenSchema {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "arrayOutputType";
             extraSchema.items = items;
+            extraSchema.prefixItems = prefixItems;
             extraSchema.listItemSchema = listItemSchema;
             extraSchema.arrayOutputJsonPathPiece = arrayOutputJsonPathPiece;
             // needed to define input type for new method
@@ -651,6 +652,7 @@ public class CodegenSchema {
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "arrayInputType";
             extraSchema.items = items;
+            extraSchema.prefixItems = prefixItems;
             extraSchema.listItemSchema = listItemSchema;
             extraSchema.arrayInputJsonPathPiece = arrayInputJsonPathPiece;
             extraSchema.jsonPath = jsonPath; // needed to prevent recursion when rendering template data type

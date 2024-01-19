@@ -2,6 +2,9 @@
 
 class {{arrayOutputJsonPathPiece.pascalCase}}(
     typing.Tuple[
+        {{#each prefixItems}}
+        {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+        {{/each}}
         {{#with items}}
             {{#if refInfo.refClass}}
                 {{#eq refModule null}}
@@ -13,6 +16,8 @@ class {{arrayOutputJsonPathPiece.pascalCase}}(
             {{else}}
         {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
             {{/if}}
+        {{else}}
+        schemas.OUTPUT_BASE_TYPES,
         {{/with}}
         ...
     ]
