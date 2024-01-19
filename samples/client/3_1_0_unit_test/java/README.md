@@ -205,6 +205,7 @@ allowed input and output types.
 | [HostnameFormat.HostnameFormat1](docs/components/schemas/HostnameFormat.md#hostnameformat1) | |
 | [IdnEmailFormat.IdnEmailFormat1](docs/components/schemas/IdnEmailFormat.md#idnemailformat1) | |
 | [IdnHostnameFormat.IdnHostnameFormat1](docs/components/schemas/IdnHostnameFormat.md#idnhostnameformat1) | |
+| [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1](docs/components/schemas/IgnoreIfWithoutThenOrElse.md#ignoreifwithoutthenorelse1) | |
 | [IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1](docs/components/schemas/IntegerTypeMatchesIntegers.md#integertypematchesintegers1) | |
 | [Ipv4Format.Ipv4Format1](docs/components/schemas/Ipv4Format.md#ipv4format1) | |
 | [Ipv6Format.Ipv6Format1](docs/components/schemas/Ipv6Format.md#ipv6format1) | |
@@ -234,6 +235,7 @@ allowed input and output types.
 | [NestedAnyofToCheckValidationSemantics.NestedAnyofToCheckValidationSemantics1](docs/components/schemas/NestedAnyofToCheckValidationSemantics.md#nestedanyoftocheckvalidationsemantics1) | |
 | [NestedItems.NestedItems1](docs/components/schemas/NestedItems.md#nesteditems1) | |
 | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1](docs/components/schemas/NestedOneofToCheckValidationSemantics.md#nestedoneoftocheckvalidationsemantics1) | |
+| [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1](docs/components/schemas/NonAsciiPatternWithAdditionalproperties.md#nonasciipatternwithadditionalproperties1) | |
 | [Not.Not1](docs/components/schemas/Not.md#not1) | |
 | [NotMoreComplexSchema.NotMoreComplexSchema1](docs/components/schemas/NotMoreComplexSchema.md#notmorecomplexschema1) | |
 | [NotMultipleTypes.NotMultipleTypes1](docs/components/schemas/NotMultipleTypes.md#notmultipletypes1) | |

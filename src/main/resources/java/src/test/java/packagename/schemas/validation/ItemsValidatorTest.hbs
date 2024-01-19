@@ -38,6 +38,7 @@ public class ItemsValidatorTest {
                 arg,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         if (pathToSchemas == null) {
@@ -69,6 +70,7 @@ public class ItemsValidatorTest {
                 1,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemas);
@@ -92,6 +94,7 @@ public class ItemsValidatorTest {
                 arg,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }

@@ -20,7 +20,8 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
         @Nullable Object arg,
         ValidationMetadata validationMetadata,
         @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas
+        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
+        @Nullable PathToSchemasMap ifPathToSchemas
     ) {
         if (!(arg instanceof Map<?, ?> mapArg)) {
             return null;

@@ -35,6 +35,7 @@ public class FormatValidatorTest {
                 1.0f,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -48,6 +49,7 @@ public class FormatValidatorTest {
                 3.14f,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -60,6 +62,7 @@ public class FormatValidatorTest {
                 1,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -73,6 +76,7 @@ public class FormatValidatorTest {
                 -2147483649L,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -85,6 +89,7 @@ public class FormatValidatorTest {
                 -2147483648,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -98,6 +103,7 @@ public class FormatValidatorTest {
                 2147483647,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -111,6 +117,7 @@ public class FormatValidatorTest {
                 2147483648L,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -124,6 +131,7 @@ public class FormatValidatorTest {
                 new BigInteger("-9223372036854775809"),
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -136,6 +144,7 @@ public class FormatValidatorTest {
                 -9223372036854775808L,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -149,6 +158,7 @@ public class FormatValidatorTest {
                 9223372036854775807L,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -163,6 +173,7 @@ public class FormatValidatorTest {
                 new BigInteger("9223372036854775808"),
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -175,6 +186,7 @@ public class FormatValidatorTest {
                 -3.402823466385289e+38d,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -187,6 +199,7 @@ public class FormatValidatorTest {
                 -3.4028234663852886e+38f,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -200,6 +213,7 @@ public class FormatValidatorTest {
                 3.4028234663852886e+38f,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -213,6 +227,7 @@ public class FormatValidatorTest {
                 3.402823466385289e+38d,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -225,6 +240,7 @@ public class FormatValidatorTest {
                 new BigDecimal("-1.7976931348623157082e+308"),
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -237,6 +253,7 @@ public class FormatValidatorTest {
                 -1.7976931348623157E+308d,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -250,6 +267,7 @@ public class FormatValidatorTest {
                 1.7976931348623157E+308d,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -263,6 +281,7 @@ public class FormatValidatorTest {
                 new BigDecimal("1.7976931348623157082e+308"),
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -275,6 +294,7 @@ public class FormatValidatorTest {
                 "abc",
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -287,6 +307,7 @@ public class FormatValidatorTest {
                 "3.14",
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -300,6 +321,7 @@ public class FormatValidatorTest {
                 "1",
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -313,6 +335,7 @@ public class FormatValidatorTest {
                 "abc",
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -325,6 +348,7 @@ public class FormatValidatorTest {
                 "2017-01-20",
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -338,6 +362,7 @@ public class FormatValidatorTest {
                 "abc",
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }
@@ -350,6 +375,7 @@ public class FormatValidatorTest {
                 "2017-07-21T17:32:28Z",
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);

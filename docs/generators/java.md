@@ -287,7 +287,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |ExclusiveMinimum|✓|OAS2,OAS3
 |ExclusiveMaximum|✓|OAS2,OAS3
 |Format|✓|OAS2,OAS3
-|If|✗|OAS3
+|If|✓|OAS3
 |Items|✓|OAS2,OAS3
 |MaxContains|✓|OAS3
 |MaxItems|✓|OAS2,OAS3

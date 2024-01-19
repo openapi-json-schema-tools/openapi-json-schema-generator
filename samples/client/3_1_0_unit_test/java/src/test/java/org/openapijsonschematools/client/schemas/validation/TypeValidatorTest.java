@@ -33,6 +33,7 @@ public class TypeValidatorTest {
                 "hi",
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemasMap);
@@ -54,6 +55,7 @@ public class TypeValidatorTest {
                 1,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }

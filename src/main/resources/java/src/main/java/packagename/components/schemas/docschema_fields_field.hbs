@@ -97,3 +97,6 @@
 {{#if prefixItems}}
 | List<Class<? extends JsonSchema>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_prefixItems }} |
 {{/if}}
+{{#if if_}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_if }} |
+{{/if}}

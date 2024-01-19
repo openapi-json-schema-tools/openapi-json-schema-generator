@@ -703,6 +703,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/FloatValueMet
 src/main/java/org/openapijsonschematools/client/schemas/validation/FormatValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenList.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenMap.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/IfValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/IntegerEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/IntegerValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ItemsValidator.java

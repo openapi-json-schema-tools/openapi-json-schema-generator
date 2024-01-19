@@ -79,6 +79,7 @@ public class AdditionalPropertiesValidatorTest {
                 arg,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         if (pathToSchemas == null) {
@@ -110,6 +111,7 @@ public class AdditionalPropertiesValidatorTest {
                 1,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         );
         assertNull(pathToSchemas);
@@ -134,6 +136,7 @@ public class AdditionalPropertiesValidatorTest {
                 arg,
                 validationMetadata,
                 new ArrayList<>(),
+                new PathToSchemasMap(),
                 new PathToSchemasMap()
         ));
     }

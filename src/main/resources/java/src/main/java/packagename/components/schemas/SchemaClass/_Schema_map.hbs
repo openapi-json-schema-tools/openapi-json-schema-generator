@@ -59,6 +59,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements M
         {{#if patternProperties}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_patternProperties }}
         {{/if}}
+        {{#if if_}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_if }}
+        {{/if}}
         );
     }
 
@@ -70,9 +73,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements M
     }
     {{#if hasDiscriminatorWithNonEmptyMapping}}
     {{!> components/schemas/schema_cls/_discriminator }}
-    {{/if}}
-    {{#if if_}}
-    {{!> components/schemas/schema_cls/_if }}
     {{/if}}
     {{#if then}}
     {{!> components/schemas/schema_cls/_then }}
