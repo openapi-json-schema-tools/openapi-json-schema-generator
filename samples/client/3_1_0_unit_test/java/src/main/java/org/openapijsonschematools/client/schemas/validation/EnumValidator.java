@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 
 public class EnumValidator extends BigDecimalValidator implements KeywordValidator {
@@ -21,18 +20,13 @@ public class EnumValidator extends BigDecimalValidator implements KeywordValidat
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
         if (enumValues.isEmpty()) {
             throw new ValidationException("No value can match enum because enum is empty");
         }
-        if (arg instanceof Number) {
-            BigDecimal castArg = getBigDecimal((Number) arg);
+        if (data.arg() instanceof Number numberArg) {
+            BigDecimal castArg = getBigDecimal(numberArg);
             if (enumContainsArg(castArg)) {
                 return null;
             }
@@ -42,10 +36,10 @@ public class EnumValidator extends BigDecimalValidator implements KeywordValidat
                 }
             }
         } else {
-            if (enumContainsArg(arg)) {
+            if (enumContainsArg(data.arg())) {
                 return null;
             }
         }
-        throw new ValidationException("Invalid value "+arg+" was not one of the allowed enum "+enumValues);
+        throw new ValidationException("Invalid value "+data.arg()+" was not one of the allowed enum "+enumValues);
     }
 }
