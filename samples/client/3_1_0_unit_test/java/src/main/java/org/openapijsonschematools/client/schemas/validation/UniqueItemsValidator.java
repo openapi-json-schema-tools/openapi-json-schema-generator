@@ -16,21 +16,16 @@ public class UniqueItemsValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof List)) {
+        if (!(data.arg() instanceof List<?> listArg)) {
             return null;
         }
         if (!uniqueItems) {
             return null;
         }
         Set<@Nullable Object> seenItems = new HashSet<>();
-        for (@Nullable Object item: (List<?>) arg) {
+        for (@Nullable Object item: listArg) {
             int startingSeenItemsSize = seenItems.size();
             seenItems.add(item);
             if (seenItems.size() == startingSeenItemsSize) {

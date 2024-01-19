@@ -338,7 +338,7 @@ public abstract class JsonSchema {
                 }
             }
             KeywordValidator validator = entry.getValue();
-            @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(
+            ValidationData data = new ValidationData(
                     jsonSchema,
                     arg,
                     validationMetadata,
@@ -346,6 +346,7 @@ public abstract class JsonSchema {
                     patternPropertiesPathToSchemas,
                     ifPathToSchemas
             );
+            @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(data);
             if (otherPathToSchemas == null) {
                 continue;
             }
@@ -401,10 +402,9 @@ public abstract class JsonSchema {
         LinkedHashMap<String, @Nullable Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
             @Nullable Object entryKey = entry.getKey();
-            if (!(entryKey instanceof String)) {
+            if (!(entryKey instanceof String key)) {
                 throw new InvalidTypeException("Invalid non-string key value");
             }
-            String key = (String) entryKey;
             Object val = entry.getValue();
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(key);

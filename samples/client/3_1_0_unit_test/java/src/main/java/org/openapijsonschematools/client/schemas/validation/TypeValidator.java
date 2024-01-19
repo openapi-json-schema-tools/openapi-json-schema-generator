@@ -16,22 +16,17 @@ public class TypeValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
         Class<?> argClass;
-        if (arg == null) {
+        if (data.arg() == null) {
             argClass = Void.class;
-        } else if (arg instanceof List) {
+        } else if (data.arg() instanceof List) {
             argClass = List.class;
-        } else if (arg instanceof Map) {
+        } else if (data.arg() instanceof Map) {
             argClass = Map.class;
         } else {
-            argClass = arg.getClass();
+            argClass = data.arg().getClass();
         }
         if (!type.contains(argClass)) {
             throw new ValidationException("invalid type");
