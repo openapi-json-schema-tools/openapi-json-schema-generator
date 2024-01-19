@@ -177,4 +177,9 @@ public class JsonSchemaInfo {
         this.patternProperties = patternProperties;
         return this;
     }
+    public @Nullable List<Class<? extends JsonSchema>> prefixItems = null;
+    public JsonSchemaInfo prefixItems(List<Class<? extends JsonSchema>> prefixItems) {
+        this.prefixItems = prefixItems;
+        return this;
+    }
 }

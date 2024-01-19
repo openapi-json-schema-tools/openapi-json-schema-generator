@@ -120,6 +120,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#if patternProperties}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_patternProperties }}
         {{/if}}
+        {{#if prefixItems}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_prefixItems }}
+        {{/if}}
         );
     }
 

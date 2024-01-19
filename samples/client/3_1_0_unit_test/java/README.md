@@ -157,6 +157,8 @@ allowed input and output types.
 
 | Class | Description |
 | ----- | ----------- |
+| [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1](docs/components/schemas/ASchemaGivenForPrefixitems.md#aschemagivenforprefixitems1) | |
+| [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1](docs/components/schemas/AdditionalItemsAreAllowedByDefault.md#additionalitemsareallowedbydefault1) | |
 | [AdditionalpropertiesAreAllowedByDefault.AdditionalpropertiesAreAllowedByDefault1](docs/components/schemas/AdditionalpropertiesAreAllowedByDefault.md#additionalpropertiesareallowedbydefault1) | |
 | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1](docs/components/schemas/AdditionalpropertiesCanExistByItself.md#additionalpropertiescanexistbyitself1) | |
 | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1](docs/components/schemas/AdditionalpropertiesDoesNotLookInApplicators.md#additionalpropertiesdoesnotlookinapplicators1) | |
@@ -209,6 +211,7 @@ allowed input and output types.
 | [IriFormat.IriFormat1](docs/components/schemas/IriFormat.md#iriformat1) | |
 | [IriReferenceFormat.IriReferenceFormat1](docs/components/schemas/IriReferenceFormat.md#irireferenceformat1) | |
 | [ItemsContains.ItemsContains1](docs/components/schemas/ItemsContains.md#itemscontains1) | |
+| [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1](docs/components/schemas/ItemsDoesNotLookInApplicatorsValidCase.md#itemsdoesnotlookinapplicatorsvalidcase1) | |
 | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1](docs/components/schemas/ItemsWithNullInstanceElements.md#itemswithnullinstanceelements1) | |
 | [JsonPointerFormat.JsonPointerFormat1](docs/components/schemas/JsonPointerFormat.md#jsonpointerformat1) | |
 | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1](docs/components/schemas/MaxcontainsWithoutContainsIsIgnored.md#maxcontainswithoutcontainsisignored1) | |
@@ -248,6 +251,8 @@ allowed input and output types.
 | [PatternValidation.PatternValidation1](docs/components/schemas/PatternValidation.md#patternvalidation1) | |
 | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1](docs/components/schemas/PatternpropertiesValidatesPropertiesMatchingARegex.md#patternpropertiesvalidatespropertiesmatchingaregex1) | |
 | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1](docs/components/schemas/PatternpropertiesWithNullValuedInstanceProperties.md#patternpropertieswithnullvaluedinstanceproperties1) | |
+| [PrefixitemsValidationAdjustsTheStartingIndexForItems.PrefixitemsValidationAdjustsTheStartingIndexForItems1](docs/components/schemas/PrefixitemsValidationAdjustsTheStartingIndexForItems.md#prefixitemsvalidationadjuststhestartingindexforitems1) | |
+| [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1](docs/components/schemas/PrefixitemsWithNullInstanceElements.md#prefixitemswithnullinstanceelements1) | |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1](docs/components/schemas/PropertiesPatternpropertiesAdditionalpropertiesInteraction.md#propertiespatternpropertiesadditionalpropertiesinteraction1) | |
 | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1](docs/components/schemas/PropertiesWhoseNamesAreJavascriptObjectPropertyNames.md#propertieswhosenamesarejavascriptobjectpropertynames1) | |
 | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1](docs/components/schemas/PropertiesWithEscapedCharacters.md#propertieswithescapedcharacters1) | |
@@ -274,7 +279,9 @@ allowed input and output types.
 | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1](docs/components/schemas/UnevaluatedpropertiesWithAdjacentAdditionalproperties.md#unevaluatedpropertieswithadjacentadditionalproperties1) | |
 | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1](docs/components/schemas/UnevaluatedpropertiesWithNullValuedInstanceProperties.md#unevaluatedpropertieswithnullvaluedinstanceproperties1) | |
 | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1](docs/components/schemas/UniqueitemsFalseValidation.md#uniqueitemsfalsevalidation1) | |
+| [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1](docs/components/schemas/UniqueitemsFalseWithAnArrayOfItems.md#uniqueitemsfalsewithanarrayofitems1) | |
 | [UniqueitemsValidation.UniqueitemsValidation1](docs/components/schemas/UniqueitemsValidation.md#uniqueitemsvalidation1) | |
+| [UniqueitemsWithAnArrayOfItems.UniqueitemsWithAnArrayOfItems1](docs/components/schemas/UniqueitemsWithAnArrayOfItems.md#uniqueitemswithanarrayofitems1) | |
 | [UriFormat.UriFormat1](docs/components/schemas/UriFormat.md#uriformat1) | |
 | [UriReferenceFormat.UriReferenceFormat1](docs/components/schemas/UriReferenceFormat.md#urireferenceformat1) | |
 | [UriTemplateFormat.UriTemplateFormat1](docs/components/schemas/UriTemplateFormat.md#uritemplateformat1) | |

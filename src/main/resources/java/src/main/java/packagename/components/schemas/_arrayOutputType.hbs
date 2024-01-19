@@ -1,10 +1,10 @@
 
 
-public static class {{arrayOutputJsonPathPiece.pascalCase}} extends FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> {
-    protected {{arrayOutputJsonPathPiece.pascalCase}}(FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> m) {
+public static class {{arrayOutputJsonPathPiece.pascalCase}} extends FrozenList<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> {
+    protected {{arrayOutputJsonPathPiece.pascalCase}}(FrozenList<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> m) {
         super(m);
     }
-    public static {{arrayOutputJsonPathPiece.pascalCase}} of(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
+    public static {{arrayOutputJsonPathPiece.pascalCase}} of(List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
         return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration);
     }
 }

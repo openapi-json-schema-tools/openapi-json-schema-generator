@@ -259,6 +259,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/OneOfValidato
 src/main/java/org/openapijsonschematools/client/schemas/validation/PathToSchemasMap.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PatternPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PatternValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/PrefixItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyNamesValidator.java

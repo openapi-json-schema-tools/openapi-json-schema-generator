@@ -53,6 +53,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements L
         {{#neq minContains null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_minContains }}
         {{/neq}}
+        {{#if prefixItems}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_prefixItems }}
+        {{/if}}
         );
     }
 
@@ -62,9 +65,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements L
         }
         return instance;
     }
-    {{#if prefixItems}}
-    {{!> components/schemas/schema_cls/_prefix_items }}
-    {{/if}}
     {{#if if_}}
     {{!> components/schemas/schema_cls/_if }}
     {{/if}}

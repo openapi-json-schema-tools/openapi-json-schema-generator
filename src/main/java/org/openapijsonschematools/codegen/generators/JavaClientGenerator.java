@@ -284,7 +284,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.OneOf,
                         SchemaFeature.Pattern,
                         SchemaFeature.PatternProperties,
-                        // SchemaFeature.PrefixItems,
+                        SchemaFeature.PrefixItems,
                         SchemaFeature.Properties,
                         SchemaFeature.PropertyNames,
                         SchemaFeature.Ref,
@@ -613,6 +613,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("PathToSchemasMap");
         keywordValidatorFiles.add("PatternPropertiesValidator");
         keywordValidatorFiles.add("PatternValidator");
+        keywordValidatorFiles.add("PrefixItemsValidator");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("PropertyNamesValidator");

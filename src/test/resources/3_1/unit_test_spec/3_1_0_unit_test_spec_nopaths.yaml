@@ -315,6 +315,19 @@ components:
             type: array
             items:
               type: number
+    ItemsDoesNotLookInApplicatorsValidCase:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      allOf:
+      - prefixItems:
+        - minimum: 3
+      items:
+        minimum: 5
+    PrefixitemsValidationAdjustsTheStartingIndexForItems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: string
+      items:
+        type: integer
     ItemsWithNullInstanceElements:
       $schema: https://json-schema.org/draft/2020-12/schema
       items:
@@ -471,6 +484,19 @@ components:
       patternProperties:
         ^.*bar$:
           type: 'null'
+    ASchemaGivenForPrefixitems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: integer
+      - type: string
+    AdditionalItemsAreAllowedByDefault:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: integer
+    PrefixitemsWithNullInstanceElements:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: 'null'
     ObjectPropertiesValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -628,8 +654,20 @@ components:
     UniqueitemsValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       uniqueItems: true
+    UniqueitemsWithAnArrayOfItems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: boolean
+      - type: boolean
+      uniqueItems: true
     UniqueitemsFalseValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
+      uniqueItems: false
+    UniqueitemsFalseWithAnArrayOfItems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: boolean
+      - type: boolean
       uniqueItems: false
   x-schema-test-examples:
     AdditionalpropertiesWithSchema:
@@ -2141,6 +2179,37 @@ components:
           - - 6
         valid: false
         comment: null
+    ItemsDoesNotLookInApplicatorsValidCase:
+      PrefixitemsInAllofDoesNotConstrainItemsInvalidCase:
+        description: prefixItems in allOf does not constrain items, invalid case
+        data:
+        - 3
+        - 5
+        valid: false
+        comment: null
+      PrefixitemsInAllofDoesNotConstrainItemsValidCase:
+        description: prefixItems in allOf does not constrain items, valid case
+        data:
+        - 5
+        - 5
+        valid: true
+        comment: null
+    PrefixitemsValidationAdjustsTheStartingIndexForItems:
+      ValidItems:
+        description: valid items
+        data:
+        - x
+        - 2
+        - 3
+        valid: true
+        comment: null
+      WrongTypeOfSecondItem:
+        description: wrong type of second item
+        data:
+        - x
+        - y
+        valid: false
+        comment: null
     ItemsWithNullInstanceElements:
       AllowsNullElements:
         description: allows null elements
@@ -2853,6 +2922,64 @@ components:
         description: allows null values
         data:
           foobar: null
+        valid: true
+        comment: null
+    ASchemaGivenForPrefixitems:
+      CorrectTypes:
+        description: correct types
+        data:
+        - 1
+        - foo
+        valid: true
+        comment: null
+      WrongTypes:
+        description: wrong types
+        data:
+        - foo
+        - 1
+        valid: false
+        comment: null
+      IncompleteArrayOfItems:
+        description: incomplete array of items
+        data:
+        - 1
+        valid: true
+        comment: null
+      ArrayWithAdditionalItems:
+        description: array with additional items
+        data:
+        - 1
+        - foo
+        - true
+        valid: true
+        comment: null
+      EmptyArray:
+        description: empty array
+        data: []
+        valid: true
+        comment: null
+      JavascriptPseudoArrayIsValid:
+        description: JavaScript pseudo-array is valid
+        data:
+          '0': invalid
+          '1': valid
+          length: 2
+        valid: true
+        comment: null
+    AdditionalItemsAreAllowedByDefault:
+      OnlyTheFirstItemIsValidated:
+        description: only the first item is validated
+        data:
+        - 1
+        - foo
+        - false
+        valid: true
+        comment: null
+    PrefixitemsWithNullInstanceElements:
+      AllowsNullElements:
+        description: allows null elements
+        data:
+        - null
         valid: true
         comment: null
     ObjectPropertiesValidation:
@@ -3865,6 +3992,71 @@ components:
         - a: 1
         valid: true
         comment: null
+    UniqueitemsWithAnArrayOfItems:
+      FalseTrueFromItemsArrayIsValid:
+        description: '[false, true] from items array is valid'
+        data:
+        - false
+        - true
+        valid: true
+        comment: null
+      TrueFalseFromItemsArrayIsValid:
+        description: '[true, false] from items array is valid'
+        data:
+        - true
+        - false
+        valid: true
+        comment: null
+      FalseFalseFromItemsArrayIsNotValid:
+        description: '[false, false] from items array is not valid'
+        data:
+        - false
+        - false
+        valid: false
+        comment: null
+      TrueTrueFromItemsArrayIsNotValid:
+        description: '[true, true] from items array is not valid'
+        data:
+        - true
+        - true
+        valid: false
+        comment: null
+      UniqueArrayExtendedFromFalseTrueIsValid:
+        description: unique array extended from [false, true] is valid
+        data:
+        - false
+        - true
+        - foo
+        - bar
+        valid: true
+        comment: null
+      UniqueArrayExtendedFromTrueFalseIsValid:
+        description: unique array extended from [true, false] is valid
+        data:
+        - true
+        - false
+        - foo
+        - bar
+        valid: true
+        comment: null
+      NonUniqueArrayExtendedFromFalseTrueIsNotValid:
+        description: non-unique array extended from [false, true] is not valid
+        data:
+        - false
+        - true
+        - foo
+        - foo
+        valid: false
+        comment: null
+      NonUniqueArrayExtendedFromTrueFalseIsNotValid:
+        description: non-unique array extended from [true, false] is not valid
+        data:
+        - true
+        - false
+        - foo
+        - foo
+        valid: false
+        comment: null
     UniqueitemsFalseValidation:
       UniqueArrayOfIntegersIsValid:
         description: unique array of integers is valid
@@ -3985,5 +4177,70 @@ components:
         - null
         - {}
         - 1
+        valid: true
+        comment: null
+    UniqueitemsFalseWithAnArrayOfItems:
+      FalseTrueFromItemsArrayIsValid:
+        description: '[false, true] from items array is valid'
+        data:
+        - false
+        - true
+        valid: true
+        comment: null
+      TrueFalseFromItemsArrayIsValid:
+        description: '[true, false] from items array is valid'
+        data:
+        - true
+        - false
+        valid: true
+        comment: null
+      FalseFalseFromItemsArrayIsValid:
+        description: '[false, false] from items array is valid'
+        data:
+        - false
+        - false
+        valid: true
+        comment: null
+      TrueTrueFromItemsArrayIsValid:
+        description: '[true, true] from items array is valid'
+        data:
+        - true
+        - true
+        valid: true
+        comment: null
+      UniqueArrayExtendedFromFalseTrueIsValid:
+        description: unique array extended from [false, true] is valid
+        data:
+        - false
+        - true
+        - foo
+        - bar
+        valid: true
+        comment: null
+      UniqueArrayExtendedFromTrueFalseIsValid:
+        description: unique array extended from [true, false] is valid
+        data:
+        - true
+        - false
+        - foo
+        - bar
+        valid: true
+        comment: null
+      NonUniqueArrayExtendedFromFalseTrueIsValid:
+        description: non-unique array extended from [false, true] is valid
+        data:
+        - false
+        - true
+        - foo
+        - foo
+        valid: true
+        comment: null
+      NonUniqueArrayExtendedFromTrueFalseIsValid:
+        description: non-unique array extended from [true, false] is valid
+        data:
+        - true
+        - false
+        - foo
+        - foo
         valid: true
         comment: null

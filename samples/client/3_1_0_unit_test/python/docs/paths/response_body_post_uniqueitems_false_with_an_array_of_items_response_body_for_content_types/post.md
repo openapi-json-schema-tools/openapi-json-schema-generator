@@ -49,7 +49,7 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, [uniqueitems_false_with_an_array_of_items.UniqueitemsFalseWithAnArrayOfItemsTuple](../../components/schema/uniqueitems_false_with_an_array_of_items.md#uniqueitemsfalsewithanarrayofitemstuple), bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -66,7 +66,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**uniqueitems_false_with_an_array_of_items.UniqueitemsFalseWithAnArrayOfItems**](../../components/schema/uniqueitems_false_with_an_array_of_items.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
+[**uniqueitems_false_with_an_array_of_items.UniqueitemsFalseWithAnArrayOfItems**](../../components/schema/uniqueitems_false_with_an_array_of_items.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, [uniqueitems_false_with_an_array_of_items.UniqueitemsFalseWithAnArrayOfItemsTupleInput](../../components/schema/uniqueitems_false_with_an_array_of_items.md#uniqueitemsfalsewithanarrayofitemstupleinput), [uniqueitems_false_with_an_array_of_items.UniqueitemsFalseWithAnArrayOfItemsTuple](../../components/schema/uniqueitems_false_with_an_array_of_items.md#uniqueitemsfalsewithanarrayofitemstuple), bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, [uniqueitems_false_with_an_array_of_items.UniqueitemsFalseWithAnArrayOfItemsTuple](../../components/schema/uniqueitems_false_with_an_array_of_items.md#uniqueitemsfalsewithanarrayofitemstuple), bytes, io.FileIO
 
 ## Servers
 

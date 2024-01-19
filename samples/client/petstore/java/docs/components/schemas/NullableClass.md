@@ -537,7 +537,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NullableClass.ArrayItemsNullableList validatedPayload =
     NullableClass.ArrayItemsNullable.validate(
     new NullableClass.ArrayItemsNullableListBuilder()
-        .add(null)
+        .add((Void) null)
 
     .build(),
     configuration
@@ -655,7 +655,7 @@ Void validatedPayload = NullableClass.ArrayAndItemsNullableProp.validate(
 NullableClass.ArrayAndItemsNullablePropList validatedPayload =
     NullableClass.ArrayAndItemsNullableProp.validate(
     new NullableClass.ArrayAndItemsNullablePropListBuilder()
-        .add(null)
+        .add((Void) null)
 
     .build(),
     configuration

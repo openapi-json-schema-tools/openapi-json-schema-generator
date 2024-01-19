@@ -1,4 +1,6 @@
 README.md
+docs/components/schemas/ASchemaGivenForPrefixitems.md
+docs/components/schemas/AdditionalItemsAreAllowedByDefault.md
 docs/components/schemas/AdditionalpropertiesAreAllowedByDefault.md
 docs/components/schemas/AdditionalpropertiesCanExistByItself.md
 docs/components/schemas/AdditionalpropertiesDoesNotLookInApplicators.md
@@ -51,6 +53,7 @@ docs/components/schemas/Ipv6Format.md
 docs/components/schemas/IriFormat.md
 docs/components/schemas/IriReferenceFormat.md
 docs/components/schemas/ItemsContains.md
+docs/components/schemas/ItemsDoesNotLookInApplicatorsValidCase.md
 docs/components/schemas/ItemsWithNullInstanceElements.md
 docs/components/schemas/JsonPointerFormat.md
 docs/components/schemas/MaxcontainsWithoutContainsIsIgnored.md
@@ -90,6 +93,8 @@ docs/components/schemas/PatternIsNotAnchored.md
 docs/components/schemas/PatternValidation.md
 docs/components/schemas/PatternpropertiesValidatesPropertiesMatchingARegex.md
 docs/components/schemas/PatternpropertiesWithNullValuedInstanceProperties.md
+docs/components/schemas/PrefixitemsValidationAdjustsTheStartingIndexForItems.md
+docs/components/schemas/PrefixitemsWithNullInstanceElements.md
 docs/components/schemas/PropertiesPatternpropertiesAdditionalpropertiesInteraction.md
 docs/components/schemas/PropertiesWhoseNamesAreJavascriptObjectPropertyNames.md
 docs/components/schemas/PropertiesWithEscapedCharacters.md
@@ -116,13 +121,17 @@ docs/components/schemas/UnevaluateditemsWithItems.md
 docs/components/schemas/UnevaluatedpropertiesWithAdjacentAdditionalproperties.md
 docs/components/schemas/UnevaluatedpropertiesWithNullValuedInstanceProperties.md
 docs/components/schemas/UniqueitemsFalseValidation.md
+docs/components/schemas/UniqueitemsFalseWithAnArrayOfItems.md
 docs/components/schemas/UniqueitemsValidation.md
+docs/components/schemas/UniqueitemsWithAnArrayOfItems.md
 docs/components/schemas/UriFormat.md
 docs/components/schemas/UriReferenceFormat.md
 docs/components/schemas/UriTemplateFormat.md
 docs/components/schemas/UuidFormat.md
 docs/servers/Server0.md
 pom.xml
+src/main/java/org/openapijsonschematools/client/components/schemas/ASchemaGivenForPrefixitems.java
+src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalItemsAreAllowedByDefault.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalpropertiesAreAllowedByDefault.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalpropertiesCanExistByItself.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalpropertiesDoesNotLookInApplicators.java
@@ -175,6 +184,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/Ipv6Format.ja
 src/main/java/org/openapijsonschematools/client/components/schemas/IriFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/IriReferenceFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ItemsContains.java
+src/main/java/org/openapijsonschematools/client/components/schemas/ItemsDoesNotLookInApplicatorsValidCase.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ItemsWithNullInstanceElements.java
 src/main/java/org/openapijsonschematools/client/components/schemas/JsonPointerFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/MaxcontainsWithoutContainsIsIgnored.java
@@ -214,6 +224,8 @@ src/main/java/org/openapijsonschematools/client/components/schemas/PatternIsNotA
 src/main/java/org/openapijsonschematools/client/components/schemas/PatternValidation.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PatternpropertiesValidatesPropertiesMatchingARegex.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PatternpropertiesWithNullValuedInstanceProperties.java
+src/main/java/org/openapijsonschematools/client/components/schemas/PrefixitemsValidationAdjustsTheStartingIndexForItems.java
+src/main/java/org/openapijsonschematools/client/components/schemas/PrefixitemsWithNullInstanceElements.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesPatternpropertiesAdditionalpropertiesInteraction.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesWhoseNamesAreJavascriptObjectPropertyNames.java
 src/main/java/org/openapijsonschematools/client/components/schemas/PropertiesWithEscapedCharacters.java
@@ -240,7 +252,9 @@ src/main/java/org/openapijsonschematools/client/components/schemas/Unevaluatedit
 src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluatedpropertiesWithAdjacentAdditionalproperties.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluatedpropertiesWithNullValuedInstanceProperties.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UniqueitemsFalseValidation.java
+src/main/java/org/openapijsonschematools/client/components/schemas/UniqueitemsFalseWithAnArrayOfItems.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UniqueitemsValidation.java
+src/main/java/org/openapijsonschematools/client/components/schemas/UniqueitemsWithAnArrayOfItems.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UriFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UriReferenceFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UriTemplateFormat.java
@@ -329,6 +343,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/OneOfValidato
 src/main/java/org/openapijsonschematools/client/schemas/validation/PathToSchemasMap.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PatternPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PatternValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/PrefixItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyNamesValidator.java

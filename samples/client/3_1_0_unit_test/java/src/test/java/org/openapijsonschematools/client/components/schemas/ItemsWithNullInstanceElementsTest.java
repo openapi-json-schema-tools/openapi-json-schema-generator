@@ -23,7 +23,7 @@ public class ItemsWithNullInstanceElementsTest {
         final var schema = ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1.getInstance();
         schema.validate(
             new ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder()
-                .add(null)
+                .add((Void) null)
 
             .build(),
             configuration

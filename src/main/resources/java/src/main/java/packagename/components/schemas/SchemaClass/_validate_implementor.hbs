@@ -67,8 +67,8 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}
         {{#eq this "array"}}
 
 @Override
-public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items = new ArrayList<>();
+public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    List<{{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items = new ArrayList<>();
     int i = 0;
     for (Object item: arg) {
         List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -79,21 +79,21 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCa
         }
         JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-        {{#if ../items}}
-            {{#if ../items.isNullableObject }}
+        {{#if ../listItemSchema}}
+            {{#if ../listItemSchema.isNullableObject }}
         items.add(itemInstance);
             {{else}}
-        if (!({{#contains ../items.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
+        if (!({{#contains ../listItemSchema.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
-        items.add(({{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
+        items.add(({{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
             {{/if}}
         {{else}}
         items.add(itemInstance);
         {{/if}}
         i += 1;
     }
-    FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);
+    FrozenList<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);
             {{#if ../arrayOutputJsonPathPiece}}
     return new {{../arrayOutputJsonPathPiece.pascalCase}}(newInstanceItems);
             {{else}}
@@ -101,7 +101,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCa
             {{/if}}
 }
 
-public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -324,8 +324,8 @@ public String validate(UUID arg, SchemaConfiguration configuration) throws Valid
 }
 
 @Override
-public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items = new ArrayList<>();
+public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    List<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items = new ArrayList<>();
     int i = 0;
     for (Object item: arg) {
         List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -336,21 +336,21 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{
         }
         JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-        {{#if items}}
-            {{#if items.isNullableObject }}
+        {{#if listItemSchema}}
+            {{#if listItemSchema.isNullableObject }}
         items.add(itemInstance);
             {{else}}
-        if (!({{#contains items.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
+        if (!({{#contains listItemSchema.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
-        items.add(({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
+        items.add(({{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
             {{/if}}
         {{else}}
         items.add(itemInstance);
         {{/if}}
         i += 1;
     }
-    FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);
+    FrozenList<{{#with listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);
             {{#if arrayOutputJsonPathPiece}}
     return new {{arrayOutputJsonPathPiece.pascalCase}}(newInstanceItems);
             {{else}}
@@ -358,7 +358,7 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{
             {{/if}}
 }
 
-public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
