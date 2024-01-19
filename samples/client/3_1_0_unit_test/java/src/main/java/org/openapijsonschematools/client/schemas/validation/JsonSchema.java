@@ -306,6 +306,42 @@ public abstract class JsonSchema {
     public abstract @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException;
     public abstract @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException;
 
+    private List<PathToSchemasMap> getContainsPathToSchemas(
+            @Nullable Object arg,
+            ValidationMetadata validationMetadata
+    ) {
+        if (!(arg instanceof List<?> listArg) || contains == null) {
+            return new ArrayList<>();
+        }
+        JsonSchema containsSchema = JsonSchemaFactory.getInstance(contains);
+        @Nullable List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
+        int i = 0;
+        for(Object itemValue: listArg) {
+            PathToSchemasMap thesePathToSchemas = new PathToSchemasMap();
+            List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            itemPathToItem.add(i);
+            ValidationMetadata itemValidationMetadata = new ValidationMetadata(
+                    itemPathToItem,
+                    validationMetadata.configuration(),
+                    validationMetadata.validatedPathToSchemas(),
+                    validationMetadata.seenClasses()
+            );
+            if (itemValidationMetadata.validationRanEarlier(containsSchema)) {
+                // todo add_deeper_validated_schemas
+                containsPathToSchemas.add(thesePathToSchemas);
+                i += 1;
+                continue;
+            }
+
+            try {
+                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(
+                        containsSchema, itemValue, itemValidationMetadata);
+                containsPathToSchemas.add(otherPathToSchemas);
+            } catch (ValidationException ignored) {}
+        }
+        return containsPathToSchemas;
+    }
+
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,
             @Nullable Object arg,
@@ -315,9 +351,8 @@ public abstract class JsonSchema {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
         @Nullable List<PathToSchemasMap> containsPathToSchemas = null;
-        KeywordValidator containsValidator = thisKeywordToValidator.get("contains");
-        if (containsValidator != null) {
-            containsPathToSchemas = containsValidator.getContainsPathToSchemas(arg, validationMetadata);
+        if (thisKeywordToValidator.containsKey("contains")) {
+            containsPathToSchemas = jsonSchema.getContainsPathToSchemas(arg, validationMetadata);
         }
         @Nullable PathToSchemasMap patternPropertiesPathToSchemas = null;
         KeywordValidator patternPropertiesValidator = thisKeywordToValidator.get("patternProperties");
