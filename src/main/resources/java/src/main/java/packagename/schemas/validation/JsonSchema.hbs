@@ -342,6 +342,41 @@ public abstract class JsonSchema {
         return containsPathToSchemas;
     }
 
+    private PathToSchemasMap getPatternPropertiesPathToSchemas(
+            @Nullable Object arg,
+            ValidationMetadata validationMetadata
+    ) {
+        if (!(arg instanceof Map<?, ?> mapArg) || patternProperties == null) {
+            return new PathToSchemasMap();
+        }
+        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        for (Map.Entry<?, ?> entry: mapArg.entrySet()) {
+            Object entryKey = entry.getKey();
+            if (!(entryKey instanceof String key)) {
+                throw new InvalidTypeException("Invalid non-string type for map key");
+            }
+            List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            propPathToItem.add(key);
+            ValidationMetadata propValidationMetadata = new ValidationMetadata(
+                    propPathToItem,
+                    validationMetadata.configuration(),
+                    validationMetadata.validatedPathToSchemas(),
+                    validationMetadata.seenClasses()
+            );
+            for (Map.Entry<Pattern, Class<? extends JsonSchema>> patternPropEntry: patternProperties.entrySet()) {
+                if (!patternPropEntry.getKey().matcher(key).find()) {
+                    continue;
+                }
+
+                Class<? extends JsonSchema> patternPropClass = patternPropEntry.getValue();
+                JsonSchema patternPropSchema = JsonSchemaFactory.getInstance(patternPropClass);
+                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(patternPropSchema, entry.getValue(), propValidationMetadata);
+                pathToSchemas.update(otherPathToSchemas);
+            }
+        }
+        return pathToSchemas;
+    }
+
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,
             @Nullable Object arg,
@@ -355,9 +390,8 @@ public abstract class JsonSchema {
             containsPathToSchemas = jsonSchema.getContainsPathToSchemas(arg, validationMetadata);
         }
         @Nullable PathToSchemasMap patternPropertiesPathToSchemas = null;
-        KeywordValidator patternPropertiesValidator = thisKeywordToValidator.get("patternProperties");
-        if (patternPropertiesValidator != null) {
-            patternPropertiesPathToSchemas = patternPropertiesValidator.getPatternPropertiesPathToSchemas(arg, validationMetadata);
+        if (thisKeywordToValidator.containsKey("patternProperties")) {
+            patternPropertiesPathToSchemas = jsonSchema.getPatternPropertiesPathToSchemas(arg, validationMetadata);
         }
         @Nullable PathToSchemasMap ifPathToSchemas = null;
         KeywordValidator ifValidator = thisKeywordToValidator.get("if");

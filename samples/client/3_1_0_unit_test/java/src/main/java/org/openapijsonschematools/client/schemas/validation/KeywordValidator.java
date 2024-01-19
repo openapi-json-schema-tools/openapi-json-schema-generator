@@ -8,13 +8,6 @@ public interface KeywordValidator {
         ValidationData data
     ) throws ValidationException;
 
-    default PathToSchemasMap getPatternPropertiesPathToSchemas(
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata
-    ) {
-        return new PathToSchemasMap();
-    }
-
     default PathToSchemasMap getIfPathToSchemas(
         @Nullable Object arg,
         ValidationMetadata validationMetadata
