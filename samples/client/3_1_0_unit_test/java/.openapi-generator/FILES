@@ -380,13 +380,6 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMet
 src/main/java/org/openapijsonschematools/client/servers/Server0.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
-src/test/java/org/openapijsonschematools/client/components/schemas/IfAndElseWithoutThenTest.java
-src/test/java/org/openapijsonschematools/client/components/schemas/IfAndThenWithoutElseTest.java
-src/test/java/org/openapijsonschematools/client/components/schemas/IfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceTest.java
-src/test/java/org/openapijsonschematools/client/components/schemas/IgnoreElseWithoutIfTest.java
-src/test/java/org/openapijsonschematools/client/components/schemas/IgnoreThenWithoutIfTest.java
-src/test/java/org/openapijsonschematools/client/components/schemas/NonInterferenceAcrossCombinedSchemasTest.java
-src/test/java/org/openapijsonschematools/client/components/schemas/ValidateAgainstCorrectBranchThenVsElseTest.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.java

@@ -282,7 +282,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |DependentRequired|✓|OAS3
 |DependentSchemas|✓|OAS3
 |Discriminator|✗|OAS2,OAS3
-|Else|✗|OAS3
+|Else|✓|OAS3
 |Enum|✓|OAS2,OAS3
 |ExclusiveMinimum|✓|OAS2,OAS3
 |ExclusiveMaximum|✓|OAS2,OAS3
@@ -310,7 +310,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |PropertyNames|✓|OAS3
 |Ref|✓|OAS2,OAS3
 |Required|✓|OAS2,OAS3
-|Then|✗|OAS3
+|Then|✓|OAS3
 |Type|✓|OAS2,OAS3
 |UnevaluatedItems|✗|OAS3
 |UnevaluatedProperties|✗|OAS3
