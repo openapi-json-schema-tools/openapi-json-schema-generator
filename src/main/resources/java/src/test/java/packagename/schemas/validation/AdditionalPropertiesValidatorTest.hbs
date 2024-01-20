@@ -26,6 +26,7 @@ public class AdditionalPropertiesValidatorTest {
                     .properties(Map.ofEntries(
                             new PropertyEntry("someString", StringJsonSchema.class)
                     ))
+                    .additionalProperties(StringJsonSchema.class)
             );
 
         }
@@ -73,15 +74,12 @@ public class AdditionalPropertiesValidatorTest {
         mutableMap.put("someString", "abc");
         mutableMap.put("someAddProp", "def");
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
-        final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator(StringJsonSchema.class);
+        final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
                 new ValidationData(
                     ObjectWithPropsSchema.getInstance(),
                     arg,
-                    validationMetadata,
-                    null,
-                    null,
-                    null
+                    validationMetadata
                 )
         );
         if (pathToSchemas == null) {
@@ -107,15 +105,12 @@ public class AdditionalPropertiesValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator(StringJsonSchema.class);
+        final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
                 new ValidationData(
                     MapJsonSchema.getInstance(),
                     1,
-                    validationMetadata,
-                    null,
-                    null,
-                    null
+                    validationMetadata
                 )
         );
         assertNull(pathToSchemas);
@@ -134,15 +129,12 @@ public class AdditionalPropertiesValidatorTest {
         mutableMap.put("someString", "abc");
         mutableMap.put("someAddProp", 1);
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
-        final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator(StringJsonSchema.class);
+        final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
                     ObjectWithPropsSchema.getInstance(),
                     arg,
-                    validationMetadata,
-                    null,
-                    null,
-                    null
+                    validationMetadata
                 )
         ));
     }

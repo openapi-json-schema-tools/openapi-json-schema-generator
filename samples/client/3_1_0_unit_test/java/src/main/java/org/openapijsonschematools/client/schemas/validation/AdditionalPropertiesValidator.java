@@ -25,8 +25,9 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
                 presentAdditionalProperties.add((String) key);
             }
         }
-        if (data.schema().properties != null) {
-            presentAdditionalProperties.removeAll(data.schema().properties.keySet());
+        var properties = data.schema().properties;
+        if (properties != null) {
+            presentAdditionalProperties.removeAll(properties.keySet());
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         for(String addPropName: presentAdditionalProperties) {
