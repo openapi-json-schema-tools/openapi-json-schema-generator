@@ -24,11 +24,10 @@ public class ThenValidator implements KeywordValidator {
         }
         JsonSchema thenSchema = JsonSchemaFactory.getInstance(then);
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        try {
-            var thenPathToSchemas = JsonSchema.validate(thenSchema, data.arg(), data.validationMetadata());
-            pathToSchemas.update(ifPathToSchemas);
-            pathToSchemas.update(thenPathToSchemas);
-        } catch (ValidationException | InvalidTypeException ignored) {}
+        var thenPathToSchemas = JsonSchema.validate(thenSchema, data.arg(), data.validationMetadata());
+        // todo capture validation error and describe it as an then error?
+        pathToSchemas.update(ifPathToSchemas);
+        pathToSchemas.update(thenPathToSchemas);
         return pathToSchemas;
     }
 }

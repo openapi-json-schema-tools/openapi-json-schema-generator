@@ -25,8 +25,8 @@ public class ElseValidator implements KeywordValidator {
         JsonSchema elseSchemaInstance = JsonSchemaFactory.getInstance(elseSchema);
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         var elsePathToSchemas = JsonSchema.validate(elseSchemaInstance, data.arg(), data.validationMetadata());
-        pathToSchemas.update(elsePathToSchemas);
         // todo capture validation error and describe it as an else error?
+        pathToSchemas.update(elsePathToSchemas);
         return pathToSchemas;
     }
 }
