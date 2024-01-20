@@ -9,26 +9,19 @@ import java.util.Map;
 import java.util.Set;
 
 public class RequiredValidator implements KeywordValidator {
-    public final Set<String> required;
-
-    public RequiredValidator(Set<String> required) {
-        this.required = required;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof Map)) {
+        var required = data.schema().required;
+        if (required == null) {
+            return null;
+        }
+        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }
         Set<String> missingRequiredProperties = new HashSet<>(required);
-        for (Object key: ((Map<?, ?>) arg).keySet()) {
+        for (Object key: mapArg.keySet()) {
             if (key instanceof String) {
                 missingRequiredProperties.remove(key);
             }
@@ -40,7 +33,7 @@ public class RequiredValidator implements KeywordValidator {
                 pluralChar = "s";
             }
             throw new ValidationException(
-                schema.getClass()+" is missing "+missingRequiredProperties.size()+" required argument"+pluralChar+": "+missingReqProps
+                data.schema().getClass()+" is missing "+missingRequiredProperties.size()+" required argument"+pluralChar+": "+missingReqProps
             );
         }
         return null;

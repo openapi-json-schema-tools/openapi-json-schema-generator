@@ -19,9 +19,7 @@ public class TypeValidatorTest {
 
     @Test
     public void testValidateSucceeds() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(String.class);
-        final TypeValidator validator = new TypeValidator(type);
+        final TypeValidator validator = new TypeValidator();
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 new ArrayList<>(),
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
@@ -29,21 +27,18 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         @Nullable PathToSchemasMap pathToSchemasMap = validator.validate(
-                StringJsonSchema.getInstance(),
-                "hi",
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    StringJsonSchema.getInstance(),
+                    "hi",
+                    validationMetadata
+                )
         );
         assertNull(pathToSchemasMap);
     }
 
     @Test
     public void testValidateFailsIntIsNotString() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(String.class);
-        final TypeValidator validator = new TypeValidator(type);
+        final TypeValidator validator = new TypeValidator();
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 new ArrayList<>(),
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
@@ -51,12 +46,11 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                StringJsonSchema.getInstance(),
-                1,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    StringJsonSchema.getInstance(),
+                    1,
+                    validationMetadata
+                )
         ));
     }
 }

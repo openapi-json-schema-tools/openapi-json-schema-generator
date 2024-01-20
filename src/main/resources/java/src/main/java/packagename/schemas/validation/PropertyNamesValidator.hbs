@@ -7,34 +7,27 @@ import java.util.List;
 import java.util.Map;
 
 public class PropertyNamesValidator implements KeywordValidator {
-    public final Class<? extends JsonSchema> propertyNames;
-
-    public PropertyNamesValidator(Class<? extends JsonSchema> propertyNames) {
-        this.propertyNames = propertyNames;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof Map)) {
+        var propertyNames = data.schema().propertyNames;
+        if (propertyNames == null) {
+            return null;
+        }
+        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }
         JsonSchema propertyNamesSchema = JsonSchemaFactory.getInstance(propertyNames);
-        for (Object objKey: ((Map<?, ?>) arg).keySet()) {
+        for (Object objKey: mapArg.keySet()) {
             if (objKey instanceof String key) {
-                List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+                List<Object> propPathToItem = new ArrayList<>(data.validationMetadata().pathToItem());
                 propPathToItem.add(key);
                 ValidationMetadata keyValidationMetadata = new ValidationMetadata(
                         propPathToItem,
-                        validationMetadata.configuration(),
-                        validationMetadata.validatedPathToSchemas(),
-                        validationMetadata.seenClasses()
+                        data.validationMetadata().configuration(),
+                        data.validationMetadata().validatedPathToSchemas(),
+                        data.validationMetadata().seenClasses()
                 );
                 JsonSchema.validate(propertyNamesSchema, key, keyValidationMetadata);
             }

@@ -50,10 +50,10 @@ public abstract class JsonSchema {
     public final @Nullable Integer maxContains;
     public final @Nullable Integer minContains;
     public final @Nullable Class<? extends JsonSchema> propertyNames;
-    public @Nullable Map<String, Set<String>> dependentRequired;
+    public final @Nullable Map<String, Set<String>> dependentRequired;
     public final @Nullable Map<String, Class<? extends JsonSchema>> dependentSchemas;
-    public @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
-    public @Nullable List<Class<? extends JsonSchema>> prefixItems;
+    public final @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
+    public final @Nullable List<Class<? extends JsonSchema>> prefixItems;
     public final @Nullable Class<? extends JsonSchema> ifSchema;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
@@ -61,250 +61,235 @@ public abstract class JsonSchema {
         LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();
         this.type = jsonSchemaInfo.type;
         if (this.type != null) {
-            keywordToValidator.put(
-                    "type",
-                    new TypeValidator(this.type)
-            );
+            keywordToValidator.put("type", new TypeValidator());
         }
         this.format = jsonSchemaInfo.format;
         if (this.format != null) {
-            keywordToValidator.put(
-                    "format",
-                    new FormatValidator(this.format)
-            );
+            keywordToValidator.put("format", new FormatValidator());
         }
         this.items = jsonSchemaInfo.items;
         if (this.items != null) {
-            keywordToValidator.put(
-                    "items",
-                    new ItemsValidator(this.items)
-            );
+            keywordToValidator.put("items", new ItemsValidator());
         }
         this.properties = jsonSchemaInfo.properties;
         if (this.properties != null) {
-            keywordToValidator.put(
-                    "properties",
-                    new PropertiesValidator(this.properties)
-            );
+            keywordToValidator.put("properties", new PropertiesValidator());
         }
         this.required = jsonSchemaInfo.required;
         if (this.required != null) {
-            keywordToValidator.put(
-                    "required",
-                    new RequiredValidator(this.required)
-            );
+            keywordToValidator.put("required", new RequiredValidator());
         }
         this.exclusiveMaximum = jsonSchemaInfo.exclusiveMaximum;
         if (this.exclusiveMaximum != null) {
-            keywordToValidator.put(
-                    "exclusiveMaximum",
-                    new ExclusiveMaximumValidator(this.exclusiveMaximum)
-            );
+            keywordToValidator.put("exclusiveMaximum", new ExclusiveMaximumValidator());
         }
         this.exclusiveMinimum = jsonSchemaInfo.exclusiveMinimum;
         if (this.exclusiveMinimum != null) {
-            keywordToValidator.put(
-                    "exclusiveMinimum",
-                    new ExclusiveMinimumValidator(this.exclusiveMinimum)
-            );
+            keywordToValidator.put("exclusiveMinimum", new ExclusiveMinimumValidator());
         }
         this.maxItems = jsonSchemaInfo.maxItems;
         if (this.maxItems != null) {
-            keywordToValidator.put(
-                    "maxItems",
-                    new MaxItemsValidator(this.maxItems)
-            );
+            keywordToValidator.put("maxItems", new MaxItemsValidator());
         }
         this.minItems = jsonSchemaInfo.minItems;
         if (this.minItems != null) {
-            keywordToValidator.put(
-                    "minItems",
-                    new MinItemsValidator(this.minItems)
-            );
+            keywordToValidator.put("minItems", new MinItemsValidator());
         }
         this.maxLength = jsonSchemaInfo.maxLength;
         if (this.maxLength != null) {
-            keywordToValidator.put(
-                    "maxLength",
-                    new MaxLengthValidator(this.maxLength)
-            );
+            keywordToValidator.put("maxLength", new MaxLengthValidator());
         }
         this.minLength = jsonSchemaInfo.minLength;
         if (this.minLength != null) {
-            keywordToValidator.put(
-                    "minLength",
-                    new MinLengthValidator(this.minLength)
-            );
+            keywordToValidator.put("minLength", new MinLengthValidator());
         }
         this.maxProperties = jsonSchemaInfo.maxProperties;
         if (this.maxProperties != null) {
-            keywordToValidator.put(
-                    "maxProperties",
-                    new MaxPropertiesValidator(this.maxProperties)
-            );
+            keywordToValidator.put("maxProperties", new MaxPropertiesValidator());
         }
         this.minProperties = jsonSchemaInfo.minProperties;
         if (this.minProperties != null) {
-            keywordToValidator.put(
-                    "minProperties",
-                    new MinPropertiesValidator(this.minProperties)
-            );
+            keywordToValidator.put("minProperties", new MinPropertiesValidator());
         }
         this.maximum = jsonSchemaInfo.maximum;
         if (this.maximum != null) {
-            keywordToValidator.put(
-                    "maximum",
-                    new MaximumValidator(this.maximum)
-            );
+            keywordToValidator.put("maximum", new MaximumValidator());
         }
         this.minimum = jsonSchemaInfo.minimum;
         if (this.minimum != null) {
-            keywordToValidator.put(
-                    "minimum",
-                    new MinimumValidator(this.minimum)
-            );
+            keywordToValidator.put("minimum", new MinimumValidator());
         }
         this.multipleOf = jsonSchemaInfo.multipleOf;
         if (this.multipleOf != null) {
-            keywordToValidator.put(
-                    "multipleOf",
-                    new MultipleOfValidator(this.multipleOf)
-            );
+            keywordToValidator.put("multipleOf", new MultipleOfValidator());
         }
         this.additionalProperties = jsonSchemaInfo.additionalProperties;
         if (this.additionalProperties != null) {
-            keywordToValidator.put(
-                    "additionalProperties",
-                    new AdditionalPropertiesValidator(this.additionalProperties)
-            );
+            keywordToValidator.put("additionalProperties", new AdditionalPropertiesValidator());
         }
         this.allOf = jsonSchemaInfo.allOf;
         if (this.allOf != null) {
-            keywordToValidator.put(
-                    "allOf",
-                    new AllOfValidator(this.allOf)
-            );
+            keywordToValidator.put("allOf", new AllOfValidator());
         }
         this.anyOf = jsonSchemaInfo.anyOf;
         if (this.anyOf != null) {
-            keywordToValidator.put(
-                    "anyOf",
-                    new AnyOfValidator(this.anyOf)
-            );
+            keywordToValidator.put("anyOf", new AnyOfValidator());
         }
         this.oneOf = jsonSchemaInfo.oneOf;
         if (this.oneOf != null) {
-            keywordToValidator.put(
-                    "oneOf",
-                    new OneOfValidator(this.oneOf)
-            );
+            keywordToValidator.put("oneOf", new OneOfValidator());
         }
         this.not = jsonSchemaInfo.not;
         if (this.not != null) {
-            keywordToValidator.put(
-                    "not",
-                    new NotValidator(this.not)
-            );
+            keywordToValidator.put("not", new NotValidator());
         }
         this.uniqueItems = jsonSchemaInfo.uniqueItems;
         if (this.uniqueItems != null) {
-            keywordToValidator.put(
-                    "uniqueItems",
-                    new UniqueItemsValidator(this.uniqueItems)
-            );
+            keywordToValidator.put("uniqueItems", new UniqueItemsValidator());
         }
         this.enumValues = jsonSchemaInfo.enumValues;
         if (this.enumValues != null) {
-            keywordToValidator.put(
-                    "enum",
-                    new EnumValidator(this.enumValues)
-            );
+            keywordToValidator.put("enum", new EnumValidator());
         }
         this.pattern = jsonSchemaInfo.pattern;
         if (this.pattern != null) {
-            keywordToValidator.put(
-                    "pattern",
-                    new PatternValidator(this.pattern)
-            );
+            keywordToValidator.put("pattern", new PatternValidator());
         }
         this.defaultValue = jsonSchemaInfo.defaultValue;
         this.defaultValueSet = jsonSchemaInfo.defaultValueSet;
         this.constValue = jsonSchemaInfo.constValue;
         this.constValueSet = jsonSchemaInfo.constValueSet;
         if (this.constValueSet) {
-            keywordToValidator.put(
-                    "const",
-                    new ConstValidator(this.constValue)
-            );
+            keywordToValidator.put("const", new ConstValidator());
         }
         this.contains = jsonSchemaInfo.contains;
         if (this.contains != null) {
-            keywordToValidator.put(
-                    "contains",
-                    new ContainsValidator(this.contains)
-            );
+            keywordToValidator.put("contains", new ContainsValidator());
         }
         this.maxContains = jsonSchemaInfo.maxContains;
         if (this.maxContains != null) {
-            keywordToValidator.put(
-                    "maxContains",
-                    new MaxContainsValidator(this.maxContains)
-            );
+            keywordToValidator.put("maxContains", new MaxContainsValidator());
         }
         this.minContains = jsonSchemaInfo.minContains;
         if (this.minContains != null) {
-            keywordToValidator.put(
-                    "minContains",
-                    new MinContainsValidator(this.minContains)
-            );
+            keywordToValidator.put("minContains", new MinContainsValidator());
         }
         this.propertyNames = jsonSchemaInfo.propertyNames;
         if (this.propertyNames != null) {
-            keywordToValidator.put(
-                    "propertyNames",
-                    new PropertyNamesValidator(this.propertyNames)
-            );
+            keywordToValidator.put("propertyNames", new PropertyNamesValidator());
         }
         this.dependentRequired = jsonSchemaInfo.dependentRequired;
         if (this.dependentRequired != null) {
-            keywordToValidator.put(
-                    "dependentRequired",
-                    new DependentRequiredValidator(this.dependentRequired)
-            );
+            keywordToValidator.put("dependentRequired", new DependentRequiredValidator());
         }
         this.dependentSchemas = jsonSchemaInfo.dependentSchemas;
         if (this.dependentSchemas != null) {
-            keywordToValidator.put(
-                    "dependentSchemas",
-                    new DependentSchemasValidator(this.dependentSchemas)
-            );
+            keywordToValidator.put("dependentSchemas", new DependentSchemasValidator());
         }
         this.patternProperties = jsonSchemaInfo.patternProperties;
         if (this.patternProperties != null) {
-            keywordToValidator.put(
-                    "patternProperties",
-                    new PatternPropertiesValidator(this.patternProperties)
-            );
+            keywordToValidator.put("patternProperties", new PatternPropertiesValidator());
         }
         this.prefixItems = jsonSchemaInfo.prefixItems;
         if (this.prefixItems != null) {
-            keywordToValidator.put(
-                    "prefixItems",
-                    new PrefixItemsValidator(this.prefixItems)
-            );
+            keywordToValidator.put("prefixItems", new PrefixItemsValidator());
         }
         this.ifSchema = jsonSchemaInfo.ifSchema;
         if (this.ifSchema != null) {
-            keywordToValidator.put(
-                    "if",
-                    new IfValidator(this.ifSchema)
-            );
+            keywordToValidator.put("if", new IfValidator());
         }
         this.keywordToValidator = keywordToValidator;
     }
 
     public abstract @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException;
     public abstract @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException;
+
+    private List<PathToSchemasMap> getContainsPathToSchemas(
+            @Nullable Object arg,
+            ValidationMetadata validationMetadata
+    ) {
+        if (!(arg instanceof List<?> listArg) || contains == null) {
+            return new ArrayList<>();
+        }
+        JsonSchema containsSchema = JsonSchemaFactory.getInstance(contains);
+        @Nullable List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
+        int i = 0;
+        for(Object itemValue: listArg) {
+            PathToSchemasMap thesePathToSchemas = new PathToSchemasMap();
+            List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            itemPathToItem.add(i);
+            ValidationMetadata itemValidationMetadata = new ValidationMetadata(
+                    itemPathToItem,
+                    validationMetadata.configuration(),
+                    validationMetadata.validatedPathToSchemas(),
+                    validationMetadata.seenClasses()
+            );
+            if (itemValidationMetadata.validationRanEarlier(containsSchema)) {
+                // todo add_deeper_validated_schemas
+                containsPathToSchemas.add(thesePathToSchemas);
+                i += 1;
+                continue;
+            }
+
+            try {
+                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(
+                        containsSchema, itemValue, itemValidationMetadata);
+                containsPathToSchemas.add(otherPathToSchemas);
+            } catch (ValidationException ignored) {}
+        }
+        return containsPathToSchemas;
+    }
+
+    private PathToSchemasMap getPatternPropertiesPathToSchemas(
+            @Nullable Object arg,
+            ValidationMetadata validationMetadata
+    ) {
+        if (!(arg instanceof Map<?, ?> mapArg) || patternProperties == null) {
+            return new PathToSchemasMap();
+        }
+        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        for (Map.Entry<?, ?> entry: mapArg.entrySet()) {
+            Object entryKey = entry.getKey();
+            if (!(entryKey instanceof String key)) {
+                throw new InvalidTypeException("Invalid non-string type for map key");
+            }
+            List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            propPathToItem.add(key);
+            ValidationMetadata propValidationMetadata = new ValidationMetadata(
+                    propPathToItem,
+                    validationMetadata.configuration(),
+                    validationMetadata.validatedPathToSchemas(),
+                    validationMetadata.seenClasses()
+            );
+            for (Map.Entry<Pattern, Class<? extends JsonSchema>> patternPropEntry: patternProperties.entrySet()) {
+                if (!patternPropEntry.getKey().matcher(key).find()) {
+                    continue;
+                }
+
+                Class<? extends JsonSchema> patternPropClass = patternPropEntry.getValue();
+                JsonSchema patternPropSchema = JsonSchemaFactory.getInstance(patternPropClass);
+                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(patternPropSchema, entry.getValue(), propValidationMetadata);
+                pathToSchemas.update(otherPathToSchemas);
+            }
+        }
+        return pathToSchemas;
+    }
+
+    private PathToSchemasMap getIfPathToSchemas(
+            @Nullable Object arg,
+            ValidationMetadata validationMetadata
+    ) {
+        if (ifSchema == null) {
+            return new PathToSchemasMap();
+        }
+        JsonSchema ifSchemaInstance = JsonSchemaFactory.getInstance(ifSchema);
+        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        try {
+            var otherPathToSchemas = JsonSchema.validate(ifSchemaInstance, arg, validationMetadata);
+            pathToSchemas.update(otherPathToSchemas);
+        } catch (ValidationException | InvalidTypeException ignored) {}
+        return pathToSchemas;
+    }
 
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,
@@ -315,19 +300,16 @@ public abstract class JsonSchema {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
         @Nullable List<PathToSchemasMap> containsPathToSchemas = null;
-        KeywordValidator containsValidator = thisKeywordToValidator.get("contains");
-        if (containsValidator != null) {
-            containsPathToSchemas = containsValidator.getContainsPathToSchemas(arg, validationMetadata);
+        if (thisKeywordToValidator.containsKey("contains")) {
+            containsPathToSchemas = jsonSchema.getContainsPathToSchemas(arg, validationMetadata);
         }
         @Nullable PathToSchemasMap patternPropertiesPathToSchemas = null;
-        KeywordValidator patternPropertiesValidator = thisKeywordToValidator.get("patternProperties");
-        if (patternPropertiesValidator != null) {
-            patternPropertiesPathToSchemas = patternPropertiesValidator.getPatternPropertiesPathToSchemas(arg, validationMetadata);
+        if (thisKeywordToValidator.containsKey("patternProperties")) {
+            patternPropertiesPathToSchemas = jsonSchema.getPatternPropertiesPathToSchemas(arg, validationMetadata);
         }
         @Nullable PathToSchemasMap ifPathToSchemas = null;
-        KeywordValidator ifValidator = thisKeywordToValidator.get("if");
-        if (ifValidator != null) {
-            ifPathToSchemas = ifValidator.getIfPathToSchemas(arg, validationMetadata);
+        if (thisKeywordToValidator.containsKey("if")) {
+            ifPathToSchemas = jsonSchema.getIfPathToSchemas(arg, validationMetadata);
         }
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
@@ -338,7 +320,7 @@ public abstract class JsonSchema {
                 }
             }
             KeywordValidator validator = entry.getValue();
-            @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(
+            ValidationData data = new ValidationData(
                     jsonSchema,
                     arg,
                     validationMetadata,
@@ -346,6 +328,7 @@ public abstract class JsonSchema {
                     patternPropertiesPathToSchemas,
                     ifPathToSchemas
             );
+            @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(data);
             if (otherPathToSchemas == null) {
                 continue;
             }
@@ -401,10 +384,9 @@ public abstract class JsonSchema {
         LinkedHashMap<String, @Nullable Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
             @Nullable Object entryKey = entry.getKey();
-            if (!(entryKey instanceof String)) {
+            if (!(entryKey instanceof String key)) {
                 throw new InvalidTypeException("Invalid non-string key value");
             }
-            String key = (String) entryKey;
             Object val = entry.getValue();
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(key);

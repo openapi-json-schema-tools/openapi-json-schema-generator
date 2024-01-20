@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.MapJsonSchema;
+import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.StringJsonSchema;
 import {{{packageName}}}.exceptions.ValidationException;
 
@@ -14,8 +14,37 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class PropertiesValidatorTest {
+    public static class ObjectWithPropsSchema extends JsonSchema {
+        private ObjectWithPropsSchema() {
+            super(new JsonSchemaInfo()
+                    .type(Set.of(Map.class))
+                    .properties(Map.ofEntries(
+                            new PropertyEntry("someString", StringJsonSchema.class)
+                    ))
+            );
+
+        }
+
+        @Override
+        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return getNewInstance(mapArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Map<?, ?> mapArg) {
+                return validate(mapArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+    }
+
     @SuppressWarnings("nullness")
     private void assertNull(@Nullable Object object) {
         Assert.assertNull(object);
@@ -23,10 +52,7 @@ public class PropertiesValidatorTest {
 
     @Test
     public void testCorrectPropertySucceeds() {
-        Map<String, Class<? extends JsonSchema>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringJsonSchema.class);
-
-        final PropertiesValidator validator = new PropertiesValidator(properties);
+        final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
@@ -38,12 +64,11 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", "abc");
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         PathToSchemasMap pathToSchemas = validator.validate(
-                MapJsonSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    new ObjectWithPropsSchema(),
+                    arg,
+                    validationMetadata
+                )
         );
         if (pathToSchemas == null) {
             throw new RuntimeException("Invalid null value for pathToSchemas for this test case");
@@ -60,10 +85,7 @@ public class PropertiesValidatorTest {
 
     @Test
     public void testNotApplicableTypeReturnsNull() {
-        Map<String, Class<? extends JsonSchema>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringJsonSchema.class);
-
-        final PropertiesValidator validator = new PropertiesValidator(properties);
+        final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
@@ -72,22 +94,18 @@ public class PropertiesValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemas = validator.validate(
-                MapJsonSchema.getInstance(),
-                1,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    new ObjectWithPropsSchema(),
+                    1,
+                    validationMetadata
+                )
         );
         assertNull(pathToSchemas);
     }
 
     @Test
     public void testIncorrectPropertyValueFails() {
-        Map<String, Class<? extends JsonSchema>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringJsonSchema.class);
-
-        final PropertiesValidator validator = new PropertiesValidator(properties);
+        final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
@@ -99,12 +117,11 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", 1);
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                MapJsonSchema.getInstance(),
-                arg,
-                validationMetadata,
-                new ArrayList<>(),
-                new PathToSchemasMap(),
-                new PathToSchemasMap()
+                new ValidationData(
+                    new ObjectWithPropsSchema(),
+                    arg,
+                    validationMetadata
+                )
         ));
     }
 }

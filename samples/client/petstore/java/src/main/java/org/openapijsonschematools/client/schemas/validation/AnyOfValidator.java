@@ -7,25 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnyOfValidator implements KeywordValidator {
-    public final List<Class<? extends JsonSchema>> anyOf;
-
-    public AnyOfValidator(List<Class<? extends JsonSchema>> anyOf) {
-        this.anyOf = anyOf;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
+        var anyOf = data.schema().anyOf;
+        if (anyOf == null) {
+            return null;
+        }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedAnyOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> anyOfClass: anyOf) {
-            if (anyOfClass == schema.getClass()) {
+            if (anyOfClass == data.schema().getClass()) {
                 /*
                 optimistically assume that schema will pass validation
                 do not invoke _validate on it because that is recursive
@@ -35,7 +28,7 @@ public class AnyOfValidator implements KeywordValidator {
             }
             try {
                 JsonSchema anyOfSchema = JsonSchemaFactory.getInstance(anyOfClass);
-                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(anyOfSchema, arg, validationMetadata);
+                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(anyOfSchema, data.arg(), data.validationMetadata());
                 validatedAnyOfClasses.add(anyOfClass);
                 pathToSchemas.update(otherPathToSchemas);
             } catch (ValidationException e) {
@@ -43,7 +36,7 @@ public class AnyOfValidator implements KeywordValidator {
             }
         }
         if (validatedAnyOfClasses.isEmpty()) {
-            throw new ValidationException("Invalid inputs given to generate an instance of "+schema.getClass()+". None "+
+            throw new ValidationException("Invalid inputs given to generate an instance of "+data.schema().getClass()+". None "+
                     "of the anyOf schemas matched the input data."
             );
         }

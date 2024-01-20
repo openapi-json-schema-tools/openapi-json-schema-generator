@@ -6,26 +6,19 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.List;
 
 public class MinItemsValidator implements KeywordValidator {
-    public final int minItems;
-
-    public MinItemsValidator(int minItems) {
-        this.minItems = minItems;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof List)) {
+        var minItems = data.schema().minItems;
+        if (minItems == null) {
             return null;
         }
-        if (((List) arg).size() < minItems) {
-            throw new ValidationException("Value " + arg + " is invalid because has < the minItems of " + minItems);
+        if (!(data.arg() instanceof List<?> listArg)) {
+            return null;
+        }
+        if (listArg.size() < minItems) {
+            throw new ValidationException("Value " + listArg + " is invalid because has < the minItems of " + minItems);
         }
         return null;
     }
