@@ -313,6 +313,51 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       if:
         const: 0
+    IgnoreThenWithoutIf:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      then:
+        const: 0
+    IgnoreElseWithoutIf:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      else:
+        const: 0
+    IfAndThenWithoutElse:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if:
+        exclusiveMaximum: 0
+      then:
+        minimum: -10
+    IfAndElseWithoutThen:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if:
+        exclusiveMaximum: 0
+      else:
+        multipleOf: 2
+    ValidateAgainstCorrectBranchThenVsElse:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if:
+        exclusiveMaximum: 0
+      then:
+        minimum: -10
+      else:
+        multipleOf: 2
+    NonInterferenceAcrossCombinedSchemas:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      allOf:
+      - if:
+          exclusiveMaximum: 0
+      - then:
+          minimum: -10
+      - else:
+          multipleOf: 2
+    IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      then:
+        const: 'yes'
+      else:
+        const: other
+      if:
+        maxLength: 4
     NestedItems:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: array
@@ -2177,6 +2222,113 @@ components:
         description: valid when invalid against lone if
         data: hello
         valid: true
+        comment: null
+    IgnoreThenWithoutIf:
+      ValidWhenValidAgainstLoneThen:
+        description: valid when valid against lone then
+        data: 0
+        valid: true
+        comment: null
+      ValidWhenInvalidAgainstLoneThen:
+        description: valid when invalid against lone then
+        data: hello
+        valid: true
+        comment: null
+    IgnoreElseWithoutIf:
+      ValidWhenValidAgainstLoneElse:
+        description: valid when valid against lone else
+        data: 0
+        valid: true
+        comment: null
+      ValidWhenInvalidAgainstLoneElse:
+        description: valid when invalid against lone else
+        data: hello
+        valid: true
+        comment: null
+    IfAndThenWithoutElse:
+      ValidThroughThen:
+        description: valid through then
+        data: -1
+        valid: true
+        comment: null
+      InvalidThroughThen:
+        description: invalid through then
+        data: -100
+        valid: false
+        comment: null
+      ValidWhenIfTestFails:
+        description: valid when if test fails
+        data: 3
+        valid: true
+        comment: null
+    IfAndElseWithoutThen:
+      ValidWhenIfTestPasses:
+        description: valid when if test passes
+        data: -1
+        valid: true
+        comment: null
+      ValidThroughElse:
+        description: valid through else
+        data: 4
+        valid: true
+        comment: null
+      InvalidThroughElse:
+        description: invalid through else
+        data: 3
+        valid: false
+        comment: null
+    ValidateAgainstCorrectBranchThenVsElse:
+      ValidThroughThen:
+        description: valid through then
+        data: -1
+        valid: true
+        comment: null
+      InvalidThroughThen:
+        description: invalid through then
+        data: -100
+        valid: false
+        comment: null
+      ValidThroughElse:
+        description: valid through else
+        data: 4
+        valid: true
+        comment: null
+      InvalidThroughElse:
+        description: invalid through else
+        data: 3
+        valid: false
+        comment: null
+    NonInterferenceAcrossCombinedSchemas:
+      ValidButWouldHaveBeenInvalidThroughThen:
+        description: valid, but would have been invalid through then
+        data: -100
+        valid: true
+        comment: null
+      ValidButWouldHaveBeenInvalidThroughElse:
+        description: valid, but would have been invalid through else
+        data: 3
+        valid: true
+        comment: null
+    IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence:
+      YesRedirectsToThenAndPasses:
+        description: yes redirects to then and passes
+        data: 'yes'
+        valid: true
+        comment: null
+      OtherRedirectsToElseAndPasses:
+        description: other redirects to else and passes
+        data: other
+        valid: true
+        comment: null
+      NoRedirectsToThenAndFails:
+        description: no redirects to then and fails
+        data: 'no'
+        valid: false
+        comment: null
+      InvalidRedirectsToElseAndFails:
+        description: invalid redirects to else and fails
+        data: invalid
+        valid: false
         comment: null
     NestedItems:
       ValidNestedArray:

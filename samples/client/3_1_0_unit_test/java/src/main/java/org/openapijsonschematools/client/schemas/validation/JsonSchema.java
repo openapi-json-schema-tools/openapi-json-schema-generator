@@ -55,6 +55,8 @@ public abstract class JsonSchema {
     public final @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
     public final @Nullable List<Class<? extends JsonSchema>> prefixItems;
     public final @Nullable Class<? extends JsonSchema> ifSchema;
+    public final @Nullable Class<? extends JsonSchema> then;
+    public final @Nullable Class<? extends JsonSchema> elseSchema;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -197,6 +199,14 @@ public abstract class JsonSchema {
         this.ifSchema = jsonSchemaInfo.ifSchema;
         if (this.ifSchema != null) {
             keywordToValidator.put("if", new IfValidator());
+        }
+        this.then = jsonSchemaInfo.then;
+        if (this.then != null) {
+            keywordToValidator.put("then", new ThenValidator());
+        }
+        this.elseSchema = jsonSchemaInfo.elseSchema;
+        if (this.elseSchema != null) {
+            keywordToValidator.put("else", new ElseValidator());
         }
         this.keywordToValidator = keywordToValidator;
     }

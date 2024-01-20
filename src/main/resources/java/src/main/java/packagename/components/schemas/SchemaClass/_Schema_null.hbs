@@ -44,6 +44,12 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements N
         {{#if if_}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_if }}
         {{/if}}
+        {{#if then}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_then }}
+        {{/if}}
+        {{#if else_}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_else }}
+        {{/if}}
         );
     }
 
@@ -53,12 +59,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements N
         }
         return instance;
     }
-{{#if then}}
-    {{!> components/schemas/schema_cls/_then }}
-{{/if}}
-{{#if else_}}
-    {{!> components/schemas/schema_cls/_else }}
-{{/if}}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_getNewInstanceObject_implementor }}
 }

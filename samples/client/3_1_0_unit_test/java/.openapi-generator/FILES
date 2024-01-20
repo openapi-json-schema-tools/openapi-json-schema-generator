@@ -47,7 +47,12 @@ docs/components/schemas/ForbiddenProperty.md
 docs/components/schemas/HostnameFormat.md
 docs/components/schemas/IdnEmailFormat.md
 docs/components/schemas/IdnHostnameFormat.md
+docs/components/schemas/IfAndElseWithoutThen.md
+docs/components/schemas/IfAndThenWithoutElse.md
+docs/components/schemas/IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.md
+docs/components/schemas/IgnoreElseWithoutIf.md
 docs/components/schemas/IgnoreIfWithoutThenOrElse.md
+docs/components/schemas/IgnoreThenWithoutIf.md
 docs/components/schemas/IntegerTypeMatchesIntegers.md
 docs/components/schemas/Ipv4Format.md
 docs/components/schemas/Ipv6Format.md
@@ -78,6 +83,7 @@ docs/components/schemas/NestedAnyofToCheckValidationSemantics.md
 docs/components/schemas/NestedItems.md
 docs/components/schemas/NestedOneofToCheckValidationSemantics.md
 docs/components/schemas/NonAsciiPatternWithAdditionalproperties.md
+docs/components/schemas/NonInterferenceAcrossCombinedSchemas.md
 docs/components/schemas/Not.md
 docs/components/schemas/NotMoreComplexSchema.md
 docs/components/schemas/NotMultipleTypes.md
@@ -130,6 +136,7 @@ docs/components/schemas/UriFormat.md
 docs/components/schemas/UriReferenceFormat.md
 docs/components/schemas/UriTemplateFormat.md
 docs/components/schemas/UuidFormat.md
+docs/components/schemas/ValidateAgainstCorrectBranchThenVsElse.md
 docs/servers/Server0.md
 pom.xml
 src/main/java/org/openapijsonschematools/client/components/schemas/ASchemaGivenForPrefixitems.java
@@ -180,7 +187,12 @@ src/main/java/org/openapijsonschematools/client/components/schemas/ForbiddenProp
 src/main/java/org/openapijsonschematools/client/components/schemas/HostnameFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/IdnEmailFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/IdnHostnameFormat.java
+src/main/java/org/openapijsonschematools/client/components/schemas/IfAndElseWithoutThen.java
+src/main/java/org/openapijsonschematools/client/components/schemas/IfAndThenWithoutElse.java
+src/main/java/org/openapijsonschematools/client/components/schemas/IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.java
+src/main/java/org/openapijsonschematools/client/components/schemas/IgnoreElseWithoutIf.java
 src/main/java/org/openapijsonschematools/client/components/schemas/IgnoreIfWithoutThenOrElse.java
+src/main/java/org/openapijsonschematools/client/components/schemas/IgnoreThenWithoutIf.java
 src/main/java/org/openapijsonschematools/client/components/schemas/IntegerTypeMatchesIntegers.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Ipv4Format.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Ipv6Format.java
@@ -211,6 +223,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/NestedAnyofTo
 src/main/java/org/openapijsonschematools/client/components/schemas/NestedItems.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NestedOneofToCheckValidationSemantics.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NonAsciiPatternWithAdditionalproperties.java
+src/main/java/org/openapijsonschematools/client/components/schemas/NonInterferenceAcrossCombinedSchemas.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Not.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NotMoreComplexSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NotMultipleTypes.java
@@ -263,6 +276,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/UriFormat.jav
 src/main/java/org/openapijsonschematools/client/components/schemas/UriReferenceFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UriTemplateFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UuidFormat.java
+src/main/java/org/openapijsonschematools/client/components/schemas/ValidateAgainstCorrectBranchThenVsElse.java
 src/main/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/client/configurations/SchemaConfiguration.java
 src/main/java/org/openapijsonschematools/client/exceptions/BaseException.java
@@ -305,6 +319,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/DependentRequ
 src/main/java/org/openapijsonschematools/client/schemas/validation/DependentSchemasValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleValueMethod.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/ElseValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/EnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMaximumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMinimumValidator.java
@@ -356,6 +371,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/RequiredValid
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringValueMethod.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/ThenValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/TypeValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java

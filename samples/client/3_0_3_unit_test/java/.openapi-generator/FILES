@@ -217,6 +217,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/DependentRequ
 src/main/java/org/openapijsonschematools/client/schemas/validation/DependentSchemasValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/DoubleValueMethod.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/ElseValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/EnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMaximumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMinimumValidator.java
@@ -268,6 +269,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/RequiredValid
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringValueMethod.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/ThenValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/TypeValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java

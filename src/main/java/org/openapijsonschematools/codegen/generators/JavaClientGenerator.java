@@ -261,7 +261,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.DependentRequired,
                         SchemaFeature.DependentSchemas,
                         // SchemaFeature.Discriminator,
-                        // SchemaFeature.Else,
+                        SchemaFeature.Else,
                         SchemaFeature.Enum,
                         SchemaFeature.ExclusiveMaximum,
                         SchemaFeature.ExclusiveMinimum,
@@ -289,7 +289,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.PropertyNames,
                         SchemaFeature.Ref,
                         SchemaFeature.Required,
-                        // SchemaFeature.Then,
+                        SchemaFeature.Then,
                         SchemaFeature.Type,
                         // SchemaFeature.UnevaluatedItems,
                         // SchemaFeature.UnevaluatedProperties,
@@ -571,6 +571,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("DependentSchemasValidator");
         keywordValidatorFiles.add("DoubleEnumValidator");
         keywordValidatorFiles.add("DoubleValueMethod");
+        keywordValidatorFiles.add("ElseValidator");
         keywordValidatorFiles.add("EnumValidator");
         keywordValidatorFiles.add("ExclusiveMaximumValidator");
         keywordValidatorFiles.add("ExclusiveMinimumValidator");
@@ -622,6 +623,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("StringEnumValidator");
         keywordValidatorFiles.add("StringSchemaValidator");
         keywordValidatorFiles.add("StringValueMethod");
+        keywordValidatorFiles.add("ThenValidator");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UniqueItemsValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
