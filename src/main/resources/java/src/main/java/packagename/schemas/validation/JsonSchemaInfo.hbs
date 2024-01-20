@@ -187,4 +187,14 @@ public class JsonSchemaInfo {
         this.ifSchema = ifSchema;
         return this;
     }
+    public @Nullable Class<? extends JsonSchema> then = null;
+    public JsonSchemaInfo then(Class<? extends JsonSchema> then) {
+        this.then = then;
+        return this;
+    }
+    public @Nullable Class<? extends JsonSchema> elseSchema = null;
+    public JsonSchemaInfo elseSchema(Class<? extends JsonSchema> elseSchema) {
+        this.elseSchema = elseSchema;
+        return this;
+    }
 }
