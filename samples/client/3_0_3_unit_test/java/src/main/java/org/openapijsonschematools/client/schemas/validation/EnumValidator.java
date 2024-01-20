@@ -4,36 +4,28 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 
 public class EnumValidator extends BigDecimalValidator implements KeywordValidator {
-    public final Set<@Nullable Object> enumValues;
-
-    public EnumValidator(Set<@Nullable Object> enumValues) {
-        this.enumValues = enumValues;
-    }
-
     @SuppressWarnings("nullness")
-    private boolean enumContainsArg(@Nullable Object arg){
+    private static boolean enumContainsArg(Set<@Nullable Object> enumValues, @Nullable Object arg){
         return enumValues.contains(arg);
     }
 
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
+        var enumValues = data.schema().enumValues;
+        if (enumValues == null) {
+            return null;
+        }
         if (enumValues.isEmpty()) {
             throw new ValidationException("No value can match enum because enum is empty");
         }
-        if (arg instanceof Number) {
-            BigDecimal castArg = getBigDecimal((Number) arg);
-            if (enumContainsArg(castArg)) {
+        if (data.arg() instanceof Number numberArg) {
+            BigDecimal castArg = getBigDecimal(numberArg);
+            if (enumContainsArg(enumValues, castArg)) {
                 return null;
             }
             for (Object enumValue: enumValues) {
@@ -42,10 +34,10 @@ public class EnumValidator extends BigDecimalValidator implements KeywordValidat
                 }
             }
         } else {
-            if (enumContainsArg(arg)) {
+            if (enumContainsArg(enumValues, data.arg())) {
                 return null;
             }
         }
-        throw new ValidationException("Invalid value "+arg+" was not one of the allowed enum "+enumValues);
+        throw new ValidationException("Invalid value "+data.arg()+" was not one of the allowed enum "+enumValues);
     }
 }

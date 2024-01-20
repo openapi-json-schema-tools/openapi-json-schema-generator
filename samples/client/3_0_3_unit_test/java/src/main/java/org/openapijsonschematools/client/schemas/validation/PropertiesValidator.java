@@ -9,22 +9,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class PropertiesValidator implements KeywordValidator {
-    public final Map<String, Class<? extends JsonSchema>> properties;
-
-    public PropertiesValidator(Map<String, Class<? extends JsonSchema>> properties) {
-        this.properties = properties;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof Map<?, ?> mapArg)) {
+        var properties = data.schema().properties;
+        if (properties == null) {
+            return null;
+        }
+        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
@@ -39,14 +32,14 @@ public class PropertiesValidator implements KeywordValidator {
             if (!presentProperties.contains(propName)) {
                 continue;
             }
-            @Nullable Object propValue = ((Map<?, ?>) arg).get(propName);
-            List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
+            @Nullable Object propValue = mapArg.get(propName);
+            List<Object> propPathToItem = new ArrayList<>(data.validationMetadata().pathToItem());
             propPathToItem.add(propName);
             ValidationMetadata propValidationMetadata = new ValidationMetadata(
                     propPathToItem,
-                    validationMetadata.configuration(),
-                    validationMetadata.validatedPathToSchemas(),
-                    validationMetadata.seenClasses()
+                    data.validationMetadata().configuration(),
+                    data.validationMetadata().validatedPathToSchemas(),
+                    data.validationMetadata().seenClasses()
             );
             Class<? extends JsonSchema> propClass = entry.getValue();
             JsonSchema propSchema = JsonSchemaFactory.getInstance(propClass);
@@ -60,4 +53,3 @@ public class PropertiesValidator implements KeywordValidator {
         return pathToSchemas;
     }
 }
-

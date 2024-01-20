@@ -749,6 +749,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/StringValueMe
 src/main/java/org/openapijsonschematools/client/schemas/validation/TypeValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationData.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMetadata.java
 src/main/java/org/openapijsonschematools/client/servers/Server0.java
 src/main/java/org/openapijsonschematools/client/servers/Server1.java

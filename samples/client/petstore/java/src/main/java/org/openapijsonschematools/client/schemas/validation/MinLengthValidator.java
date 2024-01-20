@@ -3,30 +3,21 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.List;
-
 public class MinLengthValidator extends LengthValidator implements KeywordValidator {
-    public final int minLength;
-
-    public MinLengthValidator(int minLength) {
-        this.minLength = minLength;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) {
-        if (!(arg instanceof String)) {
+        var minLength = data.schema().minLength;
+        if (minLength == null) {
             return null;
         }
-        int length = getLength((String) arg);
+        if (!(data.arg() instanceof String stringArg)) {
+            return null;
+        }
+        int length = getLength(stringArg);
         if (length < minLength) {
-            throw new ValidationException("Value " + arg + " is invalid because has < the minLength of " + minLength);
+            throw new ValidationException("Value " + stringArg + " is invalid because has < the minLength of " + minLength);
         }
         return null;
     }

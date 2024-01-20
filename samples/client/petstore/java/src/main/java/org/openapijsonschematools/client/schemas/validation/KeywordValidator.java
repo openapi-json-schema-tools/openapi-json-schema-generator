@@ -3,37 +3,9 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-
+@FunctionalInterface
 public interface KeywordValidator {
     @Nullable PathToSchemasMap validate(
-        JsonSchema schema,
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata,
-        @Nullable List<PathToSchemasMap> containsPathToSchemas,
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-        @Nullable PathToSchemasMap ifPathToSchemas
+        ValidationData data
     ) throws ValidationException;
-
-    default List<PathToSchemasMap> getContainsPathToSchemas(
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata
-    ) {
-        return new ArrayList<>();
-    }
-
-    default PathToSchemasMap getPatternPropertiesPathToSchemas(
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata
-    ) {
-        return new PathToSchemasMap();
-    }
-
-    default PathToSchemasMap getIfPathToSchemas(
-        @Nullable Object arg,
-        ValidationMetadata validationMetadata
-    ) {
-        return new PathToSchemasMap();
-    }
 }
