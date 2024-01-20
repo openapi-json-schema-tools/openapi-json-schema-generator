@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
 public class ElseValidator implements KeywordValidator {
@@ -23,10 +24,9 @@ public class ElseValidator implements KeywordValidator {
         }
         JsonSchema elseSchemaInstance = JsonSchemaFactory.getInstance(elseSchema);
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        try {
-            var elsePathToSchemas = JsonSchema.validate(elseSchemaInstance, data.arg(), data.validationMetadata());
-            pathToSchemas.update(elsePathToSchemas);
-        } catch (ValidationException | InvalidTypeException ignored) {}
+        var elsePathToSchemas = JsonSchema.validate(elseSchemaInstance, data.arg(), data.validationMetadata());
+        pathToSchemas.update(elsePathToSchemas);
+        // todo capture validation error and describe it as an else error?
         return pathToSchemas;
     }
 }
