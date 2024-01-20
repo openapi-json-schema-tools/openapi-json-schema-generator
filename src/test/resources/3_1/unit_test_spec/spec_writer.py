@@ -701,13 +701,6 @@ def write_openapi_spec():
     openapi.tags = []
     removed_cases = {
         'UnevaluateditemsDependsOnMultipleNestedContains',
-        'IfAndThenWithoutElse',
-        'IfAndElseWithoutThen',
-        'ValidateAgainstCorrectBranchThenVsElse',
-        'NonInterferenceAcrossCombinedSchemas',
-        'IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence',
-        'IgnoreThenWithoutIf',
-        'IgnoreElseWithoutIf',
         'UnevaluateditemsAsSchema',
         'UnevaluateditemsWithNullInstanceElements',
         'UnevaluatedpropertiesNotAffectedByPropertynames',
