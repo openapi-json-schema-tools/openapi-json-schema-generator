@@ -9,12 +9,6 @@ import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
 public class FormatValidator implements KeywordValidator {
-    public final String format;
-
-    public FormatValidator(String format) {
-        this.format = format;
-    }
-
     private final static BigInteger int32InclusiveMinimum = BigInteger.valueOf(-2147483648L);
     private final static BigInteger int32InclusiveMaximum = BigInteger.valueOf(2147483647L);
     private final static BigInteger int64InclusiveMinimum = BigInteger.valueOf(-9223372036854775808L);
@@ -24,7 +18,7 @@ public class FormatValidator implements KeywordValidator {
     private final static BigDecimal doubleInclusiveMinimum = BigDecimal.valueOf(-1.7976931348623157E+308d);
     private final static BigDecimal doubleInclusiveMaximum = BigDecimal.valueOf(1.7976931348623157E+308d);
 
-    private void validateNumericFormat(Number arg, ValidationMetadata validationMetadata) {
+    private static void validateNumericFormat(Number arg, ValidationMetadata validationMetadata, String format) {
         if (format.startsWith("int")) {
             // there is a json schema test where 1.0 validates as an integer
             BigInteger intArg;
@@ -91,7 +85,7 @@ public class FormatValidator implements KeywordValidator {
         }
     }
 
-    private void validateStringFormat(String arg, ValidationMetadata validationMetadata) {
+    private static void validateStringFormat(String arg, ValidationMetadata validationMetadata, String format) {
         switch (format) {
             case "uuid" -> {
                 try {
@@ -140,16 +134,22 @@ public class FormatValidator implements KeywordValidator {
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var format = data.schema().format;
+        if (format == null) {
+            return null;
+        }
         if (data.arg() instanceof Number numberArg) {
             validateNumericFormat(
                 numberArg,
-                data.validationMetadata()
+                data.validationMetadata(),
+                format
             );
             return null;
         } else if (data.arg() instanceof String stringArg) {
             validateStringFormat(
                 stringArg,
-                data.validationMetadata()
+                data.validationMetadata(),
+                format
             );
             return null;
         }

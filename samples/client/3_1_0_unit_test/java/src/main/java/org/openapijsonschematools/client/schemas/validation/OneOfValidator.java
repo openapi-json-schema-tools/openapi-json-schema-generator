@@ -7,16 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OneOfValidator implements KeywordValidator {
-    public final List<Class<? extends JsonSchema>> oneOf;
-
-    public OneOfValidator(List<Class<? extends JsonSchema>> oneOf) {
-        this.oneOf = oneOf;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var oneOf = data.schema().oneOf;
+        if (oneOf == null) {
+            return null;
+        }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedOneOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> oneOfClass: oneOf) {

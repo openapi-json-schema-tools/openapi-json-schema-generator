@@ -6,16 +6,14 @@ import {{{packageName}}}.exceptions.ValidationException;
 import java.util.List;
 
 public class MinContainsValidator implements KeywordValidator {
-    public final int minContains;
-
-    public MinContainsValidator(int minContains) {
-        this.minContains = minContains;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var minContains = data.schema().minContains;
+        if (minContains == null) {
+            return null;
+        }
         if (!(data.arg() instanceof List)) {
             return null;
         }

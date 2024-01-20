@@ -9,16 +9,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class RequiredValidator implements KeywordValidator {
-    public final Set<String> required;
-
-    public RequiredValidator(Set<String> required) {
-        this.required = required;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var required = data.schema().required;
+        if (required == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }

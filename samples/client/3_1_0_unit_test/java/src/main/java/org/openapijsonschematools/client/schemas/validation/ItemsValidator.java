@@ -6,16 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemsValidator implements KeywordValidator {
-    public final Class<? extends JsonSchema> items;
-
-    public ItemsValidator(Class<? extends JsonSchema> items) {
-        this.items = items;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var items = data.schema().items;
+        if (items == null) {
+            return null;
+        }
         if (!(data.arg() instanceof List<?> listArg)) {
             return null;
         }

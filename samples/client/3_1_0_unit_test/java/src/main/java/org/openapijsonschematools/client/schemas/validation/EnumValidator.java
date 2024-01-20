@@ -7,14 +7,8 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 public class EnumValidator extends BigDecimalValidator implements KeywordValidator {
-    public final Set<@Nullable Object> enumValues;
-
-    public EnumValidator(Set<@Nullable Object> enumValues) {
-        this.enumValues = enumValues;
-    }
-
     @SuppressWarnings("nullness")
-    private boolean enumContainsArg(@Nullable Object arg){
+    private static boolean enumContainsArg(Set<@Nullable Object> enumValues, @Nullable Object arg){
         return enumValues.contains(arg);
     }
 
@@ -22,12 +16,16 @@ public class EnumValidator extends BigDecimalValidator implements KeywordValidat
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var enumValues = data.schema().enumValues;
+        if (enumValues == null) {
+            return null;
+        }
         if (enumValues.isEmpty()) {
             throw new ValidationException("No value can match enum because enum is empty");
         }
         if (data.arg() instanceof Number numberArg) {
             BigDecimal castArg = getBigDecimal(numberArg);
-            if (enumContainsArg(castArg)) {
+            if (enumContainsArg(enumValues, castArg)) {
                 return null;
             }
             for (Object enumValue: enumValues) {
@@ -36,7 +34,7 @@ public class EnumValidator extends BigDecimalValidator implements KeywordValidat
                 }
             }
         } else {
-            if (enumContainsArg(data.arg())) {
+            if (enumContainsArg(enumValues, data.arg())) {
                 return null;
             }
         }

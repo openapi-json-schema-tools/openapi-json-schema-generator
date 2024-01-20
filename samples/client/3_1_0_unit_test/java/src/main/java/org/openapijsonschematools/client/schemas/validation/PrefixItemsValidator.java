@@ -6,16 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrefixItemsValidator implements KeywordValidator {
-    public final List<Class<? extends JsonSchema>> prefixItems;
-
-    public PrefixItemsValidator(List<Class<? extends JsonSchema>> prefixItems) {
-        this.prefixItems = prefixItems;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var prefixItems = data.schema().prefixItems;
+        if (prefixItems == null) {
+            return null;
+        }
         if (!(data.arg() instanceof List<?> listArg)) {
             return null;
         }

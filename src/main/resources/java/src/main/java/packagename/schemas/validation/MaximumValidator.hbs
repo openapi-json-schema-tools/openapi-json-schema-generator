@@ -4,16 +4,14 @@ import {{{packageName}}}.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class MaximumValidator implements KeywordValidator {
-    public final Number maximum;
-
-    public MaximumValidator(Number maximum) {
-        this.maximum = maximum;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var maximum = data.schema().maximum;
+        if (maximum == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Number)) {
             return null;
         }

@@ -4,16 +4,14 @@ import {{{packageName}}}.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class MinimumValidator implements KeywordValidator {
-    public final Number minimum;
-
-    public MinimumValidator(Number minimum) {
-        this.minimum = minimum;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var minimum = data.schema().minimum;
+        if (minimum == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Number)) {
             return null;
         }

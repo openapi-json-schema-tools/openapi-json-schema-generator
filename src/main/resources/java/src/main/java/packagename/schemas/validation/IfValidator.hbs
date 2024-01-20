@@ -4,16 +4,14 @@ import {{{packageName}}}.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class IfValidator implements KeywordValidator {
-    public final Class<? extends JsonSchema> ifSchema;
-
-    public IfValidator(Class<? extends JsonSchema> ifSchema) {
-        this.ifSchema = ifSchema;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var ifSchema = data.schema().ifSchema;
+        if (ifSchema == null) {
+            return null;
+        }
         if (data.ifPathToSchemas() == null) {
             throw new ValidationException("Invalid type for ifPathToSchemas");
         }

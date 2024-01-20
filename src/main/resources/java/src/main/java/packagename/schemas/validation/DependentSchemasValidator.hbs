@@ -7,17 +7,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class DependentSchemasValidator implements KeywordValidator {
-    public final Map<String, Class<? extends JsonSchema>> dependentSchemas;
-
-    public DependentSchemasValidator(Map<String, Class<? extends JsonSchema>> dependentSchemas) {
-        this.dependentSchemas = dependentSchemas;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
+            return null;
+        }
+        var dependentSchemas = data.schema().dependentSchemas;
+        if (dependentSchemas == null) {
             return null;
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();

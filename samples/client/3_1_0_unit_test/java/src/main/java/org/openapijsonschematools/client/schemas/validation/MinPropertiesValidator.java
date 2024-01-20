@@ -6,16 +6,14 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.Map;
 
 public class MinPropertiesValidator implements KeywordValidator {
-    public final int minProperties;
-
-    public MinPropertiesValidator(int minProperties) {
-        this.minProperties = minProperties;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var minProperties = data.schema().minProperties;
+        if (minProperties == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }

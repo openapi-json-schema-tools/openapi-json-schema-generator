@@ -9,16 +9,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class PropertiesValidator implements KeywordValidator {
-    public final Map<String, Class<? extends JsonSchema>> properties;
-
-    public PropertiesValidator(Map<String, Class<? extends JsonSchema>> properties) {
-        this.properties = properties;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var properties = data.schema().properties;
+        if (properties == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }
@@ -55,4 +53,3 @@ public class PropertiesValidator implements KeywordValidator {
         return pathToSchemas;
     }
 }
-

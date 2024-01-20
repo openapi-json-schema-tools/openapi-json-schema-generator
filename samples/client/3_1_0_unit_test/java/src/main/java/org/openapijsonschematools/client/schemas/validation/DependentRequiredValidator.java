@@ -8,17 +8,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class DependentRequiredValidator implements KeywordValidator {
-    public final Map<String, Set<String>> dependentRequired;
-
-    public DependentRequiredValidator(Map<String, Set<String>> dependentRequired) {
-        this.dependentRequired = dependentRequired;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
+            return null;
+        }
+        var dependentRequired = data.schema().dependentRequired;
+        if (dependentRequired == null) {
             return null;
         }
         for (Map.Entry<String, Set<String>> entry: dependentRequired.entrySet()) {

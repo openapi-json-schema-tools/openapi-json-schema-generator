@@ -8,16 +8,14 @@ import java.util.List;
 import java.util.Set;
 
 public class UniqueItemsValidator implements KeywordValidator {
-    public final boolean uniqueItems;
-
-    public UniqueItemsValidator(boolean uniqueItems) {
-        this.uniqueItems = uniqueItems;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var uniqueItems = data.schema().uniqueItems;
+        if (uniqueItems == null) {
+            return null;
+        }
         if (!(data.arg() instanceof List<?> listArg)) {
             return null;
         }

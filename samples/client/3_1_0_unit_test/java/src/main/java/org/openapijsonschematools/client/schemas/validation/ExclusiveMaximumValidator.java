@@ -4,16 +4,14 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class ExclusiveMaximumValidator implements KeywordValidator {
-    public final Number exclusiveMaximum;
-
-    public ExclusiveMaximumValidator(Number exclusiveMaximum) {
-        this.exclusiveMaximum = exclusiveMaximum;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var exclusiveMaximum = data.schema().exclusiveMaximum;
+        if (exclusiveMaximum == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Number)) {
             return null;
         }

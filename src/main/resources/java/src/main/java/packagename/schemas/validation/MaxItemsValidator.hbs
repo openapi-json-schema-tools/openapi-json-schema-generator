@@ -6,16 +6,14 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.List;
 
 public class MaxItemsValidator implements KeywordValidator {
-    public final int maxItems;
-
-    public MaxItemsValidator(int maxItems) {
-        this.maxItems = maxItems;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var maxItems = data.schema().maxItems;
+        if (maxItems == null) {
+            return null;
+        }
         if (!(data.arg() instanceof List<?> listArg)) {
             return null;
         }

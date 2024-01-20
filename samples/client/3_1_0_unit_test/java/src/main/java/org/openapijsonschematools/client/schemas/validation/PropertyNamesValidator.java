@@ -7,16 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 public class PropertyNamesValidator implements KeywordValidator {
-    public final Class<? extends JsonSchema> propertyNames;
-
-    public PropertyNamesValidator(Class<? extends JsonSchema> propertyNames) {
-        this.propertyNames = propertyNames;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var propertyNames = data.schema().propertyNames;
+        if (propertyNames == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }

@@ -4,16 +4,14 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class NotValidator implements KeywordValidator {
-    public final Class<? extends JsonSchema> not;
-
-    public NotValidator(Class<? extends JsonSchema> not) {
-        this.not = not;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var not = data.schema().not;
+        if (not == null) {
+            return null;
+        }
         PathToSchemasMap pathToSchemas;
         try {
             JsonSchema notSchema = JsonSchemaFactory.getInstance(not);

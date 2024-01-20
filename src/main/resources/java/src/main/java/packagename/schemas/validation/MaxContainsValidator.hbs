@@ -6,16 +6,14 @@ import {{{packageName}}}.exceptions.ValidationException;
 import java.util.List;
 
 public class MaxContainsValidator implements KeywordValidator {
-    public final int maxContains;
-
-    public MaxContainsValidator(int maxContains) {
-        this.maxContains = maxContains;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var maxContains = data.schema().maxContains;
+        if (maxContains == null) {
+            return null;
+        }
         if (!(data.arg() instanceof List)) {
             return null;
         }

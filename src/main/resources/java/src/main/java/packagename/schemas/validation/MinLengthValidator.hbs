@@ -4,16 +4,14 @@ import {{{packageName}}}.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class MinLengthValidator extends LengthValidator implements KeywordValidator {
-    public final int minLength;
-
-    public MinLengthValidator(int minLength) {
-        this.minLength = minLength;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var minLength = data.schema().minLength;
+        if (minLength == null) {
+            return null;
+        }
         if (!(data.arg() instanceof String stringArg)) {
             return null;
         }

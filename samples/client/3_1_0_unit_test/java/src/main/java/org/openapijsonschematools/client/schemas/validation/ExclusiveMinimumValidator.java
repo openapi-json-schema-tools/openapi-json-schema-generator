@@ -4,16 +4,14 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class ExclusiveMinimumValidator implements KeywordValidator {
-    public final Number exclusiveMinimum;
-
-    public ExclusiveMinimumValidator(Number exclusiveMinimum) {
-        this.exclusiveMinimum = exclusiveMinimum;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var exclusiveMinimum = data.schema().exclusiveMinimum;
+        if (exclusiveMinimum == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Number)) {
             return null;
         }

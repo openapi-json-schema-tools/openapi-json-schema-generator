@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.schemas.ListJsonSchema;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
@@ -13,11 +13,37 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ItemsValidatorTest {
     @SuppressWarnings("nullness")
     private void assertNull(@Nullable Object object) {
         Assert.assertNull(object);
+    }
+
+    public static class ArrayWithItemsSchema extends JsonSchema {
+        public ArrayWithItemsSchema() {
+            super(new JsonSchemaInfo()
+                    .type(Set.of(List.class))
+                    .items(StringJsonSchema.class)
+            );
+        }
+
+        @Override
+        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof List) {
+                return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof List) {
+                return validate((List<?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
     }
 
     @Test
@@ -32,15 +58,12 @@ public class ItemsValidatorTest {
         List<Object> mutableList = new ArrayList<>();
         mutableList.add("a");
         FrozenList<Object> arg = new FrozenList<>(mutableList);
-        final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
+        final ItemsValidator validator = new ItemsValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
                 new ValidationData(
-                    ListJsonSchema.getInstance(),
+                    new ArrayWithItemsSchema(),
                     arg,
-                    validationMetadata,
-                    null,
-                    null,
-                    null
+                    validationMetadata
                 )
         );
         if (pathToSchemas == null) {
@@ -66,15 +89,12 @@ public class ItemsValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
+        final ItemsValidator validator = new ItemsValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
                 new ValidationData(
-                    ListJsonSchema.getInstance(),
+                    new ArrayWithItemsSchema(),
                     1,
-                    validationMetadata,
-                    null,
-                    null,
-                    null
+                    validationMetadata
                 )
         );
         assertNull(pathToSchemas);
@@ -92,15 +112,12 @@ public class ItemsValidatorTest {
         List<Object> mutableList = new ArrayList<>();
         mutableList.add(1);
         FrozenList<Object> arg = new FrozenList<>(mutableList);
-        final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
+        final ItemsValidator validator = new ItemsValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    ListJsonSchema.getInstance(),
+                    new ArrayWithItemsSchema(),
                     arg,
-                    validationMetadata,
-                    null,
-                    null,
-                    null
+                    validationMetadata
                 )
         ));
     }

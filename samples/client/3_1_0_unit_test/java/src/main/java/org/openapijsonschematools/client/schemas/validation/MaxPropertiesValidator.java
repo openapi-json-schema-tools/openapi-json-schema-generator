@@ -6,16 +6,14 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.Map;
 
 public class MaxPropertiesValidator implements KeywordValidator {
-    public final int maxProperties;
-
-    public MaxPropertiesValidator(int maxProperties) {
-        this.maxProperties = maxProperties;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var maxProperties = data.schema().maxProperties;
+        if (maxProperties == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
             return null;
         }

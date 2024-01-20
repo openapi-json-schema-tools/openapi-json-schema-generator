@@ -6,16 +6,14 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.math.BigDecimal;
 
 public class MultipleOfValidator extends BigDecimalValidator implements KeywordValidator {
-    public final BigDecimal multipleOf;
-
-    public MultipleOfValidator(BigDecimal multipleOf) {
-        this.multipleOf = multipleOf;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var multipleOf = data.schema().multipleOf;
+        if (multipleOf == null) {
+            return null;
+        }
         if (!(data.arg() instanceof Number numberArg)) {
             return null;
         }
