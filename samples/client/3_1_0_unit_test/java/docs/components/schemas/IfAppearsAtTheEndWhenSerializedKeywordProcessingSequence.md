@@ -51,6 +51,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
+| @Nullable Object | constValue = "yes" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -109,6 +110,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
+| @Nullable Object | constValue = "other" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

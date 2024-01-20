@@ -46,6 +46,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
+| @Nullable Object | constValue = "0" |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

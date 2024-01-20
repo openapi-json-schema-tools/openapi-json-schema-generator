@@ -106,3 +106,6 @@
 {{#if else_}}
 | Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_else }} |
 {{/if}}
+{{#if constInfo}}
+| @Nullable Object | {{> src/main/java/packagename/components/schemas/SchemaClass/_const }} |
+{{/if}}
