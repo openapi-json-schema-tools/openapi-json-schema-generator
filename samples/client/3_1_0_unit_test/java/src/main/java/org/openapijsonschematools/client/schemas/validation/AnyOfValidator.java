@@ -7,16 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnyOfValidator implements KeywordValidator {
-    public final List<Class<? extends JsonSchema>> anyOf;
-
-    public AnyOfValidator(List<Class<? extends JsonSchema>> anyOf) {
-        this.anyOf = anyOf;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
+        var anyOf = data.schema().anyOf;
+        if (anyOf == null) {
+            return null;
+        }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedAnyOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> anyOfClass: anyOf) {

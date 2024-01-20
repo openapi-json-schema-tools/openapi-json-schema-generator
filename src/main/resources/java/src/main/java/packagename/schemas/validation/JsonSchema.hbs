@@ -173,24 +173,15 @@ public abstract class JsonSchema {
         }
         this.additionalProperties = jsonSchemaInfo.additionalProperties;
         if (this.additionalProperties != null) {
-            keywordToValidator.put(
-                    "additionalProperties",
-                    new AdditionalPropertiesValidator(this.additionalProperties)
-            );
+            keywordToValidator.put("additionalProperties", new AdditionalPropertiesValidator());
         }
         this.allOf = jsonSchemaInfo.allOf;
         if (this.allOf != null) {
-            keywordToValidator.put(
-                    "allOf",
-                    new AllOfValidator(this.allOf)
-            );
+            keywordToValidator.put("allOf", new AllOfValidator());
         }
         this.anyOf = jsonSchemaInfo.anyOf;
         if (this.anyOf != null) {
-            keywordToValidator.put(
-                    "anyOf",
-                    new AnyOfValidator(this.anyOf)
-            );
+            keywordToValidator.put("anyOf", new AnyOfValidator());
         }
         this.oneOf = jsonSchemaInfo.oneOf;
         if (this.oneOf != null) {
@@ -232,17 +223,11 @@ public abstract class JsonSchema {
         this.constValue = jsonSchemaInfo.constValue;
         this.constValueSet = jsonSchemaInfo.constValueSet;
         if (this.constValueSet) {
-            keywordToValidator.put(
-                    "const",
-                    new ConstValidator(this.constValue)
-            );
+            keywordToValidator.put("const", new ConstValidator());
         }
         this.contains = jsonSchemaInfo.contains;
         if (this.contains != null) {
-            keywordToValidator.put(
-                    "contains",
-                    new ContainsValidator(this.contains)
-            );
+            keywordToValidator.put("contains", new ContainsValidator());
         }
         this.maxContains = jsonSchemaInfo.maxContains;
         if (this.maxContains != null) {

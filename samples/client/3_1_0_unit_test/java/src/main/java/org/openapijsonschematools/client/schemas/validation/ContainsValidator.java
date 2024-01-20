@@ -3,16 +3,9 @@ package org.openapijsonschematools.client.schemas.validation;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContainsValidator implements KeywordValidator {
-    public final Class<? extends JsonSchema> contains;
-
-    public ContainsValidator(Class<? extends JsonSchema> contains) {
-        this.contains = contains;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data

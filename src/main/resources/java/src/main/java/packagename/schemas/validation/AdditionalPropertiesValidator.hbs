@@ -8,17 +8,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class AdditionalPropertiesValidator implements KeywordValidator {
-    public final Class<? extends JsonSchema> additionalProperties;
-
-    public AdditionalPropertiesValidator(Class<? extends JsonSchema> additionalProperties) {
-        this.additionalProperties = additionalProperties;
-    }
-
     @Override
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
         if (!(data.arg() instanceof Map<?, ?> mapArg)) {
+            return null;
+        }
+        var additionalProperties = data.schema().additionalProperties;
+        if (additionalProperties == null) {
             return null;
         }
         Set<String> presentAdditionalProperties = new LinkedHashSet<>();
