@@ -59,6 +59,12 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements L
         {{#if if_}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_if }}
         {{/if}}
+        {{#if then}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_then }}
+        {{/if}}
+        {{#if else_}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_else }}
+        {{/if}}
         );
     }
 
@@ -68,12 +74,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements L
         }
         return instance;
     }
-    {{#if then}}
-    {{!> components/schemas/schema_cls/_then }}
-    {{/if}}
-    {{#if else_}}
-    {{!> components/schemas/schema_cls/_else }}
-    {{/if}}
     {{#if unevaluatedItems}}
     {{!> components/schemas/schema_cls/_unevaluated_items }}
     {{/if}}

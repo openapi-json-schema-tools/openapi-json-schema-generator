@@ -100,3 +100,9 @@
 {{#if if_}}
 | Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_if }} |
 {{/if}}
+{{#if then}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_then }} |
+{{/if}}
+{{#if else_}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_else }} |
+{{/if}}
