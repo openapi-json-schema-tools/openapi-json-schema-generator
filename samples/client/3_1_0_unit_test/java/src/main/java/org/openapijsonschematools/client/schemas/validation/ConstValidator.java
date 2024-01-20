@@ -11,10 +11,10 @@ public class ConstValidator extends BigDecimalValidator implements KeywordValida
     public @Nullable PathToSchemasMap validate(
         ValidationData data
     ) {
-        var constValue = data.schema().constValue;
-        if (constValue == null) {
+        if (!data.schema().constValueSet) {
             return null;
         }
+        var constValue = data.schema().constValue;
         if (data.arg() instanceof Number numberArg) {
             BigDecimal castArg = getBigDecimal(numberArg);
             if (Objects.equals(castArg, constValue)) {

@@ -6,8 +6,14 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.NumberJsonSchema;
-import {{{packageName}}}.schemas.StringJsonSchema;
+import {{{packageName}}}.schemas.IntJsonSchema;
+import {{{packageName}}}.schemas.Int32JsonSchema;
+import {{{packageName}}}.schemas.Int64JsonSchema;
+import {{{packageName}}}.schemas.FloatJsonSchema;
+import {{{packageName}}}.schemas.DoubleJsonSchema;
+import {{{packageName}}}.schemas.DecimalJsonSchema;
+import {{{packageName}}}.schemas.DateJsonSchema;
+import {{{packageName}}}.schemas.DateTimeJsonSchema;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -29,10 +35,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testIntFormatSucceedsWithFloat() {
-        final FormatValidator validator = new FormatValidator("int");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    IntJsonSchema.getInstance(),
                     1.0f,
                     validationMetadata
                 )
@@ -42,10 +48,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testIntFormatFailsWithFloat() {
-        final FormatValidator validator = new FormatValidator("int");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    IntJsonSchema.getInstance(),
                     3.14f,
                     validationMetadata
                 )
@@ -54,10 +60,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testIntFormatSucceedsWithInt() {
-        final FormatValidator validator = new FormatValidator("int");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    IntJsonSchema.getInstance(),
                     1,
                     validationMetadata
                 )
@@ -67,10 +73,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInt32UnderMinFails() {
-        final FormatValidator validator = new FormatValidator("int32");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    Int32JsonSchema.getInstance(),
                     -2147483649L,
                     validationMetadata
                 )
@@ -79,10 +85,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInt32InclusiveMinSucceeds() {
-        final FormatValidator validator = new FormatValidator("int32");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    Int32JsonSchema.getInstance(),
                     -2147483648,
                     validationMetadata
                 )
@@ -92,10 +98,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInt32InclusiveMaxSucceeds() {
-        final FormatValidator validator = new FormatValidator("int32");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    Int32JsonSchema.getInstance(),
                     2147483647,
                     validationMetadata
                 )
@@ -105,10 +111,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInt32OverMaxFails() {
-        final FormatValidator validator = new FormatValidator("int32");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    Int32JsonSchema.getInstance(),
                     2147483648L,
                     validationMetadata
                 )
@@ -117,11 +123,11 @@ public class FormatValidatorTest {
 
     @Test
     public void testInt64UnderMinFails() {
-        final FormatValidator validator = new FormatValidator("int64");
+        final FormatValidator validator = new FormatValidator();
 
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    Int64JsonSchema.getInstance(),
                     new BigInteger("-9223372036854775809"),
                     validationMetadata
                 )
@@ -130,10 +136,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInt64InclusiveMinSucceeds() {
-        final FormatValidator validator = new FormatValidator("int64");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    Int64JsonSchema.getInstance(),
                     -9223372036854775808L,
                     validationMetadata
                 )
@@ -143,10 +149,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInt64InclusiveMaxSucceeds() {
-        final FormatValidator validator = new FormatValidator("int64");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    Int64JsonSchema.getInstance(),
                     9223372036854775807L,
                     validationMetadata
                 )
@@ -156,11 +162,11 @@ public class FormatValidatorTest {
 
     @Test
     public void testInt64OverMaxFails() {
-        final FormatValidator validator = new FormatValidator("int64");
+        final FormatValidator validator = new FormatValidator();
 
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    Int64JsonSchema.getInstance(),
                     new BigInteger("9223372036854775808"),
                     validationMetadata
                 )
@@ -169,10 +175,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testFloatUnderMinFails() {
-        final FormatValidator validator = new FormatValidator("float");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    FloatJsonSchema.getInstance(),
                     -3.402823466385289e+38d,
                     validationMetadata
                 )
@@ -181,10 +187,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testFloatInclusiveMinSucceeds() {
-        final FormatValidator validator = new FormatValidator("float");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    FloatJsonSchema.getInstance(),
                     -3.4028234663852886e+38f,
                     validationMetadata
                 )
@@ -194,10 +200,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testFloatInclusiveMaxSucceeds() {
-        final FormatValidator validator = new FormatValidator("float");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    FloatJsonSchema.getInstance(),
                     3.4028234663852886e+38f,
                     validationMetadata
                 )
@@ -207,10 +213,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testFloatOverMaxFails() {
-        final FormatValidator validator = new FormatValidator("float");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    FloatJsonSchema.getInstance(),
                     3.402823466385289e+38d,
                     validationMetadata
                 )
@@ -219,10 +225,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testDoubleUnderMinFails() {
-        final FormatValidator validator = new FormatValidator("double");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    DoubleJsonSchema.getInstance(),
                     new BigDecimal("-1.7976931348623157082e+308"),
                     validationMetadata
                 )
@@ -231,10 +237,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testDoubleInclusiveMinSucceeds() {
-        final FormatValidator validator = new FormatValidator("double");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    DoubleJsonSchema.getInstance(),
                     -1.7976931348623157E+308d,
                     validationMetadata
                 )
@@ -244,10 +250,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testDoubleInclusiveMaxSucceeds() {
-        final FormatValidator validator = new FormatValidator("double");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    DoubleJsonSchema.getInstance(),
                     1.7976931348623157E+308d,
                     validationMetadata
                 )
@@ -257,10 +263,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testDoubleOverMaxFails() {
-        final FormatValidator validator = new FormatValidator("double");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    DoubleJsonSchema.getInstance(),
                     new BigDecimal("1.7976931348623157082e+308"),
                     validationMetadata
                 )
@@ -269,10 +275,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInvalidNumberStringFails() {
-        final FormatValidator validator = new FormatValidator("number");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    DecimalJsonSchema.getInstance(),
                     "abc",
                     validationMetadata
                 )
@@ -281,10 +287,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testValidFloatNumberStringSucceeds() {
-        final FormatValidator validator = new FormatValidator("number");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    DecimalJsonSchema.getInstance(),
                     "3.14",
                     validationMetadata
                 )
@@ -294,10 +300,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testValidIntNumberStringSucceeds() {
-        final FormatValidator validator = new FormatValidator("number");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    NumberJsonSchema.getInstance(),
+                    DecimalJsonSchema.getInstance(),
                     "1",
                     validationMetadata
                 )
@@ -307,10 +313,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInvalidDateStringFails() {
-        final FormatValidator validator = new FormatValidator("date");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    StringJsonSchema.getInstance(),
+                    DateJsonSchema.getInstance(),
                     "abc",
                     validationMetadata
                 )
@@ -319,10 +325,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testValidDateStringSucceeds() {
-        final FormatValidator validator = new FormatValidator("date");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    StringJsonSchema.getInstance(),
+                    DateJsonSchema.getInstance(),
                     "2017-01-20",
                     validationMetadata
                 )
@@ -332,10 +338,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testInvalidDateTimeStringFails() {
-        final FormatValidator validator = new FormatValidator("date-time");
+        final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    StringJsonSchema.getInstance(),
+                    DateTimeJsonSchema.getInstance(),
                     "abc",
                     validationMetadata
                 )
@@ -344,10 +350,10 @@ public class FormatValidatorTest {
 
     @Test
     public void testValidDateTimeStringSucceeds() {
-        final FormatValidator validator = new FormatValidator("date-time");
+        final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    StringJsonSchema.getInstance(),
+                    DateTimeJsonSchema.getInstance(),
                     "2017-07-21T17:32:28Z",
                     validationMetadata
                 )

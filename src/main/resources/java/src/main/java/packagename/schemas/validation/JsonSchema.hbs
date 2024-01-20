@@ -50,10 +50,10 @@ public abstract class JsonSchema {
     public final @Nullable Integer maxContains;
     public final @Nullable Integer minContains;
     public final @Nullable Class<? extends JsonSchema> propertyNames;
-    public @Nullable Map<String, Set<String>> dependentRequired;
+    public final @Nullable Map<String, Set<String>> dependentRequired;
     public final @Nullable Map<String, Class<? extends JsonSchema>> dependentSchemas;
-    public @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
-    public @Nullable List<Class<? extends JsonSchema>> prefixItems;
+    public final @Nullable Map<Pattern, Class<? extends JsonSchema>> patternProperties;
+    public final @Nullable List<Class<? extends JsonSchema>> prefixItems;
     public final @Nullable Class<? extends JsonSchema> ifSchema;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 

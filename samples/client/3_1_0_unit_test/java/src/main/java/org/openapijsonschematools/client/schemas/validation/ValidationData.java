@@ -10,8 +10,8 @@ public record ValidationData(
     ValidationMetadata validationMetadata,
     @Nullable List<PathToSchemasMap> containsPathToSchemas,
     @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-    @Nullable PathToSchemasMap ifPathToSchemas) {
-
+    @Nullable PathToSchemasMap ifPathToSchemas
+) {
     public ValidationData(
             JsonSchema schema,
             @Nullable Object arg,

@@ -19,4 +19,3 @@ public class PatternPropertiesValidator implements KeywordValidator {
         return data.patternPropertiesPathToSchemas();
     }
 }
-

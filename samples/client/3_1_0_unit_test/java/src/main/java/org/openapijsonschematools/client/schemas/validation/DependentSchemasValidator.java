@@ -38,4 +38,3 @@ public class DependentSchemasValidator implements KeywordValidator {
         return pathToSchemas;
     }
 }
-

@@ -53,4 +53,3 @@ public class PropertiesValidator implements KeywordValidator {
         return pathToSchemas;
     }
 }
-
