@@ -70,7 +70,7 @@
 {{#if patternInfo}}
 | Pattern | {{> src/main/java/packagename/components/schemas/SchemaClass/_pattern }} |
 {{/if}}
-{{#if defaultValue}}
+{{#if defaultValueSet}}
 | @Nullable Object | {{> src/main/java/packagename/components/schemas/SchemaClass/_default }} |
 {{/if}}
 {{#if contains}}
@@ -105,4 +105,7 @@
 {{/if}}
 {{#if else_}}
 | Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_else }} |
+{{/if}}
+{{#if constValueSet}}
+| @Nullable Object | {{> src/main/java/packagename/components/schemas/SchemaClass/_const }} |
 {{/if}}
