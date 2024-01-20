@@ -205,7 +205,12 @@ allowed input and output types.
 | [HostnameFormat.HostnameFormat1](docs/components/schemas/HostnameFormat.md#hostnameformat1) | |
 | [IdnEmailFormat.IdnEmailFormat1](docs/components/schemas/IdnEmailFormat.md#idnemailformat1) | |
 | [IdnHostnameFormat.IdnHostnameFormat1](docs/components/schemas/IdnHostnameFormat.md#idnhostnameformat1) | |
+| [IfAndElseWithoutThen.IfAndElseWithoutThen1](docs/components/schemas/IfAndElseWithoutThen.md#ifandelsewithoutthen1) | |
+| [IfAndThenWithoutElse.IfAndThenWithoutElse1](docs/components/schemas/IfAndThenWithoutElse.md#ifandthenwithoutelse1) | |
+| [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1](docs/components/schemas/IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.md#ifappearsattheendwhenserializedkeywordprocessingsequence1) | |
+| [IgnoreElseWithoutIf.IgnoreElseWithoutIf1](docs/components/schemas/IgnoreElseWithoutIf.md#ignoreelsewithoutif1) | |
 | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1](docs/components/schemas/IgnoreIfWithoutThenOrElse.md#ignoreifwithoutthenorelse1) | |
+| [IgnoreThenWithoutIf.IgnoreThenWithoutIf1](docs/components/schemas/IgnoreThenWithoutIf.md#ignorethenwithoutif1) | |
 | [IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1](docs/components/schemas/IntegerTypeMatchesIntegers.md#integertypematchesintegers1) | |
 | [Ipv4Format.Ipv4Format1](docs/components/schemas/Ipv4Format.md#ipv4format1) | |
 | [Ipv6Format.Ipv6Format1](docs/components/schemas/Ipv6Format.md#ipv6format1) | |
@@ -236,6 +241,7 @@ allowed input and output types.
 | [NestedItems.NestedItems1](docs/components/schemas/NestedItems.md#nesteditems1) | |
 | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1](docs/components/schemas/NestedOneofToCheckValidationSemantics.md#nestedoneoftocheckvalidationsemantics1) | |
 | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1](docs/components/schemas/NonAsciiPatternWithAdditionalproperties.md#nonasciipatternwithadditionalproperties1) | |
+| [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1](docs/components/schemas/NonInterferenceAcrossCombinedSchemas.md#noninterferenceacrosscombinedschemas1) | |
 | [Not.Not1](docs/components/schemas/Not.md#not1) | |
 | [NotMoreComplexSchema.NotMoreComplexSchema1](docs/components/schemas/NotMoreComplexSchema.md#notmorecomplexschema1) | |
 | [NotMultipleTypes.NotMultipleTypes1](docs/components/schemas/NotMultipleTypes.md#notmultipletypes1) | |
@@ -288,3 +294,4 @@ allowed input and output types.
 | [UriReferenceFormat.UriReferenceFormat1](docs/components/schemas/UriReferenceFormat.md#urireferenceformat1) | |
 | [UriTemplateFormat.UriTemplateFormat1](docs/components/schemas/UriTemplateFormat.md#uritemplateformat1) | |
 | [UuidFormat.UuidFormat1](docs/components/schemas/UuidFormat.md#uuidformat1) | |
+| [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1](docs/components/schemas/ValidateAgainstCorrectBranchThenVsElse.md#validateagainstcorrectbranchthenvselse1) | |
