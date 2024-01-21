@@ -57,6 +57,7 @@ public abstract class JsonSchema {
     public final @Nullable Class<? extends JsonSchema> ifSchema;
     public final @Nullable Class<? extends JsonSchema> then;
     public final @Nullable Class<? extends JsonSchema> elseSchema;
+    public final @Nullable Class<? extends JsonSchema> unevaluatedItems;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -208,6 +209,10 @@ public abstract class JsonSchema {
         if (this.elseSchema != null) {
             keywordToValidator.put("else", new ElseValidator());
         }
+        this.unevaluatedItems = jsonSchemaInfo.unevaluatedItems;
+        if (this.unevaluatedItems != null) {
+            keywordToValidator.put("unevaluatedItems", new UnevaluatedItemsValidator());
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
@@ -223,8 +228,7 @@ public abstract class JsonSchema {
         }
         JsonSchema containsSchema = JsonSchemaFactory.getInstance(contains);
         @Nullable List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
-        int i = 0;
-        for(Object itemValue: listArg) {
+        for(int i = 0; i < listArg.size(); i++) {
             PathToSchemasMap thesePathToSchemas = new PathToSchemasMap();
             List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             itemPathToItem.add(i);
@@ -237,13 +241,12 @@ public abstract class JsonSchema {
             if (itemValidationMetadata.validationRanEarlier(containsSchema)) {
                 // todo add_deeper_validated_schemas
                 containsPathToSchemas.add(thesePathToSchemas);
-                i += 1;
                 continue;
             }
 
             try {
                 PathToSchemasMap otherPathToSchemas = JsonSchema.validate(
-                        containsSchema, itemValue, itemValidationMetadata);
+                        containsSchema, listArg.get(i), itemValidationMetadata);
                 containsPathToSchemas.add(otherPathToSchemas);
             } catch (ValidationException ignored) {}
         }
@@ -321,6 +324,7 @@ public abstract class JsonSchema {
         if (thisKeywordToValidator.containsKey("if")) {
             ifPathToSchemas = jsonSchema.getIfPathToSchemas(arg, validationMetadata);
         }
+        @Nullable PathToSchemasMap knownPathToSchemas = null;
         for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
             if (disabledKeywords.contains(jsonKeyword)) {
@@ -329,6 +333,9 @@ public abstract class JsonSchema {
                     continue;
                 }
             }
+            if ("unevaluatedItems".equals(jsonKeyword)) {
+                knownPathToSchemas = pathToSchemas;
+            }
             KeywordValidator validator = entry.getValue();
             ValidationData data = new ValidationData(
                     jsonSchema,
@@ -336,7 +343,8 @@ public abstract class JsonSchema {
                     validationMetadata,
                     containsPathToSchemas,
                     patternPropertiesPathToSchemas,
-                    ifPathToSchemas
+                    ifPathToSchemas,
+                    knownPathToSchemas
             );
             @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(data);
             if (otherPathToSchemas == null) {

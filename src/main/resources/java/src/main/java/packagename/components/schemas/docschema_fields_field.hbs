@@ -109,3 +109,6 @@
 {{#if constInfo}}
 | @Nullable Object | {{> src/main/java/packagename/components/schemas/SchemaClass/_const }} |
 {{/if}}
+{{#if unevaluatedItems}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_unevaluatedItems }} |
+{{/if}}

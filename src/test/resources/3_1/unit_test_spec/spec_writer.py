@@ -700,9 +700,6 @@ def write_openapi_spec():
     openapi.paths = {}
     openapi.tags = []
     removed_cases = {
-        'UnevaluateditemsDependsOnMultipleNestedContains',
-        'UnevaluateditemsAsSchema',
-        'UnevaluateditemsWithNullInstanceElements',
         'UnevaluatedpropertiesNotAffectedByPropertynames',
         'UnevaluatedpropertiesSchema'
     }

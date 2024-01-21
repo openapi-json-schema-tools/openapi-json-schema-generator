@@ -106,6 +106,7 @@ public class UnevaluateditemsWithItems {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
                 .items(Items.class)
+                .unevaluatedItems(UnevaluatedItems.class)
             );
         }
     

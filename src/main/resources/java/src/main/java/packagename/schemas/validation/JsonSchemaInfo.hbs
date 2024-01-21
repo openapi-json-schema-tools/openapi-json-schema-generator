@@ -197,4 +197,9 @@ public class JsonSchemaInfo {
         this.elseSchema = elseSchema;
         return this;
     }
+    public @Nullable Class<? extends JsonSchema> unevaluatedItems = null;
+    public JsonSchemaInfo unevaluatedItems(Class<? extends JsonSchema> unevaluatedItems) {
+        this.unevaluatedItems = unevaluatedItems;
+        return this;
+    }
 }

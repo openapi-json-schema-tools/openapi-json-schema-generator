@@ -53,6 +53,7 @@ UnevaluateditemsWithItems.UnevaluateditemsWithItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(List.class) |
 | Class<? extends JsonSchema> | items = [Items.class](#items) |
+| Class<? extends JsonSchema> | unevaluatedItems = [UnevaluatedItems.class](#unevaluateditems) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
