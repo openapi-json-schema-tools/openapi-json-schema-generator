@@ -338,7 +338,7 @@ public abstract class JsonSchema {
                     continue;
                 }
             }
-            if ("unevaluatedItems".equals(jsonKeyword)) {
+            if ("unevaluatedItems".equals(jsonKeyword) || "unevaluatedProperties".equals(jsonKeyword)) {
                 knownPathToSchemas = pathToSchemas;
             }
             KeywordValidator validator = entry.getValue();

@@ -710,6 +710,12 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       unevaluatedItems:
         type: 'null'
+    UnevaluatedpropertiesSchema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: object
+      unevaluatedProperties:
+        type: string
+        minLength: 3
     UnevaluatedpropertiesWithAdjacentAdditionalproperties:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: object
@@ -722,6 +728,12 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       unevaluatedProperties:
         type: 'null'
+    UnevaluatedpropertiesNotAffectedByPropertynames:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      propertyNames:
+        maxLength: 1
+      unevaluatedProperties:
+        type: number
     UniqueitemsValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       uniqueItems: true
@@ -4005,6 +4017,24 @@ components:
         - null
         valid: true
         comment: null
+    UnevaluatedpropertiesSchema:
+      WithNoUnevaluatedProperties:
+        description: with no unevaluated properties
+        data: {}
+        valid: true
+        comment: null
+      WithValidUnevaluatedProperties:
+        description: with valid unevaluated properties
+        data:
+          foo: foo
+        valid: true
+        comment: null
+      WithInvalidUnevaluatedProperties:
+        description: with invalid unevaluated properties
+        data:
+          foo: fo
+        valid: false
+        comment: null
     UnevaluatedpropertiesWithAdjacentAdditionalproperties:
       WithNoAdditionalProperties:
         description: with no additional properties
@@ -4025,6 +4055,19 @@ components:
         data:
           foo: null
         valid: true
+        comment: null
+    UnevaluatedpropertiesNotAffectedByPropertynames:
+      AllowsOnlyNumberProperties:
+        description: allows only number properties
+        data:
+          a: 1
+        valid: true
+        comment: null
+      StringPropertyIsInvalid:
+        description: string property is invalid
+        data:
+          a: b
+        valid: false
         comment: null
     UniqueitemsValidation:
       UniqueArrayOfIntegersIsValid:

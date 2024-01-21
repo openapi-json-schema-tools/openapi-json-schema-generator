@@ -55,6 +55,7 @@ UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithA
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("foo", [Foo.class](#foo)))<br>)<br> |
 | Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
+| Class<? extends JsonSchema> | unevaluatedProperties = [UnevaluatedProperties.class](#unevaluatedproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

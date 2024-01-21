@@ -215,6 +215,7 @@ public class UnevaluatedpropertiesWithAdjacentAdditionalproperties {
                     new PropertyEntry("foo", Foo.class)
                 ))
                 .additionalProperties(AdditionalProperties.class)
+                .unevaluatedProperties(UnevaluatedProperties.class)
             );
         }
     

@@ -135,6 +135,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#if unevaluatedItems}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_unevaluatedItems }}
         {{/if}}
+        {{#if unevaluatedProperties}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_unevaluatedProperties }}
+        {{/if}}
         );
     }
 
@@ -147,11 +150,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
 {{#if hasDiscriminatorWithNonEmptyMapping}}
     {{!> components/schemas/schema_cls/_discriminator }}
 {{/if}}
-{{#if unevaluatedProperties}}
-    {{!> components/schemas/schema_cls/_unevaluated_properties }}
-{{/if}}
-{{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
-{{/or}}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_getNewInstanceObject_implementor }}
 }
