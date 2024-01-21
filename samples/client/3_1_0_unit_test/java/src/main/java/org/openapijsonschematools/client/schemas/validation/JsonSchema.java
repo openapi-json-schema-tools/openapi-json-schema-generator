@@ -57,7 +57,7 @@ public abstract class JsonSchema {
     public final @Nullable Class<? extends JsonSchema> ifSchema;
     public final @Nullable Class<? extends JsonSchema> then;
     public final @Nullable Class<? extends JsonSchema> elseSchema;
-    public final @Nullable Class<? extends JsonSchema> unevaluatedItems = null;
+    public final @Nullable Class<? extends JsonSchema> unevaluatedItems;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -228,8 +228,7 @@ public abstract class JsonSchema {
         }
         JsonSchema containsSchema = JsonSchemaFactory.getInstance(contains);
         @Nullable List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
-        int i = 0;
-        for(Object itemValue: listArg) {
+        for(int i = 0; i < listArg.size(); i++) {
             PathToSchemasMap thesePathToSchemas = new PathToSchemasMap();
             List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             itemPathToItem.add(i);
@@ -242,13 +241,12 @@ public abstract class JsonSchema {
             if (itemValidationMetadata.validationRanEarlier(containsSchema)) {
                 // todo add_deeper_validated_schemas
                 containsPathToSchemas.add(thesePathToSchemas);
-                i += 1;
                 continue;
             }
 
             try {
                 PathToSchemasMap otherPathToSchemas = JsonSchema.validate(
-                        containsSchema, itemValue, itemValidationMetadata);
+                        containsSchema, listArg.get(i), itemValidationMetadata);
                 containsPathToSchemas.add(otherPathToSchemas);
             } catch (ValidationException ignored) {}
         }

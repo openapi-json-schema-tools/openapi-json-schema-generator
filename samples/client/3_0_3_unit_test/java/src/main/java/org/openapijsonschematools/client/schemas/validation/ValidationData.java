@@ -10,13 +10,14 @@ public record ValidationData(
     ValidationMetadata validationMetadata,
     @Nullable List<PathToSchemasMap> containsPathToSchemas,
     @Nullable PathToSchemasMap patternPropertiesPathToSchemas,
-    @Nullable PathToSchemasMap ifPathToSchemas
+    @Nullable PathToSchemasMap ifPathToSchemas,
+    @Nullable PathToSchemasMap knownPathToSchemas
 ) {
     public ValidationData(
             JsonSchema schema,
             @Nullable Object arg,
             ValidationMetadata validationMetadata
     ) {
-        this(schema, arg, validationMetadata, null, null, null);
+        this(schema, arg, validationMetadata, null, null, null, null);
     }
 }

@@ -749,6 +749,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/StringSchemaV
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ThenValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/TypeValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/UnevaluatedItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationData.java

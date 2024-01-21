@@ -687,12 +687,29 @@ components:
       - array
       - object
       - 'null'
+    UnevaluateditemsAsSchema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      unevaluatedItems:
+        type: string
     UnevaluateditemsWithItems:
       $schema: https://json-schema.org/draft/2020-12/schema
       items:
         type: number
       unevaluatedItems:
         type: string
+    UnevaluateditemsDependsOnMultipleNestedContains:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      allOf:
+      - contains:
+          multipleOf: 2
+      - contains:
+          multipleOf: 3
+      unevaluatedItems:
+        multipleOf: 5
+    UnevaluateditemsWithNullInstanceElements:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      unevaluatedItems:
+        type: 'null'
     UnevaluatedpropertiesWithAdjacentAdditionalproperties:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: object
@@ -3924,6 +3941,24 @@ components:
         data: foo
         valid: false
         comment: null
+    UnevaluateditemsAsSchema:
+      WithNoUnevaluatedItems:
+        description: with no unevaluated items
+        data: []
+        valid: true
+        comment: null
+      WithValidUnevaluatedItems:
+        description: with valid unevaluated items
+        data:
+        - foo
+        valid: true
+        comment: null
+      WithInvalidUnevaluatedItems:
+        description: with invalid unevaluated items
+        data:
+        - 42
+        valid: false
+        comment: null
     UnevaluateditemsWithItems:
       ValidUnderItems:
         description: valid under items
@@ -3941,6 +3976,34 @@ components:
         - bar
         - baz
         valid: false
+        comment: null
+    UnevaluateditemsDependsOnMultipleNestedContains:
+      5NotEvaluatedPassesUnevaluateditems:
+        description: 5 not evaluated, passes unevaluatedItems
+        data:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        valid: true
+        comment: null
+      7NotEvaluatedFailsUnevaluateditems:
+        description: 7 not evaluated, fails unevaluatedItems
+        data:
+        - 2
+        - 3
+        - 4
+        - 7
+        - 8
+        valid: false
+        comment: null
+    UnevaluateditemsWithNullInstanceElements:
+      AllowsNullElements:
+        description: allows null elements
+        data:
+        - null
+        valid: true
         comment: null
     UnevaluatedpropertiesWithAdjacentAdditionalproperties:
       WithNoAdditionalProperties:

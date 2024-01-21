@@ -132,6 +132,9 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
         {{#if else_}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_else }}
         {{/if}}
+        {{#if unevaluatedItems}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_unevaluatedItems }}
+        {{/if}}
         );
     }
 
@@ -146,9 +149,6 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements {
 {{/if}}
 {{#if unevaluatedProperties}}
     {{!> components/schemas/schema_cls/_unevaluated_properties }}
-{{/if}}
-{{#if unevaluatedItems}}
-    {{!> components/schemas/schema_cls/_unevaluated_items }}
 {{/if}}
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
 {{/or}}

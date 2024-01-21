@@ -283,7 +283,10 @@ allowed input and output types.
 | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1](docs/components/schemas/TypeArrayObjectOrNull.md#typearrayobjectornull1) | |
 | [TypeArrayOrObject.TypeArrayOrObject1](docs/components/schemas/TypeArrayOrObject.md#typearrayorobject1) | |
 | [TypeAsArrayWithOneItem.TypeAsArrayWithOneItem1](docs/components/schemas/TypeAsArrayWithOneItem.md#typeasarraywithoneitem1) | |
+| [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1](docs/components/schemas/UnevaluateditemsAsSchema.md#unevaluateditemsasschema1) | |
+| [UnevaluateditemsDependsOnMultipleNestedContains.UnevaluateditemsDependsOnMultipleNestedContains1](docs/components/schemas/UnevaluateditemsDependsOnMultipleNestedContains.md#unevaluateditemsdependsonmultiplenestedcontains1) | |
 | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1](docs/components/schemas/UnevaluateditemsWithItems.md#unevaluateditemswithitems1) | |
+| [UnevaluateditemsWithNullInstanceElements.UnevaluateditemsWithNullInstanceElements1](docs/components/schemas/UnevaluateditemsWithNullInstanceElements.md#unevaluateditemswithnullinstanceelements1) | |
 | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1](docs/components/schemas/UnevaluatedpropertiesWithAdjacentAdditionalproperties.md#unevaluatedpropertieswithadjacentadditionalproperties1) | |
 | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1](docs/components/schemas/UnevaluatedpropertiesWithNullValuedInstanceProperties.md#unevaluatedpropertieswithnullvaluedinstanceproperties1) | |
 | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1](docs/components/schemas/UniqueitemsFalseValidation.md#uniqueitemsfalsevalidation1) | |
