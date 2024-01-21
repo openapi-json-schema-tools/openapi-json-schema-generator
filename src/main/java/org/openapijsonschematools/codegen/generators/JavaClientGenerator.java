@@ -292,7 +292,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SchemaFeature.Then,
                         SchemaFeature.Type,
                         SchemaFeature.UnevaluatedItems,
-                        // SchemaFeature.UnevaluatedProperties,
+                        SchemaFeature.UnevaluatedProperties,
                         SchemaFeature.UniqueItems
                 )
         );
@@ -626,6 +626,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         keywordValidatorFiles.add("ThenValidator");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UnevaluatedItemsValidator");
+        keywordValidatorFiles.add("UnevaluatedPropertiesValidator");
         keywordValidatorFiles.add("UniqueItemsValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
         keywordValidatorFiles.add("ValidationData");
