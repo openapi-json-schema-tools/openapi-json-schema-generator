@@ -313,7 +313,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Then|✓|OAS3
 |Type|✓|OAS2,OAS3
 |UnevaluatedItems|✓|OAS3
-|UnevaluatedProperties|✗|OAS3
+|UnevaluatedProperties|✓|OAS3
 |UniqueItems|✓|OAS2,OAS3
 |Xml|✗|OAS2,OAS3
 

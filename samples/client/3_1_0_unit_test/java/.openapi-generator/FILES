@@ -129,6 +129,8 @@ docs/components/schemas/UnevaluateditemsAsSchema.md
 docs/components/schemas/UnevaluateditemsDependsOnMultipleNestedContains.md
 docs/components/schemas/UnevaluateditemsWithItems.md
 docs/components/schemas/UnevaluateditemsWithNullInstanceElements.md
+docs/components/schemas/UnevaluatedpropertiesNotAffectedByPropertynames.md
+docs/components/schemas/UnevaluatedpropertiesSchema.md
 docs/components/schemas/UnevaluatedpropertiesWithAdjacentAdditionalproperties.md
 docs/components/schemas/UnevaluatedpropertiesWithNullValuedInstanceProperties.md
 docs/components/schemas/UniqueitemsFalseValidation.md
@@ -272,6 +274,8 @@ src/main/java/org/openapijsonschematools/client/components/schemas/Unevaluatedit
 src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluateditemsDependsOnMultipleNestedContains.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluateditemsWithItems.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluateditemsWithNullInstanceElements.java
+src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluatedpropertiesNotAffectedByPropertynames.java
+src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluatedpropertiesSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluatedpropertiesWithAdjacentAdditionalproperties.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UnevaluatedpropertiesWithNullValuedInstanceProperties.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UniqueitemsFalseValidation.java
@@ -380,6 +384,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/StringValueMe
 src/main/java/org/openapijsonschematools/client/schemas/validation/ThenValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/TypeValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnevaluatedItemsValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/UnevaluatedPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationData.java

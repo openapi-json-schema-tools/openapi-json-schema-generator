@@ -58,6 +58,7 @@ public abstract class JsonSchema {
     public final @Nullable Class<? extends JsonSchema> then;
     public final @Nullable Class<? extends JsonSchema> elseSchema;
     public final @Nullable Class<? extends JsonSchema> unevaluatedItems;
+    public final @Nullable Class<? extends JsonSchema> unevaluatedProperties;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -213,6 +214,10 @@ public abstract class JsonSchema {
         if (this.unevaluatedItems != null) {
             keywordToValidator.put("unevaluatedItems", new UnevaluatedItemsValidator());
         }
+        this.unevaluatedProperties = jsonSchemaInfo.unevaluatedProperties;
+        if (this.unevaluatedProperties != null) {
+            keywordToValidator.put("unevaluatedProperties", new UnevaluatedPropertiesValidator());
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
@@ -333,7 +338,7 @@ public abstract class JsonSchema {
                     continue;
                 }
             }
-            if ("unevaluatedItems".equals(jsonKeyword)) {
+            if ("unevaluatedItems".equals(jsonKeyword) || "unevaluatedProperties".equals(jsonKeyword)) {
                 knownPathToSchemas = pathToSchemas;
             }
             KeywordValidator validator = entry.getValue();

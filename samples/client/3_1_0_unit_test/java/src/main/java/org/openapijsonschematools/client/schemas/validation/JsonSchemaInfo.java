@@ -202,4 +202,9 @@ public class JsonSchemaInfo {
         this.unevaluatedItems = unevaluatedItems;
         return this;
     }
+    public @Nullable Class<? extends JsonSchema> unevaluatedProperties = null;
+    public JsonSchemaInfo unevaluatedProperties(Class<? extends JsonSchema> unevaluatedProperties) {
+        this.unevaluatedProperties = unevaluatedProperties;
+        return this;
+    }
 }
