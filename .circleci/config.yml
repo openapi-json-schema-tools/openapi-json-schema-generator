@@ -157,6 +157,10 @@ jobs:
     steps:
       - command_build_and_test:
           jobId: "testJava17ClientSamples"
+      - save_cache:
+          key: javaClientMavenCache
+          paths:
+            - ~/.m2
 workflows:
   version: 2
   build:
