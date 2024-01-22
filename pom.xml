@@ -237,6 +237,14 @@
         <profile>
             <id>static-analysis</id>
         </profile>
+        <profile>
+            <id>java17ClientSamples</id>
+            <modules>
+                <module>samples/client/petstore/java</module>
+                <module>samples/client/3_0_3_unit_test/java</module>
+                <module>samples/client/3_1_0_unit_test/java</module>
+            </modules>
+        </profile>
     </profiles>
     <dependencies>
         <dependency>
