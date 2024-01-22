@@ -17,7 +17,7 @@ Currently, the following languages/frameworks are supported:
 
 - python (Stability: Stable)
 - java (Stability: Experimental)
-  - So far schema validation for v3.0.0-v3.0.3 has been implemented for Java
+  - So far schema validation for v3.0.0-v3.1.0 has been implemented for Java
   - If you want to use this generator as a Java client, please consider filing PRs adding openapi features in [this project](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues/290)
 
 ## Join Our Community
@@ -69,7 +69,7 @@ And many more!
 
 ## Reasons To Use the Java Generator
 
-- v3.0.0 - [v3.0.3](docs/generators/java.md#schema-feature) OpenAPI Specification support for component schemas
+- v3.0.0 - [v3.1.0](docs/generators/java.md#schema-feature) OpenAPI Specification support for component schemas
 - Very [thorough documentation generated in the style of javadocs, includes code samples](samples/client/petstore/java/docs/components/schemas/Money.md#money)
 - Input types constrained for a Schema in SomeSchema.validate
   - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data
@@ -103,7 +103,10 @@ And many more!
 And many more!
 - [Docs for the java generator](docs/generators/java.md)
 - [generated client sample code](samples/client/petstore/java)
-  - [Openapi v3.0.3 general petstore spec, general features](src/test/resources/3_0/python/petstore_customized.yaml)
+  - [Openapi v3.0.3 general petstore spec, general features](src/test/resources/3_0/python/petstore_customized.yaml)- [generated v3.1.0 unit test client sample code](samples/client/3_1_0_unit_test/python)
+  - [Openapi json schema v3.1.0 unit test spec](src/test/resources/3_1/unit_test_spec/3_1_0_unit_test_spec.yaml)
+- [generated v3.1.0 unit test client sample code](samples/client/3_1_0_unit_test/java)
+  - [Openapi json schema v3.1.0 unit test spec](src/test/resources/3_1/unit_test_spec/3_1_0_unit_test_spec_nopaths.yaml)
 - [generated v3.0.3 unit test client sample code](samples/client/3_0_3_unit_test/java)
   - [Openapi json schema v3.0.3 unit test spec](src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec_nopaths.yaml)
 

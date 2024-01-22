@@ -446,7 +446,7 @@
     </dependencies>
     <properties>
         <!-- RELEASE_VERSION -->
-        <revision>4.0.0</revision>
+        <revision>4.1.0</revision>
         <!-- /RELEASE_VERSION -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
