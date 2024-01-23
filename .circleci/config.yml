@@ -60,8 +60,8 @@ commands: # a reusable command with parameters
           path: /tmp/circleci-test-results
 jobs:
   ensureSamplesAndGeneratorDocsUpToDate:
-    machine:
-      image: ubuntu-2004:202201-02
+    docker:
+      - image: cimg/openjdk:11.0.22
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
     environment:
@@ -78,8 +78,8 @@ jobs:
           paths:
             - ~/.m2
   mvnCleanInstall:
-    machine:
-      image: ubuntu-2004:202201-02
+    docker:
+      - image: cimg/openjdk:11.0.22
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
     environment:
