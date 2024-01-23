@@ -33,34 +33,14 @@ commands: # a reusable command with parameters
           paths:
             # This is a broad list of cache paths to include many possible development environments
             # You can probably delete some of these entries
-            - vendor/bundle
-            - ~/.pyenv
-            - ~/virtualenvs
             - ~/.m2
-            - ~/.ivy2
-            - ~/.sbt
-            - ~/.bundle
-            - ~/.gradle
-            - ~/.cache/bower
-            - ".git"
-            - ~/.stack
       # save "default" cache using the key "source-v2-"
       - save_cache:
           key: source-v2-
           paths:
             # This is a broad list of cache paths to include many possible development environments
             # You can probably delete some of these entries
-            - vendor/bundle
-            - ~/.pyenv
-            - ~/virtualenvs
             - ~/.m2
-            - ~/.ivy2
-            - ~/.sbt
-            - ~/.bundle
-            - ~/.gradle
-            - ~/.cache/bower
-            - ".git"
-            - ~/.stack
       # Teardown
       #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
       # Save test results
@@ -155,6 +135,9 @@ jobs:
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
+      - restore_cache:
+          keys:
+            - javaClientMavenCache
       - command_build_and_test:
           jobId: "testJava17ClientSamples"
       - save_cache:
