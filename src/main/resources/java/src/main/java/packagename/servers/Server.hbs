@@ -12,7 +12,7 @@ import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
 
 import java.util.AbstractMap;
 
-class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}> {
+public class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}> {
         {{#if ../description}}
     /*
     {{../description.original}}
@@ -39,7 +39,7 @@ class {{../jsonPathPiece.pascalCase}} extends ServerWithVariables<{{containerJso
     {{else}}
 import {{{packageName}}}.servers.ServerWithoutVariables;
 
-class {{jsonPathPiece.pascalCase}} extends ServerWithoutVariables {
+public class {{jsonPathPiece.pascalCase}} extends ServerWithoutVariables {
         {{#if ../description}}
     /*
     {{../description.original}}

@@ -682,6 +682,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/configurations/SchemaConfiguration.hbs",
                 packagePath() + File.separatorChar + "configurations",
                 "SchemaConfiguration.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/configurations/ApiConfiguration.hbs",
+                packagePath() + File.separatorChar + "configurations",
+                "ApiConfiguration.java"));
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("src/main/java/packagename/components/schemas/Schema.hbs", ".java");

@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.paths.foo.get.servers.server1.Variables
 
 import java.util.AbstractMap;
 
-class FooGetServer1 extends ServerWithVariables<Variables.VariablesMap> {
+public class FooGetServer1 extends ServerWithVariables<Variables.VariablesMap> {
 
     public FooGetServer1() {
         super(

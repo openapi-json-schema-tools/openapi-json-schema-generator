@@ -1,0 +1,26 @@
+package {{{packageName}}}.configurations;
+
+{{#if hasServers}}
+    {{#each servers}}
+import {{packageName}}.servers.{{jsonPathPiece.pascalCase}};
+    {{/each}}
+    {{#each paths}}
+        {{#if servers}}
+            {{#each servers}}
+import {{packageName}}.paths.{{../@key.snakeCase}}.servers.{{jsonPathPiece.pascalCase}};
+            {{/each}}
+        {{/if}}
+        {{#if operations}}
+            {{#each operations}}
+                {{#if servers}}
+                    {{#each servers}}
+import {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers.{{jsonPathPiece.pascalCase}};
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+
+public record ApiConfiguration() {
+}

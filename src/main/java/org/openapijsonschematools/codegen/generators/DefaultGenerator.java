@@ -4806,7 +4806,7 @@ public class DefaultGenerator implements Generator {
             case "paths":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                snakeCaseName = toPathFilename(usedKey, sourceJsonPath);
                 pascalCaseName = camelize(toPathFilename(usedKey, null));
                 break;
             case "misc":
