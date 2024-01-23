@@ -6,13 +6,6 @@ commands: # a reusable command with parameters
         default: "unset"
         type: string
     steps:
-      # Restore the dependency cache
-      - restore_cache:
-          keys:
-            # Default branch if not
-            - source-v2-{{ .Branch }}-{{ .Revision }}
-            - source-v2-{{ .Branch }}-
-            - source-v2-
       # The following `checkout` command checks out your code to your working directory. In 1.0 we did this implicitly. In 2.0 you can choose where in the course of a job your code should be checked out.
       - checkout
       # Prepare for artifact and test results  collection equivalent to how it was done on 1.0.
@@ -27,20 +20,6 @@ commands: # a reusable command with parameters
           name: "Setup custom environment variables"
           command: echo 'export CIRCLE_JOB_ID="<<parameters.jobId>>"' >> $BASH_ENV
       - run: ./.circleci/parallel.sh
-      # Save dependency cache
-      - save_cache:
-          key: source-v2-{{ .Branch }}-{{ .Revision }}
-          paths:
-            # This is a broad list of cache paths to include many possible development environments
-            # You can probably delete some of these entries
-            - ~/.m2
-      # save "default" cache using the key "source-v2-"
-      - save_cache:
-          key: source-v2-
-          paths:
-            # This is a broad list of cache paths to include many possible development environments
-            # You can probably delete some of these entries
-            - ~/.m2
       # Teardown
       #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
       # Save test results
@@ -89,8 +68,15 @@ jobs:
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
+      - restore_cache:
+          keys:
+            - buildCommandLineTool
       - command_build_and_test:
           jobId: "ensureSamplesAndGeneratorDocsUpToDate"
+      - save_cache:
+          key: buildCommandLineTool
+          paths:
+            - ~/.m2
   mvnCleanInstall:
     machine:
       image: ubuntu-2004:202201-02
@@ -100,8 +86,15 @@ jobs:
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
+      - restore_cache:
+          keys:
+            - buildCommandLineTool
       - command_build_and_test:
           jobId: "mvnCleanInstall"
+      - save_cache:
+          key: buildCommandLineTool
+          paths:
+            - ~/.m2
   testPython38ClientSamples:
     docker:
       - image: python:3.8
