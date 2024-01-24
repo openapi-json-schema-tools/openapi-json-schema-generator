@@ -2,9 +2,16 @@
 package {{{packageName}}}.{{subpackage}};
 {{/with}}
 
+{{#each servers}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+{{/each}}
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import java.util.Objects;
+
 public class {{servers.jsonPathPiece.pascalCase}} {
     {{#each servers}}
-    private {{jsonPathPiece.pascalCase}} server{{@index}};
+    final private {{jsonPathPiece.pascalCase}} server{{@index}};
     {{/each}}
 
     public {{servers.jsonPathPiece.pascalCase}}() {
@@ -12,4 +19,15 @@ public class {{servers.jsonPathPiece.pascalCase}} {
         server{{@index}} = new {{jsonPathPiece.pascalCase}}();
     {{/each}}
     }
+
+    public {{servers.jsonPathPiece.pascalCase}}(
+        {{#each servers}}
+        @Nullable {{jsonPathPiece.pascalCase}} server{{@index}}{{#unless @last}},{{/unless}}
+        {{/each}}
+    ) {
+    {{#each servers}}
+        this.server{{@index}} = Objects.requireNonNullElseGet(server{{@index}}, {{jsonPathPiece.pascalCase}}::new);
+    {{/each}}
+    }
+
 }
