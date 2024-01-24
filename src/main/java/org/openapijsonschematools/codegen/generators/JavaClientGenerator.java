@@ -120,8 +120,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     protected void updateServersFilepath(String[] pathPieces) {
         if (pathPieces.length == 2) {
             // #/servers
-            pathPieces[1] = "Servers";
-            return;
+            pathPieces[1] = "ServerInfo";
         } else if (pathPieces.length == 3) {
             // #/servers/0
             String jsonPath = "#/servers/" + pathPieces[2];
@@ -137,26 +136,32 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getPascalCaseServer(String basename, String jsonPath) {
         if (jsonPath != null) {
             String[] pathPieces = jsonPath.split("/");
-            if (jsonPath.equals("#/servers")) {
-                return "Servers";
-            } else if (jsonPath.startsWith("#/servers/") && pathPieces.length == 3) {
-                return "Server"+pathPieces[2];
-            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 4) {
-                // #/paths/somePath/servers
+            if (jsonPath.startsWith("#/servers")) {
+                if (pathPieces.length == 2) {
+                    // #/servers
+                    return "ServerInfo";
+                } else {
+                    // #/servers/0
+                    return "Server"+pathPieces[2];
+                }
+            } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 4 && pathPieces[3].equals("servers")) {
                 CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
-                return pathKey.pascalCase + "Servers";
-            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 5) {
-                // #/paths/somePath/servers/0
+                if (pathPieces.length == 4) {
+                    // #/paths/somePath/servers
+                    return pathKey.pascalCase + "ServerInfo";
+                } else {
+                    // #/paths/somePath/servers/0
+                    return pathKey.pascalCase + "Server"+ pathPieces[4];
+                }
+            } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 5 && pathPieces[4].equals("servers")) {
                 CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
-                return pathKey.pascalCase + "Server"+ pathPieces[4];
-            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 5) {
-                // #/paths/somePath/get/servers
-                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
-                return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Servers";
-            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 6) {
-                // #/paths/somePath/get/servers/0
-                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
-                return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Server"+ pathPieces[5];
+                if (pathPieces.length == 5) {
+                    // #/paths/somePath/get/servers
+                    return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "ServerInfo";
+                } else {
+                    // #/paths/somePath/get/servers/0
+                    return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Server" + pathPieces[5];
+                }
             }
         }
         return "Server" + basename;
@@ -2356,6 +2361,15 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         List<Server> servers = openAPI.getServers();
         if (servers != null && !servers.isEmpty()) {
             supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/servers/Server.hbs",
+                    packagePath() + File.separatorChar + "servers",
+                    "Server.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/servers/ServerProvider.hbs",
+                    packagePath() + File.separatorChar + "servers",
+                    "ServerProvider.java"));
+
+            supportingFiles.add(new SupportingFile(
                     "src/main/java/packagename/servers/ServerWithoutVariables.hbs",
                     packagePath() + File.separatorChar + "servers",
                     "ServerWithoutVariables.java"));
@@ -2367,13 +2381,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
                     new HashMap<>() {{
-                        put("src/main/java/packagename/servers/Server.hbs", ".java");
+                        put("src/main/java/packagename/servers/ServerN.hbs", ".java");
                     }}
             );
             jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
                     new HashMap<>() {{
-                        put("src/main/java/packagename/servers/Servers.hbs", ".java");
+                        put("src/main/java/packagename/servers/ServerInfo.hbs", ".java");
                     }}
             );
             jsonPathDocTemplateFiles.put(

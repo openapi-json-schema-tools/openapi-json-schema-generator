@@ -25,6 +25,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRespon
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.common.ModelUtils;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -608,11 +609,11 @@ public class DefaultGeneratorRunnerTest {
         generator.opts(opts);
         generator.configureGeneratorProperties();
 
-        List<CodegenServer> servers = config.fromServers(openAPI.getServers(), "#/servers");
+        CodegenServers servers = config.fromServers(openAPI.getServers(), "#/servers");
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(
                 null, null, null, null, null, null, servers, null, null);
-        LinkedList<CodegenServer> bundleServers = (LinkedList<CodegenServer>) bundle.get("servers");
+        CodegenServers bundleServers = (CodegenServers) bundle.get("servers");
         Assert.assertEquals(bundleServers.get(0).url, "");
         Assert.assertEquals(bundleServers.get(1).url, "http://trailingshlash.io:80/v1");
         Assert.assertEquals(bundleServers.get(2).url, "http://notrailingslash.io:80/v2");
@@ -634,11 +635,11 @@ public class DefaultGeneratorRunnerTest {
 
         List<File> files = new ArrayList<>();
 
-        List<CodegenServer> servers = config.fromServers(openAPI.getServers(), "#/servers");
+        CodegenServers servers = config.fromServers(openAPI.getServers(), "#/servers");
         Map<String, Object> bundle = generator.buildSupportFileBundle(
                 null, null, null, null, null, null, servers, null, null);
 
-        LinkedList<CodegenServer> bundleServers = (LinkedList<CodegenServer>) bundle.get("servers");
+        CodegenServers bundleServers = (CodegenServers) bundle.get("servers");
         Assert.assertEquals(bundleServers.get(0).url, "/relative/url");
     }
 
