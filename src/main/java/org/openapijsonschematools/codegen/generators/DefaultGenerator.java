@@ -43,14 +43,9 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.ParameterFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.ArrayListWithContext;
@@ -3804,16 +3799,16 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 4) {
             return;
         }
-        if (pathPieces.length < 5) {
-            return;
-        }
         Set<String> xParameters = new HashSet<>();
         xParameters.add("PathParameters");
         xParameters.add("QueryParameters");
         xParameters.add("HeaderParameters");
         xParameters.add("CookieParameters");
         if (pathPieces[3].equals("servers")) {
-            if (pathPieces.length == 5) {
+            if (pathPieces.length == 4) {
+                // #/paths/somePath/servers
+                pathPieces[3] = toServerFilename("s", jsonPath);
+            } else if (pathPieces.length == 5) {
                 // #/paths/somePath/servers/0
                 pathPieces[4] = toServerFilename(pathPieces[4], jsonPath);
             } else {
@@ -3821,6 +3816,7 @@ public class DefaultGenerator implements Generator {
                 pathPieces[4] = "server" + pathPieces[4];
                 pathPieces[5] = "Variables";
             }
+            return;
         } else if (pathPieces[3].equals("parameters")) {
             // #/paths/somePath/parameters/0
             pathPieces[4] = toParameterFilename(pathPieces[4], null);
@@ -3837,19 +3833,23 @@ public class DefaultGenerator implements Generator {
                 pathPieces[5] = getSchemaFilename(jsonPath);
                 return;
             }
-        } else if (pathPieces[4].equals("requestBody")) {
+        } else if (pathPieces.length == 4) {
+            // #/paths/SomePath/get
+            return;
+        }
+        if (pathPieces[4].equals("requestBody")) {
             // #/paths/somePath/get/requestBody
             pathPieces[4] = requestBodyIdentifier;
-        } else if (xParameters.contains(pathPieces[4])) {
+        }
+        if (xParameters.contains(pathPieces[4])) {
             // #/paths/somePath/get/PathParameters
             // synthetic jsonPath
             pathPieces[4] = getSchemaFilename(jsonPath);
-        }
-        if (pathPieces.length < 6) {
-            return;
-        }
-        if (pathPieces[4].equals("servers")) {
-            if (pathPieces.length == 6) {
+        } else if (pathPieces[4].equals("servers")) {
+            if (pathPieces.length == 5) {
+                // #/paths/somePath/get/servers
+                pathPieces[4] = toServerFilename("s", jsonPath);
+            } else if (pathPieces.length == 6) {
                 // #/paths/somePath/get/servers/0
                 pathPieces[5] = toServerFilename(pathPieces[5], jsonPath);
             } else {
@@ -3923,7 +3923,7 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private void updateServersFilepath(String[] pathPieces) {
+    protected void updateServersFilepath(String[] pathPieces) {
         if (pathPieces.length == 2) {
             // #/servers
             return;
@@ -5045,7 +5045,7 @@ public class DefaultGenerator implements Generator {
             // sort them
             operations = new TreeMap<>(operations);
         List<Server> specServers = pathItem.getServers();
-        List<CodegenServer> servers = fromServers(specServers, jsonPath + "/servers");
+        ArrayListWithContext<CodegenServer> servers = fromServers(specServers, jsonPath + "/servers");
 
         return new CodegenPathItem(
                 summary,
@@ -5057,11 +5057,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public List<CodegenServer> fromServers(List<Server> servers, String jsonPath) {
+    public ArrayListWithContext<CodegenServer> fromServers(List<Server> servers, String jsonPath) {
         if (servers == null) {
             return null;
         }
-        List<CodegenServer> codegenServers = new LinkedList<>();
+        ArrayListWithContext<CodegenServer> codegenServers = new ArrayListWithContext<>();
         int i = 0;
         boolean rootServer = jsonPath.equals("#/servers");
         for (Server server : servers) {
@@ -5080,6 +5080,8 @@ public class DefaultGenerator implements Generator {
             codegenServers.add(cs);
             i ++;
         }
+        CodegenKey serversJsonPathPiece = getKey("s", "servers", jsonPath);
+        codegenServers.setJsonPathPiece(serversJsonPathPiece);
         return codegenServers;
     }
 

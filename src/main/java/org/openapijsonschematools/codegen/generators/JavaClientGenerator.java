@@ -117,16 +117,42 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return usedName.toLowerCase(Locale.ROOT);
     }
 
+    protected void updateServersFilepath(String[] pathPieces) {
+        if (pathPieces.length == 2) {
+            // #/servers
+            pathPieces[1] = "Servers";
+            return;
+        } else if (pathPieces.length == 3) {
+            // #/servers/0
+            String jsonPath = "#/servers/" + pathPieces[2];
+            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
+        } else {
+            // #/servers/0/variables
+            pathPieces[2] = toServerFilename(pathPieces[2], null).toLowerCase(Locale.ROOT);
+            pathPieces[3] = "Variables";
+        }
+    }
+
     @Override
     public String getPascalCaseServer(String basename, String jsonPath) {
         if (jsonPath != null) {
             String[] pathPieces = jsonPath.split("/");
-            if (jsonPath.startsWith("#/servers/")) {
+            if (jsonPath.equals("#/servers")) {
+                return "Servers";
+            } else if (jsonPath.startsWith("#/servers/") && pathPieces.length == 3) {
                 return "Server"+pathPieces[2];
+            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 4) {
+                // #/paths/somePath/servers
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+                return pathKey.pascalCase + "Servers";
             } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 5) {
                 // #/paths/somePath/servers/0
                 CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
                 return pathKey.pascalCase + "Server"+ pathPieces[4];
+            } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 5) {
+                // #/paths/somePath/get/servers
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+                return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "Servers";
             } else if (jsonPath.startsWith("#/paths") && pathPieces.length == 6) {
                 // #/paths/somePath/get/servers/0
                 CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
@@ -2342,6 +2368,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
                     new HashMap<>() {{
                         put("src/main/java/packagename/servers/Server.hbs", ".java");
+                    }}
+            );
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/servers/Servers.hbs", ".java");
                     }}
             );
             jsonPathDocTemplateFiles.put(

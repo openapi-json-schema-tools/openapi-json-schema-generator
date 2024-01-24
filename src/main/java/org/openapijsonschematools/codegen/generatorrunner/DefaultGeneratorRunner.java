@@ -1391,7 +1391,10 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (servers == null && servers.isEmpty()) {
             return;
         }
-        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, null, true);
+        Map<String, Object> serversTemplateData = new HashMap<>();
+        serversTemplateData.put("packageName", generator.packageName());
+        serversTemplateData.put("servers", servers);
+        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS, CodegenConstants.SERVERS, serversTemplateData, true);
 
         int i = 0;
         for (CodegenServer server: servers) {

@@ -1,0 +1,15 @@
+{{#with servers.0}}
+package {{{packageName}}}.{{subpackage}};
+{{/with}}
+
+public class {{servers.jsonPathPiece.pascalCase}} {
+    {{#each servers}}
+    private {{jsonPathPiece.pascalCase}} server{{@index}};
+    {{/each}}
+
+    public {{servers.jsonPathPiece.pascalCase}}() {
+    {{#each servers}}
+        server{{@index}} = new {{jsonPathPiece.pascalCase}}();
+    {{/each}}
+    }
+}
