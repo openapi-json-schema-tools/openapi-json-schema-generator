@@ -3917,6 +3917,7 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
                 pathPieces[6] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 8) {
+                    // #/paths/somePath/get/requestBody/content/application-json/schema
                     pathPieces[7] = getSchemaFilename(jsonPath);
                 }
             }
