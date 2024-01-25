@@ -761,6 +761,8 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationDat
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMetadata.java
 src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeyInLocation.java
 src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeySecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/HttpBasicSecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/HttpBearerSecurityScheme.java
 src/main/java/org/openapijsonschematools/client/securityschemes/SecurityScheme.java
 src/main/java/org/openapijsonschematools/client/servers/Server.java
 src/main/java/org/openapijsonschematools/client/servers/Server0.java

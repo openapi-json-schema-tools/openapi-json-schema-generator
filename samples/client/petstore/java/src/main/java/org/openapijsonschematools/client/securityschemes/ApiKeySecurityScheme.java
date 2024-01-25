@@ -37,7 +37,7 @@ public class ApiKeySecurityScheme implements SecurityScheme {
                 List<String> headerValue = headers.getOrDefault(name, new ArrayList<>());
                 headerValue.add(apiKey);
             }
-            case QUERY -> throw new UnsupportedOperationException();
+            case QUERY -> throw new UnsupportedOperationException("If you need this, submit a PR adding this feature");
         }
     }
 }

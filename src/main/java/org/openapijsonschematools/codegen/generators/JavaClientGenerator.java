@@ -2373,6 +2373,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     "src/main/java/packagename/securityschemes/ApiKeySecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "ApiKeySecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/HttpBasicSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "HttpBasicSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/HttpBearerSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "HttpBearerSecurityScheme.java"));
         }
         List<Server> servers = openAPI.getServers();
         if (servers != null && !servers.isEmpty()) {
