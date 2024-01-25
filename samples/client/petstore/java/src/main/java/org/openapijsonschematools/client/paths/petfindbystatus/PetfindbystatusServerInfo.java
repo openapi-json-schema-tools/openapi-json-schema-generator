@@ -1,5 +1,6 @@
-package org.openapijsonschematools.client;
+package org.openapijsonschematools.client.paths.petfindbystatus;
 
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer0;
 import org.openapijsonschematools.client.paths.petfindbystatus.servers.PetfindbystatusServer1;
 import org.openapijsonschematools.client.servers.Server;
@@ -62,7 +63,10 @@ public class PetfindbystatusServerInfo implements ServerProvider<Petfindbystatus
         }
 
         public Server get(ServerIndex serverIndex) {
-            return servers.get(serverIndex);
+            if (servers.containsKey(serverIndex)) {
+                return get(serverIndex);
+            }
+            throw new UnsetPropertyException(serverIndex+" is unset");
         }
     }
 
@@ -71,7 +75,7 @@ public class PetfindbystatusServerInfo implements ServerProvider<Petfindbystatus
         SERVER_1
     }
 
-    public Server get(@Nullable ServerIndex serverIndex) {
+    public Server getServer(@Nullable ServerIndex serverIndex) {
         if (serverIndex == null) {
             return servers.get(this.serverIndex);
         }

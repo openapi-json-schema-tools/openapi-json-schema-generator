@@ -144,6 +144,7 @@ docs/components/schemas/UuidFormat.md
 docs/components/schemas/ValidateAgainstCorrectBranchThenVsElse.md
 docs/servers/Server0.md
 pom.xml
+src/main/java/org/openapijsonschematools/client/RootServerInfo.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ASchemaGivenForPrefixitems.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalItemsAreAllowedByDefault.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AdditionalpropertiesAreAllowedByDefault.java
@@ -287,6 +288,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/UriReferenceF
 src/main/java/org/openapijsonschematools/client/components/schemas/UriTemplateFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/UuidFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ValidateAgainstCorrectBranchThenVsElse.java
+src/main/java/org/openapijsonschematools/client/configurations/ApiConfiguration.java
 src/main/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/client/configurations/SchemaConfiguration.java
 src/main/java/org/openapijsonschematools/client/exceptions/BaseException.java
@@ -389,7 +391,9 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsVa
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationData.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMetadata.java
+src/main/java/org/openapijsonschematools/client/servers/Server.java
 src/main/java/org/openapijsonschematools/client/servers/Server0.java
+src/main/java/org/openapijsonschematools/client/servers/ServerProvider.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java

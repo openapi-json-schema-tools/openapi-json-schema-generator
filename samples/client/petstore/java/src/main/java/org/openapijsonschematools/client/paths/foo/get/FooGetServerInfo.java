@@ -1,5 +1,6 @@
-package org.openapijsonschematools.client;
+package org.openapijsonschematools.client.paths.foo.get;
 
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer0;
 import org.openapijsonschematools.client.paths.foo.get.servers.FooGetServer1;
 import org.openapijsonschematools.client.servers.Server;
@@ -62,7 +63,10 @@ public class FooGetServerInfo implements ServerProvider<FooGetServerInfo.ServerI
         }
 
         public Server get(ServerIndex serverIndex) {
-            return servers.get(serverIndex);
+            if (servers.containsKey(serverIndex)) {
+                return get(serverIndex);
+            }
+            throw new UnsetPropertyException(serverIndex+" is unset");
         }
     }
 
@@ -71,7 +75,7 @@ public class FooGetServerInfo implements ServerProvider<FooGetServerInfo.ServerI
         SERVER_1
     }
 
-    public Server get(@Nullable ServerIndex serverIndex) {
+    public Server getServer(@Nullable ServerIndex serverIndex) {
         if (serverIndex == null) {
             return servers.get(this.serverIndex);
         }

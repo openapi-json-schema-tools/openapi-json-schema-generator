@@ -51,6 +51,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.templating.DryRunTemplateManager;
@@ -1316,7 +1317,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             TreeMap<String, CodegenHeader> headers,
             TreeMap<String, CodegenParameter> parameters,
             TreeMap<String, CodegenSecurityScheme> securitySchemes,
-            List<CodegenServer> servers,
+            CodegenServers servers,
             TreeMap<CodegenKey, CodegenPathItem> paths,
             List<HashMap<String, CodegenSecurityRequirementValue>> security) {
 
@@ -1324,30 +1325,31 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         bundle.put("apiPackage", generator.apiPackage());
 
         URL url = URLPathUtils.getServerURL(openAPI, null);
+        List<CodegenServers> allServers = new ArrayList<>();
         boolean hasServers = false;
         if (servers != null) {
+            allServers.add(servers);
             hasServers = true;
-        } else if (paths != null) {
+        }
+        if (paths != null) {
             for (CodegenPathItem pathItem: paths.values()) {
                 if (pathItem.servers != null) {
+                    allServers.add(pathItem.servers);
                     hasServers = true;
-                    break;
                 }
                 if (pathItem.operations != null) {
                     for (CodegenOperation operation: pathItem.operations.values()) {
                         if (operation.servers != null) {
+                            allServers.add(operation.servers);
                             hasServers = true;
-                            break;
                         }
-                    }
-                    if (hasServers) {
-                        break;
                     }
                 }
             }
         }
 
         bundle.put("openAPI", openAPI);
+        bundle.put("allServers", allServers);
         bundle.put("scheme", URLPathUtils.getScheme(url, generator));
         bundle.put("contextPath", contextPath);
         bundle.put("requestBodies", requestBodies);
@@ -1519,7 +1521,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         // servers
         String serversJsonPath = "#/servers";
-        List<CodegenServer> servers = generator.fromServers(openAPI.getServers(), serversJsonPath);
+        CodegenServers servers = generator.fromServers(openAPI.getServers(), serversJsonPath);
         // paths
         TreeMap<CodegenKey, CodegenPathItem> paths = generator.fromPaths(openAPI.getPaths());
         generatePaths(files, paths, servers, security);

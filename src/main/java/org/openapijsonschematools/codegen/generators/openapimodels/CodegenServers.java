@@ -10,12 +10,12 @@ import java.util.List;
 public class CodegenServers extends AbstractList<CodegenServer> {
     public final List<CodegenServer> servers;
     public final CodegenKey jsonPathPiece;
-    public final String subPackage;
+    public final String subpackage;
 
-    public CodegenServers(List<CodegenServer> servers, CodegenKey jsonPathPiece, String subPackage) {
+    public CodegenServers(List<CodegenServer> servers, CodegenKey jsonPathPiece, String subpackage) {
         this.servers = servers;
         this.jsonPathPiece = jsonPathPiece;
-        this.subPackage = subPackage;
+        this.subpackage = subpackage;
     }
 
     @Override

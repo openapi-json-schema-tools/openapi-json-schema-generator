@@ -1,15 +1,9 @@
-{{#if servers.subpackage}}
-package {{{packageName}}}.{{servers.subpackage}};
-{{else}}
-package {{{packageName}}};
-{{/if}}
+package org.openapijsonschematools.client;
 
-import {{{packageName}}}.exceptions.UnsetPropertyException;
-{{#each servers}}
-import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
-{{/each}}
-import {{{packageName}}}.servers.Server;
-import {{{packageName}}}.servers.ServerProvider;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
+import org.openapijsonschematools.client.servers.Server0;
+import org.openapijsonschematools.client.servers.Server;
+import org.openapijsonschematools.client.servers.ServerProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.AbstractMap;
@@ -17,16 +11,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.EnumMap;
 
-public class {{servers.jsonPathPiece.pascalCase}} implements ServerProvider<{{servers.jsonPathPiece.pascalCase}}.ServerIndex> {
+public class RootServerInfo implements ServerProvider<RootServerInfo.ServerIndex> {
     final private Servers servers;
     final private ServerIndex serverIndex;
 
-    public {{servers.jsonPathPiece.pascalCase}}() {
+    public RootServerInfo() {
         this.servers = new Servers();
         this.serverIndex = ServerIndex.SERVER_0;
     }
 
-    public {{servers.jsonPathPiece.pascalCase}}(Servers servers, ServerIndex serverIndex) {
+    public RootServerInfo(Servers servers, ServerIndex serverIndex) {
         this.servers = servers;
         this.serverIndex = serverIndex;
     }
@@ -37,29 +31,23 @@ public class {{servers.jsonPathPiece.pascalCase}} implements ServerProvider<{{se
         public Servers() {
             servers = new EnumMap<>(
                 Map.ofEntries(
-    {{#each servers}}
                     new AbstractMap.SimpleEntry<>(
-                        ServerIndex.SERVER_{{@index}},
-                        new {{jsonPathPiece.pascalCase}}()
-                    ){{#unless @last}},{{/unless}}
-    {{/each}}
+                        ServerIndex.SERVER_0,
+                        new Server0()
+                    )
                 )
             );
         }
 
         public Servers(
-        {{#each servers}}
-            @Nullable {{jsonPathPiece.pascalCase}} server{{@index}}{{#unless @last}},{{/unless}}
-        {{/each}}
+            @Nullable Server0 server0
         ) {
             servers = new EnumMap<>(
                 Map.ofEntries(
-    {{#each servers}}
                     new AbstractMap.SimpleEntry<>(
-                        ServerIndex.SERVER_{{@index}},
-                        Objects.requireNonNullElseGet(server{{@index}}, {{jsonPathPiece.pascalCase}}::new)
-                    ){{#unless @last}},{{/unless}}
-    {{/each}}
+                        ServerIndex.SERVER_0,
+                        Objects.requireNonNullElseGet(server0, Server0::new)
+                    )
                 )
             );
         }
@@ -73,9 +61,7 @@ public class {{servers.jsonPathPiece.pascalCase}} implements ServerProvider<{{se
     }
 
     public enum ServerIndex {
-        {{#each servers}}
-        SERVER_{{@index}}{{#unless @last}},{{/unless}}
-        {{/each}}
+        SERVER_0
     }
 
     public Server getServer(@Nullable ServerIndex serverIndex) {

@@ -1,26 +1,53 @@
 package {{{packageName}}}.configurations;
 
-{{#if hasServers}}
-    {{#each servers}}
-import {{packageName}}.servers.{{jsonPathPiece.pascalCase}};
-    {{/each}}
-    {{#each paths}}
-        {{#if servers}}
-            {{#each servers}}
-import {{packageName}}.paths.{{../@key.snakeCase}}.servers.{{jsonPathPiece.pascalCase}};
-            {{/each}}
-        {{/if}}
-        {{#if operations}}
-            {{#each operations}}
-                {{#if servers}}
-                    {{#each servers}}
-import {{packageName}}.paths.{{../../@key.snakeCase}}.{{../@key.original}}.servers.{{jsonPathPiece.pascalCase}};
-                    {{/each}}
-                {{/if}}
-            {{/each}}
-        {{/if}}
-    {{/each}}
-{{/if}}
+import {{{packageName}}}.servers.Server;
+{{#each allServers}}
+    {{#if subpackage}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{else}}
+import {{packageName}}.{{jsonPathPiece.pascalCase}};
+    {{/if}}
+{{/each}}
+import org.checkerframework.checker.nullness.qual.Nullable;
 
-public record ApiConfiguration() {
+import java.util.Objects;
+
+public class ApiConfiguration {
+    private final ServerInfo serverInfo;
+
+    public ApiConfiguration() {
+        serverInfo = new ServerInfo();
+    }
+
+    public ApiConfiguration(ServerInfo serverInfo) {
+        this.serverInfo = serverInfo;
+    }
+
+    public static class ServerInfo {
+    {{#each allServers}}
+        protected final {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}};
+    {{/each}}
+
+        public ServerInfo() {
+    {{#each allServers}}
+            {{jsonPathPiece.camelCase}} = new {{jsonPathPiece.pascalCase}}();
+    {{/each}}
+        }
+
+        public ServerInfo(
+    {{#each allServers}}
+            @Nullable {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
+    {{/each}}
+        ) {
+    {{#each allServers}}
+            this.{{jsonPathPiece.camelCase}} = Objects.requireNonNullElseGet({{jsonPathPiece.camelCase}}, {{jsonPathPiece.pascalCase}}::new);
+    {{/each}}
+        }
+    }
+
+    {{#each allServers}}
+    public Server getServer({{jsonPathPiece.pascalCase}}. @Nullable ServerIndex serverIndex) {
+        return serverInfo.{{jsonPathPiece.camelCase}}.getServer(serverIndex);
+    }
+    {{/each}}
 }

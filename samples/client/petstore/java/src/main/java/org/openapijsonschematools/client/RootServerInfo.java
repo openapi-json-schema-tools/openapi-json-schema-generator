@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client;
 
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.servers.Server0;
 import org.openapijsonschematools.client.servers.Server1;
 import org.openapijsonschematools.client.servers.Server2;
@@ -12,16 +13,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.EnumMap;
 
-public class ServerInfo implements ServerProvider<ServerInfo.ServerIndex> {
+public class RootServerInfo implements ServerProvider<RootServerInfo.ServerIndex> {
     final private Servers servers;
     final private ServerIndex serverIndex;
 
-    public ServerInfo() {
+    public RootServerInfo() {
         this.servers = new Servers();
         this.serverIndex = ServerIndex.SERVER_0;
     }
 
-    public ServerInfo(Servers servers, ServerIndex serverIndex) {
+    public RootServerInfo(Servers servers, ServerIndex serverIndex) {
         this.servers = servers;
         this.serverIndex = serverIndex;
     }
@@ -72,7 +73,10 @@ public class ServerInfo implements ServerProvider<ServerInfo.ServerIndex> {
         }
 
         public Server get(ServerIndex serverIndex) {
-            return servers.get(serverIndex);
+            if (servers.containsKey(serverIndex)) {
+                return get(serverIndex);
+            }
+            throw new UnsetPropertyException(serverIndex+" is unset");
         }
     }
 
@@ -82,7 +86,7 @@ public class ServerInfo implements ServerProvider<ServerInfo.ServerIndex> {
         SERVER_2
     }
 
-    public Server get(@Nullable ServerIndex serverIndex) {
+    public Server getServer(@Nullable ServerIndex serverIndex) {
         if (serverIndex == null) {
             return servers.get(this.serverIndex);
         }

@@ -3819,6 +3819,10 @@ public class DefaultGenerator implements Generator {
             }
             return;
         } else if (pathPieces[3].equals("parameters")) {
+            if (pathPieces.length == 4) {
+                // #/paths/somePath/parameters
+                return;
+            }
             // #/paths/somePath/parameters/0
             pathPieces[4] = toParameterFilename(pathPieces[4], null);
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
@@ -3858,10 +3862,14 @@ public class DefaultGenerator implements Generator {
                 pathPieces[5] = "server" + pathPieces[5];
                 pathPieces[6] = "Variables";
             }
-        } else if (pathPieces[4].equals("security")) {
+        } else if (pathPieces[4].equals("security") && pathPieces.length > 5) {
             // #/paths/somePath/get/security/0
             pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], null);
         } else if (pathPieces[4].equals("responses")) {
+            if (pathPieces.length < 6) {
+                // #/paths/user_login/get/responses -> length 5
+                return;
+            }
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             String responseJsonPath = "#/paths/" + path + "/" + pathPieces[3] + "/responses/" +  pathPieces[5];
             pathPieces[5] = toResponseModuleName(pathPieces[5], responseJsonPath);
@@ -3898,6 +3906,9 @@ public class DefaultGenerator implements Generator {
                 }
             }
         } else if (pathPieces[4].equals("parameters")) {
+            if (pathPieces.length == 5) {
+                return;
+            }
             // #/paths/somePath/get/parameters/0 -> length 6
             pathPieces[5] = toParameterFilename(pathPieces[5], null);
 
@@ -4855,6 +4866,7 @@ public class DefaultGenerator implements Generator {
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCaseServer(usedKey, sourceJsonPath);
+                camelCaseName = camelize(pascalCaseName, true);
                 break;
         }
         if (pascalCaseName != null) {
@@ -5084,10 +5096,11 @@ public class DefaultGenerator implements Generator {
             codegenServers.add(cs);
         }
         CodegenKey jsonPathPiece = getKey("s", "servers", jsonPath);
+        String serversSubpackage = getSubpackage(jsonPath);
         return new CodegenServers(
                 codegenServers,
                 jsonPathPiece,
-                getSubpackage(jsonPath)
+                serversSubpackage
         );
     }
 

@@ -305,7 +305,7 @@ docs/servers/Server0.md
 docs/servers/Server1.md
 docs/servers/Server2.md
 pom.xml
-src/main/java/org/openapijsonschematools/client/ServerInfo.java
+src/main/java/org/openapijsonschematools/client/RootServerInfo.java
 src/main/java/org/openapijsonschematools/client/components/headers/int32jsoncontenttypeheader/content/applicationjson/Int32JsonContentTypeHeaderSchema.java
 src/main/java/org/openapijsonschematools/client/components/headers/numberheader/NumberHeaderSchema.java
 src/main/java/org/openapijsonschematools/client/components/headers/refcontentschemaheader/content/applicationjson/RefContentSchemaHeaderSchema.java

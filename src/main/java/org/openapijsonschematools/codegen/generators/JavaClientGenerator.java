@@ -120,7 +120,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     protected void updateServersFilepath(String[] pathPieces) {
         if (pathPieces.length == 2) {
             // #/servers
-            pathPieces[1] = "ServerInfo";
+            pathPieces[1] = "RootServerInfo";
         } else if (pathPieces.length == 3) {
             // #/servers/0
             String jsonPath = "#/servers/" + pathPieces[2];
@@ -139,7 +139,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             if (jsonPath.startsWith("#/servers")) {
                 if (pathPieces.length == 2) {
                     // #/servers
-                    return "ServerInfo";
+                    return "RootServerInfo";
                 } else {
                     // #/servers/0
                     return "Server"+pathPieces[2];
