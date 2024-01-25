@@ -36,7 +36,9 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.ArrayListWithContext;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
@@ -157,7 +159,7 @@ public interface Generator {
 
     CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath);
 
-    List<CodegenServer> fromServers(List<Server> servers, String jsonPath);
+    CodegenServers fromServers(List<Server> servers, String jsonPath);
 
     CodegenSchema fromServerVariables(Map<String, ServerVariable> variables, String jsonPath);
 

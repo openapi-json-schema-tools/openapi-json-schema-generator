@@ -1,0 +1,87 @@
+{{#if servers.subpackage}}
+package {{{packageName}}}.{{servers.subpackage}};
+{{else}}
+package {{{packageName}}};
+{{/if}}
+
+import {{{packageName}}}.exceptions.UnsetPropertyException;
+{{#each servers}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+{{/each}}
+import {{{packageName}}}.servers.Server;
+import {{{packageName}}}.servers.ServerProvider;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.EnumMap;
+
+public class {{servers.jsonPathPiece.pascalCase}} implements ServerProvider<{{servers.jsonPathPiece.pascalCase}}.ServerIndex> {
+    final private Servers servers;
+    final private ServerIndex serverIndex;
+
+    public {{servers.jsonPathPiece.pascalCase}}() {
+        this.servers = new Servers();
+        this.serverIndex = ServerIndex.SERVER_0;
+    }
+
+    public {{servers.jsonPathPiece.pascalCase}}(Servers servers, ServerIndex serverIndex) {
+        this.servers = servers;
+        this.serverIndex = serverIndex;
+    }
+
+    public static class Servers {
+        private final EnumMap<ServerIndex, Server> servers;
+
+        public Servers() {
+            servers = new EnumMap<>(
+                Map.ofEntries(
+    {{#each servers}}
+                    new AbstractMap.SimpleEntry<>(
+                        ServerIndex.SERVER_{{@index}},
+                        new {{jsonPathPiece.pascalCase}}()
+                    ){{#unless @last}},{{/unless}}
+    {{/each}}
+                )
+            );
+        }
+
+        public Servers(
+        {{#each servers}}
+            @Nullable {{jsonPathPiece.pascalCase}} server{{@index}}{{#unless @last}},{{/unless}}
+        {{/each}}
+        ) {
+            servers = new EnumMap<>(
+                Map.ofEntries(
+    {{#each servers}}
+                    new AbstractMap.SimpleEntry<>(
+                        ServerIndex.SERVER_{{@index}},
+                        Objects.requireNonNullElseGet(server{{@index}}, {{jsonPathPiece.pascalCase}}::new)
+                    ){{#unless @last}},{{/unless}}
+    {{/each}}
+                )
+            );
+        }
+
+        public Server get(ServerIndex serverIndex) {
+            if (servers.containsKey(serverIndex)) {
+                return get(serverIndex);
+            }
+            throw new UnsetPropertyException(serverIndex+" is unset");
+        }
+    }
+
+    public enum ServerIndex {
+        {{#each servers}}
+        SERVER_{{@index}}{{#unless @last}},{{/unless}}
+        {{/each}}
+    }
+
+    public Server getServer(@Nullable ServerIndex serverIndex) {
+        if (serverIndex == null) {
+            return servers.get(this.serverIndex);
+        }
+        return servers.get(serverIndex);
+    }
+}

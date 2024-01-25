@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.paths.petfindbystatus.servers.server1.V
 
 import java.util.AbstractMap;
 
-class PetfindbystatusServer1 extends ServerWithVariables<Variables.VariablesMap> {
+public class PetfindbystatusServer1 extends ServerWithVariables<Variables.VariablesMap> {
 
     public PetfindbystatusServer1() {
         super(

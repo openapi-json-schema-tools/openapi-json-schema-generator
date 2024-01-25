@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.servers.server1.Variables;
 
 import java.util.AbstractMap;
 
-class Server1 extends ServerWithVariables<Variables.VariablesMap> {
+public class Server1 extends ServerWithVariables<Variables.VariablesMap> {
     /*
     The local server
     */

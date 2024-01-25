@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.servers.server0.Variables;
 
 import java.util.AbstractMap;
 
-class Server0 extends ServerWithVariables<Variables.VariablesMap> {
+public class Server0 extends ServerWithVariables<Variables.VariablesMap> {
     /*
     petstore server
     */

@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.servers;
 
 import java.util.Map;
 
-public abstract class ServerWithVariables<T extends Map<String, String>> {
+public abstract class ServerWithVariables<T extends Map<String, String>> implements Server {
     public final String url;
     public final T variables;
 
@@ -12,6 +12,10 @@ public abstract class ServerWithVariables<T extends Map<String, String>> {
             url = url.replace("{" + entry.getKey() + "}", entry.getValue());
         }
         this.url = url;
+    }
+
+    public String url(){
+        return url;
     }
 }
 
