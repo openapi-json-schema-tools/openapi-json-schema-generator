@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen.generators;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.Schema;
@@ -2358,6 +2359,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public void setOpenAPI(OpenAPI openAPI) {
         super.setOpenAPI(openAPI);
+        Components components = openAPI.getComponents();
+        if (components != null && components.getSecuritySchemes() != null) {
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/SecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "SecurityScheme.java"));
+        }
         List<Server> servers = openAPI.getServers();
         if (servers != null && !servers.isEmpty()) {
             supportingFiles.add(new SupportingFile(
