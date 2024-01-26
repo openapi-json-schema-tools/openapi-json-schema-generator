@@ -7,7 +7,7 @@ public class ApiKeyQuery extends ApiKeySecurityScheme {
     /*
     apiKey in query
     */
-    public ApiKeyQuery(String apiKey, String name) {
+    public ApiKeyQuery(String apiKey) {
         super(apiKey, "api_key_query", ApiKeyInLocation.QUERY);
     }
 }

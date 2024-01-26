@@ -45,12 +45,12 @@ public class {{jsonPathPiece.pascalCase}} extends ApiKeySecurityScheme {
     */
             {{/if}}
             {{#eq in "query"}}
-    public {{jsonPathPiece.pascalCase}}(String apiKey, String name) {
+    public {{jsonPathPiece.pascalCase}}(String apiKey) {
         super(apiKey, "{{{name}}}", ApiKeyInLocation.QUERY);
     }
             {{else}}
                 {{#eq in "header"}}
-    public {{jsonPathPiece.pascalCase}}(String apiKey, String name) {
+    public {{jsonPathPiece.pascalCase}}(String apiKey) {
         super(apiKey, "{{{name}}}", ApiKeyInLocation.HEADER);
     }
                 {{else}}
@@ -99,63 +99,7 @@ public class {{jsonPathPiece.pascalCase}} extends OAuth2SecurityScheme {
     {{description.original}}
     */
                         {{/if}}
-    flows = security_schemes.OAuthFlows(
-                        {{#with flows}}
-                            {{#with implicit}}
-        implicit=security_schemes.ImplicitOAuthFlow(
-            authorization_url="{{authorizationUrl}}",
-            scopes={
-                                {{#each scopes}}
-                "{{@key}}": "{{this}}",
-                                {{/each}}
-            },
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}"
-                                {{/if}}
-        )
-                            {{/with}}
-                            {{#with password}}
-        password=security_schemes.TokenUrlOauthFlow(
-            token_url="{{tokenUrl}}",
-            scopes={
-                                {{#each scopes}}
-                "{{@key}}": "{{this}}",
-                                {{/each}}
-            },
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}"
-                                {{/if}}
-        )
-                            {{/with}}
-                            {{#with clientCredentials}}
-        client_credentials=security_schemes.TokenUrlOauthFlow(
-            token_url="{{tokenUrl}}",
-            scopes={
-                                {{#each scopes}}
-                "{{@key}}": "{{this}}",
-                                {{/each}}
-            },
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}",
-                                {{/if}}
-        )
-                            {{/with}}
-                            {{#with authorizationCode}}
-        authorization_code=security_schemes.AuthorizationCodeOauthFlow(
-            authorization_url="{{authorizationUrl}}",
-            token_url="{{tokenUrl}}",
-            scopes={
-                                {{#each scopes}}
-                "{{@key}}": "{{this}}",
-                                {{/each}}
-            },
-                                {{#if refreshUrl}}
-            refresh_url="{{refreshUrl}}"
-                                {{/if}}
-        )
-                            {{/with}}
-                        {{/with}}
-    )
+    // todo add flows info
 }
                     {{else}}
                         {{#eq type "openIdConnect"}}
@@ -166,7 +110,6 @@ class {{jsonPathPiece.pascalCase}}(security_schemes.OpenIdConnectSecurityScheme)
     {{description.original}}
     */
                             {{/if}}
-    openid_connect_url = "{{openIdConnectUrl}}"
 }
                         {{/eq}}
                     {{/eq}}

@@ -7,7 +7,7 @@ public class ApiKey extends ApiKeySecurityScheme {
     /*
     apiKey in header
     */
-    public ApiKey(String apiKey, String name) {
+    public ApiKey(String apiKey) {
         super(apiKey, "api_key", ApiKeyInLocation.HEADER);
     }
 }
