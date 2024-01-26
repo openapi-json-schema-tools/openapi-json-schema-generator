@@ -2381,6 +2381,26 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     "src/main/java/packagename/securityschemes/HttpBearerSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "HttpBearerSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/HttpSignatureSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "HttpSignatureSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/HttpDigestSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "HttpDigestSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/MutualTlsSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "MutualTlsSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/OAuth2SecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "OAuth2SecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/OpenIdConnectSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "OpenIdConnectSecurityScheme.java"));
         }
         List<Server> servers = openAPI.getServers();
         if (servers != null && !servers.isEmpty()) {

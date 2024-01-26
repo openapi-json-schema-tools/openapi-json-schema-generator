@@ -763,6 +763,11 @@ src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeyInLocation
 src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeySecurityScheme.java
 src/main/java/org/openapijsonschematools/client/securityschemes/HttpBasicSecurityScheme.java
 src/main/java/org/openapijsonschematools/client/securityschemes/HttpBearerSecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/HttpDigestSecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/HttpSignatureSecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/MutualTlsSecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/OAuth2SecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/OpenIdConnectSecurityScheme.java
 src/main/java/org/openapijsonschematools/client/securityschemes/SecurityScheme.java
 src/main/java/org/openapijsonschematools/client/servers/Server.java
 src/main/java/org/openapijsonschematools/client/servers/Server0.java
