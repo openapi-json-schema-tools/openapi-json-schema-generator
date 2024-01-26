@@ -12,18 +12,10 @@ public class ApiKeySecurityScheme implements SecurityScheme {
     private final @Nullable String name;
     private final ApiKeyInLocation inLocation;
 
-    private ApiKeySecurityScheme(String apiKey, @Nullable String name, ApiKeyInLocation inLocation) {
+    protected ApiKeySecurityScheme(String apiKey, @Nullable String name, ApiKeyInLocation inLocation) {
         this.apiKey = apiKey;
         this.name = name;
         this.inLocation = inLocation;
-    }
-
-    public static ApiKeySecurityScheme inCookie(String apiKey) {
-        return new ApiKeySecurityScheme(apiKey, null, ApiKeyInLocation.COOKIE);
-    }
-
-    public static ApiKeySecurityScheme inHeader(String apiKey, String name) {
-        return new ApiKeySecurityScheme(apiKey, name, ApiKeyInLocation.HEADER);
     }
 
     @Override

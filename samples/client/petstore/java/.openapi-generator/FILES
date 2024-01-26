@@ -466,6 +466,13 @@ src/main/java/org/openapijsonschematools/client/components/schemas/UUIDString.ja
 src/main/java/org/openapijsonschematools/client/components/schemas/User.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Whale.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Zebra.java
+src/main/java/org/openapijsonschematools/client/components/securityschemes/apikey.java
+src/main/java/org/openapijsonschematools/client/components/securityschemes/apikeyquery.java
+src/main/java/org/openapijsonschematools/client/components/securityschemes/bearertest.java
+src/main/java/org/openapijsonschematools/client/components/securityschemes/httpbasictest.java
+src/main/java/org/openapijsonschematools/client/components/securityschemes/httpsignaturetest.java
+src/main/java/org/openapijsonschematools/client/components/securityschemes/openidconnecttest.java
+src/main/java/org/openapijsonschematools/client/components/securityschemes/petstoreauth.java
 src/main/java/org/openapijsonschematools/client/configurations/ApiConfiguration.java
 src/main/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/client/configurations/SchemaConfiguration.java

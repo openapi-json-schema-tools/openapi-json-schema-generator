@@ -2401,6 +2401,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     "src/main/java/packagename/securityschemes/OpenIdConnectSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "OpenIdConnectSecurityScheme.java"));
+
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/components/securityschemes/SecurityScheme.hbs", ".java");
+                    }}
+            );
         }
         List<Server> servers = openAPI.getServers();
         if (servers != null && !servers.isEmpty()) {

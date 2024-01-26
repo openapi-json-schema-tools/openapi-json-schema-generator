@@ -16,12 +16,12 @@ public class HttpBearerSecurityScheme implements SecurityScheme {
     https://www.rfc-editor.org/rfc/rfc7617.html
      */
 
-    public HttpBearerSecurityScheme(String accessToken, @Nullable String bearerFormat) {
+    protected HttpBearerSecurityScheme(String accessToken, @Nullable String bearerFormat) {
         this.accessToken = accessToken;
         this.bearerFormat = bearerFormat;
     }
 
-    public HttpBearerSecurityScheme(String accessToken) {
+    protected HttpBearerSecurityScheme(String accessToken) {
         this.accessToken = accessToken;
         this.bearerFormat = null;
     }
