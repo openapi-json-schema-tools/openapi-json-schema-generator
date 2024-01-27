@@ -786,6 +786,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
+    public String toSecuritySchemeFilename(String basename, String jsonPath) {
+        return toModelName(basename, jsonPath);
+    }
+
+    @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
         if (jsonPath.startsWith("#/components/responses/")) {
             return toModuleFilename(componentName, jsonPath);
