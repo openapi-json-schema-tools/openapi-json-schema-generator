@@ -173,6 +173,18 @@ allowed input and output types.
     {{/with}}
 {{/each}}
 {{/if}}
+{{#if securitySchemes}}
+
+## Component SecuritySchemes
+
+| Class | Description |
+| ----- | ----------- |
+    {{#each securitySchemes}}
+        {{#with this}}
+| [{{jsonPathPiece.pascalCase}}](docs/components/securitysschemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}} |
+        {{/with}}
+    {{/each}}
+{{/if}}
 {{#if infoEmail}}
 
 ## Author
