@@ -3,7 +3,7 @@
 {{packageName}}.components.security_schemes.{{jsonPathPiece.snakeCase}}
     {{/if}}
     {{#eq identifierPieces.size 0}}
-{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "SecurityScheme" jsonPathPiece) }}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "SecurityScheme" jsonPathPiece) }}
     {{/eq}}
     {{#if description}}
 
@@ -18,7 +18,7 @@
 
 {{headerSize}}# Type
         {{#eq type "apiKey"}}
-security_schemes.SecuritySchemeType.API_KEY
+API_KEY
 
 {{headerSize}}# Name
 "{{name}}"
@@ -30,23 +30,23 @@ str  | Set by the developer
 
 {{headerSize}}# In Location
             {{#eq in "query"}}
-security_schemes.ApiKeyInLocation.QUERY
+ApiKeyInLocation.QUERY
             {{else}}
                 {{#eq in "header"}}
-security_schemes.ApiKeyInLocation.HEADER
+ApiKeyInLocation.HEADER
                 {{else}}
                     {{#eq in "cookie"}}
-security_schemes.ApiKeyInLocation.COOKIE
+ApiKeyInLocation.COOKIE
                     {{/eq}}
                 {{/eq}}
             {{/eq}}
         {{else}}
             {{#eq type "http"}}
-security_schemes.SecuritySchemeType.HTTP
+HTTP
                 {{#eq scheme "basic"}}
 
 {{headerSize}}# Scheme
-security_schemes.HTTPSchemeType.BASIC
+BASIC
 
 {{headerSize}}# user_id
 Type | Notes
@@ -61,7 +61,7 @@ str  | Set by the developer
                     {{#eq scheme "bearer"}}
 
 {{headerSize}}# Scheme
-security_schemes.HTTPSchemeType.BEARER
+BEARER
                         {{#if bearerFormat}}
 
 {{headerSize}}# Bearer Format
@@ -76,12 +76,12 @@ str  | Set by the developer
                         {{#eq scheme "digest"}}
 
 {{headerSize}}# Scheme
-security_schemes.HTTPSchemeType.DIGEST
+DIGEST
                         {{else}}
                             {{#eq scheme "signature"}}
 
 {{headerSize}}# Scheme
-security_schemes.HTTPSchemeType.SIGNATURE
+SIGNATURE
 
 {{headerSize}}# signing_info
 Type | Notes
@@ -93,79 +93,13 @@ Type | Notes
                 {{/eq}}
             {{else}}
                 {{#eq type "mutualTLS"}}
-security_schemes.SecuritySchemeType.MUTUAL_TLS
+MUTUAL_TLS
                 {{else}}
                     {{#eq type "oauth2"}}
-security_schemes.SecuritySchemeType.OAUTH_2
-
-{{headerSize}}# Flows
-                        {{#with flows}}
-                            {{#with implicit}}
-{{headerSize}}# Implicit Flow
-                                {{#if refreshUrl}}
-{{headerSize}}## Refresh Url
-"{{refreshUrl}}"
-                                {{/if}}
-{{headerSize}}## Scopes
-Scope Name | Scope Description
-| -------- | ---------------- |
-                                {{#each scopes}}
-"{{@key}}" | {{this}}
-                                {{/each}}
-{{headerSize}}## Authorization Url
-"{{authorizationUrl}}"
-                            {{/with}}
-                            {{#with password}}
-{{headerSize}}# Password Flow
-                                {{#if refreshUrl}}
-{{headerSize}}## Refresh Url
-"{{refreshUrl}}"
-                                {{/if}}
-{{headerSize}}## Scopes
-Scope Name | Scope Description
-| -------- | ---------------- |
-                                {{#each scopes}}
-"{{@key}}" | {{this}}
-                                {{/each}}
-{{headerSize}}## Token Url
-"{{tokenUrl}}"
-                            {{/with}}
-                            {{#with clientCredentials}}
-{{headerSize}}# ClientCredentials Flow
-                                {{#if refreshUrl}}
-{{headerSize}}## Refresh Url
-"{{refreshUrl}}"
-                                {{/if}}
-{{headerSize}}## Scopes
-Scope Name | Scope Description
-| -------- | ---------------- |
-                                {{#each scopes}}
-"{{@key}}" | {{this}}
-                                {{/each}}
-{{headerSize}}## Token Url
-"{{tokenUrl}}"
-                            {{/with}}
-                            {{#with authorizationCode}}
-{{headerSize}}# AuthorizationCode Flow
-                                {{#if refreshUrl}}
-{{headerSize}}## Refresh Url
-"{{refreshUrl}}"
-                                {{/if}}
-{{headerSize}}## Scopes
-Scope Name | Scope Description
-| -------- | ---------------- |
-                                {{#each scopes}}
-"{{@key}}" | {{this}}
-                                {{/each}}
-{{headerSize}}## Authorization Url
-"{{authorizationUrl}}"
-{{headerSize}}## Token Url
-"{{tokenUrl}}"
-                            {{/with}}
-                        {{/with}}
+OAUTH_2
                     {{else}}
                         {{#eq type "openIdConnect"}}
-security_schemes.SecuritySchemeType.OPENID_CONNECT
+OPENID_CONNECT
 
 {{headerSize}}# OpenIdConnect Url
 "{{openIdConnectUrl}}"
@@ -178,5 +112,5 @@ security_schemes.SecuritySchemeType.OPENID_CONNECT
 
 [[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" securitySchemesLink=true}}
         {{/if}}
-    {{/if}}
+    {{/if}
 {{/with}}

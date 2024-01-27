@@ -2413,6 +2413,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         put("src/main/java/packagename/components/securityschemes/SecurityScheme.hbs", ".java");
                     }}
             );
+            jsonPathDocTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/components/securityschemes/SecurityScheme_doc.hbs", ".md");
+                    }}
+            );
         }
         List<Server> servers = openAPI.getServers();
         if (servers != null && !servers.isEmpty()) {

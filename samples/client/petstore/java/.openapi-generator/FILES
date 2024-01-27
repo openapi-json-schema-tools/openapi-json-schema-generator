@@ -156,6 +156,13 @@ docs/components/schemas/UUIDString.md
 docs/components/schemas/User.md
 docs/components/schemas/Whale.md
 docs/components/schemas/Zebra.md
+docs/components/securityschemes/ApiKey.md
+docs/components/securityschemes/ApiKeyQuery.md
+docs/components/securityschemes/BearerTest.md
+docs/components/securityschemes/HttpBasicTest.md
+docs/components/securityschemes/HttpSignatureTest.md
+docs/components/securityschemes/OpenIdConnectTest.md
+docs/components/securityschemes/PetstoreAuth.md
 docs/paths/anotherfakedummy/patch/responses/response200/content/applicationjson/Schema.md
 docs/paths/commonparamsubdir/delete/parameters/parameter0/Schema0.md
 docs/paths/commonparamsubdir/delete/parameters/parameter1/Schema1.md

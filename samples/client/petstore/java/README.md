@@ -303,10 +303,10 @@ allowed input and output types.
 
 | Class | Description |
 | ----- | ----------- |
-| [ApiKey](docs/components/securitysschemes/ApiKey.md) | apiKey in header |
-| [ApiKeyQuery](docs/components/securitysschemes/ApiKeyQuery.md) | apiKey in query |
-| [BearerTest](docs/components/securitysschemes/BearerTest.md) | http bearer with JWT bearer format |
+| [ApiKey](docs/components/securityschemes/ApiKey.md) | apiKey in header |
+| [ApiKeyQuery](docs/components/securityschemes/ApiKeyQuery.md) | apiKey in query |
+| [BearerTest](docs/components/securityschemes/BearerTest.md) | http bearer with JWT bearer format |
 | [HttpBasicTest](docs/components/securitysschemes/HttpBasicTest.md) | http basic |
-| [HttpSignatureTest](docs/components/securitysschemes/HttpSignatureTest.md) | http + signature |
-| [OpenIdConnectTest](docs/components/securitysschemes/OpenIdConnectTest.md) | openIdConnect |
-| [PetstoreAuth](docs/components/securitysschemes/PetstoreAuth.md) | oauth2 implicit flow with two scopes |
+| [HttpSignatureTest](docs/components/securityschemes/HttpSignatureTest.md) | http + signature |
+| [OpenIdConnectTest](docs/components/securityschemes/OpenIdConnectTest.md) | openIdConnect |
+| [PetstoreAuth](docs/components/securityschemes/PetstoreAuth.md) | oauth2 implicit flow with two scopes |
