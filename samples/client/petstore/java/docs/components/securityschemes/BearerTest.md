@@ -1,7 +1,7 @@
 org.openapijsonschematools.client.components.securityschemes.BearerTest
 # SecurityScheme BearerTest
 
-public class  BearerTest
+public class BearerTest
 extends HttpBearerSecurityScheme
 
 A class that is used to apply auth to a request

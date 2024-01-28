@@ -773,6 +773,8 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsVa
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationData.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMetadata.java
+src/main/java/org/openapijsonschematools/client/securityrequirementobjects/EmptySecurityRequirementObject.java
+src/main/java/org/openapijsonschematools/client/securityrequirementobjects/SecurityRequirementObject.java
 src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeyInLocation.java
 src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeySecurityScheme.java
 src/main/java/org/openapijsonschematools/client/securityschemes/HttpBasicSecurityScheme.java

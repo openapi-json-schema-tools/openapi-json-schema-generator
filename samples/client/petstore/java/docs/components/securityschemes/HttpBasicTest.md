@@ -1,7 +1,7 @@
 org.openapijsonschematools.client.components.securityschemes.HttpBasicTest
 # SecurityScheme HttpBasicTest
 
-public class  HttpBasicTest
+public class HttpBasicTest
 extends HttpBasicSecurityScheme
 
 A class that is used to apply auth to a request

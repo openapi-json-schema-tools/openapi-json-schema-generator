@@ -1,7 +1,7 @@
 org.openapijsonschematools.client.components.securityschemes.ApiKey
 # SecurityScheme ApiKey
 
-public class  ApiKey
+public class ApiKey
 extends ApiKeySecurityScheme
 
 A class that is used to apply auth to a request

@@ -11,7 +11,7 @@
 | [{{refInfo.refClass}}](../../components/security_schemes/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}}
     {{else}}
 
-public class {{containerJsonPathPiece.pascalCase}} {{jsonPathPiece.pascalCase}}
+public class {{jsonPathPiece.pascalCase}}
         {{#eq type "apiKey"}}
 extends ApiKeySecurityScheme
 

@@ -2374,6 +2374,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         Components components = openAPI.getComponents();
         if (components != null && components.getSecuritySchemes() != null) {
             supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityrequirementobjects/SecurityRequirementObject.hbs",
+                    packagePath() + File.separatorChar + "securityrequirementobjects",
+                    "SecurityRequirementObject.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityrequirementobjects/EmptySecurityRequirementObject.hbs",
+                    packagePath() + File.separatorChar + "securityrequirementobjects",
+                    "EmptySecurityRequirementObject.java"));
+            supportingFiles.add(new SupportingFile(
                     "src/main/java/packagename/securityschemes/SecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "SecurityScheme.java"));

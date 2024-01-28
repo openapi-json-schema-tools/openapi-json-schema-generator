@@ -1,7 +1,7 @@
 org.openapijsonschematools.client.components.securityschemes.HttpSignatureTest
 # SecurityScheme HttpSignatureTest
 
-public class  HttpSignatureTest
+public class HttpSignatureTest
 extends HttpSignatureSecurityScheme
 
 A class that is used to apply auth to a request
