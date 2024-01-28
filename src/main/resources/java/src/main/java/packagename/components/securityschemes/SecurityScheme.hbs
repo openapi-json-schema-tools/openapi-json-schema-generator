@@ -27,7 +27,7 @@ import {{packageName}}.securityschemes.HttpSignatureSecurityScheme;
 import {{packageName}}.securityschemes.MutualTlsSecurityScheme;
                 {{else}}
                     {{#eq type "oauth2"}}
-import {{packageName}}.securityschemes.Oauth2SecurityScheme;
+import {{packageName}}.securityschemes.OAuth2SecurityScheme;
                     {{else}}
                         {{#eq type "openIdConnect"}}
 import {{packageName}}.securityschemes.OpenIdConnectSecurityScheme;
@@ -103,8 +103,7 @@ public class {{jsonPathPiece.pascalCase}} extends OAuth2SecurityScheme {
 }
                     {{else}}
                         {{#eq type "openIdConnect"}}
-@dataclasses.dataclass
-class {{jsonPathPiece.pascalCase}}(security_schemes.OpenIdConnectSecurityScheme):
+public class {{jsonPathPiece.pascalCase}} extends OpenIdConnectSecurityScheme {
                             {{#if description}}
     /*
     {{description.original}}

@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.components.securityschemes;
 
-import org.openapijsonschematools.client.securityschemes.Oauth2SecurityScheme;
+import org.openapijsonschematools.client.securityschemes.OAuth2SecurityScheme;
 
 public class PetstoreAuth extends OAuth2SecurityScheme {
     /*
