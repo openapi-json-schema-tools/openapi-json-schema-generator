@@ -1,108 +1,104 @@
 {{#with securityScheme}}
     {{#if componentModule}}
-{{packageName}}.components.security_schemes.{{jsonPathPiece.snakeCase}}
+{{packageName}}.components.securityschemes.{{jsonPathPiece.snakeCase}}
     {{/if}}
     {{#eq identifierPieces.size 0}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "SecurityScheme" jsonPathPiece) }}
     {{/eq}}
-    {{#if description}}
-
-{{headerSize}}# Description
-{{description.originalWithBr}}
-    {{/if}}
     {{#if refInfo}}
 | Ref Class | Description |
 | --------- | ----------- |
 | [{{refInfo.refClass}}](../../components/security_schemes/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}}
     {{else}}
 
-{{headerSize}}# Type
+public class {{containerJsonPathPiece.pascalCase}} {{jsonPathPiece.pascalCase}}
         {{#eq type "apiKey"}}
-API_KEY
+extends ApiKeySecurityScheme
 
-{{headerSize}}# Name
-"{{name}}"
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
 
-{{headerSize}}# api_key
-Type | Notes
----- | ------
-str  | Set by the developer
-
-{{headerSize}}# In Location
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
             {{#eq in "query"}}
-ApiKeyInLocation.QUERY
+| {{jsonPathPiece.pascalCase}}(String apiKey)<br>for query apiKey auth |
             {{else}}
                 {{#eq in "header"}}
-ApiKeyInLocation.HEADER
+| {{jsonPathPiece.pascalCase}}(String apiKey)<br>for header apiKey auth |
                 {{else}}
                     {{#eq in "cookie"}}
-ApiKeyInLocation.COOKIE
+| {{jsonPathPiece.pascalCase}}(String apiKey)<br>for cookie apiKey auth |
                     {{/eq}}
                 {{/eq}}
             {{/eq}}
         {{else}}
             {{#eq type "http"}}
-HTTP
                 {{#eq scheme "basic"}}
-
-{{headerSize}}# Scheme
-BASIC
-
-{{headerSize}}# user_id
-Type | Notes
----- | ------
-str  | Set by the developer
-
-{{headerSize}}# password
-Type | Notes
----- | ------
-str  | Set by the developer
+extends HttpBasicSecurityScheme
                 {{else}}
                     {{#eq scheme "bearer"}}
-
-{{headerSize}}# Scheme
-BEARER
-                        {{#if bearerFormat}}
-
-{{headerSize}}# Bearer Format
-"{{bearerFormat}}"
-                        {{/if}}
-
-{{headerSize}}# access_token
-Type | Notes
----- | ------
-str  | Set by the developer
+extends HttpBearerSecurityScheme
                     {{else}}
                         {{#eq scheme "digest"}}
-
-{{headerSize}}# Scheme
-DIGEST
+extends HttpDigestSecurityScheme
                         {{else}}
                             {{#eq scheme "signature"}}
+extends HttpSignatureSecurityScheme
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
 
-{{headerSize}}# Scheme
-SIGNATURE
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
 
-{{headerSize}}# signing_info
-Type | Notes
----- | ------
-{{packageName}}.signing.HttpSigningConfiguration  | Set by the developer
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+                {{#eq scheme "basic"}}
+| {{jsonPathPiece.pascalCase}}(String userId, String password) |
+                {{else}}
+                    {{#eq scheme "bearer"}}
+| {{jsonPathPiece.pascalCase}}(String accessToken) |
+                    {{else}}
+                        {{#eq scheme "digest"}}
+| todo |
+                        {{else}}
+                            {{#eq scheme "signature"}}
+| todo |
                             {{/eq}}
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
             {{else}}
                 {{#eq type "mutualTLS"}}
-MUTUAL_TLS
+extends MutualTlsSecurityScheme
+
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| todo |
                 {{else}}
                     {{#eq type "oauth2"}}
-OAUTH_2
+extends Oauth2SecurityScheme
+
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| todo |
                     {{else}}
                         {{#eq type "openIdConnect"}}
-OPENID_CONNECT
+extends OpenIdConnectSecurityScheme
 
-{{headerSize}}# OpenIdConnect Url
-"{{openIdConnectUrl}}"
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| todo |
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
@@ -112,5 +108,5 @@ OPENID_CONNECT
 
 [[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" securitySchemesLink=true}}
         {{/if}}
-    {{/if}
+    {{/if}}
 {{/with}}

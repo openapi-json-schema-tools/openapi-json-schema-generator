@@ -1,23 +1,22 @@
-org.openapijsonschematools.client.components.security_schemes.HttpBasicTest
+org.openapijsonschematools.client.components.securityschemes.HttpBasicTest
 # SecurityScheme HttpBasicTest
 
-## Description
+public class  HttpBasicTest
+extends HttpBasicSecurityScheme
+
+A class that is used to apply auth to a request
+
+### Description
 http basic
 
-## Type
-HTTP
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| void              | applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, @Nullable String queryParamsSuffix, List<String> scopeNames) |
 
-## Scheme
-BASIC
-
-## user_id
-Type | Notes
----- | ------
-str  | Set by the developer
-
-## password
-Type | Notes
----- | ------
-str  | Set by the developer
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| HttpBasicTest(String userId, String password) |
 
 [[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-SecuritySchemes) [[Back to README]](../../../README.md)

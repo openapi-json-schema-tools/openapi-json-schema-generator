@@ -306,7 +306,7 @@ allowed input and output types.
 | [ApiKey](docs/components/securityschemes/ApiKey.md) | apiKey in header |
 | [ApiKeyQuery](docs/components/securityschemes/ApiKeyQuery.md) | apiKey in query |
 | [BearerTest](docs/components/securityschemes/BearerTest.md) | http bearer with JWT bearer format |
-| [HttpBasicTest](docs/components/securitysschemes/HttpBasicTest.md) | http basic |
+| [HttpBasicTest](docs/components/securityschemes/HttpBasicTest.md) | http basic |
 | [HttpSignatureTest](docs/components/securityschemes/HttpSignatureTest.md) | http + signature |
 | [OpenIdConnectTest](docs/components/securityschemes/OpenIdConnectTest.md) | openIdConnect |
 | [PetstoreAuth](docs/components/securityschemes/PetstoreAuth.md) | oauth2 implicit flow with two scopes |

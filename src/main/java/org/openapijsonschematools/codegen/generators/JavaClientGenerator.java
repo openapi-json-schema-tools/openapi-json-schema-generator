@@ -35,6 +35,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
@@ -281,7 +282,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         GlobalFeature.Servers
                 )
                 .includeComponentsFeatures(
-                        ComponentsFeature.schemas
+                        ComponentsFeature.schemas,
+                        ComponentsFeature.securitySchemes
+                )
+                .includeSecurityFeatures(
+                        SecurityFeature.ApiKey,
+                        SecurityFeature.HTTP_Basic,
+                        SecurityFeature.HTTP_Bearer
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,

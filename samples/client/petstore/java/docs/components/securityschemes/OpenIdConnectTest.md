@@ -1,13 +1,22 @@
-org.openapijsonschematools.client.components.security_schemes.OpenIdConnectTest
+org.openapijsonschematools.client.components.securityschemes.OpenIdConnectTest
 # SecurityScheme OpenIdConnectTest
 
-## Description
+public class  OpenIdConnectTest
+extends OpenIdConnectSecurityScheme
+
+A class that is used to apply auth to a request
+
+### Description
 openIdConnect
 
-## Type
-OPENID_CONNECT
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| void              | applyAuth(Map<String, List<String>> headers, String resourcePath, String method, HttpRequest.BodyPublisher bodyPublisher, @Nullable String queryParamsSuffix, List<String> scopeNames) |
 
-## OpenIdConnect Url
-"https://somesite.com/.well-known/openid-configuration"
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| todo |
 
 [[Back to top]](#top) [[Back to Component Security Schemes]](../../../README.md#Component-SecuritySchemes) [[Back to README]](../../../README.md)
