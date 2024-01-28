@@ -298,3 +298,15 @@ allowed input and output types.
 | [Mammal.Mammal1](docs/components/schemas/Mammal.md#mammal1) | |
 | [Whale.Whale1](docs/components/schemas/Whale.md#whale1) | |
 | [Zebra.Zebra1](docs/components/schemas/Zebra.md#zebra1) | |
+
+## Component SecuritySchemes
+
+| Class | Description |
+| ----- | ----------- |
+| [ApiKey](docs/components/securityschemes/ApiKey.md) | apiKey in header |
+| [ApiKeyQuery](docs/components/securityschemes/ApiKeyQuery.md) | apiKey in query |
+| [BearerTest](docs/components/securityschemes/BearerTest.md) | http bearer with JWT bearer format |
+| [HttpBasicTest](docs/components/securityschemes/HttpBasicTest.md) | http basic |
+| [HttpSignatureTest](docs/components/securityschemes/HttpSignatureTest.md) | http + signature |
+| [OpenIdConnectTest](docs/components/securityschemes/OpenIdConnectTest.md) | openIdConnect |
+| [PetstoreAuth](docs/components/securityschemes/PetstoreAuth.md) | oauth2 implicit flow with two scopes |

@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen.generators;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.Schema;
@@ -34,6 +35,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
@@ -280,7 +282,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         GlobalFeature.Servers
                 )
                 .includeComponentsFeatures(
-                        ComponentsFeature.schemas
+                        ComponentsFeature.schemas,
+                        ComponentsFeature.securitySchemes
+                )
+                .includeSecurityFeatures(
+                        SecurityFeature.ApiKey,
+                        SecurityFeature.HTTP_Basic,
+                        SecurityFeature.HTTP_Bearer
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,
@@ -782,6 +790,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String toModelFilename(String name, String jsonPath) {
         return toModelName(name, jsonPath);
+    }
+
+    @Override
+    public String toSecuritySchemeFilename(String basename, String jsonPath) {
+        return toModelName(basename, jsonPath);
     }
 
     @Override
@@ -2358,6 +2371,62 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public void setOpenAPI(OpenAPI openAPI) {
         super.setOpenAPI(openAPI);
+        Components components = openAPI.getComponents();
+        if (components != null && components.getSecuritySchemes() != null) {
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/SecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "SecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/ApiKeyInLocation.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "ApiKeyInLocation.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/ApiKeySecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "ApiKeySecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/HttpBasicSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "HttpBasicSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/HttpBearerSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "HttpBearerSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/HttpSignatureSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "HttpSignatureSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/HttpDigestSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "HttpDigestSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/MutualTlsSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "MutualTlsSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/OAuth2SecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "OAuth2SecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/OpenIdConnectSecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "OpenIdConnectSecurityScheme.java"));
+
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/components/securityschemes/SecurityScheme.hbs", ".java");
+                    }}
+            );
+            jsonPathDocTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/components/securityschemes/SecurityScheme_doc.hbs", ".md");
+                    }}
+            );
+        }
         List<Server> servers = openAPI.getServers();
         if (servers != null && !servers.isEmpty()) {
             supportingFiles.add(new SupportingFile(

@@ -183,7 +183,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |examples|✗|OAS3
 |requestBodies|✗|OAS3
 |headers|✗|OAS3
-|securitySchemes|✗|OAS3
+|securitySchemes|✓|OAS3
 |links|✗|OAS3
 |callbacks|✗|OAS3
 |pathItems|✗|OAS3
@@ -320,10 +320,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Security Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|HTTP_Basic|✗|OAS2,OAS3
-|ApiKey|✗|OAS2,OAS3
+|HTTP_Basic|✓|OAS2,OAS3
+|ApiKey|✓|OAS2,OAS3
 |OpenIDConnect|✗|OAS3
-|HTTP_Bearer|✗|OAS2,OAS3
+|HTTP_Bearer|✓|OAS2,OAS3
 |OAuth2_Implicit|✗|OAS2,OAS3
 |OAuth2_Password|✗|OAS2,OAS3
 |OAuth2_ClientCredentials|✗|OAS2,OAS3

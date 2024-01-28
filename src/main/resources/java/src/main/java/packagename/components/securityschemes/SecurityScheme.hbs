@@ -1,0 +1,119 @@
+package {{packageName}}.components.securityschemes;
+
+{{#with securityScheme}}
+    {{#if refInfo}}
+        {{! todo handle this}}
+// todo handle refed security schemes
+
+    {{else}}
+        {{#eq type "apiKey"}}
+import {{packageName}}.securityschemes.ApiKeySecurityScheme;
+import {{packageName}}.securityschemes.ApiKeyInLocation;
+        {{else}}
+            {{#eq type "http"}}
+                {{#eq scheme "basic"}}
+import {{packageName}}.securityschemes.HttpBasicSecurityScheme;
+                {{else}}
+                    {{#eq scheme "bearer"}}
+import {{packageName}}.securityschemes.HttpBearerSecurityScheme;
+                    {{else}}
+                        {{#eq scheme "signature"}}
+import {{packageName}}.securityschemes.HttpSignatureSecurityScheme;
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{else}}
+                {{#eq type "mutualTLS"}}
+import {{packageName}}.securityschemes.MutualTlsSecurityScheme;
+                {{else}}
+                    {{#eq type "oauth2"}}
+import {{packageName}}.securityschemes.OAuth2SecurityScheme;
+                    {{else}}
+                        {{#eq type "openIdConnect"}}
+import {{packageName}}.securityschemes.OpenIdConnectSecurityScheme;
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+
+        {{#eq type "apiKey"}}
+public class {{jsonPathPiece.pascalCase}} extends ApiKeySecurityScheme {
+            {{#if description}}
+    /*
+    {{description.original}}
+    */
+            {{/if}}
+            {{#eq in "query"}}
+    public {{jsonPathPiece.pascalCase}}(String apiKey) {
+        super(apiKey, "{{{name}}}", ApiKeyInLocation.QUERY);
+    }
+            {{else}}
+                {{#eq in "header"}}
+    public {{jsonPathPiece.pascalCase}}(String apiKey) {
+        super(apiKey, "{{{name}}}", ApiKeyInLocation.HEADER);
+    }
+                {{else}}
+                    {{#eq in "cookie"}}
+    public {{jsonPathPiece.pascalCase}}(String apiKey) {
+        super(apiKey, null, ApiKeyInLocation.COOKIE);
+    }
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+}
+        {{else}}
+            {{#eq type "http"}}
+public class {{jsonPathPiece.pascalCase}} extends Http{{#eq scheme "basic"}}Basic{{/eq}}{{#eq scheme "bearer"}}Bearer{{/eq}}{{#eq scheme "signature"}}Signature{{/eq}}{{#eq scheme "digest"}}Digest{{/eq}}SecurityScheme {
+                {{#if description}}
+    /*
+    {{description.original}}
+    */
+                {{/if}}
+                {{#eq scheme "basic"}}
+    public {{jsonPathPiece.pascalCase}}(String userId, String password) {
+        super(userId, password);
+    }
+                {{else}}
+                    {{#eq scheme "bearer"}}
+    public {{jsonPathPiece.pascalCase}}(String accessToken) {
+        super(accessToken, "{{{bearerFormat}}}");
+    }
+                    {{/eq}}
+                {{/eq}}
+}
+            {{else}}
+                {{#eq type "mutualTLS"}}
+public class {{jsonPathPiece.pascalCase}} extends MutualTlsSecurityScheme {
+                    {{#if description}}
+    /*
+    {{description.original}}
+    */
+                    {{/if}}
+}
+                {{else}}
+                    {{#eq type "oauth2"}}
+public class {{jsonPathPiece.pascalCase}} extends OAuth2SecurityScheme {
+                        {{#if description}}
+    /*
+    {{description.original}}
+    */
+                        {{/if}}
+    // todo add flows info
+}
+                    {{else}}
+                        {{#eq type "openIdConnect"}}
+public class {{jsonPathPiece.pascalCase}} extends OpenIdConnectSecurityScheme {
+                            {{#if description}}
+    /*
+    {{description.original}}
+    */
+                            {{/if}}
+}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/if}}
+{{/with}}

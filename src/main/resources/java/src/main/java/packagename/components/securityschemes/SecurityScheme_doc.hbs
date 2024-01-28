@@ -1,0 +1,112 @@
+{{#with securityScheme}}
+    {{#if componentModule}}
+{{packageName}}.components.securityschemes.{{jsonPathPiece.snakeCase}}
+    {{/if}}
+    {{#eq identifierPieces.size 0}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "SecurityScheme" jsonPathPiece) }}
+    {{/eq}}
+    {{#if refInfo}}
+| Ref Class | Description |
+| --------- | ----------- |
+| [{{refInfo.refClass}}](../../components/security_schemes/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}}
+    {{else}}
+
+public class {{containerJsonPathPiece.pascalCase}} {{jsonPathPiece.pascalCase}}
+        {{#eq type "apiKey"}}
+extends ApiKeySecurityScheme
+
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+            {{#eq in "query"}}
+| {{jsonPathPiece.pascalCase}}(String apiKey)<br>for query apiKey auth |
+            {{else}}
+                {{#eq in "header"}}
+| {{jsonPathPiece.pascalCase}}(String apiKey)<br>for header apiKey auth |
+                {{else}}
+                    {{#eq in "cookie"}}
+| {{jsonPathPiece.pascalCase}}(String apiKey)<br>for cookie apiKey auth |
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{else}}
+            {{#eq type "http"}}
+                {{#eq scheme "basic"}}
+extends HttpBasicSecurityScheme
+                {{else}}
+                    {{#eq scheme "bearer"}}
+extends HttpBearerSecurityScheme
+                    {{else}}
+                        {{#eq scheme "digest"}}
+extends HttpDigestSecurityScheme
+                        {{else}}
+                            {{#eq scheme "signature"}}
+extends HttpSignatureSecurityScheme
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+                {{#eq scheme "basic"}}
+| {{jsonPathPiece.pascalCase}}(String userId, String password) |
+                {{else}}
+                    {{#eq scheme "bearer"}}
+| {{jsonPathPiece.pascalCase}}(String accessToken) |
+                    {{else}}
+                        {{#eq scheme "digest"}}
+| todo |
+                        {{else}}
+                            {{#eq scheme "signature"}}
+| todo |
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{else}}
+                {{#eq type "mutualTLS"}}
+extends MutualTlsSecurityScheme
+
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| todo |
+                {{else}}
+                    {{#eq type "oauth2"}}
+extends Oauth2SecurityScheme
+
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| todo |
+                    {{else}}
+                        {{#eq type "openIdConnect"}}
+extends OpenIdConnectSecurityScheme
+
+{{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| todo |
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+        {{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" securitySchemesLink=true}}
+        {{/if}}
+    {{/if}}
+{{/with}}
