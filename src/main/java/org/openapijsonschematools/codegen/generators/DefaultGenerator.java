@@ -4887,7 +4887,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = "security_requirement_object_"+key;
-                pascalCaseName = "SecurityRequirementObject"+key;
+                pascalCaseName =  toSecurityRequirementObjectFilename(key, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
         }

@@ -1,12 +1,14 @@
 package org.openapijsonschematools.client.paths.petpetid.post.security;
 
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 
+import java.util.List;
 import java.util.Map;
 
-public class SecurityRequirementObject0 extends SecurityRequirementObject {
+public class PetpetidPostSecurityRequirementObject0 extends SecurityRequirementObject {
     // todo make n specific constructors
-    public SecurityRequirementObject(Map<SecurityScheme, List<String>> securitySchemeToScopes) {
+    public PetpetidPostSecurityRequirementObject0(Map<SecurityScheme, List<String>> securitySchemeToScopes) {
         super(securitySchemeToScopes);
     }
 }

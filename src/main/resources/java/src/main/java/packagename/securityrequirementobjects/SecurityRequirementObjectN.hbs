@@ -7,12 +7,14 @@ import {{{packageName}}}.securityrequirementobjects.EmptySecurityRequirementObje
 public class {{jsonPathPiece.PascalCase}} extends EmptySecurityRequirementObject {}
     {{else}}
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
+import {{{packageName}}}.securityschemes.SecurityScheme;
 
+import java.util.List;
 import java.util.Map;
 
 public class {{jsonPathPiece.pascalCase}} extends SecurityRequirementObject {
     // todo make n specific constructors
-    public SecurityRequirementObject(Map<SecurityScheme, List<String>> securitySchemeToScopes) {
+    public {{jsonPathPiece.pascalCase}}(Map<SecurityScheme, List<String>> securitySchemeToScopes) {
         super(securitySchemeToScopes);
     }
 }

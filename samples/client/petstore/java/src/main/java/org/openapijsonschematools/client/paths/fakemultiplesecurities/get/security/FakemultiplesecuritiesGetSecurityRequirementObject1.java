@@ -1,12 +1,14 @@
 package org.openapijsonschematools.client.paths.fakemultiplesecurities.get.security;
 
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
+import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 
+import java.util.List;
 import java.util.Map;
 
-public class SecurityRequirementObject1 extends SecurityRequirementObject {
+public class FakemultiplesecuritiesGetSecurityRequirementObject1 extends SecurityRequirementObject {
     // todo make n specific constructors
-    public SecurityRequirementObject(Map<SecurityScheme, List<String>> securitySchemeToScopes) {
+    public FakemultiplesecuritiesGetSecurityRequirementObject1(Map<SecurityScheme, List<String>> securitySchemeToScopes) {
         super(securitySchemeToScopes);
     }
 }
