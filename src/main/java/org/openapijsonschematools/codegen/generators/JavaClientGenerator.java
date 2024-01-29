@@ -2423,6 +2423,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     "OpenIdConnectSecurityScheme.java"));
 
             jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/securityrequirementobjects/SecurityRequirementObjectN.hbs", ".java");
+                    }}
+            );
+            jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
                     new HashMap<>() {{
                         put("src/main/java/packagename/components/securityschemes/SecurityScheme.hbs", ".java");
@@ -2474,6 +2480,20 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     }}
             );
         }
+    }
+
+    @Override
+    public String toSecurityRequirementObjectFilename(String basename, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces.length == 3) {
+            // #/security/0
+            return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+        } else if (pathPieces.length == 6) {
+            // #/paths/somePath/verb/security/0
+            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+        }
+        return null;
     }
 
     @Override

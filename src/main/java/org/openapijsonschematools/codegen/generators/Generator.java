@@ -36,8 +36,8 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
-import org.openapijsonschematools.codegen.generators.openapimodels.ArrayListWithContext;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
@@ -52,7 +52,6 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRespon
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
@@ -145,7 +144,7 @@ public interface Generator {
 
     CodegenTag fromTag(String name, String description);
 
-    List<HashMap<String, CodegenSecurityRequirementValue>> fromSecurity(List<SecurityRequirement> security, String jsonPath);
+    List<CodegenSecurityRequirementObject> fromSecurity(List<SecurityRequirement> security, String jsonPath);
 
     CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters);
 

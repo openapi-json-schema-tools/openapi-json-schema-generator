@@ -18,7 +18,6 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.*;
 
@@ -43,7 +42,7 @@ public class CodegenOperation {
 
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
-    public final List<HashMap<String, CodegenSecurityRequirementValue>> security;
+    public final List<CodegenSecurityRequirementObject> security;
     public final Map<String, CodegenTag> tags;
     public final TreeMap<String, CodegenResponse> responses;
     public final TreeMap<Integer, CodegenResponse> statusCodeResponses;
@@ -74,7 +73,7 @@ public class CodegenOperation {
             CodegenSchema cookieParametersSchema,
             boolean hasRequiredParamOrBody,
             boolean hasOptionalParamOrBody,
-            List<HashMap<String, CodegenSecurityRequirementValue>> security,
+            List<CodegenSecurityRequirementObject> security,
             Map<String, CodegenTag> tags,
             TreeMap<String, CodegenResponse> responses,
             TreeMap<Integer, CodegenResponse> statusCodeResponses,

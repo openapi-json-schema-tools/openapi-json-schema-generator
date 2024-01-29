@@ -65,6 +65,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInf
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
@@ -2923,7 +2924,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
-        List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
+        List<CodegenSecurityRequirementObject> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
         CodegenSchema pathParametersSchema = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath + "/" + "PathParameters", jsonPath + "/" + "PathParameters");
@@ -2980,18 +2981,31 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public List<HashMap<String, CodegenSecurityRequirementValue>> fromSecurity(List<SecurityRequirement> security, String jsonPath) {
+    public List<CodegenSecurityRequirementObject> fromSecurity(List<SecurityRequirement> security, String jsonPath) {
         if (security == null) {
             return null;
         }
-        List<HashMap<String, CodegenSecurityRequirementValue>> securityRequirements = new ArrayList<>();
+        List<CodegenSecurityRequirementObject> securityRequirementObjects = new ArrayList<>();
         int i = 0;
         for (SecurityRequirement specSecurityRequirement: security) {
-            HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(specSecurityRequirement, jsonPath+ "/" + i);
-            securityRequirements.add(securityRequirement);
+            TreeSet<String> imports = new TreeSet<>();
+            HashMap<String, CodegenSecurityRequirementValue> map = fromSecurityRequirement(specSecurityRequirement, jsonPath+ "/" + i);
+            for (CodegenSecurityRequirementValue val: map.values()) {
+                imports.addAll(val.imports);
+            }
+            String securityJsonPathPiece = jsonPath + "/" + i;
+            String subpackage = getSubpackage(securityJsonPathPiece);
+            CodegenKey key = getKey(String.valueOf(i), "securityRequirementObject", securityJsonPathPiece);
+            var securityRequirementObject = new CodegenSecurityRequirementObject(
+                    imports,
+                    map,
+                    subpackage,
+                    key
+            );
+            securityRequirementObjects.add(securityRequirementObject);
             i++;
         }
-        return securityRequirements;
+        return securityRequirementObjects;
     }
 
     private String responsePathFromDocRoot(String sourceJsonPath) {
@@ -3864,7 +3878,7 @@ public class DefaultGenerator implements Generator {
             }
         } else if (pathPieces[4].equals("security") && pathPieces.length > 5) {
             // #/paths/somePath/get/security/0
-            pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], null);
+            pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], jsonPath);
         } else if (pathPieces[4].equals("responses")) {
             if (pathPieces.length < 6) {
                 // #/paths/user_login/get/responses -> length 5
@@ -3954,7 +3968,8 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 3) {
             return;
         }
-        pathPieces[2] = toSecurityRequirementObjectFilename(pathPieces[2], null);
+        String jsonPath = String.join("/", pathPieces);
+        pathPieces[2] = toSecurityRequirementObjectFilename(pathPieces[2], jsonPath);
     }
 
     private void updateApisFilepath(String[] pathPieces) {
@@ -4866,6 +4881,13 @@ public class DefaultGenerator implements Generator {
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCaseServer(usedKey, sourceJsonPath);
+                camelCaseName = camelize(pascalCaseName, true);
+                break;
+            case "securityRequirementObject":
+                usedKey = escapeUnsafeCharacters(key);
+                isValid = isValid(usedKey);
+                snakeCaseName = "security_requirement_object_"+key;
+                pascalCaseName = "SecurityRequirementObject"+key;
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
         }

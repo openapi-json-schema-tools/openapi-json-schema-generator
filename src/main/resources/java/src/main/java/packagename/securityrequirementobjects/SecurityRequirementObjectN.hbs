@@ -1,0 +1,20 @@
+{{#with securityRequirementObject}}
+package {{{packageName}}}.{{subpackage}};
+
+    {{#if isEmpty }}
+import {{{packageName}}}.securityrequirementobjects.EmptySecurityRequirementObject;
+
+public class {{jsonPathPiece.PascalCase}} extends EmptySecurityRequirementObject {}
+    {{else}}
+import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
+
+import java.util.Map;
+
+public class {{jsonPathPiece.pascalCase}} extends SecurityRequirementObject {
+    // todo make n specific constructors
+    public SecurityRequirementObject(Map<SecurityScheme, List<String>> securitySchemeToScopes) {
+        super(securitySchemeToScopes);
+    }
+}
+    {{/if}}
+{{/with}}
