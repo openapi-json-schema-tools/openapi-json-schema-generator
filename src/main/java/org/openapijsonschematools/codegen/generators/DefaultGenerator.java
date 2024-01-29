@@ -69,7 +69,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecuri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenXml;
@@ -2676,10 +2676,10 @@ public class DefaultGenerator implements Generator {
         CodegenKey operationId = getOperationId(operation, path, httpMethod);
 
         // servers setting
-        CodegenServers codegenServers = null;
+        CodegenList<CodegenServer> codegenList = null;
         if (operation.getServers() != null && !operation.getServers().isEmpty()) {
             // use operation-level servers first if defined
-            codegenServers = fromServers(operation.getServers(), jsonPath + "/servers");
+            codegenList = fromServers(operation.getServers(), jsonPath + "/servers");
         }
 
         CodegenText summary = null;
@@ -2941,7 +2941,7 @@ public class DefaultGenerator implements Generator {
                 summary,
                 description,
                 produces,
-                codegenServers,
+                codegenList,
                 requestBody,
                 operationParameters,
                 pathParametersSchema,
@@ -5083,7 +5083,7 @@ public class DefaultGenerator implements Generator {
             // sort them
             operations = new TreeMap<>(operations);
         List<Server> specServers = pathItem.getServers();
-        CodegenServers servers = fromServers(specServers, jsonPath + "/servers");
+        CodegenList servers = fromServers(specServers, jsonPath + "/servers");
 
         return new CodegenPathItem(
                 summary,
@@ -5095,7 +5095,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public CodegenServers fromServers(List<Server> servers, String jsonPath) {
+    public CodegenList<CodegenServer> fromServers(List<Server> servers, String jsonPath) {
         if (servers == null) {
             return null;
         }
@@ -5119,7 +5119,7 @@ public class DefaultGenerator implements Generator {
         }
         CodegenKey jsonPathPiece = getKey("s", "servers", jsonPath);
         String serversSubpackage = getSubpackage(jsonPath);
-        return new CodegenServers(
+        return new CodegenList<CodegenServer>(
                 codegenServers,
                 jsonPathPiece,
                 serversSubpackage

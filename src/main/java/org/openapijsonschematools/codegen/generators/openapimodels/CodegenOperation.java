@@ -29,7 +29,7 @@ public class CodegenOperation {
     public final LinkedHashSet<Integer> errorWildcardStatusCodes; // values like 4 for 4XX
     public final CodegenText summary, description;
     public final LinkedHashSet<String> produces;
-    public final CodegenServers servers;
+    public final CodegenList<CodegenServer> servers;
     public final CodegenRequestBody requestBody;
     // properties where key is contentType, value is a ref schema, encapsulates imports
     public final CodegenSchema requestBodySchema;
@@ -64,7 +64,7 @@ public class CodegenOperation {
             CodegenText summary,
             CodegenText description,
             LinkedHashSet<String> produces,
-            CodegenServers servers,
+            CodegenList<CodegenServer> servers,
             CodegenRequestBody requestBody,
             ParameterCollection parameters,
             CodegenSchema pathParametersSchema,

@@ -51,7 +51,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.templating.DryRunTemplateManager;
@@ -538,7 +538,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
-    private void generatePaths(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths, List<CodegenServer> servers, List<CodegenSecurityRequirementObject> security) {
+    private void generatePaths(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths, CodegenList<CodegenServer> servers, List<CodegenSecurityRequirementObject> security) {
         if (paths == null || paths.isEmpty()) {
             LOGGER.info("Skipping generation of paths because the specification document lacks them.");
             return;
@@ -1317,7 +1317,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             TreeMap<String, CodegenHeader> headers,
             TreeMap<String, CodegenParameter> parameters,
             TreeMap<String, CodegenSecurityScheme> securitySchemes,
-            CodegenServers servers,
+            CodegenList<CodegenServer> servers,
             TreeMap<CodegenKey, CodegenPathItem> paths,
             List<CodegenSecurityRequirementObject> security) {
 
@@ -1325,7 +1325,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         bundle.put("apiPackage", generator.apiPackage());
 
         URL url = URLPathUtils.getServerURL(openAPI, null);
-        List<CodegenServers> allServers = new ArrayList<>();
+        List<CodegenList<CodegenServer>> allServers = new ArrayList<>();
         boolean hasServers = false;
         if (servers != null) {
             allServers.add(servers);
@@ -1389,7 +1389,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return bundle;
     }
 
-    private void generateServers(List<File> files, List<CodegenServer> servers, String jsonPath) {
+    private void generateServers(List<File> files, CodegenList<CodegenServer> servers, String jsonPath) {
         if (servers == null && servers.isEmpty()) {
             return;
         }
@@ -1521,7 +1521,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         // servers
         String serversJsonPath = "#/servers";
-        CodegenServers servers = generator.fromServers(openAPI.getServers(), serversJsonPath);
+        CodegenList<CodegenServer> servers = generator.fromServers(openAPI.getServers(), serversJsonPath);
         // paths
         TreeMap<CodegenKey, CodegenPathItem> paths = generator.fromPaths(openAPI.getPaths());
         generatePaths(files, paths, servers, security);
