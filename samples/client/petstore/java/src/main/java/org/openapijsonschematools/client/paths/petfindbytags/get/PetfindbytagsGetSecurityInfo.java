@@ -3,17 +3,11 @@ package org.openapijsonschematools.client.paths.petfindbytags.get;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.paths.petfindbytags.get.security.PetfindbytagsGetSecurityRequirementObject0;
 import org.openapijsonschematools.client.paths.petfindbytags.get.security.PetfindbytagsGetSecurityRequirementObject1;
-import org.openapijsonschematools.client.paths.petfindbytags.get.security.PetfindbytagsGetSecurityRequirementProvider;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.securityrequirementobjects.SecuritySchemeToScopeProvider;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.EnumMap;
 import java.util.Map;
-import java.util.stream.Stream;
 import java.util.EnumMap;
 
 public class PetfindbytagsGetSecurityInfo implements SecurityRequirementObjectProvider<PetfindbytagsGetSecurityInfo.SecurityIndex> {
@@ -26,27 +20,31 @@ public class PetfindbytagsGetSecurityInfo implements SecurityRequirementObjectPr
     }
 
     public static class Securities {
-        private final EnumMap<SecurityIndex, PetfindbytagsGetSecurityRequirementProvider> securities;
+        private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
-        public Securities(
-                Map<SecurityIndex, PetfindbytagsGetSecurityRequirementProvider> securitiesData
-        ) {
-            securities = new EnumMap<>(securitiesData);
-        }
-
-        public Securities(
-            PetfindbytagsGetSecurityRequirementObject0 security0
-        ) {
+        public Securities(PetfindbytagsGetSecurityRequirementObject0 security0) {
             securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_0, security0));
         }
-
-        public Securities(
-            PetfindbytagsGetSecurityRequirementObject1 security1
-        ) {
+        public Securities(PetfindbytagsGetSecurityRequirementObject1 security1) {
             securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_1, security1));
         }
+        public Securities(
+            @Nullable PetfindbytagsGetSecurityRequirementObject0 security0,
+            @Nullable PetfindbytagsGetSecurityRequirementObject1 security1
+        ) {
+            securities = new EnumMap<>(SecurityRequirementObject.class);
+            if (security0 != null) {
+                securities.put(SecurityIndex.SECURITY_0, security0);
+            }
+            if (security1 != null) {
+                securities.put(SecurityIndex.SECURITY_1, security1);
+            }
+            if (securities.isEmpty()) {
+                throw new RuntimeException("Invalid empty input for securities, set at least one of them;");
+            }
+        }
 
-        public PetfindbytagsGetSecurityRequirementProvider get(SecurityIndex securityIndex) {
+        public SecurityRequirementObject get(SecurityIndex securityIndex) {
             if (securities.containsKey(securityIndex)) {
                 return get(securityIndex);
             }
@@ -59,7 +57,7 @@ public class PetfindbytagsGetSecurityInfo implements SecurityRequirementObjectPr
         SECURITY_1
     }
 
-    public SecuritySchemeToScopeProvider getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
+    public SecurityRequirementObject getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
         if (securityIndex == null) {
             return securities.get(this.securityIndex);
         }

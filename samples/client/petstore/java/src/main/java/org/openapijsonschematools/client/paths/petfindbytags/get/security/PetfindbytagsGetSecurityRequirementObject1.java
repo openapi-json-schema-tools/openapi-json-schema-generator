@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.AbstractMap;
 
-public final class PetfindbytagsGetSecurityRequirementObject1 extends SecurityRequirementObject implements PetfindbytagsGetSecurityRequirementProvider {
+public class PetfindbytagsGetSecurityRequirementObject1 extends SecurityRequirementObject {
 
     public PetfindbytagsGetSecurityRequirementObject1(
         PetstoreAuth securityScheme0
@@ -22,10 +22,5 @@ public final class PetfindbytagsGetSecurityRequirementObject1 extends SecurityRe
                 )
             )
         );
-    }
-
-    @Override
-    public Map<SecurityScheme, List<String>> getSecuritySchemeToScopes() {
-        return securitySchemeToScopes;
     }
 }

@@ -12,10 +12,7 @@ import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.EnumMap;
-import java.util.stream.Stream;
+import java.util.Map;
 import java.util.EnumMap;
 
 public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequirementObjectProvider<{{security.jsonPathPiece.pascalCase}}.SecurityIndex> {
@@ -45,11 +42,25 @@ public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequiremen
             {{/each}}
         {{else}}
             {{#each security}}
-        public Securities({{jsonPathPiece.pascalCase}} security{{@index}}{{#unless @last}}) {
+        public Securities({{jsonPathPiece.pascalCase}} security{{@index}}) {
             securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_{{@index}}, security{{@index}}));
         }
             {{/each}}
-        // todo add constructor where all are set
+        public Securities(
+            {{#each security}}
+            @Nullable {{jsonPathPiece.pascalCase}} security{{@index}}{{#unless @last}},{{/unless}}
+            {{/each}}
+        ) {
+            securities = new EnumMap<>(SecurityRequirementObject.class);
+            {{#each security}}
+            if (security{{@index}} != null) {
+                securities.put(SecurityIndex.SECURITY_{{@index}}, security{{@index}});
+            }
+            {{/each}}
+            if (securities.isEmpty()) {
+                throw new RuntimeException("Invalid empty input for securities, set at least one of them;");
+            }
+        }
         {{/eq}}
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {

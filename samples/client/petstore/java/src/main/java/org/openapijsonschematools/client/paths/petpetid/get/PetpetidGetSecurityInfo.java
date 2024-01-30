@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.AbstractMap;
 import java.util.Map;
 import java.util.EnumMap;
 
@@ -22,9 +21,7 @@ public class PetpetidGetSecurityInfo implements SecurityRequirementObjectProvide
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
-        public Securities(
-            @Nullable PetpetidGetSecurityRequirementObject0 security0
-        ) {
+        public Securities(PetpetidGetSecurityRequirementObject0 security0) {
             securities = new EnumMap<>(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(

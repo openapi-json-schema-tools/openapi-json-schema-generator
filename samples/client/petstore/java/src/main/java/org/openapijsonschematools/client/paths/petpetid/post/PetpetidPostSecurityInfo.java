@@ -7,7 +7,6 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.AbstractMap;
 import java.util.Map;
 import java.util.EnumMap;
 
@@ -23,31 +22,25 @@ public class PetpetidPostSecurityInfo implements SecurityRequirementObjectProvid
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
+        public Securities(PetpetidPostSecurityRequirementObject0 security0) {
+            securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_0, security0));
+        }
+        public Securities(PetpetidPostSecurityRequirementObject1 security1) {
+            securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_1, security1));
+        }
         public Securities(
-            PetpetidPostSecurityRequirementObject0 security0,
+            @Nullable PetpetidPostSecurityRequirementObject0 security0,
             @Nullable PetpetidPostSecurityRequirementObject1 security1
         ) {
-            securities = new EnumMap<>(
-                Stream.of(
-                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, security0),
-                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, security1)
-                )
-                .filter(entry -> entry != null && entry.getValue() != null)
-                .collect(HashMap::new, (map, entry) -> map.put(entry.getKey(), entry.getValue()), HashMap::putAll)
-            );
-        }        public Securities(
-            @Nullable PetpetidPostSecurityRequirementObject0 security0,
-            PetpetidPostSecurityRequirementObject1 security1
-        ) {
-            securities = new EnumMap<>(
-                Stream.of(
-                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, security0),
-                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, security1)
-                )
-                .filter(entry -> entry != null && entry.getValue() != null)
-                .collect(HashMap::new, (map, entry) -> map.put(entry.getKey(), entry.getValue()), HashMap::putAll)
-            );
+            securities = new EnumMap<>(SecurityRequirementObject.class);
+            if (security0 != null) {
+                securities.put(SecurityIndex.SECURITY_0, security0);
+            }
+            if (security1 != null) {
+                securities.put(SecurityIndex.SECURITY_1, security1);
+            }
         }
+
         public SecurityRequirementObject get(SecurityIndex securityIndex) {
             if (securities.containsKey(securityIndex)) {
                 return get(securityIndex);

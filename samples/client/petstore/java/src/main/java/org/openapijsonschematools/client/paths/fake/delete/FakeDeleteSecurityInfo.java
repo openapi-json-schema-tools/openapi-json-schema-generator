@@ -6,10 +6,7 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.EnumMap;
-import java.util.stream.Stream;
+import java.util.Map;
 import java.util.EnumMap;
 
 public class FakeDeleteSecurityInfo implements SecurityRequirementObjectProvider<FakeDeleteSecurityInfo.SecurityIndex> {
@@ -24,9 +21,7 @@ public class FakeDeleteSecurityInfo implements SecurityRequirementObjectProvider
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
-        public Securities(
-            FakeDeleteSecurityRequirementObject0 security0
-        ) {
+        public Securities(FakeDeleteSecurityRequirementObject0 security0) {
             securities = new EnumMap<>(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
