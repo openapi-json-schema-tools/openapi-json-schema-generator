@@ -21,16 +21,38 @@ public class PetpetidPostSecurityInfo implements SecurityRequirementObjectProvid
     }
 
     public static class Securities {
-        private final EnumMap<SecurityIndex, @Nullable SecurityRequirementObject> securities;
+        private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
-        // todo make multiple constructors for this use case
-
+        public Securities(
+            PetpetidPostSecurityRequirementObject0 security0,
+            @Nullable PetpetidPostSecurityRequirementObject1 security1
+        ) {
+            securities = new EnumMap<>(
+                Stream.of(
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, security0),
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, security1)
+                )
+                .filter(entry -> entry != null && entry.getValue() != null)
+                .collect(HashMap::new, (map, entry) -> map.put(entry.getKey(), entry.getValue()), HashMap::putAll)
+            );
+        }        public Securities(
+            @Nullable PetpetidPostSecurityRequirementObject0 security0,
+            PetpetidPostSecurityRequirementObject1 security1
+        ) {
+            securities = new EnumMap<>(
+                Stream.of(
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, security0),
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, security1)
+                )
+                .filter(entry -> entry != null && entry.getValue() != null)
+                .collect(HashMap::new, (map, entry) -> map.put(entry.getKey(), entry.getValue()), HashMap::putAll)
+            );
+        }
         public SecurityRequirementObject get(SecurityIndex securityIndex) {
-            @Nullable SecurityRequirementObject securityRequirementObject = get(securityIndex);
-            if (securityRequirementObject == null) {
-                throw new UnsetPropertyException(securityIndex+" is unset");
+            if (securities.containsKey(securityIndex)) {
+                return get(securityIndex);
             }
-            return securityRequirementObject;
+            throw new UnsetPropertyException(securityIndex+" is unset");
         }
     }
 

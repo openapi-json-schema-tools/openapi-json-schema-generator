@@ -22,16 +22,56 @@ public class PetPostSecurityInfo implements SecurityRequirementObjectProvider<Pe
     }
 
     public static class Securities {
-        private final EnumMap<SecurityIndex, @Nullable SecurityRequirementObject> securities;
+        private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
-        // todo make multiple constructors for this use case
-
+        public Securities(
+            PetPostSecurityRequirementObject0 security0,
+            @Nullable PetPostSecurityRequirementObject1 security1,
+            @Nullable PetPostSecurityRequirementObject2 security2
+        ) {
+            securities = new EnumMap<>(
+                Stream.of(
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, security0),
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, security1),
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, security2)
+                )
+                .filter(entry -> entry != null && entry.getValue() != null)
+                .collect(HashMap::new, (map, entry) -> map.put(entry.getKey(), entry.getValue()), HashMap::putAll)
+            );
+        }        public Securities(
+            @Nullable PetPostSecurityRequirementObject0 security0,
+            PetPostSecurityRequirementObject1 security1,
+            @Nullable PetPostSecurityRequirementObject2 security2
+        ) {
+            securities = new EnumMap<>(
+                Stream.of(
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, security0),
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, security1),
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, security2)
+                )
+                .filter(entry -> entry != null && entry.getValue() != null)
+                .collect(HashMap::new, (map, entry) -> map.put(entry.getKey(), entry.getValue()), HashMap::putAll)
+            );
+        }        public Securities(
+            @Nullable PetPostSecurityRequirementObject0 security0,
+            @Nullable PetPostSecurityRequirementObject1 security1,
+            PetPostSecurityRequirementObject2 security2
+        ) {
+            securities = new EnumMap<>(
+                Stream.of(
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_0, security0),
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_1, security1),
+                    new AbstractMap.SimpleEntry<>(SecurityIndex.SECURITY_2, security2)
+                )
+                .filter(entry -> entry != null && entry.getValue() != null)
+                .collect(HashMap::new, (map, entry) -> map.put(entry.getKey(), entry.getValue()), HashMap::putAll)
+            );
+        }
         public SecurityRequirementObject get(SecurityIndex securityIndex) {
-            @Nullable SecurityRequirementObject securityRequirementObject = get(securityIndex);
-            if (securityRequirementObject == null) {
-                throw new UnsetPropertyException(securityIndex+" is unset");
+            if (securities.containsKey(securityIndex)) {
+                return get(securityIndex);
             }
-            return securityRequirementObject;
+            throw new UnsetPropertyException(securityIndex+" is unset");
         }
     }
 

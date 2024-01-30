@@ -20,7 +20,7 @@ public class PetpetiduploadimagePostSecurityInfo implements SecurityRequirementO
     }
 
     public static class Securities {
-        private final EnumMap<SecurityIndex, @Nullable SecurityRequirementObject> securities;
+        private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
         public Securities(
             @Nullable PetpetiduploadimagePostSecurityRequirementObject0 security0
@@ -36,11 +36,10 @@ public class PetpetiduploadimagePostSecurityInfo implements SecurityRequirementO
         }
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {
-            @Nullable SecurityRequirementObject securityRequirementObject = get(securityIndex);
-            if (securityRequirementObject == null) {
-                throw new UnsetPropertyException(securityIndex+" is unset");
+            if (securities.containsKey(securityIndex)) {
+                return get(securityIndex);
             }
-            return securityRequirementObject;
+            throw new UnsetPropertyException(securityIndex+" is unset");
         }
     }
 

@@ -13,7 +13,9 @@ import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectPro
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.AbstractMap;
-import java.util.Map;
+import java.util.HashMap;
+import java.util.EnumMap;
+import java.util.stream.Stream;
 import java.util.EnumMap;
 
 public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequirementObjectProvider<{{security.jsonPathPiece.pascalCase}}.SecurityIndex> {
@@ -29,24 +31,25 @@ public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequiremen
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
         {{#eq security.length 1}}
-        public Securities(
-        {{#each security}}
-            @Nullable {{jsonPathPiece.pascalCase}} security{{@index}}{{#unless @last}},{{/unless}}
-        {{/each}}
-        ) {
+            {{#each security}}
+        public Securities({{jsonPathPiece.pascalCase}} security{{@index}}) {
             securities = new EnumMap<>(
                 Map.ofEntries(
-    {{#each security}}
                     new AbstractMap.SimpleEntry<>(
                         SecurityIndex.SECURITY_{{@index}},
                         security{{@index}}
                     )
-    {{/each}}
                 )
             );
         }
+            {{/each}}
         {{else}}
-        // todo make multiple constructors for this use case
+            {{#each security}}
+        public Securities({{jsonPathPiece.pascalCase}} security{{@index}}{{#unless @last}}) {
+            securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_{{@index}}, security{{@index}}));
+        }
+            {{/each}}
+        // todo add constructor where all are set
         {{/eq}}
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {

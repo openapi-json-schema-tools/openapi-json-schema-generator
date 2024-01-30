@@ -7,7 +7,9 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.AbstractMap;
-import java.util.Map;
+import java.util.HashMap;
+import java.util.EnumMap;
+import java.util.stream.Stream;
 import java.util.EnumMap;
 
 public class FakePostSecurityInfo implements SecurityRequirementObjectProvider<FakePostSecurityInfo.SecurityIndex> {
@@ -20,10 +22,10 @@ public class FakePostSecurityInfo implements SecurityRequirementObjectProvider<F
     }
 
     public static class Securities {
-        private final EnumMap<SecurityIndex, @Nullable SecurityRequirementObject> securities;
+        private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
         public Securities(
-            @Nullable FakePostSecurityRequirementObject0 security0
+            FakePostSecurityRequirementObject0 security0
         ) {
             securities = new EnumMap<>(
                 Map.ofEntries(
@@ -36,11 +38,10 @@ public class FakePostSecurityInfo implements SecurityRequirementObjectProvider<F
         }
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {
-            @Nullable SecurityRequirementObject securityRequirementObject = get(securityIndex);
-            if (securityRequirementObject == null) {
-                throw new UnsetPropertyException(securityIndex+" is unset");
+            if (securities.containsKey(securityIndex)) {
+                return get(securityIndex);
             }
-            return securityRequirementObject;
+            throw new UnsetPropertyException(securityIndex+" is unset");
         }
     }
 
