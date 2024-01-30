@@ -1,0 +1,72 @@
+{{#if security.subpackage}}
+package {{{packageName}}}.{{security.subpackage}};
+{{else}}
+package {{{packageName}}};
+{{/if}}
+
+import {{{packageName}}}.exceptions.UnsetPropertyException;
+{{#each security}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+{{/each}}
+import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
+import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectProvider;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import java.util.AbstractMap;
+import java.util.Map;
+import java.util.EnumMap;
+
+public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequirementObjectProvider<{{security.jsonPathPiece.pascalCase}}.SecurityIndex> {
+    final private Securities securities;
+    final private SecurityIndex securityIndex;
+
+    public {{security.jsonPathPiece.pascalCase}}(Securities securities, SecurityIndex securityIndex) {
+        this.securities = securities;
+        this.securityIndex = securityIndex;
+    }
+
+    public static class Securities {
+        private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
+
+        {{#eq security.length 1}}
+        public Securities(
+        {{#each security}}
+            @Nullable {{jsonPathPiece.pascalCase}} security{{@index}}{{#unless @last}},{{/unless}}
+        {{/each}}
+        ) {
+            securities = new EnumMap<>(
+                Map.ofEntries(
+    {{#each security}}
+                    new AbstractMap.SimpleEntry<>(
+                        SecurityIndex.SECURITY_{{@index}},
+                        security{{@index}}
+                    )
+    {{/each}}
+                )
+            );
+        }
+        {{else}}
+        // todo make multiple constructors for this use case
+        {{/eq}}
+
+        public SecurityRequirementObject get(SecurityIndex securityIndex) {
+            if (securities.containsKey(securityIndex)) {
+                return get(securityIndex);
+            }
+            throw new UnsetPropertyException(securityIndex+" is unset");
+        }
+    }
+
+    public enum SecurityIndex {
+        {{#each security}}
+        SECURITY_{{@index}}{{#unless @last}},{{/unless}}
+        {{/each}}
+    }
+
+    public SecurityRequirementObject getSecurityRequirementObject(@Nullable SecurityIndex securityIndex) {
+        if (securityIndex == null) {
+            return securities.get(this.securityIndex);
+        }
+        return securities.get(securityIndex);
+    }
+}

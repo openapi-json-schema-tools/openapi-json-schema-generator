@@ -1436,7 +1436,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return tags;
     }
 
-    private void generateSecurity(List<File> files, List<CodegenSecurityRequirementObject> security, String jsonPath) {
+    private void generateSecurity(List<File> files, CodegenList<CodegenSecurityRequirementObject> security, String jsonPath) {
         if (security == null || security.isEmpty()) {
             return;
         }
@@ -1444,7 +1444,10 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             LOGGER.info("Skipping generation of security because generateApis is set to false.");
             return;
         }
-        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, null, true);
+        Map<String, Object> securityTemplateData = new HashMap<>();
+        securityTemplateData.put("packageName", generator.packageName());
+        securityTemplateData.put("security", security);
+        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, securityTemplateData, true);
 
         int i = 0;
         for (CodegenSecurityRequirementObject securityRequirementObject: security) {
@@ -1507,7 +1510,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         // components.securitySchemes
         TreeMap<String, CodegenSecurityScheme> securitySchemes = generateSecuritySchemes(files);
         // security
-        List<CodegenSecurityRequirementObject> security = generator.fromSecurity(openAPI.getSecurity(), "#/security");
+        CodegenList<CodegenSecurityRequirementObject> security = generator.fromSecurity(openAPI.getSecurity(), "#/security");
         generateSecurity(files, security, "#/security");
 
         boolean schemasExist = (schemas != null && !schemas.isEmpty());

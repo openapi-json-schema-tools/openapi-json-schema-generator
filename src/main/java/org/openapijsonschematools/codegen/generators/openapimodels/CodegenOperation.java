@@ -42,7 +42,7 @@ public class CodegenOperation {
 
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
-    public final List<CodegenSecurityRequirementObject> security;
+    public final CodegenList<CodegenSecurityRequirementObject> security;
     public final Map<String, CodegenTag> tags;
     public final TreeMap<String, CodegenResponse> responses;
     public final TreeMap<Integer, CodegenResponse> statusCodeResponses;
@@ -73,7 +73,7 @@ public class CodegenOperation {
             CodegenSchema cookieParametersSchema,
             boolean hasRequiredParamOrBody,
             boolean hasOptionalParamOrBody,
-            List<CodegenSecurityRequirementObject> security,
+            CodegenList<CodegenSecurityRequirementObject> security,
             Map<String, CodegenTag> tags,
             TreeMap<String, CodegenResponse> responses,
             TreeMap<Integer, CodegenResponse> statusCodeResponses,

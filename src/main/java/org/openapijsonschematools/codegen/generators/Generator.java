@@ -145,7 +145,7 @@ public interface Generator {
 
     CodegenTag fromTag(String name, String description);
 
-    List<CodegenSecurityRequirementObject> fromSecurity(List<SecurityRequirement> security, String jsonPath);
+    CodegenList<CodegenSecurityRequirementObject> fromSecurity(List<SecurityRequirement> security, String jsonPath);
 
     CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters);
 
@@ -198,6 +198,8 @@ public interface Generator {
     String toServerFilename(String baseName, String jsonPath);
 
     String toSecurityRequirementObjectFilename(String baseName, String jsonPath);
+
+    String toSecurityFilename(String baseName, String jsonPath);
 
     String getPascalCaseServer(String baseName, String jsonPath);
 

@@ -2382,6 +2382,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     packagePath() + File.separatorChar + "securityrequirementobjects",
                     "EmptySecurityRequirementObject.java"));
             supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityrequirementobjects/SecurityRequirementObjectProvider.hbs",
+                    packagePath() + File.separatorChar + "securityrequirementobjects",
+                    "SecurityRequirementObjectProvider.java"));
+            supportingFiles.add(new SupportingFile(
                     "src/main/java/packagename/securityschemes/SecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "SecurityScheme.java"));
@@ -2426,6 +2430,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
                     new HashMap<>() {{
                         put("src/main/java/packagename/securityrequirementobjects/SecurityRequirementObjectN.hbs", ".java");
+                    }}
+            );
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/securityrequirementobjects/SecurityInfo.hbs", ".java");
                     }}
             );
             jsonPathTemplateFiles.put(
@@ -2492,6 +2502,20 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             // #/paths/somePath/verb/security/0
             CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
             return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+        }
+        return null;
+    }
+
+    @Override
+    public String toSecurityFilename(String basename, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces.length == 2) {
+            // #/security
+            return "SecurityInfo";
+        } else if (pathPieces.length == 5) {
+            // #/paths/somePath/verb/security
+            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityInfo";
         }
         return null;
     }
