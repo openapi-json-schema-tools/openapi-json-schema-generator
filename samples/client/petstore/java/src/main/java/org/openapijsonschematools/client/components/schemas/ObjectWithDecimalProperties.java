@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.DecimalJsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -124,7 +124,7 @@ public class ObjectWithDecimalProperties {
         }
     }
     
-    public static class ObjectWithDecimalPropertiesMapBuilder extends UnsetAddPropsSetter<ObjectWithDecimalPropertiesMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForLength<ObjectWithDecimalPropertiesMapBuilder>, SetterForWidth<ObjectWithDecimalPropertiesMapBuilder>, SetterForCost<ObjectWithDecimalPropertiesMapBuilder> {
+    public static class ObjectWithDecimalPropertiesMapBuilder extends UnsetAddPropsSetter<ObjectWithDecimalPropertiesMapBuilder> implements MapBuilder<@Nullable Object>, SetterForLength<ObjectWithDecimalPropertiesMapBuilder>, SetterForWidth<ObjectWithDecimalPropertiesMapBuilder>, SetterForCost<ObjectWithDecimalPropertiesMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "length",

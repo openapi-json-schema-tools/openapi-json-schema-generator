@@ -16,7 +16,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -105,7 +105,7 @@ public class HeaderParameters {
         }
     }
     
-    public static class HeaderParametersMapBuilder implements BaseBuilder<@Nullable Object>, SetterForEnumHeaderString<HeaderParametersMapBuilder>, SetterForEnumHeaderStringArray<HeaderParametersMapBuilder> {
+    public static class HeaderParametersMapBuilder implements MapBuilder<@Nullable Object>, SetterForEnumHeaderString<HeaderParametersMapBuilder>, SetterForEnumHeaderStringArray<HeaderParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "enum_header_string",

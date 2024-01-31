@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -362,7 +362,7 @@ public class ObjectWithInlineCompositionProperty {
         }
     }
     
-    public static class ObjectWithInlineCompositionPropertyMapBuilder extends UnsetAddPropsSetter<ObjectWithInlineCompositionPropertyMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForSomeProp<ObjectWithInlineCompositionPropertyMapBuilder> {
+    public static class ObjectWithInlineCompositionPropertyMapBuilder extends UnsetAddPropsSetter<ObjectWithInlineCompositionPropertyMapBuilder> implements MapBuilder<@Nullable Object>, SetterForSomeProp<ObjectWithInlineCompositionPropertyMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "someProp"

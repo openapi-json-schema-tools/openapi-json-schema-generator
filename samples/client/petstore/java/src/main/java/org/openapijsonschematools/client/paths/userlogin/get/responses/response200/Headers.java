@@ -19,7 +19,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -149,7 +149,7 @@ public class Headers {
         }
     }
     
-    public static class HeadersMap000Builder implements BaseBuilder<@Nullable Object>, SetterForXExpiresAfter<HeadersMap000Builder>, SetterForNumberHeader<HeadersMap000Builder> {
+    public static class HeadersMap000Builder implements MapBuilder<@Nullable Object>, SetterForXExpiresAfter<HeadersMap000Builder>, SetterForNumberHeader<HeadersMap000Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "X-Rate-Limit",

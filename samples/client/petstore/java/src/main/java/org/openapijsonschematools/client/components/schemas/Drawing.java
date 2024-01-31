@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -490,7 +490,7 @@ public class Drawing {
         }
     }
     
-    public static class DrawingMapBuilder implements BaseBuilder<@Nullable Object>, SetterForMainShape<DrawingMapBuilder>, SetterForShapeOrNull<DrawingMapBuilder>, SetterForNullableShape<DrawingMapBuilder>, SetterForShapes<DrawingMapBuilder>, SetterForAdditionalProperties<DrawingMapBuilder> {
+    public static class DrawingMapBuilder implements MapBuilder<@Nullable Object>, SetterForMainShape<DrawingMapBuilder>, SetterForShapeOrNull<DrawingMapBuilder>, SetterForNullableShape<DrawingMapBuilder>, SetterForShapes<DrawingMapBuilder>, SetterForAdditionalProperties<DrawingMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "mainShape",

@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.UuidJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -81,7 +81,7 @@ public class MyObjectDto {
         }
     }
     
-    public static class MyObjectDtoMapBuilder implements BaseBuilder<String>, SetterForId<MyObjectDtoMapBuilder> {
+    public static class MyObjectDtoMapBuilder implements MapBuilder<String>, SetterForId<MyObjectDtoMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "id"

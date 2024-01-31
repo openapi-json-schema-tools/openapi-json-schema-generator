@@ -13,7 +13,17 @@
 
 public class {{jsonPathPiece.pascalCase}}
         {{#eq type "apiKey"}}
-extends ApiKeySecurityScheme
+            {{#eq in "cookie"}}
+extends ApiKeyCookieSecurityScheme
+            {{else}}
+                {{#eq in "header"}}
+extends ApiKeyHeaderSecurityScheme
+                {{else}}
+                    {{#eq in "query"}}
+extends ApiKeyQuerySecurityScheme
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
 
 {{> src/main/java/packagename/components/securityschemes/_doc_descMethods }}
 

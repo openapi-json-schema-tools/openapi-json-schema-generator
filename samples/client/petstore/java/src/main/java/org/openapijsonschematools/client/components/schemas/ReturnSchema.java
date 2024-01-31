@@ -17,8 +17,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -85,7 +85,7 @@ public class ReturnSchema {
         }
     }
     
-    public static class ReturnMapBuilder1 extends UnsetAddPropsSetter<ReturnMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForReturnSchema2<ReturnMapBuilder1> {
+    public static class ReturnMapBuilder1 extends UnsetAddPropsSetter<ReturnMapBuilder1> implements MapBuilder<@Nullable Object>, SetterForReturnSchema2<ReturnMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "return"

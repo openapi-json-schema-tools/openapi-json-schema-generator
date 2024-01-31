@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -2366,7 +2366,7 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public static class AnyTypeAndFormatMapBuilder extends UnsetAddPropsSetter<AnyTypeAndFormatMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForUuidSchema<AnyTypeAndFormatMapBuilder>, SetterForDate<AnyTypeAndFormatMapBuilder>, SetterForDatetime<AnyTypeAndFormatMapBuilder>, SetterForNumberSchema<AnyTypeAndFormatMapBuilder>, SetterForBinary<AnyTypeAndFormatMapBuilder>, SetterForInt32<AnyTypeAndFormatMapBuilder>, SetterForInt64<AnyTypeAndFormatMapBuilder>, SetterForDoubleSchema<AnyTypeAndFormatMapBuilder>, SetterForFloatSchema<AnyTypeAndFormatMapBuilder> {
+    public static class AnyTypeAndFormatMapBuilder extends UnsetAddPropsSetter<AnyTypeAndFormatMapBuilder> implements MapBuilder<@Nullable Object>, SetterForUuidSchema<AnyTypeAndFormatMapBuilder>, SetterForDate<AnyTypeAndFormatMapBuilder>, SetterForDatetime<AnyTypeAndFormatMapBuilder>, SetterForNumberSchema<AnyTypeAndFormatMapBuilder>, SetterForBinary<AnyTypeAndFormatMapBuilder>, SetterForInt32<AnyTypeAndFormatMapBuilder>, SetterForInt64<AnyTypeAndFormatMapBuilder>, SetterForDoubleSchema<AnyTypeAndFormatMapBuilder>, SetterForFloatSchema<AnyTypeAndFormatMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "uuid",

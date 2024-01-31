@@ -1,4 +1,4 @@
-package {{{packageName}}}.schemas;
+package org.openapijsonschematools.client.schemas;
 
 import java.util.Map;
 
@@ -7,6 +7,6 @@ import java.util.Map;
  * For Map builders,
  * @param <T> the type that the builder returns
  */
-public interface BaseBuilder<T> {
+public interface MapBuilder<T> {
     Map<String, T> build();
 }

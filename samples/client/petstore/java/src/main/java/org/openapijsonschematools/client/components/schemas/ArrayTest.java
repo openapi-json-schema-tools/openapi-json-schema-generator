@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -643,7 +643,7 @@ public class ArrayTest {
         }
     }
     
-    public static class ArrayTestMapBuilder extends UnsetAddPropsSetter<ArrayTestMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForArrayOfString<ArrayTestMapBuilder>, SetterForArrayArrayOfInteger<ArrayTestMapBuilder>, SetterForArrayArrayOfModel<ArrayTestMapBuilder> {
+    public static class ArrayTestMapBuilder extends UnsetAddPropsSetter<ArrayTestMapBuilder> implements MapBuilder<@Nullable Object>, SetterForArrayOfString<ArrayTestMapBuilder>, SetterForArrayArrayOfInteger<ArrayTestMapBuilder>, SetterForArrayArrayOfModel<ArrayTestMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "array_of_string",

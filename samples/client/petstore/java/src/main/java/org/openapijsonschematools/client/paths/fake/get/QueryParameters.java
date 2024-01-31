@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.paths.fake.get.parameters.parameter3.Sc
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter4.Schema4;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter5.Schema5;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -211,7 +211,7 @@ public class QueryParameters {
         }
     }
     
-    public static class QueryParametersMapBuilder implements BaseBuilder<@Nullable Object>, SetterForEnumQueryDouble<QueryParametersMapBuilder>, SetterForEnumQueryString<QueryParametersMapBuilder>, SetterForEnumQueryInteger<QueryParametersMapBuilder>, SetterForEnumQueryStringArray<QueryParametersMapBuilder> {
+    public static class QueryParametersMapBuilder implements MapBuilder<@Nullable Object>, SetterForEnumQueryDouble<QueryParametersMapBuilder>, SetterForEnumQueryString<QueryParametersMapBuilder>, SetterForEnumQueryInteger<QueryParametersMapBuilder>, SetterForEnumQueryStringArray<QueryParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "enum_query_double",

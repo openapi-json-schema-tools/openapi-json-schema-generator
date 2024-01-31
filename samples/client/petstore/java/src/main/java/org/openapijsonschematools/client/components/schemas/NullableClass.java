@@ -16,7 +16,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
@@ -1089,7 +1089,7 @@ public class NullableClass {
         }
     }
     
-    public static class ObjectNullablePropMapBuilder implements BaseBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties<ObjectNullablePropMapBuilder> {
+    public static class ObjectNullablePropMapBuilder implements MapBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties<ObjectNullablePropMapBuilder> {
         private final Map<String, Map<String, @Nullable Object>> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -1317,7 +1317,7 @@ public class NullableClass {
         }
     }
     
-    public static class ObjectAndItemsNullablePropMapBuilder implements BaseBuilder<@Nullable Map<String, @Nullable Object>>, SetterForAdditionalProperties1<ObjectAndItemsNullablePropMapBuilder> {
+    public static class ObjectAndItemsNullablePropMapBuilder implements MapBuilder<@Nullable Map<String, @Nullable Object>>, SetterForAdditionalProperties1<ObjectAndItemsNullablePropMapBuilder> {
         private final Map<String, @Nullable Map<String, @Nullable Object>> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -1545,7 +1545,7 @@ public class NullableClass {
         }
     }
     
-    public static class ObjectItemsNullableMapBuilder implements BaseBuilder<@Nullable Map<String, @Nullable Object>>, SetterForAdditionalProperties2<ObjectItemsNullableMapBuilder> {
+    public static class ObjectItemsNullableMapBuilder implements MapBuilder<@Nullable Map<String, @Nullable Object>>, SetterForAdditionalProperties2<ObjectItemsNullableMapBuilder> {
         private final Map<String, @Nullable Map<String, @Nullable Object>> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -2038,7 +2038,7 @@ public class NullableClass {
         }
     }
     
-    public static class NullableClassMapBuilder implements BaseBuilder<@Nullable Object>, SetterForIntegerProp<NullableClassMapBuilder>, SetterForNumberProp<NullableClassMapBuilder>, SetterForBooleanProp<NullableClassMapBuilder>, SetterForStringProp<NullableClassMapBuilder>, SetterForDateProp<NullableClassMapBuilder>, SetterForDatetimeProp<NullableClassMapBuilder>, SetterForArrayNullableProp<NullableClassMapBuilder>, SetterForArrayAndItemsNullableProp<NullableClassMapBuilder>, SetterForArrayItemsNullable<NullableClassMapBuilder>, SetterForObjectNullableProp<NullableClassMapBuilder>, SetterForObjectAndItemsNullableProp<NullableClassMapBuilder>, SetterForObjectItemsNullable<NullableClassMapBuilder>, SetterForAdditionalProperties3<NullableClassMapBuilder> {
+    public static class NullableClassMapBuilder implements MapBuilder<@Nullable Object>, SetterForIntegerProp<NullableClassMapBuilder>, SetterForNumberProp<NullableClassMapBuilder>, SetterForBooleanProp<NullableClassMapBuilder>, SetterForStringProp<NullableClassMapBuilder>, SetterForDateProp<NullableClassMapBuilder>, SetterForDatetimeProp<NullableClassMapBuilder>, SetterForArrayNullableProp<NullableClassMapBuilder>, SetterForArrayAndItemsNullableProp<NullableClassMapBuilder>, SetterForArrayItemsNullable<NullableClassMapBuilder>, SetterForObjectNullableProp<NullableClassMapBuilder>, SetterForObjectAndItemsNullableProp<NullableClassMapBuilder>, SetterForObjectItemsNullable<NullableClassMapBuilder>, SetterForAdditionalProperties3<NullableClassMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "integer_prop",

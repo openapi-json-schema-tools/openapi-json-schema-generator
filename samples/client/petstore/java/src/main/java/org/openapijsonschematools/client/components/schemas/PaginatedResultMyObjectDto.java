@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -223,7 +223,7 @@ public class PaginatedResultMyObjectDto {
         }
     }
     
-    public static class PaginatedResultMyObjectDtoMap00Builder implements BaseBuilder<Object> {
+    public static class PaginatedResultMyObjectDtoMap00Builder implements MapBuilder<Object> {
         private final Map<String, Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "count",

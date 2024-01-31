@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
@@ -74,7 +74,7 @@ public class MapTest {
         }
     }
     
-    public static class AdditionalPropertiesMapBuilder1 implements BaseBuilder<String>, SetterForAdditionalProperties1<AdditionalPropertiesMapBuilder1> {
+    public static class AdditionalPropertiesMapBuilder1 implements MapBuilder<String>, SetterForAdditionalProperties1<AdditionalPropertiesMapBuilder1> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -194,7 +194,7 @@ public class MapTest {
         }
     }
     
-    public static class MapMapOfStringMapBuilder implements BaseBuilder<Map<String, String>>, SetterForAdditionalProperties<MapMapOfStringMapBuilder> {
+    public static class MapMapOfStringMapBuilder implements MapBuilder<Map<String, String>>, SetterForAdditionalProperties<MapMapOfStringMapBuilder> {
         private final Map<String, Map<String, String>> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -388,7 +388,7 @@ public class MapTest {
         }
     }
     
-    public static class MapOfEnumStringMapBuilder implements BaseBuilder<String>, SetterForAdditionalProperties2<MapOfEnumStringMapBuilder> {
+    public static class MapOfEnumStringMapBuilder implements MapBuilder<String>, SetterForAdditionalProperties2<MapOfEnumStringMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -524,7 +524,7 @@ public class MapTest {
         }
     }
     
-    public static class DirectMapMapBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties3<DirectMapMapBuilder> {
+    public static class DirectMapMapBuilder implements MapBuilder<Boolean>, SetterForAdditionalProperties3<DirectMapMapBuilder> {
         private final Map<String, Boolean> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -722,7 +722,7 @@ public class MapTest {
         }
     }
     
-    public static class MapTestMapBuilder extends UnsetAddPropsSetter<MapTestMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForMapMapOfString<MapTestMapBuilder>, SetterForMapOfEnumString<MapTestMapBuilder>, SetterForDirectMap<MapTestMapBuilder>, SetterForIndirectMap<MapTestMapBuilder> {
+    public static class MapTestMapBuilder extends UnsetAddPropsSetter<MapTestMapBuilder> implements MapBuilder<@Nullable Object>, SetterForMapMapOfString<MapTestMapBuilder>, SetterForMapOfEnumString<MapTestMapBuilder>, SetterForDirectMap<MapTestMapBuilder>, SetterForIndirectMap<MapTestMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "map_map_of_string",

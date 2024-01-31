@@ -16,9 +16,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.DefaultValueMethod;
@@ -950,7 +950,7 @@ public class Schema {
         }
     }
     
-    public static class SchemaMap0000Builder extends UnsetAddPropsSetter<SchemaMap0000Builder> implements BaseBuilder<@Nullable Object>, SetterForIntegerSchema<SchemaMap0000Builder>, SetterForInt32<SchemaMap0000Builder>, SetterForInt64<SchemaMap0000Builder>, SetterForFloatSchema<SchemaMap0000Builder>, SetterForStringSchema<SchemaMap0000Builder>, SetterForBinary<SchemaMap0000Builder>, SetterForDate<SchemaMap0000Builder>, SetterForDateTime<SchemaMap0000Builder>, SetterForPassword<SchemaMap0000Builder>, SetterForCallback<SchemaMap0000Builder> {
+    public static class SchemaMap0000Builder extends UnsetAddPropsSetter<SchemaMap0000Builder> implements MapBuilder<@Nullable Object>, SetterForIntegerSchema<SchemaMap0000Builder>, SetterForInt32<SchemaMap0000Builder>, SetterForInt64<SchemaMap0000Builder>, SetterForFloatSchema<SchemaMap0000Builder>, SetterForStringSchema<SchemaMap0000Builder>, SetterForBinary<SchemaMap0000Builder>, SetterForDate<SchemaMap0000Builder>, SetterForDateTime<SchemaMap0000Builder>, SetterForPassword<SchemaMap0000Builder>, SetterForCallback<SchemaMap0000Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "byte",

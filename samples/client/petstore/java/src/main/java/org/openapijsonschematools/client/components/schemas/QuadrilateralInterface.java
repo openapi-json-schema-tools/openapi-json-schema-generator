@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
@@ -181,7 +181,7 @@ public class QuadrilateralInterface {
         }
     }
     
-    public static class QuadrilateralInterfaceMap00Builder extends UnsetAddPropsSetter<QuadrilateralInterfaceMap00Builder> implements BaseBuilder<@Nullable Object> {
+    public static class QuadrilateralInterfaceMap00Builder extends UnsetAddPropsSetter<QuadrilateralInterfaceMap00Builder> implements MapBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "quadrilateralType",

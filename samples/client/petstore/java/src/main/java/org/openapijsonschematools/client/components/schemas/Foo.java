@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -68,7 +68,7 @@ public class Foo {
         }
     }
     
-    public static class FooMapBuilder extends UnsetAddPropsSetter<FooMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForBar<FooMapBuilder> {
+    public static class FooMapBuilder extends UnsetAddPropsSetter<FooMapBuilder> implements MapBuilder<@Nullable Object>, SetterForBar<FooMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar"

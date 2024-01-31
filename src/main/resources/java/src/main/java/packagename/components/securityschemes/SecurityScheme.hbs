@@ -7,8 +7,17 @@ package {{packageName}}.components.securityschemes;
 
     {{else}}
         {{#eq type "apiKey"}}
-import {{packageName}}.securityschemes.ApiKeySecurityScheme;
-import {{packageName}}.securityschemes.ApiKeyInLocation;
+            {{#eq in "cookie"}}
+import {{packageName}}.securityschemes.ApiKeyCookieSecurityScheme;
+            {{else}}
+                {{#eq in "header"}}
+import {{packageName}}.securityschemes.ApiKeyHeaderSecurityScheme;
+                {{else}}
+                    {{#eq in "query"}}
+import {{packageName}}.securityschemes.ApiKeyQuerySecurityScheme;
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
         {{else}}
             {{#eq type "http"}}
                 {{#eq scheme "basic"}}
@@ -38,25 +47,35 @@ import {{packageName}}.securityschemes.OpenIdConnectSecurityScheme;
         {{/eq}}
 
         {{#eq type "apiKey"}}
-public class {{jsonPathPiece.pascalCase}} extends ApiKeySecurityScheme {
+            {{#eq in "cookie"}}
+public class {{jsonPathPiece.pascalCase}} extends ApiKeyCookieSecurityScheme {
+            {{else}}
+                {{#eq in "header"}}
+public class {{jsonPathPiece.pascalCase}} extends ApiKeyHeaderSecurityScheme {
+                {{else}}
+                    {{#eq in "query"}}
+public class {{jsonPathPiece.pascalCase}} extends ApiKeyQuerySecurityScheme {
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
             {{#if description}}
     /*
     {{description.original}}
     */
             {{/if}}
-            {{#eq in "query"}}
+            {{#eq in "cookie"}}
     public {{jsonPathPiece.pascalCase}}(String apiKey) {
-        super(apiKey, "{{{name}}}", ApiKeyInLocation.QUERY);
+        super(apiKey);
     }
             {{else}}
                 {{#eq in "header"}}
     public {{jsonPathPiece.pascalCase}}(String apiKey) {
-        super(apiKey, "{{{name}}}", ApiKeyInLocation.HEADER);
+        super(apiKey, "{{{name}}}");
     }
                 {{else}}
-                    {{#eq in "cookie"}}
+                    {{#eq in "query"}}
     public {{jsonPathPiece.pascalCase}}(String apiKey) {
-        super(apiKey, null, ApiKeyInLocation.COOKIE);
+        super(apiKey, "{{{name}}}");
     }
                     {{/eq}}
                 {{/eq}}

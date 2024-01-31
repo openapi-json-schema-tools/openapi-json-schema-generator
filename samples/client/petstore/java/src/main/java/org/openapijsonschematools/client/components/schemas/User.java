@@ -18,9 +18,9 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -914,7 +914,7 @@ public class User {
         }
     }
     
-    public static class UserMapBuilder extends UnsetAddPropsSetter<UserMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForId<UserMapBuilder>, SetterForUsername<UserMapBuilder>, SetterForFirstName<UserMapBuilder>, SetterForLastName<UserMapBuilder>, SetterForEmail<UserMapBuilder>, SetterForPassword<UserMapBuilder>, SetterForPhone<UserMapBuilder>, SetterForUserStatus<UserMapBuilder>, SetterForObjectWithNoDeclaredProps<UserMapBuilder>, SetterForObjectWithNoDeclaredPropsNullable<UserMapBuilder>, SetterForAnyTypeProp<UserMapBuilder>, SetterForAnyTypeExceptNullProp<UserMapBuilder>, SetterForAnyTypePropNullable<UserMapBuilder> {
+    public static class UserMapBuilder extends UnsetAddPropsSetter<UserMapBuilder> implements MapBuilder<@Nullable Object>, SetterForId<UserMapBuilder>, SetterForUsername<UserMapBuilder>, SetterForFirstName<UserMapBuilder>, SetterForLastName<UserMapBuilder>, SetterForEmail<UserMapBuilder>, SetterForPassword<UserMapBuilder>, SetterForPhone<UserMapBuilder>, SetterForUserStatus<UserMapBuilder>, SetterForObjectWithNoDeclaredProps<UserMapBuilder>, SetterForObjectWithNoDeclaredPropsNullable<UserMapBuilder>, SetterForAnyTypeProp<UserMapBuilder>, SetterForAnyTypeExceptNullProp<UserMapBuilder>, SetterForAnyTypePropNullable<UserMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "id",

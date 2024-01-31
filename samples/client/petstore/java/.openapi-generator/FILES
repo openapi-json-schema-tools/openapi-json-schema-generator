@@ -717,7 +717,6 @@ src/main/java/org/openapijsonschematools/client/paths/userusername/get/responses
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/requestbody/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
-src/main/java/org/openapijsonschematools/client/schemas/BaseBuilder.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateTimeJsonSchema.java
@@ -728,6 +727,7 @@ src/main/java/org/openapijsonschematools/client/schemas/Int32JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/Int64JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/IntJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/ListJsonSchema.java
+src/main/java/org/openapijsonschematools/client/schemas/MapBuilder.java
 src/main/java/org/openapijsonschematools/client/schemas/MapJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NotAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NullJsonSchema.java
@@ -814,8 +814,9 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ValidationMet
 src/main/java/org/openapijsonschematools/client/securityrequirementobjects/EmptySecurityRequirementObject.java
 src/main/java/org/openapijsonschematools/client/securityrequirementobjects/SecurityRequirementObject.java
 src/main/java/org/openapijsonschematools/client/securityrequirementobjects/SecurityRequirementObjectProvider.java
-src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeyInLocation.java
-src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeySecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeyCookieSecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeyHeaderSecurityScheme.java
+src/main/java/org/openapijsonschematools/client/securityschemes/ApiKeyQuerySecurityScheme.java
 src/main/java/org/openapijsonschematools/client/securityschemes/HttpBasicSecurityScheme.java
 src/main/java/org/openapijsonschematools/client/securityschemes/HttpBearerSecurityScheme.java
 src/main/java/org/openapijsonschematools/client/securityschemes/HttpDigestSecurityScheme.java

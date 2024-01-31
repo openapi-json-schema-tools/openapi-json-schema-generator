@@ -549,7 +549,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
         schemaSupportingFiles.add("AnyTypeJsonSchema");
-        schemaSupportingFiles.add("BaseBuilder");
         schemaSupportingFiles.add("BooleanJsonSchema");
         schemaSupportingFiles.add("DateJsonSchema");
         schemaSupportingFiles.add("DateTimeJsonSchema");
@@ -560,6 +559,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
         schemaSupportingFiles.add("ListJsonSchema");
+        schemaSupportingFiles.add("MapBuilder");
         schemaSupportingFiles.add("MapJsonSchema");
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
@@ -1517,7 +1517,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import java.util.Map;");
             imports.add("import java.util.Set;");
             imports.add("import " + packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import " + packageName + ".schemas.BaseBuilder;");
+            imports.add("import " + packageName + ".schemas.MapBuilder;");
         }
     }
 
@@ -1568,7 +1568,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
         }
         if (schema.additionalProperties != null) {
-            imports.add("import "+packageName + ".schemas.BaseBuilder;");
+            imports.add("import "+packageName + ".schemas.MapBuilder;");
             imports.add("import "+packageName + ".schemas.validation.MapUtils;");
         } else {
             imports.add("import "+packageName + ".schemas.UnsetAddPropsSetter;");
@@ -1579,7 +1579,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     private void addRequiredValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.requiredProperties != null) {
             imports.add("import java.util.Set;");
-            imports.add("import "+packageName + ".schemas.BaseBuilder;");
+            imports.add("import "+packageName + ".schemas.MapBuilder;");
         }
     }
 
@@ -2390,13 +2390,17 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     packagePath() + File.separatorChar + "securityschemes",
                     "SecurityScheme.java"));
             supportingFiles.add(new SupportingFile(
-                    "src/main/java/packagename/securityschemes/ApiKeyInLocation.hbs",
+                    "src/main/java/packagename/securityschemes/ApiKeyCookieSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
-                    "ApiKeyInLocation.java"));
+                    "ApiKeyCookieSecurityScheme.java"));
             supportingFiles.add(new SupportingFile(
-                    "src/main/java/packagename/securityschemes/ApiKeySecurityScheme.hbs",
+                    "src/main/java/packagename/securityschemes/ApiKeyHeaderSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
-                    "ApiKeySecurityScheme.java"));
+                    "ApiKeyHeaderSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/ApiKeyQuerySecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "ApiKeyQuerySecurityScheme.java"));
             supportingFiles.add(new SupportingFile(
                     "src/main/java/packagename/securityschemes/HttpBasicSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",

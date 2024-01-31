@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -138,7 +138,7 @@ public class BananaReq {
         }
     }
     
-    public static class BananaReqMap0Builder implements BaseBuilder<Object>, SetterForSweet<BananaReqMap0Builder> {
+    public static class BananaReqMap0Builder implements MapBuilder<Object>, SetterForSweet<BananaReqMap0Builder> {
         private final Map<String, Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "lengthCm",

@@ -16,7 +16,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter4.Schema4;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -110,7 +110,7 @@ public class HeaderParameters {
         }
     }
     
-    public static class HeaderParametersMap0Builder implements BaseBuilder<@Nullable Object>, SetterForBooleanGroup<HeaderParametersMap0Builder> {
+    public static class HeaderParametersMap0Builder implements MapBuilder<@Nullable Object>, SetterForBooleanGroup<HeaderParametersMap0Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "required_boolean_group",

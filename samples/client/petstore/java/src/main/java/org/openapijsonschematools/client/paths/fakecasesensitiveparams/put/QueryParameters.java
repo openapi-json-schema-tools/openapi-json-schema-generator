@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.param
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -116,7 +116,7 @@ public class QueryParameters {
         }
     }
     
-    public static class QueryParametersMap000Builder implements BaseBuilder<@Nullable Object> {
+    public static class QueryParametersMap000Builder implements MapBuilder<@Nullable Object> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "SomeVar",

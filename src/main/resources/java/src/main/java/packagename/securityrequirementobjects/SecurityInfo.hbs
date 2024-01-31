@@ -12,6 +12,11 @@ import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+{{#eq security.length 1}}
+import java.util.AbstractMap;
+{{else}}
+import java.util.HashMap;
+{{/eq}}
 import java.util.Map;
 import java.util.EnumMap;
 
@@ -51,15 +56,16 @@ public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequiremen
             @Nullable {{jsonPathPiece.pascalCase}} security{{@index}}{{#unless @last}},{{/unless}}
             {{/each}}
         ) {
-            securities = new EnumMap<>(SecurityRequirementObject.class);
+            var secMap = new HashMap<SecurityIndex, SecurityRequirementObject>();
             {{#each security}}
             if (security{{@index}} != null) {
-                securities.put(SecurityIndex.SECURITY_{{@index}}, security{{@index}});
+                secMap.put(SecurityIndex.SECURITY_{{@index}}, security{{@index}});
             }
             {{/each}}
-            if (securities.isEmpty()) {
+            if (secMap.isEmpty()) {
                 throw new RuntimeException("Invalid empty input for securities, set at least one of them;");
             }
+            securities = new EnumMap<>(secMap);
         }
         {{/eq}}
 

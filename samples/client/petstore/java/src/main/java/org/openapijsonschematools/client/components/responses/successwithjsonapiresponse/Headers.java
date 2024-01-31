@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -150,7 +150,7 @@ public class Headers {
         }
     }
     
-    public static class HeadersMap0000Builder implements BaseBuilder<@Nullable Object>, SetterForNumberHeader<HeadersMap0000Builder> {
+    public static class HeadersMap0000Builder implements MapBuilder<@Nullable Object>, SetterForNumberHeader<HeadersMap0000Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "int32",

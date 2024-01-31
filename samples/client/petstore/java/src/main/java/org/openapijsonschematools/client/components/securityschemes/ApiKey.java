@@ -1,13 +1,12 @@
 package org.openapijsonschematools.client.components.securityschemes;
 
-import org.openapijsonschematools.client.securityschemes.ApiKeySecurityScheme;
-import org.openapijsonschematools.client.securityschemes.ApiKeyInLocation;
+import org.openapijsonschematools.client.securityschemes.ApiKeyHeaderSecurityScheme;
 
-public class ApiKey extends ApiKeySecurityScheme {
+public class ApiKey extends ApiKeyHeaderSecurityScheme {
     /*
     apiKey in header
     */
     public ApiKey(String apiKey) {
-        super(apiKey, "api_key", ApiKeyInLocation.HEADER);
+        super(apiKey, "api_key");
     }
 }

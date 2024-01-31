@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.AbstractMap;
 import java.util.Map;
 import java.util.EnumMap;
 

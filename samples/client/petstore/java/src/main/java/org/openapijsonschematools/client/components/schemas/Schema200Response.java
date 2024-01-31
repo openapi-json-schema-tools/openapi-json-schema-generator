@@ -17,8 +17,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
+import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
@@ -119,7 +119,7 @@ public class Schema200Response {
         }
     }
     
-    public static class Schema200ResponseMapBuilder extends UnsetAddPropsSetter<Schema200ResponseMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForName<Schema200ResponseMapBuilder>, SetterForClassSchema<Schema200ResponseMapBuilder> {
+    public static class Schema200ResponseMapBuilder extends UnsetAddPropsSetter<Schema200ResponseMapBuilder> implements MapBuilder<@Nullable Object>, SetterForName<Schema200ResponseMapBuilder>, SetterForClassSchema<Schema200ResponseMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "name",

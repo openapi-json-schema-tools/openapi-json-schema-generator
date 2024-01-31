@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.EnumMap;
 
@@ -32,16 +33,17 @@ public class PetPutSecurityInfo implements SecurityRequirementObjectProvider<Pet
             @Nullable PetPutSecurityRequirementObject0 security0,
             @Nullable PetPutSecurityRequirementObject1 security1
         ) {
-            securities = new EnumMap<>(SecurityRequirementObject.class);
+            var secMap = new HashMap<SecurityIndex, SecurityRequirementObject>();
             if (security0 != null) {
-                securities.put(SecurityIndex.SECURITY_0, security0);
+                secMap.put(SecurityIndex.SECURITY_0, security0);
             }
             if (security1 != null) {
-                securities.put(SecurityIndex.SECURITY_1, security1);
+                secMap.put(SecurityIndex.SECURITY_1, security1);
             }
-            if (securities.isEmpty()) {
+            if (secMap.isEmpty()) {
                 throw new RuntimeException("Invalid empty input for securities, set at least one of them;");
             }
+            securities = new EnumMap<>(secMap);
         }
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {
