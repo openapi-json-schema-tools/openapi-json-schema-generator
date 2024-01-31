@@ -10,11 +10,13 @@ public class CodegenList <T> extends AbstractList<T> {
     public final List<T> items;
     public final CodegenKey jsonPathPiece;
     public final String subpackage;
+    public final List<MapBuilder<T>> builders;
 
-    public CodegenList(List<T> items, CodegenKey jsonPathPiece, String subpackage) {
+    public CodegenList(List<T> items, CodegenKey jsonPathPiece, String subpackage, List<MapBuilder<T>> builders) {
         this.items = items;
         this.jsonPathPiece = jsonPathPiece;
         this.subpackage = subpackage;
+        this.builders = builders;
     }
 
     @Override

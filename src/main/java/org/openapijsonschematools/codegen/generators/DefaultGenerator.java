@@ -3012,10 +3012,12 @@ public class DefaultGenerator implements Generator {
         }
         CodegenKey jsonPathPiece = getKey("", "security", jsonPath);
         String subpackage = getSubpackage(jsonPath);
+        List<MapBuilder<CodegenSecurityRequirementObject>> builders = null;
         return new CodegenList<>(
                 items,
                 jsonPathPiece,
-                subpackage
+                subpackage,
+                builders
         );
     }
 
@@ -5149,7 +5151,8 @@ public class DefaultGenerator implements Generator {
         return new CodegenList<CodegenServer>(
                 codegenServers,
                 jsonPathPiece,
-                serversSubpackage
+                serversSubpackage,
+                null
         );
     }
 
