@@ -2578,7 +2578,7 @@ public class DefaultGenerator implements Generator {
         return property;
     }
 
-    protected List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
+    protected List<MapBuilder<CodegenSchema>> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
         return null;
     }
 

@@ -2001,8 +2001,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
     }
 
-    protected List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
-        List<MapBuilder> builders = new ArrayList<>();
+    protected List<MapBuilder<CodegenSchema>> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
+        List<MapBuilder<CodegenSchema>> builders = new ArrayList<>();
         if (sourceJsonPath == null) {
             return builders;
         }
@@ -2014,12 +2014,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             qtyBuilders = (int) Math.pow(2, schema.requiredProperties.size());
             reqPropsSize = schema.requiredProperties.size();
         }
-        Map<String, MapBuilder> bitStrToBuilder = new HashMap<>();
+        Map<String, MapBuilder<CodegenSchema>> bitStrToBuilder = new HashMap<>();
         List<CodegenKey> reqPropKeys = new ArrayList<>();
         if (schema.requiredProperties != null) {
             reqPropKeys.addAll(schema.requiredProperties.keySet());
         }
-        MapBuilder lastBuilder = null;
+        MapBuilder<CodegenSchema> lastBuilder = null;
         // builders are built last to first, last builder has build method
         for (int i=0; i < qtyBuilders; i++) {
             String bitStr = "";
@@ -2037,12 +2037,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             } else {
                 builderClassName = getKey(schemaName + objectIOClassNamePiece + bitStr + "Builder", "schemas", sourceJsonPath);
             }
-            MapBuilder builder;
+            MapBuilder<CodegenSchema> builder;
             if (i == 0) {
-                builder = new MapBuilder(builderClassName, new LinkedHashMap<>());
+                builder = new MapBuilder<>(builderClassName, new LinkedHashMap<>());
                 lastBuilder = builder;
             } else {
-                LinkedHashMap<CodegenKey, MapBuilder.BuilderSchemaPair> keyToBuilder = new LinkedHashMap<>();
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderSchemaPair<CodegenSchema>> keyToBuilder = new LinkedHashMap<>();
                 for (int c=0; c < reqPropsSize; c++) {
                     if (bitStr.charAt(c) == '1') {
                         StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
@@ -2051,22 +2051,22 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         if (key == null) {
                             throw new RuntimeException("key must exist at c="+c);
                         }
-                        MapBuilder nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
+                        MapBuilder<CodegenSchema> nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
                         if (nextBuilder == null) {
                             throw new RuntimeException("Next builder must exist for bitStr="+ nextBuilderBitStr);
                         }
-                        var pair = new MapBuilder.BuilderSchemaPair(nextBuilder, schema.requiredProperties.get(key));
+                        var pair = new MapBuilder.BuilderSchemaPair<>(nextBuilder, schema.requiredProperties.get(key));
                         keyToBuilder.put(key, pair);
                     }
                 }
-                builder = new MapBuilder(builderClassName, keyToBuilder);
+                builder = new MapBuilder<>(builderClassName, keyToBuilder);
             }
             bitStrToBuilder.put(bitStr, builder);
             builders.add(builder);
         }
         if (lastBuilder != null && schema.optionalProperties != null) {
             for (Map.Entry<CodegenKey, CodegenSchema> entry: schema.optionalProperties.entrySet()) {
-                var pair = new MapBuilder.BuilderSchemaPair(lastBuilder, entry.getValue());
+                var pair = new MapBuilder.BuilderSchemaPair<>(lastBuilder, entry.getValue());
                 lastBuilder.keyToBuilder.put(entry.getKey(), pair);
             }
         }

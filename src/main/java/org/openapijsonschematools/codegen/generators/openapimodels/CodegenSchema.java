@@ -122,7 +122,7 @@ public class CodegenSchema {
     public String subpackage;  // the current schema's subpackage, needed by java
     public CodegenKey containerJsonPathPiece; // needed by java, outer class that has inner nested schema classes
     public LinkedHashMap<String, EnumValue> typeToExample = null;
-    public List<MapBuilder> mapBuilders = null; // used by java
+    public List<MapBuilder<CodegenSchema>> mapBuilders = null; // used by java
     public CodegenSchema listItemSchema; // 3.1.0 the type of any list item
 
     public boolean isCustomSchema() {
