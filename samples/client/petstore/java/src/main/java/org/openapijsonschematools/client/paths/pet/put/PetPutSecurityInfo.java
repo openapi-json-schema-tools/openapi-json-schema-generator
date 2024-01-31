@@ -39,6 +39,9 @@ public class PetPutSecurityInfo implements SecurityRequirementObjectProvider<Pet
             if (security1 != null) {
                 securities.put(SecurityIndex.SECURITY_1, security1);
             }
+            if (securities.isEmpty()) {
+                throw new RuntimeException("Invalid empty input for securities, set at least one of them;");
+            }
         }
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {

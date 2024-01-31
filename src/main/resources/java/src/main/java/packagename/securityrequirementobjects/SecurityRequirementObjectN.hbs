@@ -3,7 +3,7 @@ package {{{packageName}}}.{{securityRequirementObject.subpackage}};
 {{#if securityRequirementObject.isEmpty }}
 import {{{packageName}}}.securityrequirementobjects.EmptySecurityRequirementObject;
 
-public class {{securityRequirementObject.jsonPathPiece.PascalCase}} extends EmptySecurityRequirementObject {}
+public class {{securityRequirementObject.jsonPathPiece.pascalCase}} extends EmptySecurityRequirementObject {}
 {{else}}
 import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;

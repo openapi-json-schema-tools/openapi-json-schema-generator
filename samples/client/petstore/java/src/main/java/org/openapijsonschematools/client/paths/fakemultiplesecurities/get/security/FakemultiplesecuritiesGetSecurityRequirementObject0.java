@@ -2,4 +2,4 @@ package org.openapijsonschematools.client.paths.fakemultiplesecurities.get.secur
 
 import org.openapijsonschematools.client.securityrequirementobjects.EmptySecurityRequirementObject;
 
-public class  extends EmptySecurityRequirementObject {}
+public class FakemultiplesecuritiesGetSecurityRequirementObject0 extends EmptySecurityRequirementObject {}
