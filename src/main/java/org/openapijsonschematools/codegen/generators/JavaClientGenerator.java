@@ -2042,7 +2042,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 builder = new MapBuilder<>(builderClassName, new LinkedHashMap<>());
                 lastBuilder = builder;
             } else {
-                LinkedHashMap<CodegenKey, MapBuilder.BuilderSchemaPair<CodegenSchema>> keyToBuilder = new LinkedHashMap<>();
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderPropertyPair<CodegenSchema>> keyToBuilder = new LinkedHashMap<>();
                 for (int c=0; c < reqPropsSize; c++) {
                     if (bitStr.charAt(c) == '1') {
                         StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
@@ -2055,7 +2055,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         if (nextBuilder == null) {
                             throw new RuntimeException("Next builder must exist for bitStr="+ nextBuilderBitStr);
                         }
-                        var pair = new MapBuilder.BuilderSchemaPair<>(nextBuilder, schema.requiredProperties.get(key));
+                        var pair = new MapBuilder.BuilderPropertyPair<>(nextBuilder, schema.requiredProperties.get(key));
                         keyToBuilder.put(key, pair);
                     }
                 }
@@ -2066,7 +2066,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
         if (lastBuilder != null && schema.optionalProperties != null) {
             for (Map.Entry<CodegenKey, CodegenSchema> entry: schema.optionalProperties.entrySet()) {
-                var pair = new MapBuilder.BuilderSchemaPair<>(lastBuilder, entry.getValue());
+                var pair = new MapBuilder.BuilderPropertyPair<>(lastBuilder, entry.getValue());
                 lastBuilder.keyToBuilder.put(entry.getKey(), pair);
             }
         }

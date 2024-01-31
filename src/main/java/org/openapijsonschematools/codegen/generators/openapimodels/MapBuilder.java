@@ -3,20 +3,20 @@ package org.openapijsonschematools.codegen.generators.openapimodels;
 import java.util.LinkedHashMap;
 
 public class MapBuilder<T> {
-    public static class BuilderSchemaPair<T> {
+    public static class BuilderPropertyPair<T> {
         public final MapBuilder<T> builder;
-        public final T schema;
+        public final T property;
 
-        public BuilderSchemaPair(MapBuilder<T> builder, T schema) {
+        public BuilderPropertyPair(MapBuilder<T> builder, T property) {
             this.builder = builder;
-            this.schema = schema;
+            this.property = property;
         }
     }
 
     public final CodegenKey className;
-    public final LinkedHashMap<CodegenKey, BuilderSchemaPair<T>> keyToBuilder;
+    public final LinkedHashMap<CodegenKey, BuilderPropertyPair<T>> keyToBuilder;
 
-    public MapBuilder(CodegenKey className, LinkedHashMap<CodegenKey, BuilderSchemaPair<T>> keyToBuilder) {
+    public MapBuilder(CodegenKey className, LinkedHashMap<CodegenKey, BuilderPropertyPair<T>> keyToBuilder) {
         this.className = className;
         this.keyToBuilder = keyToBuilder;
     }
