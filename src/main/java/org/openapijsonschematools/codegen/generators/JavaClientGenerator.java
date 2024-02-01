@@ -44,6 +44,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInf
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
@@ -2494,6 +2495,94 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     }}
             );
         }
+    }
+
+    protected List<MapBuilder<CodegenSecurityRequirementObject>> getSecurityBuilders(List<CodegenSecurityRequirementObject> items, String jsonPath) {
+        List<MapBuilder<CodegenSecurityRequirementObject>> builders = new ArrayList<>();
+        if (items.isEmpty()) {
+            return null;
+        }
+        String schemaName = "Securities";
+        int qtyBuilders = items.size()+1;
+        int reqPropsSize = items.size();
+        Map<String, MapBuilder<CodegenSecurityRequirementObject>> bitStrToBuilder = new HashMap<>();
+        List<CodegenKey> reqPropKeys = new ArrayList<>();
+        for (int i=0; i < items.size(); i ++) {
+            reqPropKeys.add(items.get(i).jsonPathPiece);
+        }
+        // builders are built last to first, last builder has build method
+        /*
+        2 -> 3 builders
+        2**0 -> 1 10
+        2**1 -> 2 01
+        2**2 -> 4 11
+
+        3 -> 4
+        111 7
+        110 6
+        101 5
+        011 3
+
+        1 -> 2 builders
+        1
+        0
+         */
+        for (int i=0; i < qtyBuilders; i++) {
+            String lastBuilderBitStr = "1".repeat(reqPropsSize);
+            String bitStr;
+            if (i == qtyBuilders-1) {
+                bitStr = lastBuilderBitStr;
+            } else {
+                bitStr = lastBuilderBitStr.substring(0, i) + "0"
+                        + lastBuilderBitStr.substring(i + 1);
+            }
+            CodegenKey builderClassName;
+            if (i == qtyBuilders - 1) {
+                // first invoked builder has the simplest name with no bitStr
+                builderClassName = getKey(schemaName + "Builder", "schemas", jsonPath);
+            } else {
+                builderClassName = getKey(schemaName + bitStr + "Builder", "schemas", jsonPath);
+            }
+            MapBuilder<CodegenSecurityRequirementObject> builder;
+            if (i != qtyBuilders-1) {
+                // final optional builders
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderPropertyPair<CodegenSecurityRequirementObject>> keyToBuilder = new LinkedHashMap<>();
+                builder = new MapBuilder<>(builderClassName, keyToBuilder);
+                for (int c=0; c < reqPropsSize; c++) {
+                    if (bitStr.charAt(c) == '1') {
+                        CodegenKey key = reqPropKeys.get(c);
+                        if (key == null) {
+                            throw new RuntimeException("key must exist at c="+c);
+                        }
+                        var pair = new MapBuilder.BuilderPropertyPair<>(builder, items.get(c));
+                        keyToBuilder.put(key, pair);
+                    }
+                }
+            } else {
+                // first builder with required props
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderPropertyPair<CodegenSecurityRequirementObject>> keyToBuilder = new LinkedHashMap<>();
+                for (int c=0; c < reqPropsSize; c++) {
+                    if (bitStr.charAt(c) == '1') {
+                        StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
+                        nextBuilderBitStr.setCharAt(c, '0');
+                        CodegenKey key = reqPropKeys.get(c);
+                        if (key == null) {
+                            throw new RuntimeException("key must exist at c="+c);
+                        }
+                        MapBuilder<CodegenSecurityRequirementObject> nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
+                        if (nextBuilder == null) {
+                            throw new RuntimeException("Next builder must exist for bitStr="+ nextBuilderBitStr);
+                        }
+                        var pair = new MapBuilder.BuilderPropertyPair<>(nextBuilder, items.get(c));
+                        keyToBuilder.put(key, pair);
+                    }
+                }
+                builder = new MapBuilder<>(builderClassName, keyToBuilder);
+            }
+            bitStrToBuilder.put(bitStr, builder);
+            builders.add(builder);
+        }
+        return builders;
     }
 
     @Override
