@@ -19,6 +19,16 @@ public class PetpetiduploadimagePostSecurityInfo implements SecurityRequirementO
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForPetpetiduploadimagePostSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetpetiduploadimagePostSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petpetiduploadimagePostSecurityRequirementObject0(PetpetiduploadimagePostSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterPetpetiduploadimagePostSecurityRequirementObject0(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

@@ -20,6 +20,26 @@ public class PetPutSecurityInfo implements SecurityRequirementObjectProvider<Pet
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForPetPutSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetPutSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petPutSecurityRequirementObject0(PetPutSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterPetPutSecurityRequirementObject0(instance);
+        }
+    }
+
+    public interface SetterForPetPutSecurityRequirementObject1 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetPutSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petPutSecurityRequirementObject1(PetPutSecurityRequirementObject1 security1) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_1, security1);
+            return getBuilderAfterPetPutSecurityRequirementObject1(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

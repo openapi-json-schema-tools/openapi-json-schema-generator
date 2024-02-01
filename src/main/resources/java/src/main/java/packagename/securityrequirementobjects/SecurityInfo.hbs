@@ -28,6 +28,14 @@ public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequiremen
         this.securities = securities;
         this.securityIndex = securityIndex;
     }
+{{#each security}}
+
+    public interface SetterFor{{jsonPathPiece.pascalCase}} <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfter{{jsonPathPiece.pascalCase}}(Map<SecurityIndex, SecurityRequirementObject> instance);
+        {{> src/main/java/packagename/securityrequirementobjects/_SecurityRequirementObjectSetter methodName=jsonPathPiece.camelCase getBuilderMethod=(join "getBuilderAfter" jsonPathPiece.pascalCase "") }}
+    }
+{{/each}}
 
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;

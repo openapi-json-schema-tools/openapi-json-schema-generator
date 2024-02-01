@@ -21,6 +21,36 @@ public class FakemultiplesecuritiesGetSecurityInfo implements SecurityRequiremen
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForFakemultiplesecuritiesGetSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterFakemultiplesecuritiesGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T fakemultiplesecuritiesGetSecurityRequirementObject0(FakemultiplesecuritiesGetSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterFakemultiplesecuritiesGetSecurityRequirementObject0(instance);
+        }
+    }
+
+    public interface SetterForFakemultiplesecuritiesGetSecurityRequirementObject1 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterFakemultiplesecuritiesGetSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T fakemultiplesecuritiesGetSecurityRequirementObject1(FakemultiplesecuritiesGetSecurityRequirementObject1 security1) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_1, security1);
+            return getBuilderAfterFakemultiplesecuritiesGetSecurityRequirementObject1(instance);
+        }
+    }
+
+    public interface SetterForFakemultiplesecuritiesGetSecurityRequirementObject2 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterFakemultiplesecuritiesGetSecurityRequirementObject2(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T fakemultiplesecuritiesGetSecurityRequirementObject2(FakemultiplesecuritiesGetSecurityRequirementObject2 security2) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_2, security2);
+            return getBuilderAfterFakemultiplesecuritiesGetSecurityRequirementObject2(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

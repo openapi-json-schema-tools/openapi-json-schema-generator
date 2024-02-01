@@ -19,6 +19,16 @@ public class StoreinventoryGetSecurityInfo implements SecurityRequirementObjectP
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForStoreinventoryGetSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterStoreinventoryGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T storeinventoryGetSecurityRequirementObject0(StoreinventoryGetSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterStoreinventoryGetSecurityRequirementObject0(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

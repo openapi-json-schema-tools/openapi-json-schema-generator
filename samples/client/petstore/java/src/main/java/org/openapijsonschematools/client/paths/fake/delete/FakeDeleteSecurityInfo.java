@@ -19,6 +19,16 @@ public class FakeDeleteSecurityInfo implements SecurityRequirementObjectProvider
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForFakeDeleteSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterFakeDeleteSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T fakeDeleteSecurityRequirementObject0(FakeDeleteSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterFakeDeleteSecurityRequirementObject0(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

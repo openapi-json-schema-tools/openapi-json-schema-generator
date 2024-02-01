@@ -19,6 +19,16 @@ public class PetpetidGetSecurityInfo implements SecurityRequirementObjectProvide
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForPetpetidGetSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetpetidGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petpetidGetSecurityRequirementObject0(PetpetidGetSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterPetpetidGetSecurityRequirementObject0(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

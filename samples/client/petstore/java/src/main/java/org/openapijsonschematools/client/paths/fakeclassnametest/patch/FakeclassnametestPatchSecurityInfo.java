@@ -19,6 +19,16 @@ public class FakeclassnametestPatchSecurityInfo implements SecurityRequirementOb
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForFakeclassnametestPatchSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterFakeclassnametestPatchSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T fakeclassnametestPatchSecurityRequirementObject0(FakeclassnametestPatchSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterFakeclassnametestPatchSecurityRequirementObject0(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

@@ -20,6 +20,26 @@ public class PetpetidDeleteSecurityInfo implements SecurityRequirementObjectProv
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForPetpetidDeleteSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetpetidDeleteSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petpetidDeleteSecurityRequirementObject0(PetpetidDeleteSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterPetpetidDeleteSecurityRequirementObject0(instance);
+        }
+    }
+
+    public interface SetterForPetpetidDeleteSecurityRequirementObject1 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetpetidDeleteSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petpetidDeleteSecurityRequirementObject1(PetpetidDeleteSecurityRequirementObject1 security1) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_1, security1);
+            return getBuilderAfterPetpetidDeleteSecurityRequirementObject1(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

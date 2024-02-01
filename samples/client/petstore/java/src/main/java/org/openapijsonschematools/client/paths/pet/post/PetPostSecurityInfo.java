@@ -21,6 +21,36 @@ public class PetPostSecurityInfo implements SecurityRequirementObjectProvider<Pe
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForPetPostSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetPostSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petPostSecurityRequirementObject0(PetPostSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterPetPostSecurityRequirementObject0(instance);
+        }
+    }
+
+    public interface SetterForPetPostSecurityRequirementObject1 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetPostSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petPostSecurityRequirementObject1(PetPostSecurityRequirementObject1 security1) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_1, security1);
+            return getBuilderAfterPetPostSecurityRequirementObject1(instance);
+        }
+    }
+
+    public interface SetterForPetPostSecurityRequirementObject2 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetPostSecurityRequirementObject2(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petPostSecurityRequirementObject2(PetPostSecurityRequirementObject2 security2) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_2, security2);
+            return getBuilderAfterPetPostSecurityRequirementObject2(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

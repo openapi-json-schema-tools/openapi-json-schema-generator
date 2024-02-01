@@ -21,6 +21,36 @@ public class PetfindbystatusGetSecurityInfo implements SecurityRequirementObject
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForPetfindbystatusGetSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetfindbystatusGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petfindbystatusGetSecurityRequirementObject0(PetfindbystatusGetSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterPetfindbystatusGetSecurityRequirementObject0(instance);
+        }
+    }
+
+    public interface SetterForPetfindbystatusGetSecurityRequirementObject1 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetfindbystatusGetSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petfindbystatusGetSecurityRequirementObject1(PetfindbystatusGetSecurityRequirementObject1 security1) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_1, security1);
+            return getBuilderAfterPetfindbystatusGetSecurityRequirementObject1(instance);
+        }
+    }
+
+    public interface SetterForPetfindbystatusGetSecurityRequirementObject2 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetfindbystatusGetSecurityRequirementObject2(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petfindbystatusGetSecurityRequirementObject2(PetfindbystatusGetSecurityRequirementObject2 security2) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_2, security2);
+            return getBuilderAfterPetfindbystatusGetSecurityRequirementObject2(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

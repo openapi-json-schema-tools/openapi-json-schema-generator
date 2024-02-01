@@ -20,6 +20,26 @@ public class PetfindbytagsGetSecurityInfo implements SecurityRequirementObjectPr
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForPetfindbytagsGetSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetfindbytagsGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petfindbytagsGetSecurityRequirementObject0(PetfindbytagsGetSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterPetfindbytagsGetSecurityRequirementObject0(instance);
+        }
+    }
+
+    public interface SetterForPetfindbytagsGetSecurityRequirementObject1 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterPetfindbytagsGetSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T petfindbytagsGetSecurityRequirementObject1(PetfindbytagsGetSecurityRequirementObject1 security1) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_1, security1);
+            return getBuilderAfterPetfindbytagsGetSecurityRequirementObject1(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

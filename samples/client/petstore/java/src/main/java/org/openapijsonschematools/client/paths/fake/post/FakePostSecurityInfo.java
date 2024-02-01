@@ -19,6 +19,16 @@ public class FakePostSecurityInfo implements SecurityRequirementObjectProvider<F
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForFakePostSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterFakePostSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T fakePostSecurityRequirementObject0(FakePostSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterFakePostSecurityRequirementObject0(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 

@@ -19,6 +19,16 @@ public class FakepetiduploadimagewithrequiredfilePostSecurityInfo implements Sec
         this.securityIndex = securityIndex;
     }
 
+    public interface SetterForFakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0 <T> {
+        Map<SecurityIndex, SecurityRequirementObject> getInstance();
+        T getBuilderAfterFakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance);
+        default T fakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0(FakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0 security0) {
+            var instance = getInstance();
+            instance.put(SecurityIndex.SECURITY_0, security0);
+            return getBuilderAfterFakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
