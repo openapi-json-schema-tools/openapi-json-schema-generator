@@ -4919,8 +4919,8 @@ public class DefaultGenerator implements Generator {
             case "security":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = "security_"+key;
-                pascalCaseName =  toSecurityFilename(key, sourceJsonPath);
+                snakeCaseName = toSecuritySnakeCase(key, sourceJsonPath);
+                pascalCaseName =  toSecurityPascalCase(key, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
         }
@@ -4935,6 +4935,14 @@ public class DefaultGenerator implements Generator {
                 kebabCase,
                 camelCaseName
         );
+    }
+
+    protected String toSecurityPascalCase(String basename, String jsonPath) {
+        return toSecurityFilename(basename, jsonPath);
+    }
+
+    protected String toSecuritySnakeCase(String basename, String jsonPath) {
+        return "security_"+basename;
     }
 
     protected LinkedHashMapWithContext<CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties, String sourceJsonPath, Map<String, Schema> schemaProperties, String currentName) {

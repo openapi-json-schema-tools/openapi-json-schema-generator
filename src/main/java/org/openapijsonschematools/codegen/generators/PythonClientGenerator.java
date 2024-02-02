@@ -824,6 +824,15 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return underscore(dropDots(toModelName(name, jsonPath)));
     }
 
+    protected String toSecurityPascalCase(String basename, String jsonPath) {
+        return "Security";
+    }
+
+    @Override
+    public String toSecurityFilename(String basename, String jsonPath) {
+        return "security";
+    }
+
     @Override
     public String toContentTypeFilename(String name) {
         return toModuleFilename(name, null);
