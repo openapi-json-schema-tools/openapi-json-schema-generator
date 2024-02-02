@@ -37,7 +37,6 @@ src/this_package/components/security_schemes/security_scheme_http_basic_test.py
 src/this_package/configurations/__init__.py
 src/this_package/configurations/api_configuration.py
 src/this_package/configurations/schema_configuration.py
-src/this_package/empty/__init__.py
 src/this_package/exceptions.py
 src/this_package/paths/__init__.py
 src/this_package/paths/path_with_no_explicit_security/__init__.py
@@ -47,10 +46,10 @@ src/this_package/paths/path_with_no_explicit_security/get/responses/__init__.py
 src/this_package/paths/path_with_no_explicit_security/get/responses/response_200/__init__.py
 src/this_package/paths/path_with_one_explicit_security/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/__init__.py
-src/this_package/paths/path_with_one_explicit_security/get/empty/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/operation.py
 src/this_package/paths/path_with_one_explicit_security/get/responses/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/responses/response_200/__init__.py
+src/this_package/paths/path_with_one_explicit_security/get/security/__init__.py
 src/this_package/paths/path_with_one_explicit_security/get/security/security_requirement_object_0.py
 src/this_package/paths/path_with_security_from_root/__init__.py
 src/this_package/paths/path_with_security_from_root/get/__init__.py
@@ -59,10 +58,10 @@ src/this_package/paths/path_with_security_from_root/get/responses/__init__.py
 src/this_package/paths/path_with_security_from_root/get/responses/response_200/__init__.py
 src/this_package/paths/path_with_two_explicit_security/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/__init__.py
-src/this_package/paths/path_with_two_explicit_security/get/empty/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/operation.py
 src/this_package/paths/path_with_two_explicit_security/get/responses/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/responses/response_200/__init__.py
+src/this_package/paths/path_with_two_explicit_security/get/security/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/security/security_requirement_object_0.py
 src/this_package/paths/path_with_two_explicit_security/get/security/security_requirement_object_1.py
 src/this_package/py.typed
@@ -73,6 +72,7 @@ src/this_package/schemas/original_immutabledict.py
 src/this_package/schemas/schema.py
 src/this_package/schemas/schemas.py
 src/this_package/schemas/validation.py
+src/this_package/security/__init__.py
 src/this_package/security/security_requirement_object_0.py
 src/this_package/security/security_requirement_object_1.py
 src/this_package/security/security_requirement_object_2.py
