@@ -14,9 +14,9 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
@@ -358,7 +358,7 @@ public class Order {
         }
     }
     
-    public static class OrderMapBuilder extends UnsetAddPropsSetter<OrderMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForId<OrderMapBuilder>, SetterForPetId<OrderMapBuilder>, SetterForQuantity<OrderMapBuilder>, SetterForShipDate<OrderMapBuilder>, SetterForStatus<OrderMapBuilder>, SetterForComplete<OrderMapBuilder> {
+    public static class OrderMapBuilder extends UnsetAddPropsSetter<OrderMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForId<OrderMapBuilder>, SetterForPetId<OrderMapBuilder>, SetterForQuantity<OrderMapBuilder>, SetterForShipDate<OrderMapBuilder>, SetterForStatus<OrderMapBuilder>, SetterForComplete<OrderMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "id",

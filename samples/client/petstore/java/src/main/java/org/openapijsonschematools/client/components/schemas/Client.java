@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -80,7 +80,7 @@ public class Client {
         }
     }
     
-    public static class ClientMapBuilder1 extends UnsetAddPropsSetter<ClientMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForClient2<ClientMapBuilder1> {
+    public static class ClientMapBuilder1 extends UnsetAddPropsSetter<ClientMapBuilder1> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForClient2<ClientMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "client"

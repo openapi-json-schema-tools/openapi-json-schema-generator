@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
@@ -89,7 +89,7 @@ public class Fruit {
         }
     }
     
-    public static class FruitMapBuilder extends UnsetAddPropsSetter<FruitMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForColor<FruitMapBuilder> {
+    public static class FruitMapBuilder extends UnsetAddPropsSetter<FruitMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForColor<FruitMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "color"

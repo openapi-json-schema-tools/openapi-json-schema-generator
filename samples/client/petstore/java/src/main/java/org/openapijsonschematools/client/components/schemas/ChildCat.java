@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
@@ -89,7 +89,7 @@ public class ChildCat {
         }
     }
     
-    public static class Schema1MapBuilder extends UnsetAddPropsSetter<Schema1MapBuilder> implements BaseBuilder<@Nullable Object>, SetterForName<Schema1MapBuilder> {
+    public static class Schema1MapBuilder extends UnsetAddPropsSetter<Schema1MapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForName<Schema1MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "name"

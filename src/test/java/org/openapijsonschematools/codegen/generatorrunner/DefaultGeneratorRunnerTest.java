@@ -23,9 +23,9 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPathIt
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.common.ModelUtils;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -609,11 +609,11 @@ public class DefaultGeneratorRunnerTest {
         generator.opts(opts);
         generator.configureGeneratorProperties();
 
-        CodegenServers servers = config.fromServers(openAPI.getServers(), "#/servers");
+        CodegenList<CodegenServer> servers = config.fromServers(openAPI.getServers(), "#/servers");
 
         Map<String, Object> bundle = generator.buildSupportFileBundle(
                 null, null, null, null, null, null, servers, null, null);
-        CodegenServers bundleServers = (CodegenServers) bundle.get("servers");
+        CodegenList<CodegenServer> bundleServers = (CodegenList<CodegenServer>) bundle.get("servers");
         Assert.assertEquals(bundleServers.get(0).url, "");
         Assert.assertEquals(bundleServers.get(1).url, "http://trailingshlash.io:80/v1");
         Assert.assertEquals(bundleServers.get(2).url, "http://notrailingslash.io:80/v2");
@@ -635,11 +635,11 @@ public class DefaultGeneratorRunnerTest {
 
         List<File> files = new ArrayList<>();
 
-        CodegenServers servers = config.fromServers(openAPI.getServers(), "#/servers");
+        CodegenList<CodegenServer> servers = config.fromServers(openAPI.getServers(), "#/servers");
         Map<String, Object> bundle = generator.buildSupportFileBundle(
                 null, null, null, null, null, null, servers, null, null);
 
-        CodegenServers bundleServers = (CodegenServers) bundle.get("servers");
+        CodegenList<CodegenServer> bundleServers = (CodegenList<CodegenServer>) bundle.get("servers");
         Assert.assertEquals(bundleServers.get(0).url, "/relative/url");
     }
 

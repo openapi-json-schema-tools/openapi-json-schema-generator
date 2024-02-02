@@ -65,10 +65,11 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInf
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenXml;
@@ -939,7 +940,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toSecurityRequirementObjectFilename(String basename, String jsonPath) {
+    public String toSecurityFilename(String basename, String jsonPath) {
         return toModuleFilename(basename, jsonPath);
     }
 
@@ -2572,7 +2573,7 @@ public class DefaultGenerator implements Generator {
         return property;
     }
 
-    protected List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
+    protected List<MapBuilder<CodegenSchema>> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
         return null;
     }
 
@@ -2675,10 +2676,10 @@ public class DefaultGenerator implements Generator {
         CodegenKey operationId = getOperationId(operation, path, httpMethod);
 
         // servers setting
-        CodegenServers codegenServers = null;
+        CodegenList<CodegenServer> codegenList = null;
         if (operation.getServers() != null && !operation.getServers().isEmpty()) {
             // use operation-level servers first if defined
-            codegenServers = fromServers(operation.getServers(), jsonPath + "/servers");
+            codegenList = fromServers(operation.getServers(), jsonPath + "/servers");
         }
 
         CodegenText summary = null;
@@ -2923,7 +2924,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
-        List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
+        CodegenList<CodegenSecurityRequirementObject> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
         CodegenSchema pathParametersSchema = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath + "/" + "PathParameters", jsonPath + "/" + "PathParameters");
@@ -2940,7 +2941,7 @@ public class DefaultGenerator implements Generator {
                 summary,
                 description,
                 produces,
-                codegenServers,
+                codegenList,
                 requestBody,
                 operationParameters,
                 pathParametersSchema,
@@ -2980,18 +2981,43 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public List<HashMap<String, CodegenSecurityRequirementValue>> fromSecurity(List<SecurityRequirement> security, String jsonPath) {
+    public CodegenList<CodegenSecurityRequirementObject> fromSecurity(List<SecurityRequirement> security, String jsonPath) {
         if (security == null) {
             return null;
         }
-        List<HashMap<String, CodegenSecurityRequirementValue>> securityRequirements = new ArrayList<>();
+        List<CodegenSecurityRequirementObject> items = new ArrayList<>();
         int i = 0;
         for (SecurityRequirement specSecurityRequirement: security) {
-            HashMap<String, CodegenSecurityRequirementValue> securityRequirement = fromSecurityRequirement(specSecurityRequirement, jsonPath+ "/" + i);
-            securityRequirements.add(securityRequirement);
+            TreeSet<String> imports = new TreeSet<>();
+            HashMap<String, CodegenSecurityRequirementValue> map = fromSecurityRequirement(specSecurityRequirement, jsonPath+ "/" + i);
+            for (CodegenSecurityRequirementValue val: map.values()) {
+                imports.addAll(val.imports);
+            }
+            String securityJsonPathPiece = jsonPath + "/" + i;
+            String subpackage = getSubpackage(securityJsonPathPiece);
+            CodegenKey key = getKey(String.valueOf(i), "security", securityJsonPathPiece);
+            var securityRequirementObject = new CodegenSecurityRequirementObject(
+                    imports,
+                    map,
+                    subpackage,
+                    key
+            );
+            items.add(securityRequirementObject);
             i++;
         }
-        return securityRequirements;
+        CodegenKey jsonPathPiece = getKey("", "security", jsonPath);
+        String subpackage = getSubpackage(jsonPath);
+        List<MapBuilder<CodegenSecurityRequirementObject>> builders = getSecurityBuilders(items, jsonPath);
+        return new CodegenList<>(
+                items,
+                jsonPathPiece,
+                subpackage,
+                builders
+        );
+    }
+
+    protected List<MapBuilder<CodegenSecurityRequirementObject>> getSecurityBuilders(List<CodegenSecurityRequirementObject> items, String jsonPath) {
+        return null;
     }
 
     private String responsePathFromDocRoot(String sourceJsonPath) {
@@ -3853,7 +3879,7 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[4].equals("servers")) {
             if (pathPieces.length == 5) {
                 // #/paths/somePath/get/servers
-                pathPieces[4] = toServerFilename("s", jsonPath);
+                pathPieces[4] = toServerFilename("servers", jsonPath);
             } else if (pathPieces.length == 6) {
                 // #/paths/somePath/get/servers/0
                 pathPieces[5] = toServerFilename(pathPieces[5], jsonPath);
@@ -3862,9 +3888,15 @@ public class DefaultGenerator implements Generator {
                 pathPieces[5] = "server" + pathPieces[5];
                 pathPieces[6] = "Variables";
             }
-        } else if (pathPieces[4].equals("security") && pathPieces.length > 5) {
-            // #/paths/somePath/get/security/0
-            pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], null);
+        } else if (pathPieces[4].equals("security")) {
+            // #/paths/somePath/get/security
+            if (pathPieces.length == 5) {
+                pathPieces[4] = toSecurityFilename("security", jsonPath);
+            } else {
+                // #/paths/somePath/get/security/0
+                pathPieces[5] = toSecurityFilename(pathPieces[5], jsonPath);
+            }
+            return;
         } else if (pathPieces[4].equals("responses")) {
             if (pathPieces.length < 6) {
                 // #/paths/user_login/get/responses -> length 5
@@ -3937,24 +3969,28 @@ public class DefaultGenerator implements Generator {
     }
 
     protected void updateServersFilepath(String[] pathPieces) {
+        String jsonPath = String.join("/", pathPieces);
         if (pathPieces.length == 2) {
             // #/servers
         } else if (pathPieces.length == 3) {
             // #/servers/0
-            String jsonPath = "#/servers/" + pathPieces[2];
             pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
         } else {
             // #/servers/0/variables
-            pathPieces[2] = toServerFilename(pathPieces[2], null).toLowerCase(Locale.ROOT);
+            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
             pathPieces[3] = "Variables";
         }
     }
 
     private void updateSecurityFilepath(String[] pathPieces) {
+        String jsonPath = String.join("/", pathPieces);
         if (pathPieces.length < 3) {
+            // #/security
+            pathPieces[1] = toSecurityFilename("security", jsonPath);
             return;
         }
-        pathPieces[2] = toSecurityRequirementObjectFilename(pathPieces[2], null);
+        // #/security/0
+        pathPieces[2] = toSecurityFilename(pathPieces[2], jsonPath);
     }
 
     private void updateApisFilepath(String[] pathPieces) {
@@ -4868,6 +4904,15 @@ public class DefaultGenerator implements Generator {
                 pascalCaseName = getPascalCaseServer(usedKey, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
+            case "security":
+                // #/security +
+                // #/security/0
+                usedKey = escapeUnsafeCharacters(key);
+                isValid = isValid(usedKey);
+                snakeCaseName = toSecuritySnakeCase(key, sourceJsonPath);
+                pascalCaseName =  toSecurityPascalCase(key, sourceJsonPath);
+                camelCaseName = camelize(pascalCaseName, true);
+                break;
         }
         if (pascalCaseName != null) {
             kebabCase = pascalCaseName.toLowerCase(Locale.ROOT);
@@ -4880,6 +4925,14 @@ public class DefaultGenerator implements Generator {
                 kebabCase,
                 camelCaseName
         );
+    }
+
+    protected String toSecurityPascalCase(String basename, String jsonPath) {
+        return toSecurityFilename(basename, jsonPath);
+    }
+
+    protected String toSecuritySnakeCase(String basename, String jsonPath) {
+        return "security_"+basename;
     }
 
     protected LinkedHashMapWithContext<CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties, String sourceJsonPath, Map<String, Schema> schemaProperties, String currentName) {
@@ -5061,7 +5114,7 @@ public class DefaultGenerator implements Generator {
             // sort them
             operations = new TreeMap<>(operations);
         List<Server> specServers = pathItem.getServers();
-        CodegenServers servers = fromServers(specServers, jsonPath + "/servers");
+        CodegenList servers = fromServers(specServers, jsonPath + "/servers");
 
         return new CodegenPathItem(
                 summary,
@@ -5073,7 +5126,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public CodegenServers fromServers(List<Server> servers, String jsonPath) {
+    public CodegenList<CodegenServer> fromServers(List<Server> servers, String jsonPath) {
         if (servers == null) {
             return null;
         }
@@ -5095,12 +5148,13 @@ public class DefaultGenerator implements Generator {
             );
             codegenServers.add(cs);
         }
-        CodegenKey jsonPathPiece = getKey("s", "servers", jsonPath);
+        CodegenKey jsonPathPiece = getKey("servers", "servers", jsonPath);
         String serversSubpackage = getSubpackage(jsonPath);
-        return new CodegenServers(
+        return new CodegenList<>(
                 codegenServers,
                 jsonPathPiece,
-                serversSubpackage
+                serversSubpackage,
+                null
         );
     }
 

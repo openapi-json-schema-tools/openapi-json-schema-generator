@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -319,7 +319,7 @@ public class Zebra {
         }
     }
     
-    public static class ZebraMap0Builder implements BaseBuilder<@Nullable Object>, SetterForType<ZebraMap0Builder>, SetterForAdditionalProperties<ZebraMap0Builder> {
+    public static class ZebraMap0Builder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForType<ZebraMap0Builder>, SetterForAdditionalProperties<ZebraMap0Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "className",

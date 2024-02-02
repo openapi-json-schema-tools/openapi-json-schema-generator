@@ -1,7 +1,7 @@
 org.openapijsonschematools.client.components.securityschemes.OpenIdConnectTest
 # SecurityScheme OpenIdConnectTest
 
-public class  OpenIdConnectTest
+public class OpenIdConnectTest
 extends OpenIdConnectSecurityScheme
 
 A class that is used to apply auth to a request

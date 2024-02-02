@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -64,7 +64,7 @@ public class NonAsciiPatternWithAdditionalproperties {
         }
     }
     
-    public static class NonAsciiPatternWithAdditionalpropertiesMapBuilder implements BaseBuilder<@Nullable Object> {
+    public static class NonAsciiPatternWithAdditionalpropertiesMapBuilder implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {

@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
@@ -181,7 +181,7 @@ public class TriangleInterface {
         }
     }
     
-    public static class TriangleInterfaceMap00Builder extends UnsetAddPropsSetter<TriangleInterfaceMap00Builder> implements BaseBuilder<@Nullable Object> {
+    public static class TriangleInterfaceMap00Builder extends UnsetAddPropsSetter<TriangleInterfaceMap00Builder> implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "shapeType",

@@ -288,7 +288,9 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                         OperationFeature.Responses_Default,
                         OperationFeature.Responses_HttpStatusCode,
                         OperationFeature.Responses_RangedResponseCodes,
-                        OperationFeature.Responses_RedirectionResponse
+                        OperationFeature.Responses_RedirectionResponse,
+                        OperationFeature.Security,
+                        OperationFeature.Servers
                 )
         );
 
@@ -822,6 +824,10 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         // underscore the model file name
         // PhoneNumber => phone_number
         return underscore(dropDots(toModelName(name, jsonPath)));
+    }
+
+    protected String toSecurityPascalCase(String basename, String jsonPath) {
+        return "Security";
     }
 
     @Override
@@ -1846,11 +1852,17 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     @Override
     public String toServerFilename(String basename, String jsonPath) {
+        if (jsonPath.endsWith("/servers")) {
+            return "servers";
+        }
         return "server_" + basename;
     }
 
     @Override
-    public String toSecurityRequirementObjectFilename(String basename, String jsonPath) {
+    public String toSecurityFilename(String basename, String jsonPath) {
+        if (jsonPath.endsWith("/security")) {
+            return "security";
+        }
         return "security_requirement_object_" + basename;
     }
 

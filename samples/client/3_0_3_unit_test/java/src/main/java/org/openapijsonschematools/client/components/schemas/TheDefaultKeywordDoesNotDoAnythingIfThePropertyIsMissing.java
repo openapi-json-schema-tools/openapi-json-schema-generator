@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.DefaultValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -154,7 +154,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         }
     }
     
-    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder extends UnsetAddPropsSetter<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForAlpha<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder> {
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder extends UnsetAddPropsSetter<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForAlpha<TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "alpha"

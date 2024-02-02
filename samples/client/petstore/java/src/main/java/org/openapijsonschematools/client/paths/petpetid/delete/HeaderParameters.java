@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.petpetid.delete.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -70,7 +70,7 @@ public class HeaderParameters {
         }
     }
     
-    public static class HeaderParametersMapBuilder implements BaseBuilder<String>, SetterForApiKey<HeaderParametersMapBuilder> {
+    public static class HeaderParametersMapBuilder implements GenericBuilder<Map<String, String>>, SetterForApiKey<HeaderParametersMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "api_key"

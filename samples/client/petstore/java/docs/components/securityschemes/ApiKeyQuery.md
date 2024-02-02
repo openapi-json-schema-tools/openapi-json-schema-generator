@@ -1,8 +1,8 @@
 org.openapijsonschematools.client.components.securityschemes.ApiKeyQuery
 # SecurityScheme ApiKeyQuery
 
-public class  ApiKeyQuery
-extends ApiKeySecurityScheme
+public class ApiKeyQuery
+extends ApiKeyQuerySecurityScheme
 
 A class that is used to apply auth to a request
 

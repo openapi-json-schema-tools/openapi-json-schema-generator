@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -113,7 +113,7 @@ public class ReadOnlyFirst {
         }
     }
     
-    public static class ReadOnlyFirstMapBuilder extends UnsetAddPropsSetter<ReadOnlyFirstMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForBar<ReadOnlyFirstMapBuilder>, SetterForBaz<ReadOnlyFirstMapBuilder> {
+    public static class ReadOnlyFirstMapBuilder extends UnsetAddPropsSetter<ReadOnlyFirstMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForBar<ReadOnlyFirstMapBuilder>, SetterForBaz<ReadOnlyFirstMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar",

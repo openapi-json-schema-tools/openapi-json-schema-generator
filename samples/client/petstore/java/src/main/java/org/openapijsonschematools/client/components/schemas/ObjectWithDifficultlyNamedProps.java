@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -155,7 +155,7 @@ public class ObjectWithDifficultlyNamedProps {
         }
     }
     
-    public static class ObjectWithDifficultlyNamedPropsMap0Builder extends UnsetAddPropsSetter<ObjectWithDifficultlyNamedPropsMap0Builder> implements BaseBuilder<@Nullable Object>, SetterForSpecialpropertyname<ObjectWithDifficultlyNamedPropsMap0Builder>, SetterForSchema123Number<ObjectWithDifficultlyNamedPropsMap0Builder> {
+    public static class ObjectWithDifficultlyNamedPropsMap0Builder extends UnsetAddPropsSetter<ObjectWithDifficultlyNamedPropsMap0Builder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForSpecialpropertyname<ObjectWithDifficultlyNamedPropsMap0Builder>, SetterForSchema123Number<ObjectWithDifficultlyNamedPropsMap0Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "123-list",

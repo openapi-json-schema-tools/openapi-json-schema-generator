@@ -1,24 +1,28 @@
 package org.openapijsonschematools.client.components.schemas;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.schemas.validation.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 public class ObjectPropertiesValidationTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
     public void testBothPropertiesPresentAndValidIsValidPasses() {
         // both properties present and valid is valid
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
-            MapMaker.makeMap(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
                     1
@@ -37,8 +41,8 @@ public class ObjectPropertiesValidationTest {
         // doesn&#x27;t invalidate other properties
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
-            MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+            MapUtils.makeMap(
+                new AbstractMap.SimpleEntry<String, List<?>>(
                     "quux",
                     Arrays.asList(
                     )
@@ -64,7 +68,7 @@ public class ObjectPropertiesValidationTest {
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         try {
             schema.validate(
-                MapMaker.makeMap(
+                MapUtils.makeMap(
                     new AbstractMap.SimpleEntry<String, Object>(
                         "foo",
                         Arrays.asList(
@@ -72,7 +76,7 @@ public class ObjectPropertiesValidationTest {
                     ),
                     new AbstractMap.SimpleEntry<String, Object>(
                         "bar",
-                        MapMaker.makeMap(
+                        MapUtils.makeMap(
                         )
                     )
                 ),
@@ -101,14 +105,14 @@ public class ObjectPropertiesValidationTest {
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         try {
             schema.validate(
-                MapMaker.makeMap(
+                MapUtils.makeMap(
                     new AbstractMap.SimpleEntry<String, Object>(
                         "foo",
                         1
                     ),
                     new AbstractMap.SimpleEntry<String, Object>(
                         "bar",
-                        MapMaker.makeMap(
+                        MapUtils.makeMap(
                         )
                     )
                 ),

@@ -18,8 +18,8 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -144,7 +144,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public static class Schema0MapBuilder extends UnsetAddPropsSetter<Schema0MapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<Schema0MapBuilder> {
+    public static class Schema0MapBuilder extends UnsetAddPropsSetter<Schema0MapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFoo<Schema0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"
@@ -400,7 +400,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }
     
-    public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder> {
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder implements GenericBuilder<Map<String, Boolean>>, SetterForAdditionalProperties<AdditionalpropertiesShouldNotLookInApplicatorsMapBuilder> {
         private final Map<String, Boolean> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {

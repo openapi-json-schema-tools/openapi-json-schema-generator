@@ -32,6 +32,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSe
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -44,6 +45,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInf
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
@@ -275,11 +277,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .includeDocumentationFeatures(
                         DocumentationFeature.Readme,
                         DocumentationFeature.Servers,
-                        DocumentationFeature.ComponentSchemas
+                        DocumentationFeature.ComponentSchemas,
+                        DocumentationFeature.ComponentSecuritySchemes
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
-                        GlobalFeature.Servers
+                        GlobalFeature.Servers,
+                        GlobalFeature.Security
                 )
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,
@@ -289,6 +293,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SecurityFeature.ApiKey,
                         SecurityFeature.HTTP_Basic,
                         SecurityFeature.HTTP_Bearer
+                )
+                .includeOperationFeatures(
+                        OperationFeature.Security,
+                        OperationFeature.Servers
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,
@@ -549,13 +557,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
         schemaSupportingFiles.add("AnyTypeJsonSchema");
-        schemaSupportingFiles.add("BaseBuilder");
         schemaSupportingFiles.add("BooleanJsonSchema");
         schemaSupportingFiles.add("DateJsonSchema");
         schemaSupportingFiles.add("DateTimeJsonSchema");
         schemaSupportingFiles.add("DecimalJsonSchema");
         schemaSupportingFiles.add("DoubleJsonSchema");
         schemaSupportingFiles.add("FloatJsonSchema");
+        schemaSupportingFiles.add("GenericBuilder");
         schemaSupportingFiles.add("Int32JsonSchema");
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
@@ -1517,7 +1525,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import java.util.Map;");
             imports.add("import java.util.Set;");
             imports.add("import " + packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import " + packageName + ".schemas.BaseBuilder;");
+            imports.add("import " + packageName + ".schemas.GenericBuilder;");
         }
     }
 
@@ -1568,7 +1576,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
         }
         if (schema.additionalProperties != null) {
-            imports.add("import "+packageName + ".schemas.BaseBuilder;");
+            imports.add("import "+packageName + ".schemas.GenericBuilder;");
             imports.add("import "+packageName + ".schemas.validation.MapUtils;");
         } else {
             imports.add("import "+packageName + ".schemas.UnsetAddPropsSetter;");
@@ -1579,7 +1587,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     private void addRequiredValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.requiredProperties != null) {
             imports.add("import java.util.Set;");
-            imports.add("import "+packageName + ".schemas.BaseBuilder;");
+            imports.add("import "+packageName + ".schemas.GenericBuilder;");
         }
     }
 
@@ -2001,8 +2009,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
     }
 
-    protected List<MapBuilder> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
-        List<MapBuilder> builders = new ArrayList<>();
+    protected List<MapBuilder<CodegenSchema>> getMapBuilders(CodegenSchema schema, String currentJsonPath, String sourceJsonPath) {
+        List<MapBuilder<CodegenSchema>> builders = new ArrayList<>();
         if (sourceJsonPath == null) {
             return builders;
         }
@@ -2014,12 +2022,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             qtyBuilders = (int) Math.pow(2, schema.requiredProperties.size());
             reqPropsSize = schema.requiredProperties.size();
         }
-        Map<String, MapBuilder> bitStrToBuilder = new HashMap<>();
+        Map<String, MapBuilder<CodegenSchema>> bitStrToBuilder = new HashMap<>();
         List<CodegenKey> reqPropKeys = new ArrayList<>();
         if (schema.requiredProperties != null) {
             reqPropKeys.addAll(schema.requiredProperties.keySet());
         }
-        MapBuilder lastBuilder = null;
+        MapBuilder<CodegenSchema> lastBuilder = null;
         // builders are built last to first, last builder has build method
         for (int i=0; i < qtyBuilders; i++) {
             String bitStr = "";
@@ -2037,12 +2045,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             } else {
                 builderClassName = getKey(schemaName + objectIOClassNamePiece + bitStr + "Builder", "schemas", sourceJsonPath);
             }
-            MapBuilder builder;
+            MapBuilder<CodegenSchema> builder;
             if (i == 0) {
-                builder = new MapBuilder(builderClassName, new LinkedHashMap<>());
+                builder = new MapBuilder<>(builderClassName, new LinkedHashMap<>());
                 lastBuilder = builder;
             } else {
-                LinkedHashMap<CodegenKey, MapBuilder.BuilderSchemaPair> keyToBuilder = new LinkedHashMap<>();
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderPropertyPair<CodegenSchema>> keyToBuilder = new LinkedHashMap<>();
                 for (int c=0; c < reqPropsSize; c++) {
                     if (bitStr.charAt(c) == '1') {
                         StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
@@ -2051,22 +2059,22 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         if (key == null) {
                             throw new RuntimeException("key must exist at c="+c);
                         }
-                        MapBuilder nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
+                        MapBuilder<CodegenSchema> nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
                         if (nextBuilder == null) {
                             throw new RuntimeException("Next builder must exist for bitStr="+ nextBuilderBitStr);
                         }
-                        var pair = new MapBuilder.BuilderSchemaPair(nextBuilder, schema.requiredProperties.get(key));
+                        var pair = new MapBuilder.BuilderPropertyPair<>(nextBuilder, schema.requiredProperties.get(key));
                         keyToBuilder.put(key, pair);
                     }
                 }
-                builder = new MapBuilder(builderClassName, keyToBuilder);
+                builder = new MapBuilder<>(builderClassName, keyToBuilder);
             }
             bitStrToBuilder.put(bitStr, builder);
             builders.add(builder);
         }
         if (lastBuilder != null && schema.optionalProperties != null) {
             for (Map.Entry<CodegenKey, CodegenSchema> entry: schema.optionalProperties.entrySet()) {
-                var pair = new MapBuilder.BuilderSchemaPair(lastBuilder, entry.getValue());
+                var pair = new MapBuilder.BuilderPropertyPair<>(lastBuilder, entry.getValue());
                 lastBuilder.keyToBuilder.put(entry.getKey(), pair);
             }
         }
@@ -2374,17 +2382,33 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         Components components = openAPI.getComponents();
         if (components != null && components.getSecuritySchemes() != null) {
             supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityrequirementobjects/SecurityRequirementObject.hbs",
+                    packagePath() + File.separatorChar + "securityrequirementobjects",
+                    "SecurityRequirementObject.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityrequirementobjects/EmptySecurityRequirementObject.hbs",
+                    packagePath() + File.separatorChar + "securityrequirementobjects",
+                    "EmptySecurityRequirementObject.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityrequirementobjects/SecurityRequirementObjectProvider.hbs",
+                    packagePath() + File.separatorChar + "securityrequirementobjects",
+                    "SecurityRequirementObjectProvider.java"));
+            supportingFiles.add(new SupportingFile(
                     "src/main/java/packagename/securityschemes/SecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "SecurityScheme.java"));
             supportingFiles.add(new SupportingFile(
-                    "src/main/java/packagename/securityschemes/ApiKeyInLocation.hbs",
+                    "src/main/java/packagename/securityschemes/ApiKeyCookieSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
-                    "ApiKeyInLocation.java"));
+                    "ApiKeyCookieSecurityScheme.java"));
             supportingFiles.add(new SupportingFile(
-                    "src/main/java/packagename/securityschemes/ApiKeySecurityScheme.hbs",
+                    "src/main/java/packagename/securityschemes/ApiKeyHeaderSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
-                    "ApiKeySecurityScheme.java"));
+                    "ApiKeyHeaderSecurityScheme.java"));
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/packagename/securityschemes/ApiKeyQuerySecurityScheme.hbs",
+                    packagePath() + File.separatorChar + "securityschemes",
+                    "ApiKeyQuerySecurityScheme.java"));
             supportingFiles.add(new SupportingFile(
                     "src/main/java/packagename/securityschemes/HttpBasicSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
@@ -2414,6 +2438,18 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     packagePath() + File.separatorChar + "securityschemes",
                     "OpenIdConnectSecurityScheme.java"));
 
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/securityrequirementobjects/SecurityRequirementObjectN.hbs", ".java");
+                    }}
+            );
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES,
+                    new HashMap<>() {{
+                        put("src/main/java/packagename/securityrequirementobjects/SecurityInfo.hbs", ".java");
+                    }}
+            );
             jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
                     new HashMap<>() {{
@@ -2466,6 +2502,115 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     }}
             );
         }
+    }
+
+    protected List<MapBuilder<CodegenSecurityRequirementObject>> getSecurityBuilders(List<CodegenSecurityRequirementObject> items, String jsonPath) {
+        List<MapBuilder<CodegenSecurityRequirementObject>> builders = new ArrayList<>();
+        if (items.isEmpty()) {
+            return null;
+        }
+        String schemaName = "Securities";
+        int qtyBuilders = items.size()+1;
+        int reqPropsSize = items.size();
+        Map<String, MapBuilder<CodegenSecurityRequirementObject>> bitStrToBuilder = new HashMap<>();
+        List<CodegenKey> reqPropKeys = new ArrayList<>();
+        for (int i=0; i < items.size(); i ++) {
+            reqPropKeys.add(items.get(i).jsonPathPiece);
+        }
+        // builders are built last to first, last builder has build method
+        /*
+        2 -> 3 builders
+        2**0 -> 1 10
+        2**1 -> 2 01
+        2**2 -> 4 11
+
+        3 -> 4
+        111 7
+        110 6
+        101 5
+        011 3
+
+        1 -> 2 builders
+        1
+        0
+         */
+        for (int i=0; i < qtyBuilders; i++) {
+            String lastBuilderBitStr = "1".repeat(reqPropsSize);
+            String bitStr;
+            if (i == qtyBuilders-1) {
+                bitStr = lastBuilderBitStr;
+            } else {
+                bitStr = lastBuilderBitStr.substring(0, i) + "0"
+                        + lastBuilderBitStr.substring(i + 1);
+            }
+            CodegenKey builderClassName;
+            if (i == qtyBuilders - 1) {
+                // first invoked builder has the simplest name with no bitStr
+                builderClassName = getKey(schemaName + "Builder", "schemas", jsonPath);
+            } else {
+                builderClassName = getKey(schemaName + bitStr + "Builder", "schemas", jsonPath);
+            }
+            MapBuilder<CodegenSecurityRequirementObject> builder;
+            if (i != qtyBuilders-1) {
+                // final optional builders
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderPropertyPair<CodegenSecurityRequirementObject>> keyToBuilder = new LinkedHashMap<>();
+                builder = new MapBuilder<>(builderClassName, keyToBuilder);
+                for (int c=0; c < reqPropsSize; c++) {
+                    if (bitStr.charAt(c) == '1') {
+                        CodegenKey key = reqPropKeys.get(c);
+                        if (key == null) {
+                            throw new RuntimeException("key must exist at c="+c);
+                        }
+                        var pair = new MapBuilder.BuilderPropertyPair<>(builder, items.get(c));
+                        keyToBuilder.put(key, pair);
+                    }
+                }
+            } else {
+                // first builder with required props
+                LinkedHashMap<CodegenKey, MapBuilder.BuilderPropertyPair<CodegenSecurityRequirementObject>> keyToBuilder = new LinkedHashMap<>();
+                for (int c=0; c < reqPropsSize; c++) {
+                    if (bitStr.charAt(c) == '1') {
+                        StringBuilder nextBuilderBitStr = new StringBuilder(bitStr);
+                        nextBuilderBitStr.setCharAt(c, '0');
+                        CodegenKey key = reqPropKeys.get(c);
+                        if (key == null) {
+                            throw new RuntimeException("key must exist at c="+c);
+                        }
+                        MapBuilder<CodegenSecurityRequirementObject> nextBuilder = bitStrToBuilder.get(nextBuilderBitStr.toString());
+                        if (nextBuilder == null) {
+                            throw new RuntimeException("Next builder must exist for bitStr="+ nextBuilderBitStr);
+                        }
+                        var pair = new MapBuilder.BuilderPropertyPair<>(nextBuilder, items.get(c));
+                        keyToBuilder.put(key, pair);
+                    }
+                }
+                builder = new MapBuilder<>(builderClassName, keyToBuilder);
+            }
+            bitStrToBuilder.put(bitStr, builder);
+            builders.add(builder);
+        }
+        return builders;
+    }
+
+    @Override
+    public String toSecurityFilename(String basename, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces.length == 2) {
+            // #/security
+            return "SecurityInfo";
+        } else if (pathPieces.length == 3) {
+            // #/security/0
+            return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+        } else if (pathPieces.length == 5) {
+            // #/paths/somePath/verb/security
+            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityInfo";
+        } else if (pathPieces.length == 6) {
+            // #/paths/somePath/verb/security/0
+            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+        }
+        return null;
     }
 
     @Override

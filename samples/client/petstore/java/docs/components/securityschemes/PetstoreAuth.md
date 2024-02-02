@@ -1,7 +1,7 @@
 org.openapijsonschematools.client.components.securityschemes.PetstoreAuth
 # SecurityScheme PetstoreAuth
 
-public class  PetstoreAuth
+public class PetstoreAuth
 extends Oauth2SecurityScheme
 
 A class that is used to apply auth to a request

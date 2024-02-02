@@ -297,13 +297,13 @@ src/main/java/org/openapijsonschematools/client/exceptions/InvalidTypeException.
 src/main/java/org/openapijsonschematools/client/exceptions/UnsetPropertyException.java
 src/main/java/org/openapijsonschematools/client/exceptions/ValidationException.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
-src/main/java/org/openapijsonschematools/client/schemas/BaseBuilder.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateTimeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DecimalJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DoubleJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/FloatJsonSchema.java
+src/main/java/org/openapijsonschematools/client/schemas/GenericBuilder.java
 src/main/java/org/openapijsonschematools/client/schemas/Int32JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/Int64JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/IntJsonSchema.java

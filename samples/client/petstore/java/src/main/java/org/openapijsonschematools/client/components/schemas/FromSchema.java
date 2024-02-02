@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
@@ -132,7 +132,7 @@ public class FromSchema {
         }
     }
     
-    public static class FromSchemaMapBuilder extends UnsetAddPropsSetter<FromSchemaMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForData<FromSchemaMapBuilder>, SetterForId<FromSchemaMapBuilder> {
+    public static class FromSchemaMapBuilder extends UnsetAddPropsSetter<FromSchemaMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForData<FromSchemaMapBuilder>, SetterForId<FromSchemaMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "data",

@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -139,7 +139,7 @@ public class ObjectWithOnlyOptionalProps {
         }
     }
     
-    public static class ObjectWithOnlyOptionalPropsMapBuilder implements BaseBuilder<Object>, SetterForA<ObjectWithOnlyOptionalPropsMapBuilder>, SetterForB<ObjectWithOnlyOptionalPropsMapBuilder> {
+    public static class ObjectWithOnlyOptionalPropsMapBuilder implements GenericBuilder<Map<String, Object>>, SetterForA<ObjectWithOnlyOptionalPropsMapBuilder>, SetterForB<ObjectWithOnlyOptionalPropsMapBuilder> {
         private final Map<String, Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "a",

@@ -18,7 +18,6 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.*;
 
@@ -30,7 +29,7 @@ public class CodegenOperation {
     public final LinkedHashSet<Integer> errorWildcardStatusCodes; // values like 4 for 4XX
     public final CodegenText summary, description;
     public final LinkedHashSet<String> produces;
-    public final CodegenServers servers;
+    public final CodegenList<CodegenServer> servers;
     public final CodegenRequestBody requestBody;
     // properties where key is contentType, value is a ref schema, encapsulates imports
     public final CodegenSchema requestBodySchema;
@@ -43,7 +42,7 @@ public class CodegenOperation {
 
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
-    public final List<HashMap<String, CodegenSecurityRequirementValue>> security;
+    public final CodegenList<CodegenSecurityRequirementObject> security;
     public final Map<String, CodegenTag> tags;
     public final TreeMap<String, CodegenResponse> responses;
     public final TreeMap<Integer, CodegenResponse> statusCodeResponses;
@@ -65,7 +64,7 @@ public class CodegenOperation {
             CodegenText summary,
             CodegenText description,
             LinkedHashSet<String> produces,
-            CodegenServers servers,
+            CodegenList<CodegenServer> servers,
             CodegenRequestBody requestBody,
             ParameterCollection parameters,
             CodegenSchema pathParametersSchema,
@@ -74,7 +73,7 @@ public class CodegenOperation {
             CodegenSchema cookieParametersSchema,
             boolean hasRequiredParamOrBody,
             boolean hasOptionalParamOrBody,
-            List<HashMap<String, CodegenSecurityRequirementValue>> security,
+            CodegenList<CodegenSecurityRequirementObject> security,
             Map<String, CodegenTag> tags,
             TreeMap<String, CodegenResponse> responses,
             TreeMap<Integer, CodegenResponse> statusCodeResponses,

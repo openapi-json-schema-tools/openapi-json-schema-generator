@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -133,7 +133,7 @@ public class AdditionalPropertiesSchema {
         }
     }
     
-    public static class Schema0MapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties<Schema0MapBuilder> {
+    public static class Schema0MapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties<Schema0MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -501,7 +501,7 @@ public class AdditionalPropertiesSchema {
         }
     }
     
-    public static class Schema1MapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties1<Schema1MapBuilder> {
+    public static class Schema1MapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties1<Schema1MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -869,7 +869,7 @@ public class AdditionalPropertiesSchema {
         }
     }
     
-    public static class Schema2MapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties2<Schema2MapBuilder> {
+    public static class Schema2MapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties2<Schema2MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {

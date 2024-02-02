@@ -1,15 +1,21 @@
 package org.openapijsonschematools.client.components.schemas;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.schemas.validation.MapMaker;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 public class UniqueitemsFalseValidationTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
     public void testNumbersAreUniqueIfMathematicallyUnequalPasses() {
@@ -44,14 +50,14 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
                 ),
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
@@ -97,14 +103,14 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo",
-                        MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                        MapUtils.makeMap(
+                            new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                                 "bar",
-                                MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                MapUtils.makeMap(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )
@@ -113,14 +119,14 @@ public class UniqueitemsFalseValidationTest {
                         )
                     )
                 ),
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo",
-                        MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                        MapUtils.makeMap(
+                            new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                                 "bar",
-                                MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                MapUtils.makeMap(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         false
                                     )
@@ -170,14 +176,14 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                MapMaker.makeMap(
+                MapUtils.makeMap(
                 ),
                 Arrays.asList(
                     1
                 ),
                 true,
                 null,
-                MapMaker.makeMap(
+                MapUtils.makeMap(
                 ),
                 1
             ),
@@ -230,7 +236,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                MapMaker.makeMap(
+                MapUtils.makeMap(
                 ),
                 Arrays.asList(
                     1
@@ -249,14 +255,14 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
                 ),
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "baz"
                     )
@@ -272,14 +278,14 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo",
-                        MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                        MapUtils.makeMap(
+                            new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                                 "bar",
-                                MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                MapUtils.makeMap(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )
@@ -288,14 +294,14 @@ public class UniqueitemsFalseValidationTest {
                         )
                     )
                 ),
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                         "foo",
-                        MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                        MapUtils.makeMap(
+                            new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                                 "bar",
-                                MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                MapUtils.makeMap(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )

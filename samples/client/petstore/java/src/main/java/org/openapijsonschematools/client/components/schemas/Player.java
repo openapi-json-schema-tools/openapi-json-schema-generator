@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -102,7 +102,7 @@ public class Player {
         }
     }
     
-    public static class PlayerMapBuilder extends UnsetAddPropsSetter<PlayerMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForName<PlayerMapBuilder>, SetterForEnemyPlayer<PlayerMapBuilder> {
+    public static class PlayerMapBuilder extends UnsetAddPropsSetter<PlayerMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForName<PlayerMapBuilder>, SetterForEnemyPlayer<PlayerMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "name",

@@ -16,6 +16,7 @@
 
 package org.openapijsonschematools.codegen.generators.generatormetadata.features;
 
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS2;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS3;
 
 /**
@@ -33,4 +34,10 @@ public enum OperationFeature {
 
     @OAS3
     Responses_RedirectionResponse,
+
+    @OAS2 @OAS3
+    Security,
+
+    @OAS3
+    Servers,
 }

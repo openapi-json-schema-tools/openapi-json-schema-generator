@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -131,7 +131,7 @@ public class RequiredWithEmptyArray {
         }
     }
     
-    public static class RequiredWithEmptyArrayMapBuilder extends UnsetAddPropsSetter<RequiredWithEmptyArrayMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredWithEmptyArrayMapBuilder> {
+    public static class RequiredWithEmptyArrayMapBuilder extends UnsetAddPropsSetter<RequiredWithEmptyArrayMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFoo<RequiredWithEmptyArrayMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"

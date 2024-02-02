@@ -26,7 +26,7 @@ A class that builds the Map input type
 | Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> | build()<br>Returns map input that should be used with Schema.validate |
     {{/if}}
     {{#each keyToBuilder}}
-        {{#with schema }}
+        {{#with property }}
             {{#if ../@key.isValid}}
 {{> src/main/java/packagename/components/schemas/_objectInputSetter forDocs=true builderClass=../builder.className methodName=../@key.original }}
             {{else}}

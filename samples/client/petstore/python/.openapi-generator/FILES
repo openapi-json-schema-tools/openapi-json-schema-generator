@@ -1328,7 +1328,7 @@ src/petstore_api/paths/foo/get/responses/response_default/__init__.py
 src/petstore_api/paths/foo/get/responses/response_default/content/__init__.py
 src/petstore_api/paths/foo/get/responses/response_default/content/application_json/__init__.py
 src/petstore_api/paths/foo/get/responses/response_default/content/application_json/schema.py
-src/petstore_api/paths/foo/get/server_s/__init__.py
+src/petstore_api/paths/foo/get/servers/__init__.py
 src/petstore_api/paths/foo/get/servers/server_0.py
 src/petstore_api/paths/foo/get/servers/server_1.py
 src/petstore_api/paths/pet/__init__.py
@@ -1366,7 +1366,7 @@ src/petstore_api/paths/pet_find_by_status/get/security/__init__.py
 src/petstore_api/paths/pet_find_by_status/get/security/security_requirement_object_0.py
 src/petstore_api/paths/pet_find_by_status/get/security/security_requirement_object_1.py
 src/petstore_api/paths/pet_find_by_status/get/security/security_requirement_object_2.py
-src/petstore_api/paths/pet_find_by_status/server_s/__init__.py
+src/petstore_api/paths/pet_find_by_status/servers/__init__.py
 src/petstore_api/paths/pet_find_by_status/servers/server_0.py
 src/petstore_api/paths/pet_find_by_status/servers/server_1.py
 src/petstore_api/paths/pet_find_by_tags/__init__.py

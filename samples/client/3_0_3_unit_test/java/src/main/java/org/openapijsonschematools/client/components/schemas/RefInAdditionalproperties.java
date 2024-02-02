@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -111,7 +111,7 @@ public class RefInAdditionalproperties {
         }
     }
     
-    public static class RefInAdditionalpropertiesMapBuilder implements BaseBuilder<@Nullable Object>, SetterForAdditionalProperties<RefInAdditionalpropertiesMapBuilder> {
+    public static class RefInAdditionalpropertiesMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties<RefInAdditionalpropertiesMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {

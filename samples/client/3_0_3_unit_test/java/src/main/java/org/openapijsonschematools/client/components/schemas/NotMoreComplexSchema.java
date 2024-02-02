@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
@@ -89,7 +89,7 @@ public class NotMoreComplexSchema {
         }
     }
     
-    public static class NotMapBuilder extends UnsetAddPropsSetter<NotMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<NotMapBuilder> {
+    public static class NotMapBuilder extends UnsetAddPropsSetter<NotMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFoo<NotMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"

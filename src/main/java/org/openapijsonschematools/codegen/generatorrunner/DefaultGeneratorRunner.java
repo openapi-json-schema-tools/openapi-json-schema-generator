@@ -48,10 +48,10 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPathIt
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementValue;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServers;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.templating.DryRunTemplateManager;
@@ -418,7 +418,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
-    private void generatePathItem(List<File> files, CodegenKey pathKey, CodegenPathItem pathItem, String jsonPath, List<CodegenServer> servers, List<HashMap<String, CodegenSecurityRequirementValue>> security) {
+    private void generatePathItem(List<File> files, CodegenKey pathKey, CodegenPathItem pathItem, String jsonPath, List<CodegenServer> servers, List<CodegenSecurityRequirementObject> security) {
         Map<String, Object> pathTemplateInfo = new HashMap<>();
         pathTemplateInfo.put("pathModule", pathKey.snakeCase);
         pathTemplateInfo.put("apiClassName", pathKey.pascalCase);
@@ -538,7 +538,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
-    private void generatePaths(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths, List<CodegenServer> servers, List<HashMap<String, CodegenSecurityRequirementValue>> security) {
+    private void generatePaths(List<File> files, TreeMap<CodegenKey, CodegenPathItem> paths, CodegenList<CodegenServer> servers, List<CodegenSecurityRequirementObject> security) {
         if (paths == null || paths.isEmpty()) {
             LOGGER.info("Skipping generation of paths because the specification document lacks them.");
             return;
@@ -1317,19 +1317,23 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             TreeMap<String, CodegenHeader> headers,
             TreeMap<String, CodegenParameter> parameters,
             TreeMap<String, CodegenSecurityScheme> securitySchemes,
-            CodegenServers servers,
+            CodegenList<CodegenServer> servers,
             TreeMap<CodegenKey, CodegenPathItem> paths,
-            List<HashMap<String, CodegenSecurityRequirementValue>> security) {
+            CodegenList<CodegenSecurityRequirementObject> security) {
 
         Map<String, Object> bundle = new HashMap<>(generator.additionalProperties());
         bundle.put("apiPackage", generator.apiPackage());
 
         URL url = URLPathUtils.getServerURL(openAPI, null);
-        List<CodegenServers> allServers = new ArrayList<>();
+        List<CodegenList<CodegenServer>> allServers = new ArrayList<>();
+        List<CodegenList<CodegenSecurityRequirementObject>> allSecurity = new ArrayList<>();
         boolean hasServers = false;
         if (servers != null) {
             allServers.add(servers);
             hasServers = true;
+        }
+        if (security != null) {
+            allSecurity.add(security);
         }
         if (paths != null) {
             for (CodegenPathItem pathItem: paths.values()) {
@@ -1343,6 +1347,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                             allServers.add(operation.servers);
                             hasServers = true;
                         }
+                        if (operation.security != null) {
+                            allSecurity.add(operation.security);
+                        }
                     }
                 }
             }
@@ -1350,6 +1357,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         bundle.put("openAPI", openAPI);
         bundle.put("allServers", allServers);
+        bundle.put("allSecurity", allSecurity);
         bundle.put("scheme", URLPathUtils.getScheme(url, generator));
         bundle.put("contextPath", contextPath);
         bundle.put("requestBodies", requestBodies);
@@ -1389,7 +1397,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return bundle;
     }
 
-    private void generateServers(List<File> files, List<CodegenServer> servers, String jsonPath) {
+    private void generateServers(List<File> files, CodegenList<CodegenServer> servers, String jsonPath) {
         if (servers == null && servers.isEmpty()) {
             return;
         }
@@ -1436,7 +1444,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         return tags;
     }
 
-    private void generateSecurity(List<File> files, List<HashMap<String, CodegenSecurityRequirementValue>> security, String jsonPath) {
+    private void generateSecurity(List<File> files, CodegenList<CodegenSecurityRequirementObject> security, String jsonPath) {
         if (security == null || security.isEmpty()) {
             return;
         }
@@ -1444,15 +1452,18 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             LOGGER.info("Skipping generation of security because generateApis is set to false.");
             return;
         }
-        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, null, true);
+        Map<String, Object> securityTemplateData = new HashMap<>();
+        securityTemplateData.put("packageName", generator.packageName());
+        securityTemplateData.put("security", security);
+        generateXs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES, CodegenConstants.SECURITY, securityTemplateData, true);
 
         int i = 0;
-        for (HashMap<String, CodegenSecurityRequirementValue> securityRequirementObject: security) {
+        for (CodegenSecurityRequirementObject securityRequirementObject: security) {
             Map<String, Object> templateData = new HashMap<>();
             templateData.put("packageName", generator.packageName());
             templateData.put("securityRequirementObject", securityRequirementObject);
-            String serverJsonPath = jsonPath + "/" + i;
-            generateXs(files, serverJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY, CodegenConstants.SECURITY, templateData, true);
+            String securityJsonPath = jsonPath + "/" + i;
+            generateXs(files, securityJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY, CodegenConstants.SECURITY, templateData, true);
             i++;
         }
     }
@@ -1507,7 +1518,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         // components.securitySchemes
         TreeMap<String, CodegenSecurityScheme> securitySchemes = generateSecuritySchemes(files);
         // security
-        List<HashMap<String, CodegenSecurityRequirementValue>> security = generator.fromSecurity(openAPI.getSecurity(), "#/security");
+        CodegenList<CodegenSecurityRequirementObject> security = generator.fromSecurity(openAPI.getSecurity(), "#/security");
         generateSecurity(files, security, "#/security");
 
         boolean schemasExist = (schemas != null && !schemas.isEmpty());
@@ -1521,7 +1532,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         // servers
         String serversJsonPath = "#/servers";
-        CodegenServers servers = generator.fromServers(openAPI.getServers(), serversJsonPath);
+        CodegenList<CodegenServer> servers = generator.fromServers(openAPI.getServers(), serversJsonPath);
         // paths
         TreeMap<CodegenKey, CodegenPathItem> paths = generator.fromPaths(openAPI.getPaths());
         generatePaths(files, paths, servers, security);

@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -130,7 +130,7 @@ public class ObjectModelWithRefProps {
         }
     }
     
-    public static class ObjectModelWithRefPropsMapBuilder extends UnsetAddPropsSetter<ObjectModelWithRefPropsMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForMyNumber<ObjectModelWithRefPropsMapBuilder>, SetterForMyString<ObjectModelWithRefPropsMapBuilder>, SetterForMyBoolean<ObjectModelWithRefPropsMapBuilder> {
+    public static class ObjectModelWithRefPropsMapBuilder extends UnsetAddPropsSetter<ObjectModelWithRefPropsMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForMyNumber<ObjectModelWithRefPropsMapBuilder>, SetterForMyString<ObjectModelWithRefPropsMapBuilder>, SetterForMyBoolean<ObjectModelWithRefPropsMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "myNumber",

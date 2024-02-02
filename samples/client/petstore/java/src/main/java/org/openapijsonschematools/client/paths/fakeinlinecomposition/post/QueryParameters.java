@@ -16,7 +16,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.parameters.parameter1.Schema1;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -147,7 +147,7 @@ public class QueryParameters {
         }
     }
     
-    public static class QueryParametersMapBuilder implements BaseBuilder<@Nullable Object>, SetterForCompositionAtRoot<QueryParametersMapBuilder>, SetterForCompositionInProperty<QueryParametersMapBuilder> {
+    public static class QueryParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForCompositionAtRoot<QueryParametersMapBuilder>, SetterForCompositionInProperty<QueryParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "compositionAtRoot",

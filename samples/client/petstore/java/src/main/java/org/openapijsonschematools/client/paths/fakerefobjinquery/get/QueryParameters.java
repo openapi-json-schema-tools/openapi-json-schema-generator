@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -70,7 +70,7 @@ public class QueryParameters {
         }
     }
     
-    public static class QueryParametersMapBuilder implements BaseBuilder<Map<String, @Nullable Object>>, SetterForMapBean<QueryParametersMapBuilder> {
+    public static class QueryParametersMapBuilder implements GenericBuilder<Map<String, Map<String, @Nullable Object>>>, SetterForMapBean<QueryParametersMapBuilder> {
         private final Map<String, Map<String, @Nullable Object>> instance;
         private static final Set<String> knownKeys = Set.of(
             "mapBean"
