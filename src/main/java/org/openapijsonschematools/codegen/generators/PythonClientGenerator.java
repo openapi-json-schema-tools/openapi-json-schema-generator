@@ -829,11 +829,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String toSecurityFilename(String basename, String jsonPath) {
-        return "security";
-    }
-
-    @Override
     public String toContentTypeFilename(String name) {
         return toModuleFilename(name, null);
     }
@@ -1859,7 +1854,10 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String toSecurityRequirementObjectFilename(String basename, String jsonPath) {
+    public String toSecurityFilename(String basename, String jsonPath) {
+        if (jsonPath.endsWith("/security")) {
+            return "security";
+        }
         return "security_requirement_object_" + basename;
     }
 
