@@ -288,7 +288,9 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                         OperationFeature.Responses_Default,
                         OperationFeature.Responses_HttpStatusCode,
                         OperationFeature.Responses_RangedResponseCodes,
-                        OperationFeature.Responses_RedirectionResponse
+                        OperationFeature.Responses_RedirectionResponse,
+                        OperationFeature.Security,
+                        OperationFeature.Servers
                 )
         );
 

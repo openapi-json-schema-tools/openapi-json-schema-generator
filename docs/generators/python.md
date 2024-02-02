@@ -207,6 +207,8 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Responses_RangedResponseCodes|✓|OAS3
 |Responses_Default|✓|OAS3
 |Responses_RedirectionResponse|✓|OAS3
+|Security|✓|OAS2,OAS3
+|Servers|✓|OAS3
 
 ### Parameter Feature
 | Name | Supported | Defined By |

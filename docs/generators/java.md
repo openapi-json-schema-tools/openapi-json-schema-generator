@@ -224,7 +224,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |ComponentParameters|✗|OAS3
 |ComponentRequestBodies|✗|OAS3
 |ComponentHeaders|✗|OAS3
-|ComponentSecuritySchemes|✗|OAS3
+|ComponentSecuritySchemes|✓|OAS3
 |ComponentLinks|✗|OAS3
 |ComponentCallbacks|✗|OAS3
 |ComponentPathItems|✗|OAS3
@@ -238,7 +238,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Paths|✗|OAS2,OAS3
 |Webhooks|✗|OAS3
 |Components|✓|OAS3
-|Security|✗|OAS2,OAS3
+|Security|✓|OAS2,OAS3
 |Tags|✗|OAS2,OAS3
 |ExternalDocs|✗|OAS2,OAS3
 
@@ -249,6 +249,8 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Responses_RangedResponseCodes|✗|OAS3
 |Responses_Default|✗|OAS3
 |Responses_RedirectionResponse|✗|OAS3
+|Security|✓|OAS2,OAS3
+|Servers|✓|OAS3
 
 ### Parameter Feature
 | Name | Supported | Defined By |

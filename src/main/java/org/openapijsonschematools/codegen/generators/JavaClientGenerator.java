@@ -32,6 +32,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSe
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -276,11 +277,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .includeDocumentationFeatures(
                         DocumentationFeature.Readme,
                         DocumentationFeature.Servers,
-                        DocumentationFeature.ComponentSchemas
+                        DocumentationFeature.ComponentSchemas,
+                        DocumentationFeature.ComponentSecuritySchemes
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
-                        GlobalFeature.Servers
+                        GlobalFeature.Servers,
+                        GlobalFeature.Security
                 )
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,
@@ -290,6 +293,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         SecurityFeature.ApiKey,
                         SecurityFeature.HTTP_Basic,
                         SecurityFeature.HTTP_Bearer
+                )
+                .includeOperationFeatures(
+                        OperationFeature.Security,
+                        OperationFeature.Servers
                 )
                 .includeSchemaFeatures(
                         SchemaFeature.AdditionalProperties,

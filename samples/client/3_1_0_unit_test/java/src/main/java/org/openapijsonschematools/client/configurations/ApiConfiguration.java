@@ -8,7 +8,6 @@ import java.util.Objects;
 
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
-    // private final SecurityInfo securityInfo;
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
