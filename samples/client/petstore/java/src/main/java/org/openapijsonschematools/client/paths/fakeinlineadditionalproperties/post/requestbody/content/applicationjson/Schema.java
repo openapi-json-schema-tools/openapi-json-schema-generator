@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -67,7 +67,7 @@ public class Schema {
         }
     }
     
-    public static class SchemaMapBuilder implements MapBuilder<String>, SetterForAdditionalProperties<SchemaMapBuilder> {
+    public static class SchemaMapBuilder implements GenericBuilder<Map<String, String>>, SetterForAdditionalProperties<SchemaMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {

@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
@@ -139,7 +139,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
         }
     }
     
-    public static class FooMapBuilder1 implements BaseBuilder<@Nullable Object>, SetterForBar<FooMapBuilder1> {
+    public static class FooMapBuilder1 implements GenericBuilder<Map<String, @Nullable Object>>, SetterForBar<FooMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar"
@@ -326,7 +326,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
         }
     }
     
-    public static class DependentSchemasDependentSubschemaIncompatibleWithRootMapBuilder extends UnsetAddPropsSetter<DependentSchemasDependentSubschemaIncompatibleWithRootMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<DependentSchemasDependentSubschemaIncompatibleWithRootMapBuilder> {
+    public static class DependentSchemasDependentSubschemaIncompatibleWithRootMapBuilder extends UnsetAddPropsSetter<DependentSchemasDependentSubschemaIncompatibleWithRootMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFoo<DependentSchemasDependentSubschemaIncompatibleWithRootMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"

@@ -723,11 +723,11 @@ src/main/java/org/openapijsonschematools/client/schemas/DateTimeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DecimalJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DoubleJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/FloatJsonSchema.java
+src/main/java/org/openapijsonschematools/client/schemas/GenericBuilder.java
 src/main/java/org/openapijsonschematools/client/schemas/Int32JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/Int64JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/IntJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/ListJsonSchema.java
-src/main/java/org/openapijsonschematools/client/schemas/MapBuilder.java
 src/main/java/org/openapijsonschematools/client/schemas/MapJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NotAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NullJsonSchema.java

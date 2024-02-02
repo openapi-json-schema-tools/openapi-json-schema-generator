@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -137,7 +137,7 @@ public class HealthCheckResult {
         }
     }
     
-    public static class HealthCheckResultMapBuilder extends UnsetAddPropsSetter<HealthCheckResultMapBuilder> implements MapBuilder<@Nullable Object>, SetterForNullableMessage<HealthCheckResultMapBuilder> {
+    public static class HealthCheckResultMapBuilder extends UnsetAddPropsSetter<HealthCheckResultMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForNullableMessage<HealthCheckResultMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "NullableMessage"

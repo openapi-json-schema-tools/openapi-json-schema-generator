@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.DoubleEnumValidator;
@@ -842,7 +842,7 @@ public class EnumTest {
         }
     }
     
-    public static class EnumTestMap0Builder extends UnsetAddPropsSetter<EnumTestMap0Builder> implements MapBuilder<@Nullable Object>, SetterForEnumString<EnumTestMap0Builder>, SetterForEnumInteger<EnumTestMap0Builder>, SetterForEnumNumber<EnumTestMap0Builder>, SetterForStringEnum<EnumTestMap0Builder>, SetterForIntegerEnum<EnumTestMap0Builder>, SetterForStringEnumWithDefaultValue<EnumTestMap0Builder>, SetterForIntegerEnumWithDefaultValue<EnumTestMap0Builder>, SetterForIntegerEnumOneValue<EnumTestMap0Builder> {
+    public static class EnumTestMap0Builder extends UnsetAddPropsSetter<EnumTestMap0Builder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForEnumString<EnumTestMap0Builder>, SetterForEnumInteger<EnumTestMap0Builder>, SetterForEnumNumber<EnumTestMap0Builder>, SetterForStringEnum<EnumTestMap0Builder>, SetterForIntegerEnum<EnumTestMap0Builder>, SetterForStringEnumWithDefaultValue<EnumTestMap0Builder>, SetterForIntegerEnumWithDefaultValue<EnumTestMap0Builder>, SetterForIntegerEnumOneValue<EnumTestMap0Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "enum_string_required",

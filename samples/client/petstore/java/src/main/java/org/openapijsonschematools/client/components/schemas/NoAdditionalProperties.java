@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -145,7 +145,7 @@ public class NoAdditionalProperties {
         }
     }
     
-    public static class NoAdditionalPropertiesMap0Builder implements MapBuilder<Number>, SetterForPetId<NoAdditionalPropertiesMap0Builder> {
+    public static class NoAdditionalPropertiesMap0Builder implements GenericBuilder<Map<String, Number>>, SetterForPetId<NoAdditionalPropertiesMap0Builder> {
         private final Map<String, Number> instance;
         private static final Set<String> knownKeys = Set.of(
             "id",

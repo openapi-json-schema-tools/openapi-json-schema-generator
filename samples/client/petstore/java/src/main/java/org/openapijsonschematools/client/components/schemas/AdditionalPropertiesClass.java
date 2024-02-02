@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -72,7 +72,7 @@ public class AdditionalPropertiesClass {
         }
     }
     
-    public static class MapPropertyMapBuilder implements MapBuilder<String>, SetterForAdditionalProperties<MapPropertyMapBuilder> {
+    public static class MapPropertyMapBuilder implements GenericBuilder<Map<String, String>>, SetterForAdditionalProperties<MapPropertyMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -203,7 +203,7 @@ public class AdditionalPropertiesClass {
         }
     }
     
-    public static class AdditionalPropertiesMapBuilder2 implements MapBuilder<String>, SetterForAdditionalProperties2<AdditionalPropertiesMapBuilder2> {
+    public static class AdditionalPropertiesMapBuilder2 implements GenericBuilder<Map<String, String>>, SetterForAdditionalProperties2<AdditionalPropertiesMapBuilder2> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -323,7 +323,7 @@ public class AdditionalPropertiesClass {
         }
     }
     
-    public static class MapOfMapPropertyMapBuilder implements MapBuilder<Map<String, String>>, SetterForAdditionalProperties1<MapOfMapPropertyMapBuilder> {
+    public static class MapOfMapPropertyMapBuilder implements GenericBuilder<Map<String, Map<String, String>>>, SetterForAdditionalProperties1<MapOfMapPropertyMapBuilder> {
         private final Map<String, Map<String, String>> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -543,7 +543,7 @@ public class AdditionalPropertiesClass {
         }
     }
     
-    public static class MapWithUndeclaredPropertiesAnytype3MapBuilder implements MapBuilder<@Nullable Object>, SetterForAdditionalProperties3<MapWithUndeclaredPropertiesAnytype3MapBuilder> {
+    public static class MapWithUndeclaredPropertiesAnytype3MapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties3<MapWithUndeclaredPropertiesAnytype3MapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -656,7 +656,7 @@ public class AdditionalPropertiesClass {
         }
     }
     
-    public static class EmptyMapMapBuilder implements MapBuilder<@Nullable Object> {
+    public static class EmptyMapMapBuilder implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -778,7 +778,7 @@ public class AdditionalPropertiesClass {
         }
     }
     
-    public static class MapWithUndeclaredPropertiesStringMapBuilder implements MapBuilder<String>, SetterForAdditionalProperties5<MapWithUndeclaredPropertiesStringMapBuilder> {
+    public static class MapWithUndeclaredPropertiesStringMapBuilder implements GenericBuilder<Map<String, String>>, SetterForAdditionalProperties5<MapWithUndeclaredPropertiesStringMapBuilder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -1106,7 +1106,7 @@ public class AdditionalPropertiesClass {
         }
     }
     
-    public static class AdditionalPropertiesClassMapBuilder extends UnsetAddPropsSetter<AdditionalPropertiesClassMapBuilder> implements MapBuilder<@Nullable Object>, SetterForMapProperty<AdditionalPropertiesClassMapBuilder>, SetterForMapOfMapProperty<AdditionalPropertiesClassMapBuilder>, SetterForAnytype1<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype1<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype2<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype3<AdditionalPropertiesClassMapBuilder>, SetterForEmptyMap<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesString<AdditionalPropertiesClassMapBuilder> {
+    public static class AdditionalPropertiesClassMapBuilder extends UnsetAddPropsSetter<AdditionalPropertiesClassMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForMapProperty<AdditionalPropertiesClassMapBuilder>, SetterForMapOfMapProperty<AdditionalPropertiesClassMapBuilder>, SetterForAnytype1<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype1<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype2<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesAnytype3<AdditionalPropertiesClassMapBuilder>, SetterForEmptyMap<AdditionalPropertiesClassMapBuilder>, SetterForMapWithUndeclaredPropertiesString<AdditionalPropertiesClassMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "map_property",

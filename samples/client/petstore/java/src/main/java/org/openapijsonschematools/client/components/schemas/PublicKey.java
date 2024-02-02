@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -80,7 +80,7 @@ public class PublicKey {
         }
     }
     
-    public static class PublicKeyMapBuilder extends UnsetAddPropsSetter<PublicKeyMapBuilder> implements MapBuilder<@Nullable Object>, SetterForKey<PublicKeyMapBuilder> {
+    public static class PublicKeyMapBuilder extends UnsetAddPropsSetter<PublicKeyMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForKey<PublicKeyMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "key"

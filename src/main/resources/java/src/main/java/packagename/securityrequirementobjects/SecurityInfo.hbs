@@ -10,13 +10,10 @@ import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 {{/each}}
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
 import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectProvider;
+import {{{packageName}}}.schemas.GenericBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-{{#eq security.length 1}}
-import java.util.AbstractMap;
-{{else}}
 import java.util.HashMap;
-{{/eq}}
 import java.util.Map;
 import java.util.EnumMap;
 
@@ -36,46 +33,48 @@ public class {{security.jsonPathPiece.pascalCase}} implements SecurityRequiremen
         {{> src/main/java/packagename/securityrequirementobjects/_SecurityRequirementObjectSetter methodName=jsonPathPiece.camelCase getBuilderMethod=(join "getBuilderAfter" jsonPathPiece.pascalCase "") }}
     }
 {{/each}}
+{{#each security.builders}}
+
+    public static class {{className.pascalCase}} implements {{#unless @last}}GenericBuilder<Securities>{{#gt keyToBuilder.size 0}}, {{/gt}}{{/unless}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{builder.className.pascalCase}}>{{#unless @last}}, {{/unless}}{{/each}} {
+        private final Map<SecurityIndex, SecurityRequirementObject> instance;
+        {{#if @last }}
+        public {{className.pascalCase}}() {
+            this.instance = new HashMap<>();
+        }
+        {{else}}
+        public {{className.pascalCase}}(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            this.instance = instance;
+        }
+        {{/if}}
+        {{#unless @last}}
+        public Securities build() {
+            return new Securities(instance);
+        }
+        {{/unless}}
+        {{#gt keyToBuilder.size 0}}
+        public Map<SecurityIndex, SecurityRequirementObject> getInstance() {
+            return instance;
+        }
+        {{/gt}}
+        {{#each keyToBuilder}}
+        public {{builder.className.pascalCase}} getBuilderAfter{{@key.pascalCase}}(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            {{#eq builder ../this}}
+                {{! property in final builder }}
+            return this;
+            {{else}}
+            return new {{builder.className.pascalCase}}(instance);
+            {{/eq}}
+        }
+        {{/each}}
+    }
+{{/each}}
 
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
-        {{#eq security.length 1}}
-            {{#each security}}
-        public Securities({{jsonPathPiece.pascalCase}} security{{@index}}) {
-            securities = new EnumMap<>(
-                Map.ofEntries(
-                    new AbstractMap.SimpleEntry<>(
-                        SecurityIndex.SECURITY_{{@index}},
-                        security{{@index}}
-                    )
-                )
-            );
+        Securities(Map<SecurityIndex, SecurityRequirementObject> securityMap) {
+            securities = new EnumMap<>(securityMap);
         }
-            {{/each}}
-        {{else}}
-            {{#each security}}
-        public Securities({{jsonPathPiece.pascalCase}} security{{@index}}) {
-            securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_{{@index}}, security{{@index}}));
-        }
-            {{/each}}
-        public Securities(
-            {{#each security}}
-            @Nullable {{jsonPathPiece.pascalCase}} security{{@index}}{{#unless @last}},{{/unless}}
-            {{/each}}
-        ) {
-            var secMap = new HashMap<SecurityIndex, SecurityRequirementObject>();
-            {{#each security}}
-            if (security{{@index}} != null) {
-                secMap.put(SecurityIndex.SECURITY_{{@index}}, security{{@index}});
-            }
-            {{/each}}
-            if (secMap.isEmpty()) {
-                throw new RuntimeException("Invalid empty input for securities, set at least one of them;");
-            }
-            securities = new EnumMap<>(secMap);
-        }
-        {{/eq}}
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {
             if (securities.containsKey(securityIndex)) {

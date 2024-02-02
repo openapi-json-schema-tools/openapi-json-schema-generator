@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -109,7 +109,7 @@ public class ObjectModelWithArgAndArgsProperties {
         }
     }
     
-    public static class ObjectModelWithArgAndArgsPropertiesMap00Builder extends UnsetAddPropsSetter<ObjectModelWithArgAndArgsPropertiesMap00Builder> implements MapBuilder<@Nullable Object> {
+    public static class ObjectModelWithArgAndArgsPropertiesMap00Builder extends UnsetAddPropsSetter<ObjectModelWithArgAndArgsPropertiesMap00Builder> implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "arg",

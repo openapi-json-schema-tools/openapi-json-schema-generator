@@ -556,11 +556,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         schemaSupportingFiles.add("DecimalJsonSchema");
         schemaSupportingFiles.add("DoubleJsonSchema");
         schemaSupportingFiles.add("FloatJsonSchema");
+        schemaSupportingFiles.add("GenericBuilder");
         schemaSupportingFiles.add("Int32JsonSchema");
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
         schemaSupportingFiles.add("ListJsonSchema");
-        schemaSupportingFiles.add("MapBuilder");
         schemaSupportingFiles.add("MapJsonSchema");
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
@@ -1518,7 +1518,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import java.util.Map;");
             imports.add("import java.util.Set;");
             imports.add("import " + packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import " + packageName + ".schemas.MapBuilder;");
+            imports.add("import " + packageName + ".schemas.GenericBuilder;");
         }
     }
 
@@ -1569,7 +1569,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
         }
         if (schema.additionalProperties != null) {
-            imports.add("import "+packageName + ".schemas.MapBuilder;");
+            imports.add("import "+packageName + ".schemas.GenericBuilder;");
             imports.add("import "+packageName + ".schemas.validation.MapUtils;");
         } else {
             imports.add("import "+packageName + ".schemas.UnsetAddPropsSetter;");
@@ -1580,7 +1580,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     private void addRequiredValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.requiredProperties != null) {
             imports.add("import java.util.Set;");
-            imports.add("import "+packageName + ".schemas.MapBuilder;");
+            imports.add("import "+packageName + ".schemas.GenericBuilder;");
         }
     }
 

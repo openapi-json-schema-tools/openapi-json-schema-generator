@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -153,7 +153,7 @@ public class ApiResponseSchema {
         }
     }
     
-    public static class ApiResponseMapBuilder extends UnsetAddPropsSetter<ApiResponseMapBuilder> implements MapBuilder<@Nullable Object>, SetterForCode<ApiResponseMapBuilder>, SetterForType<ApiResponseMapBuilder>, SetterForMessage<ApiResponseMapBuilder> {
+    public static class ApiResponseMapBuilder extends UnsetAddPropsSetter<ApiResponseMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForCode<ApiResponseMapBuilder>, SetterForType<ApiResponseMapBuilder>, SetterForMessage<ApiResponseMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "code",

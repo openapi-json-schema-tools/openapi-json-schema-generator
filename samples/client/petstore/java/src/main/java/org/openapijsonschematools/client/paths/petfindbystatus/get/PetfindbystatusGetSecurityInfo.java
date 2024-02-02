@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.security.Petf
 import org.openapijsonschematools.client.paths.petfindbystatus.get.security.PetfindbystatusGetSecurityRequirementObject2;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashMap;
@@ -51,37 +52,87 @@ public class PetfindbystatusGetSecurityInfo implements SecurityRequirementObject
         }
     }
 
+    public static class Securities011Builder implements GenericBuilder<Securities>, SetterForPetfindbystatusGetSecurityRequirementObject1<Securities011Builder>, SetterForPetfindbystatusGetSecurityRequirementObject2<Securities011Builder> {
+        private final Map<SecurityIndex, SecurityRequirementObject> instance;
+        public Securities011Builder(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            this.instance = instance;
+        }
+        public Securities build() {
+            return new Securities(instance);
+        }
+        public Map<SecurityIndex, SecurityRequirementObject> getInstance() {
+            return instance;
+        }
+        public Securities011Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return this;
+        }
+        public Securities011Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject2(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return this;
+        }
+    }
+
+    public static class Securities101Builder implements GenericBuilder<Securities>, SetterForPetfindbystatusGetSecurityRequirementObject0<Securities101Builder>, SetterForPetfindbystatusGetSecurityRequirementObject2<Securities101Builder> {
+        private final Map<SecurityIndex, SecurityRequirementObject> instance;
+        public Securities101Builder(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            this.instance = instance;
+        }
+        public Securities build() {
+            return new Securities(instance);
+        }
+        public Map<SecurityIndex, SecurityRequirementObject> getInstance() {
+            return instance;
+        }
+        public Securities101Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return this;
+        }
+        public Securities101Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject2(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return this;
+        }
+    }
+
+    public static class Securities110Builder implements GenericBuilder<Securities>, SetterForPetfindbystatusGetSecurityRequirementObject0<Securities110Builder>, SetterForPetfindbystatusGetSecurityRequirementObject1<Securities110Builder> {
+        private final Map<SecurityIndex, SecurityRequirementObject> instance;
+        public Securities110Builder(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            this.instance = instance;
+        }
+        public Securities build() {
+            return new Securities(instance);
+        }
+        public Map<SecurityIndex, SecurityRequirementObject> getInstance() {
+            return instance;
+        }
+        public Securities110Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return this;
+        }
+        public Securities110Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return this;
+        }
+    }
+
+    public static class SecuritiesBuilder implements SetterForPetfindbystatusGetSecurityRequirementObject0<Securities011Builder>, SetterForPetfindbystatusGetSecurityRequirementObject1<Securities101Builder>, SetterForPetfindbystatusGetSecurityRequirementObject2<Securities110Builder> {
+        private final Map<SecurityIndex, SecurityRequirementObject> instance;
+        public SecuritiesBuilder() {
+            this.instance = new HashMap<>();
+        }
+        public Map<SecurityIndex, SecurityRequirementObject> getInstance() {
+            return instance;
+        }
+        public Securities011Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return new Securities011Builder(instance);
+        }
+        public Securities101Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject1(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return new Securities101Builder(instance);
+        }
+        public Securities110Builder getBuilderAfterPetfindbystatusGetSecurityRequirementObject2(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return new Securities110Builder(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
-        public Securities(PetfindbystatusGetSecurityRequirementObject0 security0) {
-            securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_0, security0));
-        }
-        public Securities(PetfindbystatusGetSecurityRequirementObject1 security1) {
-            securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_1, security1));
-        }
-        public Securities(PetfindbystatusGetSecurityRequirementObject2 security2) {
-            securities = new EnumMap<>(Map.of(SecurityIndex.SECURITY_2, security2));
-        }
-        public Securities(
-            @Nullable PetfindbystatusGetSecurityRequirementObject0 security0,
-            @Nullable PetfindbystatusGetSecurityRequirementObject1 security1,
-            @Nullable PetfindbystatusGetSecurityRequirementObject2 security2
-        ) {
-            var secMap = new HashMap<SecurityIndex, SecurityRequirementObject>();
-            if (security0 != null) {
-                secMap.put(SecurityIndex.SECURITY_0, security0);
-            }
-            if (security1 != null) {
-                secMap.put(SecurityIndex.SECURITY_1, security1);
-            }
-            if (security2 != null) {
-                secMap.put(SecurityIndex.SECURITY_2, security2);
-            }
-            if (secMap.isEmpty()) {
-                throw new RuntimeException("Invalid empty input for securities, set at least one of them;");
-            }
-            securities = new EnumMap<>(secMap);
+        Securities(Map<SecurityIndex, SecurityRequirementObject> securityMap) {
+            securities = new EnumMap<>(securityMap);
         }
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {

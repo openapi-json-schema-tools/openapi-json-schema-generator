@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter7.Schema7;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter8.Schema8;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -125,7 +125,7 @@ public class HeaderParameters {
         }
     }
     
-    public static class HeaderParametersMapBuilder implements MapBuilder<@Nullable Object>, SetterForSchema1<HeaderParametersMapBuilder>, SetterForAB<HeaderParametersMapBuilder>, SetterForAB1<HeaderParametersMapBuilder>, SetterForSelf<HeaderParametersMapBuilder> {
+    public static class HeaderParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForSchema1<HeaderParametersMapBuilder>, SetterForAB<HeaderParametersMapBuilder>, SetterForAB1<HeaderParametersMapBuilder>, SetterForSelf<HeaderParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "1",

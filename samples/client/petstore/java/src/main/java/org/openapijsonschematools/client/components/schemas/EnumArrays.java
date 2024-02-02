@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -339,7 +339,7 @@ public class EnumArrays {
         }
     }
     
-    public static class EnumArraysMapBuilder extends UnsetAddPropsSetter<EnumArraysMapBuilder> implements MapBuilder<@Nullable Object>, SetterForJustSymbol<EnumArraysMapBuilder>, SetterForArrayEnum<EnumArraysMapBuilder> {
+    public static class EnumArraysMapBuilder extends UnsetAddPropsSetter<EnumArraysMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForJustSymbol<EnumArraysMapBuilder>, SetterForArrayEnum<EnumArraysMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "just_symbol",

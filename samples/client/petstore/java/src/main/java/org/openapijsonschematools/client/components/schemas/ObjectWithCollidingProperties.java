@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -113,7 +113,7 @@ public class ObjectWithCollidingProperties {
         }
     }
     
-    public static class ObjectWithCollidingPropertiesMapBuilder extends UnsetAddPropsSetter<ObjectWithCollidingPropertiesMapBuilder> implements MapBuilder<@Nullable Object>, SetterForSomeProp<ObjectWithCollidingPropertiesMapBuilder>, SetterForSomeprop<ObjectWithCollidingPropertiesMapBuilder> {
+    public static class ObjectWithCollidingPropertiesMapBuilder extends UnsetAddPropsSetter<ObjectWithCollidingPropertiesMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForSomeProp<ObjectWithCollidingPropertiesMapBuilder>, SetterForSomeprop<ObjectWithCollidingPropertiesMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "someProp",

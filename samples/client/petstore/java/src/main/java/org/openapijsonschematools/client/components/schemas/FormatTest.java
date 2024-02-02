@@ -20,9 +20,9 @@ import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.client.schemas.DoubleJsonSchema;
 import org.openapijsonschematools.client.schemas.FloatJsonSchema;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -1332,7 +1332,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap0000Builder extends UnsetAddPropsSetter<FormatTestMap0000Builder> implements MapBuilder<@Nullable Object>, SetterForIntegerSchema<FormatTestMap0000Builder>, SetterForInt32<FormatTestMap0000Builder>, SetterForInt32withValidations<FormatTestMap0000Builder>, SetterForInt64<FormatTestMap0000Builder>, SetterForFloatSchema<FormatTestMap0000Builder>, SetterForFloat32<FormatTestMap0000Builder>, SetterForDoubleSchema<FormatTestMap0000Builder>, SetterForFloat64<FormatTestMap0000Builder>, SetterForArrayWithUniqueItems<FormatTestMap0000Builder>, SetterForStringSchema<FormatTestMap0000Builder>, SetterForBinary<FormatTestMap0000Builder>, SetterForDateTime<FormatTestMap0000Builder>, SetterForUuidSchema<FormatTestMap0000Builder>, SetterForUuidNoExample<FormatTestMap0000Builder>, SetterForPatternWithDigits<FormatTestMap0000Builder>, SetterForPatternWithDigitsAndDelimiter<FormatTestMap0000Builder>, SetterForNoneProp<FormatTestMap0000Builder> {
+    public static class FormatTestMap0000Builder extends UnsetAddPropsSetter<FormatTestMap0000Builder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForIntegerSchema<FormatTestMap0000Builder>, SetterForInt32<FormatTestMap0000Builder>, SetterForInt32withValidations<FormatTestMap0000Builder>, SetterForInt64<FormatTestMap0000Builder>, SetterForFloatSchema<FormatTestMap0000Builder>, SetterForFloat32<FormatTestMap0000Builder>, SetterForDoubleSchema<FormatTestMap0000Builder>, SetterForFloat64<FormatTestMap0000Builder>, SetterForArrayWithUniqueItems<FormatTestMap0000Builder>, SetterForStringSchema<FormatTestMap0000Builder>, SetterForBinary<FormatTestMap0000Builder>, SetterForDateTime<FormatTestMap0000Builder>, SetterForUuidSchema<FormatTestMap0000Builder>, SetterForUuidNoExample<FormatTestMap0000Builder>, SetterForPatternWithDigits<FormatTestMap0000Builder>, SetterForPatternWithDigitsAndDelimiter<FormatTestMap0000Builder>, SetterForNoneProp<FormatTestMap0000Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "byte",

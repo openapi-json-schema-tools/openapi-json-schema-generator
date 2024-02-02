@@ -19,7 +19,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter17.Schema17;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter18.Schema18;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -148,7 +148,7 @@ public class CookieParameters {
         }
     }
     
-    public static class CookieParametersMapBuilder implements MapBuilder<@Nullable Object>, SetterForSchema1<CookieParametersMapBuilder>, SetterForAB<CookieParametersMapBuilder>, SetterForAb<CookieParametersMapBuilder>, SetterForAB1<CookieParametersMapBuilder>, SetterForSelf<CookieParametersMapBuilder> {
+    public static class CookieParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForSchema1<CookieParametersMapBuilder>, SetterForAB<CookieParametersMapBuilder>, SetterForAb<CookieParametersMapBuilder>, SetterForAB1<CookieParametersMapBuilder>, SetterForSelf<CookieParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "1",

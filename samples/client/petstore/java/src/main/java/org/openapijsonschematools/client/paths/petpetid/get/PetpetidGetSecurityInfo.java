@@ -4,9 +4,10 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.paths.petpetid.get.security.PetpetidGetSecurityRequirementObject0;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObject;
 import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequirementObjectProvider;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.AbstractMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.EnumMap;
 
@@ -29,18 +30,34 @@ public class PetpetidGetSecurityInfo implements SecurityRequirementObjectProvide
         }
     }
 
+    public static class Securities0Builder implements GenericBuilder<Securities> {
+        private final Map<SecurityIndex, SecurityRequirementObject> instance;
+        public Securities0Builder(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            this.instance = instance;
+        }
+        public Securities build() {
+            return new Securities(instance);
+        }
+    }
+
+    public static class SecuritiesBuilder implements SetterForPetpetidGetSecurityRequirementObject0<Securities0Builder> {
+        private final Map<SecurityIndex, SecurityRequirementObject> instance;
+        public SecuritiesBuilder() {
+            this.instance = new HashMap<>();
+        }
+        public Map<SecurityIndex, SecurityRequirementObject> getInstance() {
+            return instance;
+        }
+        public Securities0Builder getBuilderAfterPetpetidGetSecurityRequirementObject0(Map<SecurityIndex, SecurityRequirementObject> instance) {
+            return new Securities0Builder(instance);
+        }
+    }
+
     public static class Securities {
         private final EnumMap<SecurityIndex, SecurityRequirementObject> securities;
 
-        public Securities(PetpetidGetSecurityRequirementObject0 security0) {
-            securities = new EnumMap<>(
-                Map.ofEntries(
-                    new AbstractMap.SimpleEntry<>(
-                        SecurityIndex.SECURITY_0,
-                        security0
-                    )
-                )
-            );
+        Securities(Map<SecurityIndex, SecurityRequirementObject> securityMap) {
+            securities = new EnumMap<>(securityMap);
         }
 
         public SecurityRequirementObject get(SecurityIndex securityIndex) {

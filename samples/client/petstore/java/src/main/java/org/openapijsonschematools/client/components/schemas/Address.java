@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -88,7 +88,7 @@ public class Address {
         }
     }
     
-    public static class AddressMapBuilder implements MapBuilder<Number>, SetterForAdditionalProperties<AddressMapBuilder> {
+    public static class AddressMapBuilder implements GenericBuilder<Map<String, Number>>, SetterForAdditionalProperties<AddressMapBuilder> {
         private final Map<String, Number> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {

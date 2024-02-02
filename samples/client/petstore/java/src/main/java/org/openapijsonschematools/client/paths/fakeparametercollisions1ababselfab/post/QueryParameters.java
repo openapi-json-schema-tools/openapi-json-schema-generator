@@ -19,7 +19,7 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter3.Schema3;
 import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter4.Schema4;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -148,7 +148,7 @@ public class QueryParameters {
         }
     }
     
-    public static class QueryParametersMapBuilder implements MapBuilder<@Nullable Object>, SetterForSchema1<QueryParametersMapBuilder>, SetterForAB<QueryParametersMapBuilder>, SetterForAb<QueryParametersMapBuilder>, SetterForAB1<QueryParametersMapBuilder>, SetterForSelf<QueryParametersMapBuilder> {
+    public static class QueryParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForSchema1<QueryParametersMapBuilder>, SetterForAB<QueryParametersMapBuilder>, SetterForAb<QueryParametersMapBuilder>, SetterForAB1<QueryParametersMapBuilder>, SetterForSelf<QueryParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "1",

@@ -14,8 +14,8 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -72,7 +72,7 @@ public class AdditionalpropertiesCanExistByItself {
         }
     }
     
-    public static class AdditionalpropertiesCanExistByItselfMapBuilder implements BaseBuilder<Boolean>, SetterForAdditionalProperties<AdditionalpropertiesCanExistByItselfMapBuilder> {
+    public static class AdditionalpropertiesCanExistByItselfMapBuilder implements GenericBuilder<Map<String, Boolean>>, SetterForAdditionalProperties<AdditionalpropertiesCanExistByItselfMapBuilder> {
         private final Map<String, Boolean> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {

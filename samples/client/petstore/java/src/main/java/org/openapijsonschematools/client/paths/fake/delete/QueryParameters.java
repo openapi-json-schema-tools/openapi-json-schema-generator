@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter2
 import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter3.Schema3;
 import org.openapijsonschematools.client.paths.fake.delete.parameters.parameter5.Schema5;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -178,7 +178,7 @@ public class QueryParameters {
         }
     }
     
-    public static class QueryParametersMap00Builder implements MapBuilder<@Nullable Object>, SetterForInt64Group<QueryParametersMap00Builder>, SetterForStringGroup<QueryParametersMap00Builder> {
+    public static class QueryParametersMap00Builder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForInt64Group<QueryParametersMap00Builder>, SetterForStringGroup<QueryParametersMap00Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "required_int64_group",

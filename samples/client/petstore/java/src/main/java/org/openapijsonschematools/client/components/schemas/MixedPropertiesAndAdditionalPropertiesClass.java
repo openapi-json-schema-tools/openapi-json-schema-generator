@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.UuidJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -81,7 +81,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
     }
     
-    public static class MapMapBuilder implements MapBuilder<Map<String, @Nullable Object>>, SetterForAdditionalProperties<MapMapBuilder> {
+    public static class MapMapBuilder implements GenericBuilder<Map<String, Map<String, @Nullable Object>>>, SetterForAdditionalProperties<MapMapBuilder> {
         private final Map<String, Map<String, @Nullable Object>> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {
@@ -237,7 +237,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
     }
     
-    public static class MixedPropertiesAndAdditionalPropertiesClassMapBuilder extends UnsetAddPropsSetter<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> implements MapBuilder<@Nullable Object>, SetterForUuidSchema<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForDateTime<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForMapSchema<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> {
+    public static class MixedPropertiesAndAdditionalPropertiesClassMapBuilder extends UnsetAddPropsSetter<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForUuidSchema<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForDateTime<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForMapSchema<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "uuid",

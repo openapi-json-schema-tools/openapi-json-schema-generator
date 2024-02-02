@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -97,7 +97,7 @@ public class ReqPropsFromExplicitAddProps {
         }
     }
     
-    public static class ReqPropsFromExplicitAddPropsMap00Builder implements MapBuilder<String>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMap00Builder> {
+    public static class ReqPropsFromExplicitAddPropsMap00Builder implements GenericBuilder<Map<String, String>>, SetterForAdditionalProperties<ReqPropsFromExplicitAddPropsMap00Builder> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "invalid-name",

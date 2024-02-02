@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -126,7 +126,7 @@ public class ObjectWithNonIntersectingValues {
         }
     }
     
-    public static class ObjectWithNonIntersectingValuesMapBuilder implements MapBuilder<Object>, SetterForA<ObjectWithNonIntersectingValuesMapBuilder>, SetterForAdditionalProperties<ObjectWithNonIntersectingValuesMapBuilder> {
+    public static class ObjectWithNonIntersectingValuesMapBuilder implements GenericBuilder<Map<String, Object>>, SetterForA<ObjectWithNonIntersectingValuesMapBuilder>, SetterForAdditionalProperties<ObjectWithNonIntersectingValuesMapBuilder> {
         private final Map<String, Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "a"

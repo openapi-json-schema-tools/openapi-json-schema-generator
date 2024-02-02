@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -131,7 +131,7 @@ public class RequiredDefaultValidation {
         }
     }
     
-    public static class RequiredDefaultValidationMapBuilder extends UnsetAddPropsSetter<RequiredDefaultValidationMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<RequiredDefaultValidationMapBuilder> {
+    public static class RequiredDefaultValidationMapBuilder extends UnsetAddPropsSetter<RequiredDefaultValidationMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFoo<RequiredDefaultValidationMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo"

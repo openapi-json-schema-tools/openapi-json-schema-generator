@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -293,7 +293,7 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }
     
-    public static class ArrayOfArrayOfNumberOnlyMapBuilder extends UnsetAddPropsSetter<ArrayOfArrayOfNumberOnlyMapBuilder> implements MapBuilder<@Nullable Object>, SetterForArrayArrayNumber<ArrayOfArrayOfNumberOnlyMapBuilder> {
+    public static class ArrayOfArrayOfNumberOnlyMapBuilder extends UnsetAddPropsSetter<ArrayOfArrayOfNumberOnlyMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForArrayArrayNumber<ArrayOfArrayOfNumberOnlyMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "ArrayArrayNumber"

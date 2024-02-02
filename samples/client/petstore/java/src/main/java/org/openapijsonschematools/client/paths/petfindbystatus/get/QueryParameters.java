@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.petfindbystatus.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -71,7 +71,7 @@ public class QueryParameters {
         }
     }
     
-    public static class QueryParametersMap0Builder implements MapBuilder<List<String>> {
+    public static class QueryParametersMap0Builder implements GenericBuilder<Map<String, List<String>>> {
         private final Map<String, List<String>> instance;
         private static final Set<String> knownKeys = Set.of(
             "status"

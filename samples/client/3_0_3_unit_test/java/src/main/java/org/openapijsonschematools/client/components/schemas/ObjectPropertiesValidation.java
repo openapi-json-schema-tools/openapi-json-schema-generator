@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
@@ -141,7 +141,7 @@ public class ObjectPropertiesValidation {
         }
     }
     
-    public static class ObjectPropertiesValidationMapBuilder extends UnsetAddPropsSetter<ObjectPropertiesValidationMapBuilder> implements BaseBuilder<@Nullable Object>, SetterForFoo<ObjectPropertiesValidationMapBuilder>, SetterForBar<ObjectPropertiesValidationMapBuilder> {
+    public static class ObjectPropertiesValidationMapBuilder extends UnsetAddPropsSetter<ObjectPropertiesValidationMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFoo<ObjectPropertiesValidationMapBuilder>, SetterForBar<ObjectPropertiesValidationMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",

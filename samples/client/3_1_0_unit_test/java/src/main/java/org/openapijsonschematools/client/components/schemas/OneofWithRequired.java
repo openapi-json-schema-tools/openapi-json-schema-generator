@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -182,7 +182,7 @@ public class OneofWithRequired {
         }
     }
     
-    public static class Schema0Map00Builder extends UnsetAddPropsSetter<Schema0Map00Builder> implements BaseBuilder<@Nullable Object> {
+    public static class Schema0Map00Builder extends UnsetAddPropsSetter<Schema0Map00Builder> implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "bar",
@@ -592,7 +592,7 @@ public class OneofWithRequired {
         }
     }
     
-    public static class Schema1Map00Builder extends UnsetAddPropsSetter<Schema1Map00Builder> implements BaseBuilder<@Nullable Object> {
+    public static class Schema1Map00Builder extends UnsetAddPropsSetter<Schema1Map00Builder> implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "baz",

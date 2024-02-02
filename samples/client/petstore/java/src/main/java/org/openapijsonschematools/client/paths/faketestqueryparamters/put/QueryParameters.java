@@ -20,7 +20,7 @@ import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parame
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.parameter3.Schema3;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.parameter4.Schema4;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -179,7 +179,7 @@ public class QueryParameters {
         }
     }
     
-    public static class QueryParametersMap000000Builder implements MapBuilder<@Nullable Object> {
+    public static class QueryParametersMap000000Builder implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "context",

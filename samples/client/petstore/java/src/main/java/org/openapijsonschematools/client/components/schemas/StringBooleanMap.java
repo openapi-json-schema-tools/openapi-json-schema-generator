@@ -15,7 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -72,7 +72,7 @@ public class StringBooleanMap {
         }
     }
     
-    public static class StringBooleanMapMapBuilder implements MapBuilder<Boolean>, SetterForAdditionalProperties<StringBooleanMapMapBuilder> {
+    public static class StringBooleanMapMapBuilder implements GenericBuilder<Map<String, Boolean>>, SetterForAdditionalProperties<StringBooleanMapMapBuilder> {
         private final Map<String, Boolean> instance;
         private static final Set<String> knownKeys = Set.of();
         public Set<String> getKnownKeys() {

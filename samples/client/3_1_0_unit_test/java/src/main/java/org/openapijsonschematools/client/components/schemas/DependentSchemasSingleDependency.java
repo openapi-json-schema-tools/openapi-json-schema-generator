@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
@@ -158,7 +158,7 @@ public class DependentSchemasSingleDependency {
         }
     }
     
-    public static class BarMapBuilder1 extends UnsetAddPropsSetter<BarMapBuilder1> implements BaseBuilder<@Nullable Object>, SetterForFoo<BarMapBuilder1>, SetterForBar1<BarMapBuilder1> {
+    public static class BarMapBuilder1 extends UnsetAddPropsSetter<BarMapBuilder1> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFoo<BarMapBuilder1>, SetterForBar1<BarMapBuilder1> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",

@@ -14,7 +14,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -84,7 +84,7 @@ public class SelfReferencingObjectModel {
         }
     }
     
-    public static class SelfReferencingObjectModelMapBuilder implements MapBuilder<@Nullable Object>, SetterForSelfRef<SelfReferencingObjectModelMapBuilder>, SetterForAdditionalProperties<SelfReferencingObjectModelMapBuilder> {
+    public static class SelfReferencingObjectModelMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForSelfRef<SelfReferencingObjectModelMapBuilder>, SetterForAdditionalProperties<SelfReferencingObjectModelMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "selfRef"

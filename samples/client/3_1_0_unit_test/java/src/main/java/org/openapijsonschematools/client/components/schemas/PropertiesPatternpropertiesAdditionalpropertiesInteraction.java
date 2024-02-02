@@ -19,7 +19,7 @@ import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyExc
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.BaseBuilder;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.ListJsonSchema;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
@@ -421,7 +421,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
     }
     
-    public static class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder implements BaseBuilder<Object>, SetterForFoo<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForBar<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForAdditionalProperties<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder> {
+    public static class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder implements GenericBuilder<Map<String, Object>>, SetterForFoo<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForBar<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForAdditionalProperties<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder> {
         private final Map<String, Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
