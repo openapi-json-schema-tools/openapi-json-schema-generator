@@ -940,11 +940,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toSecurityRequirementObjectFilename(String basename, String jsonPath) {
-        return toModuleFilename(basename, jsonPath);
-    }
-
-    @Override
     public String toSecurityFilename(String basename, String jsonPath) {
         return toModuleFilename(basename, jsonPath);
     }
@@ -3000,7 +2995,7 @@ public class DefaultGenerator implements Generator {
             }
             String securityJsonPathPiece = jsonPath + "/" + i;
             String subpackage = getSubpackage(securityJsonPathPiece);
-            CodegenKey key = getKey(String.valueOf(i), "securityRequirementObject", securityJsonPathPiece);
+            CodegenKey key = getKey(String.valueOf(i), "security", securityJsonPathPiece);
             var securityRequirementObject = new CodegenSecurityRequirementObject(
                     imports,
                     map,
@@ -3896,10 +3891,10 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[4].equals("security")) {
             // #/paths/somePath/get/security
             if (pathPieces.length == 5) {
-                pathPieces[4] = toSecurityFilename("", jsonPath);
+                pathPieces[4] = toSecurityFilename("security", jsonPath);
             } else {
                 // #/paths/somePath/get/security/0
-                pathPieces[5] = toSecurityRequirementObjectFilename(pathPieces[5], jsonPath);
+                pathPieces[5] = toSecurityFilename(pathPieces[5], jsonPath);
             }
             return;
         } else if (pathPieces[4].equals("responses")) {
@@ -3991,11 +3986,11 @@ public class DefaultGenerator implements Generator {
         String jsonPath = String.join("/", pathPieces);
         if (pathPieces.length < 3) {
             // #/security
-            pathPieces[1] = toSecurityFilename("", jsonPath);
+            pathPieces[1] = toSecurityFilename("security", jsonPath);
             return;
         }
         // #/security/0
-        pathPieces[2] = toSecurityRequirementObjectFilename(pathPieces[2], jsonPath);
+        pathPieces[2] = toSecurityFilename(pathPieces[2], jsonPath);
     }
 
     private void updateApisFilepath(String[] pathPieces) {
@@ -4909,14 +4904,9 @@ public class DefaultGenerator implements Generator {
                 pascalCaseName = getPascalCaseServer(usedKey, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;
-            case "securityRequirementObject":
-                usedKey = escapeUnsafeCharacters(key);
-                isValid = isValid(usedKey);
-                snakeCaseName = "security_requirement_object_"+key;
-                pascalCaseName =  toSecurityRequirementObjectFilename(key, sourceJsonPath);
-                camelCaseName = camelize(pascalCaseName, true);
-                break;
             case "security":
+                // #/security +
+                // #/security/0
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySnakeCase(key, sourceJsonPath);

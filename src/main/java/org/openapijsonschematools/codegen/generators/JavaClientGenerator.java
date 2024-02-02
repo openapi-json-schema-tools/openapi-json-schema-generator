@@ -2586,29 +2586,22 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toSecurityRequirementObjectFilename(String basename, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (pathPieces.length == 3) {
-            // #/security/0
-            return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
-        } else if (pathPieces.length == 6) {
-            // #/paths/somePath/verb/security/0
-            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
-            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
-        }
-        return null;
-    }
-
-    @Override
     public String toSecurityFilename(String basename, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         if (pathPieces.length == 2) {
             // #/security
             return "SecurityInfo";
+        } else if (pathPieces.length == 3) {
+            // #/security/0
+            return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
         } else if (pathPieces.length == 5) {
             // #/paths/somePath/verb/security
             CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
             return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityInfo";
+        } else if (pathPieces.length == 6) {
+            // #/paths/somePath/verb/security/0
+            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths");
+            return pathKey.pascalCase + StringUtils.capitalize(pathPieces[3]) + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
         }
         return null;
     }

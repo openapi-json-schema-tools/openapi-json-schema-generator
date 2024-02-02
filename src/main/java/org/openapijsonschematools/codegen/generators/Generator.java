@@ -197,8 +197,6 @@ public interface Generator {
 
     String toServerFilename(String baseName, String jsonPath);
 
-    String toSecurityRequirementObjectFilename(String baseName, String jsonPath);
-
     String toSecurityFilename(String baseName, String jsonPath);
 
     String getPascalCaseServer(String baseName, String jsonPath);
