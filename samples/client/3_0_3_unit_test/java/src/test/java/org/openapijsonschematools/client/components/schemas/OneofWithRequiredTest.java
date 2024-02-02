@@ -1,23 +1,28 @@
 package org.openapijsonschematools.client.components.schemas;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.schemas.validation.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 public class OneofWithRequiredTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.onlyFormat());
 
     @Test
     public void testFirstValidValidPasses() {
         // first valid - valid
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
-            MapMaker.makeMap(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
                     1
@@ -37,7 +42,7 @@ public class OneofWithRequiredTest {
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         try {
             schema.validate(
-                MapMaker.makeMap(
+                MapUtils.makeMap(
                     new AbstractMap.SimpleEntry<String, Number>(
                         "foo",
                         1
@@ -64,7 +69,7 @@ public class OneofWithRequiredTest {
         // second valid - valid
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
-            MapMaker.makeMap(
+            MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Number>(
                     "foo",
                     1
@@ -84,8 +89,8 @@ public class OneofWithRequiredTest {
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         try {
             schema.validate(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                MapUtils.makeMap(
+                    new AbstractMap.SimpleEntry<String, Number>(
                         "bar",
                         2
                     )
