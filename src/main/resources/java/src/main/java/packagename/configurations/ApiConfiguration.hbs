@@ -1,7 +1,18 @@
 package {{{packageName}}}.configurations;
 
+{{#gt allSecurity.size 0}}
+import {{{packageName}}}.exceptions.UnsetPropertyException;
+import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
+{{/gt}}
 import {{{packageName}}}.servers.Server;
 {{#each allServers}}
+    {{#if subpackage}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{else}}
+import {{packageName}}.{{jsonPathPiece.pascalCase}};
+    {{/if}}
+{{/each}}
+{{#each allSecurity}}
     {{#if subpackage}}
 import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
     {{else}}
@@ -14,14 +25,26 @@ import java.util.Objects;
 
 public class ApiConfiguration {
     private final ServerInfo serverInfo;
-    // private final SecurityInfo securityInfo;
+    {{#gt allSecurity.size 0}}
+    private final SecurityInfo securityInfo;
+    {{/gt}}
 
     public ApiConfiguration() {
         serverInfo = new ServerInfo();
+    {{#gt allSecurity.size 0}}
+        securityInfo = new SecurityInfo(
+        {{#each allSecurity}}
+            null{{#unless @last}},{{/unless}}
+        {{/each}}
+        );
+    {{/gt}}
     }
 
-    public ApiConfiguration(ServerInfo serverInfo) {
+    public ApiConfiguration(ServerInfo serverInfo{{#gt allSecurity.size 0}}, SecurityInfo securityInfo{{/gt}}) {
         this.serverInfo = serverInfo;
+    {{#gt allSecurity.size 0}}
+        this.securityInfo = securityInfo;
+    {{/gt}}
     }
 
     public static class ServerInfo {
@@ -51,4 +74,32 @@ public class ApiConfiguration {
         return serverInfo.{{jsonPathPiece.camelCase}}.getServer(serverIndex);
     }
     {{/each}}
+    {{#gt allSecurity.size 0}}
+
+    public static class SecurityInfo {
+        {{#each allSecurity}}
+        protected final @Nullable {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}};
+        {{/each}}
+
+        public SecurityInfo(
+        {{#each allSecurity}}
+            @Nullable {{jsonPathPiece.pascalCase}} {{jsonPathPiece.camelCase}}{{#unless @last}},{{/unless}}
+        {{/each}}
+        ) {
+        {{#each allSecurity}}
+            this.{{jsonPathPiece.camelCase}} = {{jsonPathPiece.camelCase}};
+        {{/each}}
+        }
+    }
+
+        {{#each allSecurity}}
+    public SecurityRequirementObject getSecurityRequirementObject({{jsonPathPiece.pascalCase}}. @Nullable SecurityIndex securityIndex) throws UnsetPropertyException {
+        var securityInfoInstance = securityInfo.{{jsonPathPiece.camelCase}};
+        if (securityInfoInstance == null) {
+            throw new UnsetPropertyException("SecurityRequirementObject cannot be returned because the {{jsonPathPiece.pascalCase}} is unset in the SecurityInfo class. Pass it in when instantiating SecurityInfo to fix this.");
+        }
+        return securityInfoInstance.getSecurityRequirementObject(securityIndex);
+    }
+        {{/each}}
+    {{/gt}}
 }

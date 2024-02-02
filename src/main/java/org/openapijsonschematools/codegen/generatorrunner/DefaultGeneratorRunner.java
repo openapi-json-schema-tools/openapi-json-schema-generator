@@ -1319,17 +1319,21 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             TreeMap<String, CodegenSecurityScheme> securitySchemes,
             CodegenList<CodegenServer> servers,
             TreeMap<CodegenKey, CodegenPathItem> paths,
-            List<CodegenSecurityRequirementObject> security) {
+            CodegenList<CodegenSecurityRequirementObject> security) {
 
         Map<String, Object> bundle = new HashMap<>(generator.additionalProperties());
         bundle.put("apiPackage", generator.apiPackage());
 
         URL url = URLPathUtils.getServerURL(openAPI, null);
         List<CodegenList<CodegenServer>> allServers = new ArrayList<>();
+        List<CodegenList<CodegenSecurityRequirementObject>> allSecurity = new ArrayList<>();
         boolean hasServers = false;
         if (servers != null) {
             allServers.add(servers);
             hasServers = true;
+        }
+        if (security != null) {
+            allSecurity.add(security);
         }
         if (paths != null) {
             for (CodegenPathItem pathItem: paths.values()) {
@@ -1343,6 +1347,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                             allServers.add(operation.servers);
                             hasServers = true;
                         }
+                        if (operation.security != null) {
+                            allSecurity.add(operation.security);
+                        }
                     }
                 }
             }
@@ -1350,6 +1357,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         bundle.put("openAPI", openAPI);
         bundle.put("allServers", allServers);
+        bundle.put("allSecurity", allSecurity);
         bundle.put("scheme", URLPathUtils.getScheme(url, generator));
         bundle.put("contextPath", contextPath);
         bundle.put("requestBodies", requestBodies);
