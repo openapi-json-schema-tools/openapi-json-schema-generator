@@ -3879,7 +3879,7 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[4].equals("servers")) {
             if (pathPieces.length == 5) {
                 // #/paths/somePath/get/servers
-                pathPieces[4] = toServerFilename("s", jsonPath);
+                pathPieces[4] = toServerFilename("servers", jsonPath);
             } else if (pathPieces.length == 6) {
                 // #/paths/somePath/get/servers/0
                 pathPieces[5] = toServerFilename(pathPieces[5], jsonPath);
@@ -3969,15 +3969,15 @@ public class DefaultGenerator implements Generator {
     }
 
     protected void updateServersFilepath(String[] pathPieces) {
+        String jsonPath = String.join("/", pathPieces);
         if (pathPieces.length == 2) {
             // #/servers
         } else if (pathPieces.length == 3) {
             // #/servers/0
-            String jsonPath = "#/servers/" + pathPieces[2];
             pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
         } else {
             // #/servers/0/variables
-            pathPieces[2] = toServerFilename(pathPieces[2], null).toLowerCase(Locale.ROOT);
+            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
             pathPieces[3] = "Variables";
         }
     }
@@ -5148,9 +5148,9 @@ public class DefaultGenerator implements Generator {
             );
             codegenServers.add(cs);
         }
-        CodegenKey jsonPathPiece = getKey("s", "servers", jsonPath);
+        CodegenKey jsonPathPiece = getKey("servers", "servers", jsonPath);
         String serversSubpackage = getSubpackage(jsonPath);
-        return new CodegenList<CodegenServer>(
+        return new CodegenList<>(
                 codegenServers,
                 jsonPathPiece,
                 serversSubpackage,

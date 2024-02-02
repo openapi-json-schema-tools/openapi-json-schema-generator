@@ -1850,6 +1850,9 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     @Override
     public String toServerFilename(String basename, String jsonPath) {
+        if (jsonPath.endsWith("/servers")) {
+            return "servers";
+        }
         return "server_" + basename;
     }
 
