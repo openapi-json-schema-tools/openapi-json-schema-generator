@@ -39,7 +39,7 @@ extends DateTimeJsonSchema
 extends UuidJsonSchema.UuidJsonSchema1
                     {{/eq}}
                     {{#eq ../format "number"}}
-extends DecimalJsonSchema
+extends DecimalJsonSchema.DecimalJsonSchema1
                     {{/eq}}
                     {{#eq ../format "binary"}}
 extends JsonSchema

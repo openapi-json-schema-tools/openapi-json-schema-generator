@@ -42,7 +42,7 @@ public class Money {
     }
     
     
-    public static class Amount extends DecimalJsonSchema {
+    public static class Amount extends DecimalJsonSchema.DecimalJsonSchema1 {
         private static @Nullable Amount instance = null;
         public static Amount getInstance() {
             if (instance == null) {

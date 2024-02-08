@@ -29,7 +29,7 @@ public class ObjectWithDecimalProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Width extends DecimalJsonSchema {
+    public static class Width extends DecimalJsonSchema.DecimalJsonSchema1 {
         private static @Nullable Width instance = null;
         public static Width getInstance() {
             if (instance == null) {

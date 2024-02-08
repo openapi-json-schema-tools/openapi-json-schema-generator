@@ -278,7 +278,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    DecimalJsonSchema.getInstance(),
+                    DecimalJsonSchema.DecimalJsonSchema1.getInstance(),
                     "abc",
                     validationMetadata
                 )
@@ -290,7 +290,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    DecimalJsonSchema.getInstance(),
+                    DecimalJsonSchema.DecimalJsonSchema1.getInstance(),
                     "3.14",
                     validationMetadata
                 )
@@ -303,7 +303,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    DecimalJsonSchema.getInstance(),
+                    DecimalJsonSchema.DecimalJsonSchema1.getInstance(),
                     "1",
                     validationMetadata
                 )

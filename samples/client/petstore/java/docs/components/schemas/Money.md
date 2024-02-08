@@ -145,11 +145,11 @@ A class to store validated Map payloads
 
 ## Amount
 public static class Amount<br>
-extends DecimalJsonSchema
+extends DecimalJsonSchema.DecimalJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DecimalJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DecimalJsonSchema.DecimalJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

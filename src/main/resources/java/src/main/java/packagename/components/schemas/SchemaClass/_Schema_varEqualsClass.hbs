@@ -50,7 +50,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends DateTimeJsonSchema {
 public static class {{../jsonPathPiece.pascalCase}} extends UuidJsonSchema.UuidJsonSchema1 {
                     {{/eq}}
                     {{#eq ../format "number"}}
-public static class {{../jsonPathPiece.pascalCase}} extends DecimalJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends DecimalJsonSchema.DecimalJsonSchema1 {
                     {{/eq}}
                     {{#eq ../format "binary"}}
 public static class {{jsonPathPiece.pascalCase}} extends StringJsonSchema.StringJsonSchema1 {

@@ -11,10 +11,10 @@ A class that contains necessary nested
 
 ## NumberHeaderSchema1
 public static class NumberHeaderSchema1<br>
-extends DecimalJsonSchema
+extends DecimalJsonSchema.DecimalJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DecimalJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DecimalJsonSchema.DecimalJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |

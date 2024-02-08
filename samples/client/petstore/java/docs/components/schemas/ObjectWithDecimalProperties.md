@@ -117,11 +117,11 @@ A class to store validated Map payloads
 
 ## Width
 public static class Width<br>
-extends DecimalJsonSchema
+extends DecimalJsonSchema.DecimalJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DecimalJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DecimalJsonSchema.DecimalJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
