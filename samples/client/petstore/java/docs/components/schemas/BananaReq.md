@@ -115,11 +115,11 @@ A class to store validated Map payloads
 
 ## Sweet
 public static class Sweet<br>
-extends BooleanJsonSchema
+extends BooleanJsonSchema.BooleanJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

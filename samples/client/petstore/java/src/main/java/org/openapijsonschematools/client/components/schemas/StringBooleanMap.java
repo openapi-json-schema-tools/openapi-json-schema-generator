@@ -28,7 +28,7 @@ public class StringBooleanMap {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends BooleanJsonSchema {
+    public static class AdditionalProperties extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {

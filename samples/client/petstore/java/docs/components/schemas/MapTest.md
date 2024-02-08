@@ -220,11 +220,11 @@ A class to store validated Map payloads
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
-extends BooleanJsonSchema
+extends BooleanJsonSchema.BooleanJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

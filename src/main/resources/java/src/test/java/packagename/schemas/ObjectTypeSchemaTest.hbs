@@ -179,7 +179,7 @@ public class ObjectTypeSchemaTest {
                 .properties(Map.ofEntries(
                         new PropertyEntry("someString", StringJsonSchema.class)
                 ))
-                .additionalProperties(BooleanJsonSchema.class)
+                .additionalProperties(BooleanJsonSchema.BooleanJsonSchema1.class)
             );
         }
 

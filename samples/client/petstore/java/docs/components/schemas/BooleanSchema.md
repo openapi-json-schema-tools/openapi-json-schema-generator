@@ -12,11 +12,11 @@ A class that contains necessary nested
 
 ## BooleanSchema1
 public static class BooleanSchema1<br>
-extends BooleanJsonSchema
+extends BooleanJsonSchema.BooleanJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

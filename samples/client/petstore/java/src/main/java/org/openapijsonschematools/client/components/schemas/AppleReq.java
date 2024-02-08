@@ -54,7 +54,7 @@ public class AppleReq {
     }
     
     
-    public static class Mealy extends BooleanJsonSchema {
+    public static class Mealy extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable Mealy instance = null;
         public static Mealy getInstance() {
             if (instance == null) {

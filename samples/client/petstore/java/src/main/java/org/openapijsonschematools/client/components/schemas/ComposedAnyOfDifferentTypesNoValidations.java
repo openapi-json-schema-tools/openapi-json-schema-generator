@@ -126,7 +126,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema7 extends BooleanJsonSchema {
+    public static class Schema7 extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable Schema7 instance = null;
         public static Schema7 getInstance() {
             if (instance == null) {

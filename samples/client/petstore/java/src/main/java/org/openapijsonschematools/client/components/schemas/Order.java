@@ -162,7 +162,7 @@ public class Order {
         }
     }    
     
-    public static class Complete extends BooleanJsonSchema {
+    public static class Complete extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable Complete instance = null;
         public static Complete getInstance() {
             if (instance == null) {

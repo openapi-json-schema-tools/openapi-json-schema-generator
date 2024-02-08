@@ -532,7 +532,7 @@ public class MapTest {
     }
     
     
-    public static class AdditionalProperties3 extends BooleanJsonSchema {
+    public static class AdditionalProperties3 extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable AdditionalProperties3 instance = null;
         public static AdditionalProperties3 getInstance() {
             if (instance == null) {

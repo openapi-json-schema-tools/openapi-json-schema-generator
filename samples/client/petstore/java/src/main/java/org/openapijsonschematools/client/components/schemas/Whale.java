@@ -33,7 +33,7 @@ public class Whale {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class HasBaleen extends BooleanJsonSchema {
+    public static class HasBaleen extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable HasBaleen instance = null;
         public static HasBaleen getInstance() {
             if (instance == null) {
@@ -44,7 +44,7 @@ public class Whale {
     }
     
     
-    public static class HasTeeth extends BooleanJsonSchema {
+    public static class HasTeeth extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable HasTeeth instance = null;
         public static HasTeeth getInstance() {
             if (instance == null) {

@@ -38,7 +38,7 @@ public class Cat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Declawed extends BooleanJsonSchema {
+    public static class Declawed extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable Declawed instance = null;
         public static Declawed getInstance() {
             if (instance == null) {

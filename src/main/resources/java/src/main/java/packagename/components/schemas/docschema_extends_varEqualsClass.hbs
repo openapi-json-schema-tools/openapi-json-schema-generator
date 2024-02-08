@@ -26,7 +26,7 @@ extends MapJsonSchema
 extends ListJsonSchema
                 {{/eq}}
                 {{#eq this "boolean"}}
-extends BooleanJsonSchema
+extends BooleanJsonSchema.BooleanJsonSchema1
                 {{/eq}}
                 {{#eq this "string"}}
                     {{#eq ../format "date"}}

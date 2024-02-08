@@ -54,7 +54,7 @@ public class BananaReq {
     }
     
     
-    public static class Sweet extends BooleanJsonSchema {
+    public static class Sweet extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable Sweet instance = null;
         public static Sweet getInstance() {
             if (instance == null) {
