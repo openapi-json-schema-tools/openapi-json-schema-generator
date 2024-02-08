@@ -218,11 +218,11 @@ A schema class that validates payloads
 
 ## UuidSchema
 public static class UuidSchema<br>
-extends UuidJsonSchema
+extends UuidJsonSchema.UuidJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema.UuidJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

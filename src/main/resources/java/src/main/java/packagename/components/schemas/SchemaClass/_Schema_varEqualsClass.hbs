@@ -47,7 +47,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends DateJsonSchema {
 public static class {{../jsonPathPiece.pascalCase}} extends DateTimeJsonSchema {
                     {{/eq}}
                     {{#eq ../format "uuid"}}
-public static class {{../jsonPathPiece.pascalCase}} extends UuidJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends UuidJsonSchema.UuidJsonSchema1 {
                     {{/eq}}
                     {{#eq ../format "number"}}
 public static class {{../jsonPathPiece.pascalCase}} extends DecimalJsonSchema {

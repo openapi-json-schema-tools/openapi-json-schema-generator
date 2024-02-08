@@ -31,7 +31,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class UuidSchema extends UuidJsonSchema {
+    public static class UuidSchema extends UuidJsonSchema.UuidJsonSchema1 {
         private static @Nullable UuidSchema instance = null;
         public static UuidSchema getInstance() {
             if (instance == null) {

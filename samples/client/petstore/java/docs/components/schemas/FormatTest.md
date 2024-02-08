@@ -634,21 +634,21 @@ String validatedPayload = FormatTest.Password.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UuidNoExample
 public static class UuidNoExample<br>
-extends UuidJsonSchema
+extends UuidJsonSchema.UuidJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema.UuidJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
 ## UuidSchema
 public static class UuidSchema<br>
-extends UuidJsonSchema
+extends UuidJsonSchema.UuidJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema.UuidJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

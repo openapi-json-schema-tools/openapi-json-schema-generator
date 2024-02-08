@@ -700,7 +700,7 @@ public class FormatTest {
     }
     
     
-    public static class UuidSchema extends UuidJsonSchema {
+    public static class UuidSchema extends UuidJsonSchema.UuidJsonSchema1 {
         private static @Nullable UuidSchema instance = null;
         public static UuidSchema getInstance() {
             if (instance == null) {
@@ -711,7 +711,7 @@ public class FormatTest {
     }
     
     
-    public static class UuidNoExample extends UuidJsonSchema {
+    public static class UuidNoExample extends UuidJsonSchema.UuidJsonSchema1 {
         private static @Nullable UuidNoExample instance = null;
         public static UuidNoExample getInstance() {
             if (instance == null) {

@@ -18,53 +18,69 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public class UuidJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static @Nullable UuidJsonSchema instance = null;
-
-    protected UuidJsonSchema() {
-        super(new JsonSchemaInfo()
-            .type(Set.of(String.class))
-            .format("uuid")
-        );
+public class UuidJsonSchema {
+    public static abstract sealed class UuidJsonSchema1Boxed permits UuidJsonSchema1BoxedString {
     }
-
-    public static UuidJsonSchema getInstance() {
-        if (instance == null) {
-            instance = new UuidJsonSchema();
+    public static final class UuidJsonSchema1BoxedString extends UuidJsonSchema1Boxed {
+        public final String data;
+        private UuidJsonSchema1BoxedString(String data) {
+            this.data = data;
         }
-        return instance;
     }
 
-    @Override
-    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-        Set<List<Object>> pathSet = new HashSet<>();
-        List<Object> pathToItem = List.of("args[0");
-        String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-        SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
-        ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-        PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-        return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
+    public static class UuidJsonSchema1 extends JsonSchema implements StringSchemaValidator<UuidJsonSchema1BoxedString> {
+        private static @Nullable UuidJsonSchema1 instance = null;
 
-    public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-        return validate(arg.toString(), configuration);
-    }
-
-    @Override
-    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        if (arg instanceof String) {
-            return getNewInstance((String) arg, pathToItem, pathToSchemas);
+        protected UuidJsonSchema1() {
+            super(new JsonSchemaInfo()
+                    .type(Set.of(String.class))
+                    .format("uuid")
+            );
         }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-    }
 
-    @Override
-    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
-        if (arg instanceof UUID) {
-            return validate((UUID) arg, configuration);
-        } else if (arg instanceof String) {
-            return validate((String) arg, configuration);
+        public static UuidJsonSchema1 getInstance() {
+            if (instance == null) {
+                instance = new UuidJsonSchema1();
+            }
+            return instance;
         }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+
+        @Override
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.toString(), configuration);
+        }
+
+        @Override
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof UUID) {
+                return validate((UUID) arg, configuration);
+            } else if (arg instanceof String) {
+                return validate((String) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public UuidJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new UuidJsonSchema1BoxedString(validate(arg, configuration));
+        }
     }
 }

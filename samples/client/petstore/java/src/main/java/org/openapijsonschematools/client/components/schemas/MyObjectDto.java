@@ -42,7 +42,7 @@ public class MyObjectDto {
     }
     
     
-    public static class Id extends UuidJsonSchema {
+    public static class Id extends UuidJsonSchema.UuidJsonSchema1 {
         private static @Nullable Id instance = null;
         public static Id getInstance() {
             if (instance == null) {
