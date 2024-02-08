@@ -288,6 +288,61 @@ public class Schema1 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class SomeProp1Boxed permits SomeProp1BoxedVoid, SomeProp1BoxedBoolean, SomeProp1BoxedNumber, SomeProp1BoxedString, SomeProp1BoxedList, SomeProp1BoxedMap {}
+        public static final class SomeProp1BoxedVoid extends SomeProp1Boxed {
+            public final Void data;
+            private SomeProp1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public SomeProp1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomeProp1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class SomeProp1BoxedBoolean extends SomeProp1Boxed {
+            public final boolean data;
+            private SomeProp1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public SomeProp1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomeProp1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class SomeProp1BoxedNumber extends SomeProp1Boxed {
+            public final Number data;
+            private SomeProp1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public SomeProp1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomeProp1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class SomeProp1BoxedString extends SomeProp1Boxed {
+            public final String data;
+            private SomeProp1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public SomeProp1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomeProp1BoxedString(validate(arg, configuration));
+        }
+        public static final class SomeProp1BoxedList extends SomeProp1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private SomeProp1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public SomeProp1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomeProp1BoxedList(validate(arg, configuration));
+        }
+        public static final class SomeProp1BoxedMap extends SomeProp1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private SomeProp1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public SomeProp1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomeProp1BoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class SchemaMap1 extends FrozenMap<@Nullable Object> {

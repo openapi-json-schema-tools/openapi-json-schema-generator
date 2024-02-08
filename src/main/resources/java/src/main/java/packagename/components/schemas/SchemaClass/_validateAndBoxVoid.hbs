@@ -1,0 +1,9 @@
+public static final class {{jsonPathPiece.pascalCase}}BoxedVoid extends {{jsonPathPiece.pascalCase}}Boxed {
+    public final Void data;
+    private {{jsonPathPiece.pascalCase}}BoxedVoid(Void data) {
+        this.data = data;
+    }
+}
+public {{jsonPathPiece.pascalCase}}BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    return new {{jsonPathPiece.pascalCase}}BoxedVoid(validate(arg, configuration));
+}

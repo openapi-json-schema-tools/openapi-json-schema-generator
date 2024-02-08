@@ -232,6 +232,61 @@ public class JSONPatchRequest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {}
+        public static final class ItemsBoxedVoid extends ItemsBoxed {
+            public final Void data;
+            private ItemsBoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedVoid(validate(arg, configuration));
+        }
+        public static final class ItemsBoxedBoolean extends ItemsBoxed {
+            public final boolean data;
+            private ItemsBoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedBoolean(validate(arg, configuration));
+        }
+        public static final class ItemsBoxedNumber extends ItemsBoxed {
+            public final Number data;
+            private ItemsBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedNumber(validate(arg, configuration));
+        }
+        public static final class ItemsBoxedString extends ItemsBoxed {
+            public final String data;
+            private ItemsBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedString(validate(arg, configuration));
+        }
+        public static final class ItemsBoxedList extends ItemsBoxed {
+            public final FrozenList<@Nullable Object> data;
+            private ItemsBoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedList(validate(arg, configuration));
+        }
+        public static final class ItemsBoxedMap extends ItemsBoxed {
+            public final FrozenMap<@Nullable Object> data;
+            private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class JSONPatchRequestList extends FrozenList<@Nullable Object> {

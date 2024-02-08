@@ -246,5 +246,60 @@ public class AnyTypeNotString {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class AnyTypeNotString1Boxed permits AnyTypeNotString1BoxedVoid, AnyTypeNotString1BoxedBoolean, AnyTypeNotString1BoxedNumber, AnyTypeNotString1BoxedString, AnyTypeNotString1BoxedList, AnyTypeNotString1BoxedMap {}
+        public static final class AnyTypeNotString1BoxedVoid extends AnyTypeNotString1Boxed {
+            public final Void data;
+            private AnyTypeNotString1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public AnyTypeNotString1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeNotString1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class AnyTypeNotString1BoxedBoolean extends AnyTypeNotString1Boxed {
+            public final boolean data;
+            private AnyTypeNotString1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public AnyTypeNotString1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeNotString1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class AnyTypeNotString1BoxedNumber extends AnyTypeNotString1Boxed {
+            public final Number data;
+            private AnyTypeNotString1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public AnyTypeNotString1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeNotString1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class AnyTypeNotString1BoxedString extends AnyTypeNotString1Boxed {
+            public final String data;
+            private AnyTypeNotString1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public AnyTypeNotString1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeNotString1BoxedString(validate(arg, configuration));
+        }
+        public static final class AnyTypeNotString1BoxedList extends AnyTypeNotString1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private AnyTypeNotString1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public AnyTypeNotString1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeNotString1BoxedList(validate(arg, configuration));
+        }
+        public static final class AnyTypeNotString1BoxedMap extends AnyTypeNotString1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private AnyTypeNotString1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public AnyTypeNotString1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeNotString1BoxedMap(validate(arg, configuration));
+        }
     }
 }

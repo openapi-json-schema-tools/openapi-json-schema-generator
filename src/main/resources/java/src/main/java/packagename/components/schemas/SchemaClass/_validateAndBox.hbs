@@ -1,0 +1,45 @@
+{{#if types}}
+    {{#each types}}
+        {{#eq this "null"}}
+        {{/eq}}
+        {{#eq this "boolean"}}
+        {{/eq}}
+        {{#eq this "string" }}
+            {{#eq ../format "binary"}}
+            {{else}}
+            {{/eq}}
+        {{/eq}}
+        {{#eq this "integer"}}
+            {{#neq ../format "int32"}}
+            {{/neq}}
+        {{/eq}}
+        {{#eq this "number"}}
+            {{#eq ../format null}}
+            {{else}}
+                {{#eq ../format "int32"}}
+                {{else}}
+                    {{#eq ../format "int64"}}
+                    {{else}}
+                        {{#eq ../format "float"}}
+                        {{else}}
+                            {{#eq ../format "double"}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+        {{#eq this "array"}}
+        {{/eq}}
+        {{#eq this "object"}}
+        {{/eq}}
+    {{/each}}
+{{else}}
+public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{jsonPathPiece.pascalCase}}BoxedVoid, {{jsonPathPiece.pascalCase}}BoxedBoolean, {{jsonPathPiece.pascalCase}}BoxedNumber, {{jsonPathPiece.pascalCase}}BoxedString, {{jsonPathPiece.pascalCase}}BoxedList, {{jsonPathPiece.pascalCase}}BoxedMap {}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxVoid }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxBoolean }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxNumber }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
+{{/if}}

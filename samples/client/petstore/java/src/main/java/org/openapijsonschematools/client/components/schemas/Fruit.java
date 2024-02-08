@@ -320,5 +320,60 @@ public class Fruit {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Fruit1Boxed permits Fruit1BoxedVoid, Fruit1BoxedBoolean, Fruit1BoxedNumber, Fruit1BoxedString, Fruit1BoxedList, Fruit1BoxedMap {}
+        public static final class Fruit1BoxedVoid extends Fruit1Boxed {
+            public final Void data;
+            private Fruit1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public Fruit1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Fruit1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class Fruit1BoxedBoolean extends Fruit1Boxed {
+            public final boolean data;
+            private Fruit1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public Fruit1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Fruit1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class Fruit1BoxedNumber extends Fruit1Boxed {
+            public final Number data;
+            private Fruit1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Fruit1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Fruit1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class Fruit1BoxedString extends Fruit1Boxed {
+            public final String data;
+            private Fruit1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Fruit1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Fruit1BoxedString(validate(arg, configuration));
+        }
+        public static final class Fruit1BoxedList extends Fruit1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private Fruit1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Fruit1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Fruit1BoxedList(validate(arg, configuration));
+        }
+        public static final class Fruit1BoxedMap extends Fruit1Boxed {
+            public final FruitMap data;
+            private Fruit1BoxedMap(FruitMap data) {
+                this.data = data;
+            }
+        }
+        public Fruit1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Fruit1BoxedMap(validate(arg, configuration));
+        }
     }
 }

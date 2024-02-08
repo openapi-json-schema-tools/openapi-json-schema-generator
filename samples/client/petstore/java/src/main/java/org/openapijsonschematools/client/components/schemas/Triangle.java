@@ -238,5 +238,60 @@ public class Triangle {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Triangle1Boxed permits Triangle1BoxedVoid, Triangle1BoxedBoolean, Triangle1BoxedNumber, Triangle1BoxedString, Triangle1BoxedList, Triangle1BoxedMap {}
+        public static final class Triangle1BoxedVoid extends Triangle1Boxed {
+            public final Void data;
+            private Triangle1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public Triangle1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Triangle1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class Triangle1BoxedBoolean extends Triangle1Boxed {
+            public final boolean data;
+            private Triangle1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public Triangle1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Triangle1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class Triangle1BoxedNumber extends Triangle1Boxed {
+            public final Number data;
+            private Triangle1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Triangle1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Triangle1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class Triangle1BoxedString extends Triangle1Boxed {
+            public final String data;
+            private Triangle1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Triangle1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Triangle1BoxedString(validate(arg, configuration));
+        }
+        public static final class Triangle1BoxedList extends Triangle1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private Triangle1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Triangle1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Triangle1BoxedList(validate(arg, configuration));
+        }
+        public static final class Triangle1BoxedMap extends Triangle1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private Triangle1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Triangle1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Triangle1BoxedMap(validate(arg, configuration));
+        }
     }
 }

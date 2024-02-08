@@ -1,0 +1,9 @@
+public static final class {{jsonPathPiece.pascalCase}}BoxedBoolean extends {{jsonPathPiece.pascalCase}}Boxed {
+    public final boolean data;
+    private {{jsonPathPiece.pascalCase}}BoxedBoolean(boolean data) {
+        this.data = data;
+    }
+}
+public {{jsonPathPiece.pascalCase}}BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    return new {{jsonPathPiece.pascalCase}}BoxedBoolean(validate(arg, configuration));
+}

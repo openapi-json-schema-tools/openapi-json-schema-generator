@@ -238,5 +238,60 @@ public class Mammal {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Mammal1Boxed permits Mammal1BoxedVoid, Mammal1BoxedBoolean, Mammal1BoxedNumber, Mammal1BoxedString, Mammal1BoxedList, Mammal1BoxedMap {}
+        public static final class Mammal1BoxedVoid extends Mammal1Boxed {
+            public final Void data;
+            private Mammal1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public Mammal1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Mammal1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class Mammal1BoxedBoolean extends Mammal1Boxed {
+            public final boolean data;
+            private Mammal1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public Mammal1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Mammal1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class Mammal1BoxedNumber extends Mammal1Boxed {
+            public final Number data;
+            private Mammal1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Mammal1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Mammal1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class Mammal1BoxedString extends Mammal1Boxed {
+            public final String data;
+            private Mammal1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Mammal1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Mammal1BoxedString(validate(arg, configuration));
+        }
+        public static final class Mammal1BoxedList extends Mammal1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private Mammal1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Mammal1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Mammal1BoxedList(validate(arg, configuration));
+        }
+        public static final class Mammal1BoxedMap extends Mammal1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private Mammal1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Mammal1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Mammal1BoxedMap(validate(arg, configuration));
+        }
     }
 }

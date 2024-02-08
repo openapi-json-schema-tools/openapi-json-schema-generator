@@ -397,5 +397,60 @@ public class Cat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Cat1Boxed permits Cat1BoxedVoid, Cat1BoxedBoolean, Cat1BoxedNumber, Cat1BoxedString, Cat1BoxedList, Cat1BoxedMap {}
+        public static final class Cat1BoxedVoid extends Cat1Boxed {
+            public final Void data;
+            private Cat1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public Cat1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Cat1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class Cat1BoxedBoolean extends Cat1Boxed {
+            public final boolean data;
+            private Cat1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public Cat1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Cat1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class Cat1BoxedNumber extends Cat1Boxed {
+            public final Number data;
+            private Cat1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Cat1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Cat1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class Cat1BoxedString extends Cat1Boxed {
+            public final String data;
+            private Cat1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Cat1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Cat1BoxedString(validate(arg, configuration));
+        }
+        public static final class Cat1BoxedList extends Cat1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private Cat1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Cat1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Cat1BoxedList(validate(arg, configuration));
+        }
+        public static final class Cat1BoxedMap extends Cat1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private Cat1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Cat1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Cat1BoxedMap(validate(arg, configuration));
+        }
     }
 }

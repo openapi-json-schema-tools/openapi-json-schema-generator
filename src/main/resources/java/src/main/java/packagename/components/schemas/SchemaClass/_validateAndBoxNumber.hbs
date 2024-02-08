@@ -1,0 +1,9 @@
+public static final class {{jsonPathPiece.pascalCase}}BoxedNumber extends {{jsonPathPiece.pascalCase}}Boxed {
+    public final Number data;
+    private {{jsonPathPiece.pascalCase}}BoxedNumber(Number data) {
+        this.data = data;
+    }
+}
+public {{jsonPathPiece.pascalCase}}BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    return new {{jsonPathPiece.pascalCase}}BoxedNumber(validate(arg, configuration));
+}

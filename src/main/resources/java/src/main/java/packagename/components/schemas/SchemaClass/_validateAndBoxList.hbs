@@ -1,0 +1,9 @@
+public static final class {{jsonPathPiece.pascalCase}}BoxedList extends {{jsonPathPiece.pascalCase}}Boxed {
+    public final {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}} data;
+    private {{jsonPathPiece.pascalCase}}BoxedList({{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}} data) {
+        this.data = data;
+    }
+}
+public {{jsonPathPiece.pascalCase}}BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    return new {{jsonPathPiece.pascalCase}}BoxedList(validate(arg, configuration));
+}

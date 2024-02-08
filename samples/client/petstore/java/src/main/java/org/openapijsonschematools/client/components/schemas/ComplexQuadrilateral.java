@@ -469,5 +469,60 @@ public class ComplexQuadrilateral {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ComplexQuadrilateral1Boxed permits ComplexQuadrilateral1BoxedVoid, ComplexQuadrilateral1BoxedBoolean, ComplexQuadrilateral1BoxedNumber, ComplexQuadrilateral1BoxedString, ComplexQuadrilateral1BoxedList, ComplexQuadrilateral1BoxedMap {}
+        public static final class ComplexQuadrilateral1BoxedVoid extends ComplexQuadrilateral1Boxed {
+            public final Void data;
+            private ComplexQuadrilateral1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public ComplexQuadrilateral1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComplexQuadrilateral1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class ComplexQuadrilateral1BoxedBoolean extends ComplexQuadrilateral1Boxed {
+            public final boolean data;
+            private ComplexQuadrilateral1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public ComplexQuadrilateral1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComplexQuadrilateral1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class ComplexQuadrilateral1BoxedNumber extends ComplexQuadrilateral1Boxed {
+            public final Number data;
+            private ComplexQuadrilateral1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public ComplexQuadrilateral1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComplexQuadrilateral1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class ComplexQuadrilateral1BoxedString extends ComplexQuadrilateral1Boxed {
+            public final String data;
+            private ComplexQuadrilateral1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ComplexQuadrilateral1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComplexQuadrilateral1BoxedString(validate(arg, configuration));
+        }
+        public static final class ComplexQuadrilateral1BoxedList extends ComplexQuadrilateral1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private ComplexQuadrilateral1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ComplexQuadrilateral1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComplexQuadrilateral1BoxedList(validate(arg, configuration));
+        }
+        public static final class ComplexQuadrilateral1BoxedMap extends ComplexQuadrilateral1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private ComplexQuadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ComplexQuadrilateral1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComplexQuadrilateral1BoxedMap(validate(arg, configuration));
+        }
     }
 }

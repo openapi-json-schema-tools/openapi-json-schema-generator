@@ -397,5 +397,60 @@ public class Dog {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Dog1Boxed permits Dog1BoxedVoid, Dog1BoxedBoolean, Dog1BoxedNumber, Dog1BoxedString, Dog1BoxedList, Dog1BoxedMap {}
+        public static final class Dog1BoxedVoid extends Dog1Boxed {
+            public final Void data;
+            private Dog1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public Dog1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Dog1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class Dog1BoxedBoolean extends Dog1Boxed {
+            public final boolean data;
+            private Dog1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public Dog1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Dog1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class Dog1BoxedNumber extends Dog1Boxed {
+            public final Number data;
+            private Dog1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Dog1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Dog1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class Dog1BoxedString extends Dog1Boxed {
+            public final String data;
+            private Dog1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Dog1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Dog1BoxedString(validate(arg, configuration));
+        }
+        public static final class Dog1BoxedList extends Dog1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private Dog1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Dog1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Dog1BoxedList(validate(arg, configuration));
+        }
+        public static final class Dog1BoxedMap extends Dog1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private Dog1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Dog1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Dog1BoxedMap(validate(arg, configuration));
+        }
     }
 }

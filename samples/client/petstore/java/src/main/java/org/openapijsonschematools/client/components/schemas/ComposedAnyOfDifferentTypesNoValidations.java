@@ -586,5 +586,60 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ComposedAnyOfDifferentTypesNoValidations1Boxed permits ComposedAnyOfDifferentTypesNoValidations1BoxedVoid, ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean, ComposedAnyOfDifferentTypesNoValidations1BoxedNumber, ComposedAnyOfDifferentTypesNoValidations1BoxedString, ComposedAnyOfDifferentTypesNoValidations1BoxedList, ComposedAnyOfDifferentTypesNoValidations1BoxedMap {}
+        public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedVoid extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+            public final Void data;
+            private ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+            public final boolean data;
+            private ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedNumber extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+            public final Number data;
+            private ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedString extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+            public final String data;
+            private ComposedAnyOfDifferentTypesNoValidations1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedString(validate(arg, configuration));
+        }
+        public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedList extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private ComposedAnyOfDifferentTypesNoValidations1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedList(validate(arg, configuration));
+        }
+        public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedMap extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private ComposedAnyOfDifferentTypesNoValidations1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedMap(validate(arg, configuration));
+        }
     }
 }

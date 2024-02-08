@@ -237,5 +237,60 @@ public class Shape {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Shape1Boxed permits Shape1BoxedVoid, Shape1BoxedBoolean, Shape1BoxedNumber, Shape1BoxedString, Shape1BoxedList, Shape1BoxedMap {}
+        public static final class Shape1BoxedVoid extends Shape1Boxed {
+            public final Void data;
+            private Shape1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public Shape1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Shape1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class Shape1BoxedBoolean extends Shape1Boxed {
+            public final boolean data;
+            private Shape1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public Shape1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Shape1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class Shape1BoxedNumber extends Shape1Boxed {
+            public final Number data;
+            private Shape1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Shape1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Shape1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class Shape1BoxedString extends Shape1Boxed {
+            public final String data;
+            private Shape1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Shape1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Shape1BoxedString(validate(arg, configuration));
+        }
+        public static final class Shape1BoxedList extends Shape1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private Shape1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Shape1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Shape1BoxedList(validate(arg, configuration));
+        }
+        public static final class Shape1BoxedMap extends Shape1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private Shape1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Shape1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Shape1BoxedMap(validate(arg, configuration));
+        }
     }
 }

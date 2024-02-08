@@ -469,5 +469,60 @@ public class ScaleneTriangle {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ScaleneTriangle1Boxed permits ScaleneTriangle1BoxedVoid, ScaleneTriangle1BoxedBoolean, ScaleneTriangle1BoxedNumber, ScaleneTriangle1BoxedString, ScaleneTriangle1BoxedList, ScaleneTriangle1BoxedMap {}
+        public static final class ScaleneTriangle1BoxedVoid extends ScaleneTriangle1Boxed {
+            public final Void data;
+            private ScaleneTriangle1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public ScaleneTriangle1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ScaleneTriangle1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class ScaleneTriangle1BoxedBoolean extends ScaleneTriangle1Boxed {
+            public final boolean data;
+            private ScaleneTriangle1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public ScaleneTriangle1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ScaleneTriangle1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class ScaleneTriangle1BoxedNumber extends ScaleneTriangle1Boxed {
+            public final Number data;
+            private ScaleneTriangle1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public ScaleneTriangle1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ScaleneTriangle1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class ScaleneTriangle1BoxedString extends ScaleneTriangle1Boxed {
+            public final String data;
+            private ScaleneTriangle1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ScaleneTriangle1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ScaleneTriangle1BoxedString(validate(arg, configuration));
+        }
+        public static final class ScaleneTriangle1BoxedList extends ScaleneTriangle1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private ScaleneTriangle1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ScaleneTriangle1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ScaleneTriangle1BoxedList(validate(arg, configuration));
+        }
+        public static final class ScaleneTriangle1BoxedMap extends ScaleneTriangle1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private ScaleneTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ScaleneTriangle1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ScaleneTriangle1BoxedMap(validate(arg, configuration));
+        }
     }
 }

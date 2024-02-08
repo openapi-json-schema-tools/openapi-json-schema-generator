@@ -237,5 +237,60 @@ public class Quadrilateral {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Quadrilateral1Boxed permits Quadrilateral1BoxedVoid, Quadrilateral1BoxedBoolean, Quadrilateral1BoxedNumber, Quadrilateral1BoxedString, Quadrilateral1BoxedList, Quadrilateral1BoxedMap {}
+        public static final class Quadrilateral1BoxedVoid extends Quadrilateral1Boxed {
+            public final Void data;
+            private Quadrilateral1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public Quadrilateral1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Quadrilateral1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class Quadrilateral1BoxedBoolean extends Quadrilateral1Boxed {
+            public final boolean data;
+            private Quadrilateral1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public Quadrilateral1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Quadrilateral1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class Quadrilateral1BoxedNumber extends Quadrilateral1Boxed {
+            public final Number data;
+            private Quadrilateral1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Quadrilateral1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Quadrilateral1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class Quadrilateral1BoxedString extends Quadrilateral1Boxed {
+            public final String data;
+            private Quadrilateral1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Quadrilateral1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Quadrilateral1BoxedString(validate(arg, configuration));
+        }
+        public static final class Quadrilateral1BoxedList extends Quadrilateral1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private Quadrilateral1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Quadrilateral1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Quadrilateral1BoxedList(validate(arg, configuration));
+        }
+        public static final class Quadrilateral1BoxedMap extends Quadrilateral1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private Quadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Quadrilateral1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Quadrilateral1BoxedMap(validate(arg, configuration));
+        }
     }
 }

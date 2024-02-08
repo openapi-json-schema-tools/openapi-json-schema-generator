@@ -288,6 +288,61 @@ public class ObjectWithInlineCompositionProperty {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {}
+        public static final class SomePropBoxedVoid extends SomePropBoxed {
+            public final Void data;
+            private SomePropBoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public SomePropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomePropBoxedVoid(validate(arg, configuration));
+        }
+        public static final class SomePropBoxedBoolean extends SomePropBoxed {
+            public final boolean data;
+            private SomePropBoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public SomePropBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomePropBoxedBoolean(validate(arg, configuration));
+        }
+        public static final class SomePropBoxedNumber extends SomePropBoxed {
+            public final Number data;
+            private SomePropBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public SomePropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomePropBoxedNumber(validate(arg, configuration));
+        }
+        public static final class SomePropBoxedString extends SomePropBoxed {
+            public final String data;
+            private SomePropBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public SomePropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomePropBoxedString(validate(arg, configuration));
+        }
+        public static final class SomePropBoxedList extends SomePropBoxed {
+            public final FrozenList<@Nullable Object> data;
+            private SomePropBoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public SomePropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomePropBoxedList(validate(arg, configuration));
+        }
+        public static final class SomePropBoxedMap extends SomePropBoxed {
+            public final FrozenMap<@Nullable Object> data;
+            private SomePropBoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public SomePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SomePropBoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class ObjectWithInlineCompositionPropertyMap extends FrozenMap<@Nullable Object> {

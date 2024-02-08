@@ -252,5 +252,60 @@ public class ShapeOrNull {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ShapeOrNull1Boxed permits ShapeOrNull1BoxedVoid, ShapeOrNull1BoxedBoolean, ShapeOrNull1BoxedNumber, ShapeOrNull1BoxedString, ShapeOrNull1BoxedList, ShapeOrNull1BoxedMap {}
+        public static final class ShapeOrNull1BoxedVoid extends ShapeOrNull1Boxed {
+            public final Void data;
+            private ShapeOrNull1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public ShapeOrNull1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ShapeOrNull1BoxedVoid(validate(arg, configuration));
+        }
+        public static final class ShapeOrNull1BoxedBoolean extends ShapeOrNull1Boxed {
+            public final boolean data;
+            private ShapeOrNull1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public ShapeOrNull1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ShapeOrNull1BoxedBoolean(validate(arg, configuration));
+        }
+        public static final class ShapeOrNull1BoxedNumber extends ShapeOrNull1Boxed {
+            public final Number data;
+            private ShapeOrNull1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public ShapeOrNull1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ShapeOrNull1BoxedNumber(validate(arg, configuration));
+        }
+        public static final class ShapeOrNull1BoxedString extends ShapeOrNull1Boxed {
+            public final String data;
+            private ShapeOrNull1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ShapeOrNull1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ShapeOrNull1BoxedString(validate(arg, configuration));
+        }
+        public static final class ShapeOrNull1BoxedList extends ShapeOrNull1Boxed {
+            public final FrozenList<@Nullable Object> data;
+            private ShapeOrNull1BoxedList(FrozenList<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ShapeOrNull1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ShapeOrNull1BoxedList(validate(arg, configuration));
+        }
+        public static final class ShapeOrNull1BoxedMap extends ShapeOrNull1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private ShapeOrNull1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ShapeOrNull1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ShapeOrNull1BoxedMap(validate(arg, configuration));
+        }
     }
 }
