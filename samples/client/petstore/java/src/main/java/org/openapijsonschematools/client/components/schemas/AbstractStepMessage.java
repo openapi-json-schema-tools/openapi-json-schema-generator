@@ -29,7 +29,7 @@ public class AbstractStepMessage {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Discriminator extends StringJsonSchema {
+    public static class Discriminator extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Discriminator instance = null;
         public static Discriminator getInstance() {
             if (instance == null) {

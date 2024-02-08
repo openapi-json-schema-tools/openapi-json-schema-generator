@@ -29,7 +29,7 @@ public class Capitalization {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SmallCamel extends StringJsonSchema {
+    public static class SmallCamel extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable SmallCamel instance = null;
         public static SmallCamel getInstance() {
             if (instance == null) {
@@ -40,7 +40,7 @@ public class Capitalization {
     }
     
     
-    public static class CapitalCamel extends StringJsonSchema {
+    public static class CapitalCamel extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable CapitalCamel instance = null;
         public static CapitalCamel getInstance() {
             if (instance == null) {
@@ -51,7 +51,7 @@ public class Capitalization {
     }
     
     
-    public static class SmallSnake extends StringJsonSchema {
+    public static class SmallSnake extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable SmallSnake instance = null;
         public static SmallSnake getInstance() {
             if (instance == null) {
@@ -62,7 +62,7 @@ public class Capitalization {
     }
     
     
-    public static class CapitalSnake extends StringJsonSchema {
+    public static class CapitalSnake extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable CapitalSnake instance = null;
         public static CapitalSnake getInstance() {
             if (instance == null) {
@@ -73,7 +73,7 @@ public class Capitalization {
     }
     
     
-    public static class SCAETHFlowPoints extends StringJsonSchema {
+    public static class SCAETHFlowPoints extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable SCAETHFlowPoints instance = null;
         public static SCAETHFlowPoints getInstance() {
             if (instance == null) {
@@ -84,7 +84,7 @@ public class Capitalization {
     }
     
     
-    public static class ATTNAME extends StringJsonSchema {
+    public static class ATTNAME extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable ATTNAME instance = null;
         public static ATTNAME getInstance() {
             if (instance == null) {

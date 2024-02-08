@@ -41,7 +41,7 @@ public class Tag {
     }
     
     
-    public static class Name extends StringJsonSchema {
+    public static class Name extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Name instance = null;
         public static Name getInstance() {
             if (instance == null) {

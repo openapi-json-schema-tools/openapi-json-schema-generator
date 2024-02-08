@@ -35,7 +35,7 @@ public class ArrayTypeSchemaTest {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
-                .items(StringJsonSchema.class)
+                .items(StringJsonSchema.StringJsonSchema1.class)
             );
         }
 
@@ -102,7 +102,7 @@ public class ArrayTypeSchemaTest {
         public ArrayWithOutputClsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
-                .items(StringJsonSchema.class)
+                .items(StringJsonSchema.StringJsonSchema1.class)
             );
 
         }

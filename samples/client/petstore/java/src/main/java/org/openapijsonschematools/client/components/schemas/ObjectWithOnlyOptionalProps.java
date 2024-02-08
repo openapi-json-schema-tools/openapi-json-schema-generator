@@ -43,7 +43,7 @@ public class ObjectWithOnlyOptionalProps {
     }
     
     
-    public static class A extends StringJsonSchema {
+    public static class A extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable A instance = null;
         public static A getInstance() {
             if (instance == null) {

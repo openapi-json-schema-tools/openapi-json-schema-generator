@@ -39,7 +39,7 @@ public class ObjectTypeSchemaTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                        new PropertyEntry("someString", StringJsonSchema.class)
+                        new PropertyEntry("someString", StringJsonSchema.StringJsonSchema1.class)
                 ))
             );
 
@@ -107,7 +107,7 @@ public class ObjectTypeSchemaTest {
         private ObjectWithAddpropsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
-                .additionalProperties(StringJsonSchema.class)
+                .additionalProperties(StringJsonSchema.StringJsonSchema1.class)
             );
         }
 
@@ -177,7 +177,7 @@ public class ObjectTypeSchemaTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                        new PropertyEntry("someString", StringJsonSchema.class)
+                        new PropertyEntry("someString", StringJsonSchema.StringJsonSchema1.class)
                 ))
                 .additionalProperties(BooleanJsonSchema.BooleanJsonSchema1.class)
             );
@@ -257,7 +257,7 @@ public class ObjectTypeSchemaTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                        new PropertyEntry("someString", StringJsonSchema.class)
+                        new PropertyEntry("someString", StringJsonSchema.StringJsonSchema1.class)
                 ))
             );
         }

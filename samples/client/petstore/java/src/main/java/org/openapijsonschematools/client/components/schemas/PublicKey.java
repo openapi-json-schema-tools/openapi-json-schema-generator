@@ -29,7 +29,7 @@ public class PublicKey {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Key extends StringJsonSchema {
+    public static class Key extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Key instance = null;
         public static Key getInstance() {
             if (instance == null) {

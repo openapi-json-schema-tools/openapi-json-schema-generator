@@ -81,7 +81,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema3 extends StringJsonSchema {
+    public static class Schema3 extends StringJsonSchema.StringJsonSchema1 {
         // BinarySchema
         private static @Nullable Schema3 instance = null;
         public static Schema3 getInstance() {
@@ -93,7 +93,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema4 extends StringJsonSchema {
+    public static class Schema4 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Schema4 instance = null;
         public static Schema4 getInstance() {
             if (instance == null) {
@@ -104,7 +104,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema5 extends StringJsonSchema {
+    public static class Schema5 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Schema5 instance = null;
         public static Schema5 getInstance() {
             if (instance == null) {

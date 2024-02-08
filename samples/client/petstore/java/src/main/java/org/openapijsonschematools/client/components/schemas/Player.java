@@ -29,7 +29,7 @@ public class Player {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Name extends StringJsonSchema {
+    public static class Name extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Name instance = null;
         public static Name getInstance() {
             if (instance == null) {

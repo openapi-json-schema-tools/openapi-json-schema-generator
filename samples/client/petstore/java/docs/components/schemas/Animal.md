@@ -159,11 +159,11 @@ String validatedPayload = Animal.Color.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClassName
 public static class ClassName<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

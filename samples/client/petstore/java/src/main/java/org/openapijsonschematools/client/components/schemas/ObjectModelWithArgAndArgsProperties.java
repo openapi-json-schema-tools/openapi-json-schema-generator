@@ -29,7 +29,7 @@ public class ObjectModelWithArgAndArgsProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Arg extends StringJsonSchema {
+    public static class Arg extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Arg instance = null;
         public static Arg getInstance() {
             if (instance == null) {
@@ -40,7 +40,7 @@ public class ObjectModelWithArgAndArgsProperties {
     }
     
     
-    public static class Args extends StringJsonSchema {
+    public static class Args extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Args instance = null;
         public static Args getInstance() {
             if (instance == null) {

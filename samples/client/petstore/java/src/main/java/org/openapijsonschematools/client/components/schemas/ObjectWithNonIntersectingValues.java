@@ -30,7 +30,7 @@ public class ObjectWithNonIntersectingValues {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends StringJsonSchema {
+    public static class AdditionalProperties extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {

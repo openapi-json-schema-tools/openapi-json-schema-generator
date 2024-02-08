@@ -29,7 +29,7 @@ public class File {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SourceURI extends StringJsonSchema {
+    public static class SourceURI extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable SourceURI instance = null;
         public static SourceURI getInstance() {
             if (instance == null) {

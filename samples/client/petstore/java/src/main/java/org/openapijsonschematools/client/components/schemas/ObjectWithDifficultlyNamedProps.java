@@ -42,7 +42,7 @@ public class ObjectWithDifficultlyNamedProps {
     }
     
     
-    public static class Schema123list extends StringJsonSchema {
+    public static class Schema123list extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Schema123list instance = null;
         public static Schema123list getInstance() {
             if (instance == null) {

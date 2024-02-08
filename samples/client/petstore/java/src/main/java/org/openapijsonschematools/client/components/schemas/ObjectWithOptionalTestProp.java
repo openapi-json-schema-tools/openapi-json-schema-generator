@@ -29,7 +29,7 @@ public class ObjectWithOptionalTestProp {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Test extends StringJsonSchema {
+    public static class Test extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Test instance = null;
         public static Test getInstance() {
             if (instance == null) {

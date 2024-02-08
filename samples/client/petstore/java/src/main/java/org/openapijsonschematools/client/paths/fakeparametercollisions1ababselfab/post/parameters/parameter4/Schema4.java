@@ -6,7 +6,7 @@ public class Schema4 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema41 extends StringJsonSchema {
+    public static class Schema41 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Schema41 instance = null;
         public static Schema41 getInstance() {
             if (instance == null) {

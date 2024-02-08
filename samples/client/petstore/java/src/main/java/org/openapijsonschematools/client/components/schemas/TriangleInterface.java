@@ -119,7 +119,7 @@ public class TriangleInterface {
         }
     }    
     
-    public static class TriangleType extends StringJsonSchema {
+    public static class TriangleType extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable TriangleType instance = null;
         public static TriangleType getInstance() {
             if (instance == null) {

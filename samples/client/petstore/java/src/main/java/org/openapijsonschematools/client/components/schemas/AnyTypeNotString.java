@@ -36,7 +36,7 @@ public class AnyTypeNotString {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Not extends StringJsonSchema {
+    public static class Not extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Not instance = null;
         public static Not getInstance() {
             if (instance == null) {

@@ -43,7 +43,7 @@ public class AppleReq {
     }
     
     
-    public static class Cultivar extends StringJsonSchema {
+    public static class Cultivar extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Cultivar instance = null;
         public static Cultivar getInstance() {
             if (instance == null) {

@@ -38,7 +38,7 @@ public class GmFruit {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Color extends StringJsonSchema {
+    public static class Color extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Color instance = null;
         public static Color getInstance() {
             if (instance == null) {

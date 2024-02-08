@@ -31,7 +31,7 @@ public class Animal {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ClassName extends StringJsonSchema {
+    public static class ClassName extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable ClassName instance = null;
         public static ClassName getInstance() {
             if (instance == null) {

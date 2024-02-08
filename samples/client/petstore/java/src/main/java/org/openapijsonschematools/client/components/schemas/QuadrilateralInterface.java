@@ -119,7 +119,7 @@ public class QuadrilateralInterface {
         }
     }    
     
-    public static class QuadrilateralType extends StringJsonSchema {
+    public static class QuadrilateralType extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable QuadrilateralType instance = null;
         public static QuadrilateralType getInstance() {
             if (instance == null) {

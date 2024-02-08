@@ -29,7 +29,7 @@ public class HasOnlyReadOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Bar extends StringJsonSchema {
+    public static class Bar extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Bar instance = null;
         public static Bar getInstance() {
             if (instance == null) {
@@ -40,7 +40,7 @@ public class HasOnlyReadOnly {
     }
     
     
-    public static class Foo extends StringJsonSchema {
+    public static class Foo extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Foo instance = null;
         public static Foo getInstance() {
             if (instance == null) {

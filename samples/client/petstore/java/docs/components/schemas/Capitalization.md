@@ -124,64 +124,64 @@ A class to store validated Map payloads
 
 ## ATTNAME
 public static class ATTNAME<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
 ## Description
 Name of the pet<br>
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
 ## SCAETHFlowPoints
 public static class SCAETHFlowPoints<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
 ## CapitalSnake
 public static class CapitalSnake<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
 ## SmallSnake
 public static class SmallSnake<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
 ## CapitalCamel
 public static class CapitalCamel<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
 ## SmallCamel
 public static class SmallCamel<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

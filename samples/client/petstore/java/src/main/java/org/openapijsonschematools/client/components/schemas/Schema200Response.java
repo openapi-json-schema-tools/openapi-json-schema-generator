@@ -50,7 +50,7 @@ public class Schema200Response {
     }
     
     
-    public static class ClassSchema extends StringJsonSchema {
+    public static class ClassSchema extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable ClassSchema instance = null;
         public static ClassSchema getInstance() {
             if (instance == null) {

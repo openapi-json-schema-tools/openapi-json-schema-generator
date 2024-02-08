@@ -253,11 +253,11 @@ A class to store validated Map payloads
 
 ## AdditionalProperties5
 public static class AdditionalProperties5<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -613,11 +613,11 @@ A class to store validated Map payloads
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -695,11 +695,11 @@ A class to store validated Map payloads
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

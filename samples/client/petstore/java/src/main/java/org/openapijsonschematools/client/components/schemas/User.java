@@ -54,7 +54,7 @@ public class User {
     }
     
     
-    public static class Username extends StringJsonSchema {
+    public static class Username extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Username instance = null;
         public static Username getInstance() {
             if (instance == null) {
@@ -65,7 +65,7 @@ public class User {
     }
     
     
-    public static class FirstName extends StringJsonSchema {
+    public static class FirstName extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable FirstName instance = null;
         public static FirstName getInstance() {
             if (instance == null) {
@@ -76,7 +76,7 @@ public class User {
     }
     
     
-    public static class LastName extends StringJsonSchema {
+    public static class LastName extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable LastName instance = null;
         public static LastName getInstance() {
             if (instance == null) {
@@ -87,7 +87,7 @@ public class User {
     }
     
     
-    public static class Email extends StringJsonSchema {
+    public static class Email extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Email instance = null;
         public static Email getInstance() {
             if (instance == null) {
@@ -98,7 +98,7 @@ public class User {
     }
     
     
-    public static class Password extends StringJsonSchema {
+    public static class Password extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Password instance = null;
         public static Password getInstance() {
             if (instance == null) {
@@ -109,7 +109,7 @@ public class User {
     }
     
     
-    public static class Phone extends StringJsonSchema {
+    public static class Phone extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Phone instance = null;
         public static Phone getInstance() {
             if (instance == null) {

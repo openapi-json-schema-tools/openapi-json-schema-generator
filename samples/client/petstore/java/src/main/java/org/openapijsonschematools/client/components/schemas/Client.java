@@ -29,7 +29,7 @@ public class Client {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Client2 extends StringJsonSchema {
+    public static class Client2 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Client2 instance = null;
         public static Client2 getInstance() {
             if (instance == null) {

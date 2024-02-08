@@ -25,7 +25,7 @@ public class ItemsValidatorTest {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                     .type(Set.of(List.class))
-                    .items(StringJsonSchema.class)
+                    .items(StringJsonSchema.StringJsonSchema1.class)
             );
         }
 
@@ -73,7 +73,7 @@ public class ItemsValidatorTest {
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add(0);
         LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
-        StringJsonSchema schema = JsonSchemaFactory.getInstance(StringJsonSchema.class);
+        StringJsonSchema.StringJsonSchema1 schema = JsonSchemaFactory.getInstance(StringJsonSchema.StringJsonSchema1.class);
         expectedClasses.put(schema, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);

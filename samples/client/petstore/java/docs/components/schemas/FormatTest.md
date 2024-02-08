@@ -680,7 +680,7 @@ A schema class that validates payloads
 
 ## ByteSchema
 public static class ByteSchema<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 

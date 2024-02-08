@@ -46,7 +46,7 @@ public class JSONPatchRequestMoveCopy {
     }
     
     
-    public static class From extends StringJsonSchema {
+    public static class From extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable From instance = null;
         public static From getInstance() {
             if (instance == null) {
@@ -57,7 +57,7 @@ public class JSONPatchRequestMoveCopy {
     }
     
     
-    public static class Path extends StringJsonSchema {
+    public static class Path extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Path instance = null;
         public static Path getInstance() {
             if (instance == null) {

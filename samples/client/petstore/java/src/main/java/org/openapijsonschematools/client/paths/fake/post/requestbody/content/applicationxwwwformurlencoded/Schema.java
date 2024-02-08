@@ -534,7 +534,7 @@ public class Schema {
         }
     }    
     
-    public static class ByteSchema extends StringJsonSchema {
+    public static class ByteSchema extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable ByteSchema instance = null;
         public static ByteSchema getInstance() {
             if (instance == null) {
@@ -545,7 +545,7 @@ public class Schema {
     }
     
     
-    public static class Binary extends StringJsonSchema {
+    public static class Binary extends StringJsonSchema.StringJsonSchema1 {
         // BinarySchema
         private static @Nullable Binary instance = null;
         public static Binary getInstance() {
@@ -695,7 +695,7 @@ public class Schema {
         }
     }    
     
-    public static class Callback extends StringJsonSchema {
+    public static class Callback extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Callback instance = null;
         public static Callback getInstance() {
             if (instance == null) {

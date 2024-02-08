@@ -29,7 +29,7 @@ public class GrandparentAnimal {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class PetType extends StringJsonSchema {
+    public static class PetType extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable PetType instance = null;
         public static PetType getInstance() {
             if (instance == null) {

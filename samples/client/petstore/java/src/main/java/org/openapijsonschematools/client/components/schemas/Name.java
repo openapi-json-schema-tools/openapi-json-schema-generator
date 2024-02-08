@@ -61,7 +61,7 @@ public class Name {
     }
     
     
-    public static class Property extends StringJsonSchema {
+    public static class Property extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Property instance = null;
         public static Property getInstance() {
             if (instance == null) {

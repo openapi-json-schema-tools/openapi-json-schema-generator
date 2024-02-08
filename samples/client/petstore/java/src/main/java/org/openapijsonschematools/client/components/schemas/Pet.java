@@ -47,7 +47,7 @@ public class Pet {
     }
     
     
-    public static class Name extends StringJsonSchema {
+    public static class Name extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Name instance = null;
         public static Name getInstance() {
             if (instance == null) {
@@ -58,7 +58,7 @@ public class Pet {
     }
     
     
-    public static class Items extends StringJsonSchema {
+    public static class Items extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {

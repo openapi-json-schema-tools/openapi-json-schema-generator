@@ -29,7 +29,7 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Keyword0 extends StringJsonSchema {
+    public static class Keyword0 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Keyword0 instance = null;
         public static Keyword0 getInstance() {
             if (instance == null) {

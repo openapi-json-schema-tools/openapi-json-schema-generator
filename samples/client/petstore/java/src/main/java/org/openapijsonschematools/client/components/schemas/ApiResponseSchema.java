@@ -41,7 +41,7 @@ public class ApiResponseSchema {
     }
     
     
-    public static class Type extends StringJsonSchema {
+    public static class Type extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Type instance = null;
         public static Type getInstance() {
             if (instance == null) {
@@ -52,7 +52,7 @@ public class ApiResponseSchema {
     }
     
     
-    public static class Message extends StringJsonSchema {
+    public static class Message extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Message instance = null;
         public static Message getInstance() {
             if (instance == null) {

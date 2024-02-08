@@ -35,7 +35,7 @@ public class MapTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties1 extends StringJsonSchema {
+    public static class AdditionalProperties1 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable AdditionalProperties1 instance = null;
         public static AdditionalProperties1 getInstance() {
             if (instance == null) {

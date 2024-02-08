@@ -38,7 +38,7 @@ public class Dog {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Breed extends StringJsonSchema {
+    public static class Breed extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Breed instance = null;
         public static Breed getInstance() {
             if (instance == null) {

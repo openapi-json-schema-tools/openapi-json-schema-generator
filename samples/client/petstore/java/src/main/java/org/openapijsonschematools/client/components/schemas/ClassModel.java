@@ -38,7 +38,7 @@ public class ClassModel {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ClassSchema extends StringJsonSchema {
+    public static class ClassSchema extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable ClassSchema instance = null;
         public static ClassSchema getInstance() {
             if (instance == null) {

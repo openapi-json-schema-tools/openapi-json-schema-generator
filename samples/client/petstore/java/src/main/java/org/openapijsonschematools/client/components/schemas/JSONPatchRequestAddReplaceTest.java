@@ -46,7 +46,7 @@ public class JSONPatchRequestAddReplaceTest {
     }
     
     
-    public static class Path extends StringJsonSchema {
+    public static class Path extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Path instance = null;
         public static Path getInstance() {
             if (instance == null) {

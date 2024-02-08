@@ -33,7 +33,7 @@ public class AdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends StringJsonSchema {
+    public static class AdditionalProperties extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {
@@ -177,7 +177,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalProperties2 extends StringJsonSchema {
+    public static class AdditionalProperties2 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable AdditionalProperties2 instance = null;
         public static AdditionalProperties2 getInstance() {
             if (instance == null) {
@@ -804,7 +804,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalProperties5 extends StringJsonSchema {
+    public static class AdditionalProperties5 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable AdditionalProperties5 instance = null;
         public static AdditionalProperties5 getInstance() {
             if (instance == null) {
