@@ -30,6 +30,21 @@ public class HealthCheckResult {
     // nest classes so all schemas and input/output classes can be public
     
     
+    public static abstract sealed class NullableMessageBoxed permits NullableMessageBoxedVoid, NullableMessageBoxedString {}
+    public static final class NullableMessageBoxedVoid extends NullableMessageBoxed {
+        public final Void data;
+        private NullableMessageBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    public static final class NullableMessageBoxedString extends NullableMessageBoxed {
+        public final String data;
+        private NullableMessageBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class NullableMessage extends JsonSchema implements NullSchemaValidator, StringSchemaValidator {
         private static @Nullable NullableMessage instance = null;
     
@@ -88,6 +103,12 @@ public class HealthCheckResult {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public NullableMessageBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NullableMessageBoxedVoid(validate(arg, configuration));
+        }
+        public NullableMessageBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NullableMessageBoxedString(validate(arg, configuration));
         }
     }    
     
@@ -159,6 +180,15 @@ public class HealthCheckResult {
         }
         public HealthCheckResultMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
+        }
+    }
+    
+    
+    public static abstract sealed class HealthCheckResult1Boxed permits HealthCheckResult1BoxedMap {}
+    public static final class HealthCheckResult1BoxedMap extends HealthCheckResult1Boxed {
+        public final HealthCheckResultMap data;
+        private HealthCheckResult1BoxedMap(HealthCheckResultMap data) {
+            this.data = data;
         }
     }
     
@@ -237,13 +267,6 @@ public class HealthCheckResult {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class HealthCheckResult1Boxed permits HealthCheckResult1BoxedMap {}
-        public static final class HealthCheckResult1BoxedMap extends HealthCheckResult1Boxed {
-            public final HealthCheckResultMap data;
-            private HealthCheckResult1BoxedMap(HealthCheckResultMap data) {
-                this.data = data;
-            }
         }
         public HealthCheckResult1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new HealthCheckResult1BoxedMap(validate(arg, configuration));

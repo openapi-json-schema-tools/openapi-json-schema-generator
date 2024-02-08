@@ -174,6 +174,15 @@ public class QueryParameters {
     }
     
     
+    public static abstract sealed class QueryParameters1Boxed permits QueryParameters1BoxedMap {}
+    public static final class QueryParameters1BoxedMap extends QueryParameters1Boxed {
+        public final QueryParametersMap data;
+        private QueryParameters1BoxedMap(QueryParametersMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<QueryParametersMap> {
         private static @Nullable QueryParameters1 instance = null;
     
@@ -242,13 +251,6 @@ public class QueryParameters {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class QueryParameters1Boxed permits QueryParameters1BoxedMap {}
-        public static final class QueryParameters1BoxedMap extends QueryParameters1Boxed {
-            public final QueryParametersMap data;
-            private QueryParameters1BoxedMap(QueryParametersMap data) {
-                this.data = data;
-            }
         }
         public QueryParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new QueryParameters1BoxedMap(validate(arg, configuration));

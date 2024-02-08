@@ -35,6 +35,45 @@ public class JSONPatchRequest {
     // nest classes so all schemas and input/output classes can be public
     
     
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {}
+    public static final class ItemsBoxedVoid extends ItemsBoxed {
+        public final Void data;
+        private ItemsBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    public static final class ItemsBoxedBoolean extends ItemsBoxed {
+        public final boolean data;
+        private ItemsBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    public static final class ItemsBoxedNumber extends ItemsBoxed {
+        public final Number data;
+        private ItemsBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    public static final class ItemsBoxedString extends ItemsBoxed {
+        public final String data;
+        private ItemsBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    public static final class ItemsBoxedList extends ItemsBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private ItemsBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public static final class ItemsBoxedMap extends ItemsBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Items extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable Items instance = null;
     
@@ -232,57 +271,20 @@ public class JSONPatchRequest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {}
-        public static final class ItemsBoxedVoid extends ItemsBoxed {
-            public final Void data;
-            private ItemsBoxedVoid(Void data) {
-                this.data = data;
-            }
-        }
         public ItemsBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedVoid(validate(arg, configuration));
-        }
-        public static final class ItemsBoxedBoolean extends ItemsBoxed {
-            public final boolean data;
-            private ItemsBoxedBoolean(boolean data) {
-                this.data = data;
-            }
         }
         public ItemsBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedBoolean(validate(arg, configuration));
         }
-        public static final class ItemsBoxedNumber extends ItemsBoxed {
-            public final Number data;
-            private ItemsBoxedNumber(Number data) {
-                this.data = data;
-            }
-        }
         public ItemsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedNumber(validate(arg, configuration));
-        }
-        public static final class ItemsBoxedString extends ItemsBoxed {
-            public final String data;
-            private ItemsBoxedString(String data) {
-                this.data = data;
-            }
         }
         public ItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedString(validate(arg, configuration));
         }
-        public static final class ItemsBoxedList extends ItemsBoxed {
-            public final FrozenList<@Nullable Object> data;
-            private ItemsBoxedList(FrozenList<@Nullable Object> data) {
-                this.data = data;
-            }
-        }
         public ItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedList(validate(arg, configuration));
-        }
-        public static final class ItemsBoxedMap extends ItemsBoxed {
-            public final FrozenMap<@Nullable Object> data;
-            private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
-                this.data = data;
-            }
         }
         public ItemsBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedMap(validate(arg, configuration));
@@ -361,6 +363,15 @@ public class JSONPatchRequest {
     }
     
     
+    public static abstract sealed class JSONPatchRequest1Boxed permits JSONPatchRequest1BoxedList {}
+    public static final class JSONPatchRequest1BoxedList extends JSONPatchRequest1Boxed {
+        public final JSONPatchRequestList data;
+        private JSONPatchRequest1BoxedList(JSONPatchRequestList data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class JSONPatchRequest1 extends JsonSchema implements ListSchemaValidator<JSONPatchRequestList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -427,13 +438,6 @@ public class JSONPatchRequest {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class JSONPatchRequest1Boxed permits JSONPatchRequest1BoxedList {}
-        public static final class JSONPatchRequest1BoxedList extends JSONPatchRequest1Boxed {
-            public final JSONPatchRequestList data;
-            private JSONPatchRequest1BoxedList(JSONPatchRequestList data) {
-                this.data = data;
-            }
         }
         public JSONPatchRequest1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new JSONPatchRequest1BoxedList(validate(arg, configuration));

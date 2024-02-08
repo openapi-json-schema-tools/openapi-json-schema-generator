@@ -93,6 +93,15 @@ public class AdditionalPropertiesClass {
     }
     
     
+    public static abstract sealed class MapPropertyBoxed permits MapPropertyBoxedMap {}
+    public static final class MapPropertyBoxedMap extends MapPropertyBoxed {
+        public final MapPropertyMap data;
+        private MapPropertyBoxedMap(MapPropertyMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class MapProperty extends JsonSchema implements MapSchemaValidator<MapPropertyMap> {
         private static @Nullable MapProperty instance = null;
     
@@ -161,13 +170,6 @@ public class AdditionalPropertiesClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class MapPropertyBoxed permits MapPropertyBoxedMap {}
-        public static final class MapPropertyBoxedMap extends MapPropertyBoxed {
-            public final MapPropertyMap data;
-            private MapPropertyBoxedMap(MapPropertyMap data) {
-                this.data = data;
-            }
-        }
         public MapPropertyBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MapPropertyBoxedMap(validate(arg, configuration));
         }
@@ -230,6 +232,15 @@ public class AdditionalPropertiesClass {
         }
         public AdditionalPropertiesMapBuilder2 getBuilderAfterAdditionalProperty(Map<String, String> instance) {
             return this;
+        }
+    }
+    
+    
+    public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedMap {}
+    public static final class AdditionalProperties1BoxedMap extends AdditionalProperties1Boxed {
+        public final AdditionalPropertiesMap data;
+        private AdditionalProperties1BoxedMap(AdditionalPropertiesMap data) {
+            this.data = data;
         }
     }
     
@@ -302,13 +313,6 @@ public class AdditionalPropertiesClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedMap {}
-        public static final class AdditionalProperties1BoxedMap extends AdditionalProperties1Boxed {
-            public final AdditionalPropertiesMap data;
-            private AdditionalProperties1BoxedMap(AdditionalPropertiesMap data) {
-                this.data = data;
-            }
-        }
         public AdditionalProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedMap(validate(arg, configuration));
         }
@@ -360,6 +364,15 @@ public class AdditionalPropertiesClass {
         }
         public MapOfMapPropertyMapBuilder getBuilderAfterAdditionalProperty(Map<String, Map<String, String>> instance) {
             return this;
+        }
+    }
+    
+    
+    public static abstract sealed class MapOfMapPropertyBoxed permits MapOfMapPropertyBoxedMap {}
+    public static final class MapOfMapPropertyBoxedMap extends MapOfMapPropertyBoxed {
+        public final MapOfMapPropertyMap data;
+        private MapOfMapPropertyBoxedMap(MapOfMapPropertyMap data) {
+            this.data = data;
         }
     }
     
@@ -431,13 +444,6 @@ public class AdditionalPropertiesClass {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class MapOfMapPropertyBoxed permits MapOfMapPropertyBoxedMap {}
-        public static final class MapOfMapPropertyBoxedMap extends MapOfMapPropertyBoxed {
-            public final MapOfMapPropertyMap data;
-            private MapOfMapPropertyBoxedMap(MapOfMapPropertyMap data) {
-                this.data = data;
-            }
         }
         public MapOfMapPropertyBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MapOfMapPropertyBoxedMap(validate(arg, configuration));
@@ -594,6 +600,15 @@ public class AdditionalPropertiesClass {
     }
     
     
+    public static abstract sealed class MapWithUndeclaredPropertiesAnytype3Boxed permits MapWithUndeclaredPropertiesAnytype3BoxedMap {}
+    public static final class MapWithUndeclaredPropertiesAnytype3BoxedMap extends MapWithUndeclaredPropertiesAnytype3Boxed {
+        public final MapWithUndeclaredPropertiesAnytype3Map data;
+        private MapWithUndeclaredPropertiesAnytype3BoxedMap(MapWithUndeclaredPropertiesAnytype3Map data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema implements MapSchemaValidator<MapWithUndeclaredPropertiesAnytype3Map> {
         private static @Nullable MapWithUndeclaredPropertiesAnytype3 instance = null;
     
@@ -659,13 +674,6 @@ public class AdditionalPropertiesClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class MapWithUndeclaredPropertiesAnytype3Boxed permits MapWithUndeclaredPropertiesAnytype3BoxedMap {}
-        public static final class MapWithUndeclaredPropertiesAnytype3BoxedMap extends MapWithUndeclaredPropertiesAnytype3Boxed {
-            public final MapWithUndeclaredPropertiesAnytype3Map data;
-            private MapWithUndeclaredPropertiesAnytype3BoxedMap(MapWithUndeclaredPropertiesAnytype3Map data) {
-                this.data = data;
-            }
-        }
         public MapWithUndeclaredPropertiesAnytype3BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MapWithUndeclaredPropertiesAnytype3BoxedMap(validate(arg, configuration));
         }
@@ -707,6 +715,15 @@ public class AdditionalPropertiesClass {
         }
         public Map<String, @Nullable Object> build() {
             return instance;
+        }
+    }
+    
+    
+    public static abstract sealed class EmptyMapBoxed permits EmptyMapBoxedMap {}
+    public static final class EmptyMapBoxedMap extends EmptyMapBoxed {
+        public final EmptyMapMap data;
+        private EmptyMapBoxedMap(EmptyMapMap data) {
+            this.data = data;
         }
     }
     
@@ -776,13 +793,6 @@ public class AdditionalPropertiesClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class EmptyMapBoxed permits EmptyMapBoxedMap {}
-        public static final class EmptyMapBoxedMap extends EmptyMapBoxed {
-            public final EmptyMapMap data;
-            private EmptyMapBoxedMap(EmptyMapMap data) {
-                this.data = data;
-            }
-        }
         public EmptyMapBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EmptyMapBoxedMap(validate(arg, configuration));
         }
@@ -845,6 +855,15 @@ public class AdditionalPropertiesClass {
         }
         public MapWithUndeclaredPropertiesStringMapBuilder getBuilderAfterAdditionalProperty(Map<String, String> instance) {
             return this;
+        }
+    }
+    
+    
+    public static abstract sealed class MapWithUndeclaredPropertiesStringBoxed permits MapWithUndeclaredPropertiesStringBoxedMap {}
+    public static final class MapWithUndeclaredPropertiesStringBoxedMap extends MapWithUndeclaredPropertiesStringBoxed {
+        public final MapWithUndeclaredPropertiesStringMap data;
+        private MapWithUndeclaredPropertiesStringBoxedMap(MapWithUndeclaredPropertiesStringMap data) {
+            this.data = data;
         }
     }
     
@@ -916,13 +935,6 @@ public class AdditionalPropertiesClass {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class MapWithUndeclaredPropertiesStringBoxed permits MapWithUndeclaredPropertiesStringBoxedMap {}
-        public static final class MapWithUndeclaredPropertiesStringBoxedMap extends MapWithUndeclaredPropertiesStringBoxed {
-            public final MapWithUndeclaredPropertiesStringMap data;
-            private MapWithUndeclaredPropertiesStringBoxedMap(MapWithUndeclaredPropertiesStringMap data) {
-                this.data = data;
-            }
         }
         public MapWithUndeclaredPropertiesStringBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MapWithUndeclaredPropertiesStringBoxedMap(validate(arg, configuration));
@@ -1220,6 +1232,15 @@ public class AdditionalPropertiesClass {
     }
     
     
+    public static abstract sealed class AdditionalPropertiesClass1Boxed permits AdditionalPropertiesClass1BoxedMap {}
+    public static final class AdditionalPropertiesClass1BoxedMap extends AdditionalPropertiesClass1Boxed {
+        public final AdditionalPropertiesClassMap data;
+        private AdditionalPropertiesClass1BoxedMap(AdditionalPropertiesClassMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class AdditionalPropertiesClass1 extends JsonSchema implements MapSchemaValidator<AdditionalPropertiesClassMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -1299,13 +1320,6 @@ public class AdditionalPropertiesClass {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class AdditionalPropertiesClass1Boxed permits AdditionalPropertiesClass1BoxedMap {}
-        public static final class AdditionalPropertiesClass1BoxedMap extends AdditionalPropertiesClass1Boxed {
-            public final AdditionalPropertiesClassMap data;
-            private AdditionalPropertiesClass1BoxedMap(AdditionalPropertiesClassMap data) {
-                this.data = data;
-            }
         }
         public AdditionalPropertiesClass1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalPropertiesClass1BoxedMap(validate(arg, configuration));

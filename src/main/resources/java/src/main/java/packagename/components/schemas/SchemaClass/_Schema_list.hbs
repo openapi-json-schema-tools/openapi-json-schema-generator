@@ -1,5 +1,8 @@
 
 
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedClasses }}
+
+
 public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}}> {
 {{#if componentModule}}
     /*
@@ -79,6 +82,5 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements L
     }
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_getNewInstanceObject_implementor }}
-    public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{jsonPathPiece.pascalCase}}BoxedList {}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
 }

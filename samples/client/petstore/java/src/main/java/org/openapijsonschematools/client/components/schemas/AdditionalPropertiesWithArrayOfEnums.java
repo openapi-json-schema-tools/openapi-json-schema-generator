@@ -66,6 +66,15 @@ public class AdditionalPropertiesWithArrayOfEnums {
     }
     
     
+    public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedList {}
+    public static final class AdditionalPropertiesBoxedList extends AdditionalPropertiesBoxed {
+        public final AdditionalPropertiesList data;
+        private AdditionalPropertiesBoxedList(AdditionalPropertiesList data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class AdditionalProperties extends JsonSchema implements ListSchemaValidator<AdditionalPropertiesList> {
         private static @Nullable AdditionalProperties instance = null;
     
@@ -130,13 +139,6 @@ public class AdditionalPropertiesWithArrayOfEnums {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedList {}
-        public static final class AdditionalPropertiesBoxedList extends AdditionalPropertiesBoxed {
-            public final AdditionalPropertiesList data;
-            private AdditionalPropertiesBoxedList(AdditionalPropertiesList data) {
-                this.data = data;
-            }
-        }
         public AdditionalPropertiesBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalPropertiesBoxedList(validate(arg, configuration));
         }
@@ -191,6 +193,15 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
         public AdditionalPropertiesWithArrayOfEnumsMapBuilder getBuilderAfterAdditionalProperty(Map<String, List<String>> instance) {
             return this;
+        }
+    }
+    
+    
+    public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed permits AdditionalPropertiesWithArrayOfEnums1BoxedMap {}
+    public static final class AdditionalPropertiesWithArrayOfEnums1BoxedMap extends AdditionalPropertiesWithArrayOfEnums1Boxed {
+        public final AdditionalPropertiesWithArrayOfEnumsMap data;
+        private AdditionalPropertiesWithArrayOfEnums1BoxedMap(AdditionalPropertiesWithArrayOfEnumsMap data) {
+            this.data = data;
         }
     }
     
@@ -268,13 +279,6 @@ public class AdditionalPropertiesWithArrayOfEnums {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed permits AdditionalPropertiesWithArrayOfEnums1BoxedMap {}
-        public static final class AdditionalPropertiesWithArrayOfEnums1BoxedMap extends AdditionalPropertiesWithArrayOfEnums1Boxed {
-            public final AdditionalPropertiesWithArrayOfEnumsMap data;
-            private AdditionalPropertiesWithArrayOfEnums1BoxedMap(AdditionalPropertiesWithArrayOfEnumsMap data) {
-                this.data = data;
-            }
         }
         public AdditionalPropertiesWithArrayOfEnums1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalPropertiesWithArrayOfEnums1BoxedMap(validate(arg, configuration));

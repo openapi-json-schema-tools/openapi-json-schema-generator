@@ -142,6 +142,21 @@ public class User {
     }
     
     
+    public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {}
+    public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid extends ObjectWithNoDeclaredPropsNullableBoxed {
+        public final Void data;
+        private ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    public static final class ObjectWithNoDeclaredPropsNullableBoxedMap extends ObjectWithNoDeclaredPropsNullableBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable ObjectWithNoDeclaredPropsNullable instance = null;
     
@@ -224,6 +239,12 @@ public class User {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public ObjectWithNoDeclaredPropsNullableBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithNoDeclaredPropsNullableBoxedVoid(validate(arg, configuration));
+        }
+        public ObjectWithNoDeclaredPropsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithNoDeclaredPropsNullableBoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class AnyTypeProp extends AnyTypeJsonSchema {
@@ -244,6 +265,45 @@ public class User {
                 instance = new Not();
             }
             return instance;
+        }
+    }
+    
+    
+    public static abstract sealed class AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {}
+    public static final class AnyTypeExceptNullPropBoxedVoid extends AnyTypeExceptNullPropBoxed {
+        public final Void data;
+        private AnyTypeExceptNullPropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeExceptNullPropBoxedBoolean extends AnyTypeExceptNullPropBoxed {
+        public final boolean data;
+        private AnyTypeExceptNullPropBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeExceptNullPropBoxedNumber extends AnyTypeExceptNullPropBoxed {
+        public final Number data;
+        private AnyTypeExceptNullPropBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeExceptNullPropBoxedString extends AnyTypeExceptNullPropBoxed {
+        public final String data;
+        private AnyTypeExceptNullPropBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeExceptNullPropBoxedList extends AnyTypeExceptNullPropBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeExceptNullPropBoxedMap extends AnyTypeExceptNullPropBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
         }
     }
     
@@ -441,57 +501,20 @@ public class User {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {}
-        public static final class AnyTypeExceptNullPropBoxedVoid extends AnyTypeExceptNullPropBoxed {
-            public final Void data;
-            private AnyTypeExceptNullPropBoxedVoid(Void data) {
-                this.data = data;
-            }
-        }
         public AnyTypeExceptNullPropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedVoid(validate(arg, configuration));
-        }
-        public static final class AnyTypeExceptNullPropBoxedBoolean extends AnyTypeExceptNullPropBoxed {
-            public final boolean data;
-            private AnyTypeExceptNullPropBoxedBoolean(boolean data) {
-                this.data = data;
-            }
         }
         public AnyTypeExceptNullPropBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedBoolean(validate(arg, configuration));
         }
-        public static final class AnyTypeExceptNullPropBoxedNumber extends AnyTypeExceptNullPropBoxed {
-            public final Number data;
-            private AnyTypeExceptNullPropBoxedNumber(Number data) {
-                this.data = data;
-            }
-        }
         public AnyTypeExceptNullPropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedNumber(validate(arg, configuration));
-        }
-        public static final class AnyTypeExceptNullPropBoxedString extends AnyTypeExceptNullPropBoxed {
-            public final String data;
-            private AnyTypeExceptNullPropBoxedString(String data) {
-                this.data = data;
-            }
         }
         public AnyTypeExceptNullPropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedString(validate(arg, configuration));
         }
-        public static final class AnyTypeExceptNullPropBoxedList extends AnyTypeExceptNullPropBoxed {
-            public final FrozenList<@Nullable Object> data;
-            private AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) {
-                this.data = data;
-            }
-        }
         public AnyTypeExceptNullPropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedList(validate(arg, configuration));
-        }
-        public static final class AnyTypeExceptNullPropBoxedMap extends AnyTypeExceptNullPropBoxed {
-            public final FrozenMap<@Nullable Object> data;
-            private AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) {
-                this.data = data;
-            }
         }
         public AnyTypeExceptNullPropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeExceptNullPropBoxedMap(validate(arg, configuration));
@@ -1043,6 +1066,15 @@ public class User {
     }
     
     
+    public static abstract sealed class User1Boxed permits User1BoxedMap {}
+    public static final class User1BoxedMap extends User1Boxed {
+        public final UserMap data;
+        private User1BoxedMap(UserMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class User1 extends JsonSchema implements MapSchemaValidator<UserMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -1127,13 +1159,6 @@ public class User {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class User1Boxed permits User1BoxedMap {}
-        public static final class User1BoxedMap extends User1Boxed {
-            public final UserMap data;
-            private User1BoxedMap(UserMap data) {
-                this.data = data;
-            }
         }
         public User1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new User1BoxedMap(validate(arg, configuration));

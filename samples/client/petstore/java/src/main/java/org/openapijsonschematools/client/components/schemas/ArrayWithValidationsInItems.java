@@ -23,6 +23,15 @@ public class ArrayWithValidationsInItems {
     // nest classes so all schemas and input/output classes can be public
     
     
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedNumber {}
+    public static final class ItemsBoxedNumber extends ItemsBoxed {
+        public final Number data;
+        private ItemsBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Items extends JsonSchema implements NumberSchemaValidator {
         private static @Nullable Items instance = null;
     
@@ -87,13 +96,6 @@ public class ArrayWithValidationsInItems {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class ItemsBoxed permits ItemsBoxedNumber {}
-        public static final class ItemsBoxedNumber extends ItemsBoxed {
-            public final Number data;
-            private ItemsBoxedNumber(Number data) {
-                this.data = data;
-            }
-        }
         public ItemsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedNumber(validate(arg, configuration));
         }
@@ -142,6 +144,15 @@ public class ArrayWithValidationsInItems {
     
         public List<Number> build() {
             return list;
+        }
+    }
+    
+    
+    public static abstract sealed class ArrayWithValidationsInItems1Boxed permits ArrayWithValidationsInItems1BoxedList {}
+    public static final class ArrayWithValidationsInItems1BoxedList extends ArrayWithValidationsInItems1Boxed {
+        public final ArrayWithValidationsInItemsList data;
+        private ArrayWithValidationsInItems1BoxedList(ArrayWithValidationsInItemsList data) {
+            this.data = data;
         }
     }
     
@@ -216,13 +227,6 @@ public class ArrayWithValidationsInItems {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class ArrayWithValidationsInItems1Boxed permits ArrayWithValidationsInItems1BoxedList {}
-        public static final class ArrayWithValidationsInItems1BoxedList extends ArrayWithValidationsInItems1Boxed {
-            public final ArrayWithValidationsInItemsList data;
-            private ArrayWithValidationsInItems1BoxedList(ArrayWithValidationsInItemsList data) {
-                this.data = data;
-            }
         }
         public ArrayWithValidationsInItems1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ArrayWithValidationsInItems1BoxedList(validate(arg, configuration));

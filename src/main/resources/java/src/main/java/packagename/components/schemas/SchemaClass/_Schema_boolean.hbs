@@ -1,5 +1,8 @@
 
 
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedClasses }}
+
+
 public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements BooleanSchemaValidator{{#and enumInfo enumInfo.typeToValues.boolean}}, BooleanEnumValidator<Boolean{{enumInfo.jsonPathPiece.pascalCase}}>{{/and}} {
 {{#if componentModule}}
     /*
@@ -61,6 +64,5 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements B
     }
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_getNewInstanceObject_implementor }}
-    public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{jsonPathPiece.pascalCase}}BoxedBoolean {}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxBoolean }}
 }

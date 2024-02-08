@@ -60,6 +60,15 @@ public class Variables {
     }
     
     
+    public static abstract sealed class ServerBoxed permits ServerBoxedString {}
+    public static final class ServerBoxedString extends ServerBoxed {
+        public final String data;
+        private ServerBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Server extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringServerEnums>, DefaultValueMethod<String> {
         private static @Nullable Server instance = null;
     
@@ -120,13 +129,6 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-        public static abstract sealed class ServerBoxed permits ServerBoxedString {}
-        public static final class ServerBoxedString extends ServerBoxed {
-            public final String data;
-            private ServerBoxedString(String data) {
-                this.data = data;
-            }
-        }
         public ServerBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ServerBoxedString(validate(arg, configuration));
         }
@@ -141,6 +143,15 @@ public class Variables {
         }
         public String value() {
             return this.value;
+        }
+    }
+    
+    
+    public static abstract sealed class PortBoxed permits PortBoxedString {}
+    public static final class PortBoxedString extends PortBoxed {
+        public final String data;
+        private PortBoxedString(String data) {
+            this.data = data;
         }
     }
     
@@ -203,13 +214,6 @@ public class Variables {
                 return (String) defaultValue;
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
-        }
-        public static abstract sealed class PortBoxed permits PortBoxedString {}
-        public static final class PortBoxedString extends PortBoxed {
-            public final String data;
-            private PortBoxedString(String data) {
-                this.data = data;
-            }
         }
         public PortBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PortBoxedString(validate(arg, configuration));
@@ -340,6 +344,15 @@ public class Variables {
     }
     
     
+    public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {}
+    public static final class Variables1BoxedMap extends Variables1Boxed {
+        public final VariablesMap data;
+        private Variables1BoxedMap(VariablesMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap> {
         private static @Nullable Variables1 instance = null;
     
@@ -415,13 +428,6 @@ public class Variables {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {}
-        public static final class Variables1BoxedMap extends Variables1Boxed {
-            public final VariablesMap data;
-            private Variables1BoxedMap(VariablesMap data) {
-                this.data = data;
-            }
         }
         public Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Variables1BoxedMap(validate(arg, configuration));

@@ -1,5 +1,8 @@
 
 
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedClasses }}
+
+
 public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements StringSchemaValidator{{#and enumInfo enumInfo.typeToValues.string}}, StringEnumValidator<String{{enumInfo.jsonPathPiece.pascalCase}}>{{/and}}{{#if defaultValue}}, DefaultValueMethod<String>{{/if}} {
 {{#if componentModule}}
     /*
@@ -81,6 +84,5 @@ public static class {{jsonPathPiece.pascalCase}} extends JsonSchema implements S
         throw new InvalidTypeException("Invalid type stored in defaultValue");
     }
 {{/if}}
-    public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{jsonPathPiece.pascalCase}}BoxedString {}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
 }

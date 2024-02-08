@@ -56,6 +56,15 @@ public class EnumTest {
     }
     
     
+    public static abstract sealed class EnumStringBoxed permits EnumStringBoxedString {}
+    public static final class EnumStringBoxedString extends EnumStringBoxed {
+        public final String data;
+        private EnumStringBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class EnumString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumStringEnums> {
         private static @Nullable EnumString instance = null;
     
@@ -109,13 +118,6 @@ public class EnumTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class EnumStringBoxed permits EnumStringBoxedString {}
-        public static final class EnumStringBoxedString extends EnumStringBoxed {
-            public final String data;
-            private EnumStringBoxedString(String data) {
-                this.data = data;
-            }
-        }
         public EnumStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumStringBoxedString(validate(arg, configuration));
         }
@@ -131,6 +133,15 @@ public class EnumTest {
         }
         public String value() {
             return this.value;
+        }
+    }
+    
+    
+    public static abstract sealed class EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {}
+    public static final class EnumStringRequiredBoxedString extends EnumStringRequiredBoxed {
+        public final String data;
+        private EnumStringRequiredBoxedString(String data) {
+            this.data = data;
         }
     }
     
@@ -188,13 +199,6 @@ public class EnumTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {}
-        public static final class EnumStringRequiredBoxedString extends EnumStringRequiredBoxed {
-            public final String data;
-            private EnumStringRequiredBoxedString(String data) {
-                this.data = data;
-            }
-        }
         public EnumStringRequiredBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumStringRequiredBoxedString(validate(arg, configuration));
         }
@@ -248,6 +252,15 @@ public class EnumTest {
         }
         public double value() {
             return this.value;
+        }
+    }
+    
+    
+    public static abstract sealed class EnumIntegerBoxed permits EnumIntegerBoxedNumber {}
+    public static final class EnumIntegerBoxedNumber extends EnumIntegerBoxed {
+        public final Number data;
+        private EnumIntegerBoxedNumber(Number data) {
+            this.data = data;
         }
     }
     
@@ -331,13 +344,6 @@ public class EnumTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class EnumIntegerBoxed permits EnumIntegerBoxedNumber {}
-        public static final class EnumIntegerBoxedNumber extends EnumIntegerBoxed {
-            public final Number data;
-            private EnumIntegerBoxedNumber(Number data) {
-                this.data = data;
-            }
-        }
         public EnumIntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumIntegerBoxedNumber(validate(arg, configuration));
         }
@@ -365,6 +371,15 @@ public class EnumTest {
         }
         public float value() {
             return this.value;
+        }
+    }
+    
+    
+    public static abstract sealed class EnumNumberBoxed permits EnumNumberBoxedNumber {}
+    public static final class EnumNumberBoxedNumber extends EnumNumberBoxed {
+        public final Number data;
+        private EnumNumberBoxedNumber(Number data) {
+            this.data = data;
         }
     }
     
@@ -432,13 +447,6 @@ public class EnumTest {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class EnumNumberBoxed permits EnumNumberBoxedNumber {}
-        public static final class EnumNumberBoxedNumber extends EnumNumberBoxed {
-            public final Number data;
-            private EnumNumberBoxedNumber(Number data) {
-                this.data = data;
-            }
         }
         public EnumNumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumNumberBoxedNumber(validate(arg, configuration));
@@ -950,6 +958,15 @@ public class EnumTest {
     }
     
     
+    public static abstract sealed class EnumTest1Boxed permits EnumTest1BoxedMap {}
+    public static final class EnumTest1BoxedMap extends EnumTest1Boxed {
+        public final EnumTestMap data;
+        private EnumTest1BoxedMap(EnumTestMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class EnumTest1 extends JsonSchema implements MapSchemaValidator<EnumTestMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -1033,13 +1050,6 @@ public class EnumTest {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class EnumTest1Boxed permits EnumTest1BoxedMap {}
-        public static final class EnumTest1BoxedMap extends EnumTest1Boxed {
-            public final EnumTestMap data;
-            private EnumTest1BoxedMap(EnumTestMap data) {
-                this.data = data;
-            }
         }
         public EnumTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumTest1BoxedMap(validate(arg, configuration));

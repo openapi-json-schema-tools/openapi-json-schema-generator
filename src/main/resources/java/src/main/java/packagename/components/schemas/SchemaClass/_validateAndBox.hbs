@@ -1,41 +1,25 @@
 {{#if types}}
     {{#each types}}
         {{#eq this "null"}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxVoid }}
         {{/eq}}
         {{#eq this "boolean"}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxBoolean }}
         {{/eq}}
-        {{#eq this "string" }}
-            {{#eq ../format "binary"}}
-            {{else}}
-            {{/eq}}
-        {{/eq}}
-        {{#eq this "integer"}}
-            {{#neq ../format "int32"}}
-            {{/neq}}
-        {{/eq}}
-        {{#eq this "number"}}
-            {{#eq ../format null}}
-            {{else}}
-                {{#eq ../format "int32"}}
-                {{else}}
-                    {{#eq ../format "int64"}}
-                    {{else}}
-                        {{#eq ../format "float"}}
-                        {{else}}
-                            {{#eq ../format "double"}}
-                            {{/eq}}
-                        {{/eq}}
-                    {{/eq}}
-                {{/eq}}
-            {{/eq}}
-        {{/eq}}
+        {{#and (eq this "string") (neq ../format "binary") }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
+        {{/and}}
+        {{#or (eq this "number") (eq this "integer")}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxNumber }}
+        {{/or}}
         {{#eq this "array"}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
         {{/eq}}
         {{#eq this "object"}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
         {{/eq}}
     {{/each}}
 {{else}}
-public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{jsonPathPiece.pascalCase}}BoxedVoid, {{jsonPathPiece.pascalCase}}BoxedBoolean, {{jsonPathPiece.pascalCase}}BoxedNumber, {{jsonPathPiece.pascalCase}}BoxedString, {{jsonPathPiece.pascalCase}}BoxedList, {{jsonPathPiece.pascalCase}}BoxedMap {}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxVoid }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxBoolean }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_validateAndBoxNumber }}

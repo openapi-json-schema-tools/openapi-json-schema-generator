@@ -1,9 +1,3 @@
-public static final class {{jsonPathPiece.pascalCase}}BoxedMap extends {{jsonPathPiece.pascalCase}}Boxed {
-    public final {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data;
-    private {{jsonPathPiece.pascalCase}}BoxedMap({{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data) {
-        this.data = data;
-    }
-}
 public {{jsonPathPiece.pascalCase}}BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     return new {{jsonPathPiece.pascalCase}}BoxedMap(validate(arg, configuration));
 }

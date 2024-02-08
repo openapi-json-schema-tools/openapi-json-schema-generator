@@ -115,6 +115,15 @@ public class ChildCat {
     }
     
     
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    public static final class Schema1BoxedMap extends Schema1Boxed {
+        public final Schema1Map data;
+        private Schema1BoxedMap(Schema1Map data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map> {
         private static @Nullable Schema1 instance = null;
     
@@ -182,15 +191,47 @@ public class ChildCat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
-        public static final class Schema1BoxedMap extends Schema1Boxed {
-            public final Schema1Map data;
-            private Schema1BoxedMap(Schema1Map data) {
-                this.data = data;
-            }
-        }
         public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema1BoxedMap(validate(arg, configuration));
+        }
+    }
+    
+    
+    public static abstract sealed class ChildCat1Boxed permits ChildCat1BoxedVoid, ChildCat1BoxedBoolean, ChildCat1BoxedNumber, ChildCat1BoxedString, ChildCat1BoxedList, ChildCat1BoxedMap {}
+    public static final class ChildCat1BoxedVoid extends ChildCat1Boxed {
+        public final Void data;
+        private ChildCat1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    public static final class ChildCat1BoxedBoolean extends ChildCat1Boxed {
+        public final boolean data;
+        private ChildCat1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    public static final class ChildCat1BoxedNumber extends ChildCat1Boxed {
+        public final Number data;
+        private ChildCat1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    public static final class ChildCat1BoxedString extends ChildCat1Boxed {
+        public final String data;
+        private ChildCat1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    public static final class ChildCat1BoxedList extends ChildCat1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private ChildCat1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public static final class ChildCat1BoxedMap extends ChildCat1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ChildCat1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
         }
     }
     
@@ -397,57 +438,20 @@ public class ChildCat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class ChildCat1Boxed permits ChildCat1BoxedVoid, ChildCat1BoxedBoolean, ChildCat1BoxedNumber, ChildCat1BoxedString, ChildCat1BoxedList, ChildCat1BoxedMap {}
-        public static final class ChildCat1BoxedVoid extends ChildCat1Boxed {
-            public final Void data;
-            private ChildCat1BoxedVoid(Void data) {
-                this.data = data;
-            }
-        }
         public ChildCat1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ChildCat1BoxedVoid(validate(arg, configuration));
-        }
-        public static final class ChildCat1BoxedBoolean extends ChildCat1Boxed {
-            public final boolean data;
-            private ChildCat1BoxedBoolean(boolean data) {
-                this.data = data;
-            }
         }
         public ChildCat1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ChildCat1BoxedBoolean(validate(arg, configuration));
         }
-        public static final class ChildCat1BoxedNumber extends ChildCat1Boxed {
-            public final Number data;
-            private ChildCat1BoxedNumber(Number data) {
-                this.data = data;
-            }
-        }
         public ChildCat1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ChildCat1BoxedNumber(validate(arg, configuration));
-        }
-        public static final class ChildCat1BoxedString extends ChildCat1Boxed {
-            public final String data;
-            private ChildCat1BoxedString(String data) {
-                this.data = data;
-            }
         }
         public ChildCat1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ChildCat1BoxedString(validate(arg, configuration));
         }
-        public static final class ChildCat1BoxedList extends ChildCat1Boxed {
-            public final FrozenList<@Nullable Object> data;
-            private ChildCat1BoxedList(FrozenList<@Nullable Object> data) {
-                this.data = data;
-            }
-        }
         public ChildCat1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ChildCat1BoxedList(validate(arg, configuration));
-        }
-        public static final class ChildCat1BoxedMap extends ChildCat1Boxed {
-            public final FrozenMap<@Nullable Object> data;
-            private ChildCat1BoxedMap(FrozenMap<@Nullable Object> data) {
-                this.data = data;
-            }
         }
         public ChildCat1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ChildCat1BoxedMap(validate(arg, configuration));

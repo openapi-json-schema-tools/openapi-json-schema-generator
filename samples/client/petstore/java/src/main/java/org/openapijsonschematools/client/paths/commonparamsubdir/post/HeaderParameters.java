@@ -93,6 +93,15 @@ public class HeaderParameters {
     }
     
     
+    public static abstract sealed class HeaderParameters1Boxed permits HeaderParameters1BoxedMap {}
+    public static final class HeaderParameters1BoxedMap extends HeaderParameters1Boxed {
+        public final HeaderParametersMap data;
+        private HeaderParameters1BoxedMap(HeaderParametersMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<HeaderParametersMap> {
         private static @Nullable HeaderParameters1 instance = null;
     
@@ -163,13 +172,6 @@ public class HeaderParameters {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class HeaderParameters1Boxed permits HeaderParameters1BoxedMap {}
-        public static final class HeaderParameters1BoxedMap extends HeaderParameters1Boxed {
-            public final HeaderParametersMap data;
-            private HeaderParameters1BoxedMap(HeaderParametersMap data) {
-                this.data = data;
-            }
         }
         public HeaderParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new HeaderParameters1BoxedMap(validate(arg, configuration));

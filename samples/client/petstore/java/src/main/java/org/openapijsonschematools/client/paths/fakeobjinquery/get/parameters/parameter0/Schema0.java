@@ -106,6 +106,15 @@ public class Schema0 {
     }
     
     
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedMap {}
+    public static final class Schema01BoxedMap extends Schema01Boxed {
+        public final SchemaMap0 data;
+        private Schema01BoxedMap(SchemaMap0 data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Schema01 extends JsonSchema implements MapSchemaValidator<SchemaMap0> {
         private static @Nullable Schema01 instance = null;
     
@@ -172,13 +181,6 @@ public class Schema0 {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class Schema01Boxed permits Schema01BoxedMap {}
-        public static final class Schema01BoxedMap extends Schema01Boxed {
-            public final SchemaMap0 data;
-            private Schema01BoxedMap(SchemaMap0 data) {
-                this.data = data;
-            }
         }
         public Schema01BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema01BoxedMap(validate(arg, configuration));

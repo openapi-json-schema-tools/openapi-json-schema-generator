@@ -154,6 +154,15 @@ public class AdditionalPropertiesSchema {
     }
     
     
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedMap {}
+    public static final class Schema0BoxedMap extends Schema0Boxed {
+        public final Schema0Map data;
+        private Schema0BoxedMap(Schema0Map data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Schema0 extends JsonSchema implements MapSchemaValidator<Schema0Map> {
         private static @Nullable Schema0 instance = null;
     
@@ -219,15 +228,47 @@ public class AdditionalPropertiesSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class Schema0Boxed permits Schema0BoxedMap {}
-        public static final class Schema0BoxedMap extends Schema0Boxed {
-            public final Schema0Map data;
-            private Schema0BoxedMap(Schema0Map data) {
-                this.data = data;
-            }
-        }
         public Schema0BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema0BoxedMap(validate(arg, configuration));
+        }
+    }
+    
+    
+    public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedBoolean, AdditionalProperties1BoxedNumber, AdditionalProperties1BoxedString, AdditionalProperties1BoxedList, AdditionalProperties1BoxedMap {}
+    public static final class AdditionalProperties1BoxedVoid extends AdditionalProperties1Boxed {
+        public final Void data;
+        private AdditionalProperties1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties1BoxedBoolean extends AdditionalProperties1Boxed {
+        public final boolean data;
+        private AdditionalProperties1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties1BoxedNumber extends AdditionalProperties1Boxed {
+        public final Number data;
+        private AdditionalProperties1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties1BoxedString extends AdditionalProperties1Boxed {
+        public final String data;
+        private AdditionalProperties1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties1BoxedList extends AdditionalProperties1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private AdditionalProperties1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties1BoxedMap extends AdditionalProperties1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
         }
     }
     
@@ -425,57 +466,20 @@ public class AdditionalPropertiesSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedBoolean, AdditionalProperties1BoxedNumber, AdditionalProperties1BoxedString, AdditionalProperties1BoxedList, AdditionalProperties1BoxedMap {}
-        public static final class AdditionalProperties1BoxedVoid extends AdditionalProperties1Boxed {
-            public final Void data;
-            private AdditionalProperties1BoxedVoid(Void data) {
-                this.data = data;
-            }
-        }
         public AdditionalProperties1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedVoid(validate(arg, configuration));
-        }
-        public static final class AdditionalProperties1BoxedBoolean extends AdditionalProperties1Boxed {
-            public final boolean data;
-            private AdditionalProperties1BoxedBoolean(boolean data) {
-                this.data = data;
-            }
         }
         public AdditionalProperties1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedBoolean(validate(arg, configuration));
         }
-        public static final class AdditionalProperties1BoxedNumber extends AdditionalProperties1Boxed {
-            public final Number data;
-            private AdditionalProperties1BoxedNumber(Number data) {
-                this.data = data;
-            }
-        }
         public AdditionalProperties1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedNumber(validate(arg, configuration));
-        }
-        public static final class AdditionalProperties1BoxedString extends AdditionalProperties1Boxed {
-            public final String data;
-            private AdditionalProperties1BoxedString(String data) {
-                this.data = data;
-            }
         }
         public AdditionalProperties1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedString(validate(arg, configuration));
         }
-        public static final class AdditionalProperties1BoxedList extends AdditionalProperties1Boxed {
-            public final FrozenList<@Nullable Object> data;
-            private AdditionalProperties1BoxedList(FrozenList<@Nullable Object> data) {
-                this.data = data;
-            }
-        }
         public AdditionalProperties1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedList(validate(arg, configuration));
-        }
-        public static final class AdditionalProperties1BoxedMap extends AdditionalProperties1Boxed {
-            public final FrozenMap<@Nullable Object> data;
-            private AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
-                this.data = data;
-            }
         }
         public AdditionalProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties1BoxedMap(validate(arg, configuration));
@@ -587,6 +591,15 @@ public class AdditionalPropertiesSchema {
     }
     
     
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    public static final class Schema1BoxedMap extends Schema1Boxed {
+        public final Schema1Map data;
+        private Schema1BoxedMap(Schema1Map data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map> {
         private static @Nullable Schema1 instance = null;
     
@@ -652,15 +665,47 @@ public class AdditionalPropertiesSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
-        public static final class Schema1BoxedMap extends Schema1Boxed {
-            public final Schema1Map data;
-            private Schema1BoxedMap(Schema1Map data) {
-                this.data = data;
-            }
-        }
         public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema1BoxedMap(validate(arg, configuration));
+        }
+    }
+    
+    
+    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedBoolean, AdditionalProperties2BoxedNumber, AdditionalProperties2BoxedString, AdditionalProperties2BoxedList, AdditionalProperties2BoxedMap {}
+    public static final class AdditionalProperties2BoxedVoid extends AdditionalProperties2Boxed {
+        public final Void data;
+        private AdditionalProperties2BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties2BoxedBoolean extends AdditionalProperties2Boxed {
+        public final boolean data;
+        private AdditionalProperties2BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties2BoxedNumber extends AdditionalProperties2Boxed {
+        public final Number data;
+        private AdditionalProperties2BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
+        public final String data;
+        private AdditionalProperties2BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties2BoxedList extends AdditionalProperties2Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private AdditionalProperties2BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public static final class AdditionalProperties2BoxedMap extends AdditionalProperties2Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
         }
     }
     
@@ -858,57 +903,20 @@ public class AdditionalPropertiesSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedBoolean, AdditionalProperties2BoxedNumber, AdditionalProperties2BoxedString, AdditionalProperties2BoxedList, AdditionalProperties2BoxedMap {}
-        public static final class AdditionalProperties2BoxedVoid extends AdditionalProperties2Boxed {
-            public final Void data;
-            private AdditionalProperties2BoxedVoid(Void data) {
-                this.data = data;
-            }
-        }
         public AdditionalProperties2BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedVoid(validate(arg, configuration));
-        }
-        public static final class AdditionalProperties2BoxedBoolean extends AdditionalProperties2Boxed {
-            public final boolean data;
-            private AdditionalProperties2BoxedBoolean(boolean data) {
-                this.data = data;
-            }
         }
         public AdditionalProperties2BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedBoolean(validate(arg, configuration));
         }
-        public static final class AdditionalProperties2BoxedNumber extends AdditionalProperties2Boxed {
-            public final Number data;
-            private AdditionalProperties2BoxedNumber(Number data) {
-                this.data = data;
-            }
-        }
         public AdditionalProperties2BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedNumber(validate(arg, configuration));
-        }
-        public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
-            public final String data;
-            private AdditionalProperties2BoxedString(String data) {
-                this.data = data;
-            }
         }
         public AdditionalProperties2BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedString(validate(arg, configuration));
         }
-        public static final class AdditionalProperties2BoxedList extends AdditionalProperties2Boxed {
-            public final FrozenList<@Nullable Object> data;
-            private AdditionalProperties2BoxedList(FrozenList<@Nullable Object> data) {
-                this.data = data;
-            }
-        }
         public AdditionalProperties2BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedList(validate(arg, configuration));
-        }
-        public static final class AdditionalProperties2BoxedMap extends AdditionalProperties2Boxed {
-            public final FrozenMap<@Nullable Object> data;
-            private AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) {
-                this.data = data;
-            }
         }
         public AdditionalProperties2BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedMap(validate(arg, configuration));
@@ -1020,6 +1028,15 @@ public class AdditionalPropertiesSchema {
     }
     
     
+    public static abstract sealed class Schema2Boxed permits Schema2BoxedMap {}
+    public static final class Schema2BoxedMap extends Schema2Boxed {
+        public final Schema2Map data;
+        private Schema2BoxedMap(Schema2Map data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Schema2 extends JsonSchema implements MapSchemaValidator<Schema2Map> {
         private static @Nullable Schema2 instance = null;
     
@@ -1085,15 +1102,17 @@ public class AdditionalPropertiesSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class Schema2Boxed permits Schema2BoxedMap {}
-        public static final class Schema2BoxedMap extends Schema2Boxed {
-            public final Schema2Map data;
-            private Schema2BoxedMap(Schema2Map data) {
-                this.data = data;
-            }
-        }
         public Schema2BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema2BoxedMap(validate(arg, configuration));
+        }
+    }
+    
+    
+    public static abstract sealed class AdditionalPropertiesSchema1Boxed permits AdditionalPropertiesSchema1BoxedMap {}
+    public static final class AdditionalPropertiesSchema1BoxedMap extends AdditionalPropertiesSchema1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AdditionalPropertiesSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
         }
     }
     
@@ -1172,13 +1191,6 @@ public class AdditionalPropertiesSchema {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class AdditionalPropertiesSchema1Boxed permits AdditionalPropertiesSchema1BoxedMap {}
-        public static final class AdditionalPropertiesSchema1BoxedMap extends AdditionalPropertiesSchema1Boxed {
-            public final FrozenMap<@Nullable Object> data;
-            private AdditionalPropertiesSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
-                this.data = data;
-            }
         }
         public AdditionalPropertiesSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalPropertiesSchema1BoxedMap(validate(arg, configuration));

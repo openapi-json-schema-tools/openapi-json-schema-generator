@@ -95,6 +95,15 @@ public class MapTest {
     }
     
     
+    public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {}
+    public static final class AdditionalPropertiesBoxedMap extends AdditionalPropertiesBoxed {
+        public final AdditionalPropertiesMap data;
+        private AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class AdditionalProperties extends JsonSchema implements MapSchemaValidator<AdditionalPropertiesMap> {
         private static @Nullable AdditionalProperties instance = null;
     
@@ -163,13 +172,6 @@ public class MapTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {}
-        public static final class AdditionalPropertiesBoxedMap extends AdditionalPropertiesBoxed {
-            public final AdditionalPropertiesMap data;
-            private AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data) {
-                this.data = data;
-            }
-        }
         public AdditionalPropertiesBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalPropertiesBoxedMap(validate(arg, configuration));
         }
@@ -221,6 +223,15 @@ public class MapTest {
         }
         public MapMapOfStringMapBuilder getBuilderAfterAdditionalProperty(Map<String, Map<String, String>> instance) {
             return this;
+        }
+    }
+    
+    
+    public static abstract sealed class MapMapOfStringBoxed permits MapMapOfStringBoxedMap {}
+    public static final class MapMapOfStringBoxedMap extends MapMapOfStringBoxed {
+        public final MapMapOfStringMap data;
+        private MapMapOfStringBoxedMap(MapMapOfStringMap data) {
+            this.data = data;
         }
     }
     
@@ -293,13 +304,6 @@ public class MapTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class MapMapOfStringBoxed permits MapMapOfStringBoxedMap {}
-        public static final class MapMapOfStringBoxedMap extends MapMapOfStringBoxed {
-            public final MapMapOfStringMap data;
-            private MapMapOfStringBoxedMap(MapMapOfStringMap data) {
-                this.data = data;
-            }
-        }
         public MapMapOfStringBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MapMapOfStringBoxedMap(validate(arg, configuration));
         }
@@ -315,6 +319,15 @@ public class MapTest {
         }
         public String value() {
             return this.value;
+        }
+    }
+    
+    
+    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {}
+    public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
+        public final String data;
+        private AdditionalProperties2BoxedString(String data) {
+            this.data = data;
         }
     }
     
@@ -370,13 +383,6 @@ public class MapTest {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {}
-        public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
-            public final String data;
-            private AdditionalProperties2BoxedString(String data) {
-                this.data = data;
-            }
         }
         public AdditionalProperties2BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AdditionalProperties2BoxedString(validate(arg, configuration));
@@ -435,6 +441,15 @@ public class MapTest {
         }
         public MapOfEnumStringMapBuilder getBuilderAfterAdditionalProperty(Map<String, String> instance) {
             return this;
+        }
+    }
+    
+    
+    public static abstract sealed class MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {}
+    public static final class MapOfEnumStringBoxedMap extends MapOfEnumStringBoxed {
+        public final MapOfEnumStringMap data;
+        private MapOfEnumStringBoxedMap(MapOfEnumStringMap data) {
+            this.data = data;
         }
     }
     
@@ -507,13 +522,6 @@ public class MapTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
-        public static abstract sealed class MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {}
-        public static final class MapOfEnumStringBoxedMap extends MapOfEnumStringBoxed {
-            public final MapOfEnumStringMap data;
-            private MapOfEnumStringBoxedMap(MapOfEnumStringMap data) {
-                this.data = data;
-            }
-        }
         public MapOfEnumStringBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MapOfEnumStringBoxedMap(validate(arg, configuration));
         }
@@ -585,6 +593,15 @@ public class MapTest {
     }
     
     
+    public static abstract sealed class DirectMapBoxed permits DirectMapBoxedMap {}
+    public static final class DirectMapBoxedMap extends DirectMapBoxed {
+        public final DirectMapMap data;
+        private DirectMapBoxedMap(DirectMapMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class DirectMap extends JsonSchema implements MapSchemaValidator<DirectMapMap> {
         private static @Nullable DirectMap instance = null;
     
@@ -652,13 +669,6 @@ public class MapTest {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class DirectMapBoxed permits DirectMapBoxedMap {}
-        public static final class DirectMapBoxedMap extends DirectMapBoxed {
-            public final DirectMapMap data;
-            private DirectMapBoxedMap(DirectMapMap data) {
-                this.data = data;
-            }
         }
         public DirectMapBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DirectMapBoxedMap(validate(arg, configuration));
@@ -810,6 +820,15 @@ public class MapTest {
     }
     
     
+    public static abstract sealed class MapTest1Boxed permits MapTest1BoxedMap {}
+    public static final class MapTest1BoxedMap extends MapTest1Boxed {
+        public final MapTestMap data;
+        private MapTest1BoxedMap(MapTestMap data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class MapTest1 extends JsonSchema implements MapSchemaValidator<MapTestMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -885,13 +904,6 @@ public class MapTest {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class MapTest1Boxed permits MapTest1BoxedMap {}
-        public static final class MapTest1BoxedMap extends MapTest1Boxed {
-            public final MapTestMap data;
-            private MapTest1BoxedMap(MapTestMap data) {
-                this.data = data;
-            }
         }
         public MapTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new MapTest1BoxedMap(validate(arg, configuration));

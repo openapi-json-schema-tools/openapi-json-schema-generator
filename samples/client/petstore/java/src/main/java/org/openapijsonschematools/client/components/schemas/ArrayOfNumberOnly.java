@@ -89,6 +89,15 @@ public class ArrayOfNumberOnly {
     }
     
     
+    public static abstract sealed class ArrayNumberBoxed permits ArrayNumberBoxedList {}
+    public static final class ArrayNumberBoxedList extends ArrayNumberBoxed {
+        public final ArrayNumberList data;
+        private ArrayNumberBoxedList(ArrayNumberList data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class ArrayNumber extends JsonSchema implements ListSchemaValidator<ArrayNumberList> {
         private static @Nullable ArrayNumber instance = null;
     
@@ -152,13 +161,6 @@ public class ArrayOfNumberOnly {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class ArrayNumberBoxed permits ArrayNumberBoxedList {}
-        public static final class ArrayNumberBoxedList extends ArrayNumberBoxed {
-            public final ArrayNumberList data;
-            private ArrayNumberBoxedList(ArrayNumberList data) {
-                this.data = data;
-            }
         }
         public ArrayNumberBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ArrayNumberBoxedList(validate(arg, configuration));
@@ -227,6 +229,15 @@ public class ArrayOfNumberOnly {
         }
         public ArrayOfNumberOnlyMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
+        }
+    }
+    
+    
+    public static abstract sealed class ArrayOfNumberOnly1Boxed permits ArrayOfNumberOnly1BoxedMap {}
+    public static final class ArrayOfNumberOnly1BoxedMap extends ArrayOfNumberOnly1Boxed {
+        public final ArrayOfNumberOnlyMap data;
+        private ArrayOfNumberOnly1BoxedMap(ArrayOfNumberOnlyMap data) {
+            this.data = data;
         }
     }
     
@@ -303,13 +314,6 @@ public class ArrayOfNumberOnly {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class ArrayOfNumberOnly1Boxed permits ArrayOfNumberOnly1BoxedMap {}
-        public static final class ArrayOfNumberOnly1BoxedMap extends ArrayOfNumberOnly1Boxed {
-            public final ArrayOfNumberOnlyMap data;
-            private ArrayOfNumberOnly1BoxedMap(ArrayOfNumberOnlyMap data) {
-                this.data = data;
-            }
         }
         public ArrayOfNumberOnly1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ArrayOfNumberOnly1BoxedMap(validate(arg, configuration));

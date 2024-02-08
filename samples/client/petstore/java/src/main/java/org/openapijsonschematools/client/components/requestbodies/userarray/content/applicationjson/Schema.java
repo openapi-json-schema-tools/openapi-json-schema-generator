@@ -57,6 +57,15 @@ public class Schema {
     }
     
     
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedList {}
+    public static final class Schema1BoxedList extends Schema1Boxed {
+        public final SchemaList data;
+        private Schema1BoxedList(SchemaList data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Schema1 extends JsonSchema implements ListSchemaValidator<SchemaList> {
         private static @Nullable Schema1 instance = null;
     
@@ -120,13 +129,6 @@ public class Schema {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class Schema1Boxed permits Schema1BoxedList {}
-        public static final class Schema1BoxedList extends Schema1Boxed {
-            public final SchemaList data;
-            private Schema1BoxedList(SchemaList data) {
-                this.data = data;
-            }
         }
         public Schema1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema1BoxedList(validate(arg, configuration));

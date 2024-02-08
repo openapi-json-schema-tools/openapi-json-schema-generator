@@ -35,6 +35,15 @@ public class PathParamSchema0 {
     }
     
     
+    public static abstract sealed class PathParamSchema01Boxed permits PathParamSchema01BoxedString {}
+    public static final class PathParamSchema01BoxedString extends PathParamSchema01Boxed {
+        public final String data;
+        private PathParamSchema01BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringPathParamSchemaEnums0> {
         private static @Nullable PathParamSchema01 instance = null;
     
@@ -86,13 +95,6 @@ public class PathParamSchema0 {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class PathParamSchema01Boxed permits PathParamSchema01BoxedString {}
-        public static final class PathParamSchema01BoxedString extends PathParamSchema01Boxed {
-            public final String data;
-            private PathParamSchema01BoxedString(String data) {
-                this.data = data;
-            }
         }
         public PathParamSchema01BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PathParamSchema01BoxedString(validate(arg, configuration));

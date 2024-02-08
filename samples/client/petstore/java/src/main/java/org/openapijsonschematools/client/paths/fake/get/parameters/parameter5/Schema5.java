@@ -51,6 +51,15 @@ public class Schema5 {
     }
     
     
+    public static abstract sealed class Schema51Boxed permits Schema51BoxedNumber {}
+    public static final class Schema51BoxedNumber extends Schema51Boxed {
+        public final Number data;
+        private Schema51BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Schema51 extends JsonSchema implements FloatEnumValidator<FloatSchemaEnums5>, DoubleEnumValidator<DoubleSchemaEnums5>, NumberSchemaValidator {
         private static @Nullable Schema51 instance = null;
     
@@ -114,13 +123,6 @@ public class Schema5 {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class Schema51Boxed permits Schema51BoxedNumber {}
-        public static final class Schema51BoxedNumber extends Schema51Boxed {
-            public final Number data;
-            private Schema51BoxedNumber(Number data) {
-                this.data = data;
-            }
         }
         public Schema51BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema51BoxedNumber(validate(arg, configuration));

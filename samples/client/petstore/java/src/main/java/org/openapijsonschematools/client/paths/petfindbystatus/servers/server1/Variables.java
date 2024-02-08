@@ -59,6 +59,15 @@ public class Variables {
     }
     
     
+    public static abstract sealed class VersionBoxed permits VersionBoxedString {}
+    public static final class VersionBoxedString extends VersionBoxed {
+        public final String data;
+        private VersionBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Version extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
         private static @Nullable Version instance = null;
     
@@ -117,13 +126,6 @@ public class Variables {
                 return (String) defaultValue;
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
-        }
-        public static abstract sealed class VersionBoxed permits VersionBoxedString {}
-        public static final class VersionBoxedString extends VersionBoxed {
-            public final String data;
-            private VersionBoxedString(String data) {
-                this.data = data;
-            }
         }
         public VersionBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new VersionBoxedString(validate(arg, configuration));
@@ -190,6 +192,15 @@ public class Variables {
         }
         public VariablesMap0Builder getBuilderAfterVersion(Map<String, String> instance) {
             return new VariablesMap0Builder(instance);
+        }
+    }
+    
+    
+    public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {}
+    public static final class Variables1BoxedMap extends Variables1Boxed {
+        public final VariablesMap data;
+        private Variables1BoxedMap(VariablesMap data) {
+            this.data = data;
         }
     }
     
@@ -267,13 +278,6 @@ public class Variables {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {}
-        public static final class Variables1BoxedMap extends Variables1Boxed {
-            public final VariablesMap data;
-            private Variables1BoxedMap(VariablesMap data) {
-                this.data = data;
-            }
         }
         public Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Variables1BoxedMap(validate(arg, configuration));

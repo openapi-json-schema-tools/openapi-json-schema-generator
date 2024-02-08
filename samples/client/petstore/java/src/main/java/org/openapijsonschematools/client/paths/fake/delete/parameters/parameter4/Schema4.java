@@ -35,6 +35,15 @@ public class Schema4 {
     }
     
     
+    public static abstract sealed class Schema41Boxed permits Schema41BoxedString {}
+    public static final class Schema41BoxedString extends Schema41Boxed {
+        public final String data;
+        private Schema41BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Schema41 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringSchemaEnums4> {
         private static @Nullable Schema41 instance = null;
     
@@ -86,13 +95,6 @@ public class Schema4 {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class Schema41Boxed permits Schema41BoxedString {}
-        public static final class Schema41BoxedString extends Schema41Boxed {
-            public final String data;
-            private Schema41BoxedString(String data) {
-                this.data = data;
-            }
         }
         public Schema41BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema41BoxedString(validate(arg, configuration));

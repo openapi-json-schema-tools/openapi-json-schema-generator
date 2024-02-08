@@ -41,6 +41,15 @@ public class Schema0 {
     }
     
     
+    public static abstract sealed class Items0Boxed permits Items0BoxedString {}
+    public static final class Items0BoxedString extends Items0Boxed {
+        public final String data;
+        private Items0BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
     public static class Items0 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums0>, DefaultValueMethod<String> {
         private static @Nullable Items0 instance = null;
     
@@ -101,13 +110,6 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-        public static abstract sealed class Items0Boxed permits Items0BoxedString {}
-        public static final class Items0BoxedString extends Items0Boxed {
-            public final String data;
-            private Items0BoxedString(String data) {
-                this.data = data;
-            }
-        }
         public Items0BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Items0BoxedString(validate(arg, configuration));
         }
@@ -146,6 +148,15 @@ public class Schema0 {
     
         public List<String> build() {
             return list;
+        }
+    }
+    
+    
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedList {}
+    public static final class Schema01BoxedList extends Schema01Boxed {
+        public final SchemaList0 data;
+        private Schema01BoxedList(SchemaList0 data) {
+            this.data = data;
         }
     }
     
@@ -213,13 +224,6 @@ public class Schema0 {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-        public static abstract sealed class Schema01Boxed permits Schema01BoxedList {}
-        public static final class Schema01BoxedList extends Schema01Boxed {
-            public final SchemaList0 data;
-            private Schema01BoxedList(SchemaList0 data) {
-                this.data = data;
-            }
         }
         public Schema01BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema01BoxedList(validate(arg, configuration));

@@ -1,9 +1,3 @@
-public static final class {{jsonPathPiece.pascalCase}}BoxedString extends {{jsonPathPiece.pascalCase}}Boxed {
-    public final String data;
-    private {{jsonPathPiece.pascalCase}}BoxedString(String data) {
-        this.data = data;
-    }
-}
 public {{jsonPathPiece.pascalCase}}BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     return new {{jsonPathPiece.pascalCase}}BoxedString(validate(arg, configuration));
 }
