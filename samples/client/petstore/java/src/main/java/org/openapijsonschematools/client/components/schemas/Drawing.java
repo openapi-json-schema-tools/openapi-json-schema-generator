@@ -166,6 +166,16 @@ public class Drawing {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ShapesBoxed permits ShapesBoxedList {}
+        public static final class ShapesBoxedList extends ShapesBoxed {
+            public final ShapesList data;
+            private ShapesBoxedList(ShapesList data) {
+                this.data = data;
+            }
+        }
+        public ShapesBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ShapesBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class DrawingMap extends FrozenMap<@Nullable Object> {

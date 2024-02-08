@@ -139,5 +139,15 @@ public class ArrayOfEnums {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayOfEnums1Boxed permits ArrayOfEnums1BoxedList {}
+        public static final class ArrayOfEnums1BoxedList extends ArrayOfEnums1Boxed {
+            public final ArrayOfEnumsList data;
+            private ArrayOfEnums1BoxedList(ArrayOfEnumsList data) {
+                this.data = data;
+            }
+        }
+        public ArrayOfEnums1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayOfEnums1BoxedList(validate(arg, configuration));
+        }
     }
 }

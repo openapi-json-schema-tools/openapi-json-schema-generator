@@ -126,6 +126,16 @@ public class FileSchemaTestClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class FilesBoxed permits FilesBoxedList {}
+        public static final class FilesBoxedList extends FilesBoxed {
+            public final FilesList data;
+            private FilesBoxedList(FilesList data) {
+                this.data = data;
+            }
+        }
+        public FilesBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FilesBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class FileSchemaTestClassMap extends FrozenMap<@Nullable Object> {

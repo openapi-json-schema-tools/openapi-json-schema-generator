@@ -153,6 +153,16 @@ public class ArrayOfArrayOfNumberOnly {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ItemsBoxed permits ItemsBoxedList {}
+        public static final class ItemsBoxedList extends ItemsBoxed {
+            public final ItemsList data;
+            private ItemsBoxedList(ItemsList data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class ArrayArrayNumberList extends FrozenList<ItemsList> {
@@ -250,6 +260,16 @@ public class ArrayOfArrayOfNumberOnly {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class ArrayArrayNumberBoxed permits ArrayArrayNumberBoxedList {}
+        public static final class ArrayArrayNumberBoxedList extends ArrayArrayNumberBoxed {
+            public final ArrayArrayNumberList data;
+            private ArrayArrayNumberBoxedList(ArrayArrayNumberList data) {
+                this.data = data;
+            }
+        }
+        public ArrayArrayNumberBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayArrayNumberBoxedList(validate(arg, configuration));
         }
     }    
     

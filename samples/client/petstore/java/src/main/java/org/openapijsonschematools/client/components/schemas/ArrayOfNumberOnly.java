@@ -153,6 +153,16 @@ public class ArrayOfNumberOnly {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayNumberBoxed permits ArrayNumberBoxedList {}
+        public static final class ArrayNumberBoxedList extends ArrayNumberBoxed {
+            public final ArrayNumberList data;
+            private ArrayNumberBoxedList(ArrayNumberList data) {
+                this.data = data;
+            }
+        }
+        public ArrayNumberBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayNumberBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class ArrayOfNumberOnlyMap extends FrozenMap<@Nullable Object> {

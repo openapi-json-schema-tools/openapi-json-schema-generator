@@ -220,6 +220,16 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class EnumFormStringArrayBoxed permits EnumFormStringArrayBoxedList {}
+        public static final class EnumFormStringArrayBoxedList extends EnumFormStringArrayBoxed {
+            public final EnumFormStringArrayList data;
+            private EnumFormStringArrayBoxedList(EnumFormStringArrayList data) {
+                this.data = data;
+            }
+        }
+        public EnumFormStringArrayBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumFormStringArrayBoxedList(validate(arg, configuration));
+        }
     }    
     public enum StringEnumFormStringEnums implements StringValueMethod {
         _ABC("_abc"),

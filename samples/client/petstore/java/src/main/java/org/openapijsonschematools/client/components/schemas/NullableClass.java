@@ -1048,6 +1048,16 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayItemsNullableBoxed permits ArrayItemsNullableBoxedList {}
+        public static final class ArrayItemsNullableBoxedList extends ArrayItemsNullableBoxed {
+            public final ArrayItemsNullableList data;
+            private ArrayItemsNullableBoxedList(ArrayItemsNullableList data) {
+                this.data = data;
+            }
+        }
+        public ArrayItemsNullableBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayItemsNullableBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class AdditionalProperties extends MapJsonSchema {

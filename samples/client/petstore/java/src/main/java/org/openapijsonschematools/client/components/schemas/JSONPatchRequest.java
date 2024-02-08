@@ -373,5 +373,15 @@ public class JSONPatchRequest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class JSONPatchRequest1Boxed permits JSONPatchRequest1BoxedList {}
+        public static final class JSONPatchRequest1BoxedList extends JSONPatchRequest1Boxed {
+            public final JSONPatchRequestList data;
+            private JSONPatchRequest1BoxedList(JSONPatchRequestList data) {
+                this.data = data;
+            }
+        }
+        public JSONPatchRequest1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new JSONPatchRequest1BoxedList(validate(arg, configuration));
+        }
     }
 }

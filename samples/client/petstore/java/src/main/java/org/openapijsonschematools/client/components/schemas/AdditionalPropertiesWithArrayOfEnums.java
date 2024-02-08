@@ -130,6 +130,16 @@ public class AdditionalPropertiesWithArrayOfEnums {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedList {}
+        public static final class AdditionalPropertiesBoxedList extends AdditionalPropertiesBoxed {
+            public final AdditionalPropertiesList data;
+            private AdditionalPropertiesBoxedList(AdditionalPropertiesList data) {
+                this.data = data;
+            }
+        }
+        public AdditionalPropertiesBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalPropertiesBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class AdditionalPropertiesWithArrayOfEnumsMap extends FrozenMap<AdditionalPropertiesList> {

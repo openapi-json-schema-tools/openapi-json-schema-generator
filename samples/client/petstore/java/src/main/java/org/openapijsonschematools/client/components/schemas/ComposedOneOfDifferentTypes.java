@@ -276,6 +276,16 @@ public class ComposedOneOfDifferentTypes {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Schema5Boxed permits Schema5BoxedList {}
+        public static final class Schema5BoxedList extends Schema5Boxed {
+            public final Schema5List data;
+            private Schema5BoxedList(Schema5List data) {
+                this.data = data;
+            }
+        }
+        public Schema5BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema5BoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class Schema6 extends JsonSchema implements StringSchemaValidator {

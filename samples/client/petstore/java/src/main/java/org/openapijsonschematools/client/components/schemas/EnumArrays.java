@@ -289,6 +289,16 @@ public class EnumArrays {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayEnumBoxed permits ArrayEnumBoxedList {}
+        public static final class ArrayEnumBoxedList extends ArrayEnumBoxed {
+            public final ArrayEnumList data;
+            private ArrayEnumBoxedList(ArrayEnumList data) {
+                this.data = data;
+            }
+        }
+        public ArrayEnumBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayEnumBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class EnumArraysMap extends FrozenMap<@Nullable Object> {

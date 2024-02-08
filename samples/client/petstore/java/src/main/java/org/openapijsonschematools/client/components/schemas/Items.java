@@ -140,5 +140,15 @@ public class Items {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Items1Boxed permits Items1BoxedList {}
+        public static final class Items1BoxedList extends Items1Boxed {
+            public final ItemsList data;
+            private Items1BoxedList(ItemsList data) {
+                this.data = data;
+            }
+        }
+        public Items1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Items1BoxedList(validate(arg, configuration));
+        }
     }
 }

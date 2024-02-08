@@ -165,6 +165,16 @@ public class Pet {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class PhotoUrlsBoxed permits PhotoUrlsBoxedList {}
+        public static final class PhotoUrlsBoxedList extends PhotoUrlsBoxed {
+            public final PhotoUrlsList data;
+            private PhotoUrlsBoxedList(PhotoUrlsList data) {
+                this.data = data;
+            }
+        }
+        public PhotoUrlsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PhotoUrlsBoxedList(validate(arg, configuration));
+        }
     }    
     public enum StringStatusEnums implements StringValueMethod {
         AVAILABLE("available"),
@@ -341,6 +351,16 @@ public class Pet {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class TagsBoxed permits TagsBoxedList {}
+        public static final class TagsBoxedList extends TagsBoxed {
+            public final TagsList data;
+            private TagsBoxedList(TagsList data) {
+                this.data = data;
+            }
+        }
+        public TagsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new TagsBoxedList(validate(arg, configuration));
         }
     }    
     

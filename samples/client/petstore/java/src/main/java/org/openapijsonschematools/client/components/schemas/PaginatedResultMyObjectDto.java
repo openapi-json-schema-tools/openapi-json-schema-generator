@@ -151,6 +151,16 @@ public class PaginatedResultMyObjectDto {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ResultsBoxed permits ResultsBoxedList {}
+        public static final class ResultsBoxedList extends ResultsBoxed {
+            public final ResultsList data;
+            private ResultsBoxedList(ResultsList data) {
+                this.data = data;
+            }
+        }
+        public ResultsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ResultsBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class PaginatedResultMyObjectDtoMap extends FrozenMap<Object> {

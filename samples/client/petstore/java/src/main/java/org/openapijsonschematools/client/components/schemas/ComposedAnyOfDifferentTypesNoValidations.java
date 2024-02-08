@@ -292,6 +292,16 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Schema9Boxed permits Schema9BoxedList {}
+        public static final class Schema9BoxedList extends Schema9Boxed {
+            public final Schema9List data;
+            private Schema9BoxedList(Schema9List data) {
+                this.data = data;
+            }
+        }
+        public Schema9BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema9BoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class Schema10 extends NumberJsonSchema {

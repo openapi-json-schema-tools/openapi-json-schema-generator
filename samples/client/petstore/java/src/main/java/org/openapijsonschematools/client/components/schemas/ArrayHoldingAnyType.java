@@ -174,5 +174,15 @@ public class ArrayHoldingAnyType {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayHoldingAnyType1Boxed permits ArrayHoldingAnyType1BoxedList {}
+        public static final class ArrayHoldingAnyType1BoxedList extends ArrayHoldingAnyType1Boxed {
+            public final ArrayHoldingAnyTypeList data;
+            private ArrayHoldingAnyType1BoxedList(ArrayHoldingAnyTypeList data) {
+                this.data = data;
+            }
+        }
+        public ArrayHoldingAnyType1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayHoldingAnyType1BoxedList(validate(arg, configuration));
+        }
     }
 }

@@ -563,6 +563,16 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayWithUniqueItemsBoxed permits ArrayWithUniqueItemsBoxedList {}
+        public static final class ArrayWithUniqueItemsBoxedList extends ArrayWithUniqueItemsBoxed {
+            public final ArrayWithUniqueItemsList data;
+            private ArrayWithUniqueItemsBoxedList(ArrayWithUniqueItemsList data) {
+                this.data = data;
+            }
+        }
+        public ArrayWithUniqueItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayWithUniqueItemsBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class StringSchema extends JsonSchema implements StringSchemaValidator {

@@ -174,5 +174,15 @@ public class ComposedArray {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ComposedArray1Boxed permits ComposedArray1BoxedList {}
+        public static final class ComposedArray1BoxedList extends ComposedArray1Boxed {
+            public final ComposedArrayList data;
+            private ComposedArray1BoxedList(ComposedArrayList data) {
+                this.data = data;
+            }
+        }
+        public ComposedArray1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedArray1BoxedList(validate(arg, configuration));
+        }
     }
 }

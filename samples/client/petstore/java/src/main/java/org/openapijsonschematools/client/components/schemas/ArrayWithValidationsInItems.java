@@ -217,5 +217,15 @@ public class ArrayWithValidationsInItems {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayWithValidationsInItems1Boxed permits ArrayWithValidationsInItems1BoxedList {}
+        public static final class ArrayWithValidationsInItems1BoxedList extends ArrayWithValidationsInItems1Boxed {
+            public final ArrayWithValidationsInItemsList data;
+            private ArrayWithValidationsInItems1BoxedList(ArrayWithValidationsInItemsList data) {
+                this.data = data;
+            }
+        }
+        public ArrayWithValidationsInItems1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayWithValidationsInItems1BoxedList(validate(arg, configuration));
+        }
     }
 }

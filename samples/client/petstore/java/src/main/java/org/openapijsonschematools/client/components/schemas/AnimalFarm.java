@@ -126,5 +126,15 @@ public class AnimalFarm {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class AnimalFarm1Boxed permits AnimalFarm1BoxedList {}
+        public static final class AnimalFarm1BoxedList extends AnimalFarm1Boxed {
+            public final AnimalFarmList data;
+            private AnimalFarm1BoxedList(AnimalFarmList data) {
+                this.data = data;
+            }
+        }
+        public AnimalFarm1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnimalFarm1BoxedList(validate(arg, configuration));
+        }
     }
 }
