@@ -91,6 +91,5 @@ public class ComposedNone {
         public ComposedNone1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ComposedNone1BoxedVoid(validate(arg, configuration));
         }
-    
     }
 }

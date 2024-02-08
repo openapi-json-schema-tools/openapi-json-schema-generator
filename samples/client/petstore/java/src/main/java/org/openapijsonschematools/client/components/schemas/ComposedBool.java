@@ -83,5 +83,15 @@ public class ComposedBool {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ComposedBool1Boxed permits ComposedBool1BoxedBoolean {}
+        public static final class ComposedBool1BoxedBoolean extends ComposedBool1Boxed {
+            public final boolean data;
+            private ComposedBool1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public ComposedBool1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedBool1BoxedBoolean(validate(arg, configuration));
+        }
     }
 }

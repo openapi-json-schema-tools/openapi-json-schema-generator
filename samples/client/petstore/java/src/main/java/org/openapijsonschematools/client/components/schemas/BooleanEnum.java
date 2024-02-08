@@ -91,5 +91,15 @@ public class BooleanEnum {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class BooleanEnum1Boxed permits BooleanEnum1BoxedBoolean {}
+        public static final class BooleanEnum1BoxedBoolean extends BooleanEnum1Boxed {
+            public final boolean data;
+            private BooleanEnum1BoxedBoolean(boolean data) {
+                this.data = data;
+            }
+        }
+        public BooleanEnum1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BooleanEnum1BoxedBoolean(validate(arg, configuration));
+        }
     }
 }
