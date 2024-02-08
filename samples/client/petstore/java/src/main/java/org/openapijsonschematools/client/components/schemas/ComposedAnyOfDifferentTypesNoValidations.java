@@ -148,7 +148,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Items extends AnyTypeJsonSchema {
+    public static class Items extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {

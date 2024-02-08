@@ -308,14 +308,14 @@ A class that stores String enum values
 
 ## Value
 public static class Value<br>
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
 ## Description
 The value to add, replace or test.
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -334,11 +334,11 @@ A JSON Pointer path.
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends NotAnyTypeJsonSchema
+extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

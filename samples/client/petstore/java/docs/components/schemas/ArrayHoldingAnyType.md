@@ -95,14 +95,14 @@ A class to store validated List payloads
 
 ## Items
 public static class Items<br>
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
 ## Description
 any type can be stored here
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

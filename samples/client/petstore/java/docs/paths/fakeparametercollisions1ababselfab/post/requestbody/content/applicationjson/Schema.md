@@ -11,10 +11,10 @@ A class that contains necessary nested
 
 ## Schema1
 public static class Schema1<br>
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |

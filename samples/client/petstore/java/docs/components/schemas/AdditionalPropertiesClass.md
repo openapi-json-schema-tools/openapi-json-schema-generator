@@ -334,11 +334,11 @@ A class to store validated Map payloads
 
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
-extends NotAnyTypeJsonSchema
+extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -422,11 +422,11 @@ A class to store validated Map payloads
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -452,11 +452,11 @@ A schema class that validates payloads
 
 ## Anytype1
 public static class Anytype1<br>
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

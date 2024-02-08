@@ -2,9 +2,9 @@
 
 {{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
     {{#if isBooleanSchemaTrue}}
-public static class {{../jsonPathPiece.pascalCase}} extends AnyTypeJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
     {{else}}
-public static class {{jsonPathPiece.pascalCase}} extends NotAnyTypeJsonSchema {
+public static class {{jsonPathPiece.pascalCase}} extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
     // NotAnyTypeSchema
     {{/if}}
 {{else}}
@@ -24,7 +24,7 @@ public class {{../jsonPathPiece.pascalCase}} extends {{jsonPathPiece.pascalCase}
         {{/if}}
     {{else}}
         {{#eq types null}}
-public static class {{../jsonPathPiece.pascalCase}} extends AnyTypeJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}

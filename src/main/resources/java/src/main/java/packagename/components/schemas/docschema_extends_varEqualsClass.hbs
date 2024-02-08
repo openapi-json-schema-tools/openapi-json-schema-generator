@@ -1,8 +1,8 @@
 {{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
     {{#if isBooleanSchemaTrue}}
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
     {{else}}
-extends NotAnyTypeJsonSchema
+extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
     {{/if}}
 {{else}}
     {{#if refInfo.refClass}}
@@ -13,7 +13,7 @@ extends [{{refInfo.refClass}}](#{{refInfo.ref.jsonPathPiece.kebabCase}})
         {{/if}}
     {{else}}
         {{#eq types null}}
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}

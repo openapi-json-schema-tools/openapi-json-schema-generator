@@ -284,11 +284,11 @@ A class that stores String enum values
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>
-extends NotAnyTypeJsonSchema
+extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

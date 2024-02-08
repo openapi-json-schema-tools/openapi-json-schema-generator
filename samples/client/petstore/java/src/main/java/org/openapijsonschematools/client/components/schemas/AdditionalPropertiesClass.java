@@ -454,7 +454,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class Anytype1 extends AnyTypeJsonSchema {
+    public static class Anytype1 extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Anytype1 instance = null;
         public static Anytype1 getInstance() {
             if (instance == null) {
@@ -487,7 +487,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalProperties3 extends AnyTypeJsonSchema {
+    public static class AdditionalProperties3 extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable AdditionalProperties3 instance = null;
         public static AdditionalProperties3 getInstance() {
             if (instance == null) {
@@ -684,7 +684,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalProperties4 extends NotAnyTypeJsonSchema {
+    public static class AdditionalProperties4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
         private static @Nullable AdditionalProperties4 instance = null;
         public static AdditionalProperties4 getInstance() {

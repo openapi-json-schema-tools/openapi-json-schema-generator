@@ -33,7 +33,7 @@ public class Zebra {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends AnyTypeJsonSchema {
+    public static class AdditionalProperties extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {

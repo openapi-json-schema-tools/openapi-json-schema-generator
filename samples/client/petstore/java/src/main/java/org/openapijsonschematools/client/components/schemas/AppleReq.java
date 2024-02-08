@@ -31,7 +31,7 @@ public class AppleReq {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {

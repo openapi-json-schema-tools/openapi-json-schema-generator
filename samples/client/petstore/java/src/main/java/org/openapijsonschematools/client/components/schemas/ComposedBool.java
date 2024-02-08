@@ -20,7 +20,7 @@ public class ComposedBool {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends AnyTypeJsonSchema {
+    public static class Schema0 extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Schema0 instance = null;
         public static Schema0 getInstance() {
             if (instance == null) {

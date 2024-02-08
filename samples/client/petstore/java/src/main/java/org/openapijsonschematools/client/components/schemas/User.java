@@ -249,7 +249,7 @@ public class User {
         }
     }    
     
-    public static class AnyTypeProp extends AnyTypeJsonSchema {
+    public static class AnyTypeProp extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable AnyTypeProp instance = null;
         public static AnyTypeProp getInstance() {
             if (instance == null) {
@@ -529,7 +529,7 @@ public class User {
         }
     }    
     
-    public static class AnyTypePropNullable extends AnyTypeJsonSchema {
+    public static class AnyTypePropNullable extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable AnyTypePropNullable instance = null;
         public static AnyTypePropNullable getInstance() {
             if (instance == null) {
