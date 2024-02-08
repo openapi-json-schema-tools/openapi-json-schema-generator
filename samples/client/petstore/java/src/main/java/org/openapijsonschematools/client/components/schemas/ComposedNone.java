@@ -81,5 +81,16 @@ public class ComposedNone {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ComposedNone1Boxed permits ComposedNone1BoxedVoid {}
+        public static final class ComposedNone1BoxedVoid extends ComposedNone1Boxed {
+            public final Void data;
+            private ComposedNone1BoxedVoid(Void data) {
+                this.data = data;
+            }
+        }
+        public ComposedNone1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedNone1BoxedVoid(validate(arg, configuration));
+        }
+    
     }
 }
