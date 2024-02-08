@@ -107,6 +107,17 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class ItemsBoxed permits ItemsBoxedString {}
+        public static final class ItemsBoxedString extends ItemsBoxed {
+            public final String data;
+            private ItemsString(String data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class EnumFormStringArrayList extends FrozenList<String> {
@@ -285,6 +296,17 @@ public class Schema {
                 return (String) defaultValue;
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
+        }
+    
+        public static abstract sealed class EnumFormStringBoxed permits EnumFormStringBoxedString {}
+        public static final class EnumFormStringBoxedString extends EnumFormStringBoxed {
+            public final String data;
+            private EnumFormStringString(String data) {
+                this.data = data;
+            }
+        }
+        public EnumFormStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumFormStringBoxedString(validate(arg, configuration));
         }
     }    
     

@@ -103,5 +103,16 @@ public class StringEnumWithDefaultValue {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class StringEnumWithDefaultValue1Boxed permits StringEnumWithDefaultValue1BoxedString {}
+        public static final class StringEnumWithDefaultValue1BoxedString extends StringEnumWithDefaultValue1Boxed {
+            public final String data;
+            private StringEnumWithDefaultValue1String(String data) {
+                this.data = data;
+            }
+        }
+        public StringEnumWithDefaultValue1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StringEnumWithDefaultValue1BoxedString(validate(arg, configuration));
+        }
     }
 }

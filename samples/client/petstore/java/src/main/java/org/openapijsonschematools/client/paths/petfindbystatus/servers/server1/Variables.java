@@ -118,6 +118,17 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class VersionBoxed permits VersionBoxedString {}
+        public static final class VersionBoxedString extends VersionBoxed {
+            public final String data;
+            private VersionString(String data) {
+                this.data = data;
+            }
+        }
+        public VersionBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new VersionBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class VariablesMap extends FrozenMap<String> {

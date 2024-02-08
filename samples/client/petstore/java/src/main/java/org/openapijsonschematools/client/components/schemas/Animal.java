@@ -92,6 +92,17 @@ public class Animal {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class ColorBoxed permits ColorBoxedString {}
+        public static final class ColorBoxedString extends ColorBoxed {
+            public final String data;
+            private ColorString(String data) {
+                this.data = data;
+            }
+        }
+        public ColorBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ColorBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class AnimalMap extends FrozenMap<@Nullable Object> {

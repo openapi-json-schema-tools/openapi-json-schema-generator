@@ -99,6 +99,17 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class Items0Boxed permits Items0BoxedString {}
+        public static final class Items0BoxedString extends Items0Boxed {
+            public final String data;
+            private Items0String(String data) {
+                this.data = data;
+            }
+        }
+        public Items0BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Items0BoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class SchemaList0 extends FrozenList<String> {

@@ -528,6 +528,17 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class DateTimeBoxed permits DateTimeBoxedString {}
+        public static final class DateTimeBoxedString extends DateTimeBoxed {
+            public final String data;
+            private DateTimeString(String data) {
+                this.data = data;
+            }
+        }
+        public DateTimeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DateTimeBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class Password extends JsonSchema implements StringSchemaValidator {

@@ -107,5 +107,16 @@ public class EnumClass {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class EnumClass1Boxed permits EnumClass1BoxedString {}
+        public static final class EnumClass1BoxedString extends EnumClass1Boxed {
+            public final String data;
+            private EnumClass1String(String data) {
+                this.data = data;
+            }
+        }
+        public EnumClass1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumClass1BoxedString(validate(arg, configuration));
+        }
     }
 }

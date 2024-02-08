@@ -97,5 +97,16 @@ public class Schema1 {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class Schema11Boxed permits Schema11BoxedString {}
+        public static final class Schema11BoxedString extends Schema11Boxed {
+            public final String data;
+            private Schema11String(String data) {
+                this.data = data;
+            }
+        }
+        public Schema11BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema11BoxedString(validate(arg, configuration));
+        }
     }
 }

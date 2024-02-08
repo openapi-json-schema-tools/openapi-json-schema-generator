@@ -76,5 +76,16 @@ public class Bar {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class Bar1Boxed permits Bar1BoxedString {}
+        public static final class Bar1BoxedString extends Bar1Boxed {
+            public final String data;
+            private Bar1String(String data) {
+                this.data = data;
+            }
+        }
+        public Bar1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Bar1BoxedString(validate(arg, configuration));
+        }
     }
 }

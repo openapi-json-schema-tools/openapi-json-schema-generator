@@ -120,6 +120,17 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class ServerBoxed permits ServerBoxedString {}
+        public static final class ServerBoxedString extends ServerBoxed {
+            public final String data;
+            private ServerString(String data) {
+                this.data = data;
+            }
+        }
+        public ServerBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ServerBoxedString(validate(arg, configuration));
+        }
     }    
     public enum StringPortEnums implements StringValueMethod {
         POSITIVE_80("80"),
@@ -193,6 +204,17 @@ public class Variables {
                 return (String) defaultValue;
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
+        }
+    
+        public static abstract sealed class PortBoxed permits PortBoxedString {}
+        public static final class PortBoxedString extends PortBoxed {
+            public final String data;
+            private PortString(String data) {
+                this.data = data;
+            }
+        }
+        public PortBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PortBoxedString(validate(arg, configuration));
         }
     }    
     

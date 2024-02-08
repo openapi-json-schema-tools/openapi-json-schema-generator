@@ -260,7 +260,7 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
             this.data = data;
         }
     }
-    public AnyTypeBoxed validateToBoxed(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public AnyTypeBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         if (arg == null) {
             return new AnyTypeBoxedVoid(validate((Void) null, configuration));
         } else if (arg instanceof Boolean) {

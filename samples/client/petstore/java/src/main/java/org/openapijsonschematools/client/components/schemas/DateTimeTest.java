@@ -78,5 +78,16 @@ public class DateTimeTest {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class DateTimeTest1Boxed permits DateTimeTest1BoxedString {}
+        public static final class DateTimeTest1BoxedString extends DateTimeTest1Boxed {
+            public final String data;
+            private DateTimeTest1String(String data) {
+                this.data = data;
+            }
+        }
+        public DateTimeTest1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DateTimeTest1BoxedString(validate(arg, configuration));
+        }
     }
 }

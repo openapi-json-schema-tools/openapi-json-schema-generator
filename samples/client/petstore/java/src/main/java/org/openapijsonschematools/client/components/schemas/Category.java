@@ -92,6 +92,17 @@ public class Category {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+    
+        public static abstract sealed class NameBoxed permits NameBoxedString {}
+        public static final class NameBoxedString extends NameBoxed {
+            public final String data;
+            private NameString(String data) {
+                this.data = data;
+            }
+        }
+        public NameBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NameBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class CategoryMap extends FrozenMap<@Nullable Object> {
