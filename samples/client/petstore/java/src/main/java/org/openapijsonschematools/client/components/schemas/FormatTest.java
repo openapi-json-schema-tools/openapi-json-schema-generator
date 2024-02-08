@@ -906,7 +906,7 @@ public class FormatTest {
         }
     }    
     
-    public static class NoneProp extends NullJsonSchema {
+    public static class NoneProp extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable NoneProp instance = null;
         public static NoneProp getInstance() {
             if (instance == null) {

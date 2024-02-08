@@ -221,7 +221,7 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Not
 public static class Not<br>
-extends NullJsonSchema
+extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 

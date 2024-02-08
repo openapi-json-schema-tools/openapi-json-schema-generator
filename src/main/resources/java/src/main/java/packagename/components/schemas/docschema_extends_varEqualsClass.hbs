@@ -17,7 +17,7 @@ extends AnyTypeJsonSchema.AnyTypeJsonSchema1
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}
-extends NullJsonSchema
+extends NullJsonSchema.NullJsonSchema1
                 {{/eq}}
                 {{#eq this "object"}}
 extends MapJsonSchema

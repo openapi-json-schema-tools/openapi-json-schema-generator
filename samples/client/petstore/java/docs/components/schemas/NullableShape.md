@@ -40,7 +40,7 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2
 public static class Schema2<br>
-extends NullJsonSchema
+extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 

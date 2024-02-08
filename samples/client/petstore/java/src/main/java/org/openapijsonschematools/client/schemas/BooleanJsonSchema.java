@@ -26,7 +26,7 @@ public class BooleanJsonSchema {
             this.data = data;
         }
     }
-    public static class BooleanJsonSchema1 extends JsonSchema implements BooleanSchemaValidator<BooleanJsonSchema1Boxed> {
+    public static class BooleanJsonSchema1 extends JsonSchema implements BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
         private static @Nullable BooleanJsonSchema1 instance = null;
 
         protected BooleanJsonSchema1() {
@@ -72,7 +72,7 @@ public class BooleanJsonSchema {
         }
 
         @Override
-        public BooleanJsonSchema1Boxed validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public BooleanJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BooleanJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
     }

@@ -39,7 +39,7 @@ public class ComposedOneOfDifferentTypes {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema2 extends NullJsonSchema {
+    public static class Schema2 extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable Schema2 instance = null;
         public static Schema2 getInstance() {
             if (instance == null) {

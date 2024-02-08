@@ -260,7 +260,7 @@ public class User {
     }
     
     
-    public static class Not extends NullJsonSchema {
+    public static class Not extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable Not instance = null;
         public static Not getInstance() {
             if (instance == null) {

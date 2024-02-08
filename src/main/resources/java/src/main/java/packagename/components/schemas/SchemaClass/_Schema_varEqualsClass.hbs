@@ -28,7 +28,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends AnyTypeJsonSchema.An
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}
-public static class {{../jsonPathPiece.pascalCase}} extends NullJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends NullJsonSchema.NullJsonSchema1 {
                 {{/eq}}
                 {{#eq this "object"}}
 public static class {{../jsonPathPiece.pascalCase}} extends MapJsonSchema {

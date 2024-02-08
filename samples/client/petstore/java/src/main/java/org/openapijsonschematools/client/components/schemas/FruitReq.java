@@ -36,7 +36,7 @@ public class FruitReq {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends NullJsonSchema {
+    public static class Schema0 extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable Schema0 instance = null;
         public static Schema0 getInstance() {
             if (instance == null) {

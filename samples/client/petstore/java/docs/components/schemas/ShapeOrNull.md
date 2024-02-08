@@ -40,7 +40,7 @@ The value may be a shape or the &#x27;null&#x27; value. This is introduced in OA
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0
 public static class Schema0<br>
-extends NullJsonSchema
+extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 

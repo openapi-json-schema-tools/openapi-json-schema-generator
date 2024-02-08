@@ -207,7 +207,7 @@ A schema class that validates payloads
 
 ## Schema2
 public static class Schema2<br>
-extends NullJsonSchema
+extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 

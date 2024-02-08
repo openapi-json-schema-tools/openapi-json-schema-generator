@@ -137,7 +137,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema8 extends NullJsonSchema {
+    public static class Schema8 extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable Schema8 instance = null;
         public static Schema8 getInstance() {
             if (instance == null) {

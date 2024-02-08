@@ -499,7 +499,7 @@ A class to store validated Map payloads
 
 ## NoneProp
 public static class NoneProp<br>
-extends NullJsonSchema
+extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 
