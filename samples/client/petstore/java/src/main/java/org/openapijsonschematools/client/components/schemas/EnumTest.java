@@ -1034,6 +1034,16 @@ public class EnumTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class EnumTest1Boxed permits EnumTest1BoxedMap {}
+        public static final class EnumTest1BoxedMap extends EnumTest1Boxed {
+            public final EnumTestMap data;
+            private EnumTest1BoxedMap(EnumTestMap data) {
+                this.data = data;
+            }
+        }
+        public EnumTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumTest1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

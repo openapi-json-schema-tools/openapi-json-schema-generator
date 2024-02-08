@@ -182,6 +182,16 @@ public class Dog {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+        public static final class Schema1BoxedMap extends Schema1Boxed {
+            public final Schema1Map data;
+            private Schema1BoxedMap(Schema1Map data) {
+                this.data = data;
+            }
+        }
+        public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema1BoxedMap(validate(arg, configuration));
+        }
     }
     
     

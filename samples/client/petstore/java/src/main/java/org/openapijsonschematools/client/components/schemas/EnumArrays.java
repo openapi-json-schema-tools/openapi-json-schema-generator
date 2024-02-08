@@ -473,6 +473,16 @@ public class EnumArrays {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class EnumArrays1Boxed permits EnumArrays1BoxedMap {}
+        public static final class EnumArrays1BoxedMap extends EnumArrays1Boxed {
+            public final EnumArraysMap data;
+            private EnumArrays1BoxedMap(EnumArraysMap data) {
+                this.data = data;
+            }
+        }
+        public EnumArrays1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumArrays1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

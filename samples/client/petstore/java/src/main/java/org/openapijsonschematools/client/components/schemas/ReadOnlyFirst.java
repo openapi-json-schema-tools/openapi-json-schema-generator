@@ -217,6 +217,16 @@ public class ReadOnlyFirst {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ReadOnlyFirst1Boxed permits ReadOnlyFirst1BoxedMap {}
+        public static final class ReadOnlyFirst1BoxedMap extends ReadOnlyFirst1Boxed {
+            public final ReadOnlyFirstMap data;
+            private ReadOnlyFirst1BoxedMap(ReadOnlyFirstMap data) {
+                this.data = data;
+            }
+        }
+        public ReadOnlyFirst1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ReadOnlyFirst1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

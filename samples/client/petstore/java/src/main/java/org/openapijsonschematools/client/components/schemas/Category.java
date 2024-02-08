@@ -300,6 +300,16 @@ public class Category {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Category1Boxed permits Category1BoxedMap {}
+        public static final class Category1BoxedMap extends Category1Boxed {
+            public final CategoryMap data;
+            private Category1BoxedMap(CategoryMap data) {
+                this.data = data;
+            }
+        }
+        public Category1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Category1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

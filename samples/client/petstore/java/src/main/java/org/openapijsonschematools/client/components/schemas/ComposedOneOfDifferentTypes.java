@@ -127,6 +127,16 @@ public class ComposedOneOfDifferentTypes {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Schema4Boxed permits Schema4BoxedMap {}
+        public static final class Schema4BoxedMap extends Schema4Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private Schema4BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public Schema4BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema4BoxedMap(validate(arg, configuration));
+        }
     }
     
     

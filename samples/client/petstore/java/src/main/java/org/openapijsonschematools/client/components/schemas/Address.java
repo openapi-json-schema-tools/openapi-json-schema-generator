@@ -183,6 +183,16 @@ public class Address {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Address1Boxed permits Address1BoxedMap {}
+        public static final class Address1BoxedMap extends Address1Boxed {
+            public final AddressMap data;
+            private Address1BoxedMap(AddressMap data) {
+                this.data = data;
+            }
+        }
+        public Address1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Address1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

@@ -184,6 +184,16 @@ public class SelfReferencingObjectModel {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class SelfReferencingObjectModel1Boxed permits SelfReferencingObjectModel1BoxedMap {}
+        public static final class SelfReferencingObjectModel1BoxedMap extends SelfReferencingObjectModel1Boxed {
+            public final SelfReferencingObjectModelMap data;
+            private SelfReferencingObjectModel1BoxedMap(SelfReferencingObjectModelMap data) {
+                this.data = data;
+            }
+        }
+        public SelfReferencingObjectModel1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SelfReferencingObjectModel1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

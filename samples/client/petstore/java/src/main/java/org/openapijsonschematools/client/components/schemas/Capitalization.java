@@ -369,6 +369,16 @@ public class Capitalization {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Capitalization1Boxed permits Capitalization1BoxedMap {}
+        public static final class Capitalization1BoxedMap extends Capitalization1Boxed {
+            public final CapitalizationMap data;
+            private Capitalization1BoxedMap(CapitalizationMap data) {
+                this.data = data;
+            }
+        }
+        public Capitalization1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Capitalization1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

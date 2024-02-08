@@ -222,6 +222,16 @@ public class ObjectWithInvalidNamedRefedProperties {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectWithInvalidNamedRefedProperties1Boxed permits ObjectWithInvalidNamedRefedProperties1BoxedMap {}
+        public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap extends ObjectWithInvalidNamedRefedProperties1Boxed {
+            public final ObjectWithInvalidNamedRefedPropertiesMap data;
+            private ObjectWithInvalidNamedRefedProperties1BoxedMap(ObjectWithInvalidNamedRefedPropertiesMap data) {
+                this.data = data;
+            }
+        }
+        public ObjectWithInvalidNamedRefedProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithInvalidNamedRefedProperties1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

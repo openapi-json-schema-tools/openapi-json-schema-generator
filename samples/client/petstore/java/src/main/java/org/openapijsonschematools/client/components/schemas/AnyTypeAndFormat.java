@@ -2505,6 +2505,16 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class AnyTypeAndFormat1Boxed permits AnyTypeAndFormat1BoxedMap {}
+        public static final class AnyTypeAndFormat1BoxedMap extends AnyTypeAndFormat1Boxed {
+            public final AnyTypeAndFormatMap data;
+            private AnyTypeAndFormat1BoxedMap(AnyTypeAndFormatMap data) {
+                this.data = data;
+            }
+        }
+        public AnyTypeAndFormat1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeAndFormat1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

@@ -97,6 +97,16 @@ public class ObjectWithValidations {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectWithValidations1Boxed permits ObjectWithValidations1BoxedMap {}
+        public static final class ObjectWithValidations1BoxedMap extends ObjectWithValidations1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private ObjectWithValidations1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ObjectWithValidations1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithValidations1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

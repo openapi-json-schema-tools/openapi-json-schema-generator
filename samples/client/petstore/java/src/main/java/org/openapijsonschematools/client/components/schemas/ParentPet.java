@@ -99,6 +99,16 @@ public class ParentPet {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ParentPet1Boxed permits ParentPet1BoxedMap {}
+        public static final class ParentPet1BoxedMap extends ParentPet1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private ParentPet1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ParentPet1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ParentPet1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

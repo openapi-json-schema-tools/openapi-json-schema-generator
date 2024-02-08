@@ -167,6 +167,16 @@ public class StringBooleanMap {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class StringBooleanMap1Boxed permits StringBooleanMap1BoxedMap {}
+        public static final class StringBooleanMap1BoxedMap extends StringBooleanMap1Boxed {
+            public final StringBooleanMapMap data;
+            private StringBooleanMap1BoxedMap(StringBooleanMapMap data) {
+                this.data = data;
+            }
+        }
+        public StringBooleanMap1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StringBooleanMap1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

@@ -190,6 +190,16 @@ public class ObjWithRequiredPropsBase {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjWithRequiredPropsBase1Boxed permits ObjWithRequiredPropsBase1BoxedMap {}
+        public static final class ObjWithRequiredPropsBase1BoxedMap extends ObjWithRequiredPropsBase1Boxed {
+            public final ObjWithRequiredPropsBaseMap data;
+            private ObjWithRequiredPropsBase1BoxedMap(ObjWithRequiredPropsBaseMap data) {
+                this.data = data;
+            }
+        }
+        public ObjWithRequiredPropsBase1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjWithRequiredPropsBase1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

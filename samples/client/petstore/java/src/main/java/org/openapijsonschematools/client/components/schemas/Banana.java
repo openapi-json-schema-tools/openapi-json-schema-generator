@@ -208,6 +208,16 @@ public class Banana {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Banana1Boxed permits Banana1BoxedMap {}
+        public static final class Banana1BoxedMap extends Banana1Boxed {
+            public final BananaMap data;
+            private Banana1BoxedMap(BananaMap data) {
+                this.data = data;
+            }
+        }
+        public Banana1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Banana1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

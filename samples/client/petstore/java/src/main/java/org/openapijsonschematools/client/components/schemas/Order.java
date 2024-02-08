@@ -492,6 +492,16 @@ public class Order {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Order1Boxed permits Order1BoxedMap {}
+        public static final class Order1BoxedMap extends Order1Boxed {
+            public final OrderMap data;
+            private Order1BoxedMap(OrderMap data) {
+                this.data = data;
+            }
+        }
+        public Order1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Order1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

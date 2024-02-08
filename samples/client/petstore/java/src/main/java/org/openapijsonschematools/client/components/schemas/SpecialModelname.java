@@ -181,6 +181,16 @@ public class SpecialModelname {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class SpecialModelname1Boxed permits SpecialModelname1BoxedMap {}
+        public static final class SpecialModelname1BoxedMap extends SpecialModelname1Boxed {
+            public final SpecialModelnameMap data;
+            private SpecialModelname1BoxedMap(SpecialModelnameMap data) {
+                this.data = data;
+            }
+        }
+        public SpecialModelname1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new SpecialModelname1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

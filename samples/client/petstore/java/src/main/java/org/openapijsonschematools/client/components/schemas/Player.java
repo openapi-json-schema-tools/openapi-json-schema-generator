@@ -208,6 +208,16 @@ public class Player {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Player1Boxed permits Player1BoxedMap {}
+        public static final class Player1BoxedMap extends Player1Boxed {
+            public final PlayerMap data;
+            private Player1BoxedMap(PlayerMap data) {
+                this.data = data;
+            }
+        }
+        public Player1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Player1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

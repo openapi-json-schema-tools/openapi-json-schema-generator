@@ -170,6 +170,16 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class MapSchemaBoxed permits MapSchemaBoxedMap {}
+        public static final class MapSchemaBoxedMap extends MapSchemaBoxed {
+            public final MapMap data;
+            private MapSchemaBoxedMap(MapMap data) {
+                this.data = data;
+            }
+        }
+        public MapSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MapSchemaBoxedMap(validate(arg, configuration));
+        }
     }
     
     
@@ -345,6 +355,16 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class MixedPropertiesAndAdditionalPropertiesClass1Boxed permits MixedPropertiesAndAdditionalPropertiesClass1BoxedMap {}
+        public static final class MixedPropertiesAndAdditionalPropertiesClass1BoxedMap extends MixedPropertiesAndAdditionalPropertiesClass1Boxed {
+            public final MixedPropertiesAndAdditionalPropertiesClassMap data;
+            private MixedPropertiesAndAdditionalPropertiesClass1BoxedMap(MixedPropertiesAndAdditionalPropertiesClassMap data) {
+                this.data = data;
+            }
+        }
+        public MixedPropertiesAndAdditionalPropertiesClass1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MixedPropertiesAndAdditionalPropertiesClass1BoxedMap(validate(arg, configuration));
         }
     }
 

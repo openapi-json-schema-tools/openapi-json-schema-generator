@@ -256,6 +256,16 @@ public class BananaReq {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class BananaReq1Boxed permits BananaReq1BoxedMap {}
+        public static final class BananaReq1BoxedMap extends BananaReq1Boxed {
+            public final BananaReqMap data;
+            private BananaReq1BoxedMap(BananaReqMap data) {
+                this.data = data;
+            }
+        }
+        public BananaReq1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BananaReq1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

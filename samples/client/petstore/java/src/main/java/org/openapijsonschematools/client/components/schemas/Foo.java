@@ -167,6 +167,16 @@ public class Foo {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Foo1Boxed permits Foo1BoxedMap {}
+        public static final class Foo1BoxedMap extends Foo1Boxed {
+            public final FooMap data;
+            private Foo1BoxedMap(FooMap data) {
+                this.data = data;
+            }
+        }
+        public Foo1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Foo1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

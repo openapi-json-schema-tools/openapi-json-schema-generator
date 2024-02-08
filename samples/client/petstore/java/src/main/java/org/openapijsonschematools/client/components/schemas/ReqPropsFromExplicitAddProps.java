@@ -241,6 +241,16 @@ public class ReqPropsFromExplicitAddProps {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ReqPropsFromExplicitAddProps1Boxed permits ReqPropsFromExplicitAddProps1BoxedMap {}
+        public static final class ReqPropsFromExplicitAddProps1BoxedMap extends ReqPropsFromExplicitAddProps1Boxed {
+            public final ReqPropsFromExplicitAddPropsMap data;
+            private ReqPropsFromExplicitAddProps1BoxedMap(ReqPropsFromExplicitAddPropsMap data) {
+                this.data = data;
+            }
+        }
+        public ReqPropsFromExplicitAddProps1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ReqPropsFromExplicitAddProps1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

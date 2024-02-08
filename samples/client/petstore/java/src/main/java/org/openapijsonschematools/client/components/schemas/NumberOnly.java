@@ -197,6 +197,16 @@ public class NumberOnly {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class NumberOnly1Boxed permits NumberOnly1BoxedMap {}
+        public static final class NumberOnly1BoxedMap extends NumberOnly1Boxed {
+            public final NumberOnlyMap data;
+            private NumberOnly1BoxedMap(NumberOnlyMap data) {
+                this.data = data;
+            }
+        }
+        public NumberOnly1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NumberOnly1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

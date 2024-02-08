@@ -179,6 +179,16 @@ public class Client {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Client1Boxed permits Client1BoxedMap {}
+        public static final class Client1BoxedMap extends Client1Boxed {
+            public final ClientMap data;
+            private Client1BoxedMap(ClientMap data) {
+                this.data = data;
+            }
+        }
+        public Client1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Client1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

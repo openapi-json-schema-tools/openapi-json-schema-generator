@@ -328,6 +328,16 @@ public class JSONPatchRequestRemove {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class JSONPatchRequestRemove1Boxed permits JSONPatchRequestRemove1BoxedMap {}
+        public static final class JSONPatchRequestRemove1BoxedMap extends JSONPatchRequestRemove1Boxed {
+            public final JSONPatchRequestRemoveMap data;
+            private JSONPatchRequestRemove1BoxedMap(JSONPatchRequestRemoveMap data) {
+                this.data = data;
+            }
+        }
+        public JSONPatchRequestRemove1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new JSONPatchRequestRemove1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

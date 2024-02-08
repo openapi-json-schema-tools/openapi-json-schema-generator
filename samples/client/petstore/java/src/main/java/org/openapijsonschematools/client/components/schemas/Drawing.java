@@ -615,6 +615,16 @@ public class Drawing {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Drawing1Boxed permits Drawing1BoxedMap {}
+        public static final class Drawing1BoxedMap extends Drawing1Boxed {
+            public final DrawingMap data;
+            private Drawing1BoxedMap(DrawingMap data) {
+                this.data = data;
+            }
+        }
+        public Drawing1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Drawing1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

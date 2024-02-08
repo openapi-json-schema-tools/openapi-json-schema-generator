@@ -236,6 +236,16 @@ public class FromSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class FromSchema1Boxed permits FromSchema1BoxedMap {}
+        public static final class FromSchema1BoxedMap extends FromSchema1Boxed {
+            public final FromSchemaMap data;
+            private FromSchema1BoxedMap(FromSchemaMap data) {
+                this.data = data;
+            }
+        }
+        public FromSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FromSchema1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

@@ -253,6 +253,16 @@ public class ObjectModelWithArgAndArgsProperties {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed permits ObjectModelWithArgAndArgsProperties1BoxedMap {}
+        public static final class ObjectModelWithArgAndArgsProperties1BoxedMap extends ObjectModelWithArgAndArgsProperties1Boxed {
+            public final ObjectModelWithArgAndArgsPropertiesMap data;
+            private ObjectModelWithArgAndArgsProperties1BoxedMap(ObjectModelWithArgAndArgsPropertiesMap data) {
+                this.data = data;
+            }
+        }
+        public ObjectModelWithArgAndArgsProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectModelWithArgAndArgsProperties1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

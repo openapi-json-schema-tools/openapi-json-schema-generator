@@ -309,6 +309,16 @@ public class ReqPropsFromUnsetAddProps {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ReqPropsFromUnsetAddProps1Boxed permits ReqPropsFromUnsetAddProps1BoxedMap {}
+        public static final class ReqPropsFromUnsetAddProps1BoxedMap extends ReqPropsFromUnsetAddProps1Boxed {
+            public final ReqPropsFromUnsetAddPropsMap data;
+            private ReqPropsFromUnsetAddProps1BoxedMap(ReqPropsFromUnsetAddPropsMap data) {
+                this.data = data;
+            }
+        }
+        public ReqPropsFromUnsetAddProps1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ReqPropsFromUnsetAddProps1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

@@ -179,6 +179,16 @@ public class ObjectWithOptionalTestProp {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectWithOptionalTestProp1Boxed permits ObjectWithOptionalTestProp1BoxedMap {}
+        public static final class ObjectWithOptionalTestProp1BoxedMap extends ObjectWithOptionalTestProp1Boxed {
+            public final ObjectWithOptionalTestPropMap data;
+            private ObjectWithOptionalTestProp1BoxedMap(ObjectWithOptionalTestPropMap data) {
+                this.data = data;
+            }
+        }
+        public ObjectWithOptionalTestProp1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithOptionalTestProp1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

@@ -233,6 +233,16 @@ public class ObjectWithDecimalProperties {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectWithDecimalProperties1Boxed permits ObjectWithDecimalProperties1BoxedMap {}
+        public static final class ObjectWithDecimalProperties1BoxedMap extends ObjectWithDecimalProperties1Boxed {
+            public final ObjectWithDecimalPropertiesMap data;
+            private ObjectWithDecimalProperties1BoxedMap(ObjectWithDecimalPropertiesMap data) {
+                this.data = data;
+            }
+        }
+        public ObjectWithDecimalProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithDecimalProperties1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

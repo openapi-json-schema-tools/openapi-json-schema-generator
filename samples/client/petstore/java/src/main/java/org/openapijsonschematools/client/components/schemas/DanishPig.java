@@ -263,6 +263,16 @@ public class DanishPig {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class DanishPig1Boxed permits DanishPig1BoxedMap {}
+        public static final class DanishPig1BoxedMap extends DanishPig1Boxed {
+            public final DanishPigMap data;
+            private DanishPig1BoxedMap(DanishPigMap data) {
+                this.data = data;
+            }
+        }
+        public DanishPig1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DanishPig1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

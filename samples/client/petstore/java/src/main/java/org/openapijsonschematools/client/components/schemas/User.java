@@ -1073,6 +1073,16 @@ public class User {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class User1Boxed permits User1BoxedMap {}
+        public static final class User1BoxedMap extends User1Boxed {
+            public final UserMap data;
+            private User1BoxedMap(UserMap data) {
+                this.data = data;
+            }
+        }
+        public User1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new User1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

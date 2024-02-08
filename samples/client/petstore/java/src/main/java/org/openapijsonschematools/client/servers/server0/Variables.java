@@ -416,6 +416,16 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {}
+        public static final class Variables1BoxedMap extends Variables1Boxed {
+            public final VariablesMap data;
+            private Variables1BoxedMap(VariablesMap data) {
+                this.data = data;
+            }
+        }
+        public Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Variables1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

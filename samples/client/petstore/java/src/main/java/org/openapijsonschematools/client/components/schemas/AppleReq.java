@@ -238,6 +238,16 @@ public class AppleReq {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class AppleReq1Boxed permits AppleReq1BoxedMap {}
+        public static final class AppleReq1BoxedMap extends AppleReq1Boxed {
+            public final AppleReqMap data;
+            private AppleReq1BoxedMap(AppleReqMap data) {
+                this.data = data;
+            }
+        }
+        public AppleReq1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AppleReq1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

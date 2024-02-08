@@ -181,6 +181,16 @@ public class PublicKey {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class PublicKey1Boxed permits PublicKey1BoxedMap {}
+        public static final class PublicKey1BoxedMap extends PublicKey1Boxed {
+            public final PublicKeyMap data;
+            private PublicKey1BoxedMap(PublicKeyMap data) {
+                this.data = data;
+            }
+        }
+        public PublicKey1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PublicKey1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

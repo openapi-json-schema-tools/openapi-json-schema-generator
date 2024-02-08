@@ -457,6 +457,16 @@ public class Zebra {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Zebra1Boxed permits Zebra1BoxedMap {}
+        public static final class Zebra1BoxedMap extends Zebra1Boxed {
+            public final ZebraMap data;
+            private Zebra1BoxedMap(ZebraMap data) {
+                this.data = data;
+            }
+        }
+        public Zebra1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Zebra1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

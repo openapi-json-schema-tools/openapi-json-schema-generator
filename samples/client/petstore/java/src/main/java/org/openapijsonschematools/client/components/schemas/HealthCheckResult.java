@@ -238,6 +238,16 @@ public class HealthCheckResult {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class HealthCheckResult1Boxed permits HealthCheckResult1BoxedMap {}
+        public static final class HealthCheckResult1BoxedMap extends HealthCheckResult1Boxed {
+            public final HealthCheckResultMap data;
+            private HealthCheckResult1BoxedMap(HealthCheckResultMap data) {
+                this.data = data;
+            }
+        }
+        public HealthCheckResult1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new HealthCheckResult1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

@@ -190,6 +190,16 @@ public class GrandparentAnimal {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class GrandparentAnimal1Boxed permits GrandparentAnimal1BoxedMap {}
+        public static final class GrandparentAnimal1BoxedMap extends GrandparentAnimal1Boxed {
+            public final GrandparentAnimalMap data;
+            private GrandparentAnimal1BoxedMap(GrandparentAnimalMap data) {
+                this.data = data;
+            }
+        }
+        public GrandparentAnimal1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new GrandparentAnimal1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

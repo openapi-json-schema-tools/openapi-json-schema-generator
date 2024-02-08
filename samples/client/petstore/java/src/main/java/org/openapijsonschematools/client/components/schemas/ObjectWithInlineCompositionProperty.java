@@ -471,6 +471,16 @@ public class ObjectWithInlineCompositionProperty {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed permits ObjectWithInlineCompositionProperty1BoxedMap {}
+        public static final class ObjectWithInlineCompositionProperty1BoxedMap extends ObjectWithInlineCompositionProperty1Boxed {
+            public final ObjectWithInlineCompositionPropertyMap data;
+            private ObjectWithInlineCompositionProperty1BoxedMap(ObjectWithInlineCompositionPropertyMap data) {
+                this.data = data;
+            }
+        }
+        public ObjectWithInlineCompositionProperty1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithInlineCompositionProperty1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

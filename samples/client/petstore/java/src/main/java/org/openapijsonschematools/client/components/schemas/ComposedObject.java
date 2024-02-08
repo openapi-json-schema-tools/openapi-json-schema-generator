@@ -111,6 +111,16 @@ public class ComposedObject {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ComposedObject1Boxed permits ComposedObject1BoxedMap {}
+        public static final class ComposedObject1BoxedMap extends ComposedObject1Boxed {
+            public final FrozenMap<@Nullable Object> data;
+            private ComposedObject1BoxedMap(FrozenMap<@Nullable Object> data) {
+                this.data = data;
+            }
+        }
+        public ComposedObject1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedObject1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

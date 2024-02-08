@@ -279,6 +279,16 @@ public class ObjectWithDifficultlyNamedProps {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectWithDifficultlyNamedProps1Boxed permits ObjectWithDifficultlyNamedProps1BoxedMap {}
+        public static final class ObjectWithDifficultlyNamedProps1BoxedMap extends ObjectWithDifficultlyNamedProps1Boxed {
+            public final ObjectWithDifficultlyNamedPropsMap data;
+            private ObjectWithDifficultlyNamedProps1BoxedMap(ObjectWithDifficultlyNamedPropsMap data) {
+                this.data = data;
+            }
+        }
+        public ObjectWithDifficultlyNamedProps1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithDifficultlyNamedProps1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

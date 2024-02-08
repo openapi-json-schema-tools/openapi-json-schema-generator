@@ -269,6 +269,16 @@ public class AdditionalPropertiesWithArrayOfEnums {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed permits AdditionalPropertiesWithArrayOfEnums1BoxedMap {}
+        public static final class AdditionalPropertiesWithArrayOfEnums1BoxedMap extends AdditionalPropertiesWithArrayOfEnums1Boxed {
+            public final AdditionalPropertiesWithArrayOfEnumsMap data;
+            private AdditionalPropertiesWithArrayOfEnums1BoxedMap(AdditionalPropertiesWithArrayOfEnumsMap data) {
+                this.data = data;
+            }
+        }
+        public AdditionalPropertiesWithArrayOfEnums1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalPropertiesWithArrayOfEnums1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

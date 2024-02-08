@@ -236,6 +236,16 @@ public class Tag {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Tag1Boxed permits Tag1BoxedMap {}
+        public static final class Tag1BoxedMap extends Tag1Boxed {
+            public final TagMap data;
+            private Tag1BoxedMap(TagMap data) {
+                this.data = data;
+            }
+        }
+        public Tag1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Tag1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

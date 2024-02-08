@@ -174,6 +174,16 @@ public class QueryParameters {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class QueryParameters1Boxed permits QueryParameters1BoxedMap {}
+        public static final class QueryParameters1BoxedMap extends QueryParameters1Boxed {
+            public final QueryParametersMap data;
+            private QueryParameters1BoxedMap(QueryParametersMap data) {
+                this.data = data;
+            }
+        }
+        public QueryParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new QueryParameters1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

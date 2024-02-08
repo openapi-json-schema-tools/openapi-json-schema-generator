@@ -262,6 +262,16 @@ public class ApiResponseSchema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ApiResponseSchema1Boxed permits ApiResponseSchema1BoxedMap {}
+        public static final class ApiResponseSchema1BoxedMap extends ApiResponseSchema1Boxed {
+            public final ApiResponseMap data;
+            private ApiResponseSchema1BoxedMap(ApiResponseMap data) {
+                this.data = data;
+            }
+        }
+        public ApiResponseSchema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ApiResponseSchema1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

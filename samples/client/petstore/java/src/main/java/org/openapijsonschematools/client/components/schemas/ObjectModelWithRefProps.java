@@ -241,6 +241,16 @@ public class ObjectModelWithRefProps {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectModelWithRefProps1Boxed permits ObjectModelWithRefProps1BoxedMap {}
+        public static final class ObjectModelWithRefProps1BoxedMap extends ObjectModelWithRefProps1Boxed {
+            public final ObjectModelWithRefPropsMap data;
+            private ObjectModelWithRefProps1BoxedMap(ObjectModelWithRefPropsMap data) {
+                this.data = data;
+            }
+        }
+        public ObjectModelWithRefProps1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectModelWithRefProps1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

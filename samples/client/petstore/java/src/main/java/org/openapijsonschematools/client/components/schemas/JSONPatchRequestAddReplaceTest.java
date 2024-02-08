@@ -475,6 +475,16 @@ public class JSONPatchRequestAddReplaceTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class JSONPatchRequestAddReplaceTest1Boxed permits JSONPatchRequestAddReplaceTest1BoxedMap {}
+        public static final class JSONPatchRequestAddReplaceTest1BoxedMap extends JSONPatchRequestAddReplaceTest1Boxed {
+            public final JSONPatchRequestAddReplaceTestMap data;
+            private JSONPatchRequestAddReplaceTest1BoxedMap(JSONPatchRequestAddReplaceTestMap data) {
+                this.data = data;
+            }
+        }
+        public JSONPatchRequestAddReplaceTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new JSONPatchRequestAddReplaceTest1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

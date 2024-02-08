@@ -412,6 +412,16 @@ public class ArrayOfArrayOfNumberOnly {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayOfArrayOfNumberOnly1Boxed permits ArrayOfArrayOfNumberOnly1BoxedMap {}
+        public static final class ArrayOfArrayOfNumberOnly1BoxedMap extends ArrayOfArrayOfNumberOnly1Boxed {
+            public final ArrayOfArrayOfNumberOnlyMap data;
+            private ArrayOfArrayOfNumberOnly1BoxedMap(ArrayOfArrayOfNumberOnlyMap data) {
+                this.data = data;
+            }
+        }
+        public ArrayOfArrayOfNumberOnly1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayOfArrayOfNumberOnly1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

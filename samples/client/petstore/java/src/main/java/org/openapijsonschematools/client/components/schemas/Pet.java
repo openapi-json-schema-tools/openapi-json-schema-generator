@@ -701,6 +701,16 @@ public class Pet {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Pet1Boxed permits Pet1BoxedMap {}
+        public static final class Pet1BoxedMap extends Pet1Boxed {
+            public final PetMap data;
+            private Pet1BoxedMap(PetMap data) {
+                this.data = data;
+            }
+        }
+        public Pet1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Pet1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

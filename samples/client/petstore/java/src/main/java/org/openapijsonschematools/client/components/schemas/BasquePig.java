@@ -263,6 +263,16 @@ public class BasquePig {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class BasquePig1Boxed permits BasquePig1BoxedMap {}
+        public static final class BasquePig1BoxedMap extends BasquePig1Boxed {
+            public final BasquePigMap data;
+            private BasquePig1BoxedMap(BasquePigMap data) {
+                this.data = data;
+            }
+        }
+        public BasquePig1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BasquePig1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

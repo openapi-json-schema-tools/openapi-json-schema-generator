@@ -181,6 +181,16 @@ public class File {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class File1Boxed permits File1BoxedMap {}
+        public static final class File1BoxedMap extends File1Boxed {
+            public final FileMap data;
+            private File1BoxedMap(FileMap data) {
+                this.data = data;
+            }
+        }
+        public File1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new File1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

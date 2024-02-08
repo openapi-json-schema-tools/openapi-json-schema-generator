@@ -263,6 +263,16 @@ public class NoAdditionalProperties {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class NoAdditionalProperties1Boxed permits NoAdditionalProperties1BoxedMap {}
+        public static final class NoAdditionalProperties1BoxedMap extends NoAdditionalProperties1Boxed {
+            public final NoAdditionalPropertiesMap data;
+            private NoAdditionalProperties1BoxedMap(NoAdditionalPropertiesMap data) {
+                this.data = data;
+            }
+        }
+        public NoAdditionalProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NoAdditionalProperties1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

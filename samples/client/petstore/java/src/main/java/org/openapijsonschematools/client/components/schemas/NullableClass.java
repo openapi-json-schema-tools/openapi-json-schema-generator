@@ -1644,6 +1644,16 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ObjectItemsNullableBoxed permits ObjectItemsNullableBoxedMap {}
+        public static final class ObjectItemsNullableBoxedMap extends ObjectItemsNullableBoxed {
+            public final ObjectItemsNullableMap data;
+            private ObjectItemsNullableBoxedMap(ObjectItemsNullableMap data) {
+                this.data = data;
+            }
+        }
+        public ObjectItemsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectItemsNullableBoxedMap(validate(arg, configuration));
+        }
     }
     
     
@@ -2205,6 +2215,16 @@ public class NullableClass {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class NullableClass1Boxed permits NullableClass1BoxedMap {}
+        public static final class NullableClass1BoxedMap extends NullableClass1Boxed {
+            public final NullableClassMap data;
+            private NullableClass1BoxedMap(NullableClassMap data) {
+                this.data = data;
+            }
+        }
+        public NullableClass1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NullableClass1BoxedMap(validate(arg, configuration));
         }
     }
 

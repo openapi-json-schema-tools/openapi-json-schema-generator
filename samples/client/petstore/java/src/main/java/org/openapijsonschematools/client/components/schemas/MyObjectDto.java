@@ -181,6 +181,16 @@ public class MyObjectDto {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class MyObjectDto1Boxed permits MyObjectDto1BoxedMap {}
+        public static final class MyObjectDto1BoxedMap extends MyObjectDto1Boxed {
+            public final MyObjectDtoMap data;
+            private MyObjectDto1BoxedMap(MyObjectDtoMap data) {
+                this.data = data;
+            }
+        }
+        public MyObjectDto1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MyObjectDto1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

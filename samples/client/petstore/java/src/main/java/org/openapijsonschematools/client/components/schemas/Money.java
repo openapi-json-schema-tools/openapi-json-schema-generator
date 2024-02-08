@@ -250,6 +250,16 @@ public class Money {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Money1Boxed permits Money1BoxedMap {}
+        public static final class Money1BoxedMap extends Money1Boxed {
+            public final MoneyMap data;
+            private Money1BoxedMap(MoneyMap data) {
+                this.data = data;
+            }
+        }
+        public Money1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Money1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

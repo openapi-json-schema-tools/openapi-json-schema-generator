@@ -375,6 +375,16 @@ public class PaginatedResultMyObjectDto {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class PaginatedResultMyObjectDto1Boxed permits PaginatedResultMyObjectDto1BoxedMap {}
+        public static final class PaginatedResultMyObjectDto1BoxedMap extends PaginatedResultMyObjectDto1Boxed {
+            public final PaginatedResultMyObjectDtoMap data;
+            private PaginatedResultMyObjectDto1BoxedMap(PaginatedResultMyObjectDtoMap data) {
+                this.data = data;
+            }
+        }
+        public PaginatedResultMyObjectDto1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PaginatedResultMyObjectDto1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

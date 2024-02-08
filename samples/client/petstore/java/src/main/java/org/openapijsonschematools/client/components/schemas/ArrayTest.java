@@ -802,6 +802,16 @@ public class ArrayTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ArrayTest1Boxed permits ArrayTest1BoxedMap {}
+        public static final class ArrayTest1BoxedMap extends ArrayTest1Boxed {
+            public final ArrayTestMap data;
+            private ArrayTest1BoxedMap(ArrayTestMap data) {
+                this.data = data;
+            }
+        }
+        public ArrayTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayTest1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }

@@ -341,6 +341,16 @@ public class Whale {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Whale1Boxed permits Whale1BoxedMap {}
+        public static final class Whale1BoxedMap extends Whale1Boxed {
+            public final WhaleMap data;
+            private Whale1BoxedMap(WhaleMap data) {
+                this.data = data;
+            }
+        }
+        public Whale1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Whale1BoxedMap(validate(arg, configuration));
+        }
     }
 
 }
