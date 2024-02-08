@@ -5,7 +5,6 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
 import java.util.List;
-import java.util.Set;
 
 public interface ListSchemaValidator <OutType> {
     OutType getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
