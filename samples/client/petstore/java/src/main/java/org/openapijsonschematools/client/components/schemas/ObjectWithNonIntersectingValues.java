@@ -41,7 +41,7 @@ public class ObjectWithNonIntersectingValues {
     }
     
     
-    public static class A extends NumberJsonSchema {
+    public static class A extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable A instance = null;
         public static A getInstance() {
             if (instance == null) {

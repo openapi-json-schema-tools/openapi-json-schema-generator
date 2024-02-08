@@ -48,7 +48,7 @@
                                 {{#eq this "number" }}
                                     {{#and isSimpleNumber (eq ../refInfo null) }}
                                     {{#eq ../format null}}
-{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema" }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema.NumberJsonSchema1" }}
                                     {{else}}
                                         {{#eq ../format "float"}}
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="FloatJsonSchema" }}
@@ -88,7 +88,7 @@
                                         {{/and}}
                                     {{else}}
                                         {{#and isSimpleNull (eq ../refInfo null) }}
-{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema" }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NullJsonSchema.NullJsonSchema1" }}
                                         {{/and}}
                                     {{/eq}}
                                 {{/eq}}

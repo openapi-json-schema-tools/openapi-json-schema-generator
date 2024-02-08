@@ -54,7 +54,7 @@ public class ObjectWithOnlyOptionalProps {
     }
     
     
-    public static class B extends NumberJsonSchema {
+    public static class B extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable B instance = null;
         public static B getInstance() {
             if (instance == null) {

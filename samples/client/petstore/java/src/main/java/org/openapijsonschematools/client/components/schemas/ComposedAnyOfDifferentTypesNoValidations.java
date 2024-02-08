@@ -307,7 +307,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public static class Schema10 extends NumberJsonSchema {
+    public static class Schema10 extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Schema10 instance = null;
         public static Schema10 getInstance() {
             if (instance == null) {

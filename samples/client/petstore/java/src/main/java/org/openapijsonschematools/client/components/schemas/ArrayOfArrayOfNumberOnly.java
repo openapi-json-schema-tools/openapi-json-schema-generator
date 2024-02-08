@@ -31,7 +31,7 @@ public class ArrayOfArrayOfNumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items1 extends NumberJsonSchema {
+    public static class Items1 extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Items1 instance = null;
         public static Items1 getInstance() {
             if (instance == null) {

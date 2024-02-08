@@ -262,11 +262,11 @@ A class to store validated List payloads
 
 ## Items1
 public static class Items1<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

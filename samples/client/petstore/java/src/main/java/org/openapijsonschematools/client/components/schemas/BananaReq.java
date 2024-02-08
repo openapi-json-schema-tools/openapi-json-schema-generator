@@ -43,7 +43,7 @@ public class BananaReq {
     }
     
     
-    public static class LengthCm extends NumberJsonSchema {
+    public static class LengthCm extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable LengthCm instance = null;
         public static LengthCm getInstance() {
             if (instance == null) {

@@ -29,7 +29,7 @@ public class Banana {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class LengthCm extends NumberJsonSchema {
+    public static class LengthCm extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable LengthCm instance = null;
         public static LengthCm getInstance() {
             if (instance == null) {

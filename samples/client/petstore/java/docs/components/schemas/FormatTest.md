@@ -503,7 +503,7 @@ extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NullJsonSchema.NullJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -801,11 +801,11 @@ A class to store validated List payloads
 
 ## Items
 public static class Items<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

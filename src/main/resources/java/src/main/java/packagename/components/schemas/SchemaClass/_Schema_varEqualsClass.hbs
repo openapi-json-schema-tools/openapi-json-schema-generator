@@ -83,7 +83,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends IntJsonSchema {
                 {{/eq}}
                 {{#eq this "number"}}
                     {{#eq ../format null}}
-public static class {{../jsonPathPiece.pascalCase}} extends NumberJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends NumberJsonSchema.NumberJsonSchema1 {
                     {{else}}
                         {{#eq ../format "float"}}
 public static class {{../jsonPathPiece.pascalCase}} extends FloatJsonSchema {

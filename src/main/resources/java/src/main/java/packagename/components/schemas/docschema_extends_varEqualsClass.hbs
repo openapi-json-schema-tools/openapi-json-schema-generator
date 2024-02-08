@@ -71,7 +71,7 @@ extends IntJsonSchema
                 {{/eq}}
                 {{#eq this "number"}}
                     {{#eq ../format null}}
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
                     {{else}}
                         {{#eq ../format "float"}}
 extends FloatJsonSchema

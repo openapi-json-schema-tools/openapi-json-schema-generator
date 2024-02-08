@@ -29,7 +29,7 @@ public class NumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class JustNumber extends NumberJsonSchema {
+    public static class JustNumber extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable JustNumber instance = null;
         public static JustNumber getInstance() {
             if (instance == null) {
