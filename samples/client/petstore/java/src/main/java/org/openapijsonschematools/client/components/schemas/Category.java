@@ -92,11 +92,10 @@ public class Category {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class NameBoxed permits NameBoxedString {}
         public static final class NameBoxedString extends NameBoxed {
             public final String data;
-            private NameString(String data) {
+            private NameBoxedString(String data) {
                 this.data = data;
             }
         }

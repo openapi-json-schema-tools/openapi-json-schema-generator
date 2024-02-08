@@ -120,11 +120,10 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class ServerBoxed permits ServerBoxedString {}
         public static final class ServerBoxedString extends ServerBoxed {
             public final String data;
-            private ServerString(String data) {
+            private ServerBoxedString(String data) {
                 this.data = data;
             }
         }
@@ -205,11 +204,10 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class PortBoxed permits PortBoxedString {}
         public static final class PortBoxedString extends PortBoxed {
             public final String data;
-            private PortString(String data) {
+            private PortBoxedString(String data) {
                 this.data = data;
             }
         }

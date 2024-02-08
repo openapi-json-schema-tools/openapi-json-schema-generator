@@ -92,11 +92,10 @@ public class Animal {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class ColorBoxed permits ColorBoxedString {}
         public static final class ColorBoxedString extends ColorBoxed {
             public final String data;
-            private ColorString(String data) {
+            private ColorBoxedString(String data) {
                 this.data = data;
             }
         }

@@ -97,11 +97,10 @@ public class Schema3 {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class Schema31Boxed permits Schema31BoxedString {}
         public static final class Schema31BoxedString extends Schema31Boxed {
             public final String data;
-            private Schema31String(String data) {
+            private Schema31BoxedString(String data) {
                 this.data = data;
             }
         }

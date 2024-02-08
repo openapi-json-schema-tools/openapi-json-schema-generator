@@ -325,6 +325,16 @@ public class ComposedOneOfDifferentTypes {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Schema6Boxed permits Schema6BoxedString {}
+        public static final class Schema6BoxedString extends Schema6Boxed {
+            public final String data;
+            private Schema6BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Schema6BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema6BoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class ComposedOneOfDifferentTypes1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {

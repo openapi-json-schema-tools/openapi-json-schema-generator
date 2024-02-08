@@ -118,6 +118,16 @@ public class Whale {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {}
+        public static final class ClassNameBoxedString extends ClassNameBoxed {
+            public final String data;
+            private ClassNameBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ClassNameBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ClassNameBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class WhaleMap extends FrozenMap<@Nullable Object> {

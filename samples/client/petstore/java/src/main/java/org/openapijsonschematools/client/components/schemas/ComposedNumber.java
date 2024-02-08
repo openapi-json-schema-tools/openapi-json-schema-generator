@@ -102,5 +102,15 @@ public class ComposedNumber {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ComposedNumber1Boxed permits ComposedNumber1BoxedNumber {}
+        public static final class ComposedNumber1BoxedNumber extends ComposedNumber1Boxed {
+            public final Number data;
+            private ComposedNumber1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public ComposedNumber1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedNumber1BoxedNumber(validate(arg, configuration));
+        }
     }
 }

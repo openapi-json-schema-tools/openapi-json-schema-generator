@@ -99,6 +99,16 @@ public class EnumArrays {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class JustSymbolBoxed permits JustSymbolBoxedString {}
+        public static final class JustSymbolBoxedString extends JustSymbolBoxed {
+            public final String data;
+            private JustSymbolBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public JustSymbolBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new JustSymbolBoxedString(validate(arg, configuration));
+        }
     }    
     public enum StringItemsEnums implements StringValueMethod {
         FISH("fish"),
@@ -165,6 +175,16 @@ public class EnumArrays {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class ItemsBoxed permits ItemsBoxedString {}
+        public static final class ItemsBoxedString extends ItemsBoxed {
+            public final String data;
+            private ItemsBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedString(validate(arg, configuration));
         }
     }    
     

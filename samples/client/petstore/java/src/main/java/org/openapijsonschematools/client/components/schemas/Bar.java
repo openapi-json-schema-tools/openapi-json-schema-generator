@@ -76,11 +76,10 @@ public class Bar {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class Bar1Boxed permits Bar1BoxedString {}
         public static final class Bar1BoxedString extends Bar1Boxed {
             public final String data;
-            private Bar1String(String data) {
+            private Bar1BoxedString(String data) {
                 this.data = data;
             }
         }

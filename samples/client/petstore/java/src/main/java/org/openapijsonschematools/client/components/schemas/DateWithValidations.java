@@ -74,5 +74,15 @@ public class DateWithValidations {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class DateWithValidations1Boxed permits DateWithValidations1BoxedString {}
+        public static final class DateWithValidations1BoxedString extends DateWithValidations1Boxed {
+            public final String data;
+            private DateWithValidations1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public DateWithValidations1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DateWithValidations1BoxedString(validate(arg, configuration));
+        }
     }
 }

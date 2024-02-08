@@ -103,11 +103,10 @@ public class StringEnumWithDefaultValue {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class StringEnumWithDefaultValue1Boxed permits StringEnumWithDefaultValue1BoxedString {}
         public static final class StringEnumWithDefaultValue1BoxedString extends StringEnumWithDefaultValue1Boxed {
             public final String data;
-            private StringEnumWithDefaultValue1String(String data) {
+            private StringEnumWithDefaultValue1BoxedString(String data) {
                 this.data = data;
             }
         }

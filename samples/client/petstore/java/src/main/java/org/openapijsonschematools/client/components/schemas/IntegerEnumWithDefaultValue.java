@@ -181,5 +181,15 @@ public class IntegerEnumWithDefaultValue {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class IntegerEnumWithDefaultValue1Boxed permits IntegerEnumWithDefaultValue1BoxedNumber {}
+        public static final class IntegerEnumWithDefaultValue1BoxedNumber extends IntegerEnumWithDefaultValue1Boxed {
+            public final Number data;
+            private IntegerEnumWithDefaultValue1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public IntegerEnumWithDefaultValue1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IntegerEnumWithDefaultValue1BoxedNumber(validate(arg, configuration));
+        }
     }
 }

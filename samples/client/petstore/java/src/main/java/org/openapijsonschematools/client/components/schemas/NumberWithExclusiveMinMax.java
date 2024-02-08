@@ -89,5 +89,15 @@ public class NumberWithExclusiveMinMax {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class NumberWithExclusiveMinMax1Boxed permits NumberWithExclusiveMinMax1BoxedNumber {}
+        public static final class NumberWithExclusiveMinMax1BoxedNumber extends NumberWithExclusiveMinMax1Boxed {
+            public final Number data;
+            private NumberWithExclusiveMinMax1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public NumberWithExclusiveMinMax1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NumberWithExclusiveMinMax1BoxedNumber(validate(arg, configuration));
+        }
     }
 }

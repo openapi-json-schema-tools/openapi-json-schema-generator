@@ -179,5 +179,15 @@ public class IntegerEnum {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class IntegerEnum1Boxed permits IntegerEnum1BoxedNumber {}
+        public static final class IntegerEnum1BoxedNumber extends IntegerEnum1Boxed {
+            public final Number data;
+            private IntegerEnum1BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public IntegerEnum1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IntegerEnum1BoxedNumber(validate(arg, configuration));
+        }
     }
 }

@@ -87,6 +87,16 @@ public class ArrayWithValidationsInItems {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ItemsBoxed permits ItemsBoxedNumber {}
+        public static final class ItemsBoxedNumber extends ItemsBoxed {
+            public final Number data;
+            private ItemsBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public ItemsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedNumber(validate(arg, configuration));
+        }
     }    
     
     public static class ArrayWithValidationsInItemsList extends FrozenList<Number> {

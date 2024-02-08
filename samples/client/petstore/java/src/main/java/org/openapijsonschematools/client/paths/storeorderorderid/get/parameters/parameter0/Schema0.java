@@ -84,5 +84,15 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Schema01Boxed permits Schema01BoxedNumber {}
+        public static final class Schema01BoxedNumber extends Schema01Boxed {
+            public final Number data;
+            private Schema01BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Schema01BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedNumber(validate(arg, configuration));
+        }
     }
 }

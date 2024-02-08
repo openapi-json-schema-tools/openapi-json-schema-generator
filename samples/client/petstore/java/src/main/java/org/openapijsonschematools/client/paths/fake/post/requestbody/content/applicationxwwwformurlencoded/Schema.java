@@ -101,6 +101,16 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class IntegerSchemaBoxed permits IntegerSchemaBoxedNumber {}
+        public static final class IntegerSchemaBoxedNumber extends IntegerSchemaBoxed {
+            public final Number data;
+            private IntegerSchemaBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public IntegerSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IntegerSchemaBoxedNumber(validate(arg, configuration));
+        }
     }    
     
     public static class Int32 extends JsonSchema implements NumberSchemaValidator {
@@ -159,6 +169,16 @@ public class Schema {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class Int32Boxed permits Int32BoxedNumber {}
+        public static final class Int32BoxedNumber extends Int32Boxed {
+            public final Number data;
+            private Int32BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public Int32BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Int32BoxedNumber(validate(arg, configuration));
         }
     }    
     
@@ -237,6 +257,16 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class NumberSchemaBoxed permits NumberSchemaBoxedNumber {}
+        public static final class NumberSchemaBoxedNumber extends NumberSchemaBoxed {
+            public final Number data;
+            private NumberSchemaBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public NumberSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NumberSchemaBoxedNumber(validate(arg, configuration));
+        }
     }    
     
     public static class FloatSchema extends JsonSchema implements NumberSchemaValidator {
@@ -289,6 +319,16 @@ public class Schema {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class FloatSchemaBoxed permits FloatSchemaBoxedNumber {}
+        public static final class FloatSchemaBoxedNumber extends FloatSchemaBoxed {
+            public final Number data;
+            private FloatSchemaBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public FloatSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FloatSchemaBoxedNumber(validate(arg, configuration));
         }
     }    
     
@@ -344,6 +384,16 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class DoubleSchemaBoxed permits DoubleSchemaBoxedNumber {}
+        public static final class DoubleSchemaBoxedNumber extends DoubleSchemaBoxed {
+            public final Number data;
+            private DoubleSchemaBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public DoubleSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DoubleSchemaBoxedNumber(validate(arg, configuration));
+        }
     }    
     
     public static class StringSchema extends JsonSchema implements StringSchemaValidator {
@@ -393,6 +443,16 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class StringSchemaBoxed permits StringSchemaBoxedString {}
+        public static final class StringSchemaBoxedString extends StringSchemaBoxed {
+            public final String data;
+            private StringSchemaBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public StringSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StringSchemaBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class PatternWithoutDelimiter extends JsonSchema implements StringSchemaValidator {
@@ -440,6 +500,16 @@ public class Schema {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class PatternWithoutDelimiterBoxed permits PatternWithoutDelimiterBoxedString {}
+        public static final class PatternWithoutDelimiterBoxedString extends PatternWithoutDelimiterBoxed {
+            public final String data;
+            private PatternWithoutDelimiterBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public PatternWithoutDelimiterBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PatternWithoutDelimiterBoxedString(validate(arg, configuration));
         }
     }    
     
@@ -528,11 +598,10 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class DateTimeBoxed permits DateTimeBoxedString {}
         public static final class DateTimeBoxedString extends DateTimeBoxed {
             public final String data;
-            private DateTimeString(String data) {
+            private DateTimeBoxedString(String data) {
                 this.data = data;
             }
         }
@@ -586,6 +655,16 @@ public class Schema {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class PasswordBoxed permits PasswordBoxedString {}
+        public static final class PasswordBoxedString extends PasswordBoxed {
+            public final String data;
+            private PasswordBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public PasswordBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PasswordBoxedString(validate(arg, configuration));
         }
     }    
     

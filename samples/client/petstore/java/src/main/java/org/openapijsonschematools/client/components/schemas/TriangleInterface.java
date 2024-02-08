@@ -104,6 +104,16 @@ public class TriangleInterface {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ShapeTypeBoxed permits ShapeTypeBoxedString {}
+        public static final class ShapeTypeBoxedString extends ShapeTypeBoxed {
+            public final String data;
+            private ShapeTypeBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ShapeTypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ShapeTypeBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class TriangleType extends StringJsonSchema {

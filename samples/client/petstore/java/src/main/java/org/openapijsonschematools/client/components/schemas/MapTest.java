@@ -351,6 +351,16 @@ public class MapTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {}
+        public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
+            public final String data;
+            private AdditionalProperties2BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public AdditionalProperties2BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalProperties2BoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class MapOfEnumStringMap extends FrozenMap<String> {

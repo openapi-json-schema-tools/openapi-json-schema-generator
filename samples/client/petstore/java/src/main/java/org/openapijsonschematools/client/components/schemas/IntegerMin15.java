@@ -89,5 +89,15 @@ public class IntegerMin15 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class IntegerMin151Boxed permits IntegerMin151BoxedNumber {}
+        public static final class IntegerMin151BoxedNumber extends IntegerMin151Boxed {
+            public final Number data;
+            private IntegerMin151BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public IntegerMin151BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IntegerMin151BoxedNumber(validate(arg, configuration));
+        }
     }
 }

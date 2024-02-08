@@ -109,6 +109,16 @@ public class EnumTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class EnumStringBoxed permits EnumStringBoxedString {}
+        public static final class EnumStringBoxedString extends EnumStringBoxed {
+            public final String data;
+            private EnumStringBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public EnumStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumStringBoxedString(validate(arg, configuration));
+        }
     }    
     public enum StringEnumStringRequiredEnums implements StringValueMethod {
         UPPER("UPPER"),
@@ -177,6 +187,16 @@ public class EnumTest {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {}
+        public static final class EnumStringRequiredBoxedString extends EnumStringRequiredBoxed {
+            public final String data;
+            private EnumStringRequiredBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public EnumStringRequiredBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumStringRequiredBoxedString(validate(arg, configuration));
         }
     }    
     public enum IntegerEnumIntegerEnums implements IntegerValueMethod {
@@ -311,6 +331,16 @@ public class EnumTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class EnumIntegerBoxed permits EnumIntegerBoxedNumber {}
+        public static final class EnumIntegerBoxedNumber extends EnumIntegerBoxed {
+            public final Number data;
+            private EnumIntegerBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public EnumIntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumIntegerBoxedNumber(validate(arg, configuration));
+        }
     }    
     public enum DoubleEnumNumberEnums implements DoubleValueMethod {
         POSITIVE_1_PT_1(1.1d),
@@ -402,6 +432,16 @@ public class EnumTest {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class EnumNumberBoxed permits EnumNumberBoxedNumber {}
+        public static final class EnumNumberBoxedNumber extends EnumNumberBoxed {
+            public final Number data;
+            private EnumNumberBoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public EnumNumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumNumberBoxedNumber(validate(arg, configuration));
         }
     }    
     

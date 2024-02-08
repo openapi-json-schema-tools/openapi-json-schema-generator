@@ -89,5 +89,15 @@ public class IntegerMax10 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class IntegerMax101Boxed permits IntegerMax101BoxedNumber {}
+        public static final class IntegerMax101BoxedNumber extends IntegerMax101Boxed {
+            public final Number data;
+            private IntegerMax101BoxedNumber(Number data) {
+                this.data = data;
+            }
+        }
+        public IntegerMax101BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IntegerMax101BoxedNumber(validate(arg, configuration));
+        }
     }
 }

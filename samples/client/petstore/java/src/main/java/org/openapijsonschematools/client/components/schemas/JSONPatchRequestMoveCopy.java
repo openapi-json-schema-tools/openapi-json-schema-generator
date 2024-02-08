@@ -133,6 +133,16 @@ public class JSONPatchRequestMoveCopy {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class OpBoxed permits OpBoxedString {}
+        public static final class OpBoxedString extends OpBoxed {
+            public final String data;
+            private OpBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public OpBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new OpBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String> {

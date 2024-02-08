@@ -71,5 +71,15 @@ public class UUIDString {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class UUIDString1Boxed permits UUIDString1BoxedString {}
+        public static final class UUIDString1BoxedString extends UUIDString1Boxed {
+            public final String data;
+            private UUIDString1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public UUIDString1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new UUIDString1BoxedString(validate(arg, configuration));
+        }
     }
 }

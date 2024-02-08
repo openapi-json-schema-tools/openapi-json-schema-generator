@@ -93,5 +93,15 @@ public class Currency {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Currency1Boxed permits Currency1BoxedString {}
+        public static final class Currency1BoxedString extends Currency1Boxed {
+            public final String data;
+            private Currency1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Currency1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Currency1BoxedString(validate(arg, configuration));
+        }
     }
 }

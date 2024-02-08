@@ -83,5 +83,15 @@ public class ComposedString {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class ComposedString1Boxed permits ComposedString1BoxedString {}
+        public static final class ComposedString1BoxedString extends ComposedString1Boxed {
+            public final String data;
+            private ComposedString1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ComposedString1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedString1BoxedString(validate(arg, configuration));
+        }
     }
 }

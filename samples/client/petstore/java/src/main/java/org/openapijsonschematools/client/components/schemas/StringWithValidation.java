@@ -69,5 +69,15 @@ public class StringWithValidation {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class StringWithValidation1Boxed permits StringWithValidation1BoxedString {}
+        public static final class StringWithValidation1BoxedString extends StringWithValidation1Boxed {
+            public final String data;
+            private StringWithValidation1BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public StringWithValidation1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StringWithValidation1BoxedString(validate(arg, configuration));
+        }
     }
 }

@@ -147,6 +147,16 @@ public class Order {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class StatusBoxed permits StatusBoxedString {}
+        public static final class StatusBoxedString extends StatusBoxed {
+            public final String data;
+            private StatusBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public StatusBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StatusBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class Complete extends BooleanJsonSchema {

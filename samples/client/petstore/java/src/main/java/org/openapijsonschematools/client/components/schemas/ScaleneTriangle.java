@@ -103,6 +103,16 @@ public class ScaleneTriangle {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class TriangleTypeBoxed permits TriangleTypeBoxedString {}
+        public static final class TriangleTypeBoxedString extends TriangleTypeBoxed {
+            public final String data;
+            private TriangleTypeBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public TriangleTypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new TriangleTypeBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class Schema1Map extends FrozenMap<@Nullable Object> {

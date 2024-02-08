@@ -107,11 +107,10 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class ItemsBoxed permits ItemsBoxedString {}
         public static final class ItemsBoxedString extends ItemsBoxed {
             public final String data;
-            private ItemsString(String data) {
+            private ItemsBoxedString(String data) {
                 this.data = data;
             }
         }
@@ -297,11 +296,10 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class EnumFormStringBoxed permits EnumFormStringBoxedString {}
         public static final class EnumFormStringBoxedString extends EnumFormStringBoxed {
             public final String data;
-            private EnumFormStringString(String data) {
+            private EnumFormStringBoxedString(String data) {
                 this.data = data;
             }
         }

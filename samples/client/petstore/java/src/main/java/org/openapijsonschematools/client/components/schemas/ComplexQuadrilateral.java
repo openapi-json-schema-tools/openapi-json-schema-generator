@@ -103,6 +103,16 @@ public class ComplexQuadrilateral {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class QuadrilateralTypeBoxed permits QuadrilateralTypeBoxedString {}
+        public static final class QuadrilateralTypeBoxedString extends QuadrilateralTypeBoxed {
+            public final String data;
+            private QuadrilateralTypeBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public QuadrilateralTypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new QuadrilateralTypeBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class Schema1Map extends FrozenMap<@Nullable Object> {

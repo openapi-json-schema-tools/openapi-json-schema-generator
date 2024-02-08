@@ -111,6 +111,16 @@ public class Zebra {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class TypeBoxed permits TypeBoxedString {}
+        public static final class TypeBoxedString extends TypeBoxed {
+            public final String data;
+            private TypeBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public TypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new TypeBoxedString(validate(arg, configuration));
+        }
     }    
     public enum StringClassNameEnums implements StringValueMethod {
         ZEBRA("zebra");
@@ -175,6 +185,16 @@ public class Zebra {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {}
+        public static final class ClassNameBoxedString extends ClassNameBoxed {
+            public final String data;
+            private ClassNameBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public ClassNameBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ClassNameBoxedString(validate(arg, configuration));
         }
     }    
     

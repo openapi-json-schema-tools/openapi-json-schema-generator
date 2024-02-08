@@ -77,6 +77,16 @@ public class Apple {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class CultivarBoxed permits CultivarBoxedString {}
+        public static final class CultivarBoxedString extends CultivarBoxed {
+            public final String data;
+            private CultivarBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public CultivarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new CultivarBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class Origin extends JsonSchema implements StringSchemaValidator {
@@ -125,6 +135,16 @@ public class Apple {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        public static abstract sealed class OriginBoxed permits OriginBoxedString {}
+        public static final class OriginBoxedString extends OriginBoxed {
+            public final String data;
+            private OriginBoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public OriginBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new OriginBoxedString(validate(arg, configuration));
         }
     }    
     

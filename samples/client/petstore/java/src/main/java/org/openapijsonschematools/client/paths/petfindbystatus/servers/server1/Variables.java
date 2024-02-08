@@ -118,11 +118,10 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
-    
         public static abstract sealed class VersionBoxed permits VersionBoxedString {}
         public static final class VersionBoxedString extends VersionBoxed {
             public final String data;
-            private VersionString(String data) {
+            private VersionBoxedString(String data) {
                 this.data = data;
             }
         }

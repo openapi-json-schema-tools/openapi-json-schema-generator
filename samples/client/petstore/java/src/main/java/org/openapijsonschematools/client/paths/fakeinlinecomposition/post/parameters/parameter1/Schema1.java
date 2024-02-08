@@ -81,6 +81,16 @@ public class Schema1 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        public static abstract sealed class Schema01Boxed permits Schema01BoxedString {}
+        public static final class Schema01BoxedString extends Schema01Boxed {
+            public final String data;
+            private Schema01BoxedString(String data) {
+                this.data = data;
+            }
+        }
+        public Schema01BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class SomeProp1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
