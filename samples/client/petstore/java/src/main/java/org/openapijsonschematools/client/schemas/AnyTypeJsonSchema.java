@@ -221,4 +221,60 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
         }
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
     }
+
+    public static abstract sealed class AnyTypeBoxed permits AnyTypeBoxedVoid, AnyTypeBoxedBoolean, AnyTypeBoxedNumber, AnyTypeBoxedString, AnyTypeBoxedList, AnyTypeBoxedMap {
+    }
+    public static final class AnyTypeBoxedVoid extends AnyTypeBoxed {
+        public final Void data;
+        private AnyTypeBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeBoxedBoolean extends AnyTypeBoxed {
+        public final boolean data;
+        private AnyTypeBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeBoxedNumber extends AnyTypeBoxed {
+        public final Number data;
+        private AnyTypeBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeBoxedString extends AnyTypeBoxed {
+        public final String data;
+        private AnyTypeBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeBoxedList extends AnyTypeBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private AnyTypeBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public static final class AnyTypeBoxedMap extends AnyTypeBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AnyTypeBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public AnyTypeBoxed validateToBoxed(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        if (arg == null) {
+            return new AnyTypeBoxedVoid(validate((Void) null, configuration));
+        } else if (arg instanceof Boolean) {
+            boolean boolArg = (Boolean) arg;
+            return new AnyTypeBoxedBoolean(validate(boolArg, configuration));
+        } else if (arg instanceof Number) {
+            return new AnyTypeBoxedNumber(validate((Number) arg, configuration));
+        } else if (arg instanceof String) {
+            return new AnyTypeBoxedString(validate((String) arg, configuration));
+        } else if (arg instanceof List) {
+            return new AnyTypeBoxedList(validate((List<?>) arg, configuration));
+        } else if (arg instanceof Map) {
+            return new AnyTypeBoxedMap(validate((Map<?, ?>) arg, configuration));
+        }
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+    }
 }
