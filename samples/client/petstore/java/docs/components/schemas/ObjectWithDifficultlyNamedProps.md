@@ -132,11 +132,11 @@ A class to store validated Map payloads
 
 ## Schema123Number
 public static class Schema123Number<br>
-extends IntJsonSchema
+extends IntJsonSchema.IntJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema.IntJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

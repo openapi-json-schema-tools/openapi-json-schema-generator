@@ -41,7 +41,7 @@ public class FromSchema {
     }
     
     
-    public static class Id extends IntJsonSchema {
+    public static class Id extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable Id instance = null;
         public static Id getInstance() {
             if (instance == null) {

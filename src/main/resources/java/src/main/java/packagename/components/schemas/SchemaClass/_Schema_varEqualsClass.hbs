@@ -77,7 +77,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends Int64JsonSchema {
                     {{/eq}}
                     {{#neq ../format "int32"}}
                         {{#neq ../format "int64"}}
-public static class {{../jsonPathPiece.pascalCase}} extends IntJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends IntJsonSchema.IntJsonSchema1 {
                         {{/neq}}
                     {{/neq}}
                 {{/eq}}

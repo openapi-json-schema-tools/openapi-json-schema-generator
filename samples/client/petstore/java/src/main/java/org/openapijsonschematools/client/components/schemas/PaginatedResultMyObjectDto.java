@@ -44,7 +44,7 @@ public class PaginatedResultMyObjectDto {
     }
     
     
-    public static class Count extends IntJsonSchema {
+    public static class Count extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable Count instance = null;
         public static Count getInstance() {
             if (instance == null) {

@@ -340,7 +340,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema13 extends IntJsonSchema {
+    public static class Schema13 extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable Schema13 instance = null;
         public static Schema13 getInstance() {
             if (instance == null) {

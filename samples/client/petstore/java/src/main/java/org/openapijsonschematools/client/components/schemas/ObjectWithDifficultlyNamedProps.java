@@ -53,7 +53,7 @@ public class ObjectWithDifficultlyNamedProps {
     }
     
     
-    public static class Schema123Number extends IntJsonSchema {
+    public static class Schema123Number extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable Schema123Number instance = null;
         public static Schema123Number getInstance() {
             if (instance == null) {

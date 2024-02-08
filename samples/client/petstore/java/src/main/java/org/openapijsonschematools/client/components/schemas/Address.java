@@ -28,7 +28,7 @@ public class Address {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends IntJsonSchema {
+    public static class AdditionalProperties extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {
