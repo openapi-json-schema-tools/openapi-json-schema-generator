@@ -127,7 +127,7 @@ public class PathParameters {
     }
     
     
-    public static class PathParameters1 extends JsonSchema implements MapSchemaValidator<PathParametersMap> {
+    public static class PathParameters1 extends JsonSchema implements MapSchemaValidator<PathParametersMap, PathParameters1BoxedMap> {
         private static @Nullable PathParameters1 instance = null;
     
         protected PathParameters1() {
@@ -201,6 +201,7 @@ public class PathParameters {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public PathParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PathParameters1BoxedMap(validate(arg, configuration));
         }

@@ -76,7 +76,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class UuidSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class UuidSchema extends JsonSchema implements NullSchemaValidator<UuidSchemaBoxedVoid>, BooleanSchemaValidator<UuidSchemaBoxedBoolean>, NumberSchemaValidator<UuidSchemaBoxedNumber>, StringSchemaValidator<UuidSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UuidSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UuidSchemaBoxedMap> {
         private static @Nullable UuidSchema instance = null;
     
         protected UuidSchema() {
@@ -269,21 +269,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public UuidSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UuidSchemaBoxedVoid(validate(arg, configuration));
         }
+        @Override
         public UuidSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UuidSchemaBoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public UuidSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UuidSchemaBoxedNumber(validate(arg, configuration));
         }
+        @Override
         public UuidSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UuidSchemaBoxedString(validate(arg, configuration));
         }
+        @Override
         public UuidSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UuidSchemaBoxedList(validate(arg, configuration));
         }
+        @Override
         public UuidSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new UuidSchemaBoxedMap(validate(arg, configuration));
         }
@@ -328,7 +334,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Date extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class Date extends JsonSchema implements NullSchemaValidator<DateBoxedVoid>, BooleanSchemaValidator<DateBoxedBoolean>, NumberSchemaValidator<DateBoxedNumber>, StringSchemaValidator<DateBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DateBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DateBoxedMap> {
         private static @Nullable Date instance = null;
     
         protected Date() {
@@ -521,21 +527,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public DateBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateBoxedVoid(validate(arg, configuration));
         }
+        @Override
         public DateBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateBoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public DateBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateBoxedNumber(validate(arg, configuration));
         }
+        @Override
         public DateBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateBoxedString(validate(arg, configuration));
         }
+        @Override
         public DateBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateBoxedList(validate(arg, configuration));
         }
+        @Override
         public DateBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DateBoxedMap(validate(arg, configuration));
         }
@@ -580,7 +592,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Datetime extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class Datetime extends JsonSchema implements NullSchemaValidator<DatetimeBoxedVoid>, BooleanSchemaValidator<DatetimeBoxedBoolean>, NumberSchemaValidator<DatetimeBoxedNumber>, StringSchemaValidator<DatetimeBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DatetimeBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DatetimeBoxedMap> {
         private static @Nullable Datetime instance = null;
     
         protected Datetime() {
@@ -773,21 +785,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public DatetimeBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatetimeBoxedVoid(validate(arg, configuration));
         }
+        @Override
         public DatetimeBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatetimeBoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public DatetimeBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatetimeBoxedNumber(validate(arg, configuration));
         }
+        @Override
         public DatetimeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatetimeBoxedString(validate(arg, configuration));
         }
+        @Override
         public DatetimeBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatetimeBoxedList(validate(arg, configuration));
         }
+        @Override
         public DatetimeBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DatetimeBoxedMap(validate(arg, configuration));
         }
@@ -832,7 +850,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class NumberSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class NumberSchema extends JsonSchema implements NullSchemaValidator<NumberSchemaBoxedVoid>, BooleanSchemaValidator<NumberSchemaBoxedBoolean>, NumberSchemaValidator<NumberSchemaBoxedNumber>, StringSchemaValidator<NumberSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NumberSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NumberSchemaBoxedMap> {
         private static @Nullable NumberSchema instance = null;
     
         protected NumberSchema() {
@@ -1025,21 +1043,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public NumberSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NumberSchemaBoxedVoid(validate(arg, configuration));
         }
+        @Override
         public NumberSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NumberSchemaBoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public NumberSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NumberSchemaBoxedNumber(validate(arg, configuration));
         }
+        @Override
         public NumberSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NumberSchemaBoxedString(validate(arg, configuration));
         }
+        @Override
         public NumberSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NumberSchemaBoxedList(validate(arg, configuration));
         }
+        @Override
         public NumberSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new NumberSchemaBoxedMap(validate(arg, configuration));
         }
@@ -1084,7 +1108,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Binary extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class Binary extends JsonSchema implements NullSchemaValidator<BinaryBoxedVoid>, BooleanSchemaValidator<BinaryBoxedBoolean>, NumberSchemaValidator<BinaryBoxedNumber>, StringSchemaValidator<BinaryBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, BinaryBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, BinaryBoxedMap> {
         private static @Nullable Binary instance = null;
     
         protected Binary() {
@@ -1277,21 +1301,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public BinaryBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BinaryBoxedVoid(validate(arg, configuration));
         }
+        @Override
         public BinaryBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BinaryBoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public BinaryBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BinaryBoxedNumber(validate(arg, configuration));
         }
+        @Override
         public BinaryBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BinaryBoxedString(validate(arg, configuration));
         }
+        @Override
         public BinaryBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BinaryBoxedList(validate(arg, configuration));
         }
+        @Override
         public BinaryBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new BinaryBoxedMap(validate(arg, configuration));
         }
@@ -1336,7 +1366,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Int32 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class Int32 extends JsonSchema implements NullSchemaValidator<Int32BoxedVoid>, BooleanSchemaValidator<Int32BoxedBoolean>, NumberSchemaValidator<Int32BoxedNumber>, StringSchemaValidator<Int32BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Int32BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Int32BoxedMap> {
         private static @Nullable Int32 instance = null;
     
         protected Int32() {
@@ -1529,21 +1559,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Int32BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int32BoxedVoid(validate(arg, configuration));
         }
+        @Override
         public Int32BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int32BoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public Int32BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int32BoxedNumber(validate(arg, configuration));
         }
+        @Override
         public Int32BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int32BoxedString(validate(arg, configuration));
         }
+        @Override
         public Int32BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int32BoxedList(validate(arg, configuration));
         }
+        @Override
         public Int32BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int32BoxedMap(validate(arg, configuration));
         }
@@ -1588,7 +1624,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Int64 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class Int64 extends JsonSchema implements NullSchemaValidator<Int64BoxedVoid>, BooleanSchemaValidator<Int64BoxedBoolean>, NumberSchemaValidator<Int64BoxedNumber>, StringSchemaValidator<Int64BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Int64BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Int64BoxedMap> {
         private static @Nullable Int64 instance = null;
     
         protected Int64() {
@@ -1781,21 +1817,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Int64BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int64BoxedVoid(validate(arg, configuration));
         }
+        @Override
         public Int64BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int64BoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public Int64BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int64BoxedNumber(validate(arg, configuration));
         }
+        @Override
         public Int64BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int64BoxedString(validate(arg, configuration));
         }
+        @Override
         public Int64BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int64BoxedList(validate(arg, configuration));
         }
+        @Override
         public Int64BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Int64BoxedMap(validate(arg, configuration));
         }
@@ -1840,7 +1882,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class DoubleSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class DoubleSchema extends JsonSchema implements NullSchemaValidator<DoubleSchemaBoxedVoid>, BooleanSchemaValidator<DoubleSchemaBoxedBoolean>, NumberSchemaValidator<DoubleSchemaBoxedNumber>, StringSchemaValidator<DoubleSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DoubleSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DoubleSchemaBoxedMap> {
         private static @Nullable DoubleSchema instance = null;
     
         protected DoubleSchema() {
@@ -2033,21 +2075,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public DoubleSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DoubleSchemaBoxedVoid(validate(arg, configuration));
         }
+        @Override
         public DoubleSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DoubleSchemaBoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public DoubleSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DoubleSchemaBoxedNumber(validate(arg, configuration));
         }
+        @Override
         public DoubleSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DoubleSchemaBoxedString(validate(arg, configuration));
         }
+        @Override
         public DoubleSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DoubleSchemaBoxedList(validate(arg, configuration));
         }
+        @Override
         public DoubleSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new DoubleSchemaBoxedMap(validate(arg, configuration));
         }
@@ -2092,7 +2140,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class FloatSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class FloatSchema extends JsonSchema implements NullSchemaValidator<FloatSchemaBoxedVoid>, BooleanSchemaValidator<FloatSchemaBoxedBoolean>, NumberSchemaValidator<FloatSchemaBoxedNumber>, StringSchemaValidator<FloatSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FloatSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FloatSchemaBoxedMap> {
         private static @Nullable FloatSchema instance = null;
     
         protected FloatSchema() {
@@ -2285,21 +2333,27 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public FloatSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FloatSchemaBoxedVoid(validate(arg, configuration));
         }
+        @Override
         public FloatSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FloatSchemaBoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public FloatSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FloatSchemaBoxedNumber(validate(arg, configuration));
         }
+        @Override
         public FloatSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FloatSchemaBoxedString(validate(arg, configuration));
         }
+        @Override
         public FloatSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FloatSchemaBoxedList(validate(arg, configuration));
         }
+        @Override
         public FloatSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FloatSchemaBoxedMap(validate(arg, configuration));
         }
@@ -2946,7 +3000,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class AnyTypeAndFormat1 extends JsonSchema implements MapSchemaValidator<AnyTypeAndFormatMap> {
+    public static class AnyTypeAndFormat1 extends JsonSchema implements MapSchemaValidator<AnyTypeAndFormatMap, AnyTypeAndFormat1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -3027,6 +3081,7 @@ public class AnyTypeAndFormat {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public AnyTypeAndFormat1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new AnyTypeAndFormat1BoxedMap(validate(arg, configuration));
         }

@@ -115,7 +115,7 @@ public class Schema0 {
     }
     
     
-    public static class Schema01 extends JsonSchema implements MapSchemaValidator<SchemaMap0> {
+    public static class Schema01 extends JsonSchema implements MapSchemaValidator<SchemaMap0, Schema01BoxedMap> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -182,6 +182,7 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema01BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema01BoxedMap(validate(arg, configuration));
         }

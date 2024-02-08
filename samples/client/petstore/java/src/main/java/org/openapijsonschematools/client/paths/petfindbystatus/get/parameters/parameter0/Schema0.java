@@ -50,7 +50,7 @@ public class Schema0 {
     }
     
     
-    public static class Items0 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums0>, DefaultValueMethod<String> {
+    public static class Items0 extends JsonSchema implements StringSchemaValidator<Items0BoxedString>, StringEnumValidator<StringItemsEnums0>, DefaultValueMethod<String> {
         private static @Nullable Items0 instance = null;
     
         protected Items0() {
@@ -110,6 +110,7 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+        @Override
         public Items0BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Items0BoxedString(validate(arg, configuration));
         }
@@ -161,7 +162,7 @@ public class Schema0 {
     }
     
     
-    public static class Schema01 extends JsonSchema implements ListSchemaValidator<SchemaList0> {
+    public static class Schema01 extends JsonSchema implements ListSchemaValidator<SchemaList0, Schema01BoxedList> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -225,6 +226,7 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema01BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema01BoxedList(validate(arg, configuration));
         }

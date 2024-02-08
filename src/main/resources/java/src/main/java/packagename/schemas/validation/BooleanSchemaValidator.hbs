@@ -4,6 +4,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 
-public interface BooleanSchemaValidator {
+public interface BooleanSchemaValidator<T> {
     boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+    T validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

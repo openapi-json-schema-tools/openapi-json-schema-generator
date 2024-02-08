@@ -196,7 +196,7 @@ public class CookieParameters {
     }
     
     
-    public static class CookieParameters1 extends JsonSchema implements MapSchemaValidator<CookieParametersMap> {
+    public static class CookieParameters1 extends JsonSchema implements MapSchemaValidator<CookieParametersMap, CookieParameters1BoxedMap> {
         private static @Nullable CookieParameters1 instance = null;
     
         protected CookieParameters1() {
@@ -268,6 +268,7 @@ public class CookieParameters {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public CookieParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new CookieParameters1BoxedMap(validate(arg, configuration));
         }

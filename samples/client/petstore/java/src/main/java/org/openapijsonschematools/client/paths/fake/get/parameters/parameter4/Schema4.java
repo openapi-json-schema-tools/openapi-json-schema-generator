@@ -90,7 +90,7 @@ public class Schema4 {
     }
     
     
-    public static class Schema41 extends JsonSchema implements IntegerEnumValidator<IntegerSchemaEnums4>, LongEnumValidator<LongSchemaEnums4>, FloatEnumValidator<FloatSchemaEnums4>, DoubleEnumValidator<DoubleSchemaEnums4>, NumberSchemaValidator {
+    public static class Schema41 extends JsonSchema implements IntegerEnumValidator<IntegerSchemaEnums4>, LongEnumValidator<LongSchemaEnums4>, FloatEnumValidator<FloatSchemaEnums4>, DoubleEnumValidator<DoubleSchemaEnums4>, NumberSchemaValidator<Schema41BoxedNumber> {
         private static @Nullable Schema41 instance = null;
     
         protected Schema41() {
@@ -169,6 +169,7 @@ public class Schema4 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema41BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema41BoxedNumber(validate(arg, configuration));
         }

@@ -141,7 +141,7 @@ public class HeaderParameters {
     }
     
     
-    public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<HeaderParametersMap> {
+    public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<HeaderParametersMap, HeaderParameters1BoxedMap> {
         private static @Nullable HeaderParameters1 instance = null;
     
         protected HeaderParameters1() {
@@ -210,6 +210,7 @@ public class HeaderParameters {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public HeaderParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new HeaderParameters1BoxedMap(validate(arg, configuration));
         }

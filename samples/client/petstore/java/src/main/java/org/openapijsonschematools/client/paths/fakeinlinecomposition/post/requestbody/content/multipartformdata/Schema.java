@@ -46,7 +46,7 @@ public class Schema {
     }
     
     
-    public static class Schema0 extends JsonSchema implements StringSchemaValidator {
+    public static class Schema0 extends JsonSchema implements StringSchemaValidator<Schema0BoxedString> {
         private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
@@ -90,6 +90,7 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema0BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema0BoxedString(validate(arg, configuration));
         }
@@ -134,7 +135,7 @@ public class Schema {
     }
     
     
-    public static class SomeProp extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class SomeProp extends JsonSchema implements NullSchemaValidator<SomePropBoxedVoid>, BooleanSchemaValidator<SomePropBoxedBoolean>, NumberSchemaValidator<SomePropBoxedNumber>, StringSchemaValidator<SomePropBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, SomePropBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, SomePropBoxedMap> {
         private static @Nullable SomeProp instance = null;
     
         protected SomeProp() {
@@ -329,21 +330,27 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public SomePropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedVoid(validate(arg, configuration));
         }
+        @Override
         public SomePropBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public SomePropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedNumber(validate(arg, configuration));
         }
+        @Override
         public SomePropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedString(validate(arg, configuration));
         }
+        @Override
         public SomePropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedList(validate(arg, configuration));
         }
+        @Override
         public SomePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomePropBoxedMap(validate(arg, configuration));
         }
@@ -466,7 +473,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap> {
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -533,6 +540,7 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema1BoxedMap(validate(arg, configuration));
         }

@@ -57,7 +57,7 @@ public class Schema {
     }
     
     
-    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums>, DefaultValueMethod<String> {
+    public static class Items extends JsonSchema implements StringSchemaValidator<ItemsBoxedString>, StringEnumValidator<StringItemsEnums>, DefaultValueMethod<String> {
         private static @Nullable Items instance = null;
     
         protected Items() {
@@ -116,6 +116,7 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+        @Override
         public ItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new ItemsBoxedString(validate(arg, configuration));
         }
@@ -167,7 +168,7 @@ public class Schema {
     }
     
     
-    public static class EnumFormStringArray extends JsonSchema implements ListSchemaValidator<EnumFormStringArrayList> {
+    public static class EnumFormStringArray extends JsonSchema implements ListSchemaValidator<EnumFormStringArrayList, EnumFormStringArrayBoxedList> {
         private static @Nullable EnumFormStringArray instance = null;
     
         protected EnumFormStringArray() {
@@ -231,6 +232,7 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public EnumFormStringArrayBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumFormStringArrayBoxedList(validate(arg, configuration));
         }
@@ -259,7 +261,7 @@ public class Schema {
     }
     
     
-    public static class EnumFormString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumFormStringEnums>, DefaultValueMethod<String> {
+    public static class EnumFormString extends JsonSchema implements StringSchemaValidator<EnumFormStringBoxedString>, StringEnumValidator<StringEnumFormStringEnums>, DefaultValueMethod<String> {
         private static @Nullable EnumFormString instance = null;
     
         protected EnumFormString() {
@@ -319,6 +321,7 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+        @Override
         public EnumFormStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new EnumFormStringBoxedString(validate(arg, configuration));
         }
@@ -431,7 +434,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap> {
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -499,6 +502,7 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema1BoxedMap(validate(arg, configuration));
         }

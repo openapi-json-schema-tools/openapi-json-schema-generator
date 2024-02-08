@@ -44,7 +44,7 @@ public class PathParamSchema0 {
     }
     
     
-    public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringPathParamSchemaEnums0> {
+    public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator<PathParamSchema01BoxedString>, StringEnumValidator<StringPathParamSchemaEnums0> {
         private static @Nullable PathParamSchema01 instance = null;
     
         protected PathParamSchema01() {
@@ -96,6 +96,7 @@ public class PathParamSchema0 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public PathParamSchema01BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new PathParamSchema01BoxedString(validate(arg, configuration));
         }

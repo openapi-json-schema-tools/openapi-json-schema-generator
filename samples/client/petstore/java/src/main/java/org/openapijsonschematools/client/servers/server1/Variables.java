@@ -68,7 +68,7 @@ public class Variables {
     }
     
     
-    public static class Version extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
+    public static class Version extends JsonSchema implements StringSchemaValidator<VersionBoxedString>, StringEnumValidator<StringVersionEnums>, DefaultValueMethod<String> {
         private static @Nullable Version instance = null;
     
         protected Version() {
@@ -127,6 +127,7 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+        @Override
         public VersionBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new VersionBoxedString(validate(arg, configuration));
         }
@@ -205,7 +206,7 @@ public class Variables {
     }
     
     
-    public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap> {
+    public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
         private static @Nullable Variables1 instance = null;
     
         protected Variables1() {
@@ -279,6 +280,7 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Variables1BoxedMap(validate(arg, configuration));
         }

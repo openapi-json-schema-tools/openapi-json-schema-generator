@@ -250,7 +250,7 @@ public class QueryParameters {
     }
     
     
-    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<QueryParametersMap> {
+    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<QueryParametersMap, QueryParameters1BoxedMap> {
         private static @Nullable QueryParameters1 instance = null;
     
         protected QueryParameters1() {
@@ -325,6 +325,7 @@ public class QueryParameters {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public QueryParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new QueryParameters1BoxedMap(validate(arg, configuration));
         }

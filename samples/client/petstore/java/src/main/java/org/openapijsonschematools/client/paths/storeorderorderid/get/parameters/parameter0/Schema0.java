@@ -28,7 +28,7 @@ public class Schema0 {
     }
     
     
-    public static class Schema01 extends JsonSchema implements NumberSchemaValidator {
+    public static class Schema01 extends JsonSchema implements NumberSchemaValidator<Schema01BoxedNumber> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -93,6 +93,7 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema01BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema01BoxedNumber(validate(arg, configuration));
         }

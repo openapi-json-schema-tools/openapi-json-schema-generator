@@ -84,7 +84,7 @@ public class Schema {
     }
     
     
-    public static class Files extends JsonSchema implements ListSchemaValidator<FilesList> {
+    public static class Files extends JsonSchema implements ListSchemaValidator<FilesList, FilesBoxedList> {
         private static @Nullable Files instance = null;
     
         protected Files() {
@@ -148,6 +148,7 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public FilesBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new FilesBoxedList(validate(arg, configuration));
         }
@@ -228,7 +229,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap> {
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -295,6 +296,7 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema1BoxedMap(validate(arg, configuration));
         }

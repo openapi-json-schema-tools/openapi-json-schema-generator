@@ -46,7 +46,7 @@ public class Schema1 {
     }
     
     
-    public static class Schema01 extends JsonSchema implements StringSchemaValidator {
+    public static class Schema01 extends JsonSchema implements StringSchemaValidator<Schema01BoxedString> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -90,6 +90,7 @@ public class Schema1 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema01BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema01BoxedString(validate(arg, configuration));
         }
@@ -134,7 +135,7 @@ public class Schema1 {
     }
     
     
-    public static class SomeProp1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static class SomeProp1 extends JsonSchema implements NullSchemaValidator<SomeProp1BoxedVoid>, BooleanSchemaValidator<SomeProp1BoxedBoolean>, NumberSchemaValidator<SomeProp1BoxedNumber>, StringSchemaValidator<SomeProp1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, SomeProp1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, SomeProp1BoxedMap> {
         private static @Nullable SomeProp1 instance = null;
     
         protected SomeProp1() {
@@ -329,21 +330,27 @@ public class Schema1 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public SomeProp1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomeProp1BoxedVoid(validate(arg, configuration));
         }
+        @Override
         public SomeProp1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomeProp1BoxedBoolean(validate(arg, configuration));
         }
+        @Override
         public SomeProp1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomeProp1BoxedNumber(validate(arg, configuration));
         }
+        @Override
         public SomeProp1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomeProp1BoxedString(validate(arg, configuration));
         }
+        @Override
         public SomeProp1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomeProp1BoxedList(validate(arg, configuration));
         }
+        @Override
         public SomeProp1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new SomeProp1BoxedMap(validate(arg, configuration));
         }
@@ -466,7 +473,7 @@ public class Schema1 {
     }
     
     
-    public static class Schema11 extends JsonSchema implements MapSchemaValidator<SchemaMap1> {
+    public static class Schema11 extends JsonSchema implements MapSchemaValidator<SchemaMap1, Schema11BoxedMap> {
         private static @Nullable Schema11 instance = null;
     
         protected Schema11() {
@@ -533,6 +540,7 @@ public class Schema1 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema11BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema11BoxedMap(validate(arg, configuration));
         }

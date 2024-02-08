@@ -75,7 +75,7 @@ public class Schema1 {
     }
     
     
-    public static class Schema11 extends JsonSchema implements ListSchemaValidator<SchemaList1> {
+    public static class Schema11 extends JsonSchema implements ListSchemaValidator<SchemaList1, Schema11BoxedList> {
         private static @Nullable Schema11 instance = null;
     
         protected Schema11() {
@@ -139,6 +139,7 @@ public class Schema1 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
         public Schema11BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             return new Schema11BoxedList(validate(arg, configuration));
         }
