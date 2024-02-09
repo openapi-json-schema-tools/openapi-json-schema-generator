@@ -97,11 +97,11 @@ A schema class that validates payloads
 
 ## Schema11
 public static class Schema11<br>
-extends FloatJsonSchema
+extends FloatJsonSchema.FloatJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema.FloatJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

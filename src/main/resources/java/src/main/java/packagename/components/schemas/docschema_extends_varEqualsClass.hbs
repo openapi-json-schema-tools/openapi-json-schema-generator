@@ -74,7 +74,7 @@ extends IntJsonSchema.IntJsonSchema1
 extends NumberJsonSchema.NumberJsonSchema1
                     {{else}}
                         {{#eq ../format "float"}}
-extends FloatJsonSchema
+extends FloatJsonSchema.FloatJsonSchema1
                         {{else}}
                             {{#eq ../format "double"}}
 extends DoubleJsonSchema.DoubleJsonSchema1

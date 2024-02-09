@@ -366,7 +366,7 @@ public class FormatTest {
         }
     }    
     
-    public static class Float32 extends FloatJsonSchema {
+    public static class Float32 extends FloatJsonSchema.FloatJsonSchema1 {
         private static @Nullable Float32 instance = null;
         public static Float32 getInstance() {
             if (instance == null) {

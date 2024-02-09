@@ -86,7 +86,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends IntJsonSchema.IntJso
 public static class {{../jsonPathPiece.pascalCase}} extends NumberJsonSchema.NumberJsonSchema1 {
                     {{else}}
                         {{#eq ../format "float"}}
-public static class {{../jsonPathPiece.pascalCase}} extends FloatJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends FloatJsonSchema.FloatJsonSchema1 {
                         {{else}}
                             {{#eq ../format "double"}}
 public static class {{../jsonPathPiece.pascalCase}} extends DoubleJsonSchema.DoubleJsonSchema1 {

@@ -862,11 +862,11 @@ double validatedPayload = FormatTest.DoubleSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Float32
 public static class Float32<br>
-extends FloatJsonSchema
+extends FloatJsonSchema.FloatJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema.FloatJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

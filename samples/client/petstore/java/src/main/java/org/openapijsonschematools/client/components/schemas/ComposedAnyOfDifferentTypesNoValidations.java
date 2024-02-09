@@ -318,7 +318,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema11 extends FloatJsonSchema {
+    public static class Schema11 extends FloatJsonSchema.FloatJsonSchema1 {
         private static @Nullable Schema11 instance = null;
         public static Schema11 getInstance() {
             if (instance == null) {
