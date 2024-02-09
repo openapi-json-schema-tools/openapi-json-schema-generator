@@ -120,7 +120,7 @@ public class User {
     }
     
     
-    public static class UserStatus extends Int32JsonSchema {
+    public static class UserStatus extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable UserStatus instance = null;
         public static UserStatus getInstance() {
             if (instance == null) {

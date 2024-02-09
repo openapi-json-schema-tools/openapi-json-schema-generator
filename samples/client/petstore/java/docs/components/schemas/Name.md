@@ -120,21 +120,21 @@ this is a reserved python keyword
 
 ## SnakeCase
 public static class SnakeCase<br>
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
 ## Name2
 public static class Name2<br>
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

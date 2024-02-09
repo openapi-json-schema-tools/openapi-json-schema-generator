@@ -1008,11 +1008,11 @@ int validatedPayload = FormatTest.Int32withValidations.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int32
 public static class Int32<br>
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

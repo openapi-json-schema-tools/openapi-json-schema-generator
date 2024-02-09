@@ -76,7 +76,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    Int32JsonSchema.getInstance(),
+                    Int32JsonSchema.Int32JsonSchema1.getInstance(),
                     -2147483649L,
                     validationMetadata
                 )
@@ -88,7 +88,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    Int32JsonSchema.getInstance(),
+                    Int32JsonSchema.Int32JsonSchema1.getInstance(),
                     -2147483648,
                     validationMetadata
                 )
@@ -101,7 +101,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    Int32JsonSchema.getInstance(),
+                    Int32JsonSchema.Int32JsonSchema1.getInstance(),
                     2147483647,
                     validationMetadata
                 )
@@ -114,7 +114,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    Int32JsonSchema.getInstance(),
+                    Int32JsonSchema.Int32JsonSchema1.getInstance(),
                     2147483648L,
                     validationMetadata
                 )

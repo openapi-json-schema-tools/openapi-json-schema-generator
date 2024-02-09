@@ -39,7 +39,7 @@ public class Name {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Name2 extends Int32JsonSchema {
+    public static class Name2 extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable Name2 instance = null;
         public static Name2 getInstance() {
             if (instance == null) {
@@ -50,7 +50,7 @@ public class Name {
     }
     
     
-    public static class SnakeCase extends Int32JsonSchema {
+    public static class SnakeCase extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable SnakeCase instance = null;
         public static SnakeCase getInstance() {
             if (instance == null) {

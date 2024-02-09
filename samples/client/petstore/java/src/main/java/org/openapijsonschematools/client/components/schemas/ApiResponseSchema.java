@@ -30,7 +30,7 @@ public class ApiResponseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Code extends Int32JsonSchema {
+    public static class Code extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable Code instance = null;
         public static Code getInstance() {
             if (instance == null) {

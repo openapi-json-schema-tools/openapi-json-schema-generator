@@ -67,11 +67,11 @@ A schema class that validates payloads
 
 ## Schema14
 public static class Schema14<br>
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

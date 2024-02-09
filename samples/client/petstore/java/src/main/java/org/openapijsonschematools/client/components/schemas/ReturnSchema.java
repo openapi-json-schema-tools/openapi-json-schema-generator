@@ -38,7 +38,7 @@ public class ReturnSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ReturnSchema2 extends Int32JsonSchema {
+    public static class ReturnSchema2 extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable ReturnSchema2 instance = null;
         public static ReturnSchema2 getInstance() {
             if (instance == null) {

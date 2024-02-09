@@ -58,7 +58,7 @@ public class Order {
     }
     
     
-    public static class Quantity extends Int32JsonSchema {
+    public static class Quantity extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable Quantity instance = null;
         public static Quantity getInstance() {
             if (instance == null) {

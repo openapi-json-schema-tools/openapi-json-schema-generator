@@ -125,7 +125,7 @@ public class FormatTest {
         }
     }    
     
-    public static class Int32 extends Int32JsonSchema {
+    public static class Int32 extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable Int32 instance = null;
         public static Int32 getInstance() {
             if (instance == null) {

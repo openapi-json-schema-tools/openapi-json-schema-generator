@@ -70,7 +70,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends StringJsonSchema.Str
                 {{/eq}}
                 {{#eq this "integer"}}
                     {{#eq ../format "int32"}}
-public static class {{../jsonPathPiece.pascalCase}} extends Int32JsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends Int32JsonSchema.Int32JsonSchema1 {
                     {{/eq}}
                     {{#eq ../format "int64"}}
 public static class {{../jsonPathPiece.pascalCase}} extends Int64JsonSchema {

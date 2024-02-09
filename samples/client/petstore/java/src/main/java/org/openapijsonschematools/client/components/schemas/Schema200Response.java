@@ -39,7 +39,7 @@ public class Schema200Response {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Name extends Int32JsonSchema {
+    public static class Name extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable Name instance = null;
         public static Name getInstance() {
             if (instance == null) {

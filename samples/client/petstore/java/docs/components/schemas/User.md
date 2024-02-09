@@ -299,14 +299,14 @@ test code generation for objects Value must be a map of strings to values. It ca
 
 ## UserStatus
 public static class UserStatus<br>
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
 
 A schema class that validates payloads
 
 ## Description
 User Status
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

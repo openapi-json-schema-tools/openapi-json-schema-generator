@@ -84,14 +84,14 @@ A class to store validated Map payloads
 
 ## ReturnSchema2
 public static class ReturnSchema2<br>
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
 
 A schema class that validates payloads
 
 ## Description
 this is a reserved python keyword
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

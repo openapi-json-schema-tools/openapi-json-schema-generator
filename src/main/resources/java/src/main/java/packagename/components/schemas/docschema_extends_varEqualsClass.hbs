@@ -58,7 +58,7 @@ extends StringJsonSchema.StringJsonSchema1
                 {{/eq}}
                 {{#eq this "integer"}}
                     {{#eq ../format "int32"}}
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
                     {{/eq}}
                     {{#eq ../format "int64"}}
 extends Int64JsonSchema
