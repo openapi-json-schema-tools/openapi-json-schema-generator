@@ -228,7 +228,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    DoubleJsonSchema.getInstance(),
+                    DoubleJsonSchema.DoubleJsonSchema1.getInstance(),
                     new BigDecimal("-1.7976931348623157082e+308"),
                     validationMetadata
                 )
@@ -240,7 +240,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    DoubleJsonSchema.getInstance(),
+                    DoubleJsonSchema.DoubleJsonSchema1.getInstance(),
                     -1.7976931348623157E+308d,
                     validationMetadata
                 )
@@ -253,7 +253,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    DoubleJsonSchema.getInstance(),
+                    DoubleJsonSchema.DoubleJsonSchema1.getInstance(),
                     1.7976931348623157E+308d,
                     validationMetadata
                 )
@@ -266,7 +266,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    DoubleJsonSchema.getInstance(),
+                    DoubleJsonSchema.DoubleJsonSchema1.getInstance(),
                     new BigDecimal("1.7976931348623157082e+308"),
                     validationMetadata
                 )

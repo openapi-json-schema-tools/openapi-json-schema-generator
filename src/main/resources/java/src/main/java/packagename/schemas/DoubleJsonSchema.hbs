@@ -17,51 +17,67 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class DoubleJsonSchema extends JsonSchema implements NumberSchemaValidator {
-    private static @Nullable DoubleJsonSchema instance = null;
-
-    protected DoubleJsonSchema() {
-        super(new JsonSchemaInfo()
-            .type(Set.of(Double.class))
-            .format("double")
-        );
+public class DoubleJsonSchema {
+    public static abstract sealed class DoubleJsonSchema1Boxed permits DoubleJsonSchema1BoxedNumber {
     }
-
-    public static DoubleJsonSchema getInstance() {
-        if (instance == null) {
-            instance = new DoubleJsonSchema();
+    public static final class DoubleJsonSchema1BoxedNumber extends DoubleJsonSchema1Boxed {
+        public final Number data;
+        private DoubleJsonSchema1BoxedNumber(Number data) {
+            this.data = data;
         }
-        return instance;
     }
 
-    @Override
-    public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-        Set<List<Object>> pathSet = new HashSet<>();
-        List<Object> pathToItem = List.of("args[0");
-        Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-        SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
-        ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-        PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-        return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
+    public static class DoubleJsonSchema1 extends JsonSchema implements NumberSchemaValidator<DoubleJsonSchema1BoxedNumber> {
+        private static @Nullable DoubleJsonSchema1 instance = null;
 
-    public double validate(double arg, SchemaConfiguration configuration) {
-        return (double) validate((Number) arg, configuration);
-    }
-
-    @Override
-    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        if (arg instanceof Number) {
-            return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+        protected DoubleJsonSchema1() {
+            super(new JsonSchemaInfo()
+                    .type(Set.of(Double.class))
+                    .format("double")
+            );
         }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-    }
 
-    @Override
-    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
-        if (arg instanceof Number) {
-            return validate((Number) arg, configuration);
+        public static DoubleJsonSchema1 getInstance() {
+            if (instance == null) {
+                instance = new DoubleJsonSchema1();
+            }
+            return instance;
         }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+
+        @Override
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+
+        public double validate(double arg, SchemaConfiguration configuration) {
+            return (double) validate((Number) arg, configuration);
+        }
+
+        @Override
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Number) {
+                return validate((Number) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public DoubleJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DoubleJsonSchema1BoxedNumber(validate(arg, configuration));
+        }
     }
 }

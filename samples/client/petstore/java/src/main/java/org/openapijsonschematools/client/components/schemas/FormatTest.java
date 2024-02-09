@@ -444,7 +444,7 @@ public class FormatTest {
         }
     }    
     
-    public static class Float64 extends DoubleJsonSchema {
+    public static class Float64 extends DoubleJsonSchema.DoubleJsonSchema1 {
         private static @Nullable Float64 instance = null;
         public static Float64 getInstance() {
             if (instance == null) {

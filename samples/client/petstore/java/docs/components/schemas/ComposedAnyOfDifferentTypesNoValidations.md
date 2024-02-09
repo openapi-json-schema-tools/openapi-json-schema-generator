@@ -87,11 +87,11 @@ A schema class that validates payloads
 
 ## Schema12
 public static class Schema12<br>
-extends DoubleJsonSchema
+extends DoubleJsonSchema.DoubleJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DoubleJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DoubleJsonSchema.DoubleJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

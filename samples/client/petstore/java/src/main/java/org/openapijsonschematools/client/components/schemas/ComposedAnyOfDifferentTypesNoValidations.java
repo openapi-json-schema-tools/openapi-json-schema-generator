@@ -329,7 +329,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema12 extends DoubleJsonSchema {
+    public static class Schema12 extends DoubleJsonSchema.DoubleJsonSchema1 {
         private static @Nullable Schema12 instance = null;
         public static Schema12 getInstance() {
             if (instance == null) {

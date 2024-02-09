@@ -89,7 +89,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends NumberJsonSchema.Num
 public static class {{../jsonPathPiece.pascalCase}} extends FloatJsonSchema {
                         {{else}}
                             {{#eq ../format "double"}}
-public static class {{../jsonPathPiece.pascalCase}} extends DoubleJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends DoubleJsonSchema.DoubleJsonSchema1 {
                             {{/eq}}
                         {{/eq}}
                     {{/eq}}
