@@ -692,7 +692,7 @@ public class NullableClass {
         }
     }    
     
-    public static class Items extends MapJsonSchema {
+    public static class Items extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {
@@ -1316,7 +1316,7 @@ public class NullableClass {
         }
     }    
     
-    public static class AdditionalProperties extends MapJsonSchema {
+    public static class AdditionalProperties extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {

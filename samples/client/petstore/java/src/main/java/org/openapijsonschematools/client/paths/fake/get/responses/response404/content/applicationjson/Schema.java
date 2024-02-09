@@ -7,7 +7,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema1 extends MapJsonSchema {
+    public static class Schema1 extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable Schema1 instance = null;
         public static Schema1 getInstance() {
             if (instance == null) {

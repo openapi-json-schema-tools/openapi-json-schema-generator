@@ -103,21 +103,21 @@ A class to store validated Map payloads
 
 ## Someprop
 public static class Someprop<br>
-extends MapJsonSchema
+extends MapJsonSchema.MapJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
 ## SomeProp
 public static class SomeProp<br>
-extends MapJsonSchema
+extends MapJsonSchema.MapJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

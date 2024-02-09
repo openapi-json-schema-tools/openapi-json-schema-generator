@@ -29,7 +29,7 @@ public class ObjectWithCollidingProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SomeProp extends MapJsonSchema {
+    public static class SomeProp extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable SomeProp instance = null;
         public static SomeProp getInstance() {
             if (instance == null) {
@@ -40,7 +40,7 @@ public class ObjectWithCollidingProperties {
     }
     
     
-    public static class Someprop extends MapJsonSchema {
+    public static class Someprop extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable Someprop instance = null;
         public static Someprop getInstance() {
             if (instance == null) {

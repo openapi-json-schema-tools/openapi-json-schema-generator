@@ -90,11 +90,11 @@ A class to store validated List payloads
 
 ## Items2
 public static class Items2<br>
-extends MapJsonSchema
+extends MapJsonSchema.MapJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

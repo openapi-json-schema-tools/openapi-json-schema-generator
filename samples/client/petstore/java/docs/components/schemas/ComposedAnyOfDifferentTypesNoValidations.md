@@ -225,11 +225,11 @@ A schema class that validates payloads
 
 ## Schema6
 public static class Schema6<br>
-extends MapJsonSchema
+extends MapJsonSchema.MapJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -277,11 +277,11 @@ A schema class that validates payloads
 
 ## Schema0
 public static class Schema0<br>
-extends MapJsonSchema
+extends MapJsonSchema.MapJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

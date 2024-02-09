@@ -20,7 +20,7 @@ extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 extends NullJsonSchema.NullJsonSchema1
                 {{/eq}}
                 {{#eq this "object"}}
-extends MapJsonSchema
+extends MapJsonSchema.MapJsonSchema1
                 {{/eq}}
                 {{#eq this "array"}}
 extends ListJsonSchema.ListJsonSchema1

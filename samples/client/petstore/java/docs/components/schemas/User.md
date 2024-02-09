@@ -286,14 +286,14 @@ Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>
-extends MapJsonSchema
+extends MapJsonSchema.MapJsonSchema1
 
 A schema class that validates payloads
 
 ## Description
 test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

@@ -48,7 +48,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends MapJsonSchema {
+    public static class Schema0 extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable Schema0 instance = null;
         public static Schema0 getInstance() {
             if (instance == null) {
@@ -115,7 +115,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema6 extends MapJsonSchema {
+    public static class Schema6 extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable Schema6 instance = null;
         public static Schema6 getInstance() {
             if (instance == null) {

@@ -465,7 +465,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapWithUndeclaredPropertiesAnytype1 extends MapJsonSchema {
+    public static class MapWithUndeclaredPropertiesAnytype1 extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable MapWithUndeclaredPropertiesAnytype1 instance = null;
         public static MapWithUndeclaredPropertiesAnytype1 getInstance() {
             if (instance == null) {
@@ -476,7 +476,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapWithUndeclaredPropertiesAnytype2 extends MapJsonSchema {
+    public static class MapWithUndeclaredPropertiesAnytype2 extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable MapWithUndeclaredPropertiesAnytype2 instance = null;
         public static MapWithUndeclaredPropertiesAnytype2 getInstance() {
             if (instance == null) {

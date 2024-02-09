@@ -108,7 +108,7 @@ public class AdditionalPropertiesValidatorTest {
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
                 new ValidationData(
-                    MapJsonSchema.getInstance(),
+                    MapJsonSchema.MapJsonSchema1.getInstance(),
                     1,
                     validationMetadata
                 )

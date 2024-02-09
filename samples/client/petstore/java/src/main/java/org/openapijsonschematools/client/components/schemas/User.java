@@ -131,7 +131,7 @@ public class User {
     }
     
     
-    public static class ObjectWithNoDeclaredProps extends MapJsonSchema {
+    public static class ObjectWithNoDeclaredProps extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable ObjectWithNoDeclaredProps instance = null;
         public static ObjectWithNoDeclaredProps getInstance() {
             if (instance == null) {
