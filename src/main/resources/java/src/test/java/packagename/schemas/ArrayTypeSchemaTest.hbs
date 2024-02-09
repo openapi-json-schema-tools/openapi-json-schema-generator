@@ -31,7 +31,16 @@ public class ArrayTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<FrozenList<String>> {
+    public static abstract sealed class ArrayWithItemsSchemaBoxed permits ArrayWithItemsSchemaBoxedList {
+    }
+    public static final class ArrayWithItemsSchemaBoxedList extends ArrayWithItemsSchemaBoxed {
+        public final FrozenList<String> data;
+        private ArrayWithItemsSchemaBoxedList(FrozenList<String> data) {
+            this.data = data;
+        }
+    }
+
+    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
@@ -72,6 +81,11 @@ public class ArrayTypeSchemaTest {
         }
 
         @Override
+        public ArrayWithItemsSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayWithItemsSchemaBoxedList(validate(arg, configuration));
+        }
+
+        @Override
         public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
@@ -98,7 +112,15 @@ public class ArrayTypeSchemaTest {
         }
     }
 
-    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<ArrayWithOutputClsSchemaList> {
+    public static abstract sealed class ArrayWithOutputClsSchemaBoxed permits ArrayWithOutputClsSchemaBoxedList {
+    }
+    public static final class ArrayWithOutputClsSchemaBoxedList extends ArrayWithOutputClsSchemaBoxed {
+        public final ArrayWithOutputClsSchemaList data;
+        private ArrayWithOutputClsSchemaBoxedList(ArrayWithOutputClsSchemaList data) {
+            this.data = data;
+        }
+    }
+    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
         public ArrayWithOutputClsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
@@ -138,6 +160,11 @@ public class ArrayTypeSchemaTest {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+
+        @Override
+        public ArrayWithOutputClsSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayWithOutputClsSchemaBoxedList(validate(arg, configuration));
         }
 
         @Override

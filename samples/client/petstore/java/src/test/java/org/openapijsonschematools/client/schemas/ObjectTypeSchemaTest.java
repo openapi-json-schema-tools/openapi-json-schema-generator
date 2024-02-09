@@ -33,7 +33,15 @@ public class ObjectTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static class ObjectWithPropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ObjectWithPropsSchemaBoxed permits ObjectWithPropsSchemaBoxedMap {
+    }
+    public static final class ObjectWithPropsSchemaBoxedMap extends ObjectWithPropsSchemaBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ObjectWithPropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public static class ObjectWithPropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsSchemaBoxedMap> {
         private static @Nullable ObjectWithPropsSchema instance = null;
         private ObjectWithPropsSchema() {
             super(new JsonSchemaInfo()
@@ -86,6 +94,11 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
+        public ObjectWithPropsSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithPropsSchemaBoxedMap(validate(arg, configuration));
+        }
+
+        @Override
         public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
@@ -102,7 +115,16 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<String>> {
+    public static abstract sealed class ObjectWithAddpropsSchemaBoxed permits ObjectWithAddpropsSchemaBoxedMap {
+    }
+    public static final class ObjectWithAddpropsSchemaBoxedMap extends ObjectWithAddpropsSchemaBoxed {
+        public final FrozenMap<String> data;
+        private ObjectWithAddpropsSchemaBoxedMap(FrozenMap<String> data) {
+            this.data = data;
+        }
+    }
+
+    public static class ObjectWithAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
         private static @Nullable ObjectWithAddpropsSchema instance = null;
         private ObjectWithAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -155,6 +177,11 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
+        public ObjectWithAddpropsSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithAddpropsSchemaBoxedMap(validate(arg, configuration));
+        }
+
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
@@ -171,7 +198,15 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ObjectWithPropsAndAddpropsSchemaBoxed permits ObjectWithPropsAndAddpropsSchemaBoxedMap {
+    }
+    public static final class ObjectWithPropsAndAddpropsSchemaBoxedMap extends ObjectWithPropsAndAddpropsSchemaBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ObjectWithPropsAndAddpropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
         private static @Nullable ObjectWithPropsAndAddpropsSchema instance = null;
         private ObjectWithPropsAndAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -224,6 +259,11 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
+        public ObjectWithPropsAndAddpropsSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithPropsAndAddpropsSchemaBoxedMap(validate(arg, configuration));
+        }
+
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
             if (arg instanceof Map) {
                 return validate((Map<?, ?>) arg, configuration);
@@ -250,8 +290,15 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-
-    public static class ObjectWithOutputTypeSchema extends JsonSchema implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap> {
+    public static abstract sealed class ObjectWithOutputTypeSchemaBoxed permits ObjectWithOutputTypeSchemaBoxedMap {
+    }
+    public static final class ObjectWithOutputTypeSchemaBoxedMap extends ObjectWithOutputTypeSchemaBoxed {
+        public final ObjectWithOutputTypeSchemaMap data;
+        private ObjectWithOutputTypeSchemaBoxedMap(ObjectWithOutputTypeSchemaMap data) {
+            this.data = data;
+        }
+    }
+    public static class ObjectWithOutputTypeSchema extends JsonSchema implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap, ObjectWithOutputTypeSchemaBoxedMap> {
         private static @Nullable ObjectWithOutputTypeSchema instance = null;
         public ObjectWithOutputTypeSchema() {
             super(new JsonSchemaInfo()
@@ -300,6 +347,11 @@ public class ObjectTypeSchemaTest {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+
+        @Override
+        public ObjectWithOutputTypeSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithOutputTypeSchemaBoxedMap(validate(arg, configuration));
         }
 
         @Override
