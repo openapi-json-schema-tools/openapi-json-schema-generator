@@ -264,11 +264,11 @@ public class AnyTypeJsonSchema {
 
         @Override
         public AnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-            return null;
+            return new AnyTypeJsonSchema1BoxedVoid(validate(arg, configuration));
         }
         @Override
         public AnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-            return null;
+            return new AnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
         @Override
         public AnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
