@@ -689,7 +689,7 @@ public class FormatTest {
     }
     
     
-    public static class DateTime extends DateTimeJsonSchema {
+    public static class DateTime extends DateTimeJsonSchema.DateTimeJsonSchema1 {
         private static @Nullable DateTime instance = null;
         public static DateTime getInstance() {
             if (instance == null) {

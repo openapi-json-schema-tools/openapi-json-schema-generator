@@ -69,7 +69,7 @@ public class Order {
     }
     
     
-    public static class ShipDate extends DateTimeJsonSchema {
+    public static class ShipDate extends DateTimeJsonSchema.DateTimeJsonSchema1 {
         private static @Nullable ShipDate instance = null;
         public static ShipDate getInstance() {
             if (instance == null) {

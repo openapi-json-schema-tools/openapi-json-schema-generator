@@ -44,7 +44,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends BooleanJsonSchema.Bo
 public static class {{../jsonPathPiece.pascalCase}} extends DateJsonSchema.DateJsonSchema1 {
                     {{/eq}}
                     {{#eq ../format "date-time"}}
-public static class {{../jsonPathPiece.pascalCase}} extends DateTimeJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends DateTimeJsonSchema.DateTimeJsonSchema1 {
                     {{/eq}}
                     {{#eq ../format "uuid"}}
 public static class {{../jsonPathPiece.pascalCase}} extends UuidJsonSchema.UuidJsonSchema1 {

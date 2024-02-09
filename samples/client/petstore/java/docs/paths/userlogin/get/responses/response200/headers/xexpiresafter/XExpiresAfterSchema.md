@@ -11,10 +11,10 @@ A class that contains necessary nested
 
 ## XExpiresAfterSchema1
 public static class XExpiresAfterSchema1<br>
-extends DateTimeJsonSchema
+extends DateTimeJsonSchema.DateTimeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema.DateTimeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |

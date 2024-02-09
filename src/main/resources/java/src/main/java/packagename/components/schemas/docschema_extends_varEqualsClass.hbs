@@ -33,7 +33,7 @@ extends BooleanJsonSchema.BooleanJsonSchema1
 extends DateJsonSchema.DateJsonSchema1
                     {{/eq}}
                     {{#eq ../format "date-time"}}
-extends DateTimeJsonSchema
+extends DateTimeJsonSchema.DateTimeJsonSchema1
                     {{/eq}}
                     {{#eq ../format "uuid"}}
 extends UuidJsonSchema.UuidJsonSchema1

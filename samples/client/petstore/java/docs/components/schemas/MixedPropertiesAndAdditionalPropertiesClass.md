@@ -208,11 +208,11 @@ A class to store validated Map payloads
 
 ## DateTime
 public static class DateTime<br>
-extends DateTimeJsonSchema
+extends DateTimeJsonSchema.DateTimeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema.DateTimeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

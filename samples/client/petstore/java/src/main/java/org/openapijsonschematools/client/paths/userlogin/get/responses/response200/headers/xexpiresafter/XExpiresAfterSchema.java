@@ -6,7 +6,7 @@ public class XExpiresAfterSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class XExpiresAfterSchema1 extends DateTimeJsonSchema {
+    public static class XExpiresAfterSchema1 extends DateTimeJsonSchema.DateTimeJsonSchema1 {
         private static @Nullable XExpiresAfterSchema1 instance = null;
         public static XExpiresAfterSchema1 getInstance() {
             if (instance == null) {
