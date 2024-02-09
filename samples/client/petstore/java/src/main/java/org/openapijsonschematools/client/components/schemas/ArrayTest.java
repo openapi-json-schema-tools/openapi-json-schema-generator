@@ -154,7 +154,7 @@ public class ArrayTest {
         }
     }    
     
-    public static class Items2 extends Int64JsonSchema {
+    public static class Items2 extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable Items2 instance = null;
         public static Items2 getInstance() {
             if (instance == null) {

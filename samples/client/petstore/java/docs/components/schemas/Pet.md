@@ -438,11 +438,11 @@ A schema class that validates payloads
 
 ## Id
 public static class Id<br>
-extends Int64JsonSchema
+extends Int64JsonSchema.Int64JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema.Int64JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

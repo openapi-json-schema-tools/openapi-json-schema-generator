@@ -208,7 +208,7 @@ public class FormatTest {
         }
     }    
     
-    public static class Int64 extends Int64JsonSchema {
+    public static class Int64 extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable Int64 instance = null;
         public static Int64 getInstance() {
             if (instance == null) {

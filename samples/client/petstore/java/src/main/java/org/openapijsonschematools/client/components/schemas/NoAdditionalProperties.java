@@ -42,7 +42,7 @@ public class NoAdditionalProperties {
     }
     
     
-    public static class Id extends Int64JsonSchema {
+    public static class Id extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable Id instance = null;
         public static Id getInstance() {
             if (instance == null) {
@@ -53,7 +53,7 @@ public class NoAdditionalProperties {
     }
     
     
-    public static class PetId extends Int64JsonSchema {
+    public static class PetId extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable PetId instance = null;
         public static PetId getInstance() {
             if (instance == null) {
