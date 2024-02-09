@@ -4,6 +4,8 @@ public class User
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- a sealed class which stored validated payloads, java version of a sum type
+- boxed class(es) to store validated payloads, sealed permits class implementation(s)
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
@@ -191,6 +193,7 @@ test code generation for any type Here the &#x27;type&#x27; attribute is not spe
 | Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -228,6 +231,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.NullJsonSchema.NullJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## AnyTypeProp
 public static class AnyTypeProp<br>
@@ -241,6 +245,7 @@ test code generation for any type Here the &#x27;type&#x27; attribute is not spe
 | Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>
@@ -296,6 +301,7 @@ test code generation for objects Value must be a map of strings to values. It ca
 | Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## UserStatus
 public static class UserStatus<br>
@@ -309,6 +315,7 @@ User Status
 | Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Phone
 public static class Phone<br>
@@ -319,6 +326,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Password
 public static class Password<br>
@@ -329,6 +337,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Email
 public static class Email<br>
@@ -339,6 +348,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## LastName
 public static class LastName<br>
@@ -349,6 +359,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## FirstName
 public static class FirstName<br>
@@ -359,6 +370,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Username
 public static class Username<br>
@@ -369,6 +381,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Id
 public static class Id<br>
@@ -379,5 +392,6 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema.Int64JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

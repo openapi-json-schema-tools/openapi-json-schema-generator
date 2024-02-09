@@ -3,6 +3,8 @@ public class Schema
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- a sealed class which stored validated payloads, java version of a sum type
+- boxed class(es) to store validated payloads, sealed permits class implementation(s)
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
@@ -161,6 +163,7 @@ field2
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Param
 public static class Param<br>
@@ -174,3 +177,4 @@ field1
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |

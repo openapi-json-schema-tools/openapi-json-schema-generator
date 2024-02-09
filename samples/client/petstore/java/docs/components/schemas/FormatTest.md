@@ -4,6 +4,8 @@ public class FormatTest
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- a sealed class which stored validated payloads, java version of a sum type
+- boxed class(es) to store validated payloads, sealed permits class implementation(s)
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -506,6 +508,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.NullJsonSchema.NullJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
@@ -641,6 +644,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema.UuidJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## UuidSchema
 public static class UuidSchema<br>
@@ -651,6 +655,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema.UuidJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## DateTime
 public static class DateTime<br>
@@ -661,6 +666,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema.DateTimeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Date
 public static class Date<br>
@@ -671,6 +677,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema.DateJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Binary
 public static class Binary<br>
@@ -808,6 +815,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Float64
 public static class Float64<br>
@@ -818,6 +826,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.DoubleJsonSchema.DoubleJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -869,6 +878,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema.FloatJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -964,6 +974,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema.Int64JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Int32withValidations
 public static class Int32withValidations<br>
@@ -1015,6 +1026,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## IntegerSchema
 public static class IntegerSchema<br>

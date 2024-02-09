@@ -4,6 +4,8 @@ public class ComposedAnyOfDifferentTypesNoValidations
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- a sealed class which stored validated payloads, java version of a sum type
+- boxed class(es) to store validated payloads, sealed permits class implementation(s)
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
@@ -64,6 +66,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema.Int64JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema14
 public static class Schema14<br>
@@ -74,6 +77,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema13
 public static class Schema13<br>
@@ -84,6 +88,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema.IntJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema12
 public static class Schema12<br>
@@ -94,6 +99,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.DoubleJsonSchema.DoubleJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema11
 public static class Schema11<br>
@@ -104,6 +110,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema.FloatJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema10
 public static class Schema10<br>
@@ -114,6 +121,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema9
 public static class Schema9<br>
@@ -202,6 +210,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema8
 public static class Schema8<br>
@@ -212,6 +221,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.NullJsonSchema.NullJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema7
 public static class Schema7<br>
@@ -222,6 +232,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema6
 public static class Schema6<br>
@@ -232,6 +243,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema5
 public static class Schema5<br>
@@ -242,6 +254,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema4
 public static class Schema4<br>
@@ -264,6 +277,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema.DateTimeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema1
 public static class Schema1<br>
@@ -274,6 +288,7 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema.DateJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 ## Schema0
 public static class Schema0<br>
@@ -284,5 +299,6 @@ A schema class that validates payloads
 | Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
