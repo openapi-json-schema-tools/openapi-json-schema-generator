@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NumberOnly.NumberOnly1Boxed](#numberonly1boxed)<br> sealed validated payload class |
 | static class | [NumberOnly.NumberOnly1](#numberonly1)<br> schema class |
 | static class | [NumberOnly.NumberOnlyMapBuilder](#numberonlymapbuilder)<br> builder for Map payloads |
 | static class | [NumberOnly.NumberOnlyMap](#numberonlymap)<br> output class for Map payloads |
+| static class | [NumberOnly.JustNumberBoxed](#justnumberboxed)<br> sealed validated payload class |
 | static class | [NumberOnly.JustNumber](#justnumber)<br> schema class |
+
+## NumberOnly1Boxed
+public static abstract sealed class NumberOnly1Boxed<br>
 
 ## NumberOnly1
 public static class NumberOnly1<br>
@@ -101,6 +106,9 @@ A class to store validated Map payloads
 | static [NumberOnlyMap](#numberonlymap) | of([Map<String, ? extends @Nullable Object>](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | Number | JustNumber()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## JustNumberBoxed
+public static abstract sealed class JustNumberBoxed<br>
 
 ## JustNumber
 public static class JustNumber<br>

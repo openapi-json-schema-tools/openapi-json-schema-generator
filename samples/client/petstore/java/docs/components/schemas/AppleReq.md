@@ -12,12 +12,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [AppleReq.AppleReq1Boxed](#applereq1boxed)<br> sealed validated payload class |
 | static class | [AppleReq.AppleReq1](#applereq1)<br> schema class |
 | static class | [AppleReq.AppleReqMapBuilder](#applereqmapbuilder)<br> builder for Map payloads |
 | static class | [AppleReq.AppleReqMap](#applereqmap)<br> output class for Map payloads |
+| static class | [AppleReq.MealyBoxed](#mealyboxed)<br> sealed validated payload class |
 | static class | [AppleReq.Mealy](#mealy)<br> schema class |
+| static class | [AppleReq.CultivarBoxed](#cultivarboxed)<br> sealed validated payload class |
 | static class | [AppleReq.Cultivar](#cultivar)<br> schema class |
+| static class | [AppleReq.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [AppleReq.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## AppleReq1Boxed
+public static abstract sealed class AppleReq1Boxed<br>
 
 ## AppleReq1
 public static class AppleReq1<br>
@@ -112,6 +119,9 @@ A class to store validated Map payloads
 | String | cultivar()<br> |
 | boolean | mealy()<br>[optional] |
 
+## MealyBoxed
+public static abstract sealed class MealyBoxed<br>
+
 ## Mealy
 public static class Mealy<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -123,6 +133,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## CultivarBoxed
+public static abstract sealed class CultivarBoxed<br>
+
 ## Cultivar
 public static class Cultivar<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -133,6 +146,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

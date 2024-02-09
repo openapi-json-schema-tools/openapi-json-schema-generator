@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)<br> sealed validated payload class |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1](#objectwithinlinecompositionproperty1)<br> schema class |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap)<br> output class for Map payloads |
+| static class | [ObjectWithInlineCompositionProperty.SomePropBoxed](#somepropboxed)<br> sealed validated payload class |
 | static class | [ObjectWithInlineCompositionProperty.SomeProp](#someprop)<br> schema class |
+| static class | [ObjectWithInlineCompositionProperty.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
 | static class | [ObjectWithInlineCompositionProperty.Schema0](#schema0)<br> schema class |
+
+## ObjectWithInlineCompositionProperty1Boxed
+public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed<br>
 
 ## ObjectWithInlineCompositionProperty1
 public static class ObjectWithInlineCompositionProperty1<br>
@@ -106,6 +112,9 @@ A class to store validated Map payloads
 | @Nullable Object | someProp()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## SomePropBoxed
+public static abstract sealed class SomePropBoxed<br>
+
 ## SomeProp
 public static class SomeProp<br>
 extends JsonSchema
@@ -130,6 +139,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema0Boxed
+public static abstract sealed class Schema0Boxed<br>
+
 ## Schema0
 public static class Schema0<br>
 extends JsonSchema

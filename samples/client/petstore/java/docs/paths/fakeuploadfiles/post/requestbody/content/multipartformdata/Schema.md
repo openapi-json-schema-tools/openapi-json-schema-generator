@@ -13,13 +13,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+| static class | [Schema.FilesBoxed](#filesboxed)<br> sealed validated payload class |
 | static class | [Schema.Files](#files)<br> schema class |
 | static class | [Schema.FilesListBuilder](#fileslistbuilder)<br> builder for List payloads |
 | static class | [Schema.FilesList](#fileslist)<br> output class for List payloads |
+| static class | [Schema.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [Schema.Items](#items)<br> schema class |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
 
 ## Schema1
 public static class Schema1<br>
@@ -106,6 +112,9 @@ A class to store validated Map payloads
 | [FilesList](#fileslist) | files()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## FilesBoxed
+public static abstract sealed class FilesBoxed<br>
+
 ## Files
 public static class Files<br>
 extends JsonSchema
@@ -177,6 +186,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [FilesList](#fileslist) | of([List<String>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
 
 ## Items
 public static class Items<br>

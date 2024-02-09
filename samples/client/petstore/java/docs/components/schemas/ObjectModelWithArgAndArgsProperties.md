@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)<br> sealed validated payload class |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1](#objectmodelwithargandargsproperties1)<br> schema class |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapBuilder](#objectmodelwithargandargspropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap)<br> output class for Map payloads |
+| static class | [ObjectModelWithArgAndArgsProperties.ArgsBoxed](#argsboxed)<br> sealed validated payload class |
 | static class | [ObjectModelWithArgAndArgsProperties.Args](#args)<br> schema class |
+| static class | [ObjectModelWithArgAndArgsProperties.ArgBoxed](#argboxed)<br> sealed validated payload class |
 | static class | [ObjectModelWithArgAndArgsProperties.Arg](#arg)<br> schema class |
+
+## ObjectModelWithArgAndArgsProperties1Boxed
+public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed<br>
 
 ## ObjectModelWithArgAndArgsProperties1
 public static class ObjectModelWithArgAndArgsProperties1<br>
@@ -152,6 +158,9 @@ A class to store validated Map payloads
 | String | args()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ArgsBoxed
+public static abstract sealed class ArgsBoxed<br>
+
 ## Args
 public static class Args<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -162,6 +171,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## ArgBoxed
+public static abstract sealed class ArgBoxed<br>
 
 ## Arg
 public static class Arg<br>

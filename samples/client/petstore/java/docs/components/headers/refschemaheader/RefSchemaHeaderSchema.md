@@ -9,7 +9,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [RefSchemaHeaderSchema.RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)<br> sealed validated payload class |
 | static class | [RefSchemaHeaderSchema.RefSchemaHeaderSchema1](#refschemaheaderschema1)<br> schema class |
+
+## RefSchemaHeaderSchema1Boxed
+public static abstract sealed class RefSchemaHeaderSchema1Boxed<br>
 
 ## RefSchemaHeaderSchema1
 public static class RefSchemaHeaderSchema1<br>

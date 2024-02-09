@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ReadOnlyFirst.ReadOnlyFirst1Boxed](#readonlyfirst1boxed)<br> sealed validated payload class |
 | static class | [ReadOnlyFirst.ReadOnlyFirst1](#readonlyfirst1)<br> schema class |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder)<br> builder for Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMap](#readonlyfirstmap)<br> output class for Map payloads |
+| static class | [ReadOnlyFirst.BazBoxed](#bazboxed)<br> sealed validated payload class |
 | static class | [ReadOnlyFirst.Baz](#baz)<br> schema class |
+| static class | [ReadOnlyFirst.BarBoxed](#barboxed)<br> sealed validated payload class |
 | static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
+
+## ReadOnlyFirst1Boxed
+public static abstract sealed class ReadOnlyFirst1Boxed<br>
 
 ## ReadOnlyFirst1
 public static class ReadOnlyFirst1<br>
@@ -104,6 +110,9 @@ A class to store validated Map payloads
 | String | baz()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## BazBoxed
+public static abstract sealed class BazBoxed<br>
+
 ## Baz
 public static class Baz<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -114,6 +123,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## BarBoxed
+public static abstract sealed class BarBoxed<br>
 
 ## Bar
 public static class Bar<br>

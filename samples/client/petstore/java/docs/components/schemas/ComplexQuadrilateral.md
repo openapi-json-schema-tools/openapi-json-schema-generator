@@ -13,12 +13,18 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ComplexQuadrilateral.ComplexQuadrilateral1Boxed](#complexquadrilateral1boxed)<br> sealed validated payload class |
 | static class | [ComplexQuadrilateral.ComplexQuadrilateral1](#complexquadrilateral1)<br> schema class |
+| static class | [ComplexQuadrilateral.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [ComplexQuadrilateral.Schema1](#schema1)<br> schema class |
 | static class | [ComplexQuadrilateral.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ComplexQuadrilateral.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [ComplexQuadrilateral.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> sealed validated payload class |
 | static class | [ComplexQuadrilateral.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | enum | [ComplexQuadrilateral.StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums)<br>String enum |
+
+## ComplexQuadrilateral1Boxed
+public static abstract sealed class ComplexQuadrilateral1Boxed<br>
 
 ## ComplexQuadrilateral1
 public static class ComplexQuadrilateral1<br>
@@ -44,6 +50,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -126,6 +135,9 @@ A class to store validated Map payloads
 | static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | String | quadrilateralType()<br>[optional] must be one of ["ComplexQuadrilateral"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## QuadrilateralTypeBoxed
+public static abstract sealed class QuadrilateralTypeBoxed<br>
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>

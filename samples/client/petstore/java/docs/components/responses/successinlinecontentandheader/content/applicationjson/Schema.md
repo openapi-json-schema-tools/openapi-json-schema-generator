@@ -11,10 +11,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+| static class | [Schema.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [Schema.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
 
 ## Schema1
 public static class Schema1<br>
@@ -88,6 +93,9 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [SchemaMap](#schemamap) | of([Map<String, Number>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

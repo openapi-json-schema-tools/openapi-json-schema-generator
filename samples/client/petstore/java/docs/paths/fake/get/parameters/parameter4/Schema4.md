@@ -10,11 +10,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema4.Schema41Boxed](#schema41boxed)<br> sealed validated payload class |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
 | enum | [Schema4.IntegerSchemaEnums4](#integerschemaenums4)<br>Integer enum |
 | enum | [Schema4.LongSchemaEnums4](#longschemaenums4)<br>Long enum |
 | enum | [Schema4.FloatSchemaEnums4](#floatschemaenums4)<br>Float enum |
 | enum | [Schema4.DoubleSchemaEnums4](#doubleschemaenums4)<br>Double enum |
+
+## Schema41Boxed
+public static abstract sealed class Schema41Boxed<br>
 
 ## Schema41
 public static class Schema41<br>

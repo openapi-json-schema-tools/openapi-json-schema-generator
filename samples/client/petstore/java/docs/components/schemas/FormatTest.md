@@ -14,33 +14,59 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [FormatTest.FormatTest1Boxed](#formattest1boxed)<br> sealed validated payload class |
 | static class | [FormatTest.FormatTest1](#formattest1)<br> schema class |
 | static class | [FormatTest.FormatTestMapBuilder](#formattestmapbuilder)<br> builder for Map payloads |
 | static class | [FormatTest.FormatTestMap](#formattestmap)<br> output class for Map payloads |
+| static class | [FormatTest.NonePropBoxed](#nonepropboxed)<br> sealed validated payload class |
 | static class | [FormatTest.NoneProp](#noneprop)<br> schema class |
+| static class | [FormatTest.PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)<br> sealed validated payload class |
 | static class | [FormatTest.PatternWithDigitsAndDelimiter](#patternwithdigitsanddelimiter)<br> schema class |
+| static class | [FormatTest.PatternWithDigitsBoxed](#patternwithdigitsboxed)<br> sealed validated payload class |
 | static class | [FormatTest.PatternWithDigits](#patternwithdigits)<br> schema class |
+| static class | [FormatTest.PasswordBoxed](#passwordboxed)<br> sealed validated payload class |
 | static class | [FormatTest.Password](#password)<br> schema class |
+| static class | [FormatTest.UuidNoExampleBoxed](#uuidnoexampleboxed)<br> sealed validated payload class |
 | static class | [FormatTest.UuidNoExample](#uuidnoexample)<br> schema class |
+| static class | [FormatTest.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed validated payload class |
 | static class | [FormatTest.UuidSchema](#uuidschema)<br> schema class |
+| static class | [FormatTest.DateTimeBoxed](#datetimeboxed)<br> sealed validated payload class |
 | static class | [FormatTest.DateTime](#datetime)<br> schema class |
+| static class | [FormatTest.DateBoxed](#dateboxed)<br> sealed validated payload class |
 | static class | [FormatTest.Date](#date)<br> schema class |
+| static class | [FormatTest.BinaryBoxed](#binaryboxed)<br> sealed validated payload class |
 | static class | [FormatTest.Binary](#binary)<br> schema class |
+| static class | [FormatTest.ByteSchemaBoxed](#byteschemaboxed)<br> sealed validated payload class |
 | static class | [FormatTest.ByteSchema](#byteschema)<br> schema class |
+| static class | [FormatTest.StringSchemaBoxed](#stringschemaboxed)<br> sealed validated payload class |
 | static class | [FormatTest.StringSchema](#stringschema)<br> schema class |
+| static class | [FormatTest.ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)<br> sealed validated payload class |
 | static class | [FormatTest.ArrayWithUniqueItems](#arraywithuniqueitems)<br> schema class |
 | static class | [FormatTest.ArrayWithUniqueItemsListBuilder](#arraywithuniqueitemslistbuilder)<br> builder for List payloads |
 | static class | [FormatTest.ArrayWithUniqueItemsList](#arraywithuniqueitemslist)<br> output class for List payloads |
+| static class | [FormatTest.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [FormatTest.Items](#items)<br> schema class |
+| static class | [FormatTest.Float64Boxed](#float64boxed)<br> sealed validated payload class |
 | static class | [FormatTest.Float64](#float64)<br> schema class |
+| static class | [FormatTest.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed validated payload class |
 | static class | [FormatTest.DoubleSchema](#doubleschema)<br> schema class |
+| static class | [FormatTest.Float32Boxed](#float32boxed)<br> sealed validated payload class |
 | static class | [FormatTest.Float32](#float32)<br> schema class |
+| static class | [FormatTest.FloatSchemaBoxed](#floatschemaboxed)<br> sealed validated payload class |
 | static class | [FormatTest.FloatSchema](#floatschema)<br> schema class |
+| static class | [FormatTest.NumberSchemaBoxed](#numberschemaboxed)<br> sealed validated payload class |
 | static class | [FormatTest.NumberSchema](#numberschema)<br> schema class |
+| static class | [FormatTest.Int64Boxed](#int64boxed)<br> sealed validated payload class |
 | static class | [FormatTest.Int64](#int64)<br> schema class |
+| static class | [FormatTest.Int32withValidationsBoxed](#int32withvalidationsboxed)<br> sealed validated payload class |
 | static class | [FormatTest.Int32withValidations](#int32withvalidations)<br> schema class |
+| static class | [FormatTest.Int32Boxed](#int32boxed)<br> sealed validated payload class |
 | static class | [FormatTest.Int32](#int32)<br> schema class |
+| static class | [FormatTest.IntegerSchemaBoxed](#integerschemaboxed)<br> sealed validated payload class |
 | static class | [FormatTest.IntegerSchema](#integerschema)<br> schema class |
+
+## FormatTest1Boxed
+public static abstract sealed class FormatTest1Boxed<br>
 
 ## FormatTest1
 public static class FormatTest1<br>
@@ -499,6 +525,9 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## NonePropBoxed
+public static abstract sealed class NonePropBoxed<br>
+
 ## NoneProp
 public static class NoneProp<br>
 extends NullJsonSchema.NullJsonSchema1
@@ -509,6 +538,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## PatternWithDigitsAndDelimiterBoxed
+public static abstract sealed class PatternWithDigitsAndDelimiterBoxed<br>
 
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
@@ -552,6 +584,9 @@ String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## PatternWithDigitsBoxed
+public static abstract sealed class PatternWithDigitsBoxed<br>
+
 ## PatternWithDigits
 public static class PatternWithDigits<br>
 extends JsonSchema
@@ -594,6 +629,9 @@ String validatedPayload = FormatTest.PatternWithDigits.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## PasswordBoxed
+public static abstract sealed class PasswordBoxed<br>
+
 ## Password
 public static class Password<br>
 extends JsonSchema
@@ -635,6 +673,9 @@ String validatedPayload = FormatTest.Password.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## UuidNoExampleBoxed
+public static abstract sealed class UuidNoExampleBoxed<br>
+
 ## UuidNoExample
 public static class UuidNoExample<br>
 extends UuidJsonSchema.UuidJsonSchema1
@@ -645,6 +686,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## UuidSchemaBoxed
+public static abstract sealed class UuidSchemaBoxed<br>
 
 ## UuidSchema
 public static class UuidSchema<br>
@@ -657,6 +701,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## DateTimeBoxed
+public static abstract sealed class DateTimeBoxed<br>
+
 ## DateTime
 public static class DateTime<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1
@@ -667,6 +714,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## DateBoxed
+public static abstract sealed class DateBoxed<br>
 
 ## Date
 public static class Date<br>
@@ -679,17 +729,26 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## BinaryBoxed
+public static abstract sealed class BinaryBoxed<br>
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
 
 A schema class that validates payloads
 
+## ByteSchemaBoxed
+public static abstract sealed class ByteSchemaBoxed<br>
+
 ## ByteSchema
 public static class ByteSchema<br>
 extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
+
+## StringSchemaBoxed
+public static abstract sealed class StringSchemaBoxed<br>
 
 ## StringSchema
 public static class StringSchema<br>
@@ -730,6 +789,9 @@ String validatedPayload = FormatTest.StringSchema.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ArrayWithUniqueItemsBoxed
+public static abstract sealed class ArrayWithUniqueItemsBoxed<br>
+
 ## ArrayWithUniqueItems
 public static class ArrayWithUniqueItems<br>
 extends JsonSchema
@@ -806,6 +868,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([List<Number>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+
 ## Items
 public static class Items<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -817,6 +882,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## Float64Boxed
+public static abstract sealed class Float64Boxed<br>
+
 ## Float64
 public static class Float64<br>
 extends DoubleJsonSchema.DoubleJsonSchema1
@@ -827,6 +895,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## DoubleSchemaBoxed
+public static abstract sealed class DoubleSchemaBoxed<br>
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -869,6 +940,9 @@ double validatedPayload = FormatTest.DoubleSchema.validate(
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Float32Boxed
+public static abstract sealed class Float32Boxed<br>
+
 ## Float32
 public static class Float32<br>
 extends FloatJsonSchema.FloatJsonSchema1
@@ -879,6 +953,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## FloatSchemaBoxed
+public static abstract sealed class FloatSchemaBoxed<br>
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -924,6 +1001,9 @@ float validatedPayload = FormatTest.FloatSchema.validate(
 | ----------------- | ---------------------- |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## NumberSchemaBoxed
+public static abstract sealed class NumberSchemaBoxed<br>
+
 ## NumberSchema
 public static class NumberSchema<br>
 extends JsonSchema
@@ -965,6 +1045,9 @@ int validatedPayload = FormatTest.NumberSchema.validate(
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Int64Boxed
+public static abstract sealed class Int64Boxed<br>
+
 ## Int64
 public static class Int64<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -975,6 +1058,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## Int32withValidationsBoxed
+public static abstract sealed class Int32withValidationsBoxed<br>
 
 ## Int32withValidations
 public static class Int32withValidations<br>
@@ -1017,6 +1103,9 @@ int validatedPayload = FormatTest.Int32withValidations.validate(
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Int32Boxed
+public static abstract sealed class Int32Boxed<br>
+
 ## Int32
 public static class Int32<br>
 extends Int32JsonSchema.Int32JsonSchema1
@@ -1027,6 +1116,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## IntegerSchemaBoxed
+public static abstract sealed class IntegerSchemaBoxed<br>
 
 ## IntegerSchema
 public static class IntegerSchema<br>

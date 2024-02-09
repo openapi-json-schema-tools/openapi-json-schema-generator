@@ -10,8 +10,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [PathParamSchema0.PathParamSchema01Boxed](#pathparamschema01boxed)<br> sealed validated payload class |
 | static class | [PathParamSchema0.PathParamSchema01](#pathparamschema01)<br> schema class |
 | enum | [PathParamSchema0.StringPathParamSchemaEnums0](#stringpathparamschemaenums0)<br>String enum |
+
+## PathParamSchema01Boxed
+public static abstract sealed class PathParamSchema01Boxed<br>
 
 ## PathParamSchema01
 public static class PathParamSchema01<br>

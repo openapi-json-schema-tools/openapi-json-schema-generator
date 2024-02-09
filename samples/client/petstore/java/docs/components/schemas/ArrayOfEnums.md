@@ -12,9 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ArrayOfEnums.ArrayOfEnums1Boxed](#arrayofenums1boxed)<br> sealed validated payload class |
 | static class | [ArrayOfEnums.ArrayOfEnums1](#arrayofenums1)<br> schema class |
 | static class | [ArrayOfEnums.ArrayOfEnumsListBuilder](#arrayofenumslistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfEnums.ArrayOfEnumsList](#arrayofenumslist)<br> output class for List payloads |
+
+## ArrayOfEnums1Boxed
+public static abstract sealed class ArrayOfEnums1Boxed<br>
 
 ## ArrayOfEnums1
 public static class ArrayOfEnums1<br>

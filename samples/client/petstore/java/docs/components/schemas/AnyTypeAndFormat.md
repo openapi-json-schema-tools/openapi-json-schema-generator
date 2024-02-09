@@ -12,18 +12,31 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [AnyTypeAndFormat.AnyTypeAndFormat1Boxed](#anytypeandformat1boxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1](#anytypeandformat1)<br> schema class |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder)<br> builder for Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMap](#anytypeandformatmap)<br> output class for Map payloads |
+| static class | [AnyTypeAndFormat.FloatSchemaBoxed](#floatschemaboxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.FloatSchema](#floatschema)<br> schema class |
+| static class | [AnyTypeAndFormat.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.DoubleSchema](#doubleschema)<br> schema class |
+| static class | [AnyTypeAndFormat.Int64Boxed](#int64boxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.Int64](#int64)<br> schema class |
+| static class | [AnyTypeAndFormat.Int32Boxed](#int32boxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.Int32](#int32)<br> schema class |
+| static class | [AnyTypeAndFormat.BinaryBoxed](#binaryboxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.Binary](#binary)<br> schema class |
+| static class | [AnyTypeAndFormat.NumberSchemaBoxed](#numberschemaboxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.NumberSchema](#numberschema)<br> schema class |
+| static class | [AnyTypeAndFormat.DatetimeBoxed](#datetimeboxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.Datetime](#datetime)<br> schema class |
+| static class | [AnyTypeAndFormat.DateBoxed](#dateboxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.Date](#date)<br> schema class |
+| static class | [AnyTypeAndFormat.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed validated payload class |
 | static class | [AnyTypeAndFormat.UuidSchema](#uuidschema)<br> schema class |
+
+## AnyTypeAndFormat1Boxed
+public static abstract sealed class AnyTypeAndFormat1Boxed<br>
 
 ## AnyTypeAndFormat1
 public static class AnyTypeAndFormat1<br>
@@ -189,6 +202,9 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## FloatSchemaBoxed
+public static abstract sealed class FloatSchemaBoxed<br>
+
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -213,6 +229,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DoubleSchemaBoxed
+public static abstract sealed class DoubleSchemaBoxed<br>
+
 ## DoubleSchema
 public static class DoubleSchema<br>
 extends JsonSchema
@@ -237,6 +256,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Int64Boxed
+public static abstract sealed class Int64Boxed<br>
+
 ## Int64
 public static class Int64<br>
 extends JsonSchema
@@ -261,6 +283,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Int32Boxed
+public static abstract sealed class Int32Boxed<br>
+
 ## Int32
 public static class Int32<br>
 extends JsonSchema
@@ -285,6 +310,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## BinaryBoxed
+public static abstract sealed class BinaryBoxed<br>
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
@@ -309,6 +337,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## NumberSchemaBoxed
+public static abstract sealed class NumberSchemaBoxed<br>
+
 ## NumberSchema
 public static class NumberSchema<br>
 extends JsonSchema
@@ -333,6 +364,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DatetimeBoxed
+public static abstract sealed class DatetimeBoxed<br>
+
 ## Datetime
 public static class Datetime<br>
 extends JsonSchema
@@ -357,6 +391,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DateBoxed
+public static abstract sealed class DateBoxed<br>
+
 ## Date
 public static class Date<br>
 extends JsonSchema
@@ -381,6 +418,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## UuidSchemaBoxed
+public static abstract sealed class UuidSchemaBoxed<br>
+
 ## UuidSchema
 public static class UuidSchema<br>
 extends JsonSchema

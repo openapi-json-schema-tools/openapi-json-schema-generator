@@ -12,11 +12,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema0.Schema01Boxed](#schema01boxed)<br> sealed validated payload class |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaListBuilder0](#schemalistbuilder0)<br> builder for List payloads |
 | static class | [Schema0.SchemaList0](#schemalist0)<br> output class for List payloads |
+| static class | [Schema0.Items0Boxed](#items0boxed)<br> sealed validated payload class |
 | static class | [Schema0.Items0](#items0)<br> schema class |
 | enum | [Schema0.StringItemsEnums0](#stringitemsenums0)<br>String enum |
+
+## Schema01Boxed
+public static abstract sealed class Schema01Boxed<br>
 
 ## Schema01
 public static class Schema01<br>
@@ -90,6 +95,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaList0](#schemalist0) | of([List<String>](#schemalistbuilder0) arg, SchemaConfiguration configuration) |
+
+## Items0Boxed
+public static abstract sealed class Items0Boxed<br>
 
 ## Items0
 public static class Items0<br>

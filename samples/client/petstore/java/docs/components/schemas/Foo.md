@@ -12,9 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Foo.Foo1Boxed](#foo1boxed)<br> sealed validated payload class |
 | static class | [Foo.Foo1](#foo1)<br> schema class |
 | static class | [Foo.FooMapBuilder](#foomapbuilder)<br> builder for Map payloads |
 | static class | [Foo.FooMap](#foomap)<br> output class for Map payloads |
+
+## Foo1Boxed
+public static abstract sealed class Foo1Boxed<br>
 
 ## Foo1
 public static class Foo1<br>

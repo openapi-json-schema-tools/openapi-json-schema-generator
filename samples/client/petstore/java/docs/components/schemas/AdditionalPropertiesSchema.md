@@ -12,19 +12,29 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [AdditionalPropertiesSchema.AdditionalPropertiesSchema1Boxed](#additionalpropertiesschema1boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesSchema.AdditionalPropertiesSchema1](#additionalpropertiesschema1)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema2Boxed](#schema2boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesSchema.Schema2](#schema2)<br> schema class |
 | static class | [AdditionalPropertiesSchema.Schema2MapBuilder](#schema2mapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesSchema.Schema2Map](#schema2map)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesSchema.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesSchema.AdditionalProperties2](#additionalproperties2)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesSchema.Schema1](#schema1)<br> schema class |
 | static class | [AdditionalPropertiesSchema.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesSchema.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesSchema.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesSchema.AdditionalProperties1](#additionalproperties1)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesSchema.Schema0](#schema0)<br> schema class |
 | static class | [AdditionalPropertiesSchema.Schema0MapBuilder](#schema0mapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesSchema.Schema0Map](#schema0map)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesSchema.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesSchema.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## AdditionalPropertiesSchema1Boxed
+public static abstract sealed class AdditionalPropertiesSchema1Boxed<br>
 
 ## AdditionalPropertiesSchema1
 public static class AdditionalPropertiesSchema1<br>
@@ -43,6 +53,9 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema2Boxed
+public static abstract sealed class Schema2Boxed<br>
+
 ## Schema2
 public static class Schema2<br>
 extends JsonSchema
@@ -121,6 +134,9 @@ A class to store validated Map payloads
 | static [Schema2Map](#schema2map) | of([Map<String, ? extends @Nullable Object>](#schema2mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties2Boxed
+public static abstract sealed class AdditionalProperties2Boxed<br>
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -145,6 +161,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -223,6 +242,9 @@ A class to store validated Map payloads
 | static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties1Boxed
+public static abstract sealed class AdditionalProperties1Boxed<br>
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -247,6 +269,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema0Boxed
+public static abstract sealed class Schema0Boxed<br>
+
 ## Schema0
 public static class Schema0<br>
 extends JsonSchema
@@ -324,6 +349,9 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

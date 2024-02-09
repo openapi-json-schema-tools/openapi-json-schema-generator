@@ -9,7 +9,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [XExpiresAfterSchema.XExpiresAfterSchema1Boxed](#xexpiresafterschema1boxed)<br> sealed validated payload class |
 | static class | [XExpiresAfterSchema.XExpiresAfterSchema1](#xexpiresafterschema1)<br> schema class |
+
+## XExpiresAfterSchema1Boxed
+public static abstract sealed class XExpiresAfterSchema1Boxed<br>
 
 ## XExpiresAfterSchema1
 public static class XExpiresAfterSchema1<br>

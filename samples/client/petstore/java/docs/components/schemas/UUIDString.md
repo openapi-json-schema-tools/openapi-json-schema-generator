@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [UUIDString.UUIDString1Boxed](#uuidstring1boxed)<br> sealed validated payload class |
 | static class | [UUIDString.UUIDString1](#uuidstring1)<br> schema class |
+
+## UUIDString1Boxed
+public static abstract sealed class UUIDString1Boxed<br>
 
 ## UUIDString1
 public static class UUIDString1<br>

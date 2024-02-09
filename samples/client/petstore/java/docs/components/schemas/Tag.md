@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Tag.Tag1Boxed](#tag1boxed)<br> sealed validated payload class |
 | static class | [Tag.Tag1](#tag1)<br> schema class |
 | static class | [Tag.TagMapBuilder](#tagmapbuilder)<br> builder for Map payloads |
 | static class | [Tag.TagMap](#tagmap)<br> output class for Map payloads |
+| static class | [Tag.NameBoxed](#nameboxed)<br> sealed validated payload class |
 | static class | [Tag.Name](#name)<br> schema class |
+| static class | [Tag.IdBoxed](#idboxed)<br> sealed validated payload class |
 | static class | [Tag.Id](#id)<br> schema class |
+
+## Tag1Boxed
+public static abstract sealed class Tag1Boxed<br>
 
 ## Tag1
 public static class Tag1<br>
@@ -107,6 +113,9 @@ A class to store validated Map payloads
 | String | name()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
+
 ## Name
 public static class Name<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -117,6 +126,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
 
 ## Id
 public static class Id<br>

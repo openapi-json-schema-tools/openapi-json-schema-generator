@@ -10,8 +10,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NullableShape.NullableShape1Boxed](#nullableshape1boxed)<br> sealed validated payload class |
 | static class | [NullableShape.NullableShape1](#nullableshape1)<br> schema class |
+| static class | [NullableShape.Schema2Boxed](#schema2boxed)<br> sealed validated payload class |
 | static class | [NullableShape.Schema2](#schema2)<br> schema class |
+
+## NullableShape1Boxed
+public static abstract sealed class NullableShape1Boxed<br>
 
 ## NullableShape1
 public static class NullableShape1<br>
@@ -40,6 +45,9 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema2Boxed
+public static abstract sealed class Schema2Boxed<br>
+
 ## Schema2
 public static class Schema2<br>
 extends NullJsonSchema.NullJsonSchema1

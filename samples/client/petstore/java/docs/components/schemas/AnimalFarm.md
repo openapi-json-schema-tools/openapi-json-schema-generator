@@ -12,9 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [AnimalFarm.AnimalFarm1Boxed](#animalfarm1boxed)<br> sealed validated payload class |
 | static class | [AnimalFarm.AnimalFarm1](#animalfarm1)<br> schema class |
 | static class | [AnimalFarm.AnimalFarmListBuilder](#animalfarmlistbuilder)<br> builder for List payloads |
 | static class | [AnimalFarm.AnimalFarmList](#animalfarmlist)<br> output class for List payloads |
+
+## AnimalFarm1Boxed
+public static abstract sealed class AnimalFarm1Boxed<br>
 
 ## AnimalFarm1
 public static class AnimalFarm1<br>

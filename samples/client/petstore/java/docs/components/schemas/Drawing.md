@@ -14,12 +14,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Drawing.Drawing1Boxed](#drawing1boxed)<br> sealed validated payload class |
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
 | static class | [Drawing.DrawingMapBuilder](#drawingmapbuilder)<br> builder for Map payloads |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
+| static class | [Drawing.ShapesBoxed](#shapesboxed)<br> sealed validated payload class |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
 | static class | [Drawing.ShapesListBuilder](#shapeslistbuilder)<br> builder for List payloads |
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
+
+## Drawing1Boxed
+public static abstract sealed class Drawing1Boxed<br>
 
 ## Drawing1
 public static class Drawing1<br>
@@ -135,6 +140,9 @@ A class to store validated Map payloads
 | @Nullable Object | nullableShape()<br>[optional] |
 | [ShapesList](#shapeslist) | shapes()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ShapesBoxed
+public static abstract sealed class ShapesBoxed<br>
 
 ## Shapes
 public static class Shapes<br>

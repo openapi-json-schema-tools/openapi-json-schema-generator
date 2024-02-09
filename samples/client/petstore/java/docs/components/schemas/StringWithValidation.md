@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [StringWithValidation.StringWithValidation1Boxed](#stringwithvalidation1boxed)<br> sealed validated payload class |
 | static class | [StringWithValidation.StringWithValidation1](#stringwithvalidation1)<br> schema class |
+
+## StringWithValidation1Boxed
+public static abstract sealed class StringWithValidation1Boxed<br>
 
 ## StringWithValidation1
 public static class StringWithValidation1<br>

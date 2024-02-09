@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [MyObjectDto.MyObjectDto1Boxed](#myobjectdto1boxed)<br> sealed validated payload class |
 | static class | [MyObjectDto.MyObjectDto1](#myobjectdto1)<br> schema class |
 | static class | [MyObjectDto.MyObjectDtoMapBuilder](#myobjectdtomapbuilder)<br> builder for Map payloads |
 | static class | [MyObjectDto.MyObjectDtoMap](#myobjectdtomap)<br> output class for Map payloads |
+| static class | [MyObjectDto.IdBoxed](#idboxed)<br> sealed validated payload class |
 | static class | [MyObjectDto.Id](#id)<br> schema class |
+| static class | [MyObjectDto.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [MyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## MyObjectDto1Boxed
+public static abstract sealed class MyObjectDto1Boxed<br>
 
 ## MyObjectDto1
 public static class MyObjectDto1<br>
@@ -91,6 +97,9 @@ A class to store validated Map payloads
 | static [MyObjectDtoMap](#myobjectdtomap) | of([Map<String, String>](#myobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | String | id()<br>[optional] value must be a uuid |
 
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
+
 ## Id
 public static class Id<br>
 extends UuidJsonSchema.UuidJsonSchema1
@@ -101,6 +110,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

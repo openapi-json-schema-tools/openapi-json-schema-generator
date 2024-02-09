@@ -11,9 +11,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
 
 ## Schema1
 public static class Schema1<br>

@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [SomeObject.SomeObject1Boxed](#someobject1boxed)<br> sealed validated payload class |
 | static class | [SomeObject.SomeObject1](#someobject1)<br> schema class |
+
+## SomeObject1Boxed
+public static abstract sealed class SomeObject1Boxed<br>
 
 ## SomeObject1
 public static class SomeObject1<br>

@@ -10,9 +10,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema5.Schema51Boxed](#schema51boxed)<br> sealed validated payload class |
 | static class | [Schema5.Schema51](#schema51)<br> schema class |
 | enum | [Schema5.DoubleSchemaEnums5](#doubleschemaenums5)<br>Double enum |
 | enum | [Schema5.FloatSchemaEnums5](#floatschemaenums5)<br>Float enum |
+
+## Schema51Boxed
+public static abstract sealed class Schema51Boxed<br>
 
 ## Schema51
 public static class Schema51<br>

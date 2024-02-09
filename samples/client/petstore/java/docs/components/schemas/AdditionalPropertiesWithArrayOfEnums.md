@@ -14,12 +14,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1Boxed](#additionalpropertieswitharrayofenums1boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1](#additionalpropertieswitharrayofenums1)<br> schema class |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMapBuilder](#additionalpropertieswitharrayofenumsmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalProperties](#additionalproperties)<br> schema class |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListBuilder](#additionalpropertieslistbuilder)<br> builder for List payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList](#additionalpropertieslist)<br> output class for List payloads |
+
+## AdditionalPropertiesWithArrayOfEnums1Boxed
+public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed<br>
 
 ## AdditionalPropertiesWithArrayOfEnums1
 public static class AdditionalPropertiesWithArrayOfEnums1<br>
@@ -96,6 +101,9 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | of([Map<String, List<String>>](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesList](#additionalpropertieslist) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

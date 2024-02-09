@@ -14,14 +14,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1Boxed](#paginatedresultmyobjectdto1boxed)<br> sealed validated payload class |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1](#paginatedresultmyobjectdto1)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapBuilder](#paginatedresultmyobjectdtomapbuilder)<br> builder for Map payloads |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap)<br> output class for Map payloads |
+| static class | [PaginatedResultMyObjectDto.ResultsBoxed](#resultsboxed)<br> sealed validated payload class |
 | static class | [PaginatedResultMyObjectDto.Results](#results)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.ResultsListBuilder](#resultslistbuilder)<br> builder for List payloads |
 | static class | [PaginatedResultMyObjectDto.ResultsList](#resultslist)<br> output class for List payloads |
+| static class | [PaginatedResultMyObjectDto.CountBoxed](#countboxed)<br> sealed validated payload class |
 | static class | [PaginatedResultMyObjectDto.Count](#count)<br> schema class |
+| static class | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [PaginatedResultMyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## PaginatedResultMyObjectDto1Boxed
+public static abstract sealed class PaginatedResultMyObjectDto1Boxed<br>
 
 ## PaginatedResultMyObjectDto1
 public static class PaginatedResultMyObjectDto1<br>
@@ -156,6 +163,9 @@ A class to store validated Map payloads
 | Number | count()<br> |
 | [ResultsList](#resultslist) | results()<br> |
 
+## ResultsBoxed
+public static abstract sealed class ResultsBoxed<br>
+
 ## Results
 public static class Results<br>
 extends JsonSchema
@@ -226,6 +236,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ResultsList](#resultslist) | of([List<Map<String, String>>](#resultslistbuilder) arg, SchemaConfiguration configuration) |
 
+## CountBoxed
+public static abstract sealed class CountBoxed<br>
+
 ## Count
 public static class Count<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -236,6 +249,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

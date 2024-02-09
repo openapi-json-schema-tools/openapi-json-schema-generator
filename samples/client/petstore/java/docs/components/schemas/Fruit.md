@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Fruit.Fruit1Boxed](#fruit1boxed)<br> sealed validated payload class |
 | static class | [Fruit.Fruit1](#fruit1)<br> schema class |
 | static class | [Fruit.FruitMapBuilder](#fruitmapbuilder)<br> builder for Map payloads |
 | static class | [Fruit.FruitMap](#fruitmap)<br> output class for Map payloads |
+| static class | [Fruit.ColorBoxed](#colorboxed)<br> sealed validated payload class |
 | static class | [Fruit.Color](#color)<br> schema class |
+
+## Fruit1Boxed
+public static abstract sealed class Fruit1Boxed<br>
 
 ## Fruit1
 public static class Fruit1<br>
@@ -80,6 +85,9 @@ A class to store validated Map payloads
 | static [FruitMap](#fruitmap) | of([Map<String, ? extends @Nullable Object>](#fruitmapbuilder) arg, SchemaConfiguration configuration) |
 | String | color()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ColorBoxed
+public static abstract sealed class ColorBoxed<br>
 
 ## Color
 public static class Color<br>

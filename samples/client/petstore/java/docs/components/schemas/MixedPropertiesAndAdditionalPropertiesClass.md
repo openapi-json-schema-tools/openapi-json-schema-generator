@@ -12,14 +12,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1Boxed](#mixedpropertiesandadditionalpropertiesclass1boxed)<br> sealed validated payload class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1](#mixedpropertiesandadditionalpropertiesclass1)<br> schema class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder)<br> builder for Map payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap)<br> output class for Map payloads |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.MapSchemaBoxed](#mapschemaboxed)<br> sealed validated payload class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MapSchema](#mapschema)<br> schema class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MapMapBuilder](#mapmapbuilder)<br> builder for Map payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MapMap](#mapmap)<br> output class for Map payloads |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.DateTimeBoxed](#datetimeboxed)<br> sealed validated payload class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.DateTime](#datetime)<br> schema class |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed validated payload class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchema](#uuidschema)<br> schema class |
+
+## MixedPropertiesAndAdditionalPropertiesClass1Boxed
+public static abstract sealed class MixedPropertiesAndAdditionalPropertiesClass1Boxed<br>
 
 ## MixedPropertiesAndAdditionalPropertiesClass1
 public static class MixedPropertiesAndAdditionalPropertiesClass1<br>
@@ -125,6 +132,9 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["map"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## MapSchemaBoxed
+public static abstract sealed class MapSchemaBoxed<br>
+
 ## MapSchema
 public static class MapSchema<br>
 extends JsonSchema
@@ -208,6 +218,9 @@ A class to store validated Map payloads
 | static [MapMap](#mapmap) | of([Map<String, Map<String, ? extends @Nullable Object>>](#mapmapbuilder) arg, SchemaConfiguration configuration) |
 | [Animal.AnimalMap](../../components/schemas/Animal.md#animalmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## DateTimeBoxed
+public static abstract sealed class DateTimeBoxed<br>
+
 ## DateTime
 public static class DateTime<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1
@@ -218,6 +231,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## UuidSchemaBoxed
+public static abstract sealed class UuidSchemaBoxed<br>
 
 ## UuidSchema
 public static class UuidSchema<br>

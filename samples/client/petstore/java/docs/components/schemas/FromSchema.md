@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [FromSchema.FromSchema1Boxed](#fromschema1boxed)<br> sealed validated payload class |
 | static class | [FromSchema.FromSchema1](#fromschema1)<br> schema class |
 | static class | [FromSchema.FromSchemaMapBuilder](#fromschemamapbuilder)<br> builder for Map payloads |
 | static class | [FromSchema.FromSchemaMap](#fromschemamap)<br> output class for Map payloads |
+| static class | [FromSchema.IdBoxed](#idboxed)<br> sealed validated payload class |
 | static class | [FromSchema.Id](#id)<br> schema class |
+| static class | [FromSchema.DataBoxed](#databoxed)<br> sealed validated payload class |
 | static class | [FromSchema.Data](#data)<br> schema class |
+
+## FromSchema1Boxed
+public static abstract sealed class FromSchema1Boxed<br>
 
 ## FromSchema1
 public static class FromSchema1<br>
@@ -107,6 +113,9 @@ A class to store validated Map payloads
 | Number | id()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
+
 ## Id
 public static class Id<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -117,6 +126,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## DataBoxed
+public static abstract sealed class DataBoxed<br>
 
 ## Data
 public static class Data<br>

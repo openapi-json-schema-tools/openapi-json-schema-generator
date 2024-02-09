@@ -9,8 +9,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
+| static class | [Schema.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
 | static class | [Schema.Schema0](#schema0)<br> schema class |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
 
 ## Schema1
 public static class Schema1<br>
@@ -36,6 +41,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema0Boxed
+public static abstract sealed class Schema0Boxed<br>
+
 ## Schema0
 public static class Schema0<br>
 extends JsonSchema

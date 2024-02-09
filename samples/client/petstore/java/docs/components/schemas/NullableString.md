@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NullableString.NullableString1Boxed](#nullablestring1boxed)<br> sealed validated payload class |
 | static class | [NullableString.NullableString1](#nullablestring1)<br> schema class |
+
+## NullableString1Boxed
+public static abstract sealed class NullableString1Boxed<br>
 
 ## NullableString1
 public static class NullableString1<br>

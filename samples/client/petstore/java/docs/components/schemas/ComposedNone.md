@@ -10,8 +10,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ComposedNone.ComposedNone1Boxed](#composednone1boxed)<br> sealed validated payload class |
 | static class | [ComposedNone.ComposedNone1](#composednone1)<br> schema class |
+| static class | [ComposedNone.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
 | static class | [ComposedNone.Schema0](#schema0)<br> schema class |
+
+## ComposedNone1Boxed
+public static abstract sealed class ComposedNone1Boxed<br>
 
 ## ComposedNone1
 public static class ComposedNone1<br>
@@ -52,6 +57,9 @@ Void validatedPayload = ComposedNone.ComposedNone1.validate(
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema0Boxed
+public static abstract sealed class Schema0Boxed<br>
+
 ## Schema0
 public static class Schema0<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1

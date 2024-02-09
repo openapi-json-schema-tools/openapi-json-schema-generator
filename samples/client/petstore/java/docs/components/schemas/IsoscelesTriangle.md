@@ -13,12 +13,18 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)<br> sealed validated payload class |
 | static class | [IsoscelesTriangle.IsoscelesTriangle1](#isoscelestriangle1)<br> schema class |
+| static class | [IsoscelesTriangle.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [IsoscelesTriangle.Schema1](#schema1)<br> schema class |
 | static class | [IsoscelesTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [IsoscelesTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [IsoscelesTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> sealed validated payload class |
 | static class | [IsoscelesTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [IsoscelesTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |
+
+## IsoscelesTriangle1Boxed
+public static abstract sealed class IsoscelesTriangle1Boxed<br>
 
 ## IsoscelesTriangle1
 public static class IsoscelesTriangle1<br>
@@ -44,6 +50,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -126,6 +135,9 @@ A class to store validated Map payloads
 | static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | String | triangleType()<br>[optional] must be one of ["IsoscelesTriangle"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## TriangleTypeBoxed
+public static abstract sealed class TriangleTypeBoxed<br>
 
 ## TriangleType
 public static class TriangleType<br>

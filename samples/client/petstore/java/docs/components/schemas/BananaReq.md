@@ -12,12 +12,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [BananaReq.BananaReq1Boxed](#bananareq1boxed)<br> sealed validated payload class |
 | static class | [BananaReq.BananaReq1](#bananareq1)<br> schema class |
 | static class | [BananaReq.BananaReqMapBuilder](#bananareqmapbuilder)<br> builder for Map payloads |
 | static class | [BananaReq.BananaReqMap](#bananareqmap)<br> output class for Map payloads |
+| static class | [BananaReq.SweetBoxed](#sweetboxed)<br> sealed validated payload class |
 | static class | [BananaReq.Sweet](#sweet)<br> schema class |
+| static class | [BananaReq.LengthCmBoxed](#lengthcmboxed)<br> sealed validated payload class |
 | static class | [BananaReq.LengthCm](#lengthcm)<br> schema class |
+| static class | [BananaReq.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [BananaReq.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## BananaReq1Boxed
+public static abstract sealed class BananaReq1Boxed<br>
 
 ## BananaReq1
 public static class BananaReq1<br>
@@ -115,6 +122,9 @@ A class to store validated Map payloads
 | Number | lengthCm()<br> |
 | boolean | sweet()<br>[optional] |
 
+## SweetBoxed
+public static abstract sealed class SweetBoxed<br>
+
 ## Sweet
 public static class Sweet<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -126,6 +136,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## LengthCmBoxed
+public static abstract sealed class LengthCmBoxed<br>
+
 ## LengthCm
 public static class LengthCm<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -136,6 +149,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

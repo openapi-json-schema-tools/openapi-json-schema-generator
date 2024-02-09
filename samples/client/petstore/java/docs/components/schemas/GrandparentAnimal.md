@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [GrandparentAnimal.GrandparentAnimal1Boxed](#grandparentanimal1boxed)<br> sealed validated payload class |
 | static class | [GrandparentAnimal.GrandparentAnimal1](#grandparentanimal1)<br> schema class |
 | static class | [GrandparentAnimal.GrandparentAnimalMapBuilder](#grandparentanimalmapbuilder)<br> builder for Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimalMap](#grandparentanimalmap)<br> output class for Map payloads |
+| static class | [GrandparentAnimal.PetTypeBoxed](#pettypeboxed)<br> sealed validated payload class |
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
+
+## GrandparentAnimal1Boxed
+public static abstract sealed class GrandparentAnimal1Boxed<br>
 
 ## GrandparentAnimal1
 public static class GrandparentAnimal1<br>
@@ -114,6 +119,9 @@ A class to store validated Map payloads
 | static [GrandparentAnimalMap](#grandparentanimalmap) | of([Map<String, ? extends @Nullable Object>](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | String | pet_type()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## PetTypeBoxed
+public static abstract sealed class PetTypeBoxed<br>
 
 ## PetType
 public static class PetType<br>

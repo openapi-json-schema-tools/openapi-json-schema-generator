@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Cat.Cat1Boxed](#cat1boxed)<br> sealed validated payload class |
 | static class | [Cat.Cat1](#cat1)<br> schema class |
+| static class | [Cat.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [Cat.Schema1](#schema1)<br> schema class |
 | static class | [Cat.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [Cat.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [Cat.DeclawedBoxed](#declawedboxed)<br> sealed validated payload class |
 | static class | [Cat.Declawed](#declawed)<br> schema class |
+
+## Cat1Boxed
+public static abstract sealed class Cat1Boxed<br>
 
 ## Cat1
 public static class Cat1<br>
@@ -42,6 +48,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -123,6 +132,9 @@ A class to store validated Map payloads
 | static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | boolean | declawed()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## DeclawedBoxed
+public static abstract sealed class DeclawedBoxed<br>
 
 ## Declawed
 public static class Declawed<br>

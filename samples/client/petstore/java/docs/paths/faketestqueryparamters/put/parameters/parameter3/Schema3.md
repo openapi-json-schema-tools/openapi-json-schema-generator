@@ -11,10 +11,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema3.Schema31Boxed](#schema31boxed)<br> sealed validated payload class |
 | static class | [Schema3.Schema31](#schema31)<br> schema class |
 | static class | [Schema3.SchemaListBuilder3](#schemalistbuilder3)<br> builder for List payloads |
 | static class | [Schema3.SchemaList3](#schemalist3)<br> output class for List payloads |
+| static class | [Schema3.Items3Boxed](#items3boxed)<br> sealed validated payload class |
 | static class | [Schema3.Items3](#items3)<br> schema class |
+
+## Schema31Boxed
+public static abstract sealed class Schema31Boxed<br>
 
 ## Schema31
 public static class Schema31<br>
@@ -87,6 +92,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaList3](#schemalist3) | of([List<String>](#schemalistbuilder3) arg, SchemaConfiguration configuration) |
+
+## Items3Boxed
+public static abstract sealed class Items3Boxed<br>
 
 ## Items3
 public static class Items3<br>

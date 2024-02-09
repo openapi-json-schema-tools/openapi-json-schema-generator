@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Animal.Animal1Boxed](#animal1boxed)<br> sealed validated payload class |
 | static class | [Animal.Animal1](#animal1)<br> schema class |
 | static class | [Animal.AnimalMapBuilder](#animalmapbuilder)<br> builder for Map payloads |
 | static class | [Animal.AnimalMap](#animalmap)<br> output class for Map payloads |
+| static class | [Animal.ColorBoxed](#colorboxed)<br> sealed validated payload class |
 | static class | [Animal.Color](#color)<br> schema class |
+| static class | [Animal.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
 | static class | [Animal.ClassName](#classname)<br> schema class |
+
+## Animal1Boxed
+public static abstract sealed class Animal1Boxed<br>
 
 ## Animal1
 public static class Animal1<br>
@@ -120,6 +126,9 @@ A class to store validated Map payloads
 | String | color()<br>[optional] if omitted the server will use the default value of red |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ColorBoxed
+public static abstract sealed class ColorBoxed<br>
+
 ## Color
 public static class Color<br>
 extends JsonSchema
@@ -159,6 +168,9 @@ String validatedPayload = Animal.Color.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ClassNameBoxed
+public static abstract sealed class ClassNameBoxed<br>
+
 ## ClassName
 public static class ClassName<br>
 extends StringJsonSchema.StringJsonSchema1

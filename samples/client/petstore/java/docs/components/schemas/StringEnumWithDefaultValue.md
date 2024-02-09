@@ -11,8 +11,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1Boxed](#stringenumwithdefaultvalue1boxed)<br> sealed validated payload class |
 | static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1](#stringenumwithdefaultvalue1)<br> schema class |
 | enum | [StringEnumWithDefaultValue.StringStringEnumWithDefaultValueEnums](#stringstringenumwithdefaultvalueenums)<br>String enum |
+
+## StringEnumWithDefaultValue1Boxed
+public static abstract sealed class StringEnumWithDefaultValue1Boxed<br>
 
 ## StringEnumWithDefaultValue1
 public static class StringEnumWithDefaultValue1<br>

@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)<br> sealed validated payload class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1](#objectwithallofwithreqtestpropfromunsetaddprop1)<br> schema class |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1](#schema1)<br> schema class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.NameBoxed](#nameboxed)<br> sealed validated payload class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Name](#name)<br> schema class |
+
+## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+public static abstract sealed class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed<br>
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1
 public static class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1<br>
@@ -42,6 +48,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -149,6 +158,9 @@ A class to store validated Map payloads
 | @Nullable Object | test()<br> |
 | String | name()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
 
 ## Name
 public static class Name<br>

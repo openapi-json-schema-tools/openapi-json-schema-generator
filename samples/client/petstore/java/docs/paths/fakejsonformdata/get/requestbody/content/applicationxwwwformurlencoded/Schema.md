@@ -11,11 +11,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+| static class | [Schema.Param2Boxed](#param2boxed)<br> sealed validated payload class |
 | static class | [Schema.Param2](#param2)<br> schema class |
+| static class | [Schema.ParamBoxed](#paramboxed)<br> sealed validated payload class |
 | static class | [Schema.Param](#param)<br> schema class |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
 
 ## Schema1
 public static class Schema1<br>
@@ -151,6 +157,9 @@ A class to store validated Map payloads
 | String | param2()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Param2Boxed
+public static abstract sealed class Param2Boxed<br>
+
 ## Param2
 public static class Param2<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -164,6 +173,9 @@ field2
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## ParamBoxed
+public static abstract sealed class ParamBoxed<br>
 
 ## Param
 public static class Param<br>

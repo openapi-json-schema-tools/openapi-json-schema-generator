@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Client.Client1Boxed](#client1boxed)<br> sealed validated payload class |
 | static class | [Client.Client1](#client1)<br> schema class |
 | static class | [Client.ClientMapBuilder1](#clientmapbuilder1)<br> builder for Map payloads |
 | static class | [Client.ClientMap](#clientmap)<br> output class for Map payloads |
+| static class | [Client.Client2Boxed](#client2boxed)<br> sealed validated payload class |
 | static class | [Client.Client2](#client2)<br> schema class |
+
+## Client1Boxed
+public static abstract sealed class Client1Boxed<br>
 
 ## Client1
 public static class Client1<br>
@@ -98,6 +103,9 @@ A class to store validated Map payloads
 | static [ClientMap](#clientmap) | of([Map<String, ? extends @Nullable Object>](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
 | String | client()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Client2Boxed
+public static abstract sealed class Client2Boxed<br>
 
 ## Client2
 public static class Client2<br>

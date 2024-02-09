@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ComposedArray.ComposedArray1Boxed](#composedarray1boxed)<br> sealed validated payload class |
 | static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
 | static class | [ComposedArray.ComposedArrayListBuilder](#composedarraylistbuilder)<br> builder for List payloads |
 | static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
+| static class | [ComposedArray.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [ComposedArray.Items](#items)<br> schema class |
+
+## ComposedArray1Boxed
+public static abstract sealed class ComposedArray1Boxed<br>
 
 ## ComposedArray1
 public static class ComposedArray1<br>
@@ -94,6 +99,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ComposedArrayList](#composedarraylist) | of([List<? extends @Nullable Object>](#composedarraylistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
 
 ## Items
 public static class Items<br>

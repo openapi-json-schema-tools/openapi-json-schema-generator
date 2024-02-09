@@ -13,16 +13,26 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Order.Order1Boxed](#order1boxed)<br> sealed validated payload class |
 | static class | [Order.Order1](#order1)<br> schema class |
 | static class | [Order.OrderMapBuilder](#ordermapbuilder)<br> builder for Map payloads |
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
+| static class | [Order.CompleteBoxed](#completeboxed)<br> sealed validated payload class |
 | static class | [Order.Complete](#complete)<br> schema class |
+| static class | [Order.StatusBoxed](#statusboxed)<br> sealed validated payload class |
 | static class | [Order.Status](#status)<br> schema class |
 | enum | [Order.StringStatusEnums](#stringstatusenums)<br>String enum |
+| static class | [Order.ShipDateBoxed](#shipdateboxed)<br> sealed validated payload class |
 | static class | [Order.ShipDate](#shipdate)<br> schema class |
+| static class | [Order.QuantityBoxed](#quantityboxed)<br> sealed validated payload class |
 | static class | [Order.Quantity](#quantity)<br> schema class |
+| static class | [Order.PetIdBoxed](#petidboxed)<br> sealed validated payload class |
 | static class | [Order.PetId](#petid)<br> schema class |
+| static class | [Order.IdBoxed](#idboxed)<br> sealed validated payload class |
 | static class | [Order.Id](#id)<br> schema class |
+
+## Order1Boxed
+public static abstract sealed class Order1Boxed<br>
 
 ## Order1
 public static class Order1<br>
@@ -134,6 +144,9 @@ A class to store validated Map payloads
 | boolean | complete()<br>[optional] if omitted the server will use the default value of false |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## CompleteBoxed
+public static abstract sealed class CompleteBoxed<br>
+
 ## Complete
 public static class Complete<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -144,6 +157,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## StatusBoxed
+public static abstract sealed class StatusBoxed<br>
 
 ## Status
 public static class Status<br>
@@ -201,6 +217,9 @@ A class that stores String enum values
 | APPROVED | value = "approved" |
 | DELIVERED | value = "delivered" |
 
+## ShipDateBoxed
+public static abstract sealed class ShipDateBoxed<br>
+
 ## ShipDate
 public static class ShipDate<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1
@@ -211,6 +230,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## QuantityBoxed
+public static abstract sealed class QuantityBoxed<br>
 
 ## Quantity
 public static class Quantity<br>
@@ -223,6 +245,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## PetIdBoxed
+public static abstract sealed class PetIdBoxed<br>
+
 ## PetId
 public static class PetId<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -233,6 +258,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
 
 ## Id
 public static class Id<br>

@@ -13,13 +13,20 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Whale.Whale1Boxed](#whale1boxed)<br> sealed validated payload class |
 | static class | [Whale.Whale1](#whale1)<br> schema class |
 | static class | [Whale.WhaleMapBuilder](#whalemapbuilder)<br> builder for Map payloads |
 | static class | [Whale.WhaleMap](#whalemap)<br> output class for Map payloads |
+| static class | [Whale.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
 | static class | [Whale.ClassName](#classname)<br> schema class |
 | enum | [Whale.StringClassNameEnums](#stringclassnameenums)<br>String enum |
+| static class | [Whale.HasTeethBoxed](#hasteethboxed)<br> sealed validated payload class |
 | static class | [Whale.HasTeeth](#hasteeth)<br> schema class |
+| static class | [Whale.HasBaleenBoxed](#hasbaleenboxed)<br> sealed validated payload class |
 | static class | [Whale.HasBaleen](#hasbaleen)<br> schema class |
+
+## Whale1Boxed
+public static abstract sealed class Whale1Boxed<br>
 
 ## Whale1
 public static class Whale1<br>
@@ -128,6 +135,9 @@ A class to store validated Map payloads
 | boolean | hasTeeth()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ClassNameBoxed
+public static abstract sealed class ClassNameBoxed<br>
+
 ## ClassName
 public static class ClassName<br>
 extends JsonSchema
@@ -179,6 +189,9 @@ A class that stores String enum values
 | ------------- | ----------- |
 | WHALE | value = "whale" |
 
+## HasTeethBoxed
+public static abstract sealed class HasTeethBoxed<br>
+
 ## HasTeeth
 public static class HasTeeth<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -189,6 +202,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## HasBaleenBoxed
+public static abstract sealed class HasBaleenBoxed<br>
 
 ## HasBaleen
 public static class HasBaleen<br>

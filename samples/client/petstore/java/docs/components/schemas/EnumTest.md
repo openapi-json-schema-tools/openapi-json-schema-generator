@@ -13,21 +13,29 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [EnumTest.EnumTest1Boxed](#enumtest1boxed)<br> sealed validated payload class |
 | static class | [EnumTest.EnumTest1](#enumtest1)<br> schema class |
 | static class | [EnumTest.EnumTestMapBuilder](#enumtestmapbuilder)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
+| static class | [EnumTest.EnumNumberBoxed](#enumnumberboxed)<br> sealed validated payload class |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
 | enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
 | enum | [EnumTest.FloatEnumNumberEnums](#floatenumnumberenums)<br>Float enum |
+| static class | [EnumTest.EnumIntegerBoxed](#enumintegerboxed)<br> sealed validated payload class |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
 | enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>Integer enum |
 | enum | [EnumTest.LongEnumIntegerEnums](#longenumintegerenums)<br>Long enum |
 | enum | [EnumTest.FloatEnumIntegerEnums](#floatenumintegerenums)<br>Float enum |
 | enum | [EnumTest.DoubleEnumIntegerEnums](#doubleenumintegerenums)<br>Double enum |
+| static class | [EnumTest.EnumStringRequiredBoxed](#enumstringrequiredboxed)<br> sealed validated payload class |
 | static class | [EnumTest.EnumStringRequired](#enumstringrequired)<br> schema class |
 | enum | [EnumTest.StringEnumStringRequiredEnums](#stringenumstringrequiredenums)<br>String enum |
+| static class | [EnumTest.EnumStringBoxed](#enumstringboxed)<br> sealed validated payload class |
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
 | enum | [EnumTest.StringEnumStringEnums](#stringenumstringenums)<br>String enum |
+
+## EnumTest1Boxed
+public static abstract sealed class EnumTest1Boxed<br>
 
 ## EnumTest1
 public static class EnumTest1<br>
@@ -186,6 +194,9 @@ A class to store validated Map payloads
 | Number | IntegerEnumOneValue()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## EnumNumberBoxed
+public static abstract sealed class EnumNumberBoxed<br>
+
 ## EnumNumber
 public static class EnumNumber<br>
 extends JsonSchema
@@ -249,6 +260,9 @@ A class that stores Float enum values
 | ------------- | ----------- |
 | POSITIVE_1_PT_1 | value = 1.1f |
 | NEGATIVE_1_PT_2 | value = -1.2f |
+
+## EnumIntegerBoxed
+public static abstract sealed class EnumIntegerBoxed<br>
 
 ## EnumInteger
 public static class EnumInteger<br>
@@ -338,6 +352,9 @@ A class that stores Double enum values
 | POSITIVE_1 | value = 1.0d |
 | NEGATIVE_1 | value = -1.0d |
 
+## EnumStringRequiredBoxed
+public static abstract sealed class EnumStringRequiredBoxed<br>
+
 ## EnumStringRequired
 public static class EnumStringRequired<br>
 extends JsonSchema
@@ -390,6 +407,9 @@ A class that stores String enum values
 | UPPER | value = "UPPER" |
 | LOWER | value = "lower" |
 | EMPTY | value = "" |
+
+## EnumStringBoxed
+public static abstract sealed class EnumStringBoxed<br>
 
 ## EnumString
 public static class EnumString<br>

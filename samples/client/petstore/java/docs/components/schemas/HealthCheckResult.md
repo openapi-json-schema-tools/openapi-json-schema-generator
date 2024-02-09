@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [HealthCheckResult.HealthCheckResult1Boxed](#healthcheckresult1boxed)<br> sealed validated payload class |
 | static class | [HealthCheckResult.HealthCheckResult1](#healthcheckresult1)<br> schema class |
 | static class | [HealthCheckResult.HealthCheckResultMapBuilder](#healthcheckresultmapbuilder)<br> builder for Map payloads |
 | static class | [HealthCheckResult.HealthCheckResultMap](#healthcheckresultmap)<br> output class for Map payloads |
+| static class | [HealthCheckResult.NullableMessageBoxed](#nullablemessageboxed)<br> sealed validated payload class |
 | static class | [HealthCheckResult.NullableMessage](#nullablemessage)<br> schema class |
+
+## HealthCheckResult1Boxed
+public static abstract sealed class HealthCheckResult1Boxed<br>
 
 ## HealthCheckResult1
 public static class HealthCheckResult1<br>
@@ -102,6 +107,9 @@ A class to store validated Map payloads
 | static [HealthCheckResultMap](#healthcheckresultmap) | of([Map<String, ? extends @Nullable Object>](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable String | NullableMessage()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## NullableMessageBoxed
+public static abstract sealed class NullableMessageBoxed<br>
 
 ## NullableMessage
 public static class NullableMessage<br>

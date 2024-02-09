@@ -14,13 +14,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1Boxed](#arrayofnumberonly1boxed)<br> sealed validated payload class |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1](#arrayofnumberonly1)<br> schema class |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder)<br> builder for Map payloads |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMap](#arrayofnumberonlymap)<br> output class for Map payloads |
+| static class | [ArrayOfNumberOnly.ArrayNumberBoxed](#arraynumberboxed)<br> sealed validated payload class |
 | static class | [ArrayOfNumberOnly.ArrayNumber](#arraynumber)<br> schema class |
 | static class | [ArrayOfNumberOnly.ArrayNumberListBuilder](#arraynumberlistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfNumberOnly.ArrayNumberList](#arraynumberlist)<br> output class for List payloads |
+| static class | [ArrayOfNumberOnly.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [ArrayOfNumberOnly.Items](#items)<br> schema class |
+
+## ArrayOfNumberOnly1Boxed
+public static abstract sealed class ArrayOfNumberOnly1Boxed<br>
 
 ## ArrayOfNumberOnly1
 public static class ArrayOfNumberOnly1<br>
@@ -107,6 +113,9 @@ A class to store validated Map payloads
 | [ArrayNumberList](#arraynumberlist) | ArrayNumber()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ArrayNumberBoxed
+public static abstract sealed class ArrayNumberBoxed<br>
+
 ## ArrayNumber
 public static class ArrayNumber<br>
 extends JsonSchema
@@ -181,6 +190,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayNumberList](#arraynumberlist) | of([List<Number>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
 
 ## Items
 public static class Items<br>

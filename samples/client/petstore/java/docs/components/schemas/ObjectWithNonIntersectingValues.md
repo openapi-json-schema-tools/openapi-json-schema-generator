@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)<br> sealed validated payload class |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1](#objectwithnonintersectingvalues1)<br> schema class |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap)<br> output class for Map payloads |
+| static class | [ObjectWithNonIntersectingValues.ABoxed](#aboxed)<br> sealed validated payload class |
 | static class | [ObjectWithNonIntersectingValues.A](#a)<br> schema class |
+| static class | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [ObjectWithNonIntersectingValues.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## ObjectWithNonIntersectingValues1Boxed
+public static abstract sealed class ObjectWithNonIntersectingValues1Boxed<br>
 
 ## ObjectWithNonIntersectingValues1
 public static class ObjectWithNonIntersectingValues1<br>
@@ -98,6 +104,9 @@ A class to store validated Map payloads
 | Number | a()<br>[optional] |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ABoxed
+public static abstract sealed class ABoxed<br>
+
 ## A
 public static class A<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -108,6 +117,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

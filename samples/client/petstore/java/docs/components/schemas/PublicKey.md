@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [PublicKey.PublicKey1Boxed](#publickey1boxed)<br> sealed validated payload class |
 | static class | [PublicKey.PublicKey1](#publickey1)<br> schema class |
 | static class | [PublicKey.PublicKeyMapBuilder](#publickeymapbuilder)<br> builder for Map payloads |
 | static class | [PublicKey.PublicKeyMap](#publickeymap)<br> output class for Map payloads |
+| static class | [PublicKey.KeyBoxed](#keyboxed)<br> sealed validated payload class |
 | static class | [PublicKey.Key](#key)<br> schema class |
+
+## PublicKey1Boxed
+public static abstract sealed class PublicKey1Boxed<br>
 
 ## PublicKey1
 public static class PublicKey1<br>
@@ -101,6 +106,9 @@ A class to store validated Map payloads
 | static [PublicKeyMap](#publickeymap) | of([Map<String, ? extends @Nullable Object>](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
 | String | key()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## KeyBoxed
+public static abstract sealed class KeyBoxed<br>
 
 ## Key
 public static class Key<br>

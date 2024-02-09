@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Quadrilateral.Quadrilateral1Boxed](#quadrilateral1boxed)<br> sealed validated payload class |
 | static class | [Quadrilateral.Quadrilateral1](#quadrilateral1)<br> schema class |
+
+## Quadrilateral1Boxed
+public static abstract sealed class Quadrilateral1Boxed<br>
 
 ## Quadrilateral1
 public static class Quadrilateral1<br>

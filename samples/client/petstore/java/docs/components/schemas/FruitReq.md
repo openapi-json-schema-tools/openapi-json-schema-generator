@@ -10,8 +10,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [FruitReq.FruitReq1Boxed](#fruitreq1boxed)<br> sealed validated payload class |
 | static class | [FruitReq.FruitReq1](#fruitreq1)<br> schema class |
+| static class | [FruitReq.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
 | static class | [FruitReq.Schema0](#schema0)<br> schema class |
+
+## FruitReq1Boxed
+public static abstract sealed class FruitReq1Boxed<br>
 
 ## FruitReq1
 public static class FruitReq1<br>
@@ -37,6 +42,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema0Boxed
+public static abstract sealed class Schema0Boxed<br>
+
 ## Schema0
 public static class Schema0<br>
 extends NullJsonSchema.NullJsonSchema1

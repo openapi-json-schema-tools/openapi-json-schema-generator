@@ -12,15 +12,25 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1Boxed](#composedoneofdifferenttypes1boxed)<br> sealed validated payload class |
 | static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](#composedoneofdifferenttypes1)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema6Boxed](#schema6boxed)<br> sealed validated payload class |
 | static class | [ComposedOneOfDifferentTypes.Schema6](#schema6)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema5Boxed](#schema5boxed)<br> sealed validated payload class |
 | static class | [ComposedOneOfDifferentTypes.Schema5](#schema5)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema5ListBuilder](#schema5listbuilder)<br> builder for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema5List](#schema5list)<br> output class for List payloads |
+| static class | [ComposedOneOfDifferentTypes.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [ComposedOneOfDifferentTypes.Items](#items)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema4Boxed](#schema4boxed)<br> sealed validated payload class |
 | static class | [ComposedOneOfDifferentTypes.Schema4](#schema4)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema3Boxed](#schema3boxed)<br> sealed validated payload class |
 | static class | [ComposedOneOfDifferentTypes.Schema3](#schema3)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema2Boxed](#schema2boxed)<br> sealed validated payload class |
 | static class | [ComposedOneOfDifferentTypes.Schema2](#schema2)<br> schema class |
+
+## ComposedOneOfDifferentTypes1Boxed
+public static abstract sealed class ComposedOneOfDifferentTypes1Boxed<br>
 
 ## ComposedOneOfDifferentTypes1
 public static class ComposedOneOfDifferentTypes1<br>
@@ -49,6 +59,9 @@ this is a model that allows payloads of type object or number
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema6Boxed
+public static abstract sealed class Schema6Boxed<br>
+
 ## Schema6
 public static class Schema6<br>
 extends JsonSchema
@@ -89,6 +102,9 @@ String validatedPayload = ComposedOneOfDifferentTypes.Schema6.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema5Boxed
+public static abstract sealed class Schema5Boxed<br>
+
 ## Schema5
 public static class Schema5<br>
 extends JsonSchema
@@ -169,6 +185,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [Schema5List](#schema5list) | of([List<? extends @Nullable Object>](#schema5listbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+
 ## Items
 public static class Items<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -179,6 +198,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## Schema4Boxed
+public static abstract sealed class Schema4Boxed<br>
 
 ## Schema4
 public static class Schema4<br>
@@ -198,6 +220,9 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema3Boxed
+public static abstract sealed class Schema3Boxed<br>
+
 ## Schema3
 public static class Schema3<br>
 extends DateJsonSchema.DateJsonSchema1
@@ -208,6 +233,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## Schema2Boxed
+public static abstract sealed class Schema2Boxed<br>
 
 ## Schema2
 public static class Schema2<br>

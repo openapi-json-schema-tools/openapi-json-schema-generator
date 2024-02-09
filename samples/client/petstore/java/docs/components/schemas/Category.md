@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Category.Category1Boxed](#category1boxed)<br> sealed validated payload class |
 | static class | [Category.Category1](#category1)<br> schema class |
 | static class | [Category.CategoryMapBuilder](#categorymapbuilder)<br> builder for Map payloads |
 | static class | [Category.CategoryMap](#categorymap)<br> output class for Map payloads |
+| static class | [Category.NameBoxed](#nameboxed)<br> sealed validated payload class |
 | static class | [Category.Name](#name)<br> schema class |
+| static class | [Category.IdBoxed](#idboxed)<br> sealed validated payload class |
 | static class | [Category.Id](#id)<br> schema class |
+
+## Category1Boxed
+public static abstract sealed class Category1Boxed<br>
 
 ## Category1
 public static class Category1<br>
@@ -123,6 +129,9 @@ A class to store validated Map payloads
 | Number | id()<br>[optional] value must be a 64 bit integer |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
+
 ## Name
 public static class Name<br>
 extends JsonSchema
@@ -162,6 +171,9 @@ String validatedPayload = Category.Name.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
+
 ## Id
 public static class Id<br>
 extends Int64JsonSchema.Int64JsonSchema1

@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Player.Player1Boxed](#player1boxed)<br> sealed validated payload class |
 | static class | [Player.Player1](#player1)<br> schema class |
 | static class | [Player.PlayerMapBuilder](#playermapbuilder)<br> builder for Map payloads |
 | static class | [Player.PlayerMap](#playermap)<br> output class for Map payloads |
+| static class | [Player.NameBoxed](#nameboxed)<br> sealed validated payload class |
 | static class | [Player.Name](#name)<br> schema class |
+
+## Player1Boxed
+public static abstract sealed class Player1Boxed<br>
 
 ## Player1
 public static class Player1<br>
@@ -103,6 +108,9 @@ A class to store validated Map payloads
 | String | name()<br>[optional] |
 | [PlayerMap](#playermap) | enemyPlayer()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
 
 ## Name
 public static class Name<br>

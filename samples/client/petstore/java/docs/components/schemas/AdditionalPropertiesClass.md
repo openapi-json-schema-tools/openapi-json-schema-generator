@@ -12,35 +12,53 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesClass1Boxed](#additionalpropertiesclass1boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClass1](#additionalpropertiesclass1)<br> schema class |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClassMap](#additionalpropertiesclassmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringBoxed](#mapwithundeclaredpropertiesstringboxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesString](#mapwithundeclaredpropertiesstring)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMapBuilder](#mapwithundeclaredpropertiesstringmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties5Boxed](#additionalproperties5boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.AdditionalProperties5](#additionalproperties5)<br> schema class |
+| static class | [AdditionalPropertiesClass.EmptyMapBoxed](#emptymapboxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.EmptyMap](#emptymap)<br> schema class |
 | static class | [AdditionalPropertiesClass.EmptyMapMapBuilder](#emptymapmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.EmptyMapMap](#emptymapmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties4Boxed](#additionalproperties4boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.AdditionalProperties4](#additionalproperties4)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Boxed](#mapwithundeclaredpropertiesanytype3boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3](#mapwithundeclaredpropertiesanytype3)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2Boxed](#mapwithundeclaredpropertiesanytype2boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2](#mapwithundeclaredpropertiesanytype2)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1Boxed](#mapwithundeclaredpropertiesanytype1boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1](#mapwithundeclaredpropertiesanytype1)<br> schema class |
+| static class | [AdditionalPropertiesClass.Anytype1Boxed](#anytype1boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.Anytype1](#anytype1)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapOfMapPropertyBoxed](#mapofmappropertyboxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.MapOfMapProperty](#mapofmapproperty)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapOfMapPropertyMapBuilder](#mapofmappropertymapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapOfMapPropertyMap](#mapofmappropertymap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesMapBuilder2](#additionalpropertiesmapbuilder2)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapPropertyBoxed](#mappropertyboxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.MapProperty](#mapproperty)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapPropertyMapBuilder](#mappropertymapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapPropertyMap](#mappropertymap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [AdditionalPropertiesClass.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## AdditionalPropertiesClass1Boxed
+public static abstract sealed class AdditionalPropertiesClass1Boxed<br>
 
 ## AdditionalPropertiesClass1
 public static class AdditionalPropertiesClass1<br>
@@ -181,6 +199,9 @@ A class to store validated Map payloads
 | [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | map_with_undeclared_properties_string()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## MapWithUndeclaredPropertiesStringBoxed
+public static abstract sealed class MapWithUndeclaredPropertiesStringBoxed<br>
+
 ## MapWithUndeclaredPropertiesString
 public static class MapWithUndeclaredPropertiesString<br>
 extends JsonSchema
@@ -253,6 +274,9 @@ A class to store validated Map payloads
 | static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | of([Map<String, String>](#mapwithundeclaredpropertiesstringmapbuilder) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties5Boxed
+public static abstract sealed class AdditionalProperties5Boxed<br>
+
 ## AdditionalProperties5
 public static class AdditionalProperties5<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -263,6 +287,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## EmptyMapBoxed
+public static abstract sealed class EmptyMapBoxed<br>
 
 ## EmptyMap
 public static class EmptyMap<br>
@@ -335,6 +362,9 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [EmptyMapMap](#emptymapmap) | of([Map<String, Object>](#emptymapmapbuilder) arg, SchemaConfiguration configuration) |
 
+## AdditionalProperties4Boxed
+public static abstract sealed class AdditionalProperties4Boxed<br>
+
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
@@ -345,6 +375,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## MapWithUndeclaredPropertiesAnytype3Boxed
+public static abstract sealed class MapWithUndeclaredPropertiesAnytype3Boxed<br>
 
 ## MapWithUndeclaredPropertiesAnytype3
 public static class MapWithUndeclaredPropertiesAnytype3<br>
@@ -424,6 +457,9 @@ A class to store validated Map payloads
 | static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | of([Map<String, ? extends @Nullable Object>](#mapwithundeclaredpropertiesanytype3mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties3Boxed
+public static abstract sealed class AdditionalProperties3Boxed<br>
+
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -434,6 +470,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## MapWithUndeclaredPropertiesAnytype2Boxed
+public static abstract sealed class MapWithUndeclaredPropertiesAnytype2Boxed<br>
 
 ## MapWithUndeclaredPropertiesAnytype2
 public static class MapWithUndeclaredPropertiesAnytype2<br>
@@ -446,6 +485,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## MapWithUndeclaredPropertiesAnytype1Boxed
+public static abstract sealed class MapWithUndeclaredPropertiesAnytype1Boxed<br>
+
 ## MapWithUndeclaredPropertiesAnytype1
 public static class MapWithUndeclaredPropertiesAnytype1<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -457,6 +499,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## Anytype1Boxed
+public static abstract sealed class Anytype1Boxed<br>
+
 ## Anytype1
 public static class Anytype1<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -467,6 +512,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## MapOfMapPropertyBoxed
+public static abstract sealed class MapOfMapPropertyBoxed<br>
 
 ## MapOfMapProperty
 public static class MapOfMapProperty<br>
@@ -547,6 +595,9 @@ A class to store validated Map payloads
 | static [MapOfMapPropertyMap](#mapofmappropertymap) | of([Map<String, Map<String, String>>](#mapofmappropertymapbuilder) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties1Boxed
+public static abstract sealed class AdditionalProperties1Boxed<br>
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -619,6 +670,9 @@ A class to store validated Map payloads
 | static [AdditionalPropertiesMap](#additionalpropertiesmap) | of([Map<String, String>](#additionalpropertiesmapbuilder2) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties2Boxed
+public static abstract sealed class AdditionalProperties2Boxed<br>
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -629,6 +683,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## MapPropertyBoxed
+public static abstract sealed class MapPropertyBoxed<br>
 
 ## MapProperty
 public static class MapProperty<br>
@@ -701,6 +758,9 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [MapPropertyMap](#mappropertymap) | of([Map<String, String>](#mappropertymapbuilder) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

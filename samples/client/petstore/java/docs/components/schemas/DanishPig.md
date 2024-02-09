@@ -13,11 +13,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [DanishPig.DanishPig1Boxed](#danishpig1boxed)<br> sealed validated payload class |
 | static class | [DanishPig.DanishPig1](#danishpig1)<br> schema class |
 | static class | [DanishPig.DanishPigMapBuilder](#danishpigmapbuilder)<br> builder for Map payloads |
 | static class | [DanishPig.DanishPigMap](#danishpigmap)<br> output class for Map payloads |
+| static class | [DanishPig.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
 | static class | [DanishPig.ClassName](#classname)<br> schema class |
 | enum | [DanishPig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
+
+## DanishPig1Boxed
+public static abstract sealed class DanishPig1Boxed<br>
 
 ## DanishPig1
 public static class DanishPig1<br>
@@ -117,6 +122,9 @@ A class to store validated Map payloads
 | static [DanishPigMap](#danishpigmap) | of([Map<String, ? extends @Nullable Object>](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["DanishPig"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ClassNameBoxed
+public static abstract sealed class ClassNameBoxed<br>
 
 ## ClassName
 public static class ClassName<br>

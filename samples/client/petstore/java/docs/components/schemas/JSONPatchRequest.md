@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [JSONPatchRequest.JSONPatchRequest1Boxed](#jsonpatchrequest1boxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequest.JSONPatchRequest1](#jsonpatchrequest1)<br> schema class |
 | static class | [JSONPatchRequest.JSONPatchRequestListBuilder](#jsonpatchrequestlistbuilder)<br> builder for List payloads |
 | static class | [JSONPatchRequest.JSONPatchRequestList](#jsonpatchrequestlist)<br> output class for List payloads |
+| static class | [JSONPatchRequest.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequest.Items](#items)<br> schema class |
+
+## JSONPatchRequest1Boxed
+public static abstract sealed class JSONPatchRequest1Boxed<br>
 
 ## JSONPatchRequest1
 public static class JSONPatchRequest1<br>
@@ -94,6 +99,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [JSONPatchRequestList](#jsonpatchrequestlist) | of([List<? extends @Nullable Object>](#jsonpatchrequestlistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
 
 ## Items
 public static class Items<br>

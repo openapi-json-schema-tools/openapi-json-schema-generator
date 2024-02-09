@@ -12,23 +12,41 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [User.User1Boxed](#user1boxed)<br> sealed validated payload class |
 | static class | [User.User1](#user1)<br> schema class |
 | static class | [User.UserMapBuilder](#usermapbuilder)<br> builder for Map payloads |
 | static class | [User.UserMap](#usermap)<br> output class for Map payloads |
+| static class | [User.AnyTypePropNullableBoxed](#anytypepropnullableboxed)<br> sealed validated payload class |
 | static class | [User.AnyTypePropNullable](#anytypepropnullable)<br> schema class |
+| static class | [User.AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)<br> sealed validated payload class |
 | static class | [User.AnyTypeExceptNullProp](#anytypeexceptnullprop)<br> schema class |
+| static class | [User.NotBoxed](#notboxed)<br> sealed validated payload class |
 | static class | [User.Not](#not)<br> schema class |
+| static class | [User.AnyTypePropBoxed](#anytypepropboxed)<br> sealed validated payload class |
 | static class | [User.AnyTypeProp](#anytypeprop)<br> schema class |
+| static class | [User.ObjectWithNoDeclaredPropsNullableBoxed](#objectwithnodeclaredpropsnullableboxed)<br> sealed validated payload class |
 | static class | [User.ObjectWithNoDeclaredPropsNullable](#objectwithnodeclaredpropsnullable)<br> schema class |
+| static class | [User.ObjectWithNoDeclaredPropsBoxed](#objectwithnodeclaredpropsboxed)<br> sealed validated payload class |
 | static class | [User.ObjectWithNoDeclaredProps](#objectwithnodeclaredprops)<br> schema class |
+| static class | [User.UserStatusBoxed](#userstatusboxed)<br> sealed validated payload class |
 | static class | [User.UserStatus](#userstatus)<br> schema class |
+| static class | [User.PhoneBoxed](#phoneboxed)<br> sealed validated payload class |
 | static class | [User.Phone](#phone)<br> schema class |
+| static class | [User.PasswordBoxed](#passwordboxed)<br> sealed validated payload class |
 | static class | [User.Password](#password)<br> schema class |
+| static class | [User.EmailBoxed](#emailboxed)<br> sealed validated payload class |
 | static class | [User.Email](#email)<br> schema class |
+| static class | [User.LastNameBoxed](#lastnameboxed)<br> sealed validated payload class |
 | static class | [User.LastName](#lastname)<br> schema class |
+| static class | [User.FirstNameBoxed](#firstnameboxed)<br> sealed validated payload class |
 | static class | [User.FirstName](#firstname)<br> schema class |
+| static class | [User.UsernameBoxed](#usernameboxed)<br> sealed validated payload class |
 | static class | [User.Username](#username)<br> schema class |
+| static class | [User.IdBoxed](#idboxed)<br> sealed validated payload class |
 | static class | [User.Id](#id)<br> schema class |
+
+## User1Boxed
+public static abstract sealed class User1Boxed<br>
 
 ## User1
 public static class User1<br>
@@ -181,6 +199,9 @@ A class to store validated Map payloads
 | @Nullable Object | anyTypePropNullable()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AnyTypePropNullableBoxed
+public static abstract sealed class AnyTypePropNullableBoxed<br>
+
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -194,6 +215,9 @@ test code generation for any type Here the &#x27;type&#x27; attribute is not spe
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AnyTypeExceptNullPropBoxed
+public static abstract sealed class AnyTypeExceptNullPropBoxed<br>
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -222,6 +246,9 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## NotBoxed
+public static abstract sealed class NotBoxed<br>
+
 ## Not
 public static class Not<br>
 extends NullJsonSchema.NullJsonSchema1
@@ -232,6 +259,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AnyTypePropBoxed
+public static abstract sealed class AnyTypePropBoxed<br>
 
 ## AnyTypeProp
 public static class AnyTypeProp<br>
@@ -246,6 +276,9 @@ test code generation for any type Here the &#x27;type&#x27; attribute is not spe
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## ObjectWithNoDeclaredPropsNullableBoxed
+public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed<br>
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>
@@ -289,6 +322,9 @@ Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ObjectWithNoDeclaredPropsBoxed
+public static abstract sealed class ObjectWithNoDeclaredPropsBoxed<br>
+
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -302,6 +338,9 @@ test code generation for objects Value must be a map of strings to values. It ca
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## UserStatusBoxed
+public static abstract sealed class UserStatusBoxed<br>
 
 ## UserStatus
 public static class UserStatus<br>
@@ -317,6 +356,9 @@ User Status
 | validate                                                           |
 | validateAndBox                                                     |
 
+## PhoneBoxed
+public static abstract sealed class PhoneBoxed<br>
+
 ## Phone
 public static class Phone<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -327,6 +369,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## PasswordBoxed
+public static abstract sealed class PasswordBoxed<br>
 
 ## Password
 public static class Password<br>
@@ -339,6 +384,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## EmailBoxed
+public static abstract sealed class EmailBoxed<br>
+
 ## Email
 public static class Email<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -349,6 +397,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## LastNameBoxed
+public static abstract sealed class LastNameBoxed<br>
 
 ## LastName
 public static class LastName<br>
@@ -361,6 +412,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## FirstNameBoxed
+public static abstract sealed class FirstNameBoxed<br>
+
 ## FirstName
 public static class FirstName<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -372,6 +426,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## UsernameBoxed
+public static abstract sealed class UsernameBoxed<br>
+
 ## Username
 public static class Username<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -382,6 +439,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
 
 ## Id
 public static class Id<br>

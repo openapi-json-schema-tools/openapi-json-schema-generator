@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [DateTimeTest.DateTimeTest1Boxed](#datetimetest1boxed)<br> sealed validated payload class |
 | static class | [DateTimeTest.DateTimeTest1](#datetimetest1)<br> schema class |
+
+## DateTimeTest1Boxed
+public static abstract sealed class DateTimeTest1Boxed<br>
 
 ## DateTimeTest1
 public static class DateTimeTest1<br>

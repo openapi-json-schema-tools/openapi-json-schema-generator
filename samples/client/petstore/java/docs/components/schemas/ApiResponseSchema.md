@@ -12,12 +12,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ApiResponseSchema.ApiResponseSchema1Boxed](#apiresponseschema1boxed)<br> sealed validated payload class |
 | static class | [ApiResponseSchema.ApiResponseSchema1](#apiresponseschema1)<br> schema class |
 | static class | [ApiResponseSchema.ApiResponseMapBuilder](#apiresponsemapbuilder)<br> builder for Map payloads |
 | static class | [ApiResponseSchema.ApiResponseMap](#apiresponsemap)<br> output class for Map payloads |
+| static class | [ApiResponseSchema.MessageBoxed](#messageboxed)<br> sealed validated payload class |
 | static class | [ApiResponseSchema.Message](#message)<br> schema class |
+| static class | [ApiResponseSchema.TypeBoxed](#typeboxed)<br> sealed validated payload class |
 | static class | [ApiResponseSchema.Type](#type)<br> schema class |
+| static class | [ApiResponseSchema.CodeBoxed](#codeboxed)<br> sealed validated payload class |
 | static class | [ApiResponseSchema.Code](#code)<br> schema class |
+
+## ApiResponseSchema1Boxed
+public static abstract sealed class ApiResponseSchema1Boxed<br>
 
 ## ApiResponseSchema1
 public static class ApiResponseSchema1<br>
@@ -110,6 +117,9 @@ A class to store validated Map payloads
 | String | message()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## MessageBoxed
+public static abstract sealed class MessageBoxed<br>
+
 ## Message
 public static class Message<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -121,6 +131,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## TypeBoxed
+public static abstract sealed class TypeBoxed<br>
+
 ## Type
 public static class Type<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -131,6 +144,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## CodeBoxed
+public static abstract sealed class CodeBoxed<br>
 
 ## Code
 public static class Code<br>

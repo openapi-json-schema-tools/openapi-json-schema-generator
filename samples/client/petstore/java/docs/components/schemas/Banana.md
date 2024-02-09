@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Banana.Banana1Boxed](#banana1boxed)<br> sealed validated payload class |
 | static class | [Banana.Banana1](#banana1)<br> schema class |
 | static class | [Banana.BananaMapBuilder](#bananamapbuilder)<br> builder for Map payloads |
 | static class | [Banana.BananaMap](#bananamap)<br> output class for Map payloads |
+| static class | [Banana.LengthCmBoxed](#lengthcmboxed)<br> sealed validated payload class |
 | static class | [Banana.LengthCm](#lengthcm)<br> schema class |
+
+## Banana1Boxed
+public static abstract sealed class Banana1Boxed<br>
 
 ## Banana1
 public static class Banana1<br>
@@ -117,6 +122,9 @@ A class to store validated Map payloads
 | static [BananaMap](#bananamap) | of([Map<String, ? extends @Nullable Object>](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## LengthCmBoxed
+public static abstract sealed class LengthCmBoxed<br>
 
 ## LengthCm
 public static class LengthCm<br>

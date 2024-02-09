@@ -11,10 +11,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema0.Schema01Boxed](#schema01boxed)<br> sealed validated payload class |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaMapBuilder0](#schemamapbuilder0)<br> builder for Map payloads |
 | static class | [Schema0.SchemaMap0](#schemamap0)<br> output class for Map payloads |
+| static class | [Schema0.Keyword0Boxed](#keyword0boxed)<br> sealed validated payload class |
 | static class | [Schema0.Keyword0](#keyword0)<br> schema class |
+
+## Schema01Boxed
+public static abstract sealed class Schema01Boxed<br>
 
 ## Schema01
 public static class Schema01<br>
@@ -97,6 +102,9 @@ A class to store validated Map payloads
 | static [SchemaMap0](#schemamap0) | of([Map<String, ? extends @Nullable Object>](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
 | String | keyword()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Keyword0Boxed
+public static abstract sealed class Keyword0Boxed<br>
 
 ## Keyword0
 public static class Keyword0<br>

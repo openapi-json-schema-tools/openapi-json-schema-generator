@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [AbstractStepMessage.AbstractStepMessage1Boxed](#abstractstepmessage1boxed)<br> sealed validated payload class |
 | static class | [AbstractStepMessage.AbstractStepMessage1](#abstractstepmessage1)<br> schema class |
 | static class | [AbstractStepMessage.AbstractStepMessageMapBuilder](#abstractstepmessagemapbuilder)<br> builder for Map payloads |
 | static class | [AbstractStepMessage.AbstractStepMessageMap](#abstractstepmessagemap)<br> output class for Map payloads |
+| static class | [AbstractStepMessage.DiscriminatorBoxed](#discriminatorboxed)<br> sealed validated payload class |
 | static class | [AbstractStepMessage.Discriminator](#discriminator)<br> schema class |
+
+## AbstractStepMessage1Boxed
+public static abstract sealed class AbstractStepMessage1Boxed<br>
 
 ## AbstractStepMessage1
 public static class AbstractStepMessage1<br>
@@ -285,6 +290,9 @@ A class to store validated Map payloads
 | String | discriminator()<br> |
 | @Nullable Object | sequenceNumber()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## DiscriminatorBoxed
+public static abstract sealed class DiscriminatorBoxed<br>
 
 ## Discriminator
 public static class Discriminator<br>

@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [StringBooleanMap.StringBooleanMap1Boxed](#stringbooleanmap1boxed)<br> sealed validated payload class |
 | static class | [StringBooleanMap.StringBooleanMap1](#stringbooleanmap1)<br> schema class |
 | static class | [StringBooleanMap.StringBooleanMapMapBuilder](#stringbooleanmapmapbuilder)<br> builder for Map payloads |
 | static class | [StringBooleanMap.StringBooleanMapMap](#stringbooleanmapmap)<br> output class for Map payloads |
+| static class | [StringBooleanMap.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [StringBooleanMap.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## StringBooleanMap1Boxed
+public static abstract sealed class StringBooleanMap1Boxed<br>
 
 ## StringBooleanMap1
 public static class StringBooleanMap1<br>
@@ -88,6 +93,9 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [StringBooleanMapMap](#stringbooleanmapmap) | of([Map<String, Boolean>](#stringbooleanmapmapbuilder) arg, SchemaConfiguration configuration) |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

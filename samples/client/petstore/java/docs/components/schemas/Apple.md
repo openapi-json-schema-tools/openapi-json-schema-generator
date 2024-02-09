@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Apple.Apple1Boxed](#apple1boxed)<br> sealed validated payload class |
 | static class | [Apple.Apple1](#apple1)<br> schema class |
 | static class | [Apple.AppleMapBuilder](#applemapbuilder)<br> builder for Map payloads |
 | static class | [Apple.AppleMap](#applemap)<br> output class for Map payloads |
+| static class | [Apple.OriginBoxed](#originboxed)<br> sealed validated payload class |
 | static class | [Apple.Origin](#origin)<br> schema class |
+| static class | [Apple.CultivarBoxed](#cultivarboxed)<br> sealed validated payload class |
 | static class | [Apple.Cultivar](#cultivar)<br> schema class |
+
+## Apple1Boxed
+public static abstract sealed class Apple1Boxed<br>
 
 ## Apple1
 public static class Apple1<br>
@@ -127,6 +133,9 @@ A class to store validated Map payloads
 | String | origin()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## OriginBoxed
+public static abstract sealed class OriginBoxed<br>
+
 ## Origin
 public static class Origin<br>
 extends JsonSchema
@@ -166,6 +175,9 @@ String validatedPayload = Apple.Origin.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## CultivarBoxed
+public static abstract sealed class CultivarBoxed<br>
+
 ## Cultivar
 public static class Cultivar<br>
 extends JsonSchema

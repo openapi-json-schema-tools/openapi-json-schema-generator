@@ -15,20 +15,30 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Pet.Pet1Boxed](#pet1boxed)<br> sealed validated payload class |
 | static class | [Pet.Pet1](#pet1)<br> schema class |
 | static class | [Pet.PetMapBuilder](#petmapbuilder)<br> builder for Map payloads |
 | static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
+| static class | [Pet.TagsBoxed](#tagsboxed)<br> sealed validated payload class |
 | static class | [Pet.Tags](#tags)<br> schema class |
 | static class | [Pet.TagsListBuilder](#tagslistbuilder)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
+| static class | [Pet.StatusBoxed](#statusboxed)<br> sealed validated payload class |
 | static class | [Pet.Status](#status)<br> schema class |
 | enum | [Pet.StringStatusEnums](#stringstatusenums)<br>String enum |
+| static class | [Pet.PhotoUrlsBoxed](#photourlsboxed)<br> sealed validated payload class |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
 | static class | [Pet.PhotoUrlsListBuilder](#photourlslistbuilder)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
+| static class | [Pet.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [Pet.Items](#items)<br> schema class |
+| static class | [Pet.NameBoxed](#nameboxed)<br> sealed validated payload class |
 | static class | [Pet.Name](#name)<br> schema class |
+| static class | [Pet.IdBoxed](#idboxed)<br> sealed validated payload class |
 | static class | [Pet.Id](#id)<br> schema class |
+
+## Pet1Boxed
+public static abstract sealed class Pet1Boxed<br>
 
 ## Pet1
 public static class Pet1<br>
@@ -208,6 +218,9 @@ A class to store validated Map payloads
 | String | status()<br>[optional] must be one of ["available", "pending", "sold"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## TagsBoxed
+public static abstract sealed class TagsBoxed<br>
+
 ## Tags
 public static class Tags<br>
 extends JsonSchema
@@ -290,6 +303,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [TagsList](#tagslist) | of([List<Map<String, ? extends @Nullable Object>>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
 
+## StatusBoxed
+public static abstract sealed class StatusBoxed<br>
+
 ## Status
 public static class Status<br>
 extends JsonSchema
@@ -345,6 +361,9 @@ A class that stores String enum values
 | AVAILABLE | value = "available" |
 | PENDING | value = "pending" |
 | SOLD | value = "sold" |
+
+## PhotoUrlsBoxed
+public static abstract sealed class PhotoUrlsBoxed<br>
 
 ## PhotoUrls
 public static class PhotoUrls<br>
@@ -418,6 +437,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [PhotoUrlsList](#photourlslist) | of([List<String>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+
 ## Items
 public static class Items<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -429,6 +451,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
+
 ## Name
 public static class Name<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -439,6 +464,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
 
 ## Id
 public static class Id<br>

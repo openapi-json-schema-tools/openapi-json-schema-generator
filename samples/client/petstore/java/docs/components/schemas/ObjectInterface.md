@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectInterface.ObjectInterface1Boxed](#objectinterface1boxed)<br> sealed validated payload class |
 | static class | [ObjectInterface.ObjectInterface1](#objectinterface1)<br> schema class |
+
+## ObjectInterface1Boxed
+public static abstract sealed class ObjectInterface1Boxed<br>
 
 ## ObjectInterface1
 public static class ObjectInterface1<br>

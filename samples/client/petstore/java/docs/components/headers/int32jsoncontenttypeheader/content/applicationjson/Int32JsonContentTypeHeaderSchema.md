@@ -9,7 +9,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1Boxed](#int32jsoncontenttypeheaderschema1boxed)<br> sealed validated payload class |
 | static class | [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1](#int32jsoncontenttypeheaderschema1)<br> schema class |
+
+## Int32JsonContentTypeHeaderSchema1Boxed
+public static abstract sealed class Int32JsonContentTypeHeaderSchema1Boxed<br>
 
 ## Int32JsonContentTypeHeaderSchema1
 public static class Int32JsonContentTypeHeaderSchema1<br>

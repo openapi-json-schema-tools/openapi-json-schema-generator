@@ -15,16 +15,23 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [EnumArrays.EnumArrays1Boxed](#enumarrays1boxed)<br> sealed validated payload class |
 | static class | [EnumArrays.EnumArrays1](#enumarrays1)<br> schema class |
 | static class | [EnumArrays.EnumArraysMapBuilder](#enumarraysmapbuilder)<br> builder for Map payloads |
 | static class | [EnumArrays.EnumArraysMap](#enumarraysmap)<br> output class for Map payloads |
+| static class | [EnumArrays.ArrayEnumBoxed](#arrayenumboxed)<br> sealed validated payload class |
 | static class | [EnumArrays.ArrayEnum](#arrayenum)<br> schema class |
 | static class | [EnumArrays.ArrayEnumListBuilder](#arrayenumlistbuilder)<br> builder for List payloads |
 | static class | [EnumArrays.ArrayEnumList](#arrayenumlist)<br> output class for List payloads |
+| static class | [EnumArrays.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [EnumArrays.Items](#items)<br> schema class |
 | enum | [EnumArrays.StringItemsEnums](#stringitemsenums)<br>String enum |
+| static class | [EnumArrays.JustSymbolBoxed](#justsymbolboxed)<br> sealed validated payload class |
 | static class | [EnumArrays.JustSymbol](#justsymbol)<br> schema class |
 | enum | [EnumArrays.StringJustSymbolEnums](#stringjustsymbolenums)<br>String enum |
+
+## EnumArrays1Boxed
+public static abstract sealed class EnumArrays1Boxed<br>
 
 ## EnumArrays1
 public static class EnumArrays1<br>
@@ -116,6 +123,9 @@ A class to store validated Map payloads
 | [ArrayEnumList](#arrayenumlist) | array_enum()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ArrayEnumBoxed
+public static abstract sealed class ArrayEnumBoxed<br>
+
 ## ArrayEnum
 public static class ArrayEnum<br>
 extends JsonSchema
@@ -189,6 +199,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayEnumList](#arrayenumlist) | of([List<String>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+
 ## Items
 public static class Items<br>
 extends JsonSchema
@@ -240,6 +253,9 @@ A class that stores String enum values
 | ------------- | ----------- |
 | FISH | value = "fish" |
 | CRAB | value = "crab" |
+
+## JustSymbolBoxed
+public static abstract sealed class JustSymbolBoxed<br>
 
 ## JustSymbol
 public static class JustSymbol<br>

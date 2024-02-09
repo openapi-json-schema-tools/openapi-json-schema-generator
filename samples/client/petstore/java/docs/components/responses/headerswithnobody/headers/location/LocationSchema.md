@@ -9,7 +9,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [LocationSchema.LocationSchema1Boxed](#locationschema1boxed)<br> sealed validated payload class |
 | static class | [LocationSchema.LocationSchema1](#locationschema1)<br> schema class |
+
+## LocationSchema1Boxed
+public static abstract sealed class LocationSchema1Boxed<br>
 
 ## LocationSchema1
 public static class LocationSchema1<br>

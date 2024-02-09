@@ -12,15 +12,25 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Capitalization.Capitalization1Boxed](#capitalization1boxed)<br> sealed validated payload class |
 | static class | [Capitalization.Capitalization1](#capitalization1)<br> schema class |
 | static class | [Capitalization.CapitalizationMapBuilder](#capitalizationmapbuilder)<br> builder for Map payloads |
 | static class | [Capitalization.CapitalizationMap](#capitalizationmap)<br> output class for Map payloads |
+| static class | [Capitalization.ATTNAMEBoxed](#attnameboxed)<br> sealed validated payload class |
 | static class | [Capitalization.ATTNAME](#attname)<br> schema class |
+| static class | [Capitalization.SCAETHFlowPointsBoxed](#scaethflowpointsboxed)<br> sealed validated payload class |
 | static class | [Capitalization.SCAETHFlowPoints](#scaethflowpoints)<br> schema class |
+| static class | [Capitalization.CapitalSnakeBoxed](#capitalsnakeboxed)<br> sealed validated payload class |
 | static class | [Capitalization.CapitalSnake](#capitalsnake)<br> schema class |
+| static class | [Capitalization.SmallSnakeBoxed](#smallsnakeboxed)<br> sealed validated payload class |
 | static class | [Capitalization.SmallSnake](#smallsnake)<br> schema class |
+| static class | [Capitalization.CapitalCamelBoxed](#capitalcamelboxed)<br> sealed validated payload class |
 | static class | [Capitalization.CapitalCamel](#capitalcamel)<br> schema class |
+| static class | [Capitalization.SmallCamelBoxed](#smallcamelboxed)<br> sealed validated payload class |
 | static class | [Capitalization.SmallCamel](#smallcamel)<br> schema class |
+
+## Capitalization1Boxed
+public static abstract sealed class Capitalization1Boxed<br>
 
 ## Capitalization1
 public static class Capitalization1<br>
@@ -124,6 +134,9 @@ A class to store validated Map payloads
 | String | ATT_NAME()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ATTNAMEBoxed
+public static abstract sealed class ATTNAMEBoxed<br>
+
 ## ATTNAME
 public static class ATTNAME<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -138,6 +151,9 @@ Name of the pet<br>
 | validate                                                           |
 | validateAndBox                                                     |
 
+## SCAETHFlowPointsBoxed
+public static abstract sealed class SCAETHFlowPointsBoxed<br>
+
 ## SCAETHFlowPoints
 public static class SCAETHFlowPoints<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -148,6 +164,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## CapitalSnakeBoxed
+public static abstract sealed class CapitalSnakeBoxed<br>
 
 ## CapitalSnake
 public static class CapitalSnake<br>
@@ -160,6 +179,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## SmallSnakeBoxed
+public static abstract sealed class SmallSnakeBoxed<br>
+
 ## SmallSnake
 public static class SmallSnake<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -171,6 +193,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## CapitalCamelBoxed
+public static abstract sealed class CapitalCamelBoxed<br>
+
 ## CapitalCamel
 public static class CapitalCamel<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -181,6 +206,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## SmallCamelBoxed
+public static abstract sealed class SmallCamelBoxed<br>
 
 ## SmallCamel
 public static class SmallCamel<br>

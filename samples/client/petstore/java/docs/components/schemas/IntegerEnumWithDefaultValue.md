@@ -11,11 +11,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1Boxed](#integerenumwithdefaultvalue1boxed)<br> sealed validated payload class |
 | static class | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1](#integerenumwithdefaultvalue1)<br> schema class |
 | enum | [IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums](#integerintegerenumwithdefaultvalueenums)<br>Integer enum |
 | enum | [IntegerEnumWithDefaultValue.LongIntegerEnumWithDefaultValueEnums](#longintegerenumwithdefaultvalueenums)<br>Long enum |
 | enum | [IntegerEnumWithDefaultValue.FloatIntegerEnumWithDefaultValueEnums](#floatintegerenumwithdefaultvalueenums)<br>Float enum |
 | enum | [IntegerEnumWithDefaultValue.DoubleIntegerEnumWithDefaultValueEnums](#doubleintegerenumwithdefaultvalueenums)<br>Double enum |
+
+## IntegerEnumWithDefaultValue1Boxed
+public static abstract sealed class IntegerEnumWithDefaultValue1Boxed<br>
 
 ## IntegerEnumWithDefaultValue1
 public static class IntegerEnumWithDefaultValue1<br>

@@ -33,12 +33,18 @@ A class that contains necessary nested
 ### Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Variables.Variables1Boxed](#variables1boxed)<br> sealed validated payload class |
 | static class | [Variables.Variables1](#variables1)<br> schema class |
 | static class | [Variables.VariablesMapBuilder](#variablesmapbuilder)<br> builder for Map payloads |
 | static class | [Variables.VariablesMap](#variablesmap)<br> output class for Map payloads |
+| static class | [Variables.VersionBoxed](#versionboxed)<br> sealed validated payload class |
 | static class | [Variables.Version](#version)<br> schema class |
 | enum | [Variables.StringVersionEnums](#stringversionenums)<br>String enum |
+| static class | [Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [Variables.AdditionalProperties](#additionalproperties)<br> schema class |
+
+### Variables1Boxed
+public static abstract sealed class Variables1Boxed<br>
 
 ### Variables1
 public static class Variables1<br>
@@ -130,6 +136,9 @@ A class to store validated Map payloads
 | static [VariablesMap](#variablesmap) | of([Map<String, String>](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
 | String | version()<br> must be one of ["v1", "v2"] if omitted the server will use the default value of v2 |
 
+### VersionBoxed
+public static abstract sealed class VersionBoxed<br>
+
 ### Version
 public static class Version<br>
 extends JsonSchema
@@ -182,6 +191,9 @@ A class that stores String enum values
 | ------------- | ----------- |
 | V1 | value = "v1" |
 | V2 | value = "v2" |
+
+### AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>

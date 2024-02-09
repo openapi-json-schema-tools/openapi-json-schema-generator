@@ -13,14 +13,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Zebra.Zebra1Boxed](#zebra1boxed)<br> sealed validated payload class |
 | static class | [Zebra.Zebra1](#zebra1)<br> schema class |
 | static class | [Zebra.ZebraMapBuilder](#zebramapbuilder)<br> builder for Map payloads |
 | static class | [Zebra.ZebraMap](#zebramap)<br> output class for Map payloads |
+| static class | [Zebra.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
 | static class | [Zebra.ClassName](#classname)<br> schema class |
 | enum | [Zebra.StringClassNameEnums](#stringclassnameenums)<br>String enum |
+| static class | [Zebra.TypeBoxed](#typeboxed)<br> sealed validated payload class |
 | static class | [Zebra.Type](#type)<br> schema class |
 | enum | [Zebra.StringTypeEnums](#stringtypeenums)<br>String enum |
+| static class | [Zebra.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [Zebra.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## Zebra1Boxed
+public static abstract sealed class Zebra1Boxed<br>
 
 ## Zebra1
 public static class Zebra1<br>
@@ -127,6 +134,9 @@ A class to store validated Map payloads
 | String | type()<br>[optional] must be one of ["plains", "mountain", "grevys"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ClassNameBoxed
+public static abstract sealed class ClassNameBoxed<br>
+
 ## ClassName
 public static class ClassName<br>
 extends JsonSchema
@@ -177,6 +187,9 @@ A class that stores String enum values
 | Enum Constant | Description |
 | ------------- | ----------- |
 | ZEBRA | value = "zebra" |
+
+## TypeBoxed
+public static abstract sealed class TypeBoxed<br>
 
 ## Type
 public static class Type<br>
@@ -230,6 +243,9 @@ A class that stores String enum values
 | PLAINS | value = "plains" |
 | MOUNTAIN | value = "mountain" |
 | GREVYS | value = "grevys" |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

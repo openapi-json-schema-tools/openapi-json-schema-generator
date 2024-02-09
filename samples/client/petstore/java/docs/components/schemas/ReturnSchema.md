@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ReturnSchema.ReturnSchema1Boxed](#returnschema1boxed)<br> sealed validated payload class |
 | static class | [ReturnSchema.ReturnSchema1](#returnschema1)<br> schema class |
 | static class | [ReturnSchema.ReturnMapBuilder1](#returnmapbuilder1)<br> builder for Map payloads |
 | static class | [ReturnSchema.ReturnMap](#returnmap)<br> output class for Map payloads |
+| static class | [ReturnSchema.ReturnSchema2Boxed](#returnschema2boxed)<br> sealed validated payload class |
 | static class | [ReturnSchema.ReturnSchema2](#returnschema2)<br> schema class |
+
+## ReturnSchema1Boxed
+public static abstract sealed class ReturnSchema1Boxed<br>
 
 ## ReturnSchema1
 public static class ReturnSchema1<br>
@@ -83,6 +88,9 @@ A class to store validated Map payloads
 | static [ReturnMap](#returnmap) | of([Map<String, ? extends @Nullable Object>](#returnmapbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["return"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ReturnSchema2Boxed
+public static abstract sealed class ReturnSchema2Boxed<br>
 
 ## ReturnSchema2
 public static class ReturnSchema2<br>

@@ -13,14 +13,22 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1Boxed](#jsonpatchrequestmovecopy1boxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1](#jsonpatchrequestmovecopy1)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMapBuilder](#jsonpatchrequestmovecopymapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap)<br> output class for Map payloads |
+| static class | [JSONPatchRequestMoveCopy.OpBoxed](#opboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestMoveCopy.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestMoveCopy.StringOpEnums](#stringopenums)<br>String enum |
+| static class | [JSONPatchRequestMoveCopy.PathBoxed](#pathboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestMoveCopy.Path](#path)<br> schema class |
+| static class | [JSONPatchRequestMoveCopy.FromBoxed](#fromboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestMoveCopy.From](#from)<br> schema class |
+| static class | [JSONPatchRequestMoveCopy.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestMoveCopy.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## JSONPatchRequestMoveCopy1Boxed
+public static abstract sealed class JSONPatchRequestMoveCopy1Boxed<br>
 
 ## JSONPatchRequestMoveCopy1
 public static class JSONPatchRequestMoveCopy1<br>
@@ -222,6 +230,9 @@ A class to store validated Map payloads
 | String | op()<br> must be one of ["move", "copy"] |
 | String | path()<br> |
 
+## OpBoxed
+public static abstract sealed class OpBoxed<br>
+
 ## Op
 public static class Op<br>
 extends JsonSchema
@@ -277,6 +288,9 @@ A class that stores String enum values
 | MOVE | value = "move" |
 | COPY | value = "copy" |
 
+## PathBoxed
+public static abstract sealed class PathBoxed<br>
+
 ## Path
 public static class Path<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -291,6 +305,9 @@ A JSON Pointer path.
 | validate                                                           |
 | validateAndBox                                                     |
 
+## FromBoxed
+public static abstract sealed class FromBoxed<br>
+
 ## From
 public static class From<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -304,6 +321,9 @@ A JSON Pointer path.
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

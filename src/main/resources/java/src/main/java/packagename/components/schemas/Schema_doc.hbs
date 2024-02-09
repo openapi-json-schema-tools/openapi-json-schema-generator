@@ -30,6 +30,7 @@ A class that contains necessary nested
 | ----------------- | ---------------------- |
 {{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})<br> sealed validated payload class |
 | static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }})<br> schema class |
         {{else}}
         {{#eq instanceType "propertiesOutputType"}}
@@ -85,6 +86,9 @@ A class that contains necessary nested
 {{/each}}
 {{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "Boxed" "")) }}
+public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed<br>
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
 public static class {{jsonPathPiece.pascalCase}}<br>

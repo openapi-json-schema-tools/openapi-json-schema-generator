@@ -12,12 +12,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Name.Name1Boxed](#name1boxed)<br> sealed validated payload class |
 | static class | [Name.Name1](#name1)<br> schema class |
 | static class | [Name.NameMapBuilder1](#namemapbuilder1)<br> builder for Map payloads |
 | static class | [Name.NameMap](#namemap)<br> output class for Map payloads |
+| static class | [Name.PropertyBoxed](#propertyboxed)<br> sealed validated payload class |
 | static class | [Name.Property](#property)<br> schema class |
+| static class | [Name.SnakeCaseBoxed](#snakecaseboxed)<br> sealed validated payload class |
 | static class | [Name.SnakeCase](#snakecase)<br> schema class |
+| static class | [Name.Name2Boxed](#name2boxed)<br> sealed validated payload class |
 | static class | [Name.Name2](#name2)<br> schema class |
+
+## Name1Boxed
+public static abstract sealed class Name1Boxed<br>
 
 ## Name1
 public static class Name1<br>
@@ -107,6 +114,9 @@ A class to store validated Map payloads
 | String | property()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## PropertyBoxed
+public static abstract sealed class PropertyBoxed<br>
+
 ## Property
 public static class Property<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -121,6 +131,9 @@ this is a reserved python keyword
 | validate                                                           |
 | validateAndBox                                                     |
 
+## SnakeCaseBoxed
+public static abstract sealed class SnakeCaseBoxed<br>
+
 ## SnakeCase
 public static class SnakeCase<br>
 extends Int32JsonSchema.Int32JsonSchema1
@@ -131,6 +144,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## Name2Boxed
+public static abstract sealed class Name2Boxed<br>
 
 ## Name2
 public static class Name2<br>

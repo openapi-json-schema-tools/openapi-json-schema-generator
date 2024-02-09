@@ -13,14 +13,22 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1Boxed](#jsonpatchrequestaddreplacetest1boxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1](#jsonpatchrequestaddreplacetest1)<br> schema class |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapBuilder](#jsonpatchrequestaddreplacetestmapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap)<br> output class for Map payloads |
+| static class | [JSONPatchRequestAddReplaceTest.OpBoxed](#opboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestAddReplaceTest.StringOpEnums](#stringopenums)<br>String enum |
+| static class | [JSONPatchRequestAddReplaceTest.ValueBoxed](#valueboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.Value](#value)<br> schema class |
+| static class | [JSONPatchRequestAddReplaceTest.PathBoxed](#pathboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.Path](#path)<br> schema class |
+| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## JSONPatchRequestAddReplaceTest1Boxed
+public static abstract sealed class JSONPatchRequestAddReplaceTest1Boxed<br>
 
 ## JSONPatchRequestAddReplaceTest1
 public static class JSONPatchRequestAddReplaceTest1<br>
@@ -252,6 +260,9 @@ A class to store validated Map payloads
 | String | path()<br> |
 | @Nullable Object | value()<br> |
 
+## OpBoxed
+public static abstract sealed class OpBoxed<br>
+
 ## Op
 public static class Op<br>
 extends JsonSchema
@@ -308,6 +319,9 @@ A class that stores String enum values
 | REPLACE | value = "replace" |
 | TEST | value = "test" |
 
+## ValueBoxed
+public static abstract sealed class ValueBoxed<br>
+
 ## Value
 public static class Value<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -322,6 +336,9 @@ The value to add, replace or test.
 | validate                                                           |
 | validateAndBox                                                     |
 
+## PathBoxed
+public static abstract sealed class PathBoxed<br>
+
 ## Path
 public static class Path<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -335,6 +352,9 @@ A JSON Pointer path.
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

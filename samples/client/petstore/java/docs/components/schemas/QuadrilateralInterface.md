@@ -13,12 +13,18 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [QuadrilateralInterface.QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)<br> sealed validated payload class |
 | static class | [QuadrilateralInterface.QuadrilateralInterface1](#quadrilateralinterface1)<br> schema class |
 | static class | [QuadrilateralInterface.QuadrilateralInterfaceMapBuilder](#quadrilateralinterfacemapbuilder)<br> builder for Map payloads |
 | static class | [QuadrilateralInterface.QuadrilateralInterfaceMap](#quadrilateralinterfacemap)<br> output class for Map payloads |
+| static class | [QuadrilateralInterface.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> sealed validated payload class |
 | static class | [QuadrilateralInterface.QuadrilateralType](#quadrilateraltype)<br> schema class |
+| static class | [QuadrilateralInterface.ShapeTypeBoxed](#shapetypeboxed)<br> sealed validated payload class |
 | static class | [QuadrilateralInterface.ShapeType](#shapetype)<br> schema class |
 | enum | [QuadrilateralInterface.StringShapeTypeEnums](#stringshapetypeenums)<br>String enum |
+
+## QuadrilateralInterface1Boxed
+public static abstract sealed class QuadrilateralInterface1Boxed<br>
 
 ## QuadrilateralInterface1
 public static class QuadrilateralInterface1<br>
@@ -135,6 +141,9 @@ A class to store validated Map payloads
 | String | shapeType()<br> must be one of ["Quadrilateral"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## QuadrilateralTypeBoxed
+public static abstract sealed class QuadrilateralTypeBoxed<br>
+
 ## QuadrilateralType
 public static class QuadrilateralType<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -145,6 +154,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## ShapeTypeBoxed
+public static abstract sealed class ShapeTypeBoxed<br>
 
 ## ShapeType
 public static class ShapeType<br>

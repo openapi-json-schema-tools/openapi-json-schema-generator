@@ -12,9 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)<br> sealed validated payload class |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1](#selfreferencingobjectmodel1)<br> schema class |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder)<br> builder for Map payloads |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap)<br> output class for Map payloads |
+
+## SelfReferencingObjectModel1Boxed
+public static abstract sealed class SelfReferencingObjectModel1Boxed<br>
 
 ## SelfReferencingObjectModel1
 public static class SelfReferencingObjectModel1<br>

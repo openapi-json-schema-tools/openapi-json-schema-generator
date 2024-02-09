@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1Boxed](#reqpropsfromexplicitaddprops1boxed)<br> sealed validated payload class |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1](#reqpropsfromexplicitaddprops1)<br> schema class |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMapBuilder](#reqpropsfromexplicitaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap)<br> output class for Map payloads |
+| static class | [ReqPropsFromExplicitAddProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [ReqPropsFromExplicitAddProps.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## ReqPropsFromExplicitAddProps1Boxed
+public static abstract sealed class ReqPropsFromExplicitAddProps1Boxed<br>
 
 ## ReqPropsFromExplicitAddProps1
 public static class ReqPropsFromExplicitAddProps1<br>
@@ -140,6 +145,9 @@ A class to store validated Map payloads
 | String | validName()<br> |
 | String | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Address.Address1Boxed](#address1boxed)<br> sealed validated payload class |
 | static class | [Address.Address1](#address1)<br> schema class |
 | static class | [Address.AddressMapBuilder](#addressmapbuilder)<br> builder for Map payloads |
 | static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
+| static class | [Address.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## Address1Boxed
+public static abstract sealed class Address1Boxed<br>
 
 ## Address1
 public static class Address1<br>
@@ -91,6 +96,9 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [AddressMap](#addressmap) | of([Map<String, Number>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
 | Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

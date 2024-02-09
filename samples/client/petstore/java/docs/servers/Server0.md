@@ -33,14 +33,21 @@ A class that contains necessary nested
 ### Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Variables.Variables1Boxed](#variables1boxed)<br> sealed validated payload class |
 | static class | [Variables.Variables1](#variables1)<br> schema class |
 | static class | [Variables.VariablesMapBuilder](#variablesmapbuilder)<br> builder for Map payloads |
 | static class | [Variables.VariablesMap](#variablesmap)<br> output class for Map payloads |
+| static class | [Variables.PortBoxed](#portboxed)<br> sealed validated payload class |
 | static class | [Variables.Port](#port)<br> schema class |
 | enum | [Variables.StringPortEnums](#stringportenums)<br>String enum |
+| static class | [Variables.ServerBoxed](#serverboxed)<br> sealed validated payload class |
 | static class | [Variables.Server](#server)<br> schema class |
 | enum | [Variables.StringServerEnums](#stringserverenums)<br>String enum |
+| static class | [Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [Variables.AdditionalProperties](#additionalproperties)<br> schema class |
+
+### Variables1Boxed
+public static abstract sealed class Variables1Boxed<br>
 
 ### Variables1
 public static class Variables1<br>
@@ -171,6 +178,9 @@ A class to store validated Map payloads
 | String | port()<br> must be one of ["80", "8080"] if omitted the server will use the default value of 80 |
 | String | server()<br> must be one of ["petstore", "qa-petstore", "dev-petstore"] if omitted the server will use the default value of petstore |
 
+### PortBoxed
+public static abstract sealed class PortBoxed<br>
+
 ### Port
 public static class Port<br>
 extends JsonSchema
@@ -226,6 +236,9 @@ A class that stores String enum values
 | ------------- | ----------- |
 | POSITIVE_80 | value = "80" |
 | POSITIVE_8080 | value = "8080" |
+
+### ServerBoxed
+public static abstract sealed class ServerBoxed<br>
 
 ### Server
 public static class Server<br>
@@ -283,6 +296,9 @@ A class that stores String enum values
 | PETSTORE | value = "petstore" |
 | QA_HYPHEN_MINUS_PETSTORE | value = "qa-petstore" |
 | DEV_HYPHEN_MINUS_PETSTORE | value = "dev-petstore" |
+
+### AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>

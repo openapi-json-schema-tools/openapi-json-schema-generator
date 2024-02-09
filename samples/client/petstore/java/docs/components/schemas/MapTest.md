@@ -13,25 +13,36 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [MapTest.MapTest1Boxed](#maptest1boxed)<br> sealed validated payload class |
 | static class | [MapTest.MapTest1](#maptest1)<br> schema class |
 | static class | [MapTest.MapTestMapBuilder](#maptestmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapTestMap](#maptestmap)<br> output class for Map payloads |
+| static class | [MapTest.DirectMapBoxed](#directmapboxed)<br> sealed validated payload class |
 | static class | [MapTest.DirectMap](#directmap)<br> schema class |
 | static class | [MapTest.DirectMapMapBuilder](#directmapmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.DirectMapMap](#directmapmap)<br> output class for Map payloads |
+| static class | [MapTest.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> sealed validated payload class |
 | static class | [MapTest.AdditionalProperties3](#additionalproperties3)<br> schema class |
+| static class | [MapTest.MapOfEnumStringBoxed](#mapofenumstringboxed)<br> sealed validated payload class |
 | static class | [MapTest.MapOfEnumString](#mapofenumstring)<br> schema class |
 | static class | [MapTest.MapOfEnumStringMapBuilder](#mapofenumstringmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapOfEnumStringMap](#mapofenumstringmap)<br> output class for Map payloads |
+| static class | [MapTest.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> sealed validated payload class |
 | static class | [MapTest.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | enum | [MapTest.StringAdditionalPropertiesEnums](#stringadditionalpropertiesenums)<br>String enum |
+| static class | [MapTest.MapMapOfStringBoxed](#mapmapofstringboxed)<br> sealed validated payload class |
 | static class | [MapTest.MapMapOfString](#mapmapofstring)<br> schema class |
 | static class | [MapTest.MapMapOfStringMapBuilder](#mapmapofstringmapbuilder)<br> builder for Map payloads |
 | static class | [MapTest.MapMapOfStringMap](#mapmapofstringmap)<br> output class for Map payloads |
+| static class | [MapTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [MapTest.AdditionalProperties](#additionalproperties)<br> schema class |
 | static class | [MapTest.AdditionalPropertiesMapBuilder1](#additionalpropertiesmapbuilder1)<br> builder for Map payloads |
 | static class | [MapTest.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
+| static class | [MapTest.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> sealed validated payload class |
 | static class | [MapTest.AdditionalProperties1](#additionalproperties1)<br> schema class |
+
+## MapTest1Boxed
+public static abstract sealed class MapTest1Boxed<br>
 
 ## MapTest1
 public static class MapTest1<br>
@@ -148,6 +159,9 @@ A class to store validated Map payloads
 | [StringBooleanMap.StringBooleanMapMap](../../components/schemas/StringBooleanMap.md#stringbooleanmapmap) | indirect_map()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## DirectMapBoxed
+public static abstract sealed class DirectMapBoxed<br>
+
 ## DirectMap
 public static class DirectMap<br>
 extends JsonSchema
@@ -220,6 +234,9 @@ A class to store validated Map payloads
 | static [DirectMapMap](#directmapmap) | of([Map<String, Boolean>](#directmapmapbuilder) arg, SchemaConfiguration configuration) |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties3Boxed
+public static abstract sealed class AdditionalProperties3Boxed<br>
+
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -230,6 +247,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## MapOfEnumStringBoxed
+public static abstract sealed class MapOfEnumStringBoxed<br>
 
 ## MapOfEnumString
 public static class MapOfEnumString<br>
@@ -304,6 +324,9 @@ A class to store validated Map payloads
 | static [MapOfEnumStringMap](#mapofenumstringmap) | of([Map<String, String>](#mapofenumstringmapbuilder) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties2Boxed
+public static abstract sealed class AdditionalProperties2Boxed<br>
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -355,6 +378,9 @@ A class that stores String enum values
 | ------------- | ----------- |
 | UPPER | value = "UPPER" |
 | LOWER | value = "lower" |
+
+## MapMapOfStringBoxed
+public static abstract sealed class MapMapOfStringBoxed<br>
 
 ## MapMapOfString
 public static class MapMapOfString<br>
@@ -435,6 +461,9 @@ A class to store validated Map payloads
 | static [MapMapOfStringMap](#mapmapofstringmap) | of([Map<String, Map<String, String>>](#mapmapofstringmapbuilder) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
+
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends JsonSchema
@@ -506,6 +535,9 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [AdditionalPropertiesMap](#additionalpropertiesmap) | of([Map<String, String>](#additionalpropertiesmapbuilder1) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties1Boxed
+public static abstract sealed class AdditionalProperties1Boxed<br>
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>

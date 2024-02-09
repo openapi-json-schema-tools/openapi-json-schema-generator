@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [IntegerMax10.IntegerMax101Boxed](#integermax101boxed)<br> sealed validated payload class |
 | static class | [IntegerMax10.IntegerMax101](#integermax101)<br> schema class |
+
+## IntegerMax101Boxed
+public static abstract sealed class IntegerMax101Boxed<br>
 
 ## IntegerMax101
 public static class IntegerMax101<br>

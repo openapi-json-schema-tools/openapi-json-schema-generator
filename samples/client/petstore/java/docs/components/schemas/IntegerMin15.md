@@ -10,7 +10,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> sealed validated payload class |
 | static class | [IntegerMin15.IntegerMin151](#integermin151)<br> schema class |
+
+## IntegerMin151Boxed
+public static abstract sealed class IntegerMin151Boxed<br>
 
 ## IntegerMin151
 public static class IntegerMin151<br>

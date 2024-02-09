@@ -14,16 +14,23 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+| static class | [Schema.EnumFormStringBoxed](#enumformstringboxed)<br> sealed validated payload class |
 | static class | [Schema.EnumFormString](#enumformstring)<br> schema class |
 | enum | [Schema.StringEnumFormStringEnums](#stringenumformstringenums)<br>String enum |
+| static class | [Schema.EnumFormStringArrayBoxed](#enumformstringarrayboxed)<br> sealed validated payload class |
 | static class | [Schema.EnumFormStringArray](#enumformstringarray)<br> schema class |
 | static class | [Schema.EnumFormStringArrayListBuilder](#enumformstringarraylistbuilder)<br> builder for List payloads |
 | static class | [Schema.EnumFormStringArrayList](#enumformstringarraylist)<br> output class for List payloads |
+| static class | [Schema.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [Schema.Items](#items)<br> schema class |
 | enum | [Schema.StringItemsEnums](#stringitemsenums)<br>String enum |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
 
 ## Schema1
 public static class Schema1<br>
@@ -115,6 +122,9 @@ A class to store validated Map payloads
 | String | enum_form_string()<br>[optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## EnumFormStringBoxed
+public static abstract sealed class EnumFormStringBoxed<br>
+
 ## EnumFormString
 public static class EnumFormString<br>
 extends JsonSchema
@@ -171,6 +181,9 @@ A class that stores String enum values
 | _ABC | value = "_abc" |
 | HYPHEN_MINUS_EFG | value = "-efg" |
 | LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS | value = "(xyz)" |
+
+## EnumFormStringArrayBoxed
+public static abstract sealed class EnumFormStringArrayBoxed<br>
 
 ## EnumFormStringArray
 public static class EnumFormStringArray<br>
@@ -247,6 +260,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [EnumFormStringArrayList](#enumformstringarraylist) | of([List<String>](#enumformstringarraylistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
 
 ## Items
 public static class Items<br>

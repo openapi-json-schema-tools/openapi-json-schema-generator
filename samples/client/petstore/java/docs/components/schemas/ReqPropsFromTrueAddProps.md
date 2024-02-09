@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1Boxed](#reqpropsfromtrueaddprops1boxed)<br> sealed validated payload class |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1](#reqpropsfromtrueaddprops1)<br> schema class |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap)<br> output class for Map payloads |
+| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [ReqPropsFromTrueAddProps.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## ReqPropsFromTrueAddProps1Boxed
+public static abstract sealed class ReqPropsFromTrueAddProps1Boxed<br>
 
 ## ReqPropsFromTrueAddProps1
 public static class ReqPropsFromTrueAddProps1<br>
@@ -178,6 +183,9 @@ A class to store validated Map payloads
 | @Nullable Object | validName()<br> |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

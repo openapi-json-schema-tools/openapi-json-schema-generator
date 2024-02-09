@@ -10,8 +10,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [AnyTypeNotString.AnyTypeNotString1Boxed](#anytypenotstring1boxed)<br> sealed validated payload class |
 | static class | [AnyTypeNotString.AnyTypeNotString1](#anytypenotstring1)<br> schema class |
+| static class | [AnyTypeNotString.NotBoxed](#notboxed)<br> sealed validated payload class |
 | static class | [AnyTypeNotString.Not](#not)<br> schema class |
+
+## AnyTypeNotString1Boxed
+public static abstract sealed class AnyTypeNotString1Boxed<br>
 
 ## AnyTypeNotString1
 public static class AnyTypeNotString1<br>
@@ -37,6 +42,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## NotBoxed
+public static abstract sealed class NotBoxed<br>
+
 ## Not
 public static class Not<br>
 extends StringJsonSchema.StringJsonSchema1

@@ -13,13 +13,20 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [JSONPatchRequestRemove.JSONPatchRequestRemove1Boxed](#jsonpatchrequestremove1boxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemove1](#jsonpatchrequestremove1)<br> schema class |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMapBuilder](#jsonpatchrequestremovemapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap)<br> output class for Map payloads |
+| static class | [JSONPatchRequestRemove.OpBoxed](#opboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestRemove.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestRemove.StringOpEnums](#stringopenums)<br>String enum |
+| static class | [JSONPatchRequestRemove.PathBoxed](#pathboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestRemove.Path](#path)<br> schema class |
+| static class | [JSONPatchRequestRemove.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [JSONPatchRequestRemove.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## JSONPatchRequestRemove1Boxed
+public static abstract sealed class JSONPatchRequestRemove1Boxed<br>
 
 ## JSONPatchRequestRemove1
 public static class JSONPatchRequestRemove1<br>
@@ -148,6 +155,9 @@ A class to store validated Map payloads
 | String | op()<br> must be one of ["remove"] |
 | String | path()<br> |
 
+## OpBoxed
+public static abstract sealed class OpBoxed<br>
+
 ## Op
 public static class Op<br>
 extends JsonSchema
@@ -202,6 +212,9 @@ A class that stores String enum values
 | ------------- | ----------- |
 | REMOVE | value = "remove" |
 
+## PathBoxed
+public static abstract sealed class PathBoxed<br>
+
 ## Path
 public static class Path<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -215,6 +228,9 @@ A JSON Pointer path.
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

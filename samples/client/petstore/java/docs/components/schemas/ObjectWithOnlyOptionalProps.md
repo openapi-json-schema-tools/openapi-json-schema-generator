@@ -12,12 +12,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1Boxed](#objectwithonlyoptionalprops1boxed)<br> sealed validated payload class |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1](#objectwithonlyoptionalprops1)<br> schema class |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMapBuilder](#objectwithonlyoptionalpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap)<br> output class for Map payloads |
+| static class | [ObjectWithOnlyOptionalProps.BBoxed](#bboxed)<br> sealed validated payload class |
 | static class | [ObjectWithOnlyOptionalProps.B](#b)<br> schema class |
+| static class | [ObjectWithOnlyOptionalProps.ABoxed](#aboxed)<br> sealed validated payload class |
 | static class | [ObjectWithOnlyOptionalProps.A](#a)<br> schema class |
+| static class | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [ObjectWithOnlyOptionalProps.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## ObjectWithOnlyOptionalProps1Boxed
+public static abstract sealed class ObjectWithOnlyOptionalProps1Boxed<br>
 
 ## ObjectWithOnlyOptionalProps1
 public static class ObjectWithOnlyOptionalProps1<br>
@@ -99,6 +106,9 @@ A class to store validated Map payloads
 | String | a()<br>[optional] |
 | Number | b()<br>[optional] |
 
+## BBoxed
+public static abstract sealed class BBoxed<br>
+
 ## B
 public static class B<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -110,6 +120,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## ABoxed
+public static abstract sealed class ABoxed<br>
+
 ## A
 public static class A<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -120,6 +133,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

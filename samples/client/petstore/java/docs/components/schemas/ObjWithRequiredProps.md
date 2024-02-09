@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjWithRequiredProps.ObjWithRequiredProps1Boxed](#objwithrequiredprops1boxed)<br> sealed validated payload class |
 | static class | [ObjWithRequiredProps.ObjWithRequiredProps1](#objwithrequiredprops1)<br> schema class |
 | static class | [ObjWithRequiredProps.ObjWithRequiredPropsMapBuilder](#objwithrequiredpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjWithRequiredProps.ObjWithRequiredPropsMap](#objwithrequiredpropsmap)<br> output class for Map payloads |
+| static class | [ObjWithRequiredProps.ABoxed](#aboxed)<br> sealed validated payload class |
 | static class | [ObjWithRequiredProps.A](#a)<br> schema class |
+
+## ObjWithRequiredProps1Boxed
+public static abstract sealed class ObjWithRequiredProps1Boxed<br>
 
 ## ObjWithRequiredProps1
 public static class ObjWithRequiredProps1<br>
@@ -115,6 +120,9 @@ A class to store validated Map payloads
 | static [ObjWithRequiredPropsMap](#objwithrequiredpropsmap) | of([Map<String, ? extends @Nullable Object>](#objwithrequiredpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | String | a()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ABoxed
+public static abstract sealed class ABoxed<br>
 
 ## A
 public static class A<br>

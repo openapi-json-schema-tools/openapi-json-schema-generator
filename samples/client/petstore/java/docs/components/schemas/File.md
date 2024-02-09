@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [File.File1Boxed](#file1boxed)<br> sealed validated payload class |
 | static class | [File.File1](#file1)<br> schema class |
 | static class | [File.FileMapBuilder](#filemapbuilder)<br> builder for Map payloads |
 | static class | [File.FileMap](#filemap)<br> output class for Map payloads |
+| static class | [File.SourceURIBoxed](#sourceuriboxed)<br> sealed validated payload class |
 | static class | [File.SourceURI](#sourceuri)<br> schema class |
+
+## File1Boxed
+public static abstract sealed class File1Boxed<br>
 
 ## File1
 public static class File1<br>
@@ -101,6 +106,9 @@ A class to store validated Map payloads
 | static [FileMap](#filemap) | of([Map<String, ? extends @Nullable Object>](#filemapbuilder) arg, SchemaConfiguration configuration) |
 | String | sourceURI()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## SourceURIBoxed
+public static abstract sealed class SourceURIBoxed<br>
 
 ## SourceURI
 public static class SourceURI<br>

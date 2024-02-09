@@ -11,11 +11,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema1.Schema11Boxed](#schema11boxed)<br> sealed validated payload class |
 | static class | [Schema1.Schema11](#schema11)<br> schema class |
 | static class | [Schema1.SchemaMapBuilder1](#schemamapbuilder1)<br> builder for Map payloads |
 | static class | [Schema1.SchemaMap1](#schemamap1)<br> output class for Map payloads |
+| static class | [Schema1.SomeProp1Boxed](#someprop1boxed)<br> sealed validated payload class |
 | static class | [Schema1.SomeProp1](#someprop1)<br> schema class |
+| static class | [Schema1.Schema01Boxed](#schema01boxed)<br> sealed validated payload class |
 | static class | [Schema1.Schema01](#schema01)<br> schema class |
+
+## Schema11Boxed
+public static abstract sealed class Schema11Boxed<br>
 
 ## Schema11
 public static class Schema11<br>
@@ -105,6 +111,9 @@ A class to store validated Map payloads
 | @Nullable Object | someProp()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## SomeProp1Boxed
+public static abstract sealed class SomeProp1Boxed<br>
+
 ## SomeProp1
 public static class SomeProp1<br>
 extends JsonSchema
@@ -129,6 +138,9 @@ A schema class that validates payloads
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema01Boxed
+public static abstract sealed class Schema01Boxed<br>
+
 ## Schema01
 public static class Schema01<br>
 extends JsonSchema

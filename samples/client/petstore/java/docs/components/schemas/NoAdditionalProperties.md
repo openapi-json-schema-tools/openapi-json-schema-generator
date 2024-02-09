@@ -12,12 +12,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NoAdditionalProperties.NoAdditionalProperties1Boxed](#noadditionalproperties1boxed)<br> sealed validated payload class |
 | static class | [NoAdditionalProperties.NoAdditionalProperties1](#noadditionalproperties1)<br> schema class |
 | static class | [NoAdditionalProperties.NoAdditionalPropertiesMapBuilder](#noadditionalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [NoAdditionalProperties.NoAdditionalPropertiesMap](#noadditionalpropertiesmap)<br> output class for Map payloads |
+| static class | [NoAdditionalProperties.PetIdBoxed](#petidboxed)<br> sealed validated payload class |
 | static class | [NoAdditionalProperties.PetId](#petid)<br> schema class |
+| static class | [NoAdditionalProperties.IdBoxed](#idboxed)<br> sealed validated payload class |
 | static class | [NoAdditionalProperties.Id](#id)<br> schema class |
+| static class | [NoAdditionalProperties.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [NoAdditionalProperties.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## NoAdditionalProperties1Boxed
+public static abstract sealed class NoAdditionalProperties1Boxed<br>
 
 ## NoAdditionalProperties1
 public static class NoAdditionalProperties1<br>
@@ -118,6 +125,9 @@ A class to store validated Map payloads
 | Number | id()<br> value must be a 64 bit integer |
 | Number | petId()<br>[optional] value must be a 64 bit integer |
 
+## PetIdBoxed
+public static abstract sealed class PetIdBoxed<br>
+
 ## PetId
 public static class PetId<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -129,6 +139,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
+
 ## Id
 public static class Id<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -139,6 +152,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

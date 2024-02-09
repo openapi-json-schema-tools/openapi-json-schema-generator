@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1Boxed](#arrayholdinganytype1boxed)<br> sealed validated payload class |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1](#arrayholdinganytype1)<br> schema class |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeListBuilder](#arrayholdinganytypelistbuilder)<br> builder for List payloads |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeList](#arrayholdinganytypelist)<br> output class for List payloads |
+| static class | [ArrayHoldingAnyType.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [ArrayHoldingAnyType.Items](#items)<br> schema class |
+
+## ArrayHoldingAnyType1Boxed
+public static abstract sealed class ArrayHoldingAnyType1Boxed<br>
 
 ## ArrayHoldingAnyType1
 public static class ArrayHoldingAnyType1<br>
@@ -94,6 +99,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of([List<? extends @Nullable Object>](#arrayholdinganytypelistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
 
 ## Items
 public static class Items<br>

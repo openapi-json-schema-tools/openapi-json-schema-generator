@@ -14,40 +14,63 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NullableClass.NullableClass1Boxed](#nullableclass1boxed)<br> sealed validated payload class |
 | static class | [NullableClass.NullableClass1](#nullableclass1)<br> schema class |
 | static class | [NullableClass.NullableClassMapBuilder](#nullableclassmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.NullableClassMap](#nullableclassmap)<br> output class for Map payloads |
+| static class | [NullableClass.ObjectItemsNullableBoxed](#objectitemsnullableboxed)<br> sealed validated payload class |
 | static class | [NullableClass.ObjectItemsNullable](#objectitemsnullable)<br> schema class |
 | static class | [NullableClass.ObjectItemsNullableMapBuilder](#objectitemsnullablemapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectItemsNullableMap](#objectitemsnullablemap)<br> output class for Map payloads |
+| static class | [NullableClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> sealed validated payload class |
 | static class | [NullableClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
+| static class | [NullableClass.ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.ObjectAndItemsNullableProp](#objectanditemsnullableprop)<br> schema class |
 | static class | [NullableClass.ObjectAndItemsNullablePropMapBuilder](#objectanditemsnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap)<br> output class for Map payloads |
+| static class | [NullableClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> sealed validated payload class |
 | static class | [NullableClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
+| static class | [NullableClass.ObjectNullablePropBoxed](#objectnullablepropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.ObjectNullableProp](#objectnullableprop)<br> schema class |
 | static class | [NullableClass.ObjectNullablePropMapBuilder](#objectnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectNullablePropMap](#objectnullablepropmap)<br> output class for Map payloads |
+| static class | [NullableClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [NullableClass.AdditionalProperties](#additionalproperties)<br> schema class |
+| static class | [NullableClass.ArrayItemsNullableBoxed](#arrayitemsnullableboxed)<br> sealed validated payload class |
 | static class | [NullableClass.ArrayItemsNullable](#arrayitemsnullable)<br> schema class |
 | static class | [NullableClass.ArrayItemsNullableListBuilder](#arrayitemsnullablelistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayItemsNullableList](#arrayitemsnullablelist)<br> output class for List payloads |
+| static class | [NullableClass.Items2Boxed](#items2boxed)<br> sealed validated payload class |
 | static class | [NullableClass.Items2](#items2)<br> schema class |
+| static class | [NullableClass.ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.ArrayAndItemsNullableProp](#arrayanditemsnullableprop)<br> schema class |
 | static class | [NullableClass.ArrayAndItemsNullablePropListBuilder](#arrayanditemsnullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist)<br> output class for List payloads |
+| static class | [NullableClass.Items1Boxed](#items1boxed)<br> sealed validated payload class |
 | static class | [NullableClass.Items1](#items1)<br> schema class |
+| static class | [NullableClass.ArrayNullablePropBoxed](#arraynullablepropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.ArrayNullableProp](#arraynullableprop)<br> schema class |
 | static class | [NullableClass.ArrayNullablePropListBuilder](#arraynullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayNullablePropList](#arraynullableproplist)<br> output class for List payloads |
+| static class | [NullableClass.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [NullableClass.Items](#items)<br> schema class |
+| static class | [NullableClass.DatetimePropBoxed](#datetimepropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.DatetimeProp](#datetimeprop)<br> schema class |
+| static class | [NullableClass.DatePropBoxed](#datepropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.DateProp](#dateprop)<br> schema class |
+| static class | [NullableClass.StringPropBoxed](#stringpropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.StringProp](#stringprop)<br> schema class |
+| static class | [NullableClass.BooleanPropBoxed](#booleanpropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.BooleanProp](#booleanprop)<br> schema class |
+| static class | [NullableClass.NumberPropBoxed](#numberpropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.NumberProp](#numberprop)<br> schema class |
+| static class | [NullableClass.IntegerPropBoxed](#integerpropboxed)<br> sealed validated payload class |
 | static class | [NullableClass.IntegerProp](#integerprop)<br> schema class |
+| static class | [NullableClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> sealed validated payload class |
 | static class | [NullableClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
+
+## NullableClass1Boxed
+public static abstract sealed class NullableClass1Boxed<br>
 
 ## NullableClass1
 public static class NullableClass1<br>
@@ -196,6 +219,9 @@ A class to store validated Map payloads
 | [ObjectItemsNullableMap](#objectitemsnullablemap) | object_items_nullable()<br>[optional] |
 | @Nullable FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ObjectItemsNullableBoxed
+public static abstract sealed class ObjectItemsNullableBoxed<br>
+
 ## ObjectItemsNullable
 public static class ObjectItemsNullable<br>
 extends JsonSchema
@@ -269,6 +295,9 @@ A class to store validated Map payloads
 | static [ObjectItemsNullableMap](#objectitemsnullablemap) | of([Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>](#objectitemsnullablemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties2Boxed
+public static abstract sealed class AdditionalProperties2Boxed<br>
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -308,6 +337,9 @@ Void validatedPayload = NullableClass.AdditionalProperties2.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ObjectAndItemsNullablePropBoxed
+public static abstract sealed class ObjectAndItemsNullablePropBoxed<br>
+
 ## ObjectAndItemsNullableProp
 public static class ObjectAndItemsNullableProp<br>
 extends JsonSchema
@@ -388,6 +420,9 @@ A class to store validated Map payloads
 | static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | of([Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>](#objectanditemsnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalProperties1Boxed
+public static abstract sealed class AdditionalProperties1Boxed<br>
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -427,6 +462,9 @@ Void validatedPayload = NullableClass.AdditionalProperties1.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ObjectNullablePropBoxed
+public static abstract sealed class ObjectNullablePropBoxed<br>
+
 ## ObjectNullableProp
 public static class ObjectNullableProp<br>
 extends JsonSchema
@@ -504,6 +542,9 @@ A class to store validated Map payloads
 | static [ObjectNullablePropMap](#objectnullablepropmap) | of([Map<String, Map<String, ? extends @Nullable Object>>](#objectnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
+
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -514,6 +555,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## ArrayItemsNullableBoxed
+public static abstract sealed class ArrayItemsNullableBoxed<br>
 
 ## ArrayItemsNullable
 public static class ArrayItemsNullable<br>
@@ -588,6 +632,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayItemsNullableList](#arrayitemsnullablelist) | of([List<? extends @Nullable Map<String, ? extends @Nullable Object>>](#arrayitemsnullablelistbuilder) arg, SchemaConfiguration configuration) |
 
+## Items2Boxed
+public static abstract sealed class Items2Boxed<br>
+
 ## Items2
 public static class Items2<br>
 extends JsonSchema
@@ -627,6 +674,9 @@ Void validatedPayload = NullableClass.Items2.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ArrayAndItemsNullablePropBoxed
+public static abstract sealed class ArrayAndItemsNullablePropBoxed<br>
+
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
 extends JsonSchema
@@ -707,6 +757,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | of([List<? extends @Nullable Map<String, ? extends @Nullable Object>>](#arrayanditemsnullableproplistbuilder) arg, SchemaConfiguration configuration) |
 
+## Items1Boxed
+public static abstract sealed class Items1Boxed<br>
+
 ## Items1
 public static class Items1<br>
 extends JsonSchema
@@ -746,6 +799,9 @@ Void validatedPayload = NullableClass.Items1.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ArrayNullablePropBoxed
+public static abstract sealed class ArrayNullablePropBoxed<br>
+
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
 extends JsonSchema
@@ -823,6 +879,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayNullablePropList](#arraynullableproplist) | of([List<Map<String, ? extends @Nullable Object>>](#arraynullableproplistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+
 ## Items
 public static class Items<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -833,6 +892,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## DatetimePropBoxed
+public static abstract sealed class DatetimePropBoxed<br>
 
 ## DatetimeProp
 public static class DatetimeProp<br>
@@ -880,6 +942,9 @@ String validatedPayload = NullableClass.DatetimeProp.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DatePropBoxed
+public static abstract sealed class DatePropBoxed<br>
+
 ## DateProp
 public static class DateProp<br>
 extends JsonSchema
@@ -926,6 +991,9 @@ String validatedPayload = NullableClass.DateProp.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringPropBoxed
+public static abstract sealed class StringPropBoxed<br>
+
 ## StringProp
 public static class StringProp<br>
 extends JsonSchema
@@ -971,6 +1039,9 @@ String validatedPayload = NullableClass.StringProp.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## BooleanPropBoxed
+public static abstract sealed class BooleanPropBoxed<br>
+
 ## BooleanProp
 public static class BooleanProp<br>
 extends JsonSchema
@@ -1016,6 +1087,9 @@ boolean validatedPayload = NullableClass.BooleanProp.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## NumberPropBoxed
+public static abstract sealed class NumberPropBoxed<br>
+
 ## NumberProp
 public static class NumberProp<br>
 extends JsonSchema
@@ -1061,6 +1135,9 @@ int validatedPayload = NullableClass.NumberProp.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerPropBoxed
+public static abstract sealed class IntegerPropBoxed<br>
+
 ## IntegerProp
 public static class IntegerProp<br>
 extends JsonSchema
@@ -1107,6 +1184,9 @@ int validatedPayload = NullableClass.IntegerProp.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | long | validate(long arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## AdditionalProperties3Boxed
+public static abstract sealed class AdditionalProperties3Boxed<br>
+
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends JsonSchema

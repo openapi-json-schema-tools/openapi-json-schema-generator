@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1Boxed](#objectwithcollidingproperties1boxed)<br> sealed validated payload class |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1](#objectwithcollidingproperties1)<br> schema class |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap)<br> output class for Map payloads |
+| static class | [ObjectWithCollidingProperties.SomepropBoxed](#somepropboxed)<br> sealed validated payload class |
 | static class | [ObjectWithCollidingProperties.Someprop](#someprop)<br> schema class |
+| static class | [ObjectWithCollidingProperties.SomePropBoxed](#somepropboxed)<br> sealed validated payload class |
 | static class | [ObjectWithCollidingProperties.SomeProp](#someprop)<br> schema class |
+
+## ObjectWithCollidingProperties1Boxed
+public static abstract sealed class ObjectWithCollidingProperties1Boxed<br>
 
 ## ObjectWithCollidingProperties1
 public static class ObjectWithCollidingProperties1<br>
@@ -103,6 +109,9 @@ A class to store validated Map payloads
 | FrozenMap<?> | someprop()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## SomepropBoxed
+public static abstract sealed class SomepropBoxed<br>
+
 ## Someprop
 public static class Someprop<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -113,6 +122,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## SomePropBoxed
+public static abstract sealed class SomePropBoxed<br>
 
 ## SomeProp
 public static class SomeProp<br>

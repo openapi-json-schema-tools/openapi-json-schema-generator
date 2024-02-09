@@ -14,16 +14,23 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1Boxed](#arrayofarrayofnumberonly1boxed)<br> sealed validated payload class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1](#arrayofarrayofnumberonly1)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder)<br> builder for Map payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap)<br> output class for Map payloads |
+| static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberBoxed](#arrayarraynumberboxed)<br> sealed validated payload class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumber](#arrayarraynumber)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberListBuilder](#arrayarraynumberlistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberList](#arrayarraynumberlist)<br> output class for List payloads |
+| static class | [ArrayOfArrayOfNumberOnly.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [ArrayOfArrayOfNumberOnly.Items](#items)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ItemsList](#itemslist)<br> output class for List payloads |
+| static class | [ArrayOfArrayOfNumberOnly.Items1Boxed](#items1boxed)<br> sealed validated payload class |
 | static class | [ArrayOfArrayOfNumberOnly.Items1](#items1)<br> schema class |
+
+## ArrayOfArrayOfNumberOnly1Boxed
+public static abstract sealed class ArrayOfArrayOfNumberOnly1Boxed<br>
 
 ## ArrayOfArrayOfNumberOnly1
 public static class ArrayOfArrayOfNumberOnly1<br>
@@ -112,6 +119,9 @@ A class to store validated Map payloads
 | [ArrayArrayNumberList](#arrayarraynumberlist) | ArrayArrayNumber()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ArrayArrayNumberBoxed
+public static abstract sealed class ArrayArrayNumberBoxed<br>
+
 ## ArrayArrayNumber
 public static class ArrayArrayNumber<br>
 extends JsonSchema
@@ -187,6 +197,9 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayArrayNumberList](#arrayarraynumberlist) | of([List<List<Number>>](#arrayarraynumberlistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+
 ## Items
 public static class Items<br>
 extends JsonSchema
@@ -261,6 +274,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | of([List<Number>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
+
+## Items1Boxed
+public static abstract sealed class Items1Boxed<br>
 
 ## Items1
 public static class Items1<br>

@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1Boxed](#arraywithvalidationsinitems1boxed)<br> sealed validated payload class |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1](#arraywithvalidationsinitems1)<br> schema class |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsListBuilder](#arraywithvalidationsinitemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist)<br> output class for List payloads |
+| static class | [ArrayWithValidationsInItems.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
 | static class | [ArrayWithValidationsInItems.Items](#items)<br> schema class |
+
+## ArrayWithValidationsInItems1Boxed
+public static abstract sealed class ArrayWithValidationsInItems1Boxed<br>
 
 ## ArrayWithValidationsInItems1
 public static class ArrayWithValidationsInItems1<br>
@@ -92,6 +97,9 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of([List<Number>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
 
 ## Items
 public static class Items<br>

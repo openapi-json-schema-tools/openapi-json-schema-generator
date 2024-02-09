@@ -9,7 +9,11 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema9.Schema91Boxed](#schema91boxed)<br> sealed validated payload class |
 | static class | [Schema9.Schema91](#schema91)<br> schema class |
+
+## Schema91Boxed
+public static abstract sealed class Schema91Boxed<br>
 
 ## Schema91
 public static class Schema91<br>

@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Money.Money1Boxed](#money1boxed)<br> sealed validated payload class |
 | static class | [Money.Money1](#money1)<br> schema class |
 | static class | [Money.MoneyMapBuilder](#moneymapbuilder)<br> builder for Map payloads |
 | static class | [Money.MoneyMap](#moneymap)<br> output class for Map payloads |
+| static class | [Money.AmountBoxed](#amountboxed)<br> sealed validated payload class |
 | static class | [Money.Amount](#amount)<br> schema class |
+| static class | [Money.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
 | static class | [Money.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## Money1Boxed
+public static abstract sealed class Money1Boxed<br>
 
 ## Money1
 public static class Money1<br>
@@ -145,6 +151,9 @@ A class to store validated Map payloads
 | String | amount()<br> value must be int or float numeric |
 | String | currency()<br> |
 
+## AmountBoxed
+public static abstract sealed class AmountBoxed<br>
+
 ## Amount
 public static class Amount<br>
 extends DecimalJsonSchema.DecimalJsonSchema1
@@ -155,6 +164,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

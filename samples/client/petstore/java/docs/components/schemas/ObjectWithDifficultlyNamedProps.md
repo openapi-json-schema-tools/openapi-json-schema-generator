@@ -12,12 +12,19 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1Boxed](#objectwithdifficultlynamedprops1boxed)<br> sealed validated payload class |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1](#objectwithdifficultlynamedprops1)<br> schema class |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMapBuilder](#objectwithdifficultlynamedpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap)<br> output class for Map payloads |
+| static class | [ObjectWithDifficultlyNamedProps.Schema123NumberBoxed](#schema123numberboxed)<br> sealed validated payload class |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123Number](#schema123number)<br> schema class |
+| static class | [ObjectWithDifficultlyNamedProps.Schema123listBoxed](#schema123listboxed)<br> sealed validated payload class |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123list](#schema123list)<br> schema class |
+| static class | [ObjectWithDifficultlyNamedProps.SpecialpropertynameBoxed](#specialpropertynameboxed)<br> sealed validated payload class |
 | static class | [ObjectWithDifficultlyNamedProps.Specialpropertyname](#specialpropertyname)<br> schema class |
+
+## ObjectWithDifficultlyNamedProps1Boxed
+public static abstract sealed class ObjectWithDifficultlyNamedProps1Boxed<br>
 
 ## ObjectWithDifficultlyNamedProps1
 public static class ObjectWithDifficultlyNamedProps1<br>
@@ -132,6 +139,9 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["123-list"], instance["$special[property.name]"], instance["123Number"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Schema123NumberBoxed
+public static abstract sealed class Schema123NumberBoxed<br>
+
 ## Schema123Number
 public static class Schema123Number<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -143,6 +153,9 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
+## Schema123listBoxed
+public static abstract sealed class Schema123listBoxed<br>
+
 ## Schema123list
 public static class Schema123list<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -153,6 +166,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## SpecialpropertynameBoxed
+public static abstract sealed class SpecialpropertynameBoxed<br>
 
 ## Specialpropertyname
 public static class Specialpropertyname<br>

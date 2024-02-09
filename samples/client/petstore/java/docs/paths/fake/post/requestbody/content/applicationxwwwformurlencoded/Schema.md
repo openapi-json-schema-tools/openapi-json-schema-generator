@@ -11,23 +11,41 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+| static class | [Schema.CallbackBoxed](#callbackboxed)<br> sealed validated payload class |
 | static class | [Schema.Callback](#callback)<br> schema class |
+| static class | [Schema.PasswordBoxed](#passwordboxed)<br> sealed validated payload class |
 | static class | [Schema.Password](#password)<br> schema class |
+| static class | [Schema.DateTimeBoxed](#datetimeboxed)<br> sealed validated payload class |
 | static class | [Schema.DateTime](#datetime)<br> schema class |
+| static class | [Schema.DateBoxed](#dateboxed)<br> sealed validated payload class |
 | static class | [Schema.Date](#date)<br> schema class |
+| static class | [Schema.BinaryBoxed](#binaryboxed)<br> sealed validated payload class |
 | static class | [Schema.Binary](#binary)<br> schema class |
+| static class | [Schema.ByteSchemaBoxed](#byteschemaboxed)<br> sealed validated payload class |
 | static class | [Schema.ByteSchema](#byteschema)<br> schema class |
+| static class | [Schema.PatternWithoutDelimiterBoxed](#patternwithoutdelimiterboxed)<br> sealed validated payload class |
 | static class | [Schema.PatternWithoutDelimiter](#patternwithoutdelimiter)<br> schema class |
+| static class | [Schema.StringSchemaBoxed](#stringschemaboxed)<br> sealed validated payload class |
 | static class | [Schema.StringSchema](#stringschema)<br> schema class |
+| static class | [Schema.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed validated payload class |
 | static class | [Schema.DoubleSchema](#doubleschema)<br> schema class |
+| static class | [Schema.FloatSchemaBoxed](#floatschemaboxed)<br> sealed validated payload class |
 | static class | [Schema.FloatSchema](#floatschema)<br> schema class |
+| static class | [Schema.NumberSchemaBoxed](#numberschemaboxed)<br> sealed validated payload class |
 | static class | [Schema.NumberSchema](#numberschema)<br> schema class |
+| static class | [Schema.Int64Boxed](#int64boxed)<br> sealed validated payload class |
 | static class | [Schema.Int64](#int64)<br> schema class |
+| static class | [Schema.Int32Boxed](#int32boxed)<br> sealed validated payload class |
 | static class | [Schema.Int32](#int32)<br> schema class |
+| static class | [Schema.IntegerSchemaBoxed](#integerschemaboxed)<br> sealed validated payload class |
 | static class | [Schema.IntegerSchema](#integerschema)<br> schema class |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
 
 ## Schema1
 public static class Schema1<br>
@@ -470,6 +488,9 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## CallbackBoxed
+public static abstract sealed class CallbackBoxed<br>
+
 ## Callback
 public static class Callback<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -483,6 +504,9 @@ None
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## PasswordBoxed
+public static abstract sealed class PasswordBoxed<br>
 
 ## Password
 public static class Password<br>
@@ -528,6 +552,9 @@ String validatedPayload = Schema.Password.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DateTimeBoxed
+public static abstract sealed class DateTimeBoxed<br>
+
 ## DateTime
 public static class DateTime<br>
 extends JsonSchema
@@ -571,6 +598,9 @@ String validatedPayload = Schema.DateTime.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DateBoxed
+public static abstract sealed class DateBoxed<br>
+
 ## Date
 public static class Date<br>
 extends DateJsonSchema.DateJsonSchema1
@@ -585,6 +615,9 @@ None
 | validate                                                           |
 | validateAndBox                                                     |
 
+## BinaryBoxed
+public static abstract sealed class BinaryBoxed<br>
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
@@ -594,6 +627,9 @@ A schema class that validates payloads
 ## Description
 None
 
+## ByteSchemaBoxed
+public static abstract sealed class ByteSchemaBoxed<br>
+
 ## ByteSchema
 public static class ByteSchema<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -602,6 +638,9 @@ A schema class that validates payloads
 
 ## Description
 None
+
+## PatternWithoutDelimiterBoxed
+public static abstract sealed class PatternWithoutDelimiterBoxed<br>
 
 ## PatternWithoutDelimiter
 public static class PatternWithoutDelimiter<br>
@@ -645,6 +684,9 @@ String validatedPayload = Schema.PatternWithoutDelimiter.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringSchemaBoxed
+public static abstract sealed class StringSchemaBoxed<br>
+
 ## StringSchema
 public static class StringSchema<br>
 extends JsonSchema
@@ -687,6 +729,9 @@ String validatedPayload = Schema.StringSchema.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DoubleSchemaBoxed
+public static abstract sealed class DoubleSchemaBoxed<br>
+
 ## DoubleSchema
 public static class DoubleSchema<br>
 extends JsonSchema
@@ -731,6 +776,9 @@ double validatedPayload = Schema.DoubleSchema.validate(
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## FloatSchemaBoxed
+public static abstract sealed class FloatSchemaBoxed<br>
+
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -774,6 +822,9 @@ float validatedPayload = Schema.FloatSchema.validate(
 | ----------------- | ---------------------- |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## NumberSchemaBoxed
+public static abstract sealed class NumberSchemaBoxed<br>
+
 ## NumberSchema
 public static class NumberSchema<br>
 extends JsonSchema
@@ -817,6 +868,9 @@ int validatedPayload = Schema.NumberSchema.validate(
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Int64Boxed
+public static abstract sealed class Int64Boxed<br>
+
 ## Int64
 public static class Int64<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -830,6 +884,9 @@ None
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## Int32Boxed
+public static abstract sealed class Int32Boxed<br>
 
 ## Int32
 public static class Int32<br>
@@ -875,6 +932,9 @@ int validatedPayload = Schema.Int32.validate(
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerSchemaBoxed
+public static abstract sealed class IntegerSchemaBoxed<br>
+
 ## IntegerSchema
 public static class IntegerSchema<br>
 extends JsonSchema

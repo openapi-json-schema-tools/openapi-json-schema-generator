@@ -12,9 +12,13 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectModelWithRefProps.ObjectModelWithRefProps1Boxed](#objectmodelwithrefprops1boxed)<br> sealed validated payload class |
 | static class | [ObjectModelWithRefProps.ObjectModelWithRefProps1](#objectmodelwithrefprops1)<br> schema class |
 | static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMapBuilder](#objectmodelwithrefpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap)<br> output class for Map payloads |
+
+## ObjectModelWithRefProps1Boxed
+public static abstract sealed class ObjectModelWithRefProps1Boxed<br>
 
 ## ObjectModelWithRefProps1
 public static class ObjectModelWithRefProps1<br>

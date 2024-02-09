@@ -13,12 +13,18 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [TriangleInterface.TriangleInterface1Boxed](#triangleinterface1boxed)<br> sealed validated payload class |
 | static class | [TriangleInterface.TriangleInterface1](#triangleinterface1)<br> schema class |
 | static class | [TriangleInterface.TriangleInterfaceMapBuilder](#triangleinterfacemapbuilder)<br> builder for Map payloads |
 | static class | [TriangleInterface.TriangleInterfaceMap](#triangleinterfacemap)<br> output class for Map payloads |
+| static class | [TriangleInterface.TriangleTypeBoxed](#triangletypeboxed)<br> sealed validated payload class |
 | static class | [TriangleInterface.TriangleType](#triangletype)<br> schema class |
+| static class | [TriangleInterface.ShapeTypeBoxed](#shapetypeboxed)<br> sealed validated payload class |
 | static class | [TriangleInterface.ShapeType](#shapetype)<br> schema class |
 | enum | [TriangleInterface.StringShapeTypeEnums](#stringshapetypeenums)<br>String enum |
+
+## TriangleInterface1Boxed
+public static abstract sealed class TriangleInterface1Boxed<br>
 
 ## TriangleInterface1
 public static class TriangleInterface1<br>
@@ -135,6 +141,9 @@ A class to store validated Map payloads
 | String | triangleType()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## TriangleTypeBoxed
+public static abstract sealed class TriangleTypeBoxed<br>
+
 ## TriangleType
 public static class TriangleType<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -145,6 +154,9 @@ A schema class that validates payloads
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## ShapeTypeBoxed
+public static abstract sealed class ShapeTypeBoxed<br>
 
 ## ShapeType
 public static class ShapeType<br>

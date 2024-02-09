@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)<br> sealed validated payload class |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1](#objectwithoptionaltestprop1)<br> schema class |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap)<br> output class for Map payloads |
+| static class | [ObjectWithOptionalTestProp.TestBoxed](#testboxed)<br> sealed validated payload class |
 | static class | [ObjectWithOptionalTestProp.Test](#test)<br> schema class |
+
+## ObjectWithOptionalTestProp1Boxed
+public static abstract sealed class ObjectWithOptionalTestProp1Boxed<br>
 
 ## ObjectWithOptionalTestProp1
 public static class ObjectWithOptionalTestProp1<br>
@@ -98,6 +103,9 @@ A class to store validated Map payloads
 | static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | of([Map<String, ? extends @Nullable Object>](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
 | String | test()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## TestBoxed
+public static abstract sealed class TestBoxed<br>
 
 ## Test
 public static class Test<br>

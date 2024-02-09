@@ -12,10 +12,15 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ClassModel.ClassModel1Boxed](#classmodel1boxed)<br> sealed validated payload class |
 | static class | [ClassModel.ClassModel1](#classmodel1)<br> schema class |
 | static class | [ClassModel.ClassModelMapBuilder](#classmodelmapbuilder)<br> builder for Map payloads |
 | static class | [ClassModel.ClassModelMap](#classmodelmap)<br> output class for Map payloads |
+| static class | [ClassModel.ClassSchemaBoxed](#classschemaboxed)<br> sealed validated payload class |
 | static class | [ClassModel.ClassSchema](#classschema)<br> schema class |
+
+## ClassModel1Boxed
+public static abstract sealed class ClassModel1Boxed<br>
 
 ## ClassModel1
 public static class ClassModel1<br>
@@ -82,6 +87,9 @@ A class to store validated Map payloads
 | static [ClassModelMap](#classmodelmap) | of([Map<String, ? extends @Nullable Object>](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["_class"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ClassSchemaBoxed
+public static abstract sealed class ClassSchemaBoxed<br>
 
 ## ClassSchema
 public static class ClassSchema<br>

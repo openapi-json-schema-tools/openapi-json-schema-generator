@@ -12,11 +12,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema200Response.Schema200Response1Boxed](#schema200response1boxed)<br> sealed validated payload class |
 | static class | [Schema200Response.Schema200Response1](#schema200response1)<br> schema class |
 | static class | [Schema200Response.Schema200ResponseMapBuilder](#schema200responsemapbuilder)<br> builder for Map payloads |
 | static class | [Schema200Response.Schema200ResponseMap](#schema200responsemap)<br> output class for Map payloads |
+| static class | [Schema200Response.ClassSchemaBoxed](#classschemaboxed)<br> sealed validated payload class |
 | static class | [Schema200Response.ClassSchema](#classschema)<br> schema class |
+| static class | [Schema200Response.NameBoxed](#nameboxed)<br> sealed validated payload class |
 | static class | [Schema200Response.Name](#name)<br> schema class |
+
+## Schema200Response1Boxed
+public static abstract sealed class Schema200Response1Boxed<br>
 
 ## Schema200Response1
 public static class Schema200Response1<br>
@@ -87,6 +93,9 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["class"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ClassSchemaBoxed
+public static abstract sealed class ClassSchemaBoxed<br>
+
 ## ClassSchema
 public static class ClassSchema<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -100,6 +109,9 @@ this is a reserved python keyword
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
+
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
 
 ## Name
 public static class Name<br>

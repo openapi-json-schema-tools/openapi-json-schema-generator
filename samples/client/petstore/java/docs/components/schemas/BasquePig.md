@@ -13,11 +13,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [BasquePig.BasquePig1Boxed](#basquepig1boxed)<br> sealed validated payload class |
 | static class | [BasquePig.BasquePig1](#basquepig1)<br> schema class |
 | static class | [BasquePig.BasquePigMapBuilder](#basquepigmapbuilder)<br> builder for Map payloads |
 | static class | [BasquePig.BasquePigMap](#basquepigmap)<br> output class for Map payloads |
+| static class | [BasquePig.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
 | static class | [BasquePig.ClassName](#classname)<br> schema class |
 | enum | [BasquePig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
+
+## BasquePig1Boxed
+public static abstract sealed class BasquePig1Boxed<br>
 
 ## BasquePig1
 public static class BasquePig1<br>
@@ -117,6 +122,9 @@ A class to store validated Map payloads
 | static [BasquePigMap](#basquepigmap) | of([Map<String, ? extends @Nullable Object>](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["BasquePig"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ClassNameBoxed
+public static abstract sealed class ClassNameBoxed<br>
 
 ## ClassName
 public static class ClassName<br>
