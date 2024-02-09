@@ -30,7 +30,7 @@ extends BooleanJsonSchema.BooleanJsonSchema1
                 {{/eq}}
                 {{#eq this "string"}}
                     {{#eq ../format "date"}}
-extends DateJsonSchema
+extends DateJsonSchema.DateJsonSchema1
                     {{/eq}}
                     {{#eq ../format "date-time"}}
 extends DateTimeJsonSchema

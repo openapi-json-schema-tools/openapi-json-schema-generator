@@ -316,7 +316,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 new ValidationData(
-                    DateJsonSchema.getInstance(),
+                    DateJsonSchema.DateJsonSchema1.getInstance(),
                     "abc",
                     validationMetadata
                 )
@@ -328,7 +328,7 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 new ValidationData(
-                    DateJsonSchema.getInstance(),
+                    DateJsonSchema.DateJsonSchema1.getInstance(),
                     "2017-01-20",
                     validationMetadata
                 )

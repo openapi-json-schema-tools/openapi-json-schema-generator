@@ -50,7 +50,7 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public static class Schema3 extends DateJsonSchema {
+    public static class Schema3 extends DateJsonSchema.DateJsonSchema1 {
         private static @Nullable Schema3 instance = null;
         public static Schema3 getInstance() {
             if (instance == null) {

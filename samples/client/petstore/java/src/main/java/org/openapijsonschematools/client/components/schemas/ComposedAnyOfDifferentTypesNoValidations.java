@@ -59,7 +59,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema1 extends DateJsonSchema {
+    public static class Schema1 extends DateJsonSchema.DateJsonSchema1 {
         private static @Nullable Schema1 instance = null;
         public static Schema1 getInstance() {
             if (instance == null) {

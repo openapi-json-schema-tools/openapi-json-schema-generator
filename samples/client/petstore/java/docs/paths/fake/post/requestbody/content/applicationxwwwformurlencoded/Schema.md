@@ -570,14 +570,14 @@ String validatedPayload = Schema.DateTime.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Date
 public static class Date<br>
-extends DateJsonSchema
+extends DateJsonSchema.DateJsonSchema1
 
 A schema class that validates payloads
 
 ## Description
 None
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema.DateJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

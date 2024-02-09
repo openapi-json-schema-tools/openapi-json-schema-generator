@@ -678,7 +678,7 @@ public class FormatTest {
     }
     
     
-    public static class Date extends DateJsonSchema {
+    public static class Date extends DateJsonSchema.DateJsonSchema1 {
         private static @Nullable Date instance = null;
         public static Date getInstance() {
             if (instance == null) {

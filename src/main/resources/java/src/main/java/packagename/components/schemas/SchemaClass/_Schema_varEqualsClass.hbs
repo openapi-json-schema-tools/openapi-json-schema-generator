@@ -41,7 +41,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends BooleanJsonSchema.Bo
                 {{/eq}}
                 {{#eq this "string"}}
                     {{#eq ../format "date"}}
-public static class {{../jsonPathPiece.pascalCase}} extends DateJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends DateJsonSchema.DateJsonSchema1 {
                     {{/eq}}
                     {{#eq ../format "date-time"}}
 public static class {{../jsonPathPiece.pascalCase}} extends DateTimeJsonSchema {

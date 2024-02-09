@@ -197,11 +197,11 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema3
 public static class Schema3<br>
-extends DateJsonSchema
+extends DateJsonSchema.DateJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema.DateJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
