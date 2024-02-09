@@ -34,7 +34,7 @@ public static class {{../jsonPathPiece.pascalCase}} extends NullJsonSchema.NullJ
 public static class {{../jsonPathPiece.pascalCase}} extends MapJsonSchema {
                 {{/eq}}
                 {{#eq this "array"}}
-public static class {{../jsonPathPiece.pascalCase}} extends ListJsonSchema {
+public static class {{../jsonPathPiece.pascalCase}} extends ListJsonSchema.ListJsonSchema1 {
                 {{/eq}}
                 {{#eq this "boolean"}}
 public static class {{../jsonPathPiece.pascalCase}} extends BooleanJsonSchema.BooleanJsonSchema1 {

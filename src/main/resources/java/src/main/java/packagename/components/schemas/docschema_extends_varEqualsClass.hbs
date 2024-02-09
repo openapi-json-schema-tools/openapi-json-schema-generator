@@ -23,7 +23,7 @@ extends NullJsonSchema.NullJsonSchema1
 extends MapJsonSchema
                 {{/eq}}
                 {{#eq this "array"}}
-extends ListJsonSchema
+extends ListJsonSchema.ListJsonSchema1
                 {{/eq}}
                 {{#eq this "boolean"}}
 extends BooleanJsonSchema.BooleanJsonSchema1
