@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## Address1Boxed
 public static abstract sealed class Address1Boxed<br>
+permits<br>
+[Address1BoxedMap](#address1boxedmap)
 
 ## Address1
 public static class Address1<br>
@@ -99,6 +101,8 @@ A class to store validated Map payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

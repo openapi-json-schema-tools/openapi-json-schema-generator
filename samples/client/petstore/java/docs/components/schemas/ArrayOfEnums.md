@@ -19,6 +19,8 @@ A class that contains necessary nested
 
 ## ArrayOfEnums1Boxed
 public static abstract sealed class ArrayOfEnums1Boxed<br>
+permits<br>
+[ArrayOfEnums1BoxedList](#arrayofenums1boxedlist)
 
 ## ArrayOfEnums1
 public static class ArrayOfEnums1<br>

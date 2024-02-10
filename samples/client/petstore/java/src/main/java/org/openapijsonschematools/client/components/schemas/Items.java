@@ -69,12 +69,14 @@ public class Items {
     
     
     public static abstract sealed class Items1Boxed permits Items1BoxedList {}
+    
     public static final class Items1BoxedList extends Items1Boxed {
         public final ItemsList data;
         private Items1BoxedList(ItemsList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Items1 extends JsonSchema implements ListSchemaValidator<ItemsList, Items1BoxedList> {

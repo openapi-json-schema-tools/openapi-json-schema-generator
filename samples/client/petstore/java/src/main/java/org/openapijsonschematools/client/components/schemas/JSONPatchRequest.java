@@ -36,36 +36,42 @@ public class JSONPatchRequest {
     
     
     public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {}
+    
     public static final class ItemsBoxedVoid extends ItemsBoxed {
         public final Void data;
         private ItemsBoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class ItemsBoxedBoolean extends ItemsBoxed {
         public final boolean data;
         private ItemsBoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class ItemsBoxedNumber extends ItemsBoxed {
         public final Number data;
         private ItemsBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class ItemsBoxedString extends ItemsBoxed {
         public final String data;
         private ItemsBoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class ItemsBoxedList extends ItemsBoxed {
         public final FrozenList<@Nullable Object> data;
         private ItemsBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class ItemsBoxedMap extends ItemsBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
@@ -370,12 +376,14 @@ public class JSONPatchRequest {
     
     
     public static abstract sealed class JSONPatchRequest1Boxed permits JSONPatchRequest1BoxedList {}
+    
     public static final class JSONPatchRequest1BoxedList extends JSONPatchRequest1Boxed {
         public final JSONPatchRequestList data;
         private JSONPatchRequest1BoxedList(JSONPatchRequestList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class JSONPatchRequest1 extends JsonSchema implements ListSchemaValidator<JSONPatchRequestList, JSONPatchRequest1BoxedList> {

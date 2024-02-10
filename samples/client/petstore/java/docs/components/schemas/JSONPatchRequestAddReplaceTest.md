@@ -29,6 +29,8 @@ A class that contains necessary nested
 
 ## JSONPatchRequestAddReplaceTest1Boxed
 public static abstract sealed class JSONPatchRequestAddReplaceTest1Boxed<br>
+permits<br>
+[JSONPatchRequestAddReplaceTest1BoxedMap](#jsonpatchrequestaddreplacetest1boxedmap)
 
 ## JSONPatchRequestAddReplaceTest1
 public static class JSONPatchRequestAddReplaceTest1<br>
@@ -262,6 +264,8 @@ A class to store validated Map payloads
 
 ## OpBoxed
 public static abstract sealed class OpBoxed<br>
+permits<br>
+[OpBoxedString](#opboxedstring)
 
 ## Op
 public static class Op<br>
@@ -321,6 +325,13 @@ A class that stores String enum values
 
 ## ValueBoxed
 public static abstract sealed class ValueBoxed<br>
+permits<br>
+[ValueBoxedVoid](#valueboxedvoid),
+[ValueBoxedBoolean](#valueboxedboolean),
+[ValueBoxedNumber](#valueboxednumber),
+[ValueBoxedString](#valueboxedstring),
+[ValueBoxedList](#valueboxedlist),
+[ValueBoxedMap](#valueboxedmap)
 
 ## Value
 public static class Value<br>
@@ -338,6 +349,8 @@ The value to add, replace or test.
 
 ## PathBoxed
 public static abstract sealed class PathBoxed<br>
+permits<br>
+[PathBoxedString](#pathboxedstring)
 
 ## Path
 public static class Path<br>
@@ -355,6 +368,13 @@ A JSON Pointer path.
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

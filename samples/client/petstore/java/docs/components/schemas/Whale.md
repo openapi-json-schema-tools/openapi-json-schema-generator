@@ -27,6 +27,8 @@ A class that contains necessary nested
 
 ## Whale1Boxed
 public static abstract sealed class Whale1Boxed<br>
+permits<br>
+[Whale1BoxedMap](#whale1boxedmap)
 
 ## Whale1
 public static class Whale1<br>
@@ -137,6 +139,8 @@ A class to store validated Map payloads
 
 ## ClassNameBoxed
 public static abstract sealed class ClassNameBoxed<br>
+permits<br>
+[ClassNameBoxedString](#classnameboxedstring)
 
 ## ClassName
 public static class ClassName<br>
@@ -191,6 +195,8 @@ A class that stores String enum values
 
 ## HasTeethBoxed
 public static abstract sealed class HasTeethBoxed<br>
+permits<br>
+[HasTeethBoxedBoolean](#hasteethboxedboolean)
 
 ## HasTeeth
 public static class HasTeeth<br>
@@ -205,6 +211,8 @@ A schema class that validates payloads
 
 ## HasBaleenBoxed
 public static abstract sealed class HasBaleenBoxed<br>
+permits<br>
+[HasBaleenBoxedBoolean](#hasbaleenboxedboolean)
 
 ## HasBaleen
 public static class HasBaleen<br>

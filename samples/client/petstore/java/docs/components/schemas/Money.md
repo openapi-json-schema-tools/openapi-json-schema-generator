@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## Money1Boxed
 public static abstract sealed class Money1Boxed<br>
+permits<br>
+[Money1BoxedMap](#money1boxedmap)
 
 ## Money1
 public static class Money1<br>
@@ -153,6 +155,8 @@ A class to store validated Map payloads
 
 ## AmountBoxed
 public static abstract sealed class AmountBoxed<br>
+permits<br>
+[AmountBoxedString](#amountboxedstring)
 
 ## Amount
 public static class Amount<br>
@@ -167,6 +171,13 @@ A schema class that validates payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

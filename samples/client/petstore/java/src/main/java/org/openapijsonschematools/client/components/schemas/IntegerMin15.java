@@ -20,12 +20,14 @@ public class IntegerMin15 {
     
     
     public static abstract sealed class IntegerMin151Boxed permits IntegerMin151BoxedNumber {}
+    
     public static final class IntegerMin151BoxedNumber extends IntegerMin151Boxed {
         public final Number data;
         private IntegerMin151BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class IntegerMin151 extends JsonSchema implements NumberSchemaValidator<IntegerMin151BoxedNumber> {

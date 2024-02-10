@@ -21,6 +21,13 @@ A class that contains necessary nested
 
 ## ReturnSchema1Boxed
 public static abstract sealed class ReturnSchema1Boxed<br>
+permits<br>
+[ReturnSchema1BoxedVoid](#returnschema1boxedvoid),
+[ReturnSchema1BoxedBoolean](#returnschema1boxedboolean),
+[ReturnSchema1BoxedNumber](#returnschema1boxednumber),
+[ReturnSchema1BoxedString](#returnschema1boxedstring),
+[ReturnSchema1BoxedList](#returnschema1boxedlist),
+[ReturnSchema1BoxedMap](#returnschema1boxedmap)
 
 ## ReturnSchema1
 public static class ReturnSchema1<br>
@@ -91,6 +98,8 @@ A class to store validated Map payloads
 
 ## ReturnSchema2Boxed
 public static abstract sealed class ReturnSchema2Boxed<br>
+permits<br>
+[ReturnSchema2BoxedNumber](#returnschema2boxednumber)
 
 ## ReturnSchema2
 public static class ReturnSchema2<br>

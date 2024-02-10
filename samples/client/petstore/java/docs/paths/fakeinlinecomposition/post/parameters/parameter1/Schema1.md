@@ -22,6 +22,8 @@ A class that contains necessary nested
 
 ## Schema11Boxed
 public static abstract sealed class Schema11Boxed<br>
+permits<br>
+[Schema11BoxedMap](#schema11boxedmap)
 
 ## Schema11
 public static class Schema11<br>
@@ -113,6 +115,13 @@ A class to store validated Map payloads
 
 ## SomeProp1Boxed
 public static abstract sealed class SomeProp1Boxed<br>
+permits<br>
+[SomeProp1BoxedVoid](#someprop1boxedvoid),
+[SomeProp1BoxedBoolean](#someprop1boxedboolean),
+[SomeProp1BoxedNumber](#someprop1boxednumber),
+[SomeProp1BoxedString](#someprop1boxedstring),
+[SomeProp1BoxedList](#someprop1boxedlist),
+[SomeProp1BoxedMap](#someprop1boxedmap)
 
 ## SomeProp1
 public static class SomeProp1<br>
@@ -140,6 +149,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema01Boxed
 public static abstract sealed class Schema01Boxed<br>
+permits<br>
+[Schema01BoxedString](#schema01boxedstring)
 
 ## Schema01
 public static class Schema01<br>

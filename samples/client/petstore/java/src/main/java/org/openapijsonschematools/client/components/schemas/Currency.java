@@ -36,12 +36,14 @@ public class Currency {
     
     
     public static abstract sealed class Currency1Boxed permits Currency1BoxedString {}
+    
     public static final class Currency1BoxedString extends Currency1Boxed {
         public final String data;
         private Currency1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Currency1 extends JsonSchema implements StringSchemaValidator<Currency1BoxedString>, StringEnumValidator<StringCurrencyEnums> {

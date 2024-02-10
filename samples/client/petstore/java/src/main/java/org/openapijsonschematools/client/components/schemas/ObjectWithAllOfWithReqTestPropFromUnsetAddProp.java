@@ -195,6 +195,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
@@ -281,36 +282,42 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     
     
     public static abstract sealed class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed permits ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap {}
+    
     public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         public final Void data;
         private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         public final boolean data;
         private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         public final Number data;
         private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         public final String data;
         private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         public final FrozenList<@Nullable Object> data;
         private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(FrozenMap<@Nullable Object> data) {

@@ -1,6 +1,10 @@
+{{#if forDocs}}
+{{else}}
 public static final class {{jsonPathPiece.pascalCase}}BoxedString extends {{jsonPathPiece.pascalCase}}Boxed {
     public final String data;
     private {{jsonPathPiece.pascalCase}}BoxedString(String data) {
         this.data = data;
     }
 }
+
+{{/if}}

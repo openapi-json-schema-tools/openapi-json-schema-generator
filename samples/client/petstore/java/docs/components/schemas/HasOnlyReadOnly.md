@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## HasOnlyReadOnly1Boxed
 public static abstract sealed class HasOnlyReadOnly1Boxed<br>
+permits<br>
+[HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap)
 
 ## HasOnlyReadOnly1
 public static class HasOnlyReadOnly1<br>
@@ -112,6 +114,8 @@ A class to store validated Map payloads
 
 ## FooBoxed
 public static abstract sealed class FooBoxed<br>
+permits<br>
+[FooBoxedString](#fooboxedstring)
 
 ## Foo
 public static class Foo<br>
@@ -126,6 +130,8 @@ A schema class that validates payloads
 
 ## BarBoxed
 public static abstract sealed class BarBoxed<br>
+permits<br>
+[BarBoxedString](#barboxedstring)
 
 ## Bar
 public static class Bar<br>

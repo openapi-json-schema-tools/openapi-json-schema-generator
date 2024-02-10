@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## SpecialModelname1Boxed
 public static abstract sealed class SpecialModelname1Boxed<br>
+permits<br>
+[SpecialModelname1BoxedMap](#specialmodelname1boxedmap)
 
 ## SpecialModelname1
 public static class SpecialModelname1<br>
@@ -109,6 +111,8 @@ A class to store validated Map payloads
 
 ## ABoxed
 public static abstract sealed class ABoxed<br>
+permits<br>
+[ABoxedString](#aboxedstring)
 
 ## A
 public static class A<br>

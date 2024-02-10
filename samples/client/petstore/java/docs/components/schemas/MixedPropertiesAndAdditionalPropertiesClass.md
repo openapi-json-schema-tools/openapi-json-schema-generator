@@ -27,6 +27,8 @@ A class that contains necessary nested
 
 ## MixedPropertiesAndAdditionalPropertiesClass1Boxed
 public static abstract sealed class MixedPropertiesAndAdditionalPropertiesClass1Boxed<br>
+permits<br>
+[MixedPropertiesAndAdditionalPropertiesClass1BoxedMap](#mixedpropertiesandadditionalpropertiesclass1boxedmap)
 
 ## MixedPropertiesAndAdditionalPropertiesClass1
 public static class MixedPropertiesAndAdditionalPropertiesClass1<br>
@@ -134,6 +136,8 @@ A class to store validated Map payloads
 
 ## MapSchemaBoxed
 public static abstract sealed class MapSchemaBoxed<br>
+permits<br>
+[MapSchemaBoxedMap](#mapschemaboxedmap)
 
 ## MapSchema
 public static class MapSchema<br>
@@ -220,6 +224,8 @@ A class to store validated Map payloads
 
 ## DateTimeBoxed
 public static abstract sealed class DateTimeBoxed<br>
+permits<br>
+[DateTimeBoxedString](#datetimeboxedstring)
 
 ## DateTime
 public static class DateTime<br>
@@ -234,6 +240,8 @@ A schema class that validates payloads
 
 ## UuidSchemaBoxed
 public static abstract sealed class UuidSchemaBoxed<br>
+permits<br>
+[UuidSchemaBoxedString](#uuidschemaboxedstring)
 
 ## UuidSchema
 public static class UuidSchema<br>

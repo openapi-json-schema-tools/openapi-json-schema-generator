@@ -70,12 +70,14 @@ public class ArrayOfEnums {
     
     
     public static abstract sealed class ArrayOfEnums1Boxed permits ArrayOfEnums1BoxedList {}
+    
     public static final class ArrayOfEnums1BoxedList extends ArrayOfEnums1Boxed {
         public final ArrayOfEnumsList data;
         private ArrayOfEnums1BoxedList(ArrayOfEnumsList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ArrayOfEnums1 extends JsonSchema implements ListSchemaValidator<ArrayOfEnumsList, ArrayOfEnums1BoxedList> {

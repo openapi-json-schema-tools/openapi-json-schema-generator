@@ -14,6 +14,8 @@ A class that contains necessary nested
 
 ## Int32JsonContentTypeHeaderSchema1Boxed
 public static abstract sealed class Int32JsonContentTypeHeaderSchema1Boxed<br>
+permits<br>
+[Int32JsonContentTypeHeaderSchema1BoxedNumber](#int32jsoncontenttypeheaderschema1boxednumber)
 
 ## Int32JsonContentTypeHeaderSchema1
 public static class Int32JsonContentTypeHeaderSchema1<br>

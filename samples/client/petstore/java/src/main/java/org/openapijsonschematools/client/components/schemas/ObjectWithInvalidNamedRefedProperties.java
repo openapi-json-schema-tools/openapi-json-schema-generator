@@ -145,6 +145,7 @@ public class ObjectWithInvalidNamedRefedProperties {
     
     
     public static abstract sealed class ObjectWithInvalidNamedRefedProperties1Boxed permits ObjectWithInvalidNamedRefedProperties1BoxedMap {}
+    
     public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap extends ObjectWithInvalidNamedRefedProperties1Boxed {
         public final ObjectWithInvalidNamedRefedPropertiesMap data;
         private ObjectWithInvalidNamedRefedProperties1BoxedMap(ObjectWithInvalidNamedRefedPropertiesMap data) {

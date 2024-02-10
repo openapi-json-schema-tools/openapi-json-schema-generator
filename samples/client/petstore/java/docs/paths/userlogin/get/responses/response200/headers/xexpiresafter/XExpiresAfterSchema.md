@@ -14,6 +14,8 @@ A class that contains necessary nested
 
 ## XExpiresAfterSchema1Boxed
 public static abstract sealed class XExpiresAfterSchema1Boxed<br>
+permits<br>
+[XExpiresAfterSchema1BoxedString](#xexpiresafterschema1boxedstring)
 
 ## XExpiresAfterSchema1
 public static class XExpiresAfterSchema1<br>

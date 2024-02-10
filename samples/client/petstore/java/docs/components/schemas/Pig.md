@@ -15,6 +15,13 @@ A class that contains necessary nested
 
 ## Pig1Boxed
 public static abstract sealed class Pig1Boxed<br>
+permits<br>
+[Pig1BoxedVoid](#pig1boxedvoid),
+[Pig1BoxedBoolean](#pig1boxedboolean),
+[Pig1BoxedNumber](#pig1boxednumber),
+[Pig1BoxedString](#pig1boxedstring),
+[Pig1BoxedList](#pig1boxedlist),
+[Pig1BoxedMap](#pig1boxedmap)
 
 ## Pig1
 public static class Pig1<br>

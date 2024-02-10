@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## AbstractStepMessage1Boxed
 public static abstract sealed class AbstractStepMessage1Boxed<br>
+permits<br>
+[AbstractStepMessage1BoxedMap](#abstractstepmessage1boxedmap)
 
 ## AbstractStepMessage1
 public static class AbstractStepMessage1<br>
@@ -293,6 +295,8 @@ A class to store validated Map payloads
 
 ## DiscriminatorBoxed
 public static abstract sealed class DiscriminatorBoxed<br>
+permits<br>
+[DiscriminatorBoxedString](#discriminatorboxedstring)
 
 ## Discriminator
 public static class Discriminator<br>

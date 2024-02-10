@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## ObjectModelWithArgAndArgsProperties1Boxed
 public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed<br>
+permits<br>
+[ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)
 
 ## ObjectModelWithArgAndArgsProperties1
 public static class ObjectModelWithArgAndArgsProperties1<br>
@@ -160,6 +162,8 @@ A class to store validated Map payloads
 
 ## ArgsBoxed
 public static abstract sealed class ArgsBoxed<br>
+permits<br>
+[ArgsBoxedString](#argsboxedstring)
 
 ## Args
 public static class Args<br>
@@ -174,6 +178,8 @@ A schema class that validates payloads
 
 ## ArgBoxed
 public static abstract sealed class ArgBoxed<br>
+permits<br>
+[ArgBoxedString](#argboxedstring)
 
 ## Arg
 public static class Arg<br>

@@ -20,12 +20,14 @@ public class NumberWithExclusiveMinMax {
     
     
     public static abstract sealed class NumberWithExclusiveMinMax1Boxed permits NumberWithExclusiveMinMax1BoxedNumber {}
+    
     public static final class NumberWithExclusiveMinMax1BoxedNumber extends NumberWithExclusiveMinMax1Boxed {
         public final Number data;
         private NumberWithExclusiveMinMax1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class NumberWithExclusiveMinMax1 extends JsonSchema implements NumberSchemaValidator<NumberWithExclusiveMinMax1BoxedNumber> {

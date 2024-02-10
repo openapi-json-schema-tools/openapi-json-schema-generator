@@ -15,6 +15,13 @@ A class that contains necessary nested
 
 ## Shape1Boxed
 public static abstract sealed class Shape1Boxed<br>
+permits<br>
+[Shape1BoxedVoid](#shape1boxedvoid),
+[Shape1BoxedBoolean](#shape1boxedboolean),
+[Shape1BoxedNumber](#shape1boxednumber),
+[Shape1BoxedString](#shape1boxedstring),
+[Shape1BoxedList](#shape1boxedlist),
+[Shape1BoxedMap](#shape1boxedmap)
 
 ## Shape1
 public static class Shape1<br>

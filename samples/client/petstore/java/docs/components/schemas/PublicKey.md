@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## PublicKey1Boxed
 public static abstract sealed class PublicKey1Boxed<br>
+permits<br>
+[PublicKey1BoxedMap](#publickey1boxedmap)
 
 ## PublicKey1
 public static class PublicKey1<br>
@@ -109,6 +111,8 @@ A class to store validated Map payloads
 
 ## KeyBoxed
 public static abstract sealed class KeyBoxed<br>
+permits<br>
+[KeyBoxedString](#keyboxedstring)
 
 ## Key
 public static class Key<br>

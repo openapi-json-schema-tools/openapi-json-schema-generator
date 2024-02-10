@@ -103,12 +103,14 @@ public class Drawing {
     
     
     public static abstract sealed class ShapesBoxed permits ShapesBoxedList {}
+    
     public static final class ShapesBoxedList extends ShapesBoxed {
         public final ShapesList data;
         private ShapesBoxedList(ShapesList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Shapes extends JsonSchema implements ListSchemaValidator<ShapesList, ShapesBoxedList> {
@@ -542,6 +544,7 @@ public class Drawing {
     
     
     public static abstract sealed class Drawing1Boxed permits Drawing1BoxedMap {}
+    
     public static final class Drawing1BoxedMap extends Drawing1Boxed {
         public final DrawingMap data;
         private Drawing1BoxedMap(DrawingMap data) {

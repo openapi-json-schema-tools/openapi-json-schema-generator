@@ -23,6 +23,13 @@ A class that contains necessary nested
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
 public static abstract sealed class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed<br>
+permits<br>
+[ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid](#objectwithallofwithreqtestpropfromunsetaddprop1boxedvoid),
+[ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean](#objectwithallofwithreqtestpropfromunsetaddprop1boxedboolean),
+[ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber](#objectwithallofwithreqtestpropfromunsetaddprop1boxednumber),
+[ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString](#objectwithallofwithreqtestpropfromunsetaddprop1boxedstring),
+[ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList](#objectwithallofwithreqtestpropfromunsetaddprop1boxedlist),
+[ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap](#objectwithallofwithreqtestpropfromunsetaddprop1boxedmap)
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1
 public static class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1<br>
@@ -50,6 +57,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -161,6 +170,8 @@ A class to store validated Map payloads
 
 ## NameBoxed
 public static abstract sealed class NameBoxed<br>
+permits<br>
+[NameBoxedString](#nameboxedstring)
 
 ## Name
 public static class Name<br>

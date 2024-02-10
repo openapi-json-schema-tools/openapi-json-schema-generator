@@ -19,6 +19,8 @@ A class that contains necessary nested
 
 ## ObjectWithInvalidNamedRefedProperties1Boxed
 public static abstract sealed class ObjectWithInvalidNamedRefedProperties1Boxed<br>
+permits<br>
+[ObjectWithInvalidNamedRefedProperties1BoxedMap](#objectwithinvalidnamedrefedproperties1boxedmap)
 
 ## ObjectWithInvalidNamedRefedProperties1
 public static class ObjectWithInvalidNamedRefedProperties1<br>

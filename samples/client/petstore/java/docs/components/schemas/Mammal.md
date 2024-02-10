@@ -15,6 +15,13 @@ A class that contains necessary nested
 
 ## Mammal1Boxed
 public static abstract sealed class Mammal1Boxed<br>
+permits<br>
+[Mammal1BoxedVoid](#mammal1boxedvoid),
+[Mammal1BoxedBoolean](#mammal1boxedboolean),
+[Mammal1BoxedNumber](#mammal1boxednumber),
+[Mammal1BoxedString](#mammal1boxedstring),
+[Mammal1BoxedList](#mammal1boxedlist),
+[Mammal1BoxedMap](#mammal1boxedmap)
 
 ## Mammal1
 public static class Mammal1<br>

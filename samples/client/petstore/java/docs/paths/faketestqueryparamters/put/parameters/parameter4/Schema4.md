@@ -20,6 +20,8 @@ A class that contains necessary nested
 
 ## Schema41Boxed
 public static abstract sealed class Schema41Boxed<br>
+permits<br>
+[Schema41BoxedList](#schema41boxedlist)
 
 ## Schema41
 public static class Schema41<br>
@@ -95,6 +97,8 @@ A class to store validated List payloads
 
 ## Items4Boxed
 public static abstract sealed class Items4Boxed<br>
+permits<br>
+[Items4BoxedString](#items4boxedstring)
 
 ## Items4
 public static class Items4<br>

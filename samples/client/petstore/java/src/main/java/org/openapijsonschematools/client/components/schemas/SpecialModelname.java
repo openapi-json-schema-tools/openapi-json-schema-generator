@@ -107,6 +107,7 @@ public class SpecialModelname {
     
     
     public static abstract sealed class SpecialModelname1Boxed permits SpecialModelname1BoxedMap {}
+    
     public static final class SpecialModelname1BoxedMap extends SpecialModelname1Boxed {
         public final SpecialModelnameMap data;
         private SpecialModelname1BoxedMap(SpecialModelnameMap data) {

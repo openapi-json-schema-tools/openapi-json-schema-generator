@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## ComposedArray1Boxed
 public static abstract sealed class ComposedArray1Boxed<br>
+permits<br>
+[ComposedArray1BoxedList](#composedarray1boxedlist)
 
 ## ComposedArray1
 public static class ComposedArray1<br>
@@ -102,6 +104,13 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedVoid](#itemsboxedvoid),
+[ItemsBoxedBoolean](#itemsboxedboolean),
+[ItemsBoxedNumber](#itemsboxednumber),
+[ItemsBoxedString](#itemsboxedstring),
+[ItemsBoxedList](#itemsboxedlist),
+[ItemsBoxedMap](#itemsboxedmap)
 
 ## Items
 public static class Items<br>

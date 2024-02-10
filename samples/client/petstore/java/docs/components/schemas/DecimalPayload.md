@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## DecimalPayload1Boxed
 public static abstract sealed class DecimalPayload1Boxed<br>
+permits<br>
+[DecimalPayload1BoxedString](#decimalpayload1boxedstring)
 
 ## DecimalPayload1
 public static class DecimalPayload1<br>

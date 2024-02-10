@@ -36,12 +36,14 @@ public class PathParamSchema0 {
     
     
     public static abstract sealed class PathParamSchema01Boxed permits PathParamSchema01BoxedString {}
+    
     public static final class PathParamSchema01BoxedString extends PathParamSchema01Boxed {
         public final String data;
         private PathParamSchema01BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator<PathParamSchema01BoxedString>, StringEnumValidator<StringPathParamSchemaEnums0> {

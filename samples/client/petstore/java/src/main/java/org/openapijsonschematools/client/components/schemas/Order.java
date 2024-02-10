@@ -95,12 +95,14 @@ public class Order {
     
     
     public static abstract sealed class StatusBoxed permits StatusBoxedString {}
+    
     public static final class StatusBoxedString extends StatusBoxed {
         public final String data;
         private StatusBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Status extends JsonSchema implements StringSchemaValidator<StatusBoxedString>, StringEnumValidator<StringStatusEnums> {
@@ -418,6 +420,7 @@ public class Order {
     
     
     public static abstract sealed class Order1Boxed permits Order1BoxedMap {}
+    
     public static final class Order1BoxedMap extends Order1Boxed {
         public final OrderMap data;
         private Order1BoxedMap(OrderMap data) {

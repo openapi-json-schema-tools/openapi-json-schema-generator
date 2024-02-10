@@ -27,6 +27,7 @@ public class ParentPet {
     
     
     public static abstract sealed class ParentPet1Boxed permits ParentPet1BoxedMap {}
+    
     public static final class ParentPet1BoxedMap extends ParentPet1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ParentPet1BoxedMap(FrozenMap<@Nullable Object> data) {

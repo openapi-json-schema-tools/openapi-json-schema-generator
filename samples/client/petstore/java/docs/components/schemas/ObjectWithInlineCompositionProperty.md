@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## ObjectWithInlineCompositionProperty1Boxed
 public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed<br>
+permits<br>
+[ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap)
 
 ## ObjectWithInlineCompositionProperty1
 public static class ObjectWithInlineCompositionProperty1<br>
@@ -114,6 +116,13 @@ A class to store validated Map payloads
 
 ## SomePropBoxed
 public static abstract sealed class SomePropBoxed<br>
+permits<br>
+[SomePropBoxedVoid](#somepropboxedvoid),
+[SomePropBoxedBoolean](#somepropboxedboolean),
+[SomePropBoxedNumber](#somepropboxednumber),
+[SomePropBoxedString](#somepropboxedstring),
+[SomePropBoxedList](#somepropboxedlist),
+[SomePropBoxedMap](#somepropboxedmap)
 
 ## SomeProp
 public static class SomeProp<br>
@@ -141,6 +150,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedString](#schema0boxedstring)
 
 ## Schema0
 public static class Schema0<br>

@@ -107,6 +107,7 @@ public class ObjectWithOptionalTestProp {
     
     
     public static abstract sealed class ObjectWithOptionalTestProp1Boxed permits ObjectWithOptionalTestProp1BoxedMap {}
+    
     public static final class ObjectWithOptionalTestProp1BoxedMap extends ObjectWithOptionalTestProp1Boxed {
         public final ObjectWithOptionalTestPropMap data;
         private ObjectWithOptionalTestProp1BoxedMap(ObjectWithOptionalTestPropMap data) {

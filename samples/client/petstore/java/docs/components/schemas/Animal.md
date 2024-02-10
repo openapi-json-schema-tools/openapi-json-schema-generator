@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## Animal1Boxed
 public static abstract sealed class Animal1Boxed<br>
+permits<br>
+[Animal1BoxedMap](#animal1boxedmap)
 
 ## Animal1
 public static class Animal1<br>
@@ -128,6 +130,8 @@ A class to store validated Map payloads
 
 ## ColorBoxed
 public static abstract sealed class ColorBoxed<br>
+permits<br>
+[ColorBoxedString](#colorboxedstring)
 
 ## Color
 public static class Color<br>
@@ -170,6 +174,8 @@ String validatedPayload = Animal.Color.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClassNameBoxed
 public static abstract sealed class ClassNameBoxed<br>
+permits<br>
+[ClassNameBoxedString](#classnameboxedstring)
 
 ## ClassName
 public static class ClassName<br>

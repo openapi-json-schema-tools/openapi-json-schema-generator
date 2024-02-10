@@ -88,12 +88,14 @@ public class PaginatedResultMyObjectDto {
     
     
     public static abstract sealed class ResultsBoxed permits ResultsBoxedList {}
+    
     public static final class ResultsBoxedList extends ResultsBoxed {
         public final ResultsList data;
         private ResultsBoxedList(ResultsList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Results extends JsonSchema implements ListSchemaValidator<ResultsList, ResultsBoxedList> {
@@ -297,6 +299,7 @@ public class PaginatedResultMyObjectDto {
     
     
     public static abstract sealed class PaginatedResultMyObjectDto1Boxed permits PaginatedResultMyObjectDto1BoxedMap {}
+    
     public static final class PaginatedResultMyObjectDto1BoxedMap extends PaginatedResultMyObjectDto1Boxed {
         public final PaginatedResultMyObjectDtoMap data;
         private PaginatedResultMyObjectDto1BoxedMap(PaginatedResultMyObjectDtoMap data) {

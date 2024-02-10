@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## ObjectWithCollidingProperties1Boxed
 public static abstract sealed class ObjectWithCollidingProperties1Boxed<br>
+permits<br>
+[ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap)
 
 ## ObjectWithCollidingProperties1
 public static class ObjectWithCollidingProperties1<br>
@@ -111,6 +113,8 @@ A class to store validated Map payloads
 
 ## SomepropBoxed
 public static abstract sealed class SomepropBoxed<br>
+permits<br>
+[SomepropBoxedMap](#somepropboxedmap)
 
 ## Someprop
 public static class Someprop<br>
@@ -125,6 +129,8 @@ A schema class that validates payloads
 
 ## SomePropBoxed
 public static abstract sealed class SomePropBoxed<br>
+permits<br>
+[SomePropBoxedMap](#somepropboxedmap)
 
 ## SomeProp
 public static class SomeProp<br>

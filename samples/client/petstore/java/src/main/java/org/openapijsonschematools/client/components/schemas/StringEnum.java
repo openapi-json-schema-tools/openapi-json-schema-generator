@@ -56,18 +56,21 @@ public class StringEnum {
     
     
     public static abstract sealed class StringEnum1Boxed permits StringEnum1BoxedVoid, StringEnum1BoxedString {}
+    
     public static final class StringEnum1BoxedVoid extends StringEnum1Boxed {
         public final Void data;
         private StringEnum1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class StringEnum1BoxedString extends StringEnum1Boxed {
         public final String data;
         private StringEnum1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class StringEnum1 extends JsonSchema implements NullEnumValidator<NullStringEnumEnums>, StringEnumValidator<StringStringEnumEnums>, NullSchemaValidator<StringEnum1BoxedVoid>, StringSchemaValidator<StringEnum1BoxedString> {

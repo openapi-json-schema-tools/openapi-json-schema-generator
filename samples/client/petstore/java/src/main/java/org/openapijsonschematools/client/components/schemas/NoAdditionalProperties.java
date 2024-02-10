@@ -183,6 +183,7 @@ public class NoAdditionalProperties {
     
     
     public static abstract sealed class NoAdditionalProperties1Boxed permits NoAdditionalProperties1BoxedMap {}
+    
     public static final class NoAdditionalProperties1BoxedMap extends NoAdditionalProperties1Boxed {
         public final NoAdditionalPropertiesMap data;
         private NoAdditionalProperties1BoxedMap(NoAdditionalPropertiesMap data) {

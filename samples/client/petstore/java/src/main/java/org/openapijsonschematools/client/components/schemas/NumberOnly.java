@@ -125,6 +125,7 @@ public class NumberOnly {
     
     
     public static abstract sealed class NumberOnly1Boxed permits NumberOnly1BoxedMap {}
+    
     public static final class NumberOnly1BoxedMap extends NumberOnly1Boxed {
         public final NumberOnlyMap data;
         private NumberOnly1BoxedMap(NumberOnlyMap data) {

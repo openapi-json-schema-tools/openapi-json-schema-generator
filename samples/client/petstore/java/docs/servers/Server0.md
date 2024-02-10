@@ -48,6 +48,8 @@ A class that contains necessary nested
 
 ### Variables1Boxed
 public static abstract sealed class Variables1Boxed<br>
+permits<br>
+[Variables1BoxedMap](#variables1boxedmap)
 
 ### Variables1
 public static class Variables1<br>
@@ -180,6 +182,8 @@ A class to store validated Map payloads
 
 ### PortBoxed
 public static abstract sealed class PortBoxed<br>
+permits<br>
+[PortBoxedString](#portboxedstring)
 
 ### Port
 public static class Port<br>
@@ -239,6 +243,8 @@ A class that stores String enum values
 
 ### ServerBoxed
 public static abstract sealed class ServerBoxed<br>
+permits<br>
+[ServerBoxedString](#serverboxedstring)
 
 ### Server
 public static class Server<br>
@@ -299,6 +305,13 @@ A class that stores String enum values
 
 ### AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>

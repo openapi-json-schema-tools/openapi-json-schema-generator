@@ -23,6 +23,9 @@ A class that contains necessary nested
 
 ## Apple1Boxed
 public static abstract sealed class Apple1Boxed<br>
+permits<br>
+[Apple1BoxedVoid](#apple1boxedvoid),
+[Apple1BoxedMap](#apple1boxedmap)
 
 ## Apple1
 public static class Apple1<br>
@@ -135,6 +138,8 @@ A class to store validated Map payloads
 
 ## OriginBoxed
 public static abstract sealed class OriginBoxed<br>
+permits<br>
+[OriginBoxedString](#originboxedstring)
 
 ## Origin
 public static class Origin<br>
@@ -177,6 +182,8 @@ String validatedPayload = Apple.Origin.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CultivarBoxed
 public static abstract sealed class CultivarBoxed<br>
+permits<br>
+[CultivarBoxedString](#cultivarboxedstring)
 
 ## Cultivar
 public static class Cultivar<br>

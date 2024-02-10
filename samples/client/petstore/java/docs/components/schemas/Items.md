@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## Items1Boxed
 public static abstract sealed class Items1Boxed<br>
+permits<br>
+[Items1BoxedList](#items1boxedlist)
 
 ## Items1
 public static class Items1<br>
@@ -97,6 +99,8 @@ A class to store validated List payloads
 
 ## Items2Boxed
 public static abstract sealed class Items2Boxed<br>
+permits<br>
+[Items2BoxedMap](#items2boxedmap)
 
 ## Items2
 public static class Items2<br>

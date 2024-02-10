@@ -1,5 +1,5 @@
 {{#if types}}
-public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{#each types}}{{jsonPathPiece.pascalCase}}Boxed{{#eq this "null"}}Void{{/eq}}{{#eq this "boolean"}}Boolean{{/eq}}{{#or (eq this "number") (eq this "integer")}}Number{{/or}}{{#and (eq this "string") (neq ../format "binary") }}String{{/and}}{{#eq this "array"}}List{{/eq}}{{#eq this "object"}}Map{{/eq}}{{#unless @last}}, {{/unless}}{{/each}} {}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedClass }}
     {{#each types}}
         {{#eq this "null"}}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_boxedVoid }}
@@ -21,7 +21,7 @@ public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{
         {{/eq}}
     {{/each}}
 {{else}}
-public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed permits {{jsonPathPiece.pascalCase}}BoxedVoid, {{jsonPathPiece.pascalCase}}BoxedBoolean, {{jsonPathPiece.pascalCase}}BoxedNumber, {{jsonPathPiece.pascalCase}}BoxedString, {{jsonPathPiece.pascalCase}}BoxedList, {{jsonPathPiece.pascalCase}}BoxedMap {}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedClass }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_boxedVoid }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_boxedBoolean }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/_boxedNumber }}

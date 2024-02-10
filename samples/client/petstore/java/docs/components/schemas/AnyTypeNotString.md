@@ -17,6 +17,13 @@ A class that contains necessary nested
 
 ## AnyTypeNotString1Boxed
 public static abstract sealed class AnyTypeNotString1Boxed<br>
+permits<br>
+[AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid),
+[AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean),
+[AnyTypeNotString1BoxedNumber](#anytypenotstring1boxednumber),
+[AnyTypeNotString1BoxedString](#anytypenotstring1boxedstring),
+[AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist),
+[AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)
 
 ## AnyTypeNotString1
 public static class AnyTypeNotString1<br>
@@ -44,6 +51,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotBoxed
 public static abstract sealed class NotBoxed<br>
+permits<br>
+[NotBoxedString](#notboxedstring)
 
 ## Not
 public static class Not<br>

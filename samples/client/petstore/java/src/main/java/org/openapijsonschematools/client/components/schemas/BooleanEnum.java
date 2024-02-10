@@ -35,12 +35,14 @@ public class BooleanEnum {
     
     
     public static abstract sealed class BooleanEnum1Boxed permits BooleanEnum1BoxedBoolean {}
+    
     public static final class BooleanEnum1BoxedBoolean extends BooleanEnum1Boxed {
         public final boolean data;
         private BooleanEnum1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     
     
     public static class BooleanEnum1 extends JsonSchema implements BooleanSchemaValidator<BooleanEnum1BoxedBoolean>, BooleanEnumValidator<BooleanBooleanEnumEnums> {

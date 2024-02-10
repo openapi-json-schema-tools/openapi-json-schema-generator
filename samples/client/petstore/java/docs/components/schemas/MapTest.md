@@ -43,6 +43,8 @@ A class that contains necessary nested
 
 ## MapTest1Boxed
 public static abstract sealed class MapTest1Boxed<br>
+permits<br>
+[MapTest1BoxedMap](#maptest1boxedmap)
 
 ## MapTest1
 public static class MapTest1<br>
@@ -161,6 +163,8 @@ A class to store validated Map payloads
 
 ## DirectMapBoxed
 public static abstract sealed class DirectMapBoxed<br>
+permits<br>
+[DirectMapBoxedMap](#directmapboxedmap)
 
 ## DirectMap
 public static class DirectMap<br>
@@ -236,6 +240,8 @@ A class to store validated Map payloads
 
 ## AdditionalProperties3Boxed
 public static abstract sealed class AdditionalProperties3Boxed<br>
+permits<br>
+[AdditionalProperties3BoxedBoolean](#additionalproperties3boxedboolean)
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
@@ -250,6 +256,8 @@ A schema class that validates payloads
 
 ## MapOfEnumStringBoxed
 public static abstract sealed class MapOfEnumStringBoxed<br>
+permits<br>
+[MapOfEnumStringBoxedMap](#mapofenumstringboxedmap)
 
 ## MapOfEnumString
 public static class MapOfEnumString<br>
@@ -326,6 +334,8 @@ A class to store validated Map payloads
 
 ## AdditionalProperties2Boxed
 public static abstract sealed class AdditionalProperties2Boxed<br>
+permits<br>
+[AdditionalProperties2BoxedString](#additionalproperties2boxedstring)
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -381,6 +391,8 @@ A class that stores String enum values
 
 ## MapMapOfStringBoxed
 public static abstract sealed class MapMapOfStringBoxed<br>
+permits<br>
+[MapMapOfStringBoxedMap](#mapmapofstringboxedmap)
 
 ## MapMapOfString
 public static class MapMapOfString<br>
@@ -463,6 +475,8 @@ A class to store validated Map payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
@@ -538,6 +552,8 @@ A class to store validated Map payloads
 
 ## AdditionalProperties1Boxed
 public static abstract sealed class AdditionalProperties1Boxed<br>
+permits<br>
+[AdditionalProperties1BoxedString](#additionalproperties1boxedstring)
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>

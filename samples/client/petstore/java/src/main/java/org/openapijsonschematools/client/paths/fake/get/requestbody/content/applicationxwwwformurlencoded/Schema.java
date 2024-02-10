@@ -49,12 +49,14 @@ public class Schema {
     
     
     public static abstract sealed class ItemsBoxed permits ItemsBoxedString {}
+    
     public static final class ItemsBoxedString extends ItemsBoxed {
         public final String data;
         private ItemsBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Items extends JsonSchema implements StringSchemaValidator<ItemsBoxedString>, StringEnumValidator<StringItemsEnums>, DefaultValueMethod<String> {
@@ -160,12 +162,14 @@ public class Schema {
     
     
     public static abstract sealed class EnumFormStringArrayBoxed permits EnumFormStringArrayBoxedList {}
+    
     public static final class EnumFormStringArrayBoxedList extends EnumFormStringArrayBoxed {
         public final EnumFormStringArrayList data;
         private EnumFormStringArrayBoxedList(EnumFormStringArrayList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class EnumFormStringArray extends JsonSchema implements ListSchemaValidator<EnumFormStringArrayList, EnumFormStringArrayBoxedList> {
@@ -253,12 +257,14 @@ public class Schema {
     
     
     public static abstract sealed class EnumFormStringBoxed permits EnumFormStringBoxedString {}
+    
     public static final class EnumFormStringBoxedString extends EnumFormStringBoxed {
         public final String data;
         private EnumFormStringBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class EnumFormString extends JsonSchema implements StringSchemaValidator<EnumFormStringBoxedString>, StringEnumValidator<StringEnumFormStringEnums>, DefaultValueMethod<String> {
@@ -426,6 +432,7 @@ public class Schema {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final SchemaMap data;
         private Schema1BoxedMap(SchemaMap data) {

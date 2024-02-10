@@ -27,6 +27,8 @@ A class that contains necessary nested
 
 ## ArrayOfNumberOnly1Boxed
 public static abstract sealed class ArrayOfNumberOnly1Boxed<br>
+permits<br>
+[ArrayOfNumberOnly1BoxedMap](#arrayofnumberonly1boxedmap)
 
 ## ArrayOfNumberOnly1
 public static class ArrayOfNumberOnly1<br>
@@ -115,6 +117,8 @@ A class to store validated Map payloads
 
 ## ArrayNumberBoxed
 public static abstract sealed class ArrayNumberBoxed<br>
+permits<br>
+[ArrayNumberBoxedList](#arraynumberboxedlist)
 
 ## ArrayNumber
 public static class ArrayNumber<br>
@@ -193,6 +197,8 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedNumber](#itemsboxednumber)
 
 ## Items
 public static class Items<br>

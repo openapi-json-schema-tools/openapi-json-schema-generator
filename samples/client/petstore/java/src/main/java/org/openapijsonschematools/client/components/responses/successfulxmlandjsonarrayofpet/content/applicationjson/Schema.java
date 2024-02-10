@@ -59,12 +59,14 @@ public class Schema {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedList {}
+    
     public static final class Schema1BoxedList extends Schema1Boxed {
         public final SchemaList data;
         private Schema1BoxedList(SchemaList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Schema1 extends JsonSchema implements ListSchemaValidator<SchemaList, Schema1BoxedList> {

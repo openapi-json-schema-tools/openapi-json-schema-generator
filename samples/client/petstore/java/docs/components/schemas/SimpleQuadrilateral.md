@@ -25,6 +25,13 @@ A class that contains necessary nested
 
 ## SimpleQuadrilateral1Boxed
 public static abstract sealed class SimpleQuadrilateral1Boxed<br>
+permits<br>
+[SimpleQuadrilateral1BoxedVoid](#simplequadrilateral1boxedvoid),
+[SimpleQuadrilateral1BoxedBoolean](#simplequadrilateral1boxedboolean),
+[SimpleQuadrilateral1BoxedNumber](#simplequadrilateral1boxednumber),
+[SimpleQuadrilateral1BoxedString](#simplequadrilateral1boxedstring),
+[SimpleQuadrilateral1BoxedList](#simplequadrilateral1boxedlist),
+[SimpleQuadrilateral1BoxedMap](#simplequadrilateral1boxedmap)
 
 ## SimpleQuadrilateral1
 public static class SimpleQuadrilateral1<br>
@@ -52,6 +59,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -138,6 +147,8 @@ A class to store validated Map payloads
 
 ## QuadrilateralTypeBoxed
 public static abstract sealed class QuadrilateralTypeBoxed<br>
+permits<br>
+[QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>

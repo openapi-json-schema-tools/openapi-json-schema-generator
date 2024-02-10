@@ -15,6 +15,13 @@ A class that contains necessary nested
 
 ## RefPet1Boxed
 public static abstract sealed class RefPet1Boxed<br>
+permits<br>
+[RefPet1BoxedVoid](#refpet1boxedvoid),
+[RefPet1BoxedBoolean](#refpet1boxedboolean),
+[RefPet1BoxedNumber](#refpet1boxednumber),
+[RefPet1BoxedString](#refpet1boxedstring),
+[RefPet1BoxedList](#refpet1boxedlist),
+[RefPet1BoxedMap](#refpet1boxedmap)
 
 ## RefPet1
 public static class RefPet1<br>

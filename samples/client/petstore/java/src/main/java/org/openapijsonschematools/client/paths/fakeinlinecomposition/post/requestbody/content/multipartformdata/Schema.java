@@ -38,12 +38,14 @@ public class Schema {
     
     
     public static abstract sealed class Schema0Boxed permits Schema0BoxedString {}
+    
     public static final class Schema0BoxedString extends Schema0Boxed {
         public final String data;
         private Schema0BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Schema0 extends JsonSchema implements StringSchemaValidator<Schema0BoxedString> {
@@ -97,36 +99,42 @@ public class Schema {
     }    
     
     public static abstract sealed class SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {}
+    
     public static final class SomePropBoxedVoid extends SomePropBoxed {
         public final Void data;
         private SomePropBoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class SomePropBoxedBoolean extends SomePropBoxed {
         public final boolean data;
         private SomePropBoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class SomePropBoxedNumber extends SomePropBoxed {
         public final Number data;
         private SomePropBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class SomePropBoxedString extends SomePropBoxed {
         public final String data;
         private SomePropBoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class SomePropBoxedList extends SomePropBoxed {
         public final FrozenList<@Nullable Object> data;
         private SomePropBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class SomePropBoxedMap extends SomePropBoxed {
         public final FrozenMap<@Nullable Object> data;
         private SomePropBoxedMap(FrozenMap<@Nullable Object> data) {
@@ -465,6 +473,7 @@ public class Schema {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final SchemaMap data;
         private Schema1BoxedMap(SchemaMap data) {

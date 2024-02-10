@@ -14,6 +14,8 @@ A class that contains necessary nested
 
 ## XRateLimitSchema1Boxed
 public static abstract sealed class XRateLimitSchema1Boxed<br>
+permits<br>
+[XRateLimitSchema1BoxedNumber](#xratelimitschema1boxednumber)
 
 ## XRateLimitSchema1
 public static class XRateLimitSchema1<br>

@@ -133,6 +133,7 @@ public class Player {
     
     
     public static abstract sealed class Player1Boxed permits Player1BoxedMap {}
+    
     public static final class Player1BoxedMap extends Player1Boxed {
         public final PlayerMap data;
         private Player1BoxedMap(PlayerMap data) {

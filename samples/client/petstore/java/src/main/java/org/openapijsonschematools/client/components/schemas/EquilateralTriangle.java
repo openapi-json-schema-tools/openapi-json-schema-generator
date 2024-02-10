@@ -53,12 +53,14 @@ public class EquilateralTriangle {
     
     
     public static abstract sealed class TriangleTypeBoxed permits TriangleTypeBoxedString {}
+    
     public static final class TriangleTypeBoxedString extends TriangleTypeBoxed {
         public final String data;
         private TriangleTypeBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class TriangleType extends JsonSchema implements StringSchemaValidator<TriangleTypeBoxedString>, StringEnumValidator<StringTriangleTypeEnums> {
@@ -191,6 +193,7 @@ public class EquilateralTriangle {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
@@ -274,36 +277,42 @@ public class EquilateralTriangle {
     
     
     public static abstract sealed class EquilateralTriangle1Boxed permits EquilateralTriangle1BoxedVoid, EquilateralTriangle1BoxedBoolean, EquilateralTriangle1BoxedNumber, EquilateralTriangle1BoxedString, EquilateralTriangle1BoxedList, EquilateralTriangle1BoxedMap {}
+    
     public static final class EquilateralTriangle1BoxedVoid extends EquilateralTriangle1Boxed {
         public final Void data;
         private EquilateralTriangle1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class EquilateralTriangle1BoxedBoolean extends EquilateralTriangle1Boxed {
         public final boolean data;
         private EquilateralTriangle1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class EquilateralTriangle1BoxedNumber extends EquilateralTriangle1Boxed {
         public final Number data;
         private EquilateralTriangle1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class EquilateralTriangle1BoxedString extends EquilateralTriangle1Boxed {
         public final String data;
         private EquilateralTriangle1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class EquilateralTriangle1BoxedList extends EquilateralTriangle1Boxed {
         public final FrozenList<@Nullable Object> data;
         private EquilateralTriangle1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class EquilateralTriangle1BoxedMap extends EquilateralTriangle1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private EquilateralTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {

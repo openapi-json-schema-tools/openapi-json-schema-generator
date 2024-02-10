@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## File1Boxed
 public static abstract sealed class File1Boxed<br>
+permits<br>
+[File1BoxedMap](#file1boxedmap)
 
 ## File1
 public static class File1<br>
@@ -109,6 +111,8 @@ A class to store validated Map payloads
 
 ## SourceURIBoxed
 public static abstract sealed class SourceURIBoxed<br>
+permits<br>
+[SourceURIBoxedString](#sourceuriboxedstring)
 
 ## SourceURI
 public static class SourceURI<br>

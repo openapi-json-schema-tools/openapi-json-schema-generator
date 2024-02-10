@@ -19,6 +19,8 @@ A class that contains necessary nested
 
 ## ReqPropsFromUnsetAddProps1Boxed
 public static abstract sealed class ReqPropsFromUnsetAddProps1Boxed<br>
+permits<br>
+[ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap)
 
 ## ReqPropsFromUnsetAddProps1
 public static class ReqPropsFromUnsetAddProps1<br>

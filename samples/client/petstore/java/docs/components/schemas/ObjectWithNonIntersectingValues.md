@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## ObjectWithNonIntersectingValues1Boxed
 public static abstract sealed class ObjectWithNonIntersectingValues1Boxed<br>
+permits<br>
+[ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap)
 
 ## ObjectWithNonIntersectingValues1
 public static class ObjectWithNonIntersectingValues1<br>
@@ -106,6 +108,8 @@ A class to store validated Map payloads
 
 ## ABoxed
 public static abstract sealed class ABoxed<br>
+permits<br>
+[ABoxedNumber](#aboxednumber)
 
 ## A
 public static class A<br>
@@ -120,6 +124,8 @@ A schema class that validates payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

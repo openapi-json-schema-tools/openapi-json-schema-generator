@@ -17,6 +17,8 @@ A class that contains necessary nested
 
 ## BooleanEnum1Boxed
 public static abstract sealed class BooleanEnum1Boxed<br>
+permits<br>
+[BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean)
 
 ## BooleanEnum1
 public static class BooleanEnum1<br>

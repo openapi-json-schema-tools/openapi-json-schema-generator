@@ -27,6 +27,7 @@ public class ObjectWithValidations {
     
     
     public static abstract sealed class ObjectWithValidations1Boxed permits ObjectWithValidations1BoxedMap {}
+    
     public static final class ObjectWithValidations1BoxedMap extends ObjectWithValidations1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ObjectWithValidations1BoxedMap(FrozenMap<@Nullable Object> data) {

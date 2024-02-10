@@ -424,6 +424,7 @@ public class Headers {
     
     
     public static abstract sealed class Headers1Boxed permits Headers1BoxedMap {}
+    
     public static final class Headers1BoxedMap extends Headers1Boxed {
         public final HeadersMap data;
         private Headers1BoxedMap(HeadersMap data) {

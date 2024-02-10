@@ -56,12 +56,14 @@ public class SelfReferencingArrayModel {
     
     
     public static abstract sealed class SelfReferencingArrayModel1Boxed permits SelfReferencingArrayModel1BoxedList {}
+    
     public static final class SelfReferencingArrayModel1BoxedList extends SelfReferencingArrayModel1Boxed {
         public final SelfReferencingArrayModelList data;
         private SelfReferencingArrayModel1BoxedList(SelfReferencingArrayModelList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class SelfReferencingArrayModel1 extends JsonSchema implements ListSchemaValidator<SelfReferencingArrayModelList, SelfReferencingArrayModel1BoxedList> {

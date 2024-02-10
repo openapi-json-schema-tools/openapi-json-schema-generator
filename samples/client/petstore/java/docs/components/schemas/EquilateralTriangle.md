@@ -25,6 +25,13 @@ A class that contains necessary nested
 
 ## EquilateralTriangle1Boxed
 public static abstract sealed class EquilateralTriangle1Boxed<br>
+permits<br>
+[EquilateralTriangle1BoxedVoid](#equilateraltriangle1boxedvoid),
+[EquilateralTriangle1BoxedBoolean](#equilateraltriangle1boxedboolean),
+[EquilateralTriangle1BoxedNumber](#equilateraltriangle1boxednumber),
+[EquilateralTriangle1BoxedString](#equilateraltriangle1boxedstring),
+[EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist),
+[EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap)
 
 ## EquilateralTriangle1
 public static class EquilateralTriangle1<br>
@@ -52,6 +59,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -138,6 +147,8 @@ A class to store validated Map payloads
 
 ## TriangleTypeBoxed
 public static abstract sealed class TriangleTypeBoxed<br>
+permits<br>
+[TriangleTypeBoxedString](#triangletypeboxedstring)
 
 ## TriangleType
 public static class TriangleType<br>

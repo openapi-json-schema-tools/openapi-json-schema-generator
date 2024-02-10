@@ -22,6 +22,8 @@ A class that contains necessary nested
 
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -127,6 +129,7 @@ A class to store validated Map payloads
 
 ## RequiredFileBoxed
 public static abstract sealed class RequiredFileBoxed<br>
+permits<br>
 
 ## RequiredFile
 public static class RequiredFile<br>
@@ -139,6 +142,8 @@ file to upload
 
 ## AdditionalMetadataBoxed
 public static abstract sealed class AdditionalMetadataBoxed<br>
+permits<br>
+[AdditionalMetadataBoxedString](#additionalmetadataboxedstring)
 
 ## AdditionalMetadata
 public static class AdditionalMetadata<br>

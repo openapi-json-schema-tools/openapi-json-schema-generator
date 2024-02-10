@@ -39,6 +39,7 @@ public class ComposedObject {
     
     
     public static abstract sealed class ComposedObject1Boxed permits ComposedObject1BoxedMap {}
+    
     public static final class ComposedObject1BoxedMap extends ComposedObject1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ComposedObject1BoxedMap(FrozenMap<@Nullable Object> data) {

@@ -102,12 +102,14 @@ public class Pet {
     
     
     public static abstract sealed class PhotoUrlsBoxed permits PhotoUrlsBoxedList {}
+    
     public static final class PhotoUrlsBoxedList extends PhotoUrlsBoxed {
         public final PhotoUrlsList data;
         private PhotoUrlsBoxedList(PhotoUrlsList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class PhotoUrls extends JsonSchema implements ListSchemaValidator<PhotoUrlsList, PhotoUrlsBoxedList> {
@@ -195,12 +197,14 @@ public class Pet {
     
     
     public static abstract sealed class StatusBoxed permits StatusBoxedString {}
+    
     public static final class StatusBoxedString extends StatusBoxed {
         public final String data;
         private StatusBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Status extends JsonSchema implements StringSchemaValidator<StatusBoxedString>, StringEnumValidator<StringStatusEnums> {
@@ -295,12 +299,14 @@ public class Pet {
     
     
     public static abstract sealed class TagsBoxed permits TagsBoxedList {}
+    
     public static final class TagsBoxedList extends TagsBoxed {
         public final TagsList data;
         private TagsBoxedList(TagsList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Tags extends JsonSchema implements ListSchemaValidator<TagsList, TagsBoxedList> {
@@ -627,6 +633,7 @@ public class Pet {
     
     
     public static abstract sealed class Pet1Boxed permits Pet1BoxedMap {}
+    
     public static final class Pet1BoxedMap extends Pet1Boxed {
         public final PetMap data;
         private Pet1BoxedMap(PetMap data) {

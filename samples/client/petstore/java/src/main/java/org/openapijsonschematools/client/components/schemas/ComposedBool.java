@@ -32,12 +32,14 @@ public class ComposedBool {
     
     
     public static abstract sealed class ComposedBool1Boxed permits ComposedBool1BoxedBoolean {}
+    
     public static final class ComposedBool1BoxedBoolean extends ComposedBool1Boxed {
         public final boolean data;
         private ComposedBool1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ComposedBool1 extends JsonSchema implements BooleanSchemaValidator<ComposedBool1BoxedBoolean> {

@@ -32,6 +32,8 @@ A class that contains necessary nested
 
 ## EnumArrays1Boxed
 public static abstract sealed class EnumArrays1Boxed<br>
+permits<br>
+[EnumArrays1BoxedMap](#enumarrays1boxedmap)
 
 ## EnumArrays1
 public static class EnumArrays1<br>
@@ -125,6 +127,8 @@ A class to store validated Map payloads
 
 ## ArrayEnumBoxed
 public static abstract sealed class ArrayEnumBoxed<br>
+permits<br>
+[ArrayEnumBoxedList](#arrayenumboxedlist)
 
 ## ArrayEnum
 public static class ArrayEnum<br>
@@ -201,6 +205,8 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedString](#itemsboxedstring)
 
 ## Items
 public static class Items<br>
@@ -256,6 +262,8 @@ A class that stores String enum values
 
 ## JustSymbolBoxed
 public static abstract sealed class JustSymbolBoxed<br>
+permits<br>
+[JustSymbolBoxedString](#justsymbolboxedstring)
 
 ## JustSymbol
 public static class JustSymbol<br>

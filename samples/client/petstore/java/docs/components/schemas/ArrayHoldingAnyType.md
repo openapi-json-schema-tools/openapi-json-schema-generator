@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## ArrayHoldingAnyType1Boxed
 public static abstract sealed class ArrayHoldingAnyType1Boxed<br>
+permits<br>
+[ArrayHoldingAnyType1BoxedList](#arrayholdinganytype1boxedlist)
 
 ## ArrayHoldingAnyType1
 public static class ArrayHoldingAnyType1<br>
@@ -102,6 +104,13 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedVoid](#itemsboxedvoid),
+[ItemsBoxedBoolean](#itemsboxedboolean),
+[ItemsBoxedNumber](#itemsboxednumber),
+[ItemsBoxedString](#itemsboxedstring),
+[ItemsBoxedList](#itemsboxedlist),
+[ItemsBoxedMap](#itemsboxedmap)
 
 ## Items
 public static class Items<br>

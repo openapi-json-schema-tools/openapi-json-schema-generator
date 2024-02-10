@@ -38,12 +38,14 @@ public class StringEnumWithDefaultValue {
     
     
     public static abstract sealed class StringEnumWithDefaultValue1Boxed permits StringEnumWithDefaultValue1BoxedString {}
+    
     public static final class StringEnumWithDefaultValue1BoxedString extends StringEnumWithDefaultValue1Boxed {
         public final String data;
         private StringEnumWithDefaultValue1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class StringEnumWithDefaultValue1 extends JsonSchema implements StringSchemaValidator<StringEnumWithDefaultValue1BoxedString>, StringEnumValidator<StringStringEnumWithDefaultValueEnums>, DefaultValueMethod<String> {

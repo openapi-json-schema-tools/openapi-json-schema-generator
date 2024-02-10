@@ -111,6 +111,7 @@ public class SelfReferencingObjectModel {
     
     
     public static abstract sealed class SelfReferencingObjectModel1Boxed permits SelfReferencingObjectModel1BoxedMap {}
+    
     public static final class SelfReferencingObjectModel1BoxedMap extends SelfReferencingObjectModel1Boxed {
         public final SelfReferencingObjectModelMap data;
         private SelfReferencingObjectModel1BoxedMap(SelfReferencingObjectModelMap data) {

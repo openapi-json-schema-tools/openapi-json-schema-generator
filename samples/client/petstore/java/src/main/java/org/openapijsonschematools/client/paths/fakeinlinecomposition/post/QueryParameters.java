@@ -175,6 +175,7 @@ public class QueryParameters {
     
     
     public static abstract sealed class QueryParameters1Boxed permits QueryParameters1BoxedMap {}
+    
     public static final class QueryParameters1BoxedMap extends QueryParameters1Boxed {
         public final QueryParametersMap data;
         private QueryParameters1BoxedMap(QueryParametersMap data) {

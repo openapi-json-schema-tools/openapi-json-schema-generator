@@ -54,12 +54,14 @@ public class TriangleInterface {
     
     
     public static abstract sealed class ShapeTypeBoxed permits ShapeTypeBoxedString {}
+    
     public static final class ShapeTypeBoxedString extends ShapeTypeBoxed {
         public final String data;
         private ShapeTypeBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ShapeType extends JsonSchema implements StringSchemaValidator<ShapeTypeBoxedString>, StringEnumValidator<StringShapeTypeEnums> {
@@ -261,36 +263,42 @@ public class TriangleInterface {
     
     
     public static abstract sealed class TriangleInterface1Boxed permits TriangleInterface1BoxedVoid, TriangleInterface1BoxedBoolean, TriangleInterface1BoxedNumber, TriangleInterface1BoxedString, TriangleInterface1BoxedList, TriangleInterface1BoxedMap {}
+    
     public static final class TriangleInterface1BoxedVoid extends TriangleInterface1Boxed {
         public final Void data;
         private TriangleInterface1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class TriangleInterface1BoxedBoolean extends TriangleInterface1Boxed {
         public final boolean data;
         private TriangleInterface1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class TriangleInterface1BoxedNumber extends TriangleInterface1Boxed {
         public final Number data;
         private TriangleInterface1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class TriangleInterface1BoxedString extends TriangleInterface1Boxed {
         public final String data;
         private TriangleInterface1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class TriangleInterface1BoxedList extends TriangleInterface1Boxed {
         public final FrozenList<@Nullable Object> data;
         private TriangleInterface1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class TriangleInterface1BoxedMap extends TriangleInterface1Boxed {
         public final TriangleInterfaceMap data;
         private TriangleInterface1BoxedMap(TriangleInterfaceMap data) {

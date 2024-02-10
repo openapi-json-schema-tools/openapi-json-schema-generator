@@ -87,12 +87,14 @@ public class IntegerEnumWithDefaultValue {
     
     
     public static abstract sealed class IntegerEnumWithDefaultValue1Boxed permits IntegerEnumWithDefaultValue1BoxedNumber {}
+    
     public static final class IntegerEnumWithDefaultValue1BoxedNumber extends IntegerEnumWithDefaultValue1Boxed {
         public final Number data;
         private IntegerEnumWithDefaultValue1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class IntegerEnumWithDefaultValue1 extends JsonSchema implements IntegerEnumValidator<IntegerIntegerEnumWithDefaultValueEnums>, LongEnumValidator<LongIntegerEnumWithDefaultValueEnums>, FloatEnumValidator<FloatIntegerEnumWithDefaultValueEnums>, DoubleEnumValidator<DoubleIntegerEnumWithDefaultValueEnums>, NumberSchemaValidator<IntegerEnumWithDefaultValue1BoxedNumber> {

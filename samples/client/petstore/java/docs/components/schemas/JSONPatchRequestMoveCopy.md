@@ -29,6 +29,8 @@ A class that contains necessary nested
 
 ## JSONPatchRequestMoveCopy1Boxed
 public static abstract sealed class JSONPatchRequestMoveCopy1Boxed<br>
+permits<br>
+[JSONPatchRequestMoveCopy1BoxedMap](#jsonpatchrequestmovecopy1boxedmap)
 
 ## JSONPatchRequestMoveCopy1
 public static class JSONPatchRequestMoveCopy1<br>
@@ -232,6 +234,8 @@ A class to store validated Map payloads
 
 ## OpBoxed
 public static abstract sealed class OpBoxed<br>
+permits<br>
+[OpBoxedString](#opboxedstring)
 
 ## Op
 public static class Op<br>
@@ -290,6 +294,8 @@ A class that stores String enum values
 
 ## PathBoxed
 public static abstract sealed class PathBoxed<br>
+permits<br>
+[PathBoxedString](#pathboxedstring)
 
 ## Path
 public static class Path<br>
@@ -307,6 +313,8 @@ A JSON Pointer path.
 
 ## FromBoxed
 public static abstract sealed class FromBoxed<br>
+permits<br>
+[FromBoxedString](#fromboxedstring)
 
 ## From
 public static class From<br>
@@ -324,6 +332,13 @@ A JSON Pointer path.
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## ObjectWithValidations1Boxed
 public static abstract sealed class ObjectWithValidations1Boxed<br>
+permits<br>
+[ObjectWithValidations1BoxedMap](#objectwithvalidations1boxedmap)
 
 ## ObjectWithValidations1
 public static class ObjectWithValidations1<br>

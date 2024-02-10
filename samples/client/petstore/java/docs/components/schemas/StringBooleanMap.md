@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## StringBooleanMap1Boxed
 public static abstract sealed class StringBooleanMap1Boxed<br>
+permits<br>
+[StringBooleanMap1BoxedMap](#stringbooleanmap1boxedmap)
 
 ## StringBooleanMap1
 public static class StringBooleanMap1<br>
@@ -96,6 +98,8 @@ A class to store validated Map payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

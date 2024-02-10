@@ -45,12 +45,14 @@ public class DanishPig {
     
     
     public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {}
+    
     public static final class ClassNameBoxedString extends ClassNameBoxed {
         public final String data;
         private ClassNameBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ClassName extends JsonSchema implements StringSchemaValidator<ClassNameBoxedString>, StringEnumValidator<StringClassNameEnums> {
@@ -191,6 +193,7 @@ public class DanishPig {
     
     
     public static abstract sealed class DanishPig1Boxed permits DanishPig1BoxedMap {}
+    
     public static final class DanishPig1BoxedMap extends DanishPig1Boxed {
         public final DanishPigMap data;
         private DanishPig1BoxedMap(DanishPigMap data) {

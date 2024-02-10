@@ -158,6 +158,7 @@ public class AppleReq {
     
     
     public static abstract sealed class AppleReq1Boxed permits AppleReq1BoxedMap {}
+    
     public static final class AppleReq1BoxedMap extends AppleReq1Boxed {
         public final AppleReqMap data;
         private AppleReq1BoxedMap(AppleReqMap data) {

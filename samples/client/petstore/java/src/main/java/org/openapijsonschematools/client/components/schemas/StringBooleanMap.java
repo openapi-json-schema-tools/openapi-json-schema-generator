@@ -94,6 +94,7 @@ public class StringBooleanMap {
     
     
     public static abstract sealed class StringBooleanMap1Boxed permits StringBooleanMap1BoxedMap {}
+    
     public static final class StringBooleanMap1BoxedMap extends StringBooleanMap1Boxed {
         public final StringBooleanMapMap data;
         private StringBooleanMap1BoxedMap(StringBooleanMapMap data) {

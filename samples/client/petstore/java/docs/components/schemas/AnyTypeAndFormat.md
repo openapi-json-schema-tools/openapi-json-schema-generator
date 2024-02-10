@@ -37,6 +37,8 @@ A class that contains necessary nested
 
 ## AnyTypeAndFormat1Boxed
 public static abstract sealed class AnyTypeAndFormat1Boxed<br>
+permits<br>
+[AnyTypeAndFormat1BoxedMap](#anytypeandformat1boxedmap)
 
 ## AnyTypeAndFormat1
 public static class AnyTypeAndFormat1<br>
@@ -204,6 +206,13 @@ A class to store validated Map payloads
 
 ## FloatSchemaBoxed
 public static abstract sealed class FloatSchemaBoxed<br>
+permits<br>
+[FloatSchemaBoxedVoid](#floatschemaboxedvoid),
+[FloatSchemaBoxedBoolean](#floatschemaboxedboolean),
+[FloatSchemaBoxedNumber](#floatschemaboxednumber),
+[FloatSchemaBoxedString](#floatschemaboxedstring),
+[FloatSchemaBoxedList](#floatschemaboxedlist),
+[FloatSchemaBoxedMap](#floatschemaboxedmap)
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -231,6 +240,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DoubleSchemaBoxed
 public static abstract sealed class DoubleSchemaBoxed<br>
+permits<br>
+[DoubleSchemaBoxedVoid](#doubleschemaboxedvoid),
+[DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean),
+[DoubleSchemaBoxedNumber](#doubleschemaboxednumber),
+[DoubleSchemaBoxedString](#doubleschemaboxedstring),
+[DoubleSchemaBoxedList](#doubleschemaboxedlist),
+[DoubleSchemaBoxedMap](#doubleschemaboxedmap)
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -258,6 +274,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int64Boxed
 public static abstract sealed class Int64Boxed<br>
+permits<br>
+[Int64BoxedVoid](#int64boxedvoid),
+[Int64BoxedBoolean](#int64boxedboolean),
+[Int64BoxedNumber](#int64boxednumber),
+[Int64BoxedString](#int64boxedstring),
+[Int64BoxedList](#int64boxedlist),
+[Int64BoxedMap](#int64boxedmap)
 
 ## Int64
 public static class Int64<br>
@@ -285,6 +308,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int32Boxed
 public static abstract sealed class Int32Boxed<br>
+permits<br>
+[Int32BoxedVoid](#int32boxedvoid),
+[Int32BoxedBoolean](#int32boxedboolean),
+[Int32BoxedNumber](#int32boxednumber),
+[Int32BoxedString](#int32boxedstring),
+[Int32BoxedList](#int32boxedlist),
+[Int32BoxedMap](#int32boxedmap)
 
 ## Int32
 public static class Int32<br>
@@ -312,6 +342,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BinaryBoxed
 public static abstract sealed class BinaryBoxed<br>
+permits<br>
+[BinaryBoxedVoid](#binaryboxedvoid),
+[BinaryBoxedBoolean](#binaryboxedboolean),
+[BinaryBoxedNumber](#binaryboxednumber),
+[BinaryBoxedString](#binaryboxedstring),
+[BinaryBoxedList](#binaryboxedlist),
+[BinaryBoxedMap](#binaryboxedmap)
 
 ## Binary
 public static class Binary<br>
@@ -339,6 +376,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberSchemaBoxed
 public static abstract sealed class NumberSchemaBoxed<br>
+permits<br>
+[NumberSchemaBoxedVoid](#numberschemaboxedvoid),
+[NumberSchemaBoxedBoolean](#numberschemaboxedboolean),
+[NumberSchemaBoxedNumber](#numberschemaboxednumber),
+[NumberSchemaBoxedString](#numberschemaboxedstring),
+[NumberSchemaBoxedList](#numberschemaboxedlist),
+[NumberSchemaBoxedMap](#numberschemaboxedmap)
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -366,6 +410,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DatetimeBoxed
 public static abstract sealed class DatetimeBoxed<br>
+permits<br>
+[DatetimeBoxedVoid](#datetimeboxedvoid),
+[DatetimeBoxedBoolean](#datetimeboxedboolean),
+[DatetimeBoxedNumber](#datetimeboxednumber),
+[DatetimeBoxedString](#datetimeboxedstring),
+[DatetimeBoxedList](#datetimeboxedlist),
+[DatetimeBoxedMap](#datetimeboxedmap)
 
 ## Datetime
 public static class Datetime<br>
@@ -393,6 +444,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DateBoxed
 public static abstract sealed class DateBoxed<br>
+permits<br>
+[DateBoxedVoid](#dateboxedvoid),
+[DateBoxedBoolean](#dateboxedboolean),
+[DateBoxedNumber](#dateboxednumber),
+[DateBoxedString](#dateboxedstring),
+[DateBoxedList](#dateboxedlist),
+[DateBoxedMap](#dateboxedmap)
 
 ## Date
 public static class Date<br>
@@ -420,6 +478,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UuidSchemaBoxed
 public static abstract sealed class UuidSchemaBoxed<br>
+permits<br>
+[UuidSchemaBoxedVoid](#uuidschemaboxedvoid),
+[UuidSchemaBoxedBoolean](#uuidschemaboxedboolean),
+[UuidSchemaBoxedNumber](#uuidschemaboxednumber),
+[UuidSchemaBoxedString](#uuidschemaboxedstring),
+[UuidSchemaBoxedList](#uuidschemaboxedlist),
+[UuidSchemaBoxedMap](#uuidschemaboxedmap)
 
 ## UuidSchema
 public static class UuidSchema<br>

@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## FromSchema1Boxed
 public static abstract sealed class FromSchema1Boxed<br>
+permits<br>
+[FromSchema1BoxedMap](#fromschema1boxedmap)
 
 ## FromSchema1
 public static class FromSchema1<br>
@@ -115,6 +117,8 @@ A class to store validated Map payloads
 
 ## IdBoxed
 public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedNumber](#idboxednumber)
 
 ## Id
 public static class Id<br>
@@ -129,6 +133,8 @@ A schema class that validates payloads
 
 ## DataBoxed
 public static abstract sealed class DataBoxed<br>
+permits<br>
+[DataBoxedString](#databoxedstring)
 
 ## Data
 public static class Data<br>

@@ -37,12 +37,14 @@ public class Schema {
     
     
     public static abstract sealed class IntegerSchemaBoxed permits IntegerSchemaBoxedNumber {}
+    
     public static final class IntegerSchemaBoxedNumber extends IntegerSchemaBoxed {
         public final Number data;
         private IntegerSchemaBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class IntegerSchema extends JsonSchema implements NumberSchemaValidator<IntegerSchemaBoxedNumber> {
@@ -117,12 +119,14 @@ public class Schema {
     }    
     
     public static abstract sealed class Int32Boxed permits Int32BoxedNumber {}
+    
     public static final class Int32BoxedNumber extends Int32Boxed {
         public final Number data;
         private Int32BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Int32 extends JsonSchema implements NumberSchemaValidator<Int32BoxedNumber> {
@@ -200,12 +204,14 @@ public class Schema {
     
     
     public static abstract sealed class NumberSchemaBoxed permits NumberSchemaBoxedNumber {}
+    
     public static final class NumberSchemaBoxedNumber extends NumberSchemaBoxed {
         public final Number data;
         private NumberSchemaBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class NumberSchema extends JsonSchema implements NumberSchemaValidator<NumberSchemaBoxedNumber> {
@@ -279,12 +285,14 @@ public class Schema {
     }    
     
     public static abstract sealed class FloatSchemaBoxed permits FloatSchemaBoxedNumber {}
+    
     public static final class FloatSchemaBoxedNumber extends FloatSchemaBoxed {
         public final Number data;
         private FloatSchemaBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class FloatSchema extends JsonSchema implements NumberSchemaValidator<FloatSchemaBoxedNumber> {
@@ -345,12 +353,14 @@ public class Schema {
     }    
     
     public static abstract sealed class DoubleSchemaBoxed permits DoubleSchemaBoxedNumber {}
+    
     public static final class DoubleSchemaBoxedNumber extends DoubleSchemaBoxed {
         public final Number data;
         private DoubleSchemaBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class DoubleSchema extends JsonSchema implements NumberSchemaValidator<DoubleSchemaBoxedNumber> {
@@ -412,12 +422,14 @@ public class Schema {
     }    
     
     public static abstract sealed class StringSchemaBoxed permits StringSchemaBoxedString {}
+    
     public static final class StringSchemaBoxedString extends StringSchemaBoxed {
         public final String data;
         private StringSchemaBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class StringSchema extends JsonSchema implements StringSchemaValidator<StringSchemaBoxedString> {
@@ -474,12 +486,14 @@ public class Schema {
     }    
     
     public static abstract sealed class PatternWithoutDelimiterBoxed permits PatternWithoutDelimiterBoxedString {}
+    
     public static final class PatternWithoutDelimiterBoxedString extends PatternWithoutDelimiterBoxed {
         public final String data;
         private PatternWithoutDelimiterBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class PatternWithoutDelimiter extends JsonSchema implements StringSchemaValidator<PatternWithoutDelimiterBoxedString> {
@@ -569,12 +583,14 @@ public class Schema {
     
     
     public static abstract sealed class DateTimeBoxed permits DateTimeBoxedString {}
+    
     public static final class DateTimeBoxedString extends DateTimeBoxed {
         public final String data;
         private DateTimeBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class DateTime extends JsonSchema implements StringSchemaValidator<DateTimeBoxedString>, DefaultValueMethod<String> {
@@ -635,12 +651,14 @@ public class Schema {
     }    
     
     public static abstract sealed class PasswordBoxed permits PasswordBoxedString {}
+    
     public static final class PasswordBoxedString extends PasswordBoxed {
         public final String data;
         private PasswordBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Password extends JsonSchema implements StringSchemaValidator<PasswordBoxedString> {
@@ -1380,6 +1398,7 @@ public class Schema {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final SchemaMap data;
         private Schema1BoxedMap(SchemaMap data) {

@@ -108,12 +108,14 @@ public class ComposedArray {
     
     
     public static abstract sealed class ComposedArray1Boxed permits ComposedArray1BoxedList {}
+    
     public static final class ComposedArray1BoxedList extends ComposedArray1Boxed {
         public final ComposedArrayList data;
         private ComposedArray1BoxedList(ComposedArrayList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ComposedArray1 extends JsonSchema implements ListSchemaValidator<ComposedArrayList, ComposedArray1BoxedList> {

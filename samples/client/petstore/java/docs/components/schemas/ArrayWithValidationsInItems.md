@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## ArrayWithValidationsInItems1Boxed
 public static abstract sealed class ArrayWithValidationsInItems1Boxed<br>
+permits<br>
+[ArrayWithValidationsInItems1BoxedList](#arraywithvalidationsinitems1boxedlist)
 
 ## ArrayWithValidationsInItems1
 public static class ArrayWithValidationsInItems1<br>
@@ -100,6 +102,8 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedNumber](#itemsboxednumber)
 
 ## Items
 public static class Items<br>

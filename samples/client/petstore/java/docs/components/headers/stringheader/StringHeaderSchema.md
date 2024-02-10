@@ -14,6 +14,8 @@ A class that contains necessary nested
 
 ## StringHeaderSchema1Boxed
 public static abstract sealed class StringHeaderSchema1Boxed<br>
+permits<br>
+[StringHeaderSchema1BoxedString](#stringheaderschema1boxedstring)
 
 ## StringHeaderSchema1
 public static class StringHeaderSchema1<br>

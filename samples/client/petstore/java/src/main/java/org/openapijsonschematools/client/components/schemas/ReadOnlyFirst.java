@@ -144,6 +144,7 @@ public class ReadOnlyFirst {
     
     
     public static abstract sealed class ReadOnlyFirst1Boxed permits ReadOnlyFirst1BoxedMap {}
+    
     public static final class ReadOnlyFirst1BoxedMap extends ReadOnlyFirst1Boxed {
         public final ReadOnlyFirstMap data;
         private ReadOnlyFirst1BoxedMap(ReadOnlyFirstMap data) {

@@ -188,6 +188,7 @@ public class CookieParameters {
     
     
     public static abstract sealed class CookieParameters1Boxed permits CookieParameters1BoxedMap {}
+    
     public static final class CookieParameters1BoxedMap extends CookieParameters1Boxed {
         public final CookieParametersMap data;
         private CookieParameters1BoxedMap(CookieParametersMap data) {

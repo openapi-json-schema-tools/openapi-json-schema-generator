@@ -17,6 +17,8 @@ A class that contains necessary nested
 
 ## StringEnumWithDefaultValue1Boxed
 public static abstract sealed class StringEnumWithDefaultValue1Boxed<br>
+permits<br>
+[StringEnumWithDefaultValue1BoxedString](#stringenumwithdefaultvalue1boxedstring)
 
 ## StringEnumWithDefaultValue1
 public static class StringEnumWithDefaultValue1<br>

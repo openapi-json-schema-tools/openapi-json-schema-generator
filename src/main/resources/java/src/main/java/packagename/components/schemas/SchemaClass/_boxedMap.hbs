@@ -1,6 +1,9 @@
+{{#if forDocs}}
+{{else}}
 public static final class {{jsonPathPiece.pascalCase}}BoxedMap extends {{jsonPathPiece.pascalCase}}Boxed {
     public final {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data;
     private {{jsonPathPiece.pascalCase}}BoxedMap({{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data) {
         this.data = data;
     }
 }
+{{/if}}

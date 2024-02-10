@@ -94,6 +94,7 @@ public class AdditionalPropertiesClass {
     
     
     public static abstract sealed class MapPropertyBoxed permits MapPropertyBoxedMap {}
+    
     public static final class MapPropertyBoxedMap extends MapPropertyBoxed {
         public final MapPropertyMap data;
         private MapPropertyBoxedMap(MapPropertyMap data) {
@@ -238,6 +239,7 @@ public class AdditionalPropertiesClass {
     
     
     public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedMap {}
+    
     public static final class AdditionalProperties1BoxedMap extends AdditionalProperties1Boxed {
         public final AdditionalPropertiesMap data;
         private AdditionalProperties1BoxedMap(AdditionalPropertiesMap data) {
@@ -371,6 +373,7 @@ public class AdditionalPropertiesClass {
     
     
     public static abstract sealed class MapOfMapPropertyBoxed permits MapOfMapPropertyBoxedMap {}
+    
     public static final class MapOfMapPropertyBoxedMap extends MapOfMapPropertyBoxed {
         public final MapOfMapPropertyMap data;
         private MapOfMapPropertyBoxedMap(MapOfMapPropertyMap data) {
@@ -604,6 +607,7 @@ public class AdditionalPropertiesClass {
     
     
     public static abstract sealed class MapWithUndeclaredPropertiesAnytype3Boxed permits MapWithUndeclaredPropertiesAnytype3BoxedMap {}
+    
     public static final class MapWithUndeclaredPropertiesAnytype3BoxedMap extends MapWithUndeclaredPropertiesAnytype3Boxed {
         public final MapWithUndeclaredPropertiesAnytype3Map data;
         private MapWithUndeclaredPropertiesAnytype3BoxedMap(MapWithUndeclaredPropertiesAnytype3Map data) {
@@ -724,6 +728,7 @@ public class AdditionalPropertiesClass {
     
     
     public static abstract sealed class EmptyMapBoxed permits EmptyMapBoxedMap {}
+    
     public static final class EmptyMapBoxedMap extends EmptyMapBoxed {
         public final EmptyMapMap data;
         private EmptyMapBoxedMap(EmptyMapMap data) {
@@ -865,6 +870,7 @@ public class AdditionalPropertiesClass {
     
     
     public static abstract sealed class MapWithUndeclaredPropertiesStringBoxed permits MapWithUndeclaredPropertiesStringBoxedMap {}
+    
     public static final class MapWithUndeclaredPropertiesStringBoxedMap extends MapWithUndeclaredPropertiesStringBoxed {
         public final MapWithUndeclaredPropertiesStringMap data;
         private MapWithUndeclaredPropertiesStringBoxedMap(MapWithUndeclaredPropertiesStringMap data) {
@@ -1239,6 +1245,7 @@ public class AdditionalPropertiesClass {
     
     
     public static abstract sealed class AdditionalPropertiesClass1Boxed permits AdditionalPropertiesClass1BoxedMap {}
+    
     public static final class AdditionalPropertiesClass1BoxedMap extends AdditionalPropertiesClass1Boxed {
         public final AdditionalPropertiesClassMap data;
         private AdditionalPropertiesClass1BoxedMap(AdditionalPropertiesClassMap data) {

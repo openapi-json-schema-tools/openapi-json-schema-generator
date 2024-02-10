@@ -47,6 +47,8 @@ A class that contains necessary nested
 
 ## User1Boxed
 public static abstract sealed class User1Boxed<br>
+permits<br>
+[User1BoxedMap](#user1boxedmap)
 
 ## User1
 public static class User1<br>
@@ -201,6 +203,13 @@ A class to store validated Map payloads
 
 ## AnyTypePropNullableBoxed
 public static abstract sealed class AnyTypePropNullableBoxed<br>
+permits<br>
+[AnyTypePropNullableBoxedVoid](#anytypepropnullableboxedvoid),
+[AnyTypePropNullableBoxedBoolean](#anytypepropnullableboxedboolean),
+[AnyTypePropNullableBoxedNumber](#anytypepropnullableboxednumber),
+[AnyTypePropNullableBoxedString](#anytypepropnullableboxedstring),
+[AnyTypePropNullableBoxedList](#anytypepropnullableboxedlist),
+[AnyTypePropNullableBoxedMap](#anytypepropnullableboxedmap)
 
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
@@ -218,6 +227,13 @@ test code generation for any type Here the &#x27;type&#x27; attribute is not spe
 
 ## AnyTypeExceptNullPropBoxed
 public static abstract sealed class AnyTypeExceptNullPropBoxed<br>
+permits<br>
+[AnyTypeExceptNullPropBoxedVoid](#anytypeexceptnullpropboxedvoid),
+[AnyTypeExceptNullPropBoxedBoolean](#anytypeexceptnullpropboxedboolean),
+[AnyTypeExceptNullPropBoxedNumber](#anytypeexceptnullpropboxednumber),
+[AnyTypeExceptNullPropBoxedString](#anytypeexceptnullpropboxedstring),
+[AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist),
+[AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap)
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -248,6 +264,8 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotBoxed
 public static abstract sealed class NotBoxed<br>
+permits<br>
+[NotBoxedVoid](#notboxedvoid)
 
 ## Not
 public static class Not<br>
@@ -262,6 +280,13 @@ A schema class that validates payloads
 
 ## AnyTypePropBoxed
 public static abstract sealed class AnyTypePropBoxed<br>
+permits<br>
+[AnyTypePropBoxedVoid](#anytypepropboxedvoid),
+[AnyTypePropBoxedBoolean](#anytypepropboxedboolean),
+[AnyTypePropBoxedNumber](#anytypepropboxednumber),
+[AnyTypePropBoxedString](#anytypepropboxedstring),
+[AnyTypePropBoxedList](#anytypepropboxedlist),
+[AnyTypePropBoxedMap](#anytypepropboxedmap)
 
 ## AnyTypeProp
 public static class AnyTypeProp<br>
@@ -279,6 +304,9 @@ test code generation for any type Here the &#x27;type&#x27; attribute is not spe
 
 ## ObjectWithNoDeclaredPropsNullableBoxed
 public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed<br>
+permits<br>
+[ObjectWithNoDeclaredPropsNullableBoxedVoid](#objectwithnodeclaredpropsnullableboxedvoid),
+[ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap)
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>
@@ -324,6 +352,8 @@ Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNoDeclaredPropsBoxed
 public static abstract sealed class ObjectWithNoDeclaredPropsBoxed<br>
+permits<br>
+[ObjectWithNoDeclaredPropsBoxedMap](#objectwithnodeclaredpropsboxedmap)
 
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>
@@ -341,6 +371,8 @@ test code generation for objects Value must be a map of strings to values. It ca
 
 ## UserStatusBoxed
 public static abstract sealed class UserStatusBoxed<br>
+permits<br>
+[UserStatusBoxedNumber](#userstatusboxednumber)
 
 ## UserStatus
 public static class UserStatus<br>
@@ -358,6 +390,8 @@ User Status
 
 ## PhoneBoxed
 public static abstract sealed class PhoneBoxed<br>
+permits<br>
+[PhoneBoxedString](#phoneboxedstring)
 
 ## Phone
 public static class Phone<br>
@@ -372,6 +406,8 @@ A schema class that validates payloads
 
 ## PasswordBoxed
 public static abstract sealed class PasswordBoxed<br>
+permits<br>
+[PasswordBoxedString](#passwordboxedstring)
 
 ## Password
 public static class Password<br>
@@ -386,6 +422,8 @@ A schema class that validates payloads
 
 ## EmailBoxed
 public static abstract sealed class EmailBoxed<br>
+permits<br>
+[EmailBoxedString](#emailboxedstring)
 
 ## Email
 public static class Email<br>
@@ -400,6 +438,8 @@ A schema class that validates payloads
 
 ## LastNameBoxed
 public static abstract sealed class LastNameBoxed<br>
+permits<br>
+[LastNameBoxedString](#lastnameboxedstring)
 
 ## LastName
 public static class LastName<br>
@@ -414,6 +454,8 @@ A schema class that validates payloads
 
 ## FirstNameBoxed
 public static abstract sealed class FirstNameBoxed<br>
+permits<br>
+[FirstNameBoxedString](#firstnameboxedstring)
 
 ## FirstName
 public static class FirstName<br>
@@ -428,6 +470,8 @@ A schema class that validates payloads
 
 ## UsernameBoxed
 public static abstract sealed class UsernameBoxed<br>
+permits<br>
+[UsernameBoxedString](#usernameboxedstring)
 
 ## Username
 public static class Username<br>
@@ -442,6 +486,8 @@ A schema class that validates payloads
 
 ## IdBoxed
 public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedNumber](#idboxednumber)
 
 ## Id
 public static class Id<br>

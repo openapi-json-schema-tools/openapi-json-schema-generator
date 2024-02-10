@@ -15,6 +15,13 @@ A class that contains necessary nested
 
 ## Triangle1Boxed
 public static abstract sealed class Triangle1Boxed<br>
+permits<br>
+[Triangle1BoxedVoid](#triangle1boxedvoid),
+[Triangle1BoxedBoolean](#triangle1boxedboolean),
+[Triangle1BoxedNumber](#triangle1boxednumber),
+[Triangle1BoxedString](#triangle1boxedstring),
+[Triangle1BoxedList](#triangle1boxedlist),
+[Triangle1BoxedMap](#triangle1boxedmap)
 
 ## Triangle1
 public static class Triangle1<br>

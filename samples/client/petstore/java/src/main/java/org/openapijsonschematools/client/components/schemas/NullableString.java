@@ -22,18 +22,21 @@ public class NullableString {
     
     
     public static abstract sealed class NullableString1Boxed permits NullableString1BoxedVoid, NullableString1BoxedString {}
+    
     public static final class NullableString1BoxedVoid extends NullableString1Boxed {
         public final Void data;
         private NullableString1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class NullableString1BoxedString extends NullableString1Boxed {
         public final String data;
         private NullableString1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class NullableString1 extends JsonSchema implements NullSchemaValidator<NullableString1BoxedVoid>, StringSchemaValidator<NullableString1BoxedString> {

@@ -110,6 +110,7 @@ public class Address {
     
     
     public static abstract sealed class Address1Boxed permits Address1BoxedMap {}
+    
     public static final class Address1BoxedMap extends Address1Boxed {
         public final AddressMap data;
         private Address1BoxedMap(AddressMap data) {

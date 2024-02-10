@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## MyObjectDto1Boxed
 public static abstract sealed class MyObjectDto1Boxed<br>
+permits<br>
+[MyObjectDto1BoxedMap](#myobjectdto1boxedmap)
 
 ## MyObjectDto1
 public static class MyObjectDto1<br>
@@ -99,6 +101,8 @@ A class to store validated Map payloads
 
 ## IdBoxed
 public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedString](#idboxedstring)
 
 ## Id
 public static class Id<br>
@@ -113,6 +117,13 @@ A schema class that validates payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

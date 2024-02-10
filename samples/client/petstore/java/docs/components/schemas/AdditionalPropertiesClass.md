@@ -59,6 +59,8 @@ A class that contains necessary nested
 
 ## AdditionalPropertiesClass1Boxed
 public static abstract sealed class AdditionalPropertiesClass1Boxed<br>
+permits<br>
+[AdditionalPropertiesClass1BoxedMap](#additionalpropertiesclass1boxedmap)
 
 ## AdditionalPropertiesClass1
 public static class AdditionalPropertiesClass1<br>
@@ -201,6 +203,8 @@ A class to store validated Map payloads
 
 ## MapWithUndeclaredPropertiesStringBoxed
 public static abstract sealed class MapWithUndeclaredPropertiesStringBoxed<br>
+permits<br>
+[MapWithUndeclaredPropertiesStringBoxedMap](#mapwithundeclaredpropertiesstringboxedmap)
 
 ## MapWithUndeclaredPropertiesString
 public static class MapWithUndeclaredPropertiesString<br>
@@ -276,6 +280,8 @@ A class to store validated Map payloads
 
 ## AdditionalProperties5Boxed
 public static abstract sealed class AdditionalProperties5Boxed<br>
+permits<br>
+[AdditionalProperties5BoxedString](#additionalproperties5boxedstring)
 
 ## AdditionalProperties5
 public static class AdditionalProperties5<br>
@@ -290,6 +296,8 @@ A schema class that validates payloads
 
 ## EmptyMapBoxed
 public static abstract sealed class EmptyMapBoxed<br>
+permits<br>
+[EmptyMapBoxedMap](#emptymapboxedmap)
 
 ## EmptyMap
 public static class EmptyMap<br>
@@ -364,6 +372,13 @@ A class to store validated Map payloads
 
 ## AdditionalProperties4Boxed
 public static abstract sealed class AdditionalProperties4Boxed<br>
+permits<br>
+[AdditionalProperties4BoxedVoid](#additionalproperties4boxedvoid),
+[AdditionalProperties4BoxedBoolean](#additionalproperties4boxedboolean),
+[AdditionalProperties4BoxedNumber](#additionalproperties4boxednumber),
+[AdditionalProperties4BoxedString](#additionalproperties4boxedstring),
+[AdditionalProperties4BoxedList](#additionalproperties4boxedlist),
+[AdditionalProperties4BoxedMap](#additionalproperties4boxedmap)
 
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
@@ -378,6 +393,8 @@ A schema class that validates payloads
 
 ## MapWithUndeclaredPropertiesAnytype3Boxed
 public static abstract sealed class MapWithUndeclaredPropertiesAnytype3Boxed<br>
+permits<br>
+[MapWithUndeclaredPropertiesAnytype3BoxedMap](#mapwithundeclaredpropertiesanytype3boxedmap)
 
 ## MapWithUndeclaredPropertiesAnytype3
 public static class MapWithUndeclaredPropertiesAnytype3<br>
@@ -459,6 +476,13 @@ A class to store validated Map payloads
 
 ## AdditionalProperties3Boxed
 public static abstract sealed class AdditionalProperties3Boxed<br>
+permits<br>
+[AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid),
+[AdditionalProperties3BoxedBoolean](#additionalproperties3boxedboolean),
+[AdditionalProperties3BoxedNumber](#additionalproperties3boxednumber),
+[AdditionalProperties3BoxedString](#additionalproperties3boxedstring),
+[AdditionalProperties3BoxedList](#additionalproperties3boxedlist),
+[AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
@@ -473,6 +497,8 @@ A schema class that validates payloads
 
 ## MapWithUndeclaredPropertiesAnytype2Boxed
 public static abstract sealed class MapWithUndeclaredPropertiesAnytype2Boxed<br>
+permits<br>
+[MapWithUndeclaredPropertiesAnytype2BoxedMap](#mapwithundeclaredpropertiesanytype2boxedmap)
 
 ## MapWithUndeclaredPropertiesAnytype2
 public static class MapWithUndeclaredPropertiesAnytype2<br>
@@ -487,6 +513,8 @@ A schema class that validates payloads
 
 ## MapWithUndeclaredPropertiesAnytype1Boxed
 public static abstract sealed class MapWithUndeclaredPropertiesAnytype1Boxed<br>
+permits<br>
+[MapWithUndeclaredPropertiesAnytype1BoxedMap](#mapwithundeclaredpropertiesanytype1boxedmap)
 
 ## MapWithUndeclaredPropertiesAnytype1
 public static class MapWithUndeclaredPropertiesAnytype1<br>
@@ -501,6 +529,13 @@ A schema class that validates payloads
 
 ## Anytype1Boxed
 public static abstract sealed class Anytype1Boxed<br>
+permits<br>
+[Anytype1BoxedVoid](#anytype1boxedvoid),
+[Anytype1BoxedBoolean](#anytype1boxedboolean),
+[Anytype1BoxedNumber](#anytype1boxednumber),
+[Anytype1BoxedString](#anytype1boxedstring),
+[Anytype1BoxedList](#anytype1boxedlist),
+[Anytype1BoxedMap](#anytype1boxedmap)
 
 ## Anytype1
 public static class Anytype1<br>
@@ -515,6 +550,8 @@ A schema class that validates payloads
 
 ## MapOfMapPropertyBoxed
 public static abstract sealed class MapOfMapPropertyBoxed<br>
+permits<br>
+[MapOfMapPropertyBoxedMap](#mapofmappropertyboxedmap)
 
 ## MapOfMapProperty
 public static class MapOfMapProperty<br>
@@ -597,6 +634,8 @@ A class to store validated Map payloads
 
 ## AdditionalProperties1Boxed
 public static abstract sealed class AdditionalProperties1Boxed<br>
+permits<br>
+[AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -672,6 +711,8 @@ A class to store validated Map payloads
 
 ## AdditionalProperties2Boxed
 public static abstract sealed class AdditionalProperties2Boxed<br>
+permits<br>
+[AdditionalProperties2BoxedString](#additionalproperties2boxedstring)
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -686,6 +727,8 @@ A schema class that validates payloads
 
 ## MapPropertyBoxed
 public static abstract sealed class MapPropertyBoxed<br>
+permits<br>
+[MapPropertyBoxedMap](#mappropertyboxedmap)
 
 ## MapProperty
 public static class MapProperty<br>
@@ -761,6 +804,8 @@ A class to store validated Map payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

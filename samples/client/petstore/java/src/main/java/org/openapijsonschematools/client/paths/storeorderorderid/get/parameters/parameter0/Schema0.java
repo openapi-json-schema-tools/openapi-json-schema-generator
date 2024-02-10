@@ -20,12 +20,14 @@ public class Schema0 {
     
     
     public static abstract sealed class Schema01Boxed permits Schema01BoxedNumber {}
+    
     public static final class Schema01BoxedNumber extends Schema01Boxed {
         public final Number data;
         private Schema01BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Schema01 extends JsonSchema implements NumberSchemaValidator<Schema01BoxedNumber> {

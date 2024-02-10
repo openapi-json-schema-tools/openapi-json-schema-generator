@@ -165,6 +165,7 @@ public class ObjectModelWithRefProps {
     
     
     public static abstract sealed class ObjectModelWithRefProps1Boxed permits ObjectModelWithRefProps1BoxedMap {}
+    
     public static final class ObjectModelWithRefProps1BoxedMap extends ObjectModelWithRefProps1Boxed {
         public final ObjectModelWithRefPropsMap data;
         private ObjectModelWithRefProps1BoxedMap(ObjectModelWithRefPropsMap data) {

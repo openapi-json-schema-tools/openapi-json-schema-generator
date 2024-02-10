@@ -119,6 +119,7 @@ public class PathParameters {
     
     
     public static abstract sealed class PathParameters1Boxed permits PathParameters1BoxedMap {}
+    
     public static final class PathParameters1BoxedMap extends PathParameters1Boxed {
         public final PathParametersMap data;
         private PathParameters1BoxedMap(PathParametersMap data) {

@@ -20,6 +20,8 @@ A class that contains necessary nested
 
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -105,6 +107,8 @@ A class to store validated Map payloads
 
 ## ABoxed
 public static abstract sealed class ABoxed<br>
+permits<br>
+[ABoxedString](#aboxedstring)
 
 ## A
 public static class A<br>

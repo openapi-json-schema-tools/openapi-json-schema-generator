@@ -19,6 +19,8 @@ A class that contains necessary nested
 
 ## SelfReferencingObjectModel1Boxed
 public static abstract sealed class SelfReferencingObjectModel1Boxed<br>
+permits<br>
+[SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap)
 
 ## SelfReferencingObjectModel1
 public static class SelfReferencingObjectModel1<br>

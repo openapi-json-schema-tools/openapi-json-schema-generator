@@ -31,6 +31,8 @@ A class that contains necessary nested
 
 ## Capitalization1Boxed
 public static abstract sealed class Capitalization1Boxed<br>
+permits<br>
+[Capitalization1BoxedMap](#capitalization1boxedmap)
 
 ## Capitalization1
 public static class Capitalization1<br>
@@ -136,6 +138,8 @@ A class to store validated Map payloads
 
 ## ATTNAMEBoxed
 public static abstract sealed class ATTNAMEBoxed<br>
+permits<br>
+[ATTNAMEBoxedString](#attnameboxedstring)
 
 ## ATTNAME
 public static class ATTNAME<br>
@@ -153,6 +157,8 @@ Name of the pet<br>
 
 ## SCAETHFlowPointsBoxed
 public static abstract sealed class SCAETHFlowPointsBoxed<br>
+permits<br>
+[SCAETHFlowPointsBoxedString](#scaethflowpointsboxedstring)
 
 ## SCAETHFlowPoints
 public static class SCAETHFlowPoints<br>
@@ -167,6 +173,8 @@ A schema class that validates payloads
 
 ## CapitalSnakeBoxed
 public static abstract sealed class CapitalSnakeBoxed<br>
+permits<br>
+[CapitalSnakeBoxedString](#capitalsnakeboxedstring)
 
 ## CapitalSnake
 public static class CapitalSnake<br>
@@ -181,6 +189,8 @@ A schema class that validates payloads
 
 ## SmallSnakeBoxed
 public static abstract sealed class SmallSnakeBoxed<br>
+permits<br>
+[SmallSnakeBoxedString](#smallsnakeboxedstring)
 
 ## SmallSnake
 public static class SmallSnake<br>
@@ -195,6 +205,8 @@ A schema class that validates payloads
 
 ## CapitalCamelBoxed
 public static abstract sealed class CapitalCamelBoxed<br>
+permits<br>
+[CapitalCamelBoxedString](#capitalcamelboxedstring)
 
 ## CapitalCamel
 public static class CapitalCamel<br>
@@ -209,6 +221,8 @@ A schema class that validates payloads
 
 ## SmallCamelBoxed
 public static abstract sealed class SmallCamelBoxed<br>
+permits<br>
+[SmallCamelBoxedString](#smallcamelboxedstring)
 
 ## SmallCamel
 public static class SmallCamel<br>

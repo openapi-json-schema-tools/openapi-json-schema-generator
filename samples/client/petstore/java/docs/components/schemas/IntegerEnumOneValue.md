@@ -20,6 +20,8 @@ A class that contains necessary nested
 
 ## IntegerEnumOneValue1Boxed
 public static abstract sealed class IntegerEnumOneValue1Boxed<br>
+permits<br>
+[IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber)
 
 ## IntegerEnumOneValue1
 public static class IntegerEnumOneValue1<br>

@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## Player1Boxed
 public static abstract sealed class Player1Boxed<br>
+permits<br>
+[Player1BoxedMap](#player1boxedmap)
 
 ## Player1
 public static class Player1<br>
@@ -111,6 +113,8 @@ A class to store validated Map payloads
 
 ## NameBoxed
 public static abstract sealed class NameBoxed<br>
+permits<br>
+[NameBoxedString](#nameboxedstring)
 
 ## Name
 public static class Name<br>

@@ -15,6 +15,13 @@ A class that contains necessary nested
 
 ## SomeObject1Boxed
 public static abstract sealed class SomeObject1Boxed<br>
+permits<br>
+[SomeObject1BoxedVoid](#someobject1boxedvoid),
+[SomeObject1BoxedBoolean](#someobject1boxedboolean),
+[SomeObject1BoxedNumber](#someobject1boxednumber),
+[SomeObject1BoxedString](#someobject1boxedstring),
+[SomeObject1BoxedList](#someobject1boxedlist),
+[SomeObject1BoxedMap](#someobject1boxedmap)
 
 ## SomeObject1
 public static class SomeObject1<br>

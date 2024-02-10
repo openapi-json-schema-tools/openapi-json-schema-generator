@@ -54,12 +54,14 @@ public class QuadrilateralInterface {
     
     
     public static abstract sealed class ShapeTypeBoxed permits ShapeTypeBoxedString {}
+    
     public static final class ShapeTypeBoxedString extends ShapeTypeBoxed {
         public final String data;
         private ShapeTypeBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ShapeType extends JsonSchema implements StringSchemaValidator<ShapeTypeBoxedString>, StringEnumValidator<StringShapeTypeEnums> {
@@ -261,36 +263,42 @@ public class QuadrilateralInterface {
     
     
     public static abstract sealed class QuadrilateralInterface1Boxed permits QuadrilateralInterface1BoxedVoid, QuadrilateralInterface1BoxedBoolean, QuadrilateralInterface1BoxedNumber, QuadrilateralInterface1BoxedString, QuadrilateralInterface1BoxedList, QuadrilateralInterface1BoxedMap {}
+    
     public static final class QuadrilateralInterface1BoxedVoid extends QuadrilateralInterface1Boxed {
         public final Void data;
         private QuadrilateralInterface1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class QuadrilateralInterface1BoxedBoolean extends QuadrilateralInterface1Boxed {
         public final boolean data;
         private QuadrilateralInterface1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class QuadrilateralInterface1BoxedNumber extends QuadrilateralInterface1Boxed {
         public final Number data;
         private QuadrilateralInterface1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class QuadrilateralInterface1BoxedString extends QuadrilateralInterface1Boxed {
         public final String data;
         private QuadrilateralInterface1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class QuadrilateralInterface1BoxedList extends QuadrilateralInterface1Boxed {
         public final FrozenList<@Nullable Object> data;
         private QuadrilateralInterface1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class QuadrilateralInterface1BoxedMap extends QuadrilateralInterface1Boxed {
         public final QuadrilateralInterfaceMap data;
         private QuadrilateralInterface1BoxedMap(QuadrilateralInterfaceMap data) {

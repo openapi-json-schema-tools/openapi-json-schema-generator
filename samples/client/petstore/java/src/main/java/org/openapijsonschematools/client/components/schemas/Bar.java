@@ -21,12 +21,14 @@ public class Bar {
     
     
     public static abstract sealed class Bar1Boxed permits Bar1BoxedString {}
+    
     public static final class Bar1BoxedString extends Bar1Boxed {
         public final String data;
         private Bar1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Bar1 extends JsonSchema implements StringSchemaValidator<Bar1BoxedString>, DefaultValueMethod<String> {

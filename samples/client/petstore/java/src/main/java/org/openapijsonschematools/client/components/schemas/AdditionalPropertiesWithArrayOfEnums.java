@@ -67,12 +67,14 @@ public class AdditionalPropertiesWithArrayOfEnums {
     
     
     public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedList {}
+    
     public static final class AdditionalPropertiesBoxedList extends AdditionalPropertiesBoxed {
         public final AdditionalPropertiesList data;
         private AdditionalPropertiesBoxedList(AdditionalPropertiesList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class AdditionalProperties extends JsonSchema implements ListSchemaValidator<AdditionalPropertiesList, AdditionalPropertiesBoxedList> {
@@ -199,6 +201,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
     
     
     public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed permits AdditionalPropertiesWithArrayOfEnums1BoxedMap {}
+    
     public static final class AdditionalPropertiesWithArrayOfEnums1BoxedMap extends AdditionalPropertiesWithArrayOfEnums1Boxed {
         public final AdditionalPropertiesWithArrayOfEnumsMap data;
         private AdditionalPropertiesWithArrayOfEnums1BoxedMap(AdditionalPropertiesWithArrayOfEnumsMap data) {

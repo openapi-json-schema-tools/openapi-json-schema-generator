@@ -15,6 +15,13 @@ A class that contains necessary nested
 
 ## Quadrilateral1Boxed
 public static abstract sealed class Quadrilateral1Boxed<br>
+permits<br>
+[Quadrilateral1BoxedVoid](#quadrilateral1boxedvoid),
+[Quadrilateral1BoxedBoolean](#quadrilateral1boxedboolean),
+[Quadrilateral1BoxedNumber](#quadrilateral1boxednumber),
+[Quadrilateral1BoxedString](#quadrilateral1boxedstring),
+[Quadrilateral1BoxedList](#quadrilateral1boxedlist),
+[Quadrilateral1BoxedMap](#quadrilateral1boxedmap)
 
 ## Quadrilateral1
 public static class Quadrilateral1<br>

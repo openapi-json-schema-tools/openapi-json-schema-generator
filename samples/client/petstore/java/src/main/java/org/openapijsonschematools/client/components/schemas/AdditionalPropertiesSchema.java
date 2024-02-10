@@ -155,6 +155,7 @@ public class AdditionalPropertiesSchema {
     
     
     public static abstract sealed class Schema0Boxed permits Schema0BoxedMap {}
+    
     public static final class Schema0BoxedMap extends Schema0Boxed {
         public final Schema0Map data;
         private Schema0BoxedMap(Schema0Map data) {
@@ -236,36 +237,42 @@ public class AdditionalPropertiesSchema {
     
     
     public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedBoolean, AdditionalProperties1BoxedNumber, AdditionalProperties1BoxedString, AdditionalProperties1BoxedList, AdditionalProperties1BoxedMap {}
+    
     public static final class AdditionalProperties1BoxedVoid extends AdditionalProperties1Boxed {
         public final Void data;
         private AdditionalProperties1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties1BoxedBoolean extends AdditionalProperties1Boxed {
         public final boolean data;
         private AdditionalProperties1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties1BoxedNumber extends AdditionalProperties1Boxed {
         public final Number data;
         private AdditionalProperties1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties1BoxedString extends AdditionalProperties1Boxed {
         public final String data;
         private AdditionalProperties1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties1BoxedList extends AdditionalProperties1Boxed {
         public final FrozenList<@Nullable Object> data;
         private AdditionalProperties1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties1BoxedMap extends AdditionalProperties1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
@@ -599,6 +606,7 @@ public class AdditionalPropertiesSchema {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
@@ -680,36 +688,42 @@ public class AdditionalPropertiesSchema {
     
     
     public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedBoolean, AdditionalProperties2BoxedNumber, AdditionalProperties2BoxedString, AdditionalProperties2BoxedList, AdditionalProperties2BoxedMap {}
+    
     public static final class AdditionalProperties2BoxedVoid extends AdditionalProperties2Boxed {
         public final Void data;
         private AdditionalProperties2BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties2BoxedBoolean extends AdditionalProperties2Boxed {
         public final boolean data;
         private AdditionalProperties2BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties2BoxedNumber extends AdditionalProperties2Boxed {
         public final Number data;
         private AdditionalProperties2BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
         public final String data;
         private AdditionalProperties2BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties2BoxedList extends AdditionalProperties2Boxed {
         public final FrozenList<@Nullable Object> data;
         private AdditionalProperties2BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class AdditionalProperties2BoxedMap extends AdditionalProperties2Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) {
@@ -1043,6 +1057,7 @@ public class AdditionalPropertiesSchema {
     
     
     public static abstract sealed class Schema2Boxed permits Schema2BoxedMap {}
+    
     public static final class Schema2BoxedMap extends Schema2Boxed {
         public final Schema2Map data;
         private Schema2BoxedMap(Schema2Map data) {
@@ -1124,6 +1139,7 @@ public class AdditionalPropertiesSchema {
     
     
     public static abstract sealed class AdditionalPropertiesSchema1Boxed permits AdditionalPropertiesSchema1BoxedMap {}
+    
     public static final class AdditionalPropertiesSchema1BoxedMap extends AdditionalPropertiesSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AdditionalPropertiesSchema1BoxedMap(FrozenMap<@Nullable Object> data) {

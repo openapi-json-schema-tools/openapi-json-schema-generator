@@ -16,6 +16,8 @@ A class that contains necessary nested
 
 ## PathParamSchema01Boxed
 public static abstract sealed class PathParamSchema01Boxed<br>
+permits<br>
+[PathParamSchema01BoxedString](#pathparamschema01boxedstring)
 
 ## PathParamSchema01
 public static class PathParamSchema01<br>

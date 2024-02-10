@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## UUIDString1Boxed
 public static abstract sealed class UUIDString1Boxed<br>
+permits<br>
+[UUIDString1BoxedString](#uuidstring1boxedstring)
 
 ## UUIDString1
 public static class UUIDString1<br>

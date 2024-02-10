@@ -96,6 +96,7 @@ public class MapTest {
     
     
     public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {}
+    
     public static final class AdditionalPropertiesBoxedMap extends AdditionalPropertiesBoxed {
         public final AdditionalPropertiesMap data;
         private AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data) {
@@ -229,6 +230,7 @@ public class MapTest {
     
     
     public static abstract sealed class MapMapOfStringBoxed permits MapMapOfStringBoxedMap {}
+    
     public static final class MapMapOfStringBoxedMap extends MapMapOfStringBoxed {
         public final MapMapOfStringMap data;
         private MapMapOfStringBoxedMap(MapMapOfStringMap data) {
@@ -326,12 +328,14 @@ public class MapTest {
     
     
     public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {}
+    
     public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
         public final String data;
         private AdditionalProperties2BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class AdditionalProperties2 extends JsonSchema implements StringSchemaValidator<AdditionalProperties2BoxedString>, StringEnumValidator<StringAdditionalPropertiesEnums> {
@@ -449,6 +453,7 @@ public class MapTest {
     
     
     public static abstract sealed class MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {}
+    
     public static final class MapOfEnumStringBoxedMap extends MapOfEnumStringBoxed {
         public final MapOfEnumStringMap data;
         private MapOfEnumStringBoxedMap(MapOfEnumStringMap data) {
@@ -598,6 +603,7 @@ public class MapTest {
     
     
     public static abstract sealed class DirectMapBoxed permits DirectMapBoxedMap {}
+    
     public static final class DirectMapBoxedMap extends DirectMapBoxed {
         public final DirectMapMap data;
         private DirectMapBoxedMap(DirectMapMap data) {
@@ -826,6 +832,7 @@ public class MapTest {
     
     
     public static abstract sealed class MapTest1Boxed permits MapTest1BoxedMap {}
+    
     public static final class MapTest1BoxedMap extends MapTest1Boxed {
         public final MapTestMap data;
         private MapTest1BoxedMap(MapTestMap data) {

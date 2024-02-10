@@ -144,6 +144,7 @@ public class ObjectWithCollidingProperties {
     
     
     public static abstract sealed class ObjectWithCollidingProperties1Boxed permits ObjectWithCollidingProperties1BoxedMap {}
+    
     public static final class ObjectWithCollidingProperties1BoxedMap extends ObjectWithCollidingProperties1Boxed {
         public final ObjectWithCollidingPropertiesMap data;
         private ObjectWithCollidingProperties1BoxedMap(ObjectWithCollidingPropertiesMap data) {

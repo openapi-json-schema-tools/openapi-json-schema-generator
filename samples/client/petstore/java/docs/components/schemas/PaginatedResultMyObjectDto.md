@@ -29,6 +29,8 @@ A class that contains necessary nested
 
 ## PaginatedResultMyObjectDto1Boxed
 public static abstract sealed class PaginatedResultMyObjectDto1Boxed<br>
+permits<br>
+[PaginatedResultMyObjectDto1BoxedMap](#paginatedresultmyobjectdto1boxedmap)
 
 ## PaginatedResultMyObjectDto1
 public static class PaginatedResultMyObjectDto1<br>
@@ -165,6 +167,8 @@ A class to store validated Map payloads
 
 ## ResultsBoxed
 public static abstract sealed class ResultsBoxed<br>
+permits<br>
+[ResultsBoxedList](#resultsboxedlist)
 
 ## Results
 public static class Results<br>
@@ -238,6 +242,8 @@ A class to store validated List payloads
 
 ## CountBoxed
 public static abstract sealed class CountBoxed<br>
+permits<br>
+[CountBoxedNumber](#countboxednumber)
 
 ## Count
 public static class Count<br>
@@ -252,6 +258,13 @@ A schema class that validates payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

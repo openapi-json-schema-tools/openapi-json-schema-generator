@@ -20,12 +20,14 @@ public class NumberWithValidations {
     
     
     public static abstract sealed class NumberWithValidations1Boxed permits NumberWithValidations1BoxedNumber {}
+    
     public static final class NumberWithValidations1BoxedNumber extends NumberWithValidations1Boxed {
         public final Number data;
         private NumberWithValidations1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class NumberWithValidations1 extends JsonSchema implements NumberSchemaValidator<NumberWithValidations1BoxedNumber> {

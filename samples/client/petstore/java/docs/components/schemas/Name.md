@@ -25,6 +25,13 @@ A class that contains necessary nested
 
 ## Name1Boxed
 public static abstract sealed class Name1Boxed<br>
+permits<br>
+[Name1BoxedVoid](#name1boxedvoid),
+[Name1BoxedBoolean](#name1boxedboolean),
+[Name1BoxedNumber](#name1boxednumber),
+[Name1BoxedString](#name1boxedstring),
+[Name1BoxedList](#name1boxedlist),
+[Name1BoxedMap](#name1boxedmap)
 
 ## Name1
 public static class Name1<br>
@@ -116,6 +123,8 @@ A class to store validated Map payloads
 
 ## PropertyBoxed
 public static abstract sealed class PropertyBoxed<br>
+permits<br>
+[PropertyBoxedString](#propertyboxedstring)
 
 ## Property
 public static class Property<br>
@@ -133,6 +142,8 @@ this is a reserved python keyword
 
 ## SnakeCaseBoxed
 public static abstract sealed class SnakeCaseBoxed<br>
+permits<br>
+[SnakeCaseBoxedNumber](#snakecaseboxednumber)
 
 ## SnakeCase
 public static class SnakeCase<br>
@@ -147,6 +158,8 @@ A schema class that validates payloads
 
 ## Name2Boxed
 public static abstract sealed class Name2Boxed<br>
+permits<br>
+[Name2BoxedNumber](#name2boxednumber)
 
 ## Name2
 public static class Name2<br>

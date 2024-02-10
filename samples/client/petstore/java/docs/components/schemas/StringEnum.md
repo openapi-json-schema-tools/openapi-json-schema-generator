@@ -18,6 +18,9 @@ A class that contains necessary nested
 
 ## StringEnum1Boxed
 public static abstract sealed class StringEnum1Boxed<br>
+permits<br>
+[StringEnum1BoxedVoid](#stringenum1boxedvoid),
+[StringEnum1BoxedString](#stringenum1boxedstring)
 
 ## StringEnum1
 public static class StringEnum1<br>

@@ -28,6 +28,8 @@ A class that contains necessary nested
 
 ## Zebra1Boxed
 public static abstract sealed class Zebra1Boxed<br>
+permits<br>
+[Zebra1BoxedMap](#zebra1boxedmap)
 
 ## Zebra1
 public static class Zebra1<br>
@@ -136,6 +138,8 @@ A class to store validated Map payloads
 
 ## ClassNameBoxed
 public static abstract sealed class ClassNameBoxed<br>
+permits<br>
+[ClassNameBoxedString](#classnameboxedstring)
 
 ## ClassName
 public static class ClassName<br>
@@ -190,6 +194,8 @@ A class that stores String enum values
 
 ## TypeBoxed
 public static abstract sealed class TypeBoxed<br>
+permits<br>
+[TypeBoxedString](#typeboxedstring)
 
 ## Type
 public static class Type<br>
@@ -246,6 +252,13 @@ A class that stores String enum values
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

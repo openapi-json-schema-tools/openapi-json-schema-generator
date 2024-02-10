@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## Category1Boxed
 public static abstract sealed class Category1Boxed<br>
+permits<br>
+[Category1BoxedMap](#category1boxedmap)
 
 ## Category1
 public static class Category1<br>
@@ -131,6 +133,8 @@ A class to store validated Map payloads
 
 ## NameBoxed
 public static abstract sealed class NameBoxed<br>
+permits<br>
+[NameBoxedString](#nameboxedstring)
 
 ## Name
 public static class Name<br>
@@ -173,6 +177,8 @@ String validatedPayload = Category.Name.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IdBoxed
 public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedNumber](#idboxednumber)
 
 ## Id
 public static class Id<br>

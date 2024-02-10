@@ -161,6 +161,7 @@ public class HeaderParameters {
     
     
     public static abstract sealed class HeaderParameters1Boxed permits HeaderParameters1BoxedMap {}
+    
     public static final class HeaderParameters1BoxedMap extends HeaderParameters1Boxed {
         public final HeaderParametersMap data;
         private HeaderParameters1BoxedMap(HeaderParametersMap data) {

@@ -17,6 +17,13 @@ A class that contains necessary nested
 
 ## FruitReq1Boxed
 public static abstract sealed class FruitReq1Boxed<br>
+permits<br>
+[FruitReq1BoxedVoid](#fruitreq1boxedvoid),
+[FruitReq1BoxedBoolean](#fruitreq1boxedboolean),
+[FruitReq1BoxedNumber](#fruitreq1boxednumber),
+[FruitReq1BoxedString](#fruitreq1boxedstring),
+[FruitReq1BoxedList](#fruitreq1boxedlist),
+[FruitReq1BoxedMap](#fruitreq1boxedmap)
 
 ## FruitReq1
 public static class FruitReq1<br>
@@ -44,6 +51,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedVoid](#schema0boxedvoid)
 
 ## Schema0
 public static class Schema0<br>

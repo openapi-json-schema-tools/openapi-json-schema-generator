@@ -36,12 +36,14 @@ public class Schema0 {
     
     
     public static abstract sealed class Schema00Boxed permits Schema00BoxedString {}
+    
     public static final class Schema00BoxedString extends Schema00Boxed {
         public final String data;
         private Schema00BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Schema00 extends JsonSchema implements StringSchemaValidator<Schema00BoxedString> {
@@ -95,36 +97,42 @@ public class Schema0 {
     }    
     
     public static abstract sealed class Schema01Boxed permits Schema01BoxedVoid, Schema01BoxedBoolean, Schema01BoxedNumber, Schema01BoxedString, Schema01BoxedList, Schema01BoxedMap {}
+    
     public static final class Schema01BoxedVoid extends Schema01Boxed {
         public final Void data;
         private Schema01BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class Schema01BoxedBoolean extends Schema01Boxed {
         public final boolean data;
         private Schema01BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class Schema01BoxedNumber extends Schema01Boxed {
         public final Number data;
         private Schema01BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class Schema01BoxedString extends Schema01Boxed {
         public final String data;
         private Schema01BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class Schema01BoxedList extends Schema01Boxed {
         public final FrozenList<@Nullable Object> data;
         private Schema01BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class Schema01BoxedMap extends Schema01Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema01BoxedMap(FrozenMap<@Nullable Object> data) {

@@ -188,6 +188,7 @@ public class ApiResponseSchema {
     
     
     public static abstract sealed class ApiResponseSchema1Boxed permits ApiResponseSchema1BoxedMap {}
+    
     public static final class ApiResponseSchema1BoxedMap extends ApiResponseSchema1Boxed {
         public final ApiResponseMap data;
         private ApiResponseSchema1BoxedMap(ApiResponseMap data) {

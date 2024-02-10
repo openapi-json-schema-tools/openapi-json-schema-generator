@@ -90,12 +90,14 @@ public class ArrayOfArrayOfNumberOnly {
     
     
     public static abstract sealed class ItemsBoxed permits ItemsBoxedList {}
+    
     public static final class ItemsBoxedList extends ItemsBoxed {
         public final ItemsList data;
         private ItemsBoxedList(ItemsList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Items extends JsonSchema implements ListSchemaValidator<ItemsList, ItemsBoxedList> {
@@ -201,12 +203,14 @@ public class ArrayOfArrayOfNumberOnly {
     
     
     public static abstract sealed class ArrayArrayNumberBoxed permits ArrayArrayNumberBoxedList {}
+    
     public static final class ArrayArrayNumberBoxedList extends ArrayArrayNumberBoxed {
         public final ArrayArrayNumberList data;
         private ArrayArrayNumberBoxedList(ArrayArrayNumberList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ArrayArrayNumber extends JsonSchema implements ListSchemaValidator<ArrayArrayNumberList, ArrayArrayNumberBoxedList> {
@@ -346,6 +350,7 @@ public class ArrayOfArrayOfNumberOnly {
     
     
     public static abstract sealed class ArrayOfArrayOfNumberOnly1Boxed permits ArrayOfArrayOfNumberOnly1BoxedMap {}
+    
     public static final class ArrayOfArrayOfNumberOnly1BoxedMap extends ArrayOfArrayOfNumberOnly1Boxed {
         public final ArrayOfArrayOfNumberOnlyMap data;
         private ArrayOfArrayOfNumberOnly1BoxedMap(ArrayOfArrayOfNumberOnlyMap data) {

@@ -22,12 +22,14 @@ public class DateTimeTest {
     
     
     public static abstract sealed class DateTimeTest1Boxed permits DateTimeTest1BoxedString {}
+    
     public static final class DateTimeTest1BoxedString extends DateTimeTest1Boxed {
         public final String data;
         private DateTimeTest1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class DateTimeTest1 extends JsonSchema implements StringSchemaValidator<DateTimeTest1BoxedString>, DefaultValueMethod<String> {

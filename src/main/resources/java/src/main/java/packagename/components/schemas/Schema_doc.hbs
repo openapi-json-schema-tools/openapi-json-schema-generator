@@ -87,9 +87,7 @@ A class that contains necessary nested
 {{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
 
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "Boxed" "")) }}
-public static abstract sealed class {{jsonPathPiece.pascalCase}}Boxed<br>
-
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedClasses forDocs=true }}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
 public static class {{jsonPathPiece.pascalCase}}<br>
 {{> src/main/java/packagename/components/schemas/docschema_extends }}

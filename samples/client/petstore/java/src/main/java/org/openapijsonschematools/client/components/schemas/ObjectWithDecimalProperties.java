@@ -159,6 +159,7 @@ public class ObjectWithDecimalProperties {
     
     
     public static abstract sealed class ObjectWithDecimalProperties1Boxed permits ObjectWithDecimalProperties1BoxedMap {}
+    
     public static final class ObjectWithDecimalProperties1BoxedMap extends ObjectWithDecimalProperties1Boxed {
         public final ObjectWithDecimalPropertiesMap data;
         private ObjectWithDecimalProperties1BoxedMap(ObjectWithDecimalPropertiesMap data) {

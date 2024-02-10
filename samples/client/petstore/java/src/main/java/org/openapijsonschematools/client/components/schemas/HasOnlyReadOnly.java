@@ -144,6 +144,7 @@ public class HasOnlyReadOnly {
     
     
     public static abstract sealed class HasOnlyReadOnly1Boxed permits HasOnlyReadOnly1BoxedMap {}
+    
     public static final class HasOnlyReadOnly1BoxedMap extends HasOnlyReadOnly1Boxed {
         public final HasOnlyReadOnlyMap data;
         private HasOnlyReadOnly1BoxedMap(HasOnlyReadOnlyMap data) {

@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## NumberWithExclusiveMinMax1Boxed
 public static abstract sealed class NumberWithExclusiveMinMax1Boxed<br>
+permits<br>
+[NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)
 
 ## NumberWithExclusiveMinMax1
 public static class NumberWithExclusiveMinMax1<br>

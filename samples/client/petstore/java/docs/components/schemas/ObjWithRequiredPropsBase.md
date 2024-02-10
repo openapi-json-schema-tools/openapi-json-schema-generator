@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## ObjWithRequiredPropsBase1Boxed
 public static abstract sealed class ObjWithRequiredPropsBase1Boxed<br>
+permits<br>
+[ObjWithRequiredPropsBase1BoxedMap](#objwithrequiredpropsbase1boxedmap)
 
 ## ObjWithRequiredPropsBase1
 public static class ObjWithRequiredPropsBase1<br>
@@ -122,6 +124,8 @@ A class to store validated Map payloads
 
 ## BBoxed
 public static abstract sealed class BBoxed<br>
+permits<br>
+[BBoxedString](#bboxedstring)
 
 ## B
 public static class B<br>

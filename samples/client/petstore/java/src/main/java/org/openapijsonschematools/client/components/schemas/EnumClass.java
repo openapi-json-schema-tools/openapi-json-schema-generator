@@ -40,12 +40,14 @@ public class EnumClass {
     
     
     public static abstract sealed class EnumClass1Boxed permits EnumClass1BoxedString {}
+    
     public static final class EnumClass1BoxedString extends EnumClass1Boxed {
         public final String data;
         private EnumClass1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class EnumClass1 extends JsonSchema implements StringSchemaValidator<EnumClass1BoxedString>, StringEnumValidator<StringEnumClassEnums>, DefaultValueMethod<String> {

@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## Banana1Boxed
 public static abstract sealed class Banana1Boxed<br>
+permits<br>
+[Banana1BoxedMap](#banana1boxedmap)
 
 ## Banana1
 public static class Banana1<br>
@@ -125,6 +127,8 @@ A class to store validated Map payloads
 
 ## LengthCmBoxed
 public static abstract sealed class LengthCmBoxed<br>
+permits<br>
+[LengthCmBoxedNumber](#lengthcmboxednumber)
 
 ## LengthCm
 public static class LengthCm<br>

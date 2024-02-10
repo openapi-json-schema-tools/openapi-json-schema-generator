@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## AdditionalPropertiesWithArrayOfEnums1Boxed
 public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed<br>
+permits<br>
+[AdditionalPropertiesWithArrayOfEnums1BoxedMap](#additionalpropertieswitharrayofenums1boxedmap)
 
 ## AdditionalPropertiesWithArrayOfEnums1
 public static class AdditionalPropertiesWithArrayOfEnums1<br>
@@ -104,6 +106,8 @@ A class to store validated Map payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

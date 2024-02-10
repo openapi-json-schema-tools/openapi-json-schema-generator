@@ -103,6 +103,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     
     public static abstract sealed class MapSchemaBoxed permits MapSchemaBoxedMap {}
+    
     public static final class MapSchemaBoxedMap extends MapSchemaBoxed {
         public final MapMap data;
         private MapSchemaBoxedMap(MapMap data) {
@@ -285,6 +286,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     
     public static abstract sealed class MixedPropertiesAndAdditionalPropertiesClass1Boxed permits MixedPropertiesAndAdditionalPropertiesClass1BoxedMap {}
+    
     public static final class MixedPropertiesAndAdditionalPropertiesClass1BoxedMap extends MixedPropertiesAndAdditionalPropertiesClass1Boxed {
         public final MixedPropertiesAndAdditionalPropertiesClassMap data;
         private MixedPropertiesAndAdditionalPropertiesClass1BoxedMap(MixedPropertiesAndAdditionalPropertiesClassMap data) {

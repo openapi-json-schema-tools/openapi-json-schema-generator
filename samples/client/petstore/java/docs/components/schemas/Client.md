@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## Client1Boxed
 public static abstract sealed class Client1Boxed<br>
+permits<br>
+[Client1BoxedMap](#client1boxedmap)
 
 ## Client1
 public static class Client1<br>
@@ -106,6 +108,8 @@ A class to store validated Map payloads
 
 ## Client2Boxed
 public static abstract sealed class Client2Boxed<br>
+permits<br>
+[Client2BoxedString](#client2boxedstring)
 
 ## Client2
 public static class Client2<br>

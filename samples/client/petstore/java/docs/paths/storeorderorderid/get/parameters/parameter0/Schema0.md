@@ -14,6 +14,8 @@ A class that contains necessary nested
 
 ## Schema01Boxed
 public static abstract sealed class Schema01Boxed<br>
+permits<br>
+[Schema01BoxedNumber](#schema01boxednumber)
 
 ## Schema01
 public static class Schema01<br>

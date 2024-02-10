@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## ObjectInterface1Boxed
 public static abstract sealed class ObjectInterface1Boxed<br>
+permits<br>
+[ObjectInterface1BoxedMap](#objectinterface1boxedmap)
 
 ## ObjectInterface1
 public static class ObjectInterface1<br>

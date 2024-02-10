@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## ReqPropsFromExplicitAddProps1Boxed
 public static abstract sealed class ReqPropsFromExplicitAddProps1Boxed<br>
+permits<br>
+[ReqPropsFromExplicitAddProps1BoxedMap](#reqpropsfromexplicitaddprops1boxedmap)
 
 ## ReqPropsFromExplicitAddProps1
 public static class ReqPropsFromExplicitAddProps1<br>
@@ -148,6 +150,8 @@ A class to store validated Map payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

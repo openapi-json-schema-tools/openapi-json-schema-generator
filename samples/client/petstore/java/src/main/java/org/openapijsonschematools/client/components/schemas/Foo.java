@@ -95,6 +95,7 @@ public class Foo {
     
     
     public static abstract sealed class Foo1Boxed permits Foo1BoxedMap {}
+    
     public static final class Foo1BoxedMap extends Foo1Boxed {
         public final FooMap data;
         private Foo1BoxedMap(FooMap data) {

@@ -316,6 +316,7 @@ public class ReqPropsFromTrueAddProps {
     
     
     public static abstract sealed class ReqPropsFromTrueAddProps1Boxed permits ReqPropsFromTrueAddProps1BoxedMap {}
+    
     public static final class ReqPropsFromTrueAddProps1BoxedMap extends ReqPropsFromTrueAddProps1Boxed {
         public final ReqPropsFromTrueAddPropsMap data;
         private ReqPropsFromTrueAddProps1BoxedMap(ReqPropsFromTrueAddPropsMap data) {

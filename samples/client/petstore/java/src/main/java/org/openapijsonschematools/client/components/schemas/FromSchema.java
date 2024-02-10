@@ -163,6 +163,7 @@ public class FromSchema {
     
     
     public static abstract sealed class FromSchema1Boxed permits FromSchema1BoxedMap {}
+    
     public static final class FromSchema1BoxedMap extends FromSchema1Boxed {
         public final FromSchemaMap data;
         private FromSchema1BoxedMap(FromSchemaMap data) {

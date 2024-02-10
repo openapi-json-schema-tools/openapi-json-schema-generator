@@ -78,12 +78,14 @@ public class IntegerEnumOneValue {
     
     
     public static abstract sealed class IntegerEnumOneValue1Boxed permits IntegerEnumOneValue1BoxedNumber {}
+    
     public static final class IntegerEnumOneValue1BoxedNumber extends IntegerEnumOneValue1Boxed {
         public final Number data;
         private IntegerEnumOneValue1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class IntegerEnumOneValue1 extends JsonSchema implements IntegerEnumValidator<IntegerIntegerEnumOneValueEnums>, LongEnumValidator<LongIntegerEnumOneValueEnums>, FloatEnumValidator<FloatIntegerEnumOneValueEnums>, DoubleEnumValidator<DoubleIntegerEnumOneValueEnums>, NumberSchemaValidator<IntegerEnumOneValue1BoxedNumber> {

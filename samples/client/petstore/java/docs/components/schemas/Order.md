@@ -33,6 +33,8 @@ A class that contains necessary nested
 
 ## Order1Boxed
 public static abstract sealed class Order1Boxed<br>
+permits<br>
+[Order1BoxedMap](#order1boxedmap)
 
 ## Order1
 public static class Order1<br>
@@ -146,6 +148,8 @@ A class to store validated Map payloads
 
 ## CompleteBoxed
 public static abstract sealed class CompleteBoxed<br>
+permits<br>
+[CompleteBoxedBoolean](#completeboxedboolean)
 
 ## Complete
 public static class Complete<br>
@@ -160,6 +164,8 @@ A schema class that validates payloads
 
 ## StatusBoxed
 public static abstract sealed class StatusBoxed<br>
+permits<br>
+[StatusBoxedString](#statusboxedstring)
 
 ## Status
 public static class Status<br>
@@ -219,6 +225,8 @@ A class that stores String enum values
 
 ## ShipDateBoxed
 public static abstract sealed class ShipDateBoxed<br>
+permits<br>
+[ShipDateBoxedString](#shipdateboxedstring)
 
 ## ShipDate
 public static class ShipDate<br>
@@ -233,6 +241,8 @@ A schema class that validates payloads
 
 ## QuantityBoxed
 public static abstract sealed class QuantityBoxed<br>
+permits<br>
+[QuantityBoxedNumber](#quantityboxednumber)
 
 ## Quantity
 public static class Quantity<br>
@@ -247,6 +257,8 @@ A schema class that validates payloads
 
 ## PetIdBoxed
 public static abstract sealed class PetIdBoxed<br>
+permits<br>
+[PetIdBoxedNumber](#petidboxednumber)
 
 ## PetId
 public static class PetId<br>
@@ -261,6 +273,8 @@ A schema class that validates payloads
 
 ## IdBoxed
 public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedNumber](#idboxednumber)
 
 ## Id
 public static class Id<br>

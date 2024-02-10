@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## NoAdditionalProperties1Boxed
 public static abstract sealed class NoAdditionalProperties1Boxed<br>
+permits<br>
+[NoAdditionalProperties1BoxedMap](#noadditionalproperties1boxedmap)
 
 ## NoAdditionalProperties1
 public static class NoAdditionalProperties1<br>
@@ -127,6 +129,8 @@ A class to store validated Map payloads
 
 ## PetIdBoxed
 public static abstract sealed class PetIdBoxed<br>
+permits<br>
+[PetIdBoxedNumber](#petidboxednumber)
 
 ## PetId
 public static class PetId<br>
@@ -141,6 +145,8 @@ A schema class that validates payloads
 
 ## IdBoxed
 public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedNumber](#idboxednumber)
 
 ## Id
 public static class Id<br>
@@ -155,6 +161,13 @@ A schema class that validates payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

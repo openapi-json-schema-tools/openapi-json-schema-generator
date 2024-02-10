@@ -21,6 +21,13 @@ A class that contains necessary nested
 
 ## ClassModel1Boxed
 public static abstract sealed class ClassModel1Boxed<br>
+permits<br>
+[ClassModel1BoxedVoid](#classmodel1boxedvoid),
+[ClassModel1BoxedBoolean](#classmodel1boxedboolean),
+[ClassModel1BoxedNumber](#classmodel1boxednumber),
+[ClassModel1BoxedString](#classmodel1boxedstring),
+[ClassModel1BoxedList](#classmodel1boxedlist),
+[ClassModel1BoxedMap](#classmodel1boxedmap)
 
 ## ClassModel1
 public static class ClassModel1<br>
@@ -90,6 +97,8 @@ A class to store validated Map payloads
 
 ## ClassSchemaBoxed
 public static abstract sealed class ClassSchemaBoxed<br>
+permits<br>
+[ClassSchemaBoxedString](#classschemaboxedstring)
 
 ## ClassSchema
 public static class ClassSchema<br>

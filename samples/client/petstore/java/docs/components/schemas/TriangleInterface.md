@@ -25,6 +25,13 @@ A class that contains necessary nested
 
 ## TriangleInterface1Boxed
 public static abstract sealed class TriangleInterface1Boxed<br>
+permits<br>
+[TriangleInterface1BoxedVoid](#triangleinterface1boxedvoid),
+[TriangleInterface1BoxedBoolean](#triangleinterface1boxedboolean),
+[TriangleInterface1BoxedNumber](#triangleinterface1boxednumber),
+[TriangleInterface1BoxedString](#triangleinterface1boxedstring),
+[TriangleInterface1BoxedList](#triangleinterface1boxedlist),
+[TriangleInterface1BoxedMap](#triangleinterface1boxedmap)
 
 ## TriangleInterface1
 public static class TriangleInterface1<br>
@@ -143,6 +150,8 @@ A class to store validated Map payloads
 
 ## TriangleTypeBoxed
 public static abstract sealed class TriangleTypeBoxed<br>
+permits<br>
+[TriangleTypeBoxedString](#triangletypeboxedstring)
 
 ## TriangleType
 public static class TriangleType<br>
@@ -157,6 +166,8 @@ A schema class that validates payloads
 
 ## ShapeTypeBoxed
 public static abstract sealed class ShapeTypeBoxed<br>
+permits<br>
+[ShapeTypeBoxedString](#shapetypeboxedstring)
 
 ## ShapeType
 public static class ShapeType<br>

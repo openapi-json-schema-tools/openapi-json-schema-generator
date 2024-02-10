@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## FileSchemaTestClass1Boxed
 public static abstract sealed class FileSchemaTestClass1Boxed<br>
+permits<br>
+[FileSchemaTestClass1BoxedMap](#fileschematestclass1boxedmap)
 
 ## FileSchemaTestClass1
 public static class FileSchemaTestClass1<br>
@@ -114,6 +116,8 @@ A class to store validated Map payloads
 
 ## FilesBoxed
 public static abstract sealed class FilesBoxed<br>
+permits<br>
+[FilesBoxedList](#filesboxedlist)
 
 ## Files
 public static class Files<br>

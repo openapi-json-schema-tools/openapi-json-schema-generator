@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## NumberOnly1Boxed
 public static abstract sealed class NumberOnly1Boxed<br>
+permits<br>
+[NumberOnly1BoxedMap](#numberonly1boxedmap)
 
 ## NumberOnly1
 public static class NumberOnly1<br>
@@ -109,6 +111,8 @@ A class to store validated Map payloads
 
 ## JustNumberBoxed
 public static abstract sealed class JustNumberBoxed<br>
+permits<br>
+[JustNumberBoxedNumber](#justnumberboxednumber)
 
 ## JustNumber
 public static class JustNumber<br>

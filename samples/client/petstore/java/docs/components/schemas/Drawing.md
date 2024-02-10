@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## Drawing1Boxed
 public static abstract sealed class Drawing1Boxed<br>
+permits<br>
+[Drawing1BoxedMap](#drawing1boxedmap)
 
 ## Drawing1
 public static class Drawing1<br>
@@ -143,6 +145,8 @@ A class to store validated Map payloads
 
 ## ShapesBoxed
 public static abstract sealed class ShapesBoxed<br>
+permits<br>
+[ShapesBoxedList](#shapesboxedlist)
 
 ## Shapes
 public static class Shapes<br>

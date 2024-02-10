@@ -32,12 +32,14 @@ public class ComposedNumber {
     
     
     public static abstract sealed class ComposedNumber1Boxed permits ComposedNumber1BoxedNumber {}
+    
     public static final class ComposedNumber1BoxedNumber extends ComposedNumber1Boxed {
         public final Number data;
         private ComposedNumber1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ComposedNumber1 extends JsonSchema implements NumberSchemaValidator<ComposedNumber1BoxedNumber> {

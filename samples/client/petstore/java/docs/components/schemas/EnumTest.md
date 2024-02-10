@@ -36,6 +36,8 @@ A class that contains necessary nested
 
 ## EnumTest1Boxed
 public static abstract sealed class EnumTest1Boxed<br>
+permits<br>
+[EnumTest1BoxedMap](#enumtest1boxedmap)
 
 ## EnumTest1
 public static class EnumTest1<br>
@@ -196,6 +198,8 @@ A class to store validated Map payloads
 
 ## EnumNumberBoxed
 public static abstract sealed class EnumNumberBoxed<br>
+permits<br>
+[EnumNumberBoxedNumber](#enumnumberboxednumber)
 
 ## EnumNumber
 public static class EnumNumber<br>
@@ -263,6 +267,8 @@ A class that stores Float enum values
 
 ## EnumIntegerBoxed
 public static abstract sealed class EnumIntegerBoxed<br>
+permits<br>
+[EnumIntegerBoxedNumber](#enumintegerboxednumber)
 
 ## EnumInteger
 public static class EnumInteger<br>
@@ -354,6 +360,8 @@ A class that stores Double enum values
 
 ## EnumStringRequiredBoxed
 public static abstract sealed class EnumStringRequiredBoxed<br>
+permits<br>
+[EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)
 
 ## EnumStringRequired
 public static class EnumStringRequired<br>
@@ -410,6 +418,8 @@ A class that stores String enum values
 
 ## EnumStringBoxed
 public static abstract sealed class EnumStringBoxed<br>
+permits<br>
+[EnumStringBoxedString](#enumstringboxedstring)
 
 ## EnumString
 public static class EnumString<br>

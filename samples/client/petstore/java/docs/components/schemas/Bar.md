@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## Bar1Boxed
 public static abstract sealed class Bar1Boxed<br>
+permits<br>
+[Bar1BoxedString](#bar1boxedstring)
 
 ## Bar1
 public static class Bar1<br>

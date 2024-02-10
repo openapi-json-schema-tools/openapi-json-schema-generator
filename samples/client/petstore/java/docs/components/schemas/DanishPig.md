@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## DanishPig1Boxed
 public static abstract sealed class DanishPig1Boxed<br>
+permits<br>
+[DanishPig1BoxedMap](#danishpig1boxedmap)
 
 ## DanishPig1
 public static class DanishPig1<br>
@@ -125,6 +127,8 @@ A class to store validated Map payloads
 
 ## ClassNameBoxed
 public static abstract sealed class ClassNameBoxed<br>
+permits<br>
+[ClassNameBoxedString](#classnameboxedstring)
 
 ## ClassName
 public static class ClassName<br>

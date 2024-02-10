@@ -115,6 +115,7 @@ public class GrandparentAnimal {
     
     
     public static abstract sealed class GrandparentAnimal1Boxed permits GrandparentAnimal1BoxedMap {}
+    
     public static final class GrandparentAnimal1BoxedMap extends GrandparentAnimal1Boxed {
         public final GrandparentAnimalMap data;
         private GrandparentAnimal1BoxedMap(GrandparentAnimalMap data) {

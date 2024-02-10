@@ -20,6 +20,8 @@ A class that contains necessary nested
 
 ## IntegerEnumBig1Boxed
 public static abstract sealed class IntegerEnumBig1Boxed<br>
+permits<br>
+[IntegerEnumBig1BoxedNumber](#integerenumbig1boxednumber)
 
 ## IntegerEnumBig1
 public static class IntegerEnumBig1<br>

@@ -176,6 +176,7 @@ public class ObjectModelWithArgAndArgsProperties {
     
     
     public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed permits ObjectModelWithArgAndArgsProperties1BoxedMap {}
+    
     public static final class ObjectModelWithArgAndArgsProperties1BoxedMap extends ObjectModelWithArgAndArgsProperties1Boxed {
         public final ObjectModelWithArgAndArgsPropertiesMap data;
         private ObjectModelWithArgAndArgsProperties1BoxedMap(ObjectModelWithArgAndArgsPropertiesMap data) {

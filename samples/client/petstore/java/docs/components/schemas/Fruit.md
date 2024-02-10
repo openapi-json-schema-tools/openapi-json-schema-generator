@@ -21,6 +21,13 @@ A class that contains necessary nested
 
 ## Fruit1Boxed
 public static abstract sealed class Fruit1Boxed<br>
+permits<br>
+[Fruit1BoxedVoid](#fruit1boxedvoid),
+[Fruit1BoxedBoolean](#fruit1boxedboolean),
+[Fruit1BoxedNumber](#fruit1boxednumber),
+[Fruit1BoxedString](#fruit1boxedstring),
+[Fruit1BoxedList](#fruit1boxedlist),
+[Fruit1BoxedMap](#fruit1boxedmap)
 
 ## Fruit1
 public static class Fruit1<br>
@@ -88,6 +95,8 @@ A class to store validated Map payloads
 
 ## ColorBoxed
 public static abstract sealed class ColorBoxed<br>
+permits<br>
+[ColorBoxedString](#colorboxedstring)
 
 ## Color
 public static class Color<br>

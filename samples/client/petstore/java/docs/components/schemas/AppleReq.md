@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## AppleReq1Boxed
 public static abstract sealed class AppleReq1Boxed<br>
+permits<br>
+[AppleReq1BoxedMap](#applereq1boxedmap)
 
 ## AppleReq1
 public static class AppleReq1<br>
@@ -121,6 +123,8 @@ A class to store validated Map payloads
 
 ## MealyBoxed
 public static abstract sealed class MealyBoxed<br>
+permits<br>
+[MealyBoxedBoolean](#mealyboxedboolean)
 
 ## Mealy
 public static class Mealy<br>
@@ -135,6 +139,8 @@ A schema class that validates payloads
 
 ## CultivarBoxed
 public static abstract sealed class CultivarBoxed<br>
+permits<br>
+[CultivarBoxedString](#cultivarboxedstring)
 
 ## Cultivar
 public static class Cultivar<br>
@@ -149,6 +155,13 @@ A schema class that validates payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -57,12 +57,14 @@ public class EnumTest {
     
     
     public static abstract sealed class EnumStringBoxed permits EnumStringBoxedString {}
+    
     public static final class EnumStringBoxedString extends EnumStringBoxed {
         public final String data;
         private EnumStringBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class EnumString extends JsonSchema implements StringSchemaValidator<EnumStringBoxedString>, StringEnumValidator<StringEnumStringEnums> {
@@ -139,12 +141,14 @@ public class EnumTest {
     
     
     public static abstract sealed class EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {}
+    
     public static final class EnumStringRequiredBoxedString extends EnumStringRequiredBoxed {
         public final String data;
         private EnumStringRequiredBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class EnumStringRequired extends JsonSchema implements StringSchemaValidator<EnumStringRequiredBoxedString>, StringEnumValidator<StringEnumStringRequiredEnums> {
@@ -259,12 +263,14 @@ public class EnumTest {
     
     
     public static abstract sealed class EnumIntegerBoxed permits EnumIntegerBoxedNumber {}
+    
     public static final class EnumIntegerBoxedNumber extends EnumIntegerBoxed {
         public final Number data;
         private EnumIntegerBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class EnumInteger extends JsonSchema implements IntegerEnumValidator<IntegerEnumIntegerEnums>, LongEnumValidator<LongEnumIntegerEnums>, FloatEnumValidator<FloatEnumIntegerEnums>, DoubleEnumValidator<DoubleEnumIntegerEnums>, NumberSchemaValidator<EnumIntegerBoxedNumber> {
@@ -379,12 +385,14 @@ public class EnumTest {
     
     
     public static abstract sealed class EnumNumberBoxed permits EnumNumberBoxedNumber {}
+    
     public static final class EnumNumberBoxedNumber extends EnumNumberBoxed {
         public final Number data;
         private EnumNumberBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class EnumNumber extends JsonSchema implements FloatEnumValidator<FloatEnumNumberEnums>, DoubleEnumValidator<DoubleEnumNumberEnums>, NumberSchemaValidator<EnumNumberBoxedNumber> {
@@ -963,6 +971,7 @@ public class EnumTest {
     
     
     public static abstract sealed class EnumTest1Boxed permits EnumTest1BoxedMap {}
+    
     public static final class EnumTest1BoxedMap extends EnumTest1Boxed {
         public final EnumTestMap data;
         private EnumTest1BoxedMap(EnumTestMap data) {

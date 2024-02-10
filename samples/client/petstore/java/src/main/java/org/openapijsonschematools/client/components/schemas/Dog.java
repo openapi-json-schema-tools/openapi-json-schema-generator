@@ -116,6 +116,7 @@ public class Dog {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
@@ -199,36 +200,42 @@ public class Dog {
     
     
     public static abstract sealed class Dog1Boxed permits Dog1BoxedVoid, Dog1BoxedBoolean, Dog1BoxedNumber, Dog1BoxedString, Dog1BoxedList, Dog1BoxedMap {}
+    
     public static final class Dog1BoxedVoid extends Dog1Boxed {
         public final Void data;
         private Dog1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class Dog1BoxedBoolean extends Dog1Boxed {
         public final boolean data;
         private Dog1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class Dog1BoxedNumber extends Dog1Boxed {
         public final Number data;
         private Dog1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class Dog1BoxedString extends Dog1Boxed {
         public final String data;
         private Dog1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class Dog1BoxedList extends Dog1Boxed {
         public final FrozenList<@Nullable Object> data;
         private Dog1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class Dog1BoxedMap extends Dog1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Dog1BoxedMap(FrozenMap<@Nullable Object> data) {

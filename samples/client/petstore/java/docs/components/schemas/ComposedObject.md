@@ -17,6 +17,8 @@ A class that contains necessary nested
 
 ## ComposedObject1Boxed
 public static abstract sealed class ComposedObject1Boxed<br>
+permits<br>
+[ComposedObject1BoxedMap](#composedobject1boxedmap)
 
 ## ComposedObject1
 public static class ComposedObject1<br>
@@ -37,6 +39,13 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedVoid](#schema0boxedvoid),
+[Schema0BoxedBoolean](#schema0boxedboolean),
+[Schema0BoxedNumber](#schema0boxednumber),
+[Schema0BoxedString](#schema0boxedstring),
+[Schema0BoxedList](#schema0boxedlist),
+[Schema0BoxedMap](#schema0boxedmap)
 
 ## Schema0
 public static class Schema0<br>

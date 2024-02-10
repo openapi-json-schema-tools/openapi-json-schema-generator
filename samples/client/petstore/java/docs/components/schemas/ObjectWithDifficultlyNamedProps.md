@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## ObjectWithDifficultlyNamedProps1Boxed
 public static abstract sealed class ObjectWithDifficultlyNamedProps1Boxed<br>
+permits<br>
+[ObjectWithDifficultlyNamedProps1BoxedMap](#objectwithdifficultlynamedprops1boxedmap)
 
 ## ObjectWithDifficultlyNamedProps1
 public static class ObjectWithDifficultlyNamedProps1<br>
@@ -141,6 +143,8 @@ A class to store validated Map payloads
 
 ## Schema123NumberBoxed
 public static abstract sealed class Schema123NumberBoxed<br>
+permits<br>
+[Schema123NumberBoxedNumber](#schema123numberboxednumber)
 
 ## Schema123Number
 public static class Schema123Number<br>
@@ -155,6 +159,8 @@ A schema class that validates payloads
 
 ## Schema123listBoxed
 public static abstract sealed class Schema123listBoxed<br>
+permits<br>
+[Schema123listBoxedString](#schema123listboxedstring)
 
 ## Schema123list
 public static class Schema123list<br>
@@ -169,6 +175,8 @@ A schema class that validates payloads
 
 ## SpecialpropertynameBoxed
 public static abstract sealed class SpecialpropertynameBoxed<br>
+permits<br>
+[SpecialpropertynameBoxedNumber](#specialpropertynameboxednumber)
 
 ## Specialpropertyname
 public static class Specialpropertyname<br>

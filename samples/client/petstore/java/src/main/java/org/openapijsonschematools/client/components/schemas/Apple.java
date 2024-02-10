@@ -32,12 +32,14 @@ public class Apple {
     
     
     public static abstract sealed class CultivarBoxed permits CultivarBoxedString {}
+    
     public static final class CultivarBoxedString extends CultivarBoxed {
         public final String data;
         private CultivarBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Cultivar extends JsonSchema implements StringSchemaValidator<CultivarBoxedString> {
@@ -93,12 +95,14 @@ public class Apple {
     }    
     
     public static abstract sealed class OriginBoxed permits OriginBoxedString {}
+    
     public static final class OriginBoxedString extends OriginBoxed {
         public final String data;
         private OriginBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Origin extends JsonSchema implements StringSchemaValidator<OriginBoxedString> {
@@ -256,12 +260,14 @@ public class Apple {
     
     
     public static abstract sealed class Apple1Boxed permits Apple1BoxedVoid, Apple1BoxedMap {}
+    
     public static final class Apple1BoxedVoid extends Apple1Boxed {
         public final Void data;
         private Apple1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class Apple1BoxedMap extends Apple1Boxed {
         public final AppleMap data;
         private Apple1BoxedMap(AppleMap data) {

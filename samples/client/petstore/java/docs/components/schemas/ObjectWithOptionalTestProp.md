@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## ObjectWithOptionalTestProp1Boxed
 public static abstract sealed class ObjectWithOptionalTestProp1Boxed<br>
+permits<br>
+[ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap)
 
 ## ObjectWithOptionalTestProp1
 public static class ObjectWithOptionalTestProp1<br>
@@ -106,6 +108,8 @@ A class to store validated Map payloads
 
 ## TestBoxed
 public static abstract sealed class TestBoxed<br>
+permits<br>
+[TestBoxedString](#testboxedstring)
 
 ## Test
 public static class Test<br>

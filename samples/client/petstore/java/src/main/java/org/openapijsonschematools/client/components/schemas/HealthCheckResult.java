@@ -31,18 +31,21 @@ public class HealthCheckResult {
     
     
     public static abstract sealed class NullableMessageBoxed permits NullableMessageBoxedVoid, NullableMessageBoxedString {}
+    
     public static final class NullableMessageBoxedVoid extends NullableMessageBoxed {
         public final Void data;
         private NullableMessageBoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class NullableMessageBoxedString extends NullableMessageBoxed {
         public final String data;
         private NullableMessageBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class NullableMessage extends JsonSchema implements NullSchemaValidator<NullableMessageBoxedVoid>, StringSchemaValidator<NullableMessageBoxedString> {
@@ -187,6 +190,7 @@ public class HealthCheckResult {
     
     
     public static abstract sealed class HealthCheckResult1Boxed permits HealthCheckResult1BoxedMap {}
+    
     public static final class HealthCheckResult1BoxedMap extends HealthCheckResult1Boxed {
         public final HealthCheckResultMap data;
         private HealthCheckResult1BoxedMap(HealthCheckResultMap data) {

@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## ParentPet1Boxed
 public static abstract sealed class ParentPet1Boxed<br>
+permits<br>
+[ParentPet1BoxedMap](#parentpet1boxedmap)
 
 ## ParentPet1
 public static class ParentPet1<br>

@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## ObjectWithDecimalProperties1Boxed
 public static abstract sealed class ObjectWithDecimalProperties1Boxed<br>
+permits<br>
+[ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap)
 
 ## ObjectWithDecimalProperties1
 public static class ObjectWithDecimalProperties1<br>
@@ -124,6 +126,8 @@ A class to store validated Map payloads
 
 ## WidthBoxed
 public static abstract sealed class WidthBoxed<br>
+permits<br>
+[WidthBoxedString](#widthboxedstring)
 
 ## Width
 public static class Width<br>

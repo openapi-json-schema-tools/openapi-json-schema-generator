@@ -20,12 +20,14 @@ public class StringWithValidation {
     
     
     public static abstract sealed class StringWithValidation1Boxed permits StringWithValidation1BoxedString {}
+    
     public static final class StringWithValidation1BoxedString extends StringWithValidation1Boxed {
         public final String data;
         private StringWithValidation1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class StringWithValidation1 extends JsonSchema implements StringSchemaValidator<StringWithValidation1BoxedString> {

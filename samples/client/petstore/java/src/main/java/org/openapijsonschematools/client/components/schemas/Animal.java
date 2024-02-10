@@ -43,12 +43,14 @@ public class Animal {
     
     
     public static abstract sealed class ColorBoxed permits ColorBoxedString {}
+    
     public static final class ColorBoxedString extends ColorBoxed {
         public final String data;
         private ColorBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Color extends JsonSchema implements StringSchemaValidator<ColorBoxedString>, DefaultValueMethod<String> {
@@ -209,6 +211,7 @@ public class Animal {
     
     
     public static abstract sealed class Animal1Boxed permits Animal1BoxedMap {}
+    
     public static final class Animal1BoxedMap extends Animal1Boxed {
         public final AnimalMap data;
         private Animal1BoxedMap(AnimalMap data) {

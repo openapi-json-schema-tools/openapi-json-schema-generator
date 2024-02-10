@@ -107,6 +107,7 @@ public class File {
     
     
     public static abstract sealed class File1Boxed permits File1BoxedMap {}
+    
     public static final class File1BoxedMap extends File1Boxed {
         public final FileMap data;
         private File1BoxedMap(FileMap data) {

@@ -36,12 +36,14 @@ public class Schema {
     
     
     public static abstract sealed class Schema0Boxed permits Schema0BoxedString {}
+    
     public static final class Schema0BoxedString extends Schema0Boxed {
         public final String data;
         private Schema0BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Schema0 extends JsonSchema implements StringSchemaValidator<Schema0BoxedString> {
@@ -95,36 +97,42 @@ public class Schema {
     }    
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedVoid, Schema1BoxedBoolean, Schema1BoxedNumber, Schema1BoxedString, Schema1BoxedList, Schema1BoxedMap {}
+    
     public static final class Schema1BoxedVoid extends Schema1Boxed {
         public final Void data;
         private Schema1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class Schema1BoxedBoolean extends Schema1Boxed {
         public final boolean data;
         private Schema1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class Schema1BoxedNumber extends Schema1Boxed {
         public final Number data;
         private Schema1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class Schema1BoxedString extends Schema1Boxed {
         public final String data;
         private Schema1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class Schema1BoxedList extends Schema1Boxed {
         public final FrozenList<@Nullable Object> data;
         private Schema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema1BoxedMap(FrozenMap<@Nullable Object> data) {

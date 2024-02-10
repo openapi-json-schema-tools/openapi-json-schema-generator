@@ -48,12 +48,14 @@ public class EnumArrays {
     
     
     public static abstract sealed class JustSymbolBoxed permits JustSymbolBoxedString {}
+    
     public static final class JustSymbolBoxedString extends JustSymbolBoxed {
         public final String data;
         private JustSymbolBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class JustSymbol extends JsonSchema implements StringSchemaValidator<JustSymbolBoxedString>, StringEnumValidator<StringJustSymbolEnums> {
@@ -128,12 +130,14 @@ public class EnumArrays {
     
     
     public static abstract sealed class ItemsBoxed permits ItemsBoxedString {}
+    
     public static final class ItemsBoxedString extends ItemsBoxed {
         public final String data;
         private ItemsBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Items extends JsonSchema implements StringSchemaValidator<ItemsBoxedString>, StringEnumValidator<StringItemsEnums> {
@@ -232,12 +236,14 @@ public class EnumArrays {
     
     
     public static abstract sealed class ArrayEnumBoxed permits ArrayEnumBoxedList {}
+    
     public static final class ArrayEnumBoxedList extends ArrayEnumBoxed {
         public final ArrayEnumList data;
         private ArrayEnumBoxedList(ArrayEnumList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ArrayEnum extends JsonSchema implements ListSchemaValidator<ArrayEnumList, ArrayEnumBoxedList> {
@@ -409,6 +415,7 @@ public class EnumArrays {
     
     
     public static abstract sealed class EnumArrays1Boxed permits EnumArrays1BoxedMap {}
+    
     public static final class EnumArrays1BoxedMap extends EnumArrays1Boxed {
         public final EnumArraysMap data;
         private EnumArrays1BoxedMap(EnumArraysMap data) {

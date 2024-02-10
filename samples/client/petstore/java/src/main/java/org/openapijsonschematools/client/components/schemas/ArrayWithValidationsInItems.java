@@ -24,12 +24,14 @@ public class ArrayWithValidationsInItems {
     
     
     public static abstract sealed class ItemsBoxed permits ItemsBoxedNumber {}
+    
     public static final class ItemsBoxedNumber extends ItemsBoxed {
         public final Number data;
         private ItemsBoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Items extends JsonSchema implements NumberSchemaValidator<ItemsBoxedNumber> {
@@ -150,12 +152,14 @@ public class ArrayWithValidationsInItems {
     
     
     public static abstract sealed class ArrayWithValidationsInItems1Boxed permits ArrayWithValidationsInItems1BoxedList {}
+    
     public static final class ArrayWithValidationsInItems1BoxedList extends ArrayWithValidationsInItems1Boxed {
         public final ArrayWithValidationsInItemsList data;
         private ArrayWithValidationsInItems1BoxedList(ArrayWithValidationsInItemsList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ArrayWithValidationsInItems1 extends JsonSchema implements ListSchemaValidator<ArrayWithValidationsInItemsList, ArrayWithValidationsInItems1BoxedList> {

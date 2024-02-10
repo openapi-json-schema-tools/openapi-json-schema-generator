@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## ApiResponseSchema1Boxed
 public static abstract sealed class ApiResponseSchema1Boxed<br>
+permits<br>
+[ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap)
 
 ## ApiResponseSchema1
 public static class ApiResponseSchema1<br>
@@ -119,6 +121,8 @@ A class to store validated Map payloads
 
 ## MessageBoxed
 public static abstract sealed class MessageBoxed<br>
+permits<br>
+[MessageBoxedString](#messageboxedstring)
 
 ## Message
 public static class Message<br>
@@ -133,6 +137,8 @@ A schema class that validates payloads
 
 ## TypeBoxed
 public static abstract sealed class TypeBoxed<br>
+permits<br>
+[TypeBoxedString](#typeboxedstring)
 
 ## Type
 public static class Type<br>
@@ -147,6 +153,8 @@ A schema class that validates payloads
 
 ## CodeBoxed
 public static abstract sealed class CodeBoxed<br>
+permits<br>
+[CodeBoxedNumber](#codeboxednumber)
 
 ## Code
 public static class Code<br>

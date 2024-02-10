@@ -17,6 +17,8 @@ A class that contains necessary nested
 
 ## ComposedNumber1Boxed
 public static abstract sealed class ComposedNumber1Boxed<br>
+permits<br>
+[ComposedNumber1BoxedNumber](#composednumber1boxednumber)
 
 ## ComposedNumber1
 public static class ComposedNumber1<br>
@@ -59,6 +61,13 @@ int validatedPayload = ComposedNumber.ComposedNumber1.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedVoid](#schema0boxedvoid),
+[Schema0BoxedBoolean](#schema0boxedboolean),
+[Schema0BoxedNumber](#schema0boxednumber),
+[Schema0BoxedString](#schema0boxedstring),
+[Schema0BoxedList](#schema0boxedlist),
+[Schema0BoxedMap](#schema0boxedmap)
 
 ## Schema0
 public static class Schema0<br>

@@ -20,6 +20,8 @@ A class that contains necessary nested
 
 ## IntegerEnumWithDefaultValue1Boxed
 public static abstract sealed class IntegerEnumWithDefaultValue1Boxed<br>
+permits<br>
+[IntegerEnumWithDefaultValue1BoxedNumber](#integerenumwithdefaultvalue1boxednumber)
 
 ## IntegerEnumWithDefaultValue1
 public static class IntegerEnumWithDefaultValue1<br>

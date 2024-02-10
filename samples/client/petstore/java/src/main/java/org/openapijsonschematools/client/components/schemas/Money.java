@@ -172,6 +172,7 @@ public class Money {
     
     
     public static abstract sealed class Money1Boxed permits Money1BoxedMap {}
+    
     public static final class Money1BoxedMap extends Money1Boxed {
         public final MoneyMap data;
         private Money1BoxedMap(MoneyMap data) {

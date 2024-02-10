@@ -61,12 +61,14 @@ public class Variables {
     
     
     public static abstract sealed class ServerBoxed permits ServerBoxedString {}
+    
     public static final class ServerBoxedString extends ServerBoxed {
         public final String data;
         private ServerBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Server extends JsonSchema implements StringSchemaValidator<ServerBoxedString>, StringEnumValidator<StringServerEnums>, DefaultValueMethod<String> {
@@ -149,12 +151,14 @@ public class Variables {
     
     
     public static abstract sealed class PortBoxed permits PortBoxedString {}
+    
     public static final class PortBoxedString extends PortBoxed {
         public final String data;
         private PortBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Port extends JsonSchema implements StringSchemaValidator<PortBoxedString>, StringEnumValidator<StringPortEnums>, DefaultValueMethod<String> {
@@ -347,6 +351,7 @@ public class Variables {
     
     
     public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {}
+    
     public static final class Variables1BoxedMap extends Variables1Boxed {
         public final VariablesMap data;
         private Variables1BoxedMap(VariablesMap data) {

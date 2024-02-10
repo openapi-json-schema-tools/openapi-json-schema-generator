@@ -115,6 +115,7 @@ public class ObjWithRequiredPropsBase {
     
     
     public static abstract sealed class ObjWithRequiredPropsBase1Boxed permits ObjWithRequiredPropsBase1BoxedMap {}
+    
     public static final class ObjWithRequiredPropsBase1BoxedMap extends ObjWithRequiredPropsBase1Boxed {
         public final ObjWithRequiredPropsBaseMap data;
         private ObjWithRequiredPropsBase1BoxedMap(ObjWithRequiredPropsBaseMap data) {

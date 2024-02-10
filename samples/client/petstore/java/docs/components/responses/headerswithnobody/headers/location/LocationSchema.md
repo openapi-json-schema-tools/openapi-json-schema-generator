@@ -14,6 +14,8 @@ A class that contains necessary nested
 
 ## LocationSchema1Boxed
 public static abstract sealed class LocationSchema1Boxed<br>
+permits<br>
+[LocationSchema1BoxedString](#locationschema1boxedstring)
 
 ## LocationSchema1
 public static class LocationSchema1<br>

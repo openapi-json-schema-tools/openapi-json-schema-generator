@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## ObjectWithOnlyOptionalProps1Boxed
 public static abstract sealed class ObjectWithOnlyOptionalProps1Boxed<br>
+permits<br>
+[ObjectWithOnlyOptionalProps1BoxedMap](#objectwithonlyoptionalprops1boxedmap)
 
 ## ObjectWithOnlyOptionalProps1
 public static class ObjectWithOnlyOptionalProps1<br>
@@ -108,6 +110,8 @@ A class to store validated Map payloads
 
 ## BBoxed
 public static abstract sealed class BBoxed<br>
+permits<br>
+[BBoxedNumber](#bboxednumber)
 
 ## B
 public static class B<br>
@@ -122,6 +126,8 @@ A schema class that validates payloads
 
 ## ABoxed
 public static abstract sealed class ABoxed<br>
+permits<br>
+[ABoxedString](#aboxedstring)
 
 ## A
 public static class A<br>
@@ -136,6 +142,13 @@ A schema class that validates payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

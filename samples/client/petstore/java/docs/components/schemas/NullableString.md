@@ -15,6 +15,9 @@ A class that contains necessary nested
 
 ## NullableString1Boxed
 public static abstract sealed class NullableString1Boxed<br>
+permits<br>
+[NullableString1BoxedVoid](#nullablestring1boxedvoid),
+[NullableString1BoxedString](#nullablestring1boxedstring)
 
 ## NullableString1
 public static class NullableString1<br>

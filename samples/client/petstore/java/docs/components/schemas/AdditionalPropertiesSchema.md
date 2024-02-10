@@ -35,6 +35,8 @@ A class that contains necessary nested
 
 ## AdditionalPropertiesSchema1Boxed
 public static abstract sealed class AdditionalPropertiesSchema1Boxed<br>
+permits<br>
+[AdditionalPropertiesSchema1BoxedMap](#additionalpropertiesschema1boxedmap)
 
 ## AdditionalPropertiesSchema1
 public static class AdditionalPropertiesSchema1<br>
@@ -55,6 +57,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2Boxed
 public static abstract sealed class Schema2Boxed<br>
+permits<br>
+[Schema2BoxedMap](#schema2boxedmap)
 
 ## Schema2
 public static class Schema2<br>
@@ -136,6 +140,13 @@ A class to store validated Map payloads
 
 ## AdditionalProperties2Boxed
 public static abstract sealed class AdditionalProperties2Boxed<br>
+permits<br>
+[AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid),
+[AdditionalProperties2BoxedBoolean](#additionalproperties2boxedboolean),
+[AdditionalProperties2BoxedNumber](#additionalproperties2boxednumber),
+[AdditionalProperties2BoxedString](#additionalproperties2boxedstring),
+[AdditionalProperties2BoxedList](#additionalproperties2boxedlist),
+[AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -163,6 +174,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -244,6 +257,13 @@ A class to store validated Map payloads
 
 ## AdditionalProperties1Boxed
 public static abstract sealed class AdditionalProperties1Boxed<br>
+permits<br>
+[AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid),
+[AdditionalProperties1BoxedBoolean](#additionalproperties1boxedboolean),
+[AdditionalProperties1BoxedNumber](#additionalproperties1boxednumber),
+[AdditionalProperties1BoxedString](#additionalproperties1boxedstring),
+[AdditionalProperties1BoxedList](#additionalproperties1boxedlist),
+[AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -271,6 +291,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedMap](#schema0boxedmap)
 
 ## Schema0
 public static class Schema0<br>
@@ -352,6 +374,13 @@ A class to store validated Map payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

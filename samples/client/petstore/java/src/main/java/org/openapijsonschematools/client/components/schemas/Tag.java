@@ -163,6 +163,7 @@ public class Tag {
     
     
     public static abstract sealed class Tag1Boxed permits Tag1BoxedMap {}
+    
     public static final class Tag1BoxedMap extends Tag1Boxed {
         public final TagMap data;
         private Tag1BoxedMap(TagMap data) {

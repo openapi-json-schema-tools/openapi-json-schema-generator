@@ -68,12 +68,14 @@ public class Whale {
     
     
     public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {}
+    
     public static final class ClassNameBoxedString extends ClassNameBoxed {
         public final String data;
         private ClassNameBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class ClassName extends JsonSchema implements StringSchemaValidator<ClassNameBoxedString>, StringEnumValidator<StringClassNameEnums> {
@@ -267,6 +269,7 @@ public class Whale {
     
     
     public static abstract sealed class Whale1Boxed permits Whale1BoxedMap {}
+    
     public static final class Whale1BoxedMap extends Whale1Boxed {
         public final WhaleMap data;
         private Whale1BoxedMap(WhaleMap data) {

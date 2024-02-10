@@ -17,6 +17,8 @@ A class that contains necessary nested
 
 ## Currency1Boxed
 public static abstract sealed class Currency1Boxed<br>
+permits<br>
+[Currency1BoxedString](#currency1boxedstring)
 
 ## Currency1
 public static class Currency1<br>

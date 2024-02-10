@@ -25,6 +25,8 @@ A class that contains necessary nested
 
 ## BananaReq1Boxed
 public static abstract sealed class BananaReq1Boxed<br>
+permits<br>
+[BananaReq1BoxedMap](#bananareq1boxedmap)
 
 ## BananaReq1
 public static class BananaReq1<br>
@@ -124,6 +126,8 @@ A class to store validated Map payloads
 
 ## SweetBoxed
 public static abstract sealed class SweetBoxed<br>
+permits<br>
+[SweetBoxedBoolean](#sweetboxedboolean)
 
 ## Sweet
 public static class Sweet<br>
@@ -138,6 +142,8 @@ A schema class that validates payloads
 
 ## LengthCmBoxed
 public static abstract sealed class LengthCmBoxed<br>
+permits<br>
+[LengthCmBoxedNumber](#lengthcmboxednumber)
 
 ## LengthCm
 public static class LengthCm<br>
@@ -152,6 +158,13 @@ A schema class that validates payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

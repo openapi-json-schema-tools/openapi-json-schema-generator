@@ -46,6 +46,8 @@ A class that contains necessary nested
 
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -490,6 +492,8 @@ A class to store validated Map payloads
 
 ## CallbackBoxed
 public static abstract sealed class CallbackBoxed<br>
+permits<br>
+[CallbackBoxedString](#callbackboxedstring)
 
 ## Callback
 public static class Callback<br>
@@ -507,6 +511,8 @@ None
 
 ## PasswordBoxed
 public static abstract sealed class PasswordBoxed<br>
+permits<br>
+[PasswordBoxedString](#passwordboxedstring)
 
 ## Password
 public static class Password<br>
@@ -554,6 +560,8 @@ String validatedPayload = Schema.Password.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DateTimeBoxed
 public static abstract sealed class DateTimeBoxed<br>
+permits<br>
+[DateTimeBoxedString](#datetimeboxedstring)
 
 ## DateTime
 public static class DateTime<br>
@@ -600,6 +608,8 @@ String validatedPayload = Schema.DateTime.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DateBoxed
 public static abstract sealed class DateBoxed<br>
+permits<br>
+[DateBoxedString](#dateboxedstring)
 
 ## Date
 public static class Date<br>
@@ -617,6 +627,7 @@ None
 
 ## BinaryBoxed
 public static abstract sealed class BinaryBoxed<br>
+permits<br>
 
 ## Binary
 public static class Binary<br>
@@ -629,6 +640,8 @@ None
 
 ## ByteSchemaBoxed
 public static abstract sealed class ByteSchemaBoxed<br>
+permits<br>
+[ByteSchemaBoxedString](#byteschemaboxedstring)
 
 ## ByteSchema
 public static class ByteSchema<br>
@@ -641,6 +654,8 @@ None
 
 ## PatternWithoutDelimiterBoxed
 public static abstract sealed class PatternWithoutDelimiterBoxed<br>
+permits<br>
+[PatternWithoutDelimiterBoxedString](#patternwithoutdelimiterboxedstring)
 
 ## PatternWithoutDelimiter
 public static class PatternWithoutDelimiter<br>
@@ -686,6 +701,8 @@ String validatedPayload = Schema.PatternWithoutDelimiter.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringSchemaBoxed
 public static abstract sealed class StringSchemaBoxed<br>
+permits<br>
+[StringSchemaBoxedString](#stringschemaboxedstring)
 
 ## StringSchema
 public static class StringSchema<br>
@@ -731,6 +748,8 @@ String validatedPayload = Schema.StringSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DoubleSchemaBoxed
 public static abstract sealed class DoubleSchemaBoxed<br>
+permits<br>
+[DoubleSchemaBoxedNumber](#doubleschemaboxednumber)
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -778,6 +797,8 @@ double validatedPayload = Schema.DoubleSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FloatSchemaBoxed
 public static abstract sealed class FloatSchemaBoxed<br>
+permits<br>
+[FloatSchemaBoxedNumber](#floatschemaboxednumber)
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -824,6 +845,8 @@ float validatedPayload = Schema.FloatSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberSchemaBoxed
 public static abstract sealed class NumberSchemaBoxed<br>
+permits<br>
+[NumberSchemaBoxedNumber](#numberschemaboxednumber)
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -870,6 +893,8 @@ int validatedPayload = Schema.NumberSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int64Boxed
 public static abstract sealed class Int64Boxed<br>
+permits<br>
+[Int64BoxedNumber](#int64boxednumber)
 
 ## Int64
 public static class Int64<br>
@@ -887,6 +912,8 @@ None
 
 ## Int32Boxed
 public static abstract sealed class Int32Boxed<br>
+permits<br>
+[Int32BoxedNumber](#int32boxednumber)
 
 ## Int32
 public static class Int32<br>
@@ -934,6 +961,8 @@ int validatedPayload = Schema.Int32.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerSchemaBoxed
 public static abstract sealed class IntegerSchemaBoxed<br>
+permits<br>
+[IntegerSchemaBoxedNumber](#integerschemaboxednumber)
 
 ## IntegerSchema
 public static class IntegerSchema<br>

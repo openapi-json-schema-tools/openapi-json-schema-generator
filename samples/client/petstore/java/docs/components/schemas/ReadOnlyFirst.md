@@ -23,6 +23,8 @@ A class that contains necessary nested
 
 ## ReadOnlyFirst1Boxed
 public static abstract sealed class ReadOnlyFirst1Boxed<br>
+permits<br>
+[ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap)
 
 ## ReadOnlyFirst1
 public static class ReadOnlyFirst1<br>
@@ -112,6 +114,8 @@ A class to store validated Map payloads
 
 ## BazBoxed
 public static abstract sealed class BazBoxed<br>
+permits<br>
+[BazBoxedString](#bazboxedstring)
 
 ## Baz
 public static class Baz<br>
@@ -126,6 +130,8 @@ A schema class that validates payloads
 
 ## BarBoxed
 public static abstract sealed class BarBoxed<br>
+permits<br>
+[BarBoxedString](#barboxedstring)
 
 ## Bar
 public static class Bar<br>

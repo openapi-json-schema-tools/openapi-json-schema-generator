@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## StringSchema1Boxed
 public static abstract sealed class StringSchema1Boxed<br>
+permits<br>
+[StringSchema1BoxedString](#stringschema1boxedstring)
 
 ## StringSchema1
 public static class StringSchema1<br>

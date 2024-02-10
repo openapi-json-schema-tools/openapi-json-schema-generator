@@ -17,6 +17,8 @@ A class that contains necessary nested
 
 ## EnumClass1Boxed
 public static abstract sealed class EnumClass1Boxed<br>
+permits<br>
+[EnumClass1BoxedString](#enumclass1boxedstring)
 
 ## EnumClass1
 public static class EnumClass1<br>

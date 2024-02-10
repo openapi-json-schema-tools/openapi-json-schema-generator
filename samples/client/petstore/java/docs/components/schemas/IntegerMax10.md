@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## IntegerMax101Boxed
 public static abstract sealed class IntegerMax101Boxed<br>
+permits<br>
+[IntegerMax101BoxedNumber](#integermax101boxednumber)
 
 ## IntegerMax101
 public static class IntegerMax101<br>

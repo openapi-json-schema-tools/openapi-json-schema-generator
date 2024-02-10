@@ -17,6 +17,13 @@ A class that contains necessary nested
 
 ## ShapeOrNull1Boxed
 public static abstract sealed class ShapeOrNull1Boxed<br>
+permits<br>
+[ShapeOrNull1BoxedVoid](#shapeornull1boxedvoid),
+[ShapeOrNull1BoxedBoolean](#shapeornull1boxedboolean),
+[ShapeOrNull1BoxedNumber](#shapeornull1boxednumber),
+[ShapeOrNull1BoxedString](#shapeornull1boxedstring),
+[ShapeOrNull1BoxedList](#shapeornull1boxedlist),
+[ShapeOrNull1BoxedMap](#shapeornull1boxedmap)
 
 ## ShapeOrNull1
 public static class ShapeOrNull1<br>
@@ -47,6 +54,8 @@ The value may be a shape or the &#x27;null&#x27; value. This is introduced in OA
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedVoid](#schema0boxedvoid)
 
 ## Schema0
 public static class Schema0<br>

@@ -31,6 +31,13 @@ A class that contains necessary nested
 
 ## ComposedOneOfDifferentTypes1Boxed
 public static abstract sealed class ComposedOneOfDifferentTypes1Boxed<br>
+permits<br>
+[ComposedOneOfDifferentTypes1BoxedVoid](#composedoneofdifferenttypes1boxedvoid),
+[ComposedOneOfDifferentTypes1BoxedBoolean](#composedoneofdifferenttypes1boxedboolean),
+[ComposedOneOfDifferentTypes1BoxedNumber](#composedoneofdifferenttypes1boxednumber),
+[ComposedOneOfDifferentTypes1BoxedString](#composedoneofdifferenttypes1boxedstring),
+[ComposedOneOfDifferentTypes1BoxedList](#composedoneofdifferenttypes1boxedlist),
+[ComposedOneOfDifferentTypes1BoxedMap](#composedoneofdifferenttypes1boxedmap)
 
 ## ComposedOneOfDifferentTypes1
 public static class ComposedOneOfDifferentTypes1<br>
@@ -61,6 +68,8 @@ this is a model that allows payloads of type object or number
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema6Boxed
 public static abstract sealed class Schema6Boxed<br>
+permits<br>
+[Schema6BoxedString](#schema6boxedstring)
 
 ## Schema6
 public static class Schema6<br>
@@ -104,6 +113,8 @@ String validatedPayload = ComposedOneOfDifferentTypes.Schema6.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema5Boxed
 public static abstract sealed class Schema5Boxed<br>
+permits<br>
+[Schema5BoxedList](#schema5boxedlist)
 
 ## Schema5
 public static class Schema5<br>
@@ -187,6 +198,13 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedVoid](#itemsboxedvoid),
+[ItemsBoxedBoolean](#itemsboxedboolean),
+[ItemsBoxedNumber](#itemsboxednumber),
+[ItemsBoxedString](#itemsboxedstring),
+[ItemsBoxedList](#itemsboxedlist),
+[ItemsBoxedMap](#itemsboxedmap)
 
 ## Items
 public static class Items<br>
@@ -201,6 +219,8 @@ A schema class that validates payloads
 
 ## Schema4Boxed
 public static abstract sealed class Schema4Boxed<br>
+permits<br>
+[Schema4BoxedMap](#schema4boxedmap)
 
 ## Schema4
 public static class Schema4<br>
@@ -222,6 +242,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema3Boxed
 public static abstract sealed class Schema3Boxed<br>
+permits<br>
+[Schema3BoxedString](#schema3boxedstring)
 
 ## Schema3
 public static class Schema3<br>
@@ -236,6 +258,8 @@ A schema class that validates payloads
 
 ## Schema2Boxed
 public static abstract sealed class Schema2Boxed<br>
+permits<br>
+[Schema2BoxedVoid](#schema2boxedvoid)
 
 ## Schema2
 public static class Schema2<br>

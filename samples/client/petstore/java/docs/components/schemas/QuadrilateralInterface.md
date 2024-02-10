@@ -25,6 +25,13 @@ A class that contains necessary nested
 
 ## QuadrilateralInterface1Boxed
 public static abstract sealed class QuadrilateralInterface1Boxed<br>
+permits<br>
+[QuadrilateralInterface1BoxedVoid](#quadrilateralinterface1boxedvoid),
+[QuadrilateralInterface1BoxedBoolean](#quadrilateralinterface1boxedboolean),
+[QuadrilateralInterface1BoxedNumber](#quadrilateralinterface1boxednumber),
+[QuadrilateralInterface1BoxedString](#quadrilateralinterface1boxedstring),
+[QuadrilateralInterface1BoxedList](#quadrilateralinterface1boxedlist),
+[QuadrilateralInterface1BoxedMap](#quadrilateralinterface1boxedmap)
 
 ## QuadrilateralInterface1
 public static class QuadrilateralInterface1<br>
@@ -143,6 +150,8 @@ A class to store validated Map payloads
 
 ## QuadrilateralTypeBoxed
 public static abstract sealed class QuadrilateralTypeBoxed<br>
+permits<br>
+[QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>
@@ -157,6 +166,8 @@ A schema class that validates payloads
 
 ## ShapeTypeBoxed
 public static abstract sealed class ShapeTypeBoxed<br>
+permits<br>
+[ShapeTypeBoxedString](#shapetypeboxedstring)
 
 ## ShapeType
 public static class ShapeType<br>

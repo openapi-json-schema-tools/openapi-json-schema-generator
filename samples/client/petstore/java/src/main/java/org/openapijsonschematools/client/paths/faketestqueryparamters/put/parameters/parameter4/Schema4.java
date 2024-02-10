@@ -67,12 +67,14 @@ public class Schema4 {
     
     
     public static abstract sealed class Schema41Boxed permits Schema41BoxedList {}
+    
     public static final class Schema41BoxedList extends Schema41Boxed {
         public final SchemaList4 data;
         private Schema41BoxedList(SchemaList4 data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Schema41 extends JsonSchema implements ListSchemaValidator<SchemaList4, Schema41BoxedList> {

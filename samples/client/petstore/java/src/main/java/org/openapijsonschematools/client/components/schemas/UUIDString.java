@@ -21,12 +21,14 @@ public class UUIDString {
     
     
     public static abstract sealed class UUIDString1Boxed permits UUIDString1BoxedString {}
+    
     public static final class UUIDString1BoxedString extends UUIDString1Boxed {
         public final String data;
         private UUIDString1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class UUIDString1 extends JsonSchema implements StringSchemaValidator<UUIDString1BoxedString> {

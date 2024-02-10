@@ -14,6 +14,13 @@ A class that contains necessary nested
 
 ## RefSchemaHeaderSchema1Boxed
 public static abstract sealed class RefSchemaHeaderSchema1Boxed<br>
+permits<br>
+[RefSchemaHeaderSchema1BoxedVoid](#refschemaheaderschema1boxedvoid),
+[RefSchemaHeaderSchema1BoxedBoolean](#refschemaheaderschema1boxedboolean),
+[RefSchemaHeaderSchema1BoxedNumber](#refschemaheaderschema1boxednumber),
+[RefSchemaHeaderSchema1BoxedString](#refschemaheaderschema1boxedstring),
+[RefSchemaHeaderSchema1BoxedList](#refschemaheaderschema1boxedlist),
+[RefSchemaHeaderSchema1BoxedMap](#refschemaheaderschema1boxedmap)
 
 ## RefSchemaHeaderSchema1
 public static class RefSchemaHeaderSchema1<br>

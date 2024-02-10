@@ -53,6 +53,13 @@ A class that contains necessary nested
 
 ## ComposedAnyOfDifferentTypesNoValidations1Boxed
 public static abstract sealed class ComposedAnyOfDifferentTypesNoValidations1Boxed<br>
+permits<br>
+[ComposedAnyOfDifferentTypesNoValidations1BoxedVoid](#composedanyofdifferenttypesnovalidations1boxedvoid),
+[ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean](#composedanyofdifferenttypesnovalidations1boxedboolean),
+[ComposedAnyOfDifferentTypesNoValidations1BoxedNumber](#composedanyofdifferenttypesnovalidations1boxednumber),
+[ComposedAnyOfDifferentTypesNoValidations1BoxedString](#composedanyofdifferenttypesnovalidations1boxedstring),
+[ComposedAnyOfDifferentTypesNoValidations1BoxedList](#composedanyofdifferenttypesnovalidations1boxedlist),
+[ComposedAnyOfDifferentTypesNoValidations1BoxedMap](#composedanyofdifferenttypesnovalidations1boxedmap)
 
 ## ComposedAnyOfDifferentTypesNoValidations1
 public static class ComposedAnyOfDifferentTypesNoValidations1<br>
@@ -80,6 +87,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema15Boxed
 public static abstract sealed class Schema15Boxed<br>
+permits<br>
+[Schema15BoxedNumber](#schema15boxednumber)
 
 ## Schema15
 public static class Schema15<br>
@@ -94,6 +103,8 @@ A schema class that validates payloads
 
 ## Schema14Boxed
 public static abstract sealed class Schema14Boxed<br>
+permits<br>
+[Schema14BoxedNumber](#schema14boxednumber)
 
 ## Schema14
 public static class Schema14<br>
@@ -108,6 +119,8 @@ A schema class that validates payloads
 
 ## Schema13Boxed
 public static abstract sealed class Schema13Boxed<br>
+permits<br>
+[Schema13BoxedNumber](#schema13boxednumber)
 
 ## Schema13
 public static class Schema13<br>
@@ -122,6 +135,8 @@ A schema class that validates payloads
 
 ## Schema12Boxed
 public static abstract sealed class Schema12Boxed<br>
+permits<br>
+[Schema12BoxedNumber](#schema12boxednumber)
 
 ## Schema12
 public static class Schema12<br>
@@ -136,6 +151,8 @@ A schema class that validates payloads
 
 ## Schema11Boxed
 public static abstract sealed class Schema11Boxed<br>
+permits<br>
+[Schema11BoxedNumber](#schema11boxednumber)
 
 ## Schema11
 public static class Schema11<br>
@@ -150,6 +167,8 @@ A schema class that validates payloads
 
 ## Schema10Boxed
 public static abstract sealed class Schema10Boxed<br>
+permits<br>
+[Schema10BoxedNumber](#schema10boxednumber)
 
 ## Schema10
 public static class Schema10<br>
@@ -164,6 +183,8 @@ A schema class that validates payloads
 
 ## Schema9Boxed
 public static abstract sealed class Schema9Boxed<br>
+permits<br>
+[Schema9BoxedList](#schema9boxedlist)
 
 ## Schema9
 public static class Schema9<br>
@@ -245,6 +266,13 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedVoid](#itemsboxedvoid),
+[ItemsBoxedBoolean](#itemsboxedboolean),
+[ItemsBoxedNumber](#itemsboxednumber),
+[ItemsBoxedString](#itemsboxedstring),
+[ItemsBoxedList](#itemsboxedlist),
+[ItemsBoxedMap](#itemsboxedmap)
 
 ## Items
 public static class Items<br>
@@ -259,6 +287,8 @@ A schema class that validates payloads
 
 ## Schema8Boxed
 public static abstract sealed class Schema8Boxed<br>
+permits<br>
+[Schema8BoxedVoid](#schema8boxedvoid)
 
 ## Schema8
 public static class Schema8<br>
@@ -273,6 +303,8 @@ A schema class that validates payloads
 
 ## Schema7Boxed
 public static abstract sealed class Schema7Boxed<br>
+permits<br>
+[Schema7BoxedBoolean](#schema7boxedboolean)
 
 ## Schema7
 public static class Schema7<br>
@@ -287,6 +319,8 @@ A schema class that validates payloads
 
 ## Schema6Boxed
 public static abstract sealed class Schema6Boxed<br>
+permits<br>
+[Schema6BoxedMap](#schema6boxedmap)
 
 ## Schema6
 public static class Schema6<br>
@@ -301,6 +335,8 @@ A schema class that validates payloads
 
 ## Schema5Boxed
 public static abstract sealed class Schema5Boxed<br>
+permits<br>
+[Schema5BoxedString](#schema5boxedstring)
 
 ## Schema5
 public static class Schema5<br>
@@ -315,6 +351,8 @@ A schema class that validates payloads
 
 ## Schema4Boxed
 public static abstract sealed class Schema4Boxed<br>
+permits<br>
+[Schema4BoxedString](#schema4boxedstring)
 
 ## Schema4
 public static class Schema4<br>
@@ -324,6 +362,7 @@ A schema class that validates payloads
 
 ## Schema3Boxed
 public static abstract sealed class Schema3Boxed<br>
+permits<br>
 
 ## Schema3
 public static class Schema3<br>
@@ -333,6 +372,8 @@ A schema class that validates payloads
 
 ## Schema2Boxed
 public static abstract sealed class Schema2Boxed<br>
+permits<br>
+[Schema2BoxedString](#schema2boxedstring)
 
 ## Schema2
 public static class Schema2<br>
@@ -347,6 +388,8 @@ A schema class that validates payloads
 
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedString](#schema1boxedstring)
 
 ## Schema1
 public static class Schema1<br>
@@ -361,6 +404,8 @@ A schema class that validates payloads
 
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedMap](#schema0boxedmap)
 
 ## Schema0
 public static class Schema0<br>

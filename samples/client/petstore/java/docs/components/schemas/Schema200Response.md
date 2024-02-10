@@ -23,6 +23,13 @@ A class that contains necessary nested
 
 ## Schema200Response1Boxed
 public static abstract sealed class Schema200Response1Boxed<br>
+permits<br>
+[Schema200Response1BoxedVoid](#schema200response1boxedvoid),
+[Schema200Response1BoxedBoolean](#schema200response1boxedboolean),
+[Schema200Response1BoxedNumber](#schema200response1boxednumber),
+[Schema200Response1BoxedString](#schema200response1boxedstring),
+[Schema200Response1BoxedList](#schema200response1boxedlist),
+[Schema200Response1BoxedMap](#schema200response1boxedmap)
 
 ## Schema200Response1
 public static class Schema200Response1<br>
@@ -95,6 +102,8 @@ A class to store validated Map payloads
 
 ## ClassSchemaBoxed
 public static abstract sealed class ClassSchemaBoxed<br>
+permits<br>
+[ClassSchemaBoxedString](#classschemaboxedstring)
 
 ## ClassSchema
 public static class ClassSchema<br>
@@ -112,6 +121,8 @@ this is a reserved python keyword
 
 ## NameBoxed
 public static abstract sealed class NameBoxed<br>
+permits<br>
+[NameBoxedNumber](#nameboxednumber)
 
 ## Name
 public static class Name<br>

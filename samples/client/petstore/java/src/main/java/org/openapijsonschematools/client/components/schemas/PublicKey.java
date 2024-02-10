@@ -107,6 +107,7 @@ public class PublicKey {
     
     
     public static abstract sealed class PublicKey1Boxed permits PublicKey1BoxedMap {}
+    
     public static final class PublicKey1BoxedMap extends PublicKey1Boxed {
         public final PublicKeyMap data;
         private PublicKey1BoxedMap(PublicKeyMap data) {

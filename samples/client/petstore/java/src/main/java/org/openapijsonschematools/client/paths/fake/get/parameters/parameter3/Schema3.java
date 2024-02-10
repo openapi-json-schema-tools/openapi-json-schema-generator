@@ -38,12 +38,14 @@ public class Schema3 {
     
     
     public static abstract sealed class Schema31Boxed permits Schema31BoxedString {}
+    
     public static final class Schema31BoxedString extends Schema31Boxed {
         public final String data;
         private Schema31BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Schema31 extends JsonSchema implements StringSchemaValidator<Schema31BoxedString>, StringEnumValidator<StringSchemaEnums3>, DefaultValueMethod<String> {

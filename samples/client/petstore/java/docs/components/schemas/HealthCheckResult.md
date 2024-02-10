@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## HealthCheckResult1Boxed
 public static abstract sealed class HealthCheckResult1Boxed<br>
+permits<br>
+[HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap)
 
 ## HealthCheckResult1
 public static class HealthCheckResult1<br>
@@ -110,6 +112,9 @@ A class to store validated Map payloads
 
 ## NullableMessageBoxed
 public static abstract sealed class NullableMessageBoxed<br>
+permits<br>
+[NullableMessageBoxedVoid](#nullablemessageboxedvoid),
+[NullableMessageBoxedString](#nullablemessageboxedstring)
 
 ## NullableMessage
 public static class NullableMessage<br>

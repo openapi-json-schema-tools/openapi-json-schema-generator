@@ -20,12 +20,14 @@ public class IntegerMax10 {
     
     
     public static abstract sealed class IntegerMax101Boxed permits IntegerMax101BoxedNumber {}
+    
     public static final class IntegerMax101BoxedNumber extends IntegerMax101Boxed {
         public final Number data;
         private IntegerMax101BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     
     
     public static class IntegerMax101 extends JsonSchema implements NumberSchemaValidator<IntegerMax101BoxedNumber> {

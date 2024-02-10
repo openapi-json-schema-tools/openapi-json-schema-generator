@@ -17,6 +17,13 @@ A class that contains necessary nested
 
 ## NullableShape1Boxed
 public static abstract sealed class NullableShape1Boxed<br>
+permits<br>
+[NullableShape1BoxedVoid](#nullableshape1boxedvoid),
+[NullableShape1BoxedBoolean](#nullableshape1boxedboolean),
+[NullableShape1BoxedNumber](#nullableshape1boxednumber),
+[NullableShape1BoxedString](#nullableshape1boxedstring),
+[NullableShape1BoxedList](#nullableshape1boxedlist),
+[NullableShape1BoxedMap](#nullableshape1boxedmap)
 
 ## NullableShape1
 public static class NullableShape1<br>
@@ -47,6 +54,8 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2Boxed
 public static abstract sealed class Schema2Boxed<br>
+permits<br>
+[Schema2BoxedVoid](#schema2boxedvoid)
 
 ## Schema2
 public static class Schema2<br>

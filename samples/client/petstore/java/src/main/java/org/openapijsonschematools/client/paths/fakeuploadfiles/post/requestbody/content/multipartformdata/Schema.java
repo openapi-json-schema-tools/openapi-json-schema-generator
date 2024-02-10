@@ -76,12 +76,14 @@ public class Schema {
     
     
     public static abstract sealed class FilesBoxed permits FilesBoxedList {}
+    
     public static final class FilesBoxedList extends FilesBoxed {
         public final FilesList data;
         private FilesBoxedList(FilesList data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Files extends JsonSchema implements ListSchemaValidator<FilesList, FilesBoxedList> {
@@ -221,6 +223,7 @@ public class Schema {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final SchemaMap data;
         private Schema1BoxedMap(SchemaMap data) {

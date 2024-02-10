@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## IntegerMin151Boxed
 public static abstract sealed class IntegerMin151Boxed<br>
+permits<br>
+[IntegerMin151BoxedNumber](#integermin151boxednumber)
 
 ## IntegerMin151
 public static class IntegerMin151<br>

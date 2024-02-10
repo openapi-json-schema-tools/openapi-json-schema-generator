@@ -39,6 +39,8 @@ A class that contains necessary nested
 
 ## Pet1Boxed
 public static abstract sealed class Pet1Boxed<br>
+permits<br>
+[Pet1BoxedMap](#pet1boxedmap)
 
 ## Pet1
 public static class Pet1<br>
@@ -220,6 +222,8 @@ A class to store validated Map payloads
 
 ## TagsBoxed
 public static abstract sealed class TagsBoxed<br>
+permits<br>
+[TagsBoxedList](#tagsboxedlist)
 
 ## Tags
 public static class Tags<br>
@@ -305,6 +309,8 @@ A class to store validated List payloads
 
 ## StatusBoxed
 public static abstract sealed class StatusBoxed<br>
+permits<br>
+[StatusBoxedString](#statusboxedstring)
 
 ## Status
 public static class Status<br>
@@ -364,6 +370,8 @@ A class that stores String enum values
 
 ## PhotoUrlsBoxed
 public static abstract sealed class PhotoUrlsBoxed<br>
+permits<br>
+[PhotoUrlsBoxedList](#photourlsboxedlist)
 
 ## PhotoUrls
 public static class PhotoUrls<br>
@@ -439,6 +447,8 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedString](#itemsboxedstring)
 
 ## Items
 public static class Items<br>
@@ -453,6 +463,8 @@ A schema class that validates payloads
 
 ## NameBoxed
 public static abstract sealed class NameBoxed<br>
+permits<br>
+[NameBoxedString](#nameboxedstring)
 
 ## Name
 public static class Name<br>
@@ -467,6 +479,8 @@ A schema class that validates payloads
 
 ## IdBoxed
 public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedNumber](#idboxednumber)
 
 ## Id
 public static class Id<br>

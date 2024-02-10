@@ -21,6 +21,8 @@ A class that contains necessary nested
 
 ## GrandparentAnimal1Boxed
 public static abstract sealed class GrandparentAnimal1Boxed<br>
+permits<br>
+[GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)
 
 ## GrandparentAnimal1
 public static class GrandparentAnimal1<br>
@@ -122,6 +124,8 @@ A class to store validated Map payloads
 
 ## PetTypeBoxed
 public static abstract sealed class PetTypeBoxed<br>
+permits<br>
+[PetTypeBoxedString](#pettypeboxedstring)
 
 ## PetType
 public static class PetType<br>

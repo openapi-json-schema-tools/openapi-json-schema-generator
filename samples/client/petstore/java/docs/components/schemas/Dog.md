@@ -23,6 +23,13 @@ A class that contains necessary nested
 
 ## Dog1Boxed
 public static abstract sealed class Dog1Boxed<br>
+permits<br>
+[Dog1BoxedVoid](#dog1boxedvoid),
+[Dog1BoxedBoolean](#dog1boxedboolean),
+[Dog1BoxedNumber](#dog1boxednumber),
+[Dog1BoxedString](#dog1boxedstring),
+[Dog1BoxedList](#dog1boxedlist),
+[Dog1BoxedMap](#dog1boxedmap)
 
 ## Dog1
 public static class Dog1<br>
@@ -50,6 +57,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -135,6 +144,8 @@ A class to store validated Map payloads
 
 ## BreedBoxed
 public static abstract sealed class BreedBoxed<br>
+permits<br>
+[BreedBoxedString](#breedboxedstring)
 
 ## Breed
 public static class Breed<br>

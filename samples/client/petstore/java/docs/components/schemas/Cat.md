@@ -23,6 +23,13 @@ A class that contains necessary nested
 
 ## Cat1Boxed
 public static abstract sealed class Cat1Boxed<br>
+permits<br>
+[Cat1BoxedVoid](#cat1boxedvoid),
+[Cat1BoxedBoolean](#cat1boxedboolean),
+[Cat1BoxedNumber](#cat1boxednumber),
+[Cat1BoxedString](#cat1boxedstring),
+[Cat1BoxedList](#cat1boxedlist),
+[Cat1BoxedMap](#cat1boxedmap)
 
 ## Cat1
 public static class Cat1<br>
@@ -50,6 +57,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
 
 ## Schema1
 public static class Schema1<br>
@@ -135,6 +144,8 @@ A class to store validated Map payloads
 
 ## DeclawedBoxed
 public static abstract sealed class DeclawedBoxed<br>
+permits<br>
+[DeclawedBoxedBoolean](#declawedboxedboolean)
 
 ## Declawed
 public static class Declawed<br>

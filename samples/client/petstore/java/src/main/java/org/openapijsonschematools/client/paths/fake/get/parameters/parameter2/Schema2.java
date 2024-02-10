@@ -41,12 +41,14 @@ public class Schema2 {
     
     
     public static abstract sealed class Items2Boxed permits Items2BoxedString {}
+    
     public static final class Items2BoxedString extends Items2Boxed {
         public final String data;
         private Items2BoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Items2 extends JsonSchema implements StringSchemaValidator<Items2BoxedString>, StringEnumValidator<StringItemsEnums2>, DefaultValueMethod<String> {
@@ -152,12 +154,14 @@ public class Schema2 {
     
     
     public static abstract sealed class Schema21Boxed permits Schema21BoxedList {}
+    
     public static final class Schema21BoxedList extends Schema21Boxed {
         public final SchemaList2 data;
         private Schema21BoxedList(SchemaList2 data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Schema21 extends JsonSchema implements ListSchemaValidator<SchemaList2, Schema21BoxedList> {

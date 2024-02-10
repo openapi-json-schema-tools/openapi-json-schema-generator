@@ -53,12 +53,14 @@ public class IsoscelesTriangle {
     
     
     public static abstract sealed class TriangleTypeBoxed permits TriangleTypeBoxedString {}
+    
     public static final class TriangleTypeBoxedString extends TriangleTypeBoxed {
         public final String data;
         private TriangleTypeBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class TriangleType extends JsonSchema implements StringSchemaValidator<TriangleTypeBoxedString>, StringEnumValidator<StringTriangleTypeEnums> {
@@ -191,6 +193,7 @@ public class IsoscelesTriangle {
     
     
     public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
@@ -274,36 +277,42 @@ public class IsoscelesTriangle {
     
     
     public static abstract sealed class IsoscelesTriangle1Boxed permits IsoscelesTriangle1BoxedVoid, IsoscelesTriangle1BoxedBoolean, IsoscelesTriangle1BoxedNumber, IsoscelesTriangle1BoxedString, IsoscelesTriangle1BoxedList, IsoscelesTriangle1BoxedMap {}
+    
     public static final class IsoscelesTriangle1BoxedVoid extends IsoscelesTriangle1Boxed {
         public final Void data;
         private IsoscelesTriangle1BoxedVoid(Void data) {
             this.data = data;
         }
     }
+    
     public static final class IsoscelesTriangle1BoxedBoolean extends IsoscelesTriangle1Boxed {
         public final boolean data;
         private IsoscelesTriangle1BoxedBoolean(boolean data) {
             this.data = data;
         }
     }
+    
     public static final class IsoscelesTriangle1BoxedNumber extends IsoscelesTriangle1Boxed {
         public final Number data;
         private IsoscelesTriangle1BoxedNumber(Number data) {
             this.data = data;
         }
     }
+    
     public static final class IsoscelesTriangle1BoxedString extends IsoscelesTriangle1Boxed {
         public final String data;
         private IsoscelesTriangle1BoxedString(String data) {
             this.data = data;
         }
     }
+    
     public static final class IsoscelesTriangle1BoxedList extends IsoscelesTriangle1Boxed {
         public final FrozenList<@Nullable Object> data;
         private IsoscelesTriangle1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
     }
+    
     public static final class IsoscelesTriangle1BoxedMap extends IsoscelesTriangle1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IsoscelesTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {

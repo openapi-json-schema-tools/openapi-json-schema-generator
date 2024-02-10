@@ -17,6 +17,8 @@ A class that contains necessary nested
 
 ## ComposedBool1Boxed
 public static abstract sealed class ComposedBool1Boxed<br>
+permits<br>
+[ComposedBool1BoxedBoolean](#composedbool1boxedboolean)
 
 ## ComposedBool1
 public static class ComposedBool1<br>
@@ -59,6 +61,13 @@ boolean validatedPayload = ComposedBool.ComposedBool1.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedVoid](#schema0boxedvoid),
+[Schema0BoxedBoolean](#schema0boxedboolean),
+[Schema0BoxedNumber](#schema0boxednumber),
+[Schema0BoxedString](#schema0boxedstring),
+[Schema0BoxedList](#schema0boxedlist),
+[Schema0BoxedMap](#schema0boxedmap)
 
 ## Schema0
 public static class Schema0<br>

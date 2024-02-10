@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## DateTimeWithValidations1Boxed
 public static abstract sealed class DateTimeWithValidations1Boxed<br>
+permits<br>
+[DateTimeWithValidations1BoxedString](#datetimewithvalidations1boxedstring)
 
 ## DateTimeWithValidations1
 public static class DateTimeWithValidations1<br>

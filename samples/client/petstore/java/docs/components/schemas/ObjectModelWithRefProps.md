@@ -19,6 +19,8 @@ A class that contains necessary nested
 
 ## ObjectModelWithRefProps1Boxed
 public static abstract sealed class ObjectModelWithRefProps1Boxed<br>
+permits<br>
+[ObjectModelWithRefProps1BoxedMap](#objectmodelwithrefprops1boxedmap)
 
 ## ObjectModelWithRefProps1
 public static class ObjectModelWithRefProps1<br>

@@ -15,6 +15,8 @@ A class that contains necessary nested
 
 ## StringWithValidation1Boxed
 public static abstract sealed class StringWithValidation1Boxed<br>
+permits<br>
+[StringWithValidation1BoxedString](#stringwithvalidation1boxedstring)
 
 ## StringWithValidation1
 public static class StringWithValidation1<br>

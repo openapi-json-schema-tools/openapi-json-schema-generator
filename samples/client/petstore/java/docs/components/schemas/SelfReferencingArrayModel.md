@@ -19,6 +19,8 @@ A class that contains necessary nested
 
 ## SelfReferencingArrayModel1Boxed
 public static abstract sealed class SelfReferencingArrayModel1Boxed<br>
+permits<br>
+[SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist)
 
 ## SelfReferencingArrayModel1
 public static class SelfReferencingArrayModel1<br>

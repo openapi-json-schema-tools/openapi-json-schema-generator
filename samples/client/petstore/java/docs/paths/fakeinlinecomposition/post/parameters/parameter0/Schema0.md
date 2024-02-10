@@ -16,6 +16,13 @@ A class that contains necessary nested
 
 ## Schema01Boxed
 public static abstract sealed class Schema01Boxed<br>
+permits<br>
+[Schema01BoxedVoid](#schema01boxedvoid),
+[Schema01BoxedBoolean](#schema01boxedboolean),
+[Schema01BoxedNumber](#schema01boxednumber),
+[Schema01BoxedString](#schema01boxedstring),
+[Schema01BoxedList](#schema01boxedlist),
+[Schema01BoxedMap](#schema01boxedmap)
 
 ## Schema01
 public static class Schema01<br>
@@ -43,6 +50,8 @@ A schema class that validates payloads
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema00Boxed
 public static abstract sealed class Schema00Boxed<br>
+permits<br>
+[Schema00BoxedString](#schema00boxedstring)
 
 ## Schema00
 public static class Schema00<br>

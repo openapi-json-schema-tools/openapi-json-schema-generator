@@ -70,12 +70,14 @@ public class JSONPatchRequestRemove {
     
     
     public static abstract sealed class OpBoxed permits OpBoxedString {}
+    
     public static final class OpBoxedString extends OpBoxed {
         public final String data;
         private OpBoxedString(String data) {
             this.data = data;
         }
     }
+    
     
     
     public static class Op extends JsonSchema implements StringSchemaValidator<OpBoxedString>, StringEnumValidator<StringOpEnums> {
@@ -250,6 +252,7 @@ public class JSONPatchRequestRemove {
     
     
     public static abstract sealed class JSONPatchRequestRemove1Boxed permits JSONPatchRequestRemove1BoxedMap {}
+    
     public static final class JSONPatchRequestRemove1BoxedMap extends JSONPatchRequestRemove1Boxed {
         public final JSONPatchRequestRemoveMap data;
         private JSONPatchRequestRemove1BoxedMap(JSONPatchRequestRemoveMap data) {

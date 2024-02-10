@@ -67,6 +67,8 @@ A class that contains necessary nested
 
 ## FormatTest1Boxed
 public static abstract sealed class FormatTest1Boxed<br>
+permits<br>
+[FormatTest1BoxedMap](#formattest1boxedmap)
 
 ## FormatTest1
 public static class FormatTest1<br>
@@ -527,6 +529,8 @@ A class to store validated Map payloads
 
 ## NonePropBoxed
 public static abstract sealed class NonePropBoxed<br>
+permits<br>
+[NonePropBoxedVoid](#nonepropboxedvoid)
 
 ## NoneProp
 public static class NoneProp<br>
@@ -541,6 +545,8 @@ A schema class that validates payloads
 
 ## PatternWithDigitsAndDelimiterBoxed
 public static abstract sealed class PatternWithDigitsAndDelimiterBoxed<br>
+permits<br>
+[PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring)
 
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
@@ -586,6 +592,8 @@ String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PatternWithDigitsBoxed
 public static abstract sealed class PatternWithDigitsBoxed<br>
+permits<br>
+[PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)
 
 ## PatternWithDigits
 public static class PatternWithDigits<br>
@@ -631,6 +639,8 @@ String validatedPayload = FormatTest.PatternWithDigits.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PasswordBoxed
 public static abstract sealed class PasswordBoxed<br>
+permits<br>
+[PasswordBoxedString](#passwordboxedstring)
 
 ## Password
 public static class Password<br>
@@ -675,6 +685,8 @@ String validatedPayload = FormatTest.Password.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UuidNoExampleBoxed
 public static abstract sealed class UuidNoExampleBoxed<br>
+permits<br>
+[UuidNoExampleBoxedString](#uuidnoexampleboxedstring)
 
 ## UuidNoExample
 public static class UuidNoExample<br>
@@ -689,6 +701,8 @@ A schema class that validates payloads
 
 ## UuidSchemaBoxed
 public static abstract sealed class UuidSchemaBoxed<br>
+permits<br>
+[UuidSchemaBoxedString](#uuidschemaboxedstring)
 
 ## UuidSchema
 public static class UuidSchema<br>
@@ -703,6 +717,8 @@ A schema class that validates payloads
 
 ## DateTimeBoxed
 public static abstract sealed class DateTimeBoxed<br>
+permits<br>
+[DateTimeBoxedString](#datetimeboxedstring)
 
 ## DateTime
 public static class DateTime<br>
@@ -717,6 +733,8 @@ A schema class that validates payloads
 
 ## DateBoxed
 public static abstract sealed class DateBoxed<br>
+permits<br>
+[DateBoxedString](#dateboxedstring)
 
 ## Date
 public static class Date<br>
@@ -731,6 +749,7 @@ A schema class that validates payloads
 
 ## BinaryBoxed
 public static abstract sealed class BinaryBoxed<br>
+permits<br>
 
 ## Binary
 public static class Binary<br>
@@ -740,6 +759,8 @@ A schema class that validates payloads
 
 ## ByteSchemaBoxed
 public static abstract sealed class ByteSchemaBoxed<br>
+permits<br>
+[ByteSchemaBoxedString](#byteschemaboxedstring)
 
 ## ByteSchema
 public static class ByteSchema<br>
@@ -749,6 +770,8 @@ A schema class that validates payloads
 
 ## StringSchemaBoxed
 public static abstract sealed class StringSchemaBoxed<br>
+permits<br>
+[StringSchemaBoxedString](#stringschemaboxedstring)
 
 ## StringSchema
 public static class StringSchema<br>
@@ -791,6 +814,8 @@ String validatedPayload = FormatTest.StringSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithUniqueItemsBoxed
 public static abstract sealed class ArrayWithUniqueItemsBoxed<br>
+permits<br>
+[ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)
 
 ## ArrayWithUniqueItems
 public static class ArrayWithUniqueItems<br>
@@ -870,6 +895,8 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedNumber](#itemsboxednumber)
 
 ## Items
 public static class Items<br>
@@ -884,6 +911,8 @@ A schema class that validates payloads
 
 ## Float64Boxed
 public static abstract sealed class Float64Boxed<br>
+permits<br>
+[Float64BoxedNumber](#float64boxednumber)
 
 ## Float64
 public static class Float64<br>
@@ -898,6 +927,8 @@ A schema class that validates payloads
 
 ## DoubleSchemaBoxed
 public static abstract sealed class DoubleSchemaBoxed<br>
+permits<br>
+[DoubleSchemaBoxedNumber](#doubleschemaboxednumber)
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -942,6 +973,8 @@ double validatedPayload = FormatTest.DoubleSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Float32Boxed
 public static abstract sealed class Float32Boxed<br>
+permits<br>
+[Float32BoxedNumber](#float32boxednumber)
 
 ## Float32
 public static class Float32<br>
@@ -956,6 +989,8 @@ A schema class that validates payloads
 
 ## FloatSchemaBoxed
 public static abstract sealed class FloatSchemaBoxed<br>
+permits<br>
+[FloatSchemaBoxedNumber](#floatschemaboxednumber)
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -1003,6 +1038,8 @@ float validatedPayload = FormatTest.FloatSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberSchemaBoxed
 public static abstract sealed class NumberSchemaBoxed<br>
+permits<br>
+[NumberSchemaBoxedNumber](#numberschemaboxednumber)
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -1047,6 +1084,8 @@ int validatedPayload = FormatTest.NumberSchema.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int64Boxed
 public static abstract sealed class Int64Boxed<br>
+permits<br>
+[Int64BoxedNumber](#int64boxednumber)
 
 ## Int64
 public static class Int64<br>
@@ -1061,6 +1100,8 @@ A schema class that validates payloads
 
 ## Int32withValidationsBoxed
 public static abstract sealed class Int32withValidationsBoxed<br>
+permits<br>
+[Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber)
 
 ## Int32withValidations
 public static class Int32withValidations<br>
@@ -1105,6 +1146,8 @@ int validatedPayload = FormatTest.Int32withValidations.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int32Boxed
 public static abstract sealed class Int32Boxed<br>
+permits<br>
+[Int32BoxedNumber](#int32boxednumber)
 
 ## Int32
 public static class Int32<br>
@@ -1119,6 +1162,8 @@ A schema class that validates payloads
 
 ## IntegerSchemaBoxed
 public static abstract sealed class IntegerSchemaBoxed<br>
+permits<br>
+[IntegerSchemaBoxedNumber](#integerschemaboxednumber)
 
 ## IntegerSchema
 public static class IntegerSchema<br>

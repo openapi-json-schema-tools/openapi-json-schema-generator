@@ -19,6 +19,8 @@ A class that contains necessary nested
 
 ## AnimalFarm1Boxed
 public static abstract sealed class AnimalFarm1Boxed<br>
+permits<br>
+[AnimalFarm1BoxedList](#animalfarm1boxedlist)
 
 ## AnimalFarm1
 public static class AnimalFarm1<br>

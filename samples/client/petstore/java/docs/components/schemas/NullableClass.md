@@ -71,6 +71,8 @@ A class that contains necessary nested
 
 ## NullableClass1Boxed
 public static abstract sealed class NullableClass1Boxed<br>
+permits<br>
+[NullableClass1BoxedMap](#nullableclass1boxedmap)
 
 ## NullableClass1
 public static class NullableClass1<br>
@@ -221,6 +223,8 @@ A class to store validated Map payloads
 
 ## ObjectItemsNullableBoxed
 public static abstract sealed class ObjectItemsNullableBoxed<br>
+permits<br>
+[ObjectItemsNullableBoxedMap](#objectitemsnullableboxedmap)
 
 ## ObjectItemsNullable
 public static class ObjectItemsNullable<br>
@@ -297,6 +301,9 @@ A class to store validated Map payloads
 
 ## AdditionalProperties2Boxed
 public static abstract sealed class AdditionalProperties2Boxed<br>
+permits<br>
+[AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid),
+[AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -339,6 +346,9 @@ Void validatedPayload = NullableClass.AdditionalProperties2.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullablePropBoxed
 public static abstract sealed class ObjectAndItemsNullablePropBoxed<br>
+permits<br>
+[ObjectAndItemsNullablePropBoxedVoid](#objectanditemsnullablepropboxedvoid),
+[ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap)
 
 ## ObjectAndItemsNullableProp
 public static class ObjectAndItemsNullableProp<br>
@@ -422,6 +432,9 @@ A class to store validated Map payloads
 
 ## AdditionalProperties1Boxed
 public static abstract sealed class AdditionalProperties1Boxed<br>
+permits<br>
+[AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid),
+[AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -464,6 +477,9 @@ Void validatedPayload = NullableClass.AdditionalProperties1.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullablePropBoxed
 public static abstract sealed class ObjectNullablePropBoxed<br>
+permits<br>
+[ObjectNullablePropBoxedVoid](#objectnullablepropboxedvoid),
+[ObjectNullablePropBoxedMap](#objectnullablepropboxedmap)
 
 ## ObjectNullableProp
 public static class ObjectNullableProp<br>
@@ -544,6 +560,8 @@ A class to store validated Map payloads
 
 ## AdditionalPropertiesBoxed
 public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
@@ -558,6 +576,8 @@ A schema class that validates payloads
 
 ## ArrayItemsNullableBoxed
 public static abstract sealed class ArrayItemsNullableBoxed<br>
+permits<br>
+[ArrayItemsNullableBoxedList](#arrayitemsnullableboxedlist)
 
 ## ArrayItemsNullable
 public static class ArrayItemsNullable<br>
@@ -634,6 +654,9 @@ A class to store validated List payloads
 
 ## Items2Boxed
 public static abstract sealed class Items2Boxed<br>
+permits<br>
+[Items2BoxedVoid](#items2boxedvoid),
+[Items2BoxedMap](#items2boxedmap)
 
 ## Items2
 public static class Items2<br>
@@ -676,6 +699,9 @@ Void validatedPayload = NullableClass.Items2.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayAndItemsNullablePropBoxed
 public static abstract sealed class ArrayAndItemsNullablePropBoxed<br>
+permits<br>
+[ArrayAndItemsNullablePropBoxedVoid](#arrayanditemsnullablepropboxedvoid),
+[ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist)
 
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
@@ -759,6 +785,9 @@ A class to store validated List payloads
 
 ## Items1Boxed
 public static abstract sealed class Items1Boxed<br>
+permits<br>
+[Items1BoxedVoid](#items1boxedvoid),
+[Items1BoxedMap](#items1boxedmap)
 
 ## Items1
 public static class Items1<br>
@@ -801,6 +830,9 @@ Void validatedPayload = NullableClass.Items1.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNullablePropBoxed
 public static abstract sealed class ArrayNullablePropBoxed<br>
+permits<br>
+[ArrayNullablePropBoxedVoid](#arraynullablepropboxedvoid),
+[ArrayNullablePropBoxedList](#arraynullablepropboxedlist)
 
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
@@ -881,6 +913,8 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedMap](#itemsboxedmap)
 
 ## Items
 public static class Items<br>
@@ -895,6 +929,9 @@ A schema class that validates payloads
 
 ## DatetimePropBoxed
 public static abstract sealed class DatetimePropBoxed<br>
+permits<br>
+[DatetimePropBoxedVoid](#datetimepropboxedvoid),
+[DatetimePropBoxedString](#datetimepropboxedstring)
 
 ## DatetimeProp
 public static class DatetimeProp<br>
@@ -944,6 +981,9 @@ String validatedPayload = NullableClass.DatetimeProp.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DatePropBoxed
 public static abstract sealed class DatePropBoxed<br>
+permits<br>
+[DatePropBoxedVoid](#datepropboxedvoid),
+[DatePropBoxedString](#datepropboxedstring)
 
 ## DateProp
 public static class DateProp<br>
@@ -993,6 +1033,9 @@ String validatedPayload = NullableClass.DateProp.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringPropBoxed
 public static abstract sealed class StringPropBoxed<br>
+permits<br>
+[StringPropBoxedVoid](#stringpropboxedvoid),
+[StringPropBoxedString](#stringpropboxedstring)
 
 ## StringProp
 public static class StringProp<br>
@@ -1041,6 +1084,9 @@ String validatedPayload = NullableClass.StringProp.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BooleanPropBoxed
 public static abstract sealed class BooleanPropBoxed<br>
+permits<br>
+[BooleanPropBoxedVoid](#booleanpropboxedvoid),
+[BooleanPropBoxedBoolean](#booleanpropboxedboolean)
 
 ## BooleanProp
 public static class BooleanProp<br>
@@ -1089,6 +1135,9 @@ boolean validatedPayload = NullableClass.BooleanProp.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberPropBoxed
 public static abstract sealed class NumberPropBoxed<br>
+permits<br>
+[NumberPropBoxedVoid](#numberpropboxedvoid),
+[NumberPropBoxedNumber](#numberpropboxednumber)
 
 ## NumberProp
 public static class NumberProp<br>
@@ -1137,6 +1186,9 @@ int validatedPayload = NullableClass.NumberProp.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerPropBoxed
 public static abstract sealed class IntegerPropBoxed<br>
+permits<br>
+[IntegerPropBoxedVoid](#integerpropboxedvoid),
+[IntegerPropBoxedNumber](#integerpropboxednumber)
 
 ## IntegerProp
 public static class IntegerProp<br>
@@ -1186,6 +1238,9 @@ int validatedPayload = NullableClass.IntegerProp.validate(
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalProperties3Boxed
 public static abstract sealed class AdditionalProperties3Boxed<br>
+permits<br>
+[AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid),
+[AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>

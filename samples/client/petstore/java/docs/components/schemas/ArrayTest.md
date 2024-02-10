@@ -45,6 +45,8 @@ A class that contains necessary nested
 
 ## ArrayTest1Boxed
 public static abstract sealed class ArrayTest1Boxed<br>
+permits<br>
+[ArrayTest1BoxedMap](#arraytest1boxedmap)
 
 ## ArrayTest1
 public static class ArrayTest1<br>
@@ -160,6 +162,8 @@ A class to store validated Map payloads
 
 ## ArrayArrayOfModelBoxed
 public static abstract sealed class ArrayArrayOfModelBoxed<br>
+permits<br>
+[ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist)
 
 ## ArrayArrayOfModel
 public static class ArrayArrayOfModel<br>
@@ -247,6 +251,8 @@ A class to store validated List payloads
 
 ## Items3Boxed
 public static abstract sealed class Items3Boxed<br>
+permits<br>
+[Items3BoxedList](#items3boxedlist)
 
 ## Items3
 public static class Items3<br>
@@ -332,6 +338,8 @@ A class to store validated List payloads
 
 ## ArrayArrayOfIntegerBoxed
 public static abstract sealed class ArrayArrayOfIntegerBoxed<br>
+permits<br>
+[ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist)
 
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>
@@ -410,6 +418,8 @@ A class to store validated List payloads
 
 ## Items1Boxed
 public static abstract sealed class Items1Boxed<br>
+permits<br>
+[Items1BoxedList](#items1boxedlist)
 
 ## Items1
 public static class Items1<br>
@@ -488,6 +498,8 @@ A class to store validated List payloads
 
 ## Items2Boxed
 public static abstract sealed class Items2Boxed<br>
+permits<br>
+[Items2BoxedNumber](#items2boxednumber)
 
 ## Items2
 public static class Items2<br>
@@ -502,6 +514,8 @@ A schema class that validates payloads
 
 ## ArrayOfStringBoxed
 public static abstract sealed class ArrayOfStringBoxed<br>
+permits<br>
+[ArrayOfStringBoxedList](#arrayofstringboxedlist)
 
 ## ArrayOfString
 public static class ArrayOfString<br>
@@ -577,6 +591,8 @@ A class to store validated List payloads
 
 ## ItemsBoxed
 public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedString](#itemsboxedstring)
 
 ## Items
 public static class Items<br>
