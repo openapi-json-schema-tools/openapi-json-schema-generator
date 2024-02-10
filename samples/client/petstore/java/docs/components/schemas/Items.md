@@ -24,6 +24,8 @@ public static abstract sealed class Items1Boxed<br>
 permits<br>
 [Items1BoxedList](#items1boxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items1
 public static class Items1<br>
 extends JsonSchema
@@ -101,6 +103,8 @@ A class to store validated List payloads
 public static abstract sealed class Items2Boxed<br>
 permits<br>
 [Items2BoxedMap](#items2boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Items2
 public static class Items2<br>

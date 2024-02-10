@@ -28,6 +28,8 @@ public static abstract sealed class ObjectWithOnlyOptionalProps1Boxed<br>
 permits<br>
 [ObjectWithOnlyOptionalProps1BoxedMap](#objectwithonlyoptionalprops1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithOnlyOptionalProps1
 public static class ObjectWithOnlyOptionalProps1<br>
 extends JsonSchema
@@ -113,6 +115,8 @@ public static abstract sealed class BBoxed<br>
 permits<br>
 [BBoxedNumber](#bboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## B
 public static class B<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -128,6 +132,8 @@ A schema class that validates payloads
 public static abstract sealed class ABoxed<br>
 permits<br>
 [ABoxedString](#aboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## A
 public static class A<br>
@@ -149,6 +155,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

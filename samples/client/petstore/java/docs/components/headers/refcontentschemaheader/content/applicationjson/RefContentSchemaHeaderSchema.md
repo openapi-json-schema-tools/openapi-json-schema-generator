@@ -22,6 +22,8 @@ permits<br>
 [RefContentSchemaHeaderSchema1BoxedList](#refcontentschemaheaderschema1boxedlist),
 [RefContentSchemaHeaderSchema1BoxedMap](#refcontentschemaheaderschema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## RefContentSchemaHeaderSchema1
 public static class RefContentSchemaHeaderSchema1<br>
 extends [StringWithValidation.StringWithValidation1](../../../../../components/schemas/StringWithValidation.md#stringwithvalidation1)

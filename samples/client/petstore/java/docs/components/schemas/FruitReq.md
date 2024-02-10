@@ -25,6 +25,8 @@ permits<br>
 [FruitReq1BoxedList](#fruitreq1boxedlist),
 [FruitReq1BoxedMap](#fruitreq1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## FruitReq1
 public static class FruitReq1<br>
 extends JsonSchema
@@ -53,6 +55,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema0Boxed<br>
 permits<br>
 [Schema0BoxedVoid](#schema0boxedvoid)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema0
 public static class Schema0<br>

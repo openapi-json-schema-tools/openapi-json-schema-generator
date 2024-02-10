@@ -17,6 +17,8 @@ public static abstract sealed class LocationSchema1Boxed<br>
 permits<br>
 [LocationSchema1BoxedString](#locationschema1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## LocationSchema1
 public static class LocationSchema1<br>
 extends StringJsonSchema.StringJsonSchema1

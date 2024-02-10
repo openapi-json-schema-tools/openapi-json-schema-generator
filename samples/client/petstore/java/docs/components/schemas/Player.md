@@ -24,6 +24,8 @@ public static abstract sealed class Player1Boxed<br>
 permits<br>
 [Player1BoxedMap](#player1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Player1
 public static class Player1<br>
 extends JsonSchema
@@ -115,6 +117,8 @@ A class to store validated Map payloads
 public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Name
 public static class Name<br>

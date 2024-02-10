@@ -18,6 +18,8 @@ public static abstract sealed class ObjectWithValidations1Boxed<br>
 permits<br>
 [ObjectWithValidations1BoxedMap](#objectwithvalidations1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithValidations1
 public static class ObjectWithValidations1<br>
 extends JsonSchema

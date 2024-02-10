@@ -48,6 +48,8 @@ public static abstract sealed class Variables1Boxed<br>
 permits<br>
 [Variables1BoxedMap](#variables1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ### Variables1
 public static class Variables1<br>
 extends JsonSchema
@@ -143,6 +145,8 @@ public static abstract sealed class VersionBoxed<br>
 permits<br>
 [VersionBoxedString](#versionboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ### Version
 public static class Version<br>
 extends JsonSchema
@@ -205,6 +209,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>

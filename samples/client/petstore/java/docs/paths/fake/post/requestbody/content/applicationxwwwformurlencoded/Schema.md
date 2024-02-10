@@ -49,6 +49,8 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -495,6 +497,8 @@ public static abstract sealed class CallbackBoxed<br>
 permits<br>
 [CallbackBoxedString](#callbackboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Callback
 public static class Callback<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -513,6 +517,8 @@ None
 public static abstract sealed class PasswordBoxed<br>
 permits<br>
 [PasswordBoxedString](#passwordboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Password
 public static class Password<br>
@@ -563,6 +569,8 @@ public static abstract sealed class DateTimeBoxed<br>
 permits<br>
 [DateTimeBoxedString](#datetimeboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## DateTime
 public static class DateTime<br>
 extends JsonSchema
@@ -611,6 +619,8 @@ public static abstract sealed class DateBoxed<br>
 permits<br>
 [DateBoxedString](#dateboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Date
 public static class Date<br>
 extends DateJsonSchema.DateJsonSchema1
@@ -629,6 +639,8 @@ None
 public static abstract sealed class BinaryBoxed<br>
 permits<br>
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
@@ -643,6 +655,8 @@ public static abstract sealed class ByteSchemaBoxed<br>
 permits<br>
 [ByteSchemaBoxedString](#byteschemaboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ByteSchema
 public static class ByteSchema<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -656,6 +670,8 @@ None
 public static abstract sealed class PatternWithoutDelimiterBoxed<br>
 permits<br>
 [PatternWithoutDelimiterBoxedString](#patternwithoutdelimiterboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## PatternWithoutDelimiter
 public static class PatternWithoutDelimiter<br>
@@ -704,6 +720,8 @@ public static abstract sealed class StringSchemaBoxed<br>
 permits<br>
 [StringSchemaBoxedString](#stringschemaboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## StringSchema
 public static class StringSchema<br>
 extends JsonSchema
@@ -750,6 +768,8 @@ String validatedPayload = Schema.StringSchema.validate(
 public static abstract sealed class DoubleSchemaBoxed<br>
 permits<br>
 [DoubleSchemaBoxedNumber](#doubleschemaboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -800,6 +820,8 @@ public static abstract sealed class FloatSchemaBoxed<br>
 permits<br>
 [FloatSchemaBoxedNumber](#floatschemaboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -847,6 +869,8 @@ float validatedPayload = Schema.FloatSchema.validate(
 public static abstract sealed class NumberSchemaBoxed<br>
 permits<br>
 [NumberSchemaBoxedNumber](#numberschemaboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -896,6 +920,8 @@ public static abstract sealed class Int64Boxed<br>
 permits<br>
 [Int64BoxedNumber](#int64boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Int64
 public static class Int64<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -914,6 +940,8 @@ None
 public static abstract sealed class Int32Boxed<br>
 permits<br>
 [Int32BoxedNumber](#int32boxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Int32
 public static class Int32<br>
@@ -963,6 +991,8 @@ int validatedPayload = Schema.Int32.validate(
 public static abstract sealed class IntegerSchemaBoxed<br>
 permits<br>
 [IntegerSchemaBoxedNumber](#integerschemaboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## IntegerSchema
 public static class IntegerSchema<br>

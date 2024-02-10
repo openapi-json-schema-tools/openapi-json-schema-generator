@@ -17,6 +17,8 @@ public static abstract sealed class StringHeaderSchema1Boxed<br>
 permits<br>
 [StringHeaderSchema1BoxedString](#stringheaderschema1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## StringHeaderSchema1
 public static class StringHeaderSchema1<br>
 extends StringJsonSchema.StringJsonSchema1

@@ -22,6 +22,8 @@ permits<br>
 [Schema51BoxedList](#schema51boxedlist),
 [Schema51BoxedMap](#schema51boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema51
 public static class Schema51<br>
 extends [StringWithValidation.StringWithValidation1](../../../components/schemas/StringWithValidation.md#stringwithvalidation1)

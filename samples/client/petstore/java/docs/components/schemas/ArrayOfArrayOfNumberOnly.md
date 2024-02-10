@@ -34,6 +34,8 @@ public static abstract sealed class ArrayOfArrayOfNumberOnly1Boxed<br>
 permits<br>
 [ArrayOfArrayOfNumberOnly1BoxedMap](#arrayofarrayofnumberonly1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ArrayOfArrayOfNumberOnly1
 public static class ArrayOfArrayOfNumberOnly1<br>
 extends JsonSchema
@@ -126,6 +128,8 @@ public static abstract sealed class ArrayArrayNumberBoxed<br>
 permits<br>
 [ArrayArrayNumberBoxedList](#arrayarraynumberboxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ArrayArrayNumber
 public static class ArrayArrayNumber<br>
 extends JsonSchema
@@ -206,6 +210,8 @@ public static abstract sealed class ItemsBoxed<br>
 permits<br>
 [ItemsBoxedList](#itemsboxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items
 public static class Items<br>
 extends JsonSchema
@@ -285,6 +291,8 @@ A class to store validated List payloads
 public static abstract sealed class Items1Boxed<br>
 permits<br>
 [Items1BoxedNumber](#items1boxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Items1
 public static class Items1<br>

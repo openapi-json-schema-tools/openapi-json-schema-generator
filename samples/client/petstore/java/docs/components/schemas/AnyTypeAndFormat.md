@@ -40,6 +40,8 @@ public static abstract sealed class AnyTypeAndFormat1Boxed<br>
 permits<br>
 [AnyTypeAndFormat1BoxedMap](#anytypeandformat1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AnyTypeAndFormat1
 public static class AnyTypeAndFormat1<br>
 extends JsonSchema
@@ -214,6 +216,8 @@ permits<br>
 [FloatSchemaBoxedList](#floatschemaboxedlist),
 [FloatSchemaBoxedMap](#floatschemaboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -247,6 +251,8 @@ permits<br>
 [DoubleSchemaBoxedString](#doubleschemaboxedstring),
 [DoubleSchemaBoxedList](#doubleschemaboxedlist),
 [DoubleSchemaBoxedMap](#doubleschemaboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -282,6 +288,8 @@ permits<br>
 [Int64BoxedList](#int64boxedlist),
 [Int64BoxedMap](#int64boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Int64
 public static class Int64<br>
 extends JsonSchema
@@ -315,6 +323,8 @@ permits<br>
 [Int32BoxedString](#int32boxedstring),
 [Int32BoxedList](#int32boxedlist),
 [Int32BoxedMap](#int32boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Int32
 public static class Int32<br>
@@ -350,6 +360,8 @@ permits<br>
 [BinaryBoxedList](#binaryboxedlist),
 [BinaryBoxedMap](#binaryboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
@@ -383,6 +395,8 @@ permits<br>
 [NumberSchemaBoxedString](#numberschemaboxedstring),
 [NumberSchemaBoxedList](#numberschemaboxedlist),
 [NumberSchemaBoxedMap](#numberschemaboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -418,6 +432,8 @@ permits<br>
 [DatetimeBoxedList](#datetimeboxedlist),
 [DatetimeBoxedMap](#datetimeboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Datetime
 public static class Datetime<br>
 extends JsonSchema
@@ -452,6 +468,8 @@ permits<br>
 [DateBoxedList](#dateboxedlist),
 [DateBoxedMap](#dateboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Date
 public static class Date<br>
 extends JsonSchema
@@ -485,6 +503,8 @@ permits<br>
 [UuidSchemaBoxedString](#uuidschemaboxedstring),
 [UuidSchemaBoxedList](#uuidschemaboxedlist),
 [UuidSchemaBoxedMap](#uuidschemaboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## UuidSchema
 public static class UuidSchema<br>

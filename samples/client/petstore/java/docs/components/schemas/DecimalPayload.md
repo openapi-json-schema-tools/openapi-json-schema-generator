@@ -18,6 +18,8 @@ public static abstract sealed class DecimalPayload1Boxed<br>
 permits<br>
 [DecimalPayload1BoxedString](#decimalpayload1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## DecimalPayload1
 public static class DecimalPayload1<br>
 extends DecimalJsonSchema.DecimalJsonSchema1

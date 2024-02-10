@@ -25,6 +25,8 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -116,6 +118,8 @@ public static abstract sealed class StatusBoxed<br>
 permits<br>
 [StatusBoxedString](#statusboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Status
 public static class Status<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -134,6 +138,8 @@ Updated status of the pet
 public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Name
 public static class Name<br>

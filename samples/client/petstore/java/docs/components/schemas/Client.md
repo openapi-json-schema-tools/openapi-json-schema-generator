@@ -24,6 +24,8 @@ public static abstract sealed class Client1Boxed<br>
 permits<br>
 [Client1BoxedMap](#client1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Client1
 public static class Client1<br>
 extends JsonSchema
@@ -110,6 +112,8 @@ A class to store validated Map payloads
 public static abstract sealed class Client2Boxed<br>
 permits<br>
 [Client2BoxedString](#client2boxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Client2
 public static class Client2<br>

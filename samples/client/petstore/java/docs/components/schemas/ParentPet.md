@@ -18,6 +18,8 @@ public static abstract sealed class ParentPet1Boxed<br>
 permits<br>
 [ParentPet1BoxedMap](#parentpet1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ParentPet1
 public static class ParentPet1<br>
 extends JsonSchema

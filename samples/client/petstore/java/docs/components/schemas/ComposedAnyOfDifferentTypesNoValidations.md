@@ -61,6 +61,8 @@ permits<br>
 [ComposedAnyOfDifferentTypesNoValidations1BoxedList](#composedanyofdifferenttypesnovalidations1boxedlist),
 [ComposedAnyOfDifferentTypesNoValidations1BoxedMap](#composedanyofdifferenttypesnovalidations1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ComposedAnyOfDifferentTypesNoValidations1
 public static class ComposedAnyOfDifferentTypesNoValidations1<br>
 extends JsonSchema
@@ -90,6 +92,8 @@ public static abstract sealed class Schema15Boxed<br>
 permits<br>
 [Schema15BoxedNumber](#schema15boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema15
 public static class Schema15<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -105,6 +109,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema14Boxed<br>
 permits<br>
 [Schema14BoxedNumber](#schema14boxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema14
 public static class Schema14<br>
@@ -122,6 +128,8 @@ public static abstract sealed class Schema13Boxed<br>
 permits<br>
 [Schema13BoxedNumber](#schema13boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema13
 public static class Schema13<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -137,6 +145,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema12Boxed<br>
 permits<br>
 [Schema12BoxedNumber](#schema12boxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema12
 public static class Schema12<br>
@@ -154,6 +164,8 @@ public static abstract sealed class Schema11Boxed<br>
 permits<br>
 [Schema11BoxedNumber](#schema11boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema11
 public static class Schema11<br>
 extends FloatJsonSchema.FloatJsonSchema1
@@ -170,6 +182,8 @@ public static abstract sealed class Schema10Boxed<br>
 permits<br>
 [Schema10BoxedNumber](#schema10boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema10
 public static class Schema10<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -185,6 +199,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema9Boxed<br>
 permits<br>
 [Schema9BoxedList](#schema9boxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema9
 public static class Schema9<br>
@@ -274,6 +290,8 @@ permits<br>
 [ItemsBoxedList](#itemsboxedlist),
 [ItemsBoxedMap](#itemsboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items
 public static class Items<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -289,6 +307,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema8Boxed<br>
 permits<br>
 [Schema8BoxedVoid](#schema8boxedvoid)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema8
 public static class Schema8<br>
@@ -306,6 +326,8 @@ public static abstract sealed class Schema7Boxed<br>
 permits<br>
 [Schema7BoxedBoolean](#schema7boxedboolean)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema7
 public static class Schema7<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -321,6 +343,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema6Boxed<br>
 permits<br>
 [Schema6BoxedMap](#schema6boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema6
 public static class Schema6<br>
@@ -338,6 +362,8 @@ public static abstract sealed class Schema5Boxed<br>
 permits<br>
 [Schema5BoxedString](#schema5boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema5
 public static class Schema5<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -354,6 +380,8 @@ public static abstract sealed class Schema4Boxed<br>
 permits<br>
 [Schema4BoxedString](#schema4boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema4
 public static class Schema4<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -363,6 +391,8 @@ A schema class that validates payloads
 ## Schema3Boxed
 public static abstract sealed class Schema3Boxed<br>
 permits<br>
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema3
 public static class Schema3<br>
@@ -374,6 +404,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema2Boxed<br>
 permits<br>
 [Schema2BoxedString](#schema2boxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema2
 public static class Schema2<br>
@@ -391,6 +423,8 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedString](#schema1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema1
 public static class Schema1<br>
 extends DateJsonSchema.DateJsonSchema1
@@ -406,6 +440,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema0Boxed<br>
 permits<br>
 [Schema0BoxedMap](#schema0boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema0
 public static class Schema0<br>

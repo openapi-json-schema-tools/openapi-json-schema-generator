@@ -34,6 +34,8 @@ public static abstract sealed class Capitalization1Boxed<br>
 permits<br>
 [Capitalization1BoxedMap](#capitalization1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Capitalization1
 public static class Capitalization1<br>
 extends JsonSchema
@@ -141,6 +143,8 @@ public static abstract sealed class ATTNAMEBoxed<br>
 permits<br>
 [ATTNAMEBoxedString](#attnameboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ATTNAME
 public static class ATTNAME<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -160,6 +164,8 @@ public static abstract sealed class SCAETHFlowPointsBoxed<br>
 permits<br>
 [SCAETHFlowPointsBoxedString](#scaethflowpointsboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## SCAETHFlowPoints
 public static class SCAETHFlowPoints<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -175,6 +181,8 @@ A schema class that validates payloads
 public static abstract sealed class CapitalSnakeBoxed<br>
 permits<br>
 [CapitalSnakeBoxedString](#capitalsnakeboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## CapitalSnake
 public static class CapitalSnake<br>
@@ -192,6 +200,8 @@ public static abstract sealed class SmallSnakeBoxed<br>
 permits<br>
 [SmallSnakeBoxedString](#smallsnakeboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## SmallSnake
 public static class SmallSnake<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -208,6 +218,8 @@ public static abstract sealed class CapitalCamelBoxed<br>
 permits<br>
 [CapitalCamelBoxedString](#capitalcamelboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## CapitalCamel
 public static class CapitalCamel<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -223,6 +235,8 @@ A schema class that validates payloads
 public static abstract sealed class SmallCamelBoxed<br>
 permits<br>
 [SmallCamelBoxedString](#smallcamelboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## SmallCamel
 public static class SmallCamel<br>

@@ -33,6 +33,8 @@ permits<br>
 [TriangleInterface1BoxedList](#triangleinterface1boxedlist),
 [TriangleInterface1BoxedMap](#triangleinterface1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## TriangleInterface1
 public static class TriangleInterface1<br>
 extends JsonSchema
@@ -153,6 +155,8 @@ public static abstract sealed class TriangleTypeBoxed<br>
 permits<br>
 [TriangleTypeBoxedString](#triangletypeboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## TriangleType
 public static class TriangleType<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -168,6 +172,8 @@ A schema class that validates payloads
 public static abstract sealed class ShapeTypeBoxed<br>
 permits<br>
 [ShapeTypeBoxedString](#shapetypeboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ShapeType
 public static class ShapeType<br>

@@ -28,6 +28,8 @@ public static abstract sealed class FileSchemaTestClass1Boxed<br>
 permits<br>
 [FileSchemaTestClass1BoxedMap](#fileschematestclass1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## FileSchemaTestClass1
 public static class FileSchemaTestClass1<br>
 extends JsonSchema
@@ -118,6 +120,8 @@ A class to store validated Map payloads
 public static abstract sealed class FilesBoxed<br>
 permits<br>
 [FilesBoxedList](#filesboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Files
 public static class Files<br>

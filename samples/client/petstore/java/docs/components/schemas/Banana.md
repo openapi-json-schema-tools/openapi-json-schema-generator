@@ -24,6 +24,8 @@ public static abstract sealed class Banana1Boxed<br>
 permits<br>
 [Banana1BoxedMap](#banana1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Banana1
 public static class Banana1<br>
 extends JsonSchema
@@ -129,6 +131,8 @@ A class to store validated Map payloads
 public static abstract sealed class LengthCmBoxed<br>
 permits<br>
 [LengthCmBoxedNumber](#lengthcmboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## LengthCm
 public static class LengthCm<br>

@@ -23,6 +23,8 @@ permits<br>
 [Triangle1BoxedList](#triangle1boxedlist),
 [Triangle1BoxedMap](#triangle1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Triangle1
 public static class Triangle1<br>
 extends JsonSchema

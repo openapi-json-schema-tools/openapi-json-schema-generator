@@ -26,6 +26,8 @@ public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed<br
 permits<br>
 [ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithInlineCompositionProperty1
 public static class ObjectWithInlineCompositionProperty1<br>
 extends JsonSchema
@@ -124,6 +126,8 @@ permits<br>
 [SomePropBoxedList](#somepropboxedlist),
 [SomePropBoxedMap](#somepropboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## SomeProp
 public static class SomeProp<br>
 extends JsonSchema
@@ -152,6 +156,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema0Boxed<br>
 permits<br>
 [Schema0BoxedString](#schema0boxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema0
 public static class Schema0<br>

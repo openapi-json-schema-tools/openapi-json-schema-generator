@@ -19,6 +19,8 @@ public static abstract sealed class PathParamSchema01Boxed<br>
 permits<br>
 [PathParamSchema01BoxedString](#pathparamschema01boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## PathParamSchema01
 public static class PathParamSchema01<br>
 extends JsonSchema

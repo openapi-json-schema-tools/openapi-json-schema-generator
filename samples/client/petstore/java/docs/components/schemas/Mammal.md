@@ -23,6 +23,8 @@ permits<br>
 [Mammal1BoxedList](#mammal1boxedlist),
 [Mammal1BoxedMap](#mammal1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Mammal1
 public static class Mammal1<br>
 extends JsonSchema

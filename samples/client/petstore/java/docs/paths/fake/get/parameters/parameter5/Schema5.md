@@ -20,6 +20,8 @@ public static abstract sealed class Schema51Boxed<br>
 permits<br>
 [Schema51BoxedNumber](#schema51boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema51
 public static class Schema51<br>
 extends JsonSchema

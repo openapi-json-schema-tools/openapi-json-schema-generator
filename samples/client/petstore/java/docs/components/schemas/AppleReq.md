@@ -28,6 +28,8 @@ public static abstract sealed class AppleReq1Boxed<br>
 permits<br>
 [AppleReq1BoxedMap](#applereq1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AppleReq1
 public static class AppleReq1<br>
 extends JsonSchema
@@ -126,6 +128,8 @@ public static abstract sealed class MealyBoxed<br>
 permits<br>
 [MealyBoxedBoolean](#mealyboxedboolean)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Mealy
 public static class Mealy<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -141,6 +145,8 @@ A schema class that validates payloads
 public static abstract sealed class CultivarBoxed<br>
 permits<br>
 [CultivarBoxedString](#cultivarboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Cultivar
 public static class Cultivar<br>
@@ -162,6 +168,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

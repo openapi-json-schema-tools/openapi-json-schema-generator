@@ -24,6 +24,8 @@ public static abstract sealed class HealthCheckResult1Boxed<br>
 permits<br>
 [HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## HealthCheckResult1
 public static class HealthCheckResult1<br>
 extends JsonSchema
@@ -115,6 +117,8 @@ public static abstract sealed class NullableMessageBoxed<br>
 permits<br>
 [NullableMessageBoxedVoid](#nullablemessageboxedvoid),
 [NullableMessageBoxedString](#nullablemessageboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## NullableMessage
 public static class NullableMessage<br>

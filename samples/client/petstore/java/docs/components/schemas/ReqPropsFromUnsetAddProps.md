@@ -22,6 +22,8 @@ public static abstract sealed class ReqPropsFromUnsetAddProps1Boxed<br>
 permits<br>
 [ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ReqPropsFromUnsetAddProps1
 public static class ReqPropsFromUnsetAddProps1<br>
 extends JsonSchema

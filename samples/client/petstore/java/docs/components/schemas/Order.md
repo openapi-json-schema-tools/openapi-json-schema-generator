@@ -36,6 +36,8 @@ public static abstract sealed class Order1Boxed<br>
 permits<br>
 [Order1BoxedMap](#order1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Order1
 public static class Order1<br>
 extends JsonSchema
@@ -151,6 +153,8 @@ public static abstract sealed class CompleteBoxed<br>
 permits<br>
 [CompleteBoxedBoolean](#completeboxedboolean)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Complete
 public static class Complete<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -166,6 +170,8 @@ A schema class that validates payloads
 public static abstract sealed class StatusBoxed<br>
 permits<br>
 [StatusBoxedString](#statusboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Status
 public static class Status<br>
@@ -228,6 +234,8 @@ public static abstract sealed class ShipDateBoxed<br>
 permits<br>
 [ShipDateBoxedString](#shipdateboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ShipDate
 public static class ShipDate<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1
@@ -243,6 +251,8 @@ A schema class that validates payloads
 public static abstract sealed class QuantityBoxed<br>
 permits<br>
 [QuantityBoxedNumber](#quantityboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Quantity
 public static class Quantity<br>
@@ -260,6 +270,8 @@ public static abstract sealed class PetIdBoxed<br>
 permits<br>
 [PetIdBoxedNumber](#petidboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## PetId
 public static class PetId<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -275,6 +287,8 @@ A schema class that validates payloads
 public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Id
 public static class Id<br>

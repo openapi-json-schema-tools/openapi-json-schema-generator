@@ -22,6 +22,8 @@ public static abstract sealed class ObjectWithInvalidNamedRefedProperties1Boxed<
 permits<br>
 [ObjectWithInvalidNamedRefedProperties1BoxedMap](#objectwithinvalidnamedrefedproperties1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithInvalidNamedRefedProperties1
 public static class ObjectWithInvalidNamedRefedProperties1<br>
 extends JsonSchema

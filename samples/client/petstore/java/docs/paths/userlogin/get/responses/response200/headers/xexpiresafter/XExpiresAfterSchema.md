@@ -17,6 +17,8 @@ public static abstract sealed class XExpiresAfterSchema1Boxed<br>
 permits<br>
 [XExpiresAfterSchema1BoxedString](#xexpiresafterschema1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## XExpiresAfterSchema1
 public static class XExpiresAfterSchema1<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1

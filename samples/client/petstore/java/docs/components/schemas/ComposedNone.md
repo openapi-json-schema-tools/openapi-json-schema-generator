@@ -20,6 +20,8 @@ public static abstract sealed class ComposedNone1Boxed<br>
 permits<br>
 [ComposedNone1BoxedVoid](#composednone1boxedvoid)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ComposedNone1
 public static class ComposedNone1<br>
 extends JsonSchema
@@ -68,6 +70,8 @@ permits<br>
 [Schema0BoxedString](#schema0boxedstring),
 [Schema0BoxedList](#schema0boxedlist),
 [Schema0BoxedMap](#schema0boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema0
 public static class Schema0<br>

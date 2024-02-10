@@ -25,6 +25,8 @@ permits<br>
 [ShapeOrNull1BoxedList](#shapeornull1boxedlist),
 [ShapeOrNull1BoxedMap](#shapeornull1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ShapeOrNull1
 public static class ShapeOrNull1<br>
 extends JsonSchema
@@ -56,6 +58,8 @@ The value may be a shape or the &#x27;null&#x27; value. This is introduced in OA
 public static abstract sealed class Schema0Boxed<br>
 permits<br>
 [Schema0BoxedVoid](#schema0boxedvoid)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema0
 public static class Schema0<br>

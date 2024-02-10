@@ -29,6 +29,8 @@ permits<br>
 [GmFruit1BoxedList](#gmfruit1boxedlist),
 [GmFruit1BoxedMap](#gmfruit1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## GmFruit1
 public static class GmFruit1<br>
 extends JsonSchema
@@ -97,6 +99,8 @@ A class to store validated Map payloads
 public static abstract sealed class ColorBoxed<br>
 permits<br>
 [ColorBoxedString](#colorboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Color
 public static class Color<br>

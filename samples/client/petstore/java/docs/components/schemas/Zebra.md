@@ -31,6 +31,8 @@ public static abstract sealed class Zebra1Boxed<br>
 permits<br>
 [Zebra1BoxedMap](#zebra1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Zebra1
 public static class Zebra1<br>
 extends JsonSchema
@@ -141,6 +143,8 @@ public static abstract sealed class ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ClassName
 public static class ClassName<br>
 extends JsonSchema
@@ -196,6 +200,8 @@ A class that stores String enum values
 public static abstract sealed class TypeBoxed<br>
 permits<br>
 [TypeBoxedString](#typeboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Type
 public static class Type<br>
@@ -259,6 +265,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

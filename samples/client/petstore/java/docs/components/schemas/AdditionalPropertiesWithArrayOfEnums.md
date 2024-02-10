@@ -28,6 +28,8 @@ public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed<b
 permits<br>
 [AdditionalPropertiesWithArrayOfEnums1BoxedMap](#additionalpropertieswitharrayofenums1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalPropertiesWithArrayOfEnums1
 public static class AdditionalPropertiesWithArrayOfEnums1<br>
 extends JsonSchema
@@ -108,6 +110,8 @@ A class to store validated Map payloads
 public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

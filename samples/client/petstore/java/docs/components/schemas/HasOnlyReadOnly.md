@@ -26,6 +26,8 @@ public static abstract sealed class HasOnlyReadOnly1Boxed<br>
 permits<br>
 [HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## HasOnlyReadOnly1
 public static class HasOnlyReadOnly1<br>
 extends JsonSchema
@@ -117,6 +119,8 @@ public static abstract sealed class FooBoxed<br>
 permits<br>
 [FooBoxedString](#fooboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Foo
 public static class Foo<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -132,6 +136,8 @@ A schema class that validates payloads
 public static abstract sealed class BarBoxed<br>
 permits<br>
 [BarBoxedString](#barboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Bar
 public static class Bar<br>

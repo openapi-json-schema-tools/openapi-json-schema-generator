@@ -27,6 +27,8 @@ permits<br>
 [Apple1BoxedVoid](#apple1boxedvoid),
 [Apple1BoxedMap](#apple1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Apple1
 public static class Apple1<br>
 extends JsonSchema
@@ -141,6 +143,8 @@ public static abstract sealed class OriginBoxed<br>
 permits<br>
 [OriginBoxedString](#originboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Origin
 public static class Origin<br>
 extends JsonSchema
@@ -184,6 +188,8 @@ String validatedPayload = Apple.Origin.validate(
 public static abstract sealed class CultivarBoxed<br>
 permits<br>
 [CultivarBoxedString](#cultivarboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Cultivar
 public static class Cultivar<br>

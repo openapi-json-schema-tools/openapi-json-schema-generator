@@ -29,6 +29,8 @@ permits<br>
 [ClassModel1BoxedList](#classmodel1boxedlist),
 [ClassModel1BoxedMap](#classmodel1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ClassModel1
 public static class ClassModel1<br>
 extends JsonSchema
@@ -99,6 +101,8 @@ A class to store validated Map payloads
 public static abstract sealed class ClassSchemaBoxed<br>
 permits<br>
 [ClassSchemaBoxedString](#classschemaboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ClassSchema
 public static class ClassSchema<br>

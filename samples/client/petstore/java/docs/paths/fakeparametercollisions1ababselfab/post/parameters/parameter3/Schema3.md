@@ -17,6 +17,8 @@ public static abstract sealed class Schema31Boxed<br>
 permits<br>
 [Schema31BoxedString](#schema31boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema31
 public static class Schema31<br>
 extends StringJsonSchema.StringJsonSchema1

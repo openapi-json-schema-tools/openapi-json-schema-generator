@@ -30,6 +30,8 @@ public static abstract sealed class JSONPatchRequestRemove1Boxed<br>
 permits<br>
 [JSONPatchRequestRemove1BoxedMap](#jsonpatchrequestremove1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## JSONPatchRequestRemove1
 public static class JSONPatchRequestRemove1<br>
 extends JsonSchema
@@ -162,6 +164,8 @@ public static abstract sealed class OpBoxed<br>
 permits<br>
 [OpBoxedString](#opboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Op
 public static class Op<br>
 extends JsonSchema
@@ -221,6 +225,8 @@ public static abstract sealed class PathBoxed<br>
 permits<br>
 [PathBoxedString](#pathboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Path
 public static class Path<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -244,6 +250,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

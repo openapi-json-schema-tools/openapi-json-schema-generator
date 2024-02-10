@@ -24,6 +24,8 @@ public static abstract sealed class ComposedArray1Boxed<br>
 permits<br>
 [ComposedArray1BoxedList](#composedarray1boxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ComposedArray1
 public static class ComposedArray1<br>
 extends JsonSchema
@@ -111,6 +113,8 @@ permits<br>
 [ItemsBoxedString](#itemsboxedstring),
 [ItemsBoxedList](#itemsboxedlist),
 [ItemsBoxedMap](#itemsboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Items
 public static class Items<br>

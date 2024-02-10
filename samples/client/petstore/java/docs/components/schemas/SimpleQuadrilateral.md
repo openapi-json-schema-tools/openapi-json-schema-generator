@@ -33,6 +33,8 @@ permits<br>
 [SimpleQuadrilateral1BoxedList](#simplequadrilateral1boxedlist),
 [SimpleQuadrilateral1BoxedMap](#simplequadrilateral1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## SimpleQuadrilateral1
 public static class SimpleQuadrilateral1<br>
 extends JsonSchema
@@ -61,6 +63,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema1
 public static class Schema1<br>
@@ -149,6 +153,8 @@ A class to store validated Map payloads
 public static abstract sealed class QuadrilateralTypeBoxed<br>
 permits<br>
 [QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>

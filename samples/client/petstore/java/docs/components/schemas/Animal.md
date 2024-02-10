@@ -26,6 +26,8 @@ public static abstract sealed class Animal1Boxed<br>
 permits<br>
 [Animal1BoxedMap](#animal1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Animal1
 public static class Animal1<br>
 extends JsonSchema
@@ -133,6 +135,8 @@ public static abstract sealed class ColorBoxed<br>
 permits<br>
 [ColorBoxedString](#colorboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Color
 public static class Color<br>
 extends JsonSchema
@@ -176,6 +180,8 @@ String validatedPayload = Animal.Color.validate(
 public static abstract sealed class ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ClassName
 public static class ClassName<br>

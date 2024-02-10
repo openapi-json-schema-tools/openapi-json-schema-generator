@@ -22,6 +22,8 @@ public static abstract sealed class SelfReferencingArrayModel1Boxed<br>
 permits<br>
 [SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## SelfReferencingArrayModel1
 public static class SelfReferencingArrayModel1<br>
 extends JsonSchema

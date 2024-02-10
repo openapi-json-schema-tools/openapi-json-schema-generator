@@ -25,6 +25,8 @@ permits<br>
 [NullableShape1BoxedList](#nullableshape1boxedlist),
 [NullableShape1BoxedMap](#nullableshape1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NullableShape1
 public static class NullableShape1<br>
 extends JsonSchema
@@ -56,6 +58,8 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 public static abstract sealed class Schema2Boxed<br>
 permits<br>
 [Schema2BoxedVoid](#schema2boxedvoid)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema2
 public static class Schema2<br>

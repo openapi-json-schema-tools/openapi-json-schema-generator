@@ -24,6 +24,8 @@ permits<br>
 [Schema1BoxedList](#schema1boxedlist),
 [Schema1BoxedMap](#schema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -52,6 +54,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema0Boxed<br>
 permits<br>
 [Schema0BoxedString](#schema0boxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema0
 public static class Schema0<br>

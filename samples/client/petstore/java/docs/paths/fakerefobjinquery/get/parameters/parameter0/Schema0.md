@@ -22,6 +22,8 @@ permits<br>
 [Schema01BoxedList](#schema01boxedlist),
 [Schema01BoxedMap](#schema01boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema01
 public static class Schema01<br>
 extends [Foo.Foo1](../../../components/schemas/Foo.md#foo1)

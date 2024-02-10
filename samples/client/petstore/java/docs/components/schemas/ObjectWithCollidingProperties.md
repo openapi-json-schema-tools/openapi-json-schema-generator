@@ -26,6 +26,8 @@ public static abstract sealed class ObjectWithCollidingProperties1Boxed<br>
 permits<br>
 [ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithCollidingProperties1
 public static class ObjectWithCollidingProperties1<br>
 extends JsonSchema
@@ -116,6 +118,8 @@ public static abstract sealed class SomepropBoxed<br>
 permits<br>
 [SomepropBoxedMap](#somepropboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Someprop
 public static class Someprop<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -131,6 +135,8 @@ A schema class that validates payloads
 public static abstract sealed class SomePropBoxed<br>
 permits<br>
 [SomePropBoxedMap](#somepropboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## SomeProp
 public static class SomeProp<br>

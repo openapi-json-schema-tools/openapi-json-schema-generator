@@ -26,6 +26,8 @@ public static abstract sealed class FromSchema1Boxed<br>
 permits<br>
 [FromSchema1BoxedMap](#fromschema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## FromSchema1
 public static class FromSchema1<br>
 extends JsonSchema
@@ -120,6 +122,8 @@ public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Id
 public static class Id<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -135,6 +139,8 @@ A schema class that validates payloads
 public static abstract sealed class DataBoxed<br>
 permits<br>
 [DataBoxedString](#databoxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Data
 public static class Data<br>

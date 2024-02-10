@@ -18,6 +18,8 @@ public static abstract sealed class IntegerMax101Boxed<br>
 permits<br>
 [IntegerMax101BoxedNumber](#integermax101boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## IntegerMax101
 public static class IntegerMax101<br>
 extends JsonSchema

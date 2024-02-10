@@ -24,6 +24,8 @@ public static abstract sealed class File1Boxed<br>
 permits<br>
 [File1BoxedMap](#file1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## File1
 public static class File1<br>
 extends JsonSchema
@@ -113,6 +115,8 @@ A class to store validated Map payloads
 public static abstract sealed class SourceURIBoxed<br>
 permits<br>
 [SourceURIBoxedString](#sourceuriboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## SourceURI
 public static class SourceURI<br>

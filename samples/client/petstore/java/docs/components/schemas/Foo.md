@@ -22,6 +22,8 @@ public static abstract sealed class Foo1Boxed<br>
 permits<br>
 [Foo1BoxedMap](#foo1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Foo1
 public static class Foo1<br>
 extends JsonSchema

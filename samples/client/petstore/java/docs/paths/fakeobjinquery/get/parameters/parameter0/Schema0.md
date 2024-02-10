@@ -23,6 +23,8 @@ public static abstract sealed class Schema01Boxed<br>
 permits<br>
 [Schema01BoxedMap](#schema01boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema01
 public static class Schema01<br>
 extends JsonSchema
@@ -109,6 +111,8 @@ A class to store validated Map payloads
 public static abstract sealed class Keyword0Boxed<br>
 permits<br>
 [Keyword0BoxedString](#keyword0boxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Keyword0
 public static class Keyword0<br>

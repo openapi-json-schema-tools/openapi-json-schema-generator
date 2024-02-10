@@ -18,6 +18,8 @@ public static abstract sealed class NumberWithExclusiveMinMax1Boxed<br>
 permits<br>
 [NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NumberWithExclusiveMinMax1
 public static class NumberWithExclusiveMinMax1<br>
 extends JsonSchema

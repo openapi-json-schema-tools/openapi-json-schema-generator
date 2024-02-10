@@ -48,6 +48,8 @@ public static abstract sealed class ArrayTest1Boxed<br>
 permits<br>
 [ArrayTest1BoxedMap](#arraytest1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ArrayTest1
 public static class ArrayTest1<br>
 extends JsonSchema
@@ -165,6 +167,8 @@ public static abstract sealed class ArrayArrayOfModelBoxed<br>
 permits<br>
 [ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ArrayArrayOfModel
 public static class ArrayArrayOfModel<br>
 extends JsonSchema
@@ -254,6 +258,8 @@ public static abstract sealed class Items3Boxed<br>
 permits<br>
 [Items3BoxedList](#items3boxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items3
 public static class Items3<br>
 extends JsonSchema
@@ -341,6 +347,8 @@ public static abstract sealed class ArrayArrayOfIntegerBoxed<br>
 permits<br>
 [ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>
 extends JsonSchema
@@ -420,6 +428,8 @@ A class to store validated List payloads
 public static abstract sealed class Items1Boxed<br>
 permits<br>
 [Items1BoxedList](#items1boxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Items1
 public static class Items1<br>
@@ -501,6 +511,8 @@ public static abstract sealed class Items2Boxed<br>
 permits<br>
 [Items2BoxedNumber](#items2boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items2
 public static class Items2<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -516,6 +528,8 @@ A schema class that validates payloads
 public static abstract sealed class ArrayOfStringBoxed<br>
 permits<br>
 [ArrayOfStringBoxedList](#arrayofstringboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ArrayOfString
 public static class ArrayOfString<br>
@@ -593,6 +607,8 @@ A class to store validated List payloads
 public static abstract sealed class ItemsBoxed<br>
 permits<br>
 [ItemsBoxedString](#itemsboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Items
 public static class Items<br>

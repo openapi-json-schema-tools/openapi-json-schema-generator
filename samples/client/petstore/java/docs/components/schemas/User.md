@@ -50,6 +50,8 @@ public static abstract sealed class User1Boxed<br>
 permits<br>
 [User1BoxedMap](#user1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## User1
 public static class User1<br>
 extends JsonSchema
@@ -211,6 +213,8 @@ permits<br>
 [AnyTypePropNullableBoxedList](#anytypepropnullableboxedlist),
 [AnyTypePropNullableBoxedMap](#anytypepropnullableboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -234,6 +238,8 @@ permits<br>
 [AnyTypeExceptNullPropBoxedString](#anytypeexceptnullpropboxedstring),
 [AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist),
 [AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -267,6 +273,8 @@ public static abstract sealed class NotBoxed<br>
 permits<br>
 [NotBoxedVoid](#notboxedvoid)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Not
 public static class Not<br>
 extends NullJsonSchema.NullJsonSchema1
@@ -288,6 +296,8 @@ permits<br>
 [AnyTypePropBoxedList](#anytypepropboxedlist),
 [AnyTypePropBoxedMap](#anytypepropboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AnyTypeProp
 public static class AnyTypeProp<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -307,6 +317,8 @@ public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed<br>
 permits<br>
 [ObjectWithNoDeclaredPropsNullableBoxedVoid](#objectwithnodeclaredpropsnullableboxedvoid),
 [ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>
@@ -355,6 +367,8 @@ public static abstract sealed class ObjectWithNoDeclaredPropsBoxed<br>
 permits<br>
 [ObjectWithNoDeclaredPropsBoxedMap](#objectwithnodeclaredpropsboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -373,6 +387,8 @@ test code generation for objects Value must be a map of strings to values. It ca
 public static abstract sealed class UserStatusBoxed<br>
 permits<br>
 [UserStatusBoxedNumber](#userstatusboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## UserStatus
 public static class UserStatus<br>
@@ -393,6 +409,8 @@ public static abstract sealed class PhoneBoxed<br>
 permits<br>
 [PhoneBoxedString](#phoneboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Phone
 public static class Phone<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -408,6 +426,8 @@ A schema class that validates payloads
 public static abstract sealed class PasswordBoxed<br>
 permits<br>
 [PasswordBoxedString](#passwordboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Password
 public static class Password<br>
@@ -425,6 +445,8 @@ public static abstract sealed class EmailBoxed<br>
 permits<br>
 [EmailBoxedString](#emailboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Email
 public static class Email<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -440,6 +462,8 @@ A schema class that validates payloads
 public static abstract sealed class LastNameBoxed<br>
 permits<br>
 [LastNameBoxedString](#lastnameboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## LastName
 public static class LastName<br>
@@ -457,6 +481,8 @@ public static abstract sealed class FirstNameBoxed<br>
 permits<br>
 [FirstNameBoxedString](#firstnameboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## FirstName
 public static class FirstName<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -473,6 +499,8 @@ public static abstract sealed class UsernameBoxed<br>
 permits<br>
 [UsernameBoxedString](#usernameboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Username
 public static class Username<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -488,6 +516,8 @@ A schema class that validates payloads
 public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Id
 public static class Id<br>

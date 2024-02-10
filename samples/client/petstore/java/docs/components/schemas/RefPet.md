@@ -23,6 +23,8 @@ permits<br>
 [RefPet1BoxedList](#refpet1boxedlist),
 [RefPet1BoxedMap](#refpet1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## RefPet1
 public static class RefPet1<br>
 extends [Pet.Pet1](../../components/schemas/Pet.md#pet1)

@@ -28,6 +28,8 @@ public static abstract sealed class Drawing1Boxed<br>
 permits<br>
 [Drawing1BoxedMap](#drawing1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Drawing1
 public static class Drawing1<br>
 extends JsonSchema
@@ -147,6 +149,8 @@ A class to store validated Map payloads
 public static abstract sealed class ShapesBoxed<br>
 permits<br>
 [ShapesBoxedList](#shapesboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Shapes
 public static class Shapes<br>

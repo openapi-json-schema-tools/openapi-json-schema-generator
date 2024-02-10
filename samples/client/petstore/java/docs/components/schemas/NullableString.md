@@ -19,6 +19,8 @@ permits<br>
 [NullableString1BoxedVoid](#nullablestring1boxedvoid),
 [NullableString1BoxedString](#nullablestring1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NullableString1
 public static class NullableString1<br>
 extends JsonSchema

@@ -23,6 +23,8 @@ public static abstract sealed class Schema31Boxed<br>
 permits<br>
 [Schema31BoxedList](#schema31boxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema31
 public static class Schema31<br>
 extends JsonSchema
@@ -99,6 +101,8 @@ A class to store validated List payloads
 public static abstract sealed class Items3Boxed<br>
 permits<br>
 [Items3BoxedString](#items3boxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Items3
 public static class Items3<br>

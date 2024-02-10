@@ -33,6 +33,8 @@ permits<br>
 [IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist),
 [IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## IsoscelesTriangle1
 public static class IsoscelesTriangle1<br>
 extends JsonSchema
@@ -61,6 +63,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema1
 public static class Schema1<br>
@@ -149,6 +153,8 @@ A class to store validated Map payloads
 public static abstract sealed class TriangleTypeBoxed<br>
 permits<br>
 [TriangleTypeBoxedString](#triangletypeboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## TriangleType
 public static class TriangleType<br>

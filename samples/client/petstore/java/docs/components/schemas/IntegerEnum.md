@@ -23,6 +23,8 @@ public static abstract sealed class IntegerEnum1Boxed<br>
 permits<br>
 [IntegerEnum1BoxedNumber](#integerenum1boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## IntegerEnum1
 public static class IntegerEnum1<br>
 extends JsonSchema

@@ -17,6 +17,8 @@ public static abstract sealed class Schema11Boxed<br>
 permits<br>
 [Schema11BoxedNumber](#schema11boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema11
 public static class Schema11<br>
 extends Int64JsonSchema.Int64JsonSchema1

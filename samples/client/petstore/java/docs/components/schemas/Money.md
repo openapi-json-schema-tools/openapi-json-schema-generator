@@ -26,6 +26,8 @@ public static abstract sealed class Money1Boxed<br>
 permits<br>
 [Money1BoxedMap](#money1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Money1
 public static class Money1<br>
 extends JsonSchema
@@ -158,6 +160,8 @@ public static abstract sealed class AmountBoxed<br>
 permits<br>
 [AmountBoxedString](#amountboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Amount
 public static class Amount<br>
 extends DecimalJsonSchema.DecimalJsonSchema1
@@ -178,6 +182,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

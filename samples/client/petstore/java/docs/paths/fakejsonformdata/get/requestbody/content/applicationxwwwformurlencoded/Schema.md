@@ -25,6 +25,8 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -164,6 +166,8 @@ public static abstract sealed class Param2Boxed<br>
 permits<br>
 [Param2BoxedString](#param2boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Param2
 public static class Param2<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -182,6 +186,8 @@ field2
 public static abstract sealed class ParamBoxed<br>
 permits<br>
 [ParamBoxedString](#paramboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Param
 public static class Param<br>

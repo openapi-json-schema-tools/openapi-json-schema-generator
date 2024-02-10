@@ -17,6 +17,8 @@ public static abstract sealed class NumberHeaderSchema1Boxed<br>
 permits<br>
 [NumberHeaderSchema1BoxedString](#numberheaderschema1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NumberHeaderSchema1
 public static class NumberHeaderSchema1<br>
 extends DecimalJsonSchema.DecimalJsonSchema1

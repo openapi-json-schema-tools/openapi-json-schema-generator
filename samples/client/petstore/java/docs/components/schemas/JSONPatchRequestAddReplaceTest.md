@@ -32,6 +32,8 @@ public static abstract sealed class JSONPatchRequestAddReplaceTest1Boxed<br>
 permits<br>
 [JSONPatchRequestAddReplaceTest1BoxedMap](#jsonpatchrequestaddreplacetest1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## JSONPatchRequestAddReplaceTest1
 public static class JSONPatchRequestAddReplaceTest1<br>
 extends JsonSchema
@@ -267,6 +269,8 @@ public static abstract sealed class OpBoxed<br>
 permits<br>
 [OpBoxedString](#opboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Op
 public static class Op<br>
 extends JsonSchema
@@ -333,6 +337,8 @@ permits<br>
 [ValueBoxedList](#valueboxedlist),
 [ValueBoxedMap](#valueboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Value
 public static class Value<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -351,6 +357,8 @@ The value to add, replace or test.
 public static abstract sealed class PathBoxed<br>
 permits<br>
 [PathBoxedString](#pathboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Path
 public static class Path<br>
@@ -375,6 +383,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -31,6 +31,8 @@ permits<br>
 [Schema200Response1BoxedList](#schema200response1boxedlist),
 [Schema200Response1BoxedMap](#schema200response1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema200Response1
 public static class Schema200Response1<br>
 extends JsonSchema
@@ -105,6 +107,8 @@ public static abstract sealed class ClassSchemaBoxed<br>
 permits<br>
 [ClassSchemaBoxedString](#classschemaboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ClassSchema
 public static class ClassSchema<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -123,6 +127,8 @@ this is a reserved python keyword
 public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedNumber](#nameboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Name
 public static class Name<br>

@@ -24,6 +24,8 @@ public static abstract sealed class ReqPropsFromExplicitAddProps1Boxed<br>
 permits<br>
 [ReqPropsFromExplicitAddProps1BoxedMap](#reqpropsfromexplicitaddprops1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ReqPropsFromExplicitAddProps1
 public static class ReqPropsFromExplicitAddProps1<br>
 extends JsonSchema
@@ -152,6 +154,8 @@ A class to store validated Map payloads
 public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

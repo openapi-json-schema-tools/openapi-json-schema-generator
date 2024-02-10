@@ -24,6 +24,8 @@ public static abstract sealed class ObjectWithOptionalTestProp1Boxed<br>
 permits<br>
 [ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithOptionalTestProp1
 public static class ObjectWithOptionalTestProp1<br>
 extends JsonSchema
@@ -110,6 +112,8 @@ A class to store validated Map payloads
 public static abstract sealed class TestBoxed<br>
 permits<br>
 [TestBoxedString](#testboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Test
 public static class Test<br>

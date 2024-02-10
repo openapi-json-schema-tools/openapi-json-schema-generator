@@ -24,6 +24,8 @@ public static abstract sealed class Address1Boxed<br>
 permits<br>
 [Address1BoxedMap](#address1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Address1
 public static class Address1<br>
 extends JsonSchema
@@ -103,6 +105,8 @@ A class to store validated Map payloads
 public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

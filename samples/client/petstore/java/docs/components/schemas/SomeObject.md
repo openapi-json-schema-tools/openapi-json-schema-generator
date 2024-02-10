@@ -23,6 +23,8 @@ permits<br>
 [SomeObject1BoxedList](#someobject1boxedlist),
 [SomeObject1BoxedMap](#someobject1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## SomeObject1
 public static class SomeObject1<br>
 extends JsonSchema

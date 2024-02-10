@@ -26,6 +26,8 @@ public static abstract sealed class BasquePig1Boxed<br>
 permits<br>
 [BasquePig1BoxedMap](#basquepig1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## BasquePig1
 public static class BasquePig1<br>
 extends JsonSchema
@@ -129,6 +131,8 @@ A class to store validated Map payloads
 public static abstract sealed class ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ClassName
 public static class ClassName<br>

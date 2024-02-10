@@ -38,6 +38,8 @@ public static abstract sealed class AdditionalPropertiesSchema1Boxed<br>
 permits<br>
 [AdditionalPropertiesSchema1BoxedMap](#additionalpropertiesschema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalPropertiesSchema1
 public static class AdditionalPropertiesSchema1<br>
 extends JsonSchema
@@ -59,6 +61,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema2Boxed<br>
 permits<br>
 [Schema2BoxedMap](#schema2boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema2
 public static class Schema2<br>
@@ -148,6 +152,8 @@ permits<br>
 [AdditionalProperties2BoxedList](#additionalproperties2boxedlist),
 [AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -176,6 +182,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema1
 public static class Schema1<br>
@@ -265,6 +273,8 @@ permits<br>
 [AdditionalProperties1BoxedList](#additionalproperties1boxedlist),
 [AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -293,6 +303,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema0Boxed<br>
 permits<br>
 [Schema0BoxedMap](#schema0boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema0
 public static class Schema0<br>
@@ -381,6 +393,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

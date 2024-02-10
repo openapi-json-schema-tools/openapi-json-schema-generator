@@ -22,6 +22,8 @@ public static abstract sealed class ArrayOfEnums1Boxed<br>
 permits<br>
 [ArrayOfEnums1BoxedList](#arrayofenums1boxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ArrayOfEnums1
 public static class ArrayOfEnums1<br>
 extends JsonSchema

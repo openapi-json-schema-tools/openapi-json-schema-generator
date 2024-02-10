@@ -24,6 +24,8 @@ public static abstract sealed class SpecialModelname1Boxed<br>
 permits<br>
 [SpecialModelname1BoxedMap](#specialmodelname1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## SpecialModelname1
 public static class SpecialModelname1<br>
 extends JsonSchema
@@ -113,6 +115,8 @@ A class to store validated Map payloads
 public static abstract sealed class ABoxed<br>
 permits<br>
 [ABoxedString](#aboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## A
 public static class A<br>

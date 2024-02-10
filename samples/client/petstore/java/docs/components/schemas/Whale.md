@@ -30,6 +30,8 @@ public static abstract sealed class Whale1Boxed<br>
 permits<br>
 [Whale1BoxedMap](#whale1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Whale1
 public static class Whale1<br>
 extends JsonSchema
@@ -142,6 +144,8 @@ public static abstract sealed class ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ClassName
 public static class ClassName<br>
 extends JsonSchema
@@ -198,6 +202,8 @@ public static abstract sealed class HasTeethBoxed<br>
 permits<br>
 [HasTeethBoxedBoolean](#hasteethboxedboolean)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## HasTeeth
 public static class HasTeeth<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -213,6 +219,8 @@ A schema class that validates payloads
 public static abstract sealed class HasBaleenBoxed<br>
 permits<br>
 [HasBaleenBoxedBoolean](#hasbaleenboxedboolean)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## HasBaleen
 public static class HasBaleen<br>

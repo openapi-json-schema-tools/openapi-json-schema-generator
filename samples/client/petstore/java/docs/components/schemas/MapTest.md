@@ -46,6 +46,8 @@ public static abstract sealed class MapTest1Boxed<br>
 permits<br>
 [MapTest1BoxedMap](#maptest1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## MapTest1
 public static class MapTest1<br>
 extends JsonSchema
@@ -166,6 +168,8 @@ public static abstract sealed class DirectMapBoxed<br>
 permits<br>
 [DirectMapBoxedMap](#directmapboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## DirectMap
 public static class DirectMap<br>
 extends JsonSchema
@@ -243,6 +247,8 @@ public static abstract sealed class AdditionalProperties3Boxed<br>
 permits<br>
 [AdditionalProperties3BoxedBoolean](#additionalproperties3boxedboolean)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -258,6 +264,8 @@ A schema class that validates payloads
 public static abstract sealed class MapOfEnumStringBoxed<br>
 permits<br>
 [MapOfEnumStringBoxedMap](#mapofenumstringboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## MapOfEnumString
 public static class MapOfEnumString<br>
@@ -337,6 +345,8 @@ public static abstract sealed class AdditionalProperties2Boxed<br>
 permits<br>
 [AdditionalProperties2BoxedString](#additionalproperties2boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -393,6 +403,8 @@ A class that stores String enum values
 public static abstract sealed class MapMapOfStringBoxed<br>
 permits<br>
 [MapMapOfStringBoxedMap](#mapmapofstringboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## MapMapOfString
 public static class MapMapOfString<br>
@@ -478,6 +490,8 @@ public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends JsonSchema
@@ -554,6 +568,8 @@ A class to store validated Map payloads
 public static abstract sealed class AdditionalProperties1Boxed<br>
 permits<br>
 [AdditionalProperties1BoxedString](#additionalproperties1boxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>

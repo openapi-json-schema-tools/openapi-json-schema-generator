@@ -22,6 +22,8 @@ permits<br>
 [StringEnum1BoxedVoid](#stringenum1boxedvoid),
 [StringEnum1BoxedString](#stringenum1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## StringEnum1
 public static class StringEnum1<br>
 extends JsonSchema

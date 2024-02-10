@@ -24,6 +24,8 @@ public static abstract sealed class StringBooleanMap1Boxed<br>
 permits<br>
 [StringBooleanMap1BoxedMap](#stringbooleanmap1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## StringBooleanMap1
 public static class StringBooleanMap1<br>
 extends JsonSchema
@@ -100,6 +102,8 @@ A class to store validated Map payloads
 public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -18,6 +18,8 @@ public static abstract sealed class StringWithValidation1Boxed<br>
 permits<br>
 [StringWithValidation1BoxedString](#stringwithvalidation1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## StringWithValidation1
 public static class StringWithValidation1<br>
 extends JsonSchema

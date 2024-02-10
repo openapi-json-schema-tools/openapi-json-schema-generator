@@ -29,6 +29,8 @@ permits<br>
 [Fruit1BoxedList](#fruit1boxedlist),
 [Fruit1BoxedMap](#fruit1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Fruit1
 public static class Fruit1<br>
 extends JsonSchema
@@ -97,6 +99,8 @@ A class to store validated Map payloads
 public static abstract sealed class ColorBoxed<br>
 permits<br>
 [ColorBoxedString](#colorboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Color
 public static class Color<br>

@@ -18,6 +18,8 @@ public static abstract sealed class IntegerMin151Boxed<br>
 permits<br>
 [IntegerMin151BoxedNumber](#integermin151boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## IntegerMin151
 public static class IntegerMin151<br>
 extends JsonSchema

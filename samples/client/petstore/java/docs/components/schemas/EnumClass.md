@@ -20,6 +20,8 @@ public static abstract sealed class EnumClass1Boxed<br>
 permits<br>
 [EnumClass1BoxedString](#enumclass1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## EnumClass1
 public static class EnumClass1<br>
 extends JsonSchema

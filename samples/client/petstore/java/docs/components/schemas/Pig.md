@@ -23,6 +23,8 @@ permits<br>
 [Pig1BoxedList](#pig1boxedlist),
 [Pig1BoxedMap](#pig1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Pig1
 public static class Pig1<br>
 extends JsonSchema

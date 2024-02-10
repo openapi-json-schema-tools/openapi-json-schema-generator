@@ -62,6 +62,8 @@ public static abstract sealed class AdditionalPropertiesClass1Boxed<br>
 permits<br>
 [AdditionalPropertiesClass1BoxedMap](#additionalpropertiesclass1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalPropertiesClass1
 public static class AdditionalPropertiesClass1<br>
 extends JsonSchema
@@ -206,6 +208,8 @@ public static abstract sealed class MapWithUndeclaredPropertiesStringBoxed<br>
 permits<br>
 [MapWithUndeclaredPropertiesStringBoxedMap](#mapwithundeclaredpropertiesstringboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## MapWithUndeclaredPropertiesString
 public static class MapWithUndeclaredPropertiesString<br>
 extends JsonSchema
@@ -283,6 +287,8 @@ public static abstract sealed class AdditionalProperties5Boxed<br>
 permits<br>
 [AdditionalProperties5BoxedString](#additionalproperties5boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties5
 public static class AdditionalProperties5<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -298,6 +304,8 @@ A schema class that validates payloads
 public static abstract sealed class EmptyMapBoxed<br>
 permits<br>
 [EmptyMapBoxedMap](#emptymapboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## EmptyMap
 public static class EmptyMap<br>
@@ -380,6 +388,8 @@ permits<br>
 [AdditionalProperties4BoxedList](#additionalproperties4boxedlist),
 [AdditionalProperties4BoxedMap](#additionalproperties4boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
@@ -395,6 +405,8 @@ A schema class that validates payloads
 public static abstract sealed class MapWithUndeclaredPropertiesAnytype3Boxed<br>
 permits<br>
 [MapWithUndeclaredPropertiesAnytype3BoxedMap](#mapwithundeclaredpropertiesanytype3boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## MapWithUndeclaredPropertiesAnytype3
 public static class MapWithUndeclaredPropertiesAnytype3<br>
@@ -484,6 +496,8 @@ permits<br>
 [AdditionalProperties3BoxedList](#additionalproperties3boxedlist),
 [AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -500,6 +514,8 @@ public static abstract sealed class MapWithUndeclaredPropertiesAnytype2Boxed<br>
 permits<br>
 [MapWithUndeclaredPropertiesAnytype2BoxedMap](#mapwithundeclaredpropertiesanytype2boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## MapWithUndeclaredPropertiesAnytype2
 public static class MapWithUndeclaredPropertiesAnytype2<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -515,6 +531,8 @@ A schema class that validates payloads
 public static abstract sealed class MapWithUndeclaredPropertiesAnytype1Boxed<br>
 permits<br>
 [MapWithUndeclaredPropertiesAnytype1BoxedMap](#mapwithundeclaredpropertiesanytype1boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## MapWithUndeclaredPropertiesAnytype1
 public static class MapWithUndeclaredPropertiesAnytype1<br>
@@ -537,6 +555,8 @@ permits<br>
 [Anytype1BoxedList](#anytype1boxedlist),
 [Anytype1BoxedMap](#anytype1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Anytype1
 public static class Anytype1<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -552,6 +572,8 @@ A schema class that validates payloads
 public static abstract sealed class MapOfMapPropertyBoxed<br>
 permits<br>
 [MapOfMapPropertyBoxedMap](#mapofmappropertyboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## MapOfMapProperty
 public static class MapOfMapProperty<br>
@@ -637,6 +659,8 @@ public static abstract sealed class AdditionalProperties1Boxed<br>
 permits<br>
 [AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -714,6 +738,8 @@ public static abstract sealed class AdditionalProperties2Boxed<br>
 permits<br>
 [AdditionalProperties2BoxedString](#additionalproperties2boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -729,6 +755,8 @@ A schema class that validates payloads
 public static abstract sealed class MapPropertyBoxed<br>
 permits<br>
 [MapPropertyBoxedMap](#mappropertyboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## MapProperty
 public static class MapProperty<br>
@@ -806,6 +834,8 @@ A class to store validated Map payloads
 public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

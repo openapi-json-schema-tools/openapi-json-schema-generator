@@ -28,6 +28,8 @@ public static abstract sealed class BananaReq1Boxed<br>
 permits<br>
 [BananaReq1BoxedMap](#bananareq1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## BananaReq1
 public static class BananaReq1<br>
 extends JsonSchema
@@ -129,6 +131,8 @@ public static abstract sealed class SweetBoxed<br>
 permits<br>
 [SweetBoxedBoolean](#sweetboxedboolean)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Sweet
 public static class Sweet<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -144,6 +148,8 @@ A schema class that validates payloads
 public static abstract sealed class LengthCmBoxed<br>
 permits<br>
 [LengthCmBoxedNumber](#lengthcmboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## LengthCm
 public static class LengthCm<br>
@@ -165,6 +171,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

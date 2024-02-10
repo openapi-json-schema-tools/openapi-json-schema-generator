@@ -18,6 +18,8 @@ public static abstract sealed class DateTimeTest1Boxed<br>
 permits<br>
 [DateTimeTest1BoxedString](#datetimetest1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## DateTimeTest1
 public static class DateTimeTest1<br>
 extends JsonSchema

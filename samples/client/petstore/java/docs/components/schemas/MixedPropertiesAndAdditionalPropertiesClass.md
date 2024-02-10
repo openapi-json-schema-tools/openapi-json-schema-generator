@@ -30,6 +30,8 @@ public static abstract sealed class MixedPropertiesAndAdditionalPropertiesClass1
 permits<br>
 [MixedPropertiesAndAdditionalPropertiesClass1BoxedMap](#mixedpropertiesandadditionalpropertiesclass1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## MixedPropertiesAndAdditionalPropertiesClass1
 public static class MixedPropertiesAndAdditionalPropertiesClass1<br>
 extends JsonSchema
@@ -139,6 +141,8 @@ public static abstract sealed class MapSchemaBoxed<br>
 permits<br>
 [MapSchemaBoxedMap](#mapschemaboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## MapSchema
 public static class MapSchema<br>
 extends JsonSchema
@@ -227,6 +231,8 @@ public static abstract sealed class DateTimeBoxed<br>
 permits<br>
 [DateTimeBoxedString](#datetimeboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## DateTime
 public static class DateTime<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1
@@ -242,6 +248,8 @@ A schema class that validates payloads
 public static abstract sealed class UuidSchemaBoxed<br>
 permits<br>
 [UuidSchemaBoxedString](#uuidschemaboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## UuidSchema
 public static class UuidSchema<br>

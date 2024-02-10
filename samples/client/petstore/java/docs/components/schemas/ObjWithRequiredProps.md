@@ -24,6 +24,8 @@ public static abstract sealed class ObjWithRequiredProps1Boxed<br>
 permits<br>
 [ObjWithRequiredProps1BoxedMap](#objwithrequiredprops1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjWithRequiredProps1
 public static class ObjWithRequiredProps1<br>
 extends JsonSchema
@@ -127,6 +129,8 @@ A class to store validated Map payloads
 public static abstract sealed class ABoxed<br>
 permits<br>
 [ABoxedString](#aboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## A
 public static class A<br>

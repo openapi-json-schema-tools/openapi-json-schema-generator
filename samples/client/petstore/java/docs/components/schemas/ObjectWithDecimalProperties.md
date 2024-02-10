@@ -24,6 +24,8 @@ public static abstract sealed class ObjectWithDecimalProperties1Boxed<br>
 permits<br>
 [ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithDecimalProperties1
 public static class ObjectWithDecimalProperties1<br>
 extends JsonSchema
@@ -128,6 +130,8 @@ A class to store validated Map payloads
 public static abstract sealed class WidthBoxed<br>
 permits<br>
 [WidthBoxedString](#widthboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Width
 public static class Width<br>

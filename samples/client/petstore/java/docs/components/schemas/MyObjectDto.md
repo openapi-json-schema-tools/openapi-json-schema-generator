@@ -26,6 +26,8 @@ public static abstract sealed class MyObjectDto1Boxed<br>
 permits<br>
 [MyObjectDto1BoxedMap](#myobjectdto1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## MyObjectDto1
 public static class MyObjectDto1<br>
 extends JsonSchema
@@ -104,6 +106,8 @@ public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedString](#idboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Id
 public static class Id<br>
 extends UuidJsonSchema.UuidJsonSchema1
@@ -124,6 +128,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

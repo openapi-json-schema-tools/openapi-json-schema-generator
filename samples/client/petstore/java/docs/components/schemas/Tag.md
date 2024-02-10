@@ -26,6 +26,8 @@ public static abstract sealed class Tag1Boxed<br>
 permits<br>
 [Tag1BoxedMap](#tag1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Tag1
 public static class Tag1<br>
 extends JsonSchema
@@ -120,6 +122,8 @@ public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Name
 public static class Name<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -135,6 +139,8 @@ A schema class that validates payloads
 public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Id
 public static class Id<br>

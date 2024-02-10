@@ -18,6 +18,8 @@ public static abstract sealed class NumberSchema1Boxed<br>
 permits<br>
 [NumberSchema1BoxedNumber](#numberschema1boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NumberSchema1
 public static class NumberSchema1<br>
 extends NumberJsonSchema.NumberJsonSchema1

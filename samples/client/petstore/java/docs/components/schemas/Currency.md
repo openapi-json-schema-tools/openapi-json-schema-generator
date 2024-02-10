@@ -20,6 +20,8 @@ public static abstract sealed class Currency1Boxed<br>
 permits<br>
 [Currency1BoxedString](#currency1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Currency1
 public static class Currency1<br>
 extends JsonSchema

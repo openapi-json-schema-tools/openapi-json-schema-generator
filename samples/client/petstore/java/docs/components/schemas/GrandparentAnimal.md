@@ -24,6 +24,8 @@ public static abstract sealed class GrandparentAnimal1Boxed<br>
 permits<br>
 [GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## GrandparentAnimal1
 public static class GrandparentAnimal1<br>
 extends JsonSchema
@@ -126,6 +128,8 @@ A class to store validated Map payloads
 public static abstract sealed class PetTypeBoxed<br>
 permits<br>
 [PetTypeBoxedString](#pettypeboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## PetType
 public static class PetType<br>

@@ -17,6 +17,8 @@ public static abstract sealed class XRateLimitSchema1Boxed<br>
 permits<br>
 [XRateLimitSchema1BoxedNumber](#xratelimitschema1boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## XRateLimitSchema1
 public static class XRateLimitSchema1<br>
 extends Int32JsonSchema.Int32JsonSchema1

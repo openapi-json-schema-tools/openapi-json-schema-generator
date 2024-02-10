@@ -20,6 +20,8 @@ public static abstract sealed class StringEnumWithDefaultValue1Boxed<br>
 permits<br>
 [StringEnumWithDefaultValue1BoxedString](#stringenumwithdefaultvalue1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## StringEnumWithDefaultValue1
 public static class StringEnumWithDefaultValue1<br>
 extends JsonSchema

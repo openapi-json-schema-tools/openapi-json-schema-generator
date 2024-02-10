@@ -28,6 +28,8 @@ public static abstract sealed class NoAdditionalProperties1Boxed<br>
 permits<br>
 [NoAdditionalProperties1BoxedMap](#noadditionalproperties1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NoAdditionalProperties1
 public static class NoAdditionalProperties1<br>
 extends JsonSchema
@@ -132,6 +134,8 @@ public static abstract sealed class PetIdBoxed<br>
 permits<br>
 [PetIdBoxedNumber](#petidboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## PetId
 public static class PetId<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -147,6 +151,8 @@ A schema class that validates payloads
 public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Id
 public static class Id<br>
@@ -168,6 +174,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -18,6 +18,8 @@ public static abstract sealed class ObjectInterface1Boxed<br>
 permits<br>
 [ObjectInterface1BoxedMap](#objectinterface1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectInterface1
 public static class ObjectInterface1<br>
 extends MapJsonSchema.MapJsonSchema1

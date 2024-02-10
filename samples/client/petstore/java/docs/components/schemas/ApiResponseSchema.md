@@ -28,6 +28,8 @@ public static abstract sealed class ApiResponseSchema1Boxed<br>
 permits<br>
 [ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ApiResponseSchema1
 public static class ApiResponseSchema1<br>
 extends JsonSchema
@@ -124,6 +126,8 @@ public static abstract sealed class MessageBoxed<br>
 permits<br>
 [MessageBoxedString](#messageboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Message
 public static class Message<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -140,6 +144,8 @@ public static abstract sealed class TypeBoxed<br>
 permits<br>
 [TypeBoxedString](#typeboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Type
 public static class Type<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -155,6 +161,8 @@ A schema class that validates payloads
 public static abstract sealed class CodeBoxed<br>
 permits<br>
 [CodeBoxedNumber](#codeboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Code
 public static class Code<br>

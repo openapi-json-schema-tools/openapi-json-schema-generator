@@ -31,6 +31,8 @@ permits<br>
 [Cat1BoxedList](#cat1boxedlist),
 [Cat1BoxedMap](#cat1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Cat1
 public static class Cat1<br>
 extends JsonSchema
@@ -59,6 +61,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema1
 public static class Schema1<br>
@@ -146,6 +150,8 @@ A class to store validated Map payloads
 public static abstract sealed class DeclawedBoxed<br>
 permits<br>
 [DeclawedBoxedBoolean](#declawedboxedboolean)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Declawed
 public static class Declawed<br>

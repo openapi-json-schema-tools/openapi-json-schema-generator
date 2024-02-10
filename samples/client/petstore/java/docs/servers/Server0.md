@@ -51,6 +51,8 @@ public static abstract sealed class Variables1Boxed<br>
 permits<br>
 [Variables1BoxedMap](#variables1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ### Variables1
 public static class Variables1<br>
 extends JsonSchema
@@ -185,6 +187,8 @@ public static abstract sealed class PortBoxed<br>
 permits<br>
 [PortBoxedString](#portboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ### Port
 public static class Port<br>
 extends JsonSchema
@@ -245,6 +249,8 @@ A class that stores String enum values
 public static abstract sealed class ServerBoxed<br>
 permits<br>
 [ServerBoxedString](#serverboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ### Server
 public static class Server<br>
@@ -312,6 +318,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>

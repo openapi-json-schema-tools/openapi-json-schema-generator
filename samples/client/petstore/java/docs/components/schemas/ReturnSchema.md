@@ -29,6 +29,8 @@ permits<br>
 [ReturnSchema1BoxedList](#returnschema1boxedlist),
 [ReturnSchema1BoxedMap](#returnschema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ReturnSchema1
 public static class ReturnSchema1<br>
 extends JsonSchema
@@ -100,6 +102,8 @@ A class to store validated Map payloads
 public static abstract sealed class ReturnSchema2Boxed<br>
 permits<br>
 [ReturnSchema2BoxedNumber](#returnschema2boxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ReturnSchema2
 public static class ReturnSchema2<br>

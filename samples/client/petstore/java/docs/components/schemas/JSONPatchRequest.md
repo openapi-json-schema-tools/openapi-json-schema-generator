@@ -24,6 +24,8 @@ public static abstract sealed class JSONPatchRequest1Boxed<br>
 permits<br>
 [JSONPatchRequest1BoxedList](#jsonpatchrequest1boxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## JSONPatchRequest1
 public static class JSONPatchRequest1<br>
 extends JsonSchema
@@ -111,6 +113,8 @@ permits<br>
 [ItemsBoxedString](#itemsboxedstring),
 [ItemsBoxedList](#itemsboxedlist),
 [ItemsBoxedMap](#itemsboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Items
 public static class Items<br>

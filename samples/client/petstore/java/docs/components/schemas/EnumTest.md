@@ -39,6 +39,8 @@ public static abstract sealed class EnumTest1Boxed<br>
 permits<br>
 [EnumTest1BoxedMap](#enumtest1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## EnumTest1
 public static class EnumTest1<br>
 extends JsonSchema
@@ -201,6 +203,8 @@ public static abstract sealed class EnumNumberBoxed<br>
 permits<br>
 [EnumNumberBoxedNumber](#enumnumberboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## EnumNumber
 public static class EnumNumber<br>
 extends JsonSchema
@@ -269,6 +273,8 @@ A class that stores Float enum values
 public static abstract sealed class EnumIntegerBoxed<br>
 permits<br>
 [EnumIntegerBoxedNumber](#enumintegerboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## EnumInteger
 public static class EnumInteger<br>
@@ -363,6 +369,8 @@ public static abstract sealed class EnumStringRequiredBoxed<br>
 permits<br>
 [EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## EnumStringRequired
 public static class EnumStringRequired<br>
 extends JsonSchema
@@ -420,6 +428,8 @@ A class that stores String enum values
 public static abstract sealed class EnumStringBoxed<br>
 permits<br>
 [EnumStringBoxedString](#enumstringboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## EnumString
 public static class EnumString<br>

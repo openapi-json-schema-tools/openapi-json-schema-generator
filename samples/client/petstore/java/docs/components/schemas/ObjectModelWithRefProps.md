@@ -22,6 +22,8 @@ public static abstract sealed class ObjectModelWithRefProps1Boxed<br>
 permits<br>
 [ObjectModelWithRefProps1BoxedMap](#objectmodelwithrefprops1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectModelWithRefProps1
 public static class ObjectModelWithRefProps1<br>
 extends JsonSchema

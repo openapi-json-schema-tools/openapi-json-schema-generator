@@ -18,6 +18,8 @@ public static abstract sealed class NumberWithValidations1Boxed<br>
 permits<br>
 [NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NumberWithValidations1
 public static class NumberWithValidations1<br>
 extends JsonSchema

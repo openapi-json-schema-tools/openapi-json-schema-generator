@@ -18,6 +18,8 @@ public static abstract sealed class UUIDString1Boxed<br>
 permits<br>
 [UUIDString1BoxedString](#uuidstring1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## UUIDString1
 public static class UUIDString1<br>
 extends JsonSchema

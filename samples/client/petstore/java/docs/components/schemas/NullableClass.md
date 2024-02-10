@@ -74,6 +74,8 @@ public static abstract sealed class NullableClass1Boxed<br>
 permits<br>
 [NullableClass1BoxedMap](#nullableclass1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NullableClass1
 public static class NullableClass1<br>
 extends JsonSchema
@@ -226,6 +228,8 @@ public static abstract sealed class ObjectItemsNullableBoxed<br>
 permits<br>
 [ObjectItemsNullableBoxedMap](#objectitemsnullableboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectItemsNullable
 public static class ObjectItemsNullable<br>
 extends JsonSchema
@@ -305,6 +309,8 @@ permits<br>
 [AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid),
 [AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -349,6 +355,8 @@ public static abstract sealed class ObjectAndItemsNullablePropBoxed<br>
 permits<br>
 [ObjectAndItemsNullablePropBoxedVoid](#objectanditemsnullablepropboxedvoid),
 [ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ObjectAndItemsNullableProp
 public static class ObjectAndItemsNullableProp<br>
@@ -436,6 +444,8 @@ permits<br>
 [AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid),
 [AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -480,6 +490,8 @@ public static abstract sealed class ObjectNullablePropBoxed<br>
 permits<br>
 [ObjectNullablePropBoxedVoid](#objectnullablepropboxedvoid),
 [ObjectNullablePropBoxedMap](#objectnullablepropboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ObjectNullableProp
 public static class ObjectNullableProp<br>
@@ -563,6 +575,8 @@ public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -578,6 +592,8 @@ A schema class that validates payloads
 public static abstract sealed class ArrayItemsNullableBoxed<br>
 permits<br>
 [ArrayItemsNullableBoxedList](#arrayitemsnullableboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ArrayItemsNullable
 public static class ArrayItemsNullable<br>
@@ -658,6 +674,8 @@ permits<br>
 [Items2BoxedVoid](#items2boxedvoid),
 [Items2BoxedMap](#items2boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items2
 public static class Items2<br>
 extends JsonSchema
@@ -702,6 +720,8 @@ public static abstract sealed class ArrayAndItemsNullablePropBoxed<br>
 permits<br>
 [ArrayAndItemsNullablePropBoxedVoid](#arrayanditemsnullablepropboxedvoid),
 [ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
@@ -789,6 +809,8 @@ permits<br>
 [Items1BoxedVoid](#items1boxedvoid),
 [Items1BoxedMap](#items1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items1
 public static class Items1<br>
 extends JsonSchema
@@ -833,6 +855,8 @@ public static abstract sealed class ArrayNullablePropBoxed<br>
 permits<br>
 [ArrayNullablePropBoxedVoid](#arraynullablepropboxedvoid),
 [ArrayNullablePropBoxedList](#arraynullablepropboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
@@ -916,6 +940,8 @@ public static abstract sealed class ItemsBoxed<br>
 permits<br>
 [ItemsBoxedMap](#itemsboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items
 public static class Items<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -932,6 +958,8 @@ public static abstract sealed class DatetimePropBoxed<br>
 permits<br>
 [DatetimePropBoxedVoid](#datetimepropboxedvoid),
 [DatetimePropBoxedString](#datetimepropboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## DatetimeProp
 public static class DatetimeProp<br>
@@ -985,6 +1013,8 @@ permits<br>
 [DatePropBoxedVoid](#datepropboxedvoid),
 [DatePropBoxedString](#datepropboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## DateProp
 public static class DateProp<br>
 extends JsonSchema
@@ -1037,6 +1067,8 @@ permits<br>
 [StringPropBoxedVoid](#stringpropboxedvoid),
 [StringPropBoxedString](#stringpropboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## StringProp
 public static class StringProp<br>
 extends JsonSchema
@@ -1087,6 +1119,8 @@ public static abstract sealed class BooleanPropBoxed<br>
 permits<br>
 [BooleanPropBoxedVoid](#booleanpropboxedvoid),
 [BooleanPropBoxedBoolean](#booleanpropboxedboolean)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## BooleanProp
 public static class BooleanProp<br>
@@ -1139,6 +1173,8 @@ permits<br>
 [NumberPropBoxedVoid](#numberpropboxedvoid),
 [NumberPropBoxedNumber](#numberpropboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NumberProp
 public static class NumberProp<br>
 extends JsonSchema
@@ -1189,6 +1225,8 @@ public static abstract sealed class IntegerPropBoxed<br>
 permits<br>
 [IntegerPropBoxedVoid](#integerpropboxedvoid),
 [IntegerPropBoxedNumber](#integerpropboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## IntegerProp
 public static class IntegerProp<br>
@@ -1241,6 +1279,8 @@ public static abstract sealed class AdditionalProperties3Boxed<br>
 permits<br>
 [AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid),
 [AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>

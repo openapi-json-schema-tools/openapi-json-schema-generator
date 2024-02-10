@@ -39,6 +39,8 @@ permits<br>
 [ComposedOneOfDifferentTypes1BoxedList](#composedoneofdifferenttypes1boxedlist),
 [ComposedOneOfDifferentTypes1BoxedMap](#composedoneofdifferenttypes1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ComposedOneOfDifferentTypes1
 public static class ComposedOneOfDifferentTypes1<br>
 extends JsonSchema
@@ -70,6 +72,8 @@ this is a model that allows payloads of type object or number
 public static abstract sealed class Schema6Boxed<br>
 permits<br>
 [Schema6BoxedString](#schema6boxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema6
 public static class Schema6<br>
@@ -115,6 +119,8 @@ String validatedPayload = ComposedOneOfDifferentTypes.Schema6.validate(
 public static abstract sealed class Schema5Boxed<br>
 permits<br>
 [Schema5BoxedList](#schema5boxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema5
 public static class Schema5<br>
@@ -206,6 +212,8 @@ permits<br>
 [ItemsBoxedList](#itemsboxedlist),
 [ItemsBoxedMap](#itemsboxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items
 public static class Items<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -221,6 +229,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema4Boxed<br>
 permits<br>
 [Schema4BoxedMap](#schema4boxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema4
 public static class Schema4<br>
@@ -245,6 +255,8 @@ public static abstract sealed class Schema3Boxed<br>
 permits<br>
 [Schema3BoxedString](#schema3boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema3
 public static class Schema3<br>
 extends DateJsonSchema.DateJsonSchema1
@@ -260,6 +272,8 @@ A schema class that validates payloads
 public static abstract sealed class Schema2Boxed<br>
 permits<br>
 [Schema2BoxedVoid](#schema2boxedvoid)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Schema2
 public static class Schema2<br>

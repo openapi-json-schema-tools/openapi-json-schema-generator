@@ -24,6 +24,8 @@ public static abstract sealed class PublicKey1Boxed<br>
 permits<br>
 [PublicKey1BoxedMap](#publickey1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## PublicKey1
 public static class PublicKey1<br>
 extends JsonSchema
@@ -113,6 +115,8 @@ A class to store validated Map payloads
 public static abstract sealed class KeyBoxed<br>
 permits<br>
 [KeyBoxedString](#keyboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Key
 public static class Key<br>

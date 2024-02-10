@@ -26,6 +26,8 @@ public static abstract sealed class Category1Boxed<br>
 permits<br>
 [Category1BoxedMap](#category1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Category1
 public static class Category1<br>
 extends JsonSchema
@@ -136,6 +138,8 @@ public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Name
 public static class Name<br>
 extends JsonSchema
@@ -179,6 +183,8 @@ String validatedPayload = Category.Name.validate(
 public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Id
 public static class Id<br>

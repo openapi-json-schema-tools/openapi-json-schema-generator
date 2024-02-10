@@ -18,6 +18,8 @@ public static abstract sealed class BooleanSchema1Boxed<br>
 permits<br>
 [BooleanSchema1BoxedBoolean](#booleanschema1boxedboolean)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## BooleanSchema1
 public static class BooleanSchema1<br>
 extends BooleanJsonSchema.BooleanJsonSchema1

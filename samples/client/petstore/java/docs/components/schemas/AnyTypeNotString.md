@@ -25,6 +25,8 @@ permits<br>
 [AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist),
 [AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AnyTypeNotString1
 public static class AnyTypeNotString1<br>
 extends JsonSchema
@@ -53,6 +55,8 @@ A schema class that validates payloads
 public static abstract sealed class NotBoxed<br>
 permits<br>
 [NotBoxedString](#notboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Not
 public static class Not<br>

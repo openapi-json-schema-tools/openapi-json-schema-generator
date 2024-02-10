@@ -33,6 +33,8 @@ permits<br>
 [Name1BoxedList](#name1boxedlist),
 [Name1BoxedMap](#name1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Name1
 public static class Name1<br>
 extends JsonSchema
@@ -126,6 +128,8 @@ public static abstract sealed class PropertyBoxed<br>
 permits<br>
 [PropertyBoxedString](#propertyboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Property
 public static class Property<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -145,6 +149,8 @@ public static abstract sealed class SnakeCaseBoxed<br>
 permits<br>
 [SnakeCaseBoxedNumber](#snakecaseboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## SnakeCase
 public static class SnakeCase<br>
 extends Int32JsonSchema.Int32JsonSchema1
@@ -160,6 +166,8 @@ A schema class that validates payloads
 public static abstract sealed class Name2Boxed<br>
 permits<br>
 [Name2BoxedNumber](#name2boxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Name2
 public static class Name2<br>

@@ -24,6 +24,8 @@ public static abstract sealed class NumberOnly1Boxed<br>
 permits<br>
 [NumberOnly1BoxedMap](#numberonly1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NumberOnly1
 public static class NumberOnly1<br>
 extends JsonSchema
@@ -113,6 +115,8 @@ A class to store validated Map payloads
 public static abstract sealed class JustNumberBoxed<br>
 permits<br>
 [JustNumberBoxedNumber](#justnumberboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## JustNumber
 public static class JustNumber<br>

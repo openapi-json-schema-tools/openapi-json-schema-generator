@@ -32,6 +32,8 @@ public static abstract sealed class PaginatedResultMyObjectDto1Boxed<br>
 permits<br>
 [PaginatedResultMyObjectDto1BoxedMap](#paginatedresultmyobjectdto1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## PaginatedResultMyObjectDto1
 public static class PaginatedResultMyObjectDto1<br>
 extends JsonSchema
@@ -170,6 +172,8 @@ public static abstract sealed class ResultsBoxed<br>
 permits<br>
 [ResultsBoxedList](#resultsboxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Results
 public static class Results<br>
 extends JsonSchema
@@ -245,6 +249,8 @@ public static abstract sealed class CountBoxed<br>
 permits<br>
 [CountBoxedNumber](#countboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Count
 public static class Count<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -265,6 +271,8 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

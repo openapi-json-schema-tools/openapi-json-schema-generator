@@ -17,6 +17,8 @@ public static abstract sealed class Schema21Boxed<br>
 permits<br>
 [Schema21BoxedNumber](#schema21boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema21
 public static class Schema21<br>
 extends Int64JsonSchema.Int64JsonSchema1

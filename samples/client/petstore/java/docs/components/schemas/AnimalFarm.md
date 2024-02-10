@@ -22,6 +22,8 @@ public static abstract sealed class AnimalFarm1Boxed<br>
 permits<br>
 [AnimalFarm1BoxedList](#animalfarm1boxedlist)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AnimalFarm1
 public static class AnimalFarm1<br>
 extends JsonSchema

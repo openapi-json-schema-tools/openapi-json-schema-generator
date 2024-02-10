@@ -70,6 +70,8 @@ public static abstract sealed class FormatTest1Boxed<br>
 permits<br>
 [FormatTest1BoxedMap](#formattest1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## FormatTest1
 public static class FormatTest1<br>
 extends JsonSchema
@@ -532,6 +534,8 @@ public static abstract sealed class NonePropBoxed<br>
 permits<br>
 [NonePropBoxedVoid](#nonepropboxedvoid)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NoneProp
 public static class NoneProp<br>
 extends NullJsonSchema.NullJsonSchema1
@@ -547,6 +551,8 @@ A schema class that validates payloads
 public static abstract sealed class PatternWithDigitsAndDelimiterBoxed<br>
 permits<br>
 [PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
@@ -595,6 +601,8 @@ public static abstract sealed class PatternWithDigitsBoxed<br>
 permits<br>
 [PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## PatternWithDigits
 public static class PatternWithDigits<br>
 extends JsonSchema
@@ -642,6 +650,8 @@ public static abstract sealed class PasswordBoxed<br>
 permits<br>
 [PasswordBoxedString](#passwordboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Password
 public static class Password<br>
 extends JsonSchema
@@ -688,6 +698,8 @@ public static abstract sealed class UuidNoExampleBoxed<br>
 permits<br>
 [UuidNoExampleBoxedString](#uuidnoexampleboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## UuidNoExample
 public static class UuidNoExample<br>
 extends UuidJsonSchema.UuidJsonSchema1
@@ -703,6 +715,8 @@ A schema class that validates payloads
 public static abstract sealed class UuidSchemaBoxed<br>
 permits<br>
 [UuidSchemaBoxedString](#uuidschemaboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## UuidSchema
 public static class UuidSchema<br>
@@ -720,6 +734,8 @@ public static abstract sealed class DateTimeBoxed<br>
 permits<br>
 [DateTimeBoxedString](#datetimeboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## DateTime
 public static class DateTime<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1
@@ -736,6 +752,8 @@ public static abstract sealed class DateBoxed<br>
 permits<br>
 [DateBoxedString](#dateboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Date
 public static class Date<br>
 extends DateJsonSchema.DateJsonSchema1
@@ -751,6 +769,8 @@ A schema class that validates payloads
 public static abstract sealed class BinaryBoxed<br>
 permits<br>
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
@@ -762,6 +782,8 @@ public static abstract sealed class ByteSchemaBoxed<br>
 permits<br>
 [ByteSchemaBoxedString](#byteschemaboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ByteSchema
 public static class ByteSchema<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -772,6 +794,8 @@ A schema class that validates payloads
 public static abstract sealed class StringSchemaBoxed<br>
 permits<br>
 [StringSchemaBoxedString](#stringschemaboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## StringSchema
 public static class StringSchema<br>
@@ -816,6 +840,8 @@ String validatedPayload = FormatTest.StringSchema.validate(
 public static abstract sealed class ArrayWithUniqueItemsBoxed<br>
 permits<br>
 [ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## ArrayWithUniqueItems
 public static class ArrayWithUniqueItems<br>
@@ -898,6 +924,8 @@ public static abstract sealed class ItemsBoxed<br>
 permits<br>
 [ItemsBoxedNumber](#itemsboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Items
 public static class Items<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -914,6 +942,8 @@ public static abstract sealed class Float64Boxed<br>
 permits<br>
 [Float64BoxedNumber](#float64boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Float64
 public static class Float64<br>
 extends DoubleJsonSchema.DoubleJsonSchema1
@@ -929,6 +959,8 @@ A schema class that validates payloads
 public static abstract sealed class DoubleSchemaBoxed<br>
 permits<br>
 [DoubleSchemaBoxedNumber](#doubleschemaboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -976,6 +1008,8 @@ public static abstract sealed class Float32Boxed<br>
 permits<br>
 [Float32BoxedNumber](#float32boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Float32
 public static class Float32<br>
 extends FloatJsonSchema.FloatJsonSchema1
@@ -991,6 +1025,8 @@ A schema class that validates payloads
 public static abstract sealed class FloatSchemaBoxed<br>
 permits<br>
 [FloatSchemaBoxedNumber](#floatschemaboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -1041,6 +1077,8 @@ public static abstract sealed class NumberSchemaBoxed<br>
 permits<br>
 [NumberSchemaBoxedNumber](#numberschemaboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## NumberSchema
 public static class NumberSchema<br>
 extends JsonSchema
@@ -1087,6 +1125,8 @@ public static abstract sealed class Int64Boxed<br>
 permits<br>
 [Int64BoxedNumber](#int64boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Int64
 public static class Int64<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -1102,6 +1142,8 @@ A schema class that validates payloads
 public static abstract sealed class Int32withValidationsBoxed<br>
 permits<br>
 [Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Int32withValidations
 public static class Int32withValidations<br>
@@ -1149,6 +1191,8 @@ public static abstract sealed class Int32Boxed<br>
 permits<br>
 [Int32BoxedNumber](#int32boxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Int32
 public static class Int32<br>
 extends Int32JsonSchema.Int32JsonSchema1
@@ -1164,6 +1208,8 @@ A schema class that validates payloads
 public static abstract sealed class IntegerSchemaBoxed<br>
 permits<br>
 [IntegerSchemaBoxedNumber](#integerschemaboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## IntegerSchema
 public static class IntegerSchema<br>

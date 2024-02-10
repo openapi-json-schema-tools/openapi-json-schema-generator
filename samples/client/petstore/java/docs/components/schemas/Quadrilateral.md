@@ -23,6 +23,8 @@ permits<br>
 [Quadrilateral1BoxedList](#quadrilateral1boxedlist),
 [Quadrilateral1BoxedMap](#quadrilateral1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Quadrilateral1
 public static class Quadrilateral1<br>
 extends JsonSchema

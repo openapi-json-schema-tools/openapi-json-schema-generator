@@ -18,6 +18,8 @@ public static abstract sealed class Bar1Boxed<br>
 permits<br>
 [Bar1BoxedString](#bar1boxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Bar1
 public static class Bar1<br>
 extends JsonSchema

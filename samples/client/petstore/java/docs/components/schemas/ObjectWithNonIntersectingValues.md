@@ -26,6 +26,8 @@ public static abstract sealed class ObjectWithNonIntersectingValues1Boxed<br>
 permits<br>
 [ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithNonIntersectingValues1
 public static class ObjectWithNonIntersectingValues1<br>
 extends JsonSchema
@@ -111,6 +113,8 @@ public static abstract sealed class ABoxed<br>
 permits<br>
 [ABoxedNumber](#aboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## A
 public static class A<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -126,6 +130,8 @@ A schema class that validates payloads
 public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

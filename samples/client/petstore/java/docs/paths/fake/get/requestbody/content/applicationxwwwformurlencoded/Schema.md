@@ -34,6 +34,8 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -129,6 +131,8 @@ public static abstract sealed class EnumFormStringBoxed<br>
 permits<br>
 [EnumFormStringBoxedString](#enumformstringboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## EnumFormString
 public static class EnumFormString<br>
 extends JsonSchema
@@ -190,6 +194,8 @@ A class that stores String enum values
 public static abstract sealed class EnumFormStringArrayBoxed<br>
 permits<br>
 [EnumFormStringArrayBoxedList](#enumformstringarrayboxedlist)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## EnumFormStringArray
 public static class EnumFormStringArray<br>
@@ -271,6 +277,8 @@ A class to store validated List payloads
 public static abstract sealed class ItemsBoxed<br>
 permits<br>
 [ItemsBoxedString](#itemsboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Items
 public static class Items<br>

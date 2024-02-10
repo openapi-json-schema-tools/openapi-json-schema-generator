@@ -26,6 +26,8 @@ public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed<br
 permits<br>
 [ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectModelWithArgAndArgsProperties1
 public static class ObjectModelWithArgAndArgsProperties1<br>
 extends JsonSchema
@@ -165,6 +167,8 @@ public static abstract sealed class ArgsBoxed<br>
 permits<br>
 [ArgsBoxedString](#argsboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Args
 public static class Args<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -180,6 +184,8 @@ A schema class that validates payloads
 public static abstract sealed class ArgBoxed<br>
 permits<br>
 [ArgBoxedString](#argboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Arg
 public static class Arg<br>

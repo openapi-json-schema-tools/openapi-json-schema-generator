@@ -24,6 +24,8 @@ public static abstract sealed class AbstractStepMessage1Boxed<br>
 permits<br>
 [AbstractStepMessage1BoxedMap](#abstractstepmessage1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## AbstractStepMessage1
 public static class AbstractStepMessage1<br>
 extends JsonSchema
@@ -297,6 +299,8 @@ A class to store validated Map payloads
 public static abstract sealed class DiscriminatorBoxed<br>
 permits<br>
 [DiscriminatorBoxedString](#discriminatorboxedstring)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Discriminator
 public static class Discriminator<br>

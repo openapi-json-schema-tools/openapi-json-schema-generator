@@ -28,6 +28,8 @@ public static abstract sealed class ObjectWithDifficultlyNamedProps1Boxed<br>
 permits<br>
 [ObjectWithDifficultlyNamedProps1BoxedMap](#objectwithdifficultlynamedprops1boxedmap)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## ObjectWithDifficultlyNamedProps1
 public static class ObjectWithDifficultlyNamedProps1<br>
 extends JsonSchema
@@ -146,6 +148,8 @@ public static abstract sealed class Schema123NumberBoxed<br>
 permits<br>
 [Schema123NumberBoxedNumber](#schema123numberboxednumber)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema123Number
 public static class Schema123Number<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -162,6 +166,8 @@ public static abstract sealed class Schema123listBoxed<br>
 permits<br>
 [Schema123listBoxedString](#schema123listboxedstring)
 
+A sealed class that stores validated payloads using boxed classes
+
 ## Schema123list
 public static class Schema123list<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -177,6 +183,8 @@ A schema class that validates payloads
 public static abstract sealed class SpecialpropertynameBoxed<br>
 permits<br>
 [SpecialpropertynameBoxedNumber](#specialpropertynameboxednumber)
+
+A sealed class that stores validated payloads using boxed classes
 
 ## Specialpropertyname
 public static class Specialpropertyname<br>
