@@ -49,7 +49,52 @@ public class IgnoreThenWithoutIf {
     }
     
     
-    public static class Then extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ThenBoxed permits ThenBoxedVoid, ThenBoxedBoolean, ThenBoxedNumber, ThenBoxedString, ThenBoxedList, ThenBoxedMap {}
+    
+    public static final class ThenBoxedVoid extends ThenBoxed {
+        public final Void data;
+        private ThenBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ThenBoxedBoolean extends ThenBoxed {
+        public final boolean data;
+        private ThenBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ThenBoxedNumber extends ThenBoxed {
+        public final Number data;
+        private ThenBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ThenBoxedString extends ThenBoxed {
+        public final String data;
+        private ThenBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ThenBoxedList extends ThenBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private ThenBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ThenBoxedMap extends ThenBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ThenBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Then extends JsonSchema implements NullSchemaValidator<ThenBoxedVoid>, BooleanSchemaValidator<ThenBoxedBoolean>, NumberSchemaValidator<ThenBoxedNumber>, StringSchemaValidator<ThenBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ThenBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ThenBoxedMap> {
         private static @Nullable Then instance = null;
     
         protected Then() {
@@ -242,9 +287,78 @@ public class IgnoreThenWithoutIf {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ThenBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ThenBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ThenBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ThenBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ThenBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ThenBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ThenBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ThenBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ThenBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ThenBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ThenBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ThenBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class IgnoreThenWithoutIf1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class IgnoreThenWithoutIf1Boxed permits IgnoreThenWithoutIf1BoxedVoid, IgnoreThenWithoutIf1BoxedBoolean, IgnoreThenWithoutIf1BoxedNumber, IgnoreThenWithoutIf1BoxedString, IgnoreThenWithoutIf1BoxedList, IgnoreThenWithoutIf1BoxedMap {}
+    
+    public static final class IgnoreThenWithoutIf1BoxedVoid extends IgnoreThenWithoutIf1Boxed {
+        public final Void data;
+        private IgnoreThenWithoutIf1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IgnoreThenWithoutIf1BoxedBoolean extends IgnoreThenWithoutIf1Boxed {
+        public final boolean data;
+        private IgnoreThenWithoutIf1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IgnoreThenWithoutIf1BoxedNumber extends IgnoreThenWithoutIf1Boxed {
+        public final Number data;
+        private IgnoreThenWithoutIf1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IgnoreThenWithoutIf1BoxedString extends IgnoreThenWithoutIf1Boxed {
+        public final String data;
+        private IgnoreThenWithoutIf1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IgnoreThenWithoutIf1BoxedList extends IgnoreThenWithoutIf1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private IgnoreThenWithoutIf1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IgnoreThenWithoutIf1BoxedMap extends IgnoreThenWithoutIf1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private IgnoreThenWithoutIf1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class IgnoreThenWithoutIf1 extends JsonSchema implements NullSchemaValidator<IgnoreThenWithoutIf1BoxedVoid>, BooleanSchemaValidator<IgnoreThenWithoutIf1BoxedBoolean>, NumberSchemaValidator<IgnoreThenWithoutIf1BoxedNumber>, StringSchemaValidator<IgnoreThenWithoutIf1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IgnoreThenWithoutIf1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IgnoreThenWithoutIf1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -442,6 +556,30 @@ public class IgnoreThenWithoutIf {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public IgnoreThenWithoutIf1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IgnoreThenWithoutIf1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public IgnoreThenWithoutIf1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IgnoreThenWithoutIf1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public IgnoreThenWithoutIf1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IgnoreThenWithoutIf1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public IgnoreThenWithoutIf1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IgnoreThenWithoutIf1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public IgnoreThenWithoutIf1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IgnoreThenWithoutIf1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public IgnoreThenWithoutIf1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IgnoreThenWithoutIf1BoxedMap(validate(arg, configuration));
         }
     }
 }

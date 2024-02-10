@@ -4,15 +4,132 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxed)<br> abstract sealed validated payload class |
+| static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1)<br> schema class |
 | static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmapbuilder)<br> builder for Map payloads |
 | static class | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap)<br> output class for Map payloads |
+
+## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed
+public static abstract sealed class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed<br>
+permits<br>
+[RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedvoid),
+[RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedboolean),
+[RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxednumber),
+[RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedstring),
+[RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedlist),
+[RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid
+public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid<br>
+extends [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean
+public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean<br>
+extends [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber
+public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber<br>
+extends [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString
+public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString<br>
+extends [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList
+public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList<br>
+extends [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap
+public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap<br>
+extends [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap([RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap) | data<br>validated payload |
 
 ## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1
 public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1<br>
@@ -34,9 +151,16 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap) | validate([Map&lt;?, ?&gt;](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmapbuilder) arg, SchemaConfiguration configuration) |
+| [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList](#requiredpropertieswhosenamesarejavascriptobjectpropertynames1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder
 public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder<br>

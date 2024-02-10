@@ -40,7 +40,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
@@ -52,7 +52,7 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
     }
     
     
-    public static class Bar extends AnyTypeJsonSchema {
+    public static class Bar extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Bar instance = null;
         public static Bar getInstance() {
             if (instance == null) {
@@ -162,7 +162,17 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
     }
     
     
-    public static class Foo1 extends JsonSchema implements MapSchemaValidator<FooMap> {
+    public static abstract sealed class Foo1Boxed permits Foo1BoxedMap {}
+    
+    public static final class Foo1BoxedMap extends Foo1Boxed {
+        public final FooMap data;
+        private Foo1BoxedMap(FooMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Foo1 extends JsonSchema implements MapSchemaValidator<FooMap, Foo1BoxedMap> {
         private static @Nullable Foo1 instance = null;
     
         protected Foo1() {
@@ -230,10 +240,14 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Foo1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Foo1BoxedMap(validate(arg, configuration));
+        }
     }
     
     
-    public static class Foo extends AnyTypeJsonSchema {
+    public static class Foo extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Foo instance = null;
         public static Foo getInstance() {
             if (instance == null) {
@@ -352,7 +366,52 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
     }
     
     
-    public static class DependentSchemasDependentSubschemaIncompatibleWithRoot1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRootMap> {
+    public static abstract sealed class DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed permits DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap {}
+    
+    public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
+        public final Void data;
+        private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
+        public final boolean data;
+        private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
+        public final Number data;
+        private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
+        public final String data;
+        private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
+        public final DependentSchemasDependentSubschemaIncompatibleWithRootMap data;
+        private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap(DependentSchemasDependentSubschemaIncompatibleWithRootMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class DependentSchemasDependentSubschemaIncompatibleWithRoot1 extends JsonSchema implements NullSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid>, BooleanSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean>, NumberSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber>, StringSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList>, MapSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRootMap, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -555,6 +614,30 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap(validate(arg, configuration));
         }
     }
 }

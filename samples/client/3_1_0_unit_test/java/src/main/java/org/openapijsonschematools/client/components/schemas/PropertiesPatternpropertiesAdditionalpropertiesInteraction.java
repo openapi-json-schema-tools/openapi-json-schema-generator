@@ -42,7 +42,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends IntJsonSchema {
+    public static class AdditionalProperties extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {
@@ -53,7 +53,52 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     
-    public static class Fo extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class FoBoxed permits FoBoxedVoid, FoBoxedBoolean, FoBoxedNumber, FoBoxedString, FoBoxedList, FoBoxedMap {}
+    
+    public static final class FoBoxedVoid extends FoBoxed {
+        public final Void data;
+        private FoBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoBoxedBoolean extends FoBoxed {
+        public final boolean data;
+        private FoBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoBoxedNumber extends FoBoxed {
+        public final Number data;
+        private FoBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoBoxedString extends FoBoxed {
+        public final String data;
+        private FoBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoBoxedList extends FoBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private FoBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoBoxedMap extends FoBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private FoBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Fo extends JsonSchema implements NullSchemaValidator<FoBoxedVoid>, BooleanSchemaValidator<FoBoxedBoolean>, NumberSchemaValidator<FoBoxedNumber>, StringSchemaValidator<FoBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FoBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FoBoxedMap> {
         private static @Nullable Fo instance = null;
     
         protected Fo() {
@@ -246,9 +291,44 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public FoBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public FoBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public FoBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public FoBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public FoBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public FoBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class Foo extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>> {
+    public static abstract sealed class FooBoxed permits FooBoxedList {}
+    
+    public static final class FooBoxedList extends FooBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private FooBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Foo extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>, FooBoxedList> {
         private static @Nullable Foo instance = null;
     
         protected Foo() {
@@ -309,9 +389,13 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public FooBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FooBoxedList(validate(arg, configuration));
+        }
     }    
     
-    public static class Bar extends ListJsonSchema {
+    public static class Bar extends ListJsonSchema.ListJsonSchema1 {
         private static @Nullable Bar instance = null;
         public static Bar getInstance() {
             if (instance == null) {
@@ -451,7 +535,17 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     
-    public static class PropertiesPatternpropertiesAdditionalpropertiesInteraction1 extends JsonSchema implements MapSchemaValidator<PropertiesPatternpropertiesAdditionalpropertiesInteractionMap> {
+    public static abstract sealed class PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed permits PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap {}
+    
+    public static final class PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap extends PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed {
+        public final PropertiesPatternpropertiesAdditionalpropertiesInteractionMap data;
+        private PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap(PropertiesPatternpropertiesAdditionalpropertiesInteractionMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class PropertiesPatternpropertiesAdditionalpropertiesInteraction1 extends JsonSchema implements MapSchemaValidator<PropertiesPatternpropertiesAdditionalpropertiesInteractionMap, PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -531,6 +625,10 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap(validate(arg, configuration));
         }
     }
 

@@ -4,25 +4,60 @@ public class NestedItems
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NestedItems.NestedItems1Boxed](#nesteditems1boxed)<br> abstract sealed validated payload class |
+| static class | [NestedItems.NestedItems1BoxedList](#nesteditems1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [NestedItems.NestedItems1](#nesteditems1)<br> schema class |
 | static class | [NestedItems.NestedItemsListBuilder](#nesteditemslistbuilder)<br> builder for List payloads |
 | static class | [NestedItems.NestedItemsList](#nesteditemslist)<br> output class for List payloads |
+| static class | [NestedItems.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| static class | [NestedItems.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NestedItems.Items](#items)<br> schema class |
 | static class | [NestedItems.ItemsListBuilder2](#itemslistbuilder2)<br> builder for List payloads |
 | static class | [NestedItems.ItemsList2](#itemslist2)<br> output class for List payloads |
+| static class | [NestedItems.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
+| static class | [NestedItems.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [NestedItems.Items1](#items1)<br> schema class |
 | static class | [NestedItems.ItemsListBuilder1](#itemslistbuilder1)<br> builder for List payloads |
 | static class | [NestedItems.ItemsList1](#itemslist1)<br> output class for List payloads |
+| static class | [NestedItems.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
+| static class | [NestedItems.Items2BoxedList](#items2boxedlist)<br> boxed class to store validated List payloads |
 | static class | [NestedItems.Items2](#items2)<br> schema class |
 | static class | [NestedItems.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [NestedItems.ItemsList](#itemslist)<br> output class for List payloads |
+| static class | [NestedItems.Items3Boxed](#items3boxed)<br> abstract sealed validated payload class |
+| static class | [NestedItems.Items3BoxedNumber](#items3boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NestedItems.Items3](#items3)<br> schema class |
+
+## NestedItems1Boxed
+public static abstract sealed class NestedItems1Boxed<br>
+permits<br>
+[NestedItems1BoxedList](#nesteditems1boxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NestedItems1BoxedList
+public static final class NestedItems1BoxedList<br>
+extends [NestedItems1Boxed](#nesteditems1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NestedItems1BoxedList([NestedItemsList](#nesteditemslist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [NestedItemsList](#nesteditemslist) | data<br>validated payload |
 
 ## NestedItems1
 public static class NestedItems1<br>
@@ -73,6 +108,7 @@ NestedItems.NestedItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [NestedItemsList](#nesteditemslist) | validate([List<?>](#nesteditemslistbuilder) arg, SchemaConfiguration configuration) |
+| [NestedItems1BoxedList](#nesteditems1boxedlist) | validateAndBox([List<?>](#nesteditemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NestedItemsListBuilder
 public class NestedItemsListBuilder<br>
@@ -102,6 +138,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [NestedItemsList](#nesteditemslist) | of([List<List<List<List<Number>>>>](#nesteditemslistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedList](#itemsboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ItemsBoxedList
+public static final class ItemsBoxedList<br>
+extends [ItemsBoxed](#itemsboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedList([ItemsList2](#itemslist2) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ItemsList2](#itemslist2) | data<br>validated payload |
 
 ## Items
 public static class Items<br>
@@ -150,6 +209,7 @@ NestedItems.ItemsList2 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList2](#itemslist2) | validate([List<?>](#itemslistbuilder2) arg, SchemaConfiguration configuration) |
+| [ItemsBoxedList](#itemsboxedlist) | validateAndBox([List<?>](#itemslistbuilder2) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder2
 public class ItemsListBuilder2<br>
@@ -179,6 +239,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList2](#itemslist2) | of([List<List<List<Number>>>](#itemslistbuilder2) arg, SchemaConfiguration configuration) |
+
+## Items1Boxed
+public static abstract sealed class Items1Boxed<br>
+permits<br>
+[Items1BoxedList](#items1boxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Items1BoxedList
+public static final class Items1BoxedList<br>
+extends [Items1Boxed](#items1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items1BoxedList([ItemsList1](#itemslist1) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ItemsList1](#itemslist1) | data<br>validated payload |
 
 ## Items1
 public static class Items1<br>
@@ -225,6 +308,7 @@ NestedItems.ItemsList1 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList1](#itemslist1) | validate([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
+| [Items1BoxedList](#items1boxedlist) | validateAndBox([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder1
 public class ItemsListBuilder1<br>
@@ -254,6 +338,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList1](#itemslist1) | of([List<List<Number>>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
+
+## Items2Boxed
+public static abstract sealed class Items2Boxed<br>
+permits<br>
+[Items2BoxedList](#items2boxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Items2BoxedList
+public static final class Items2BoxedList<br>
+extends [Items2Boxed](#items2boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items2BoxedList([ItemsList](#itemslist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ItemsList](#itemslist) | data<br>validated payload |
 
 ## Items2
 public static class Items2<br>
@@ -297,6 +404,7 @@ NestedItems.ItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList](#itemslist) | validate([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
+| [Items2BoxedList](#items2boxedlist) | validateAndBox([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder
 public class ItemsListBuilder<br>
@@ -330,14 +438,38 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | of([List<Number>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 
+## Items3Boxed
+public static abstract sealed class Items3Boxed<br>
+permits<br>
+[Items3BoxedNumber](#items3boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Items3BoxedNumber
+public static final class Items3BoxedNumber<br>
+extends [Items3Boxed](#items3boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items3BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Items3
 public static class Items3<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

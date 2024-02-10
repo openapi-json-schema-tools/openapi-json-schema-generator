@@ -4,15 +4,132 @@ public class RefInProperty
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [RefInProperty.RefInProperty1Boxed](#refinproperty1boxed)<br> abstract sealed validated payload class |
+| static class | [RefInProperty.RefInProperty1BoxedVoid](#refinproperty1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [RefInProperty.RefInProperty1BoxedBoolean](#refinproperty1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [RefInProperty.RefInProperty1BoxedNumber](#refinproperty1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [RefInProperty.RefInProperty1BoxedString](#refinproperty1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [RefInProperty.RefInProperty1BoxedList](#refinproperty1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [RefInProperty.RefInProperty1BoxedMap](#refinproperty1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [RefInProperty.RefInProperty1](#refinproperty1)<br> schema class |
 | static class | [RefInProperty.RefInPropertyMapBuilder](#refinpropertymapbuilder)<br> builder for Map payloads |
 | static class | [RefInProperty.RefInPropertyMap](#refinpropertymap)<br> output class for Map payloads |
+
+## RefInProperty1Boxed
+public static abstract sealed class RefInProperty1Boxed<br>
+permits<br>
+[RefInProperty1BoxedVoid](#refinproperty1boxedvoid),
+[RefInProperty1BoxedBoolean](#refinproperty1boxedboolean),
+[RefInProperty1BoxedNumber](#refinproperty1boxednumber),
+[RefInProperty1BoxedString](#refinproperty1boxedstring),
+[RefInProperty1BoxedList](#refinproperty1boxedlist),
+[RefInProperty1BoxedMap](#refinproperty1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## RefInProperty1BoxedVoid
+public static final class RefInProperty1BoxedVoid<br>
+extends [RefInProperty1Boxed](#refinproperty1boxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RefInProperty1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## RefInProperty1BoxedBoolean
+public static final class RefInProperty1BoxedBoolean<br>
+extends [RefInProperty1Boxed](#refinproperty1boxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RefInProperty1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## RefInProperty1BoxedNumber
+public static final class RefInProperty1BoxedNumber<br>
+extends [RefInProperty1Boxed](#refinproperty1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RefInProperty1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## RefInProperty1BoxedString
+public static final class RefInProperty1BoxedString<br>
+extends [RefInProperty1Boxed](#refinproperty1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RefInProperty1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## RefInProperty1BoxedList
+public static final class RefInProperty1BoxedList<br>
+extends [RefInProperty1Boxed](#refinproperty1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RefInProperty1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## RefInProperty1BoxedMap
+public static final class RefInProperty1BoxedMap<br>
+extends [RefInProperty1Boxed](#refinproperty1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RefInProperty1BoxedMap([RefInPropertyMap](#refinpropertymap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [RefInPropertyMap](#refinpropertymap) | data<br>validated payload |
 
 ## RefInProperty1
 public static class RefInProperty1<br>
@@ -34,9 +151,16 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | [RefInPropertyMap](#refinpropertymap) | validate([Map&lt;?, ?&gt;](#refinpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [RefInProperty1BoxedString](#refinproperty1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [RefInProperty1BoxedVoid](#refinproperty1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [RefInProperty1BoxedNumber](#refinproperty1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [RefInProperty1BoxedBoolean](#refinproperty1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [RefInProperty1BoxedMap](#refinproperty1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#refinpropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [RefInProperty1BoxedList](#refinproperty1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RefInPropertyMapBuilder
 public class RefInPropertyMapBuilder<br>

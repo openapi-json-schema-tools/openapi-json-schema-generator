@@ -35,7 +35,52 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {}
+    
+    public static final class ItemsBoxedVoid extends ItemsBoxed {
+        public final Void data;
+        private ItemsBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ItemsBoxedBoolean extends ItemsBoxed {
+        public final boolean data;
+        private ItemsBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ItemsBoxedNumber extends ItemsBoxed {
+        public final Number data;
+        private ItemsBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ItemsBoxedString extends ItemsBoxed {
+        public final String data;
+        private ItemsBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ItemsBoxedList extends ItemsBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private ItemsBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ItemsBoxedMap extends ItemsBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Items extends JsonSchema implements NullSchemaValidator<ItemsBoxedVoid>, BooleanSchemaValidator<ItemsBoxedBoolean>, NumberSchemaValidator<ItemsBoxedNumber>, StringSchemaValidator<ItemsBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ItemsBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ItemsBoxedMap> {
         private static @Nullable Items instance = null;
     
         protected Items() {
@@ -228,6 +273,30 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ItemsBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ItemsBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ItemsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ItemsBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class ItemsDoesNotLookInApplicatorsValidCaseList extends FrozenList<@Nullable Object> {
@@ -302,7 +371,18 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
     }
     
     
-    public static class ItemsDoesNotLookInApplicatorsValidCase1 extends JsonSchema implements ListSchemaValidator<ItemsDoesNotLookInApplicatorsValidCaseList> {
+    public static abstract sealed class ItemsDoesNotLookInApplicatorsValidCase1Boxed permits ItemsDoesNotLookInApplicatorsValidCase1BoxedList {}
+    
+    public static final class ItemsDoesNotLookInApplicatorsValidCase1BoxedList extends ItemsDoesNotLookInApplicatorsValidCase1Boxed {
+        public final ItemsDoesNotLookInApplicatorsValidCaseList data;
+        private ItemsDoesNotLookInApplicatorsValidCase1BoxedList(ItemsDoesNotLookInApplicatorsValidCaseList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class ItemsDoesNotLookInApplicatorsValidCase1 extends JsonSchema implements ListSchemaValidator<ItemsDoesNotLookInApplicatorsValidCaseList, ItemsDoesNotLookInApplicatorsValidCase1BoxedList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -368,6 +448,10 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ItemsDoesNotLookInApplicatorsValidCase1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsDoesNotLookInApplicatorsValidCase1BoxedList(validate(arg, configuration));
         }
     }
 }

@@ -38,7 +38,7 @@ public class ForbiddenProperty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Not extends AnyTypeJsonSchema {
+    public static class Not extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Not instance = null;
         public static Not getInstance() {
             if (instance == null) {
@@ -49,7 +49,52 @@ public class ForbiddenProperty {
     }
     
     
-    public static class Foo extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class FooBoxed permits FooBoxedVoid, FooBoxedBoolean, FooBoxedNumber, FooBoxedString, FooBoxedList, FooBoxedMap {}
+    
+    public static final class FooBoxedVoid extends FooBoxed {
+        public final Void data;
+        private FooBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FooBoxedBoolean extends FooBoxed {
+        public final boolean data;
+        private FooBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FooBoxedNumber extends FooBoxed {
+        public final Number data;
+        private FooBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FooBoxedString extends FooBoxed {
+        public final String data;
+        private FooBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FooBoxedList extends FooBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private FooBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FooBoxedMap extends FooBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private FooBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Foo extends JsonSchema implements NullSchemaValidator<FooBoxedVoid>, BooleanSchemaValidator<FooBoxedBoolean>, NumberSchemaValidator<FooBoxedNumber>, StringSchemaValidator<FooBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FooBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FooBoxedMap> {
         private static @Nullable Foo instance = null;
     
         protected Foo() {
@@ -242,6 +287,30 @@ public class ForbiddenProperty {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public FooBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FooBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public FooBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FooBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public FooBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FooBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public FooBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FooBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public FooBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FooBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public FooBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FooBoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class ForbiddenPropertyMap extends FrozenMap<@Nullable Object> {
@@ -352,7 +421,52 @@ public class ForbiddenProperty {
     }
     
     
-    public static class ForbiddenProperty1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<ForbiddenPropertyMap> {
+    public static abstract sealed class ForbiddenProperty1Boxed permits ForbiddenProperty1BoxedVoid, ForbiddenProperty1BoxedBoolean, ForbiddenProperty1BoxedNumber, ForbiddenProperty1BoxedString, ForbiddenProperty1BoxedList, ForbiddenProperty1BoxedMap {}
+    
+    public static final class ForbiddenProperty1BoxedVoid extends ForbiddenProperty1Boxed {
+        public final Void data;
+        private ForbiddenProperty1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ForbiddenProperty1BoxedBoolean extends ForbiddenProperty1Boxed {
+        public final boolean data;
+        private ForbiddenProperty1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ForbiddenProperty1BoxedNumber extends ForbiddenProperty1Boxed {
+        public final Number data;
+        private ForbiddenProperty1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ForbiddenProperty1BoxedString extends ForbiddenProperty1Boxed {
+        public final String data;
+        private ForbiddenProperty1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ForbiddenProperty1BoxedList extends ForbiddenProperty1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private ForbiddenProperty1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ForbiddenProperty1BoxedMap extends ForbiddenProperty1Boxed {
+        public final ForbiddenPropertyMap data;
+        private ForbiddenProperty1BoxedMap(ForbiddenPropertyMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ForbiddenProperty1 extends JsonSchema implements NullSchemaValidator<ForbiddenProperty1BoxedVoid>, BooleanSchemaValidator<ForbiddenProperty1BoxedBoolean>, NumberSchemaValidator<ForbiddenProperty1BoxedNumber>, StringSchemaValidator<ForbiddenProperty1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ForbiddenProperty1BoxedList>, MapSchemaValidator<ForbiddenPropertyMap, ForbiddenProperty1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -552,6 +666,30 @@ public class ForbiddenProperty {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ForbiddenProperty1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ForbiddenProperty1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ForbiddenProperty1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ForbiddenProperty1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ForbiddenProperty1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ForbiddenProperty1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ForbiddenProperty1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ForbiddenProperty1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ForbiddenProperty1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ForbiddenProperty1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ForbiddenProperty1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ForbiddenProperty1BoxedMap(validate(arg, configuration));
         }
     }
 }

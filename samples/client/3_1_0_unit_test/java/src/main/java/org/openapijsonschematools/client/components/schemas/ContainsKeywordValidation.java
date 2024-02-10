@@ -35,7 +35,52 @@ public class ContainsKeywordValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Contains extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ContainsBoxed permits ContainsBoxedVoid, ContainsBoxedBoolean, ContainsBoxedNumber, ContainsBoxedString, ContainsBoxedList, ContainsBoxedMap {}
+    
+    public static final class ContainsBoxedVoid extends ContainsBoxed {
+        public final Void data;
+        private ContainsBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsBoxedBoolean extends ContainsBoxed {
+        public final boolean data;
+        private ContainsBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsBoxedNumber extends ContainsBoxed {
+        public final Number data;
+        private ContainsBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsBoxedString extends ContainsBoxed {
+        public final String data;
+        private ContainsBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsBoxedList extends ContainsBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private ContainsBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsBoxedMap extends ContainsBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ContainsBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Contains extends JsonSchema implements NullSchemaValidator<ContainsBoxedVoid>, BooleanSchemaValidator<ContainsBoxedBoolean>, NumberSchemaValidator<ContainsBoxedNumber>, StringSchemaValidator<ContainsBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ContainsBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ContainsBoxedMap> {
         private static @Nullable Contains instance = null;
     
         protected Contains() {
@@ -228,9 +273,78 @@ public class ContainsKeywordValidation {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ContainsBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ContainsBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ContainsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ContainsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ContainsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ContainsBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class ContainsKeywordValidation1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ContainsKeywordValidation1Boxed permits ContainsKeywordValidation1BoxedVoid, ContainsKeywordValidation1BoxedBoolean, ContainsKeywordValidation1BoxedNumber, ContainsKeywordValidation1BoxedString, ContainsKeywordValidation1BoxedList, ContainsKeywordValidation1BoxedMap {}
+    
+    public static final class ContainsKeywordValidation1BoxedVoid extends ContainsKeywordValidation1Boxed {
+        public final Void data;
+        private ContainsKeywordValidation1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsKeywordValidation1BoxedBoolean extends ContainsKeywordValidation1Boxed {
+        public final boolean data;
+        private ContainsKeywordValidation1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsKeywordValidation1BoxedNumber extends ContainsKeywordValidation1Boxed {
+        public final Number data;
+        private ContainsKeywordValidation1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsKeywordValidation1BoxedString extends ContainsKeywordValidation1Boxed {
+        public final String data;
+        private ContainsKeywordValidation1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsKeywordValidation1BoxedList extends ContainsKeywordValidation1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private ContainsKeywordValidation1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ContainsKeywordValidation1BoxedMap extends ContainsKeywordValidation1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ContainsKeywordValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ContainsKeywordValidation1 extends JsonSchema implements NullSchemaValidator<ContainsKeywordValidation1BoxedVoid>, BooleanSchemaValidator<ContainsKeywordValidation1BoxedBoolean>, NumberSchemaValidator<ContainsKeywordValidation1BoxedNumber>, StringSchemaValidator<ContainsKeywordValidation1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ContainsKeywordValidation1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ContainsKeywordValidation1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -428,6 +542,30 @@ public class ContainsKeywordValidation {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ContainsKeywordValidation1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsKeywordValidation1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ContainsKeywordValidation1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsKeywordValidation1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ContainsKeywordValidation1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsKeywordValidation1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ContainsKeywordValidation1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsKeywordValidation1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ContainsKeywordValidation1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsKeywordValidation1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ContainsKeywordValidation1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ContainsKeywordValidation1BoxedMap(validate(arg, configuration));
         }
     }
 }

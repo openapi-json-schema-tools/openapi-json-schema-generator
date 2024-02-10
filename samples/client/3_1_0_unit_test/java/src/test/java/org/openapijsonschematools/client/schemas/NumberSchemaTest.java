@@ -14,7 +14,7 @@ import java.util.List;
 
 public class NumberSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NumberJsonSchema numberJsonSchema = NumberJsonSchema.getInstance();
+    static final NumberJsonSchema.NumberJsonSchema1 numberJsonSchema = NumberJsonSchema.NumberJsonSchema1.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,

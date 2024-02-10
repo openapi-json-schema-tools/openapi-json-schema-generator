@@ -38,7 +38,7 @@ public class PropertiesWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foonbar extends NumberJsonSchema {
+    public static class Foonbar extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Foonbar instance = null;
         public static Foonbar getInstance() {
             if (instance == null) {
@@ -49,7 +49,7 @@ public class PropertiesWithEscapedCharacters {
     }
     
     
-    public static class Foobar extends NumberJsonSchema {
+    public static class Foobar extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Foobar instance = null;
         public static Foobar getInstance() {
             if (instance == null) {
@@ -60,7 +60,7 @@ public class PropertiesWithEscapedCharacters {
     }
     
     
-    public static class Foobar1 extends NumberJsonSchema {
+    public static class Foobar1 extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Foobar1 instance = null;
         public static Foobar1 getInstance() {
             if (instance == null) {
@@ -71,7 +71,7 @@ public class PropertiesWithEscapedCharacters {
     }
     
     
-    public static class Foorbar extends NumberJsonSchema {
+    public static class Foorbar extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Foorbar instance = null;
         public static Foorbar getInstance() {
             if (instance == null) {
@@ -82,7 +82,7 @@ public class PropertiesWithEscapedCharacters {
     }
     
     
-    public static class Footbar extends NumberJsonSchema {
+    public static class Footbar extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Footbar instance = null;
         public static Footbar getInstance() {
             if (instance == null) {
@@ -93,7 +93,7 @@ public class PropertiesWithEscapedCharacters {
     }
     
     
-    public static class Foofbar extends NumberJsonSchema {
+    public static class Foofbar extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Foofbar instance = null;
         public static Foofbar getInstance() {
             if (instance == null) {
@@ -348,7 +348,52 @@ public class PropertiesWithEscapedCharacters {
     }
     
     
-    public static class PropertiesWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<PropertiesWithEscapedCharactersMap> {
+    public static abstract sealed class PropertiesWithEscapedCharacters1Boxed permits PropertiesWithEscapedCharacters1BoxedVoid, PropertiesWithEscapedCharacters1BoxedBoolean, PropertiesWithEscapedCharacters1BoxedNumber, PropertiesWithEscapedCharacters1BoxedString, PropertiesWithEscapedCharacters1BoxedList, PropertiesWithEscapedCharacters1BoxedMap {}
+    
+    public static final class PropertiesWithEscapedCharacters1BoxedVoid extends PropertiesWithEscapedCharacters1Boxed {
+        public final Void data;
+        private PropertiesWithEscapedCharacters1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWithEscapedCharacters1BoxedBoolean extends PropertiesWithEscapedCharacters1Boxed {
+        public final boolean data;
+        private PropertiesWithEscapedCharacters1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWithEscapedCharacters1BoxedNumber extends PropertiesWithEscapedCharacters1Boxed {
+        public final Number data;
+        private PropertiesWithEscapedCharacters1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWithEscapedCharacters1BoxedString extends PropertiesWithEscapedCharacters1Boxed {
+        public final String data;
+        private PropertiesWithEscapedCharacters1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWithEscapedCharacters1BoxedList extends PropertiesWithEscapedCharacters1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private PropertiesWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWithEscapedCharacters1BoxedMap extends PropertiesWithEscapedCharacters1Boxed {
+        public final PropertiesWithEscapedCharactersMap data;
+        private PropertiesWithEscapedCharacters1BoxedMap(PropertiesWithEscapedCharactersMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class PropertiesWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator<PropertiesWithEscapedCharacters1BoxedVoid>, BooleanSchemaValidator<PropertiesWithEscapedCharacters1BoxedBoolean>, NumberSchemaValidator<PropertiesWithEscapedCharacters1BoxedNumber>, StringSchemaValidator<PropertiesWithEscapedCharacters1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PropertiesWithEscapedCharacters1BoxedList>, MapSchemaValidator<PropertiesWithEscapedCharactersMap, PropertiesWithEscapedCharacters1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -553,6 +598,30 @@ public class PropertiesWithEscapedCharacters {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public PropertiesWithEscapedCharacters1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWithEscapedCharacters1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWithEscapedCharacters1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWithEscapedCharacters1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWithEscapedCharacters1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWithEscapedCharacters1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWithEscapedCharacters1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWithEscapedCharacters1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWithEscapedCharacters1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWithEscapedCharacters1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWithEscapedCharacters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWithEscapedCharacters1BoxedMap(validate(arg, configuration));
         }
     }
 }

@@ -4,15 +4,42 @@ public class RefInItems
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [RefInItems.RefInItems1Boxed](#refinitems1boxed)<br> abstract sealed validated payload class |
+| static class | [RefInItems.RefInItems1BoxedList](#refinitems1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
 | static class | [RefInItems.RefInItemsListBuilder](#refinitemslistbuilder)<br> builder for List payloads |
 | static class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
+
+## RefInItems1Boxed
+public static abstract sealed class RefInItems1Boxed<br>
+permits<br>
+[RefInItems1BoxedList](#refinitems1boxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## RefInItems1BoxedList
+public static final class RefInItems1BoxedList<br>
+extends [RefInItems1Boxed](#refinitems1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| RefInItems1BoxedList([RefInItemsList](#refinitemslist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [RefInItemsList](#refinitemslist) | data<br>validated payload |
 
 ## RefInItems1
 public static class RefInItems1<br>
@@ -54,6 +81,7 @@ RefInItems.RefInItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [RefInItemsList](#refinitemslist) | validate([List<?>](#refinitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [RefInItems1BoxedList](#refinitems1boxedlist) | validateAndBox([List<?>](#refinitemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RefInItemsListBuilder
 public class RefInItemsListBuilder<br>

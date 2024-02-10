@@ -38,7 +38,7 @@ public class DependentSchemasSingleDependency {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foo extends IntJsonSchema {
+    public static class Foo extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable Foo instance = null;
         public static Foo getInstance() {
             if (instance == null) {
@@ -49,7 +49,7 @@ public class DependentSchemasSingleDependency {
     }
     
     
-    public static class Bar1 extends IntJsonSchema {
+    public static class Bar1 extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable Bar1 instance = null;
         public static Bar1 getInstance() {
             if (instance == null) {
@@ -188,7 +188,52 @@ public class DependentSchemasSingleDependency {
     }
     
     
-    public static class Bar extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<BarMap> {
+    public static abstract sealed class BarBoxed permits BarBoxedVoid, BarBoxedBoolean, BarBoxedNumber, BarBoxedString, BarBoxedList, BarBoxedMap {}
+    
+    public static final class BarBoxedVoid extends BarBoxed {
+        public final Void data;
+        private BarBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class BarBoxedBoolean extends BarBoxed {
+        public final boolean data;
+        private BarBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class BarBoxedNumber extends BarBoxed {
+        public final Number data;
+        private BarBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class BarBoxedString extends BarBoxed {
+        public final String data;
+        private BarBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class BarBoxedList extends BarBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private BarBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class BarBoxedMap extends BarBoxed {
+        public final BarMap data;
+        private BarBoxedMap(BarMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Bar extends JsonSchema implements NullSchemaValidator<BarBoxedVoid>, BooleanSchemaValidator<BarBoxedBoolean>, NumberSchemaValidator<BarBoxedNumber>, StringSchemaValidator<BarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, BarBoxedList>, MapSchemaValidator<BarMap, BarBoxedMap> {
         private static @Nullable Bar instance = null;
     
         protected Bar() {
@@ -384,9 +429,78 @@ public class DependentSchemasSingleDependency {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public BarBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BarBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public BarBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BarBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public BarBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BarBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public BarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BarBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public BarBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BarBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public BarBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BarBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class DependentSchemasSingleDependency1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class DependentSchemasSingleDependency1Boxed permits DependentSchemasSingleDependency1BoxedVoid, DependentSchemasSingleDependency1BoxedBoolean, DependentSchemasSingleDependency1BoxedNumber, DependentSchemasSingleDependency1BoxedString, DependentSchemasSingleDependency1BoxedList, DependentSchemasSingleDependency1BoxedMap {}
+    
+    public static final class DependentSchemasSingleDependency1BoxedVoid extends DependentSchemasSingleDependency1Boxed {
+        public final Void data;
+        private DependentSchemasSingleDependency1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasSingleDependency1BoxedBoolean extends DependentSchemasSingleDependency1Boxed {
+        public final boolean data;
+        private DependentSchemasSingleDependency1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasSingleDependency1BoxedNumber extends DependentSchemasSingleDependency1Boxed {
+        public final Number data;
+        private DependentSchemasSingleDependency1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasSingleDependency1BoxedString extends DependentSchemasSingleDependency1Boxed {
+        public final String data;
+        private DependentSchemasSingleDependency1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasSingleDependency1BoxedList extends DependentSchemasSingleDependency1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private DependentSchemasSingleDependency1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasSingleDependency1BoxedMap extends DependentSchemasSingleDependency1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private DependentSchemasSingleDependency1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class DependentSchemasSingleDependency1 extends JsonSchema implements NullSchemaValidator<DependentSchemasSingleDependency1BoxedVoid>, BooleanSchemaValidator<DependentSchemasSingleDependency1BoxedBoolean>, NumberSchemaValidator<DependentSchemasSingleDependency1BoxedNumber>, StringSchemaValidator<DependentSchemasSingleDependency1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DependentSchemasSingleDependency1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DependentSchemasSingleDependency1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -586,6 +700,30 @@ public class DependentSchemasSingleDependency {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public DependentSchemasSingleDependency1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasSingleDependency1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasSingleDependency1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasSingleDependency1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasSingleDependency1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasSingleDependency1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasSingleDependency1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasSingleDependency1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasSingleDependency1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasSingleDependency1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasSingleDependency1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasSingleDependency1BoxedMap(validate(arg, configuration));
         }
     }
 }

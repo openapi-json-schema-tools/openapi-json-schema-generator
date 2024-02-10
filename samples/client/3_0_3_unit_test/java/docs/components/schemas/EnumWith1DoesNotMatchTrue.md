@@ -4,16 +4,43 @@ public class EnumWith1DoesNotMatchTrue
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1Boxed](#enumwith1doesnotmatchtrue1boxed)<br> abstract sealed validated payload class |
+| static class | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1BoxedNumber](#enumwith1doesnotmatchtrue1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1](#enumwith1doesnotmatchtrue1)<br> schema class |
 | enum | [EnumWith1DoesNotMatchTrue.IntegerEnumWith1DoesNotMatchTrueEnums](#integerenumwith1doesnotmatchtrueenums)<br>Integer enum |
 | enum | [EnumWith1DoesNotMatchTrue.LongEnumWith1DoesNotMatchTrueEnums](#longenumwith1doesnotmatchtrueenums)<br>Long enum |
 | enum | [EnumWith1DoesNotMatchTrue.FloatEnumWith1DoesNotMatchTrueEnums](#floatenumwith1doesnotmatchtrueenums)<br>Float enum |
 | enum | [EnumWith1DoesNotMatchTrue.DoubleEnumWith1DoesNotMatchTrueEnums](#doubleenumwith1doesnotmatchtrueenums)<br>Double enum |
+
+## EnumWith1DoesNotMatchTrue1Boxed
+public static abstract sealed class EnumWith1DoesNotMatchTrue1Boxed<br>
+permits<br>
+[EnumWith1DoesNotMatchTrue1BoxedNumber](#enumwith1doesnotmatchtrue1boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## EnumWith1DoesNotMatchTrue1BoxedNumber
+public static final class EnumWith1DoesNotMatchTrue1BoxedNumber<br>
+extends [EnumWith1DoesNotMatchTrue1Boxed](#enumwith1doesnotmatchtrue1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumWith1DoesNotMatchTrue1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## EnumWith1DoesNotMatchTrue1
 public static class EnumWith1DoesNotMatchTrue1<br>
@@ -53,6 +80,7 @@ int validatedPayload = EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.vali
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [EnumWith1DoesNotMatchTrue1BoxedNumber](#enumwith1doesnotmatchtrue1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerEnumWith1DoesNotMatchTrueEnums
 public enum IntegerEnumWith1DoesNotMatchTrueEnums<br>

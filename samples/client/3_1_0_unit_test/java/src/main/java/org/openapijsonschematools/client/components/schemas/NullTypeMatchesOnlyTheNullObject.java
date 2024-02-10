@@ -6,7 +6,7 @@ public class NullTypeMatchesOnlyTheNullObject {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class NullTypeMatchesOnlyTheNullObject1 extends NullJsonSchema {
+    public static class NullTypeMatchesOnlyTheNullObject1 extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable NullTypeMatchesOnlyTheNullObject1 instance = null;
         public static NullTypeMatchesOnlyTheNullObject1 getInstance() {
             if (instance == null) {
