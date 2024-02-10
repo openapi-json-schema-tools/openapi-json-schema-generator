@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SpecialModelname.SpecialModelname1Boxed](#specialmodelname1boxed)<br> sealed validated payload class |
+| static class | [SpecialModelname.SpecialModelname1BoxedMap](#specialmodelname1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SpecialModelname.SpecialModelname1](#specialmodelname1)<br> schema class |
 | static class | [SpecialModelname.SpecialModelnameMapBuilder](#specialmodelnamemapbuilder)<br> builder for Map payloads |
 | static class | [SpecialModelname.SpecialModelnameMap](#specialmodelnamemap)<br> output class for Map payloads |
 | static class | [SpecialModelname.ABoxed](#aboxed)<br> sealed validated payload class |
+| static class | [SpecialModelname.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
 | static class | [SpecialModelname.A](#a)<br> schema class |
 
 ## SpecialModelname1Boxed

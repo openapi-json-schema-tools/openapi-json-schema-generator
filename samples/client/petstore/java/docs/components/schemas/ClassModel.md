@@ -13,10 +13,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ClassModel.ClassModel1Boxed](#classmodel1boxed)<br> sealed validated payload class |
+| static class | [ClassModel.ClassModel1BoxedVoid](#classmodel1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ClassModel.ClassModel1BoxedBoolean](#classmodel1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ClassModel.ClassModel1BoxedNumber](#classmodel1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ClassModel.ClassModel1BoxedString](#classmodel1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [ClassModel.ClassModel1BoxedList](#classmodel1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [ClassModel.ClassModel1BoxedMap](#classmodel1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ClassModel.ClassModel1](#classmodel1)<br> schema class |
 | static class | [ClassModel.ClassModelMapBuilder](#classmodelmapbuilder)<br> builder for Map payloads |
 | static class | [ClassModel.ClassModelMap](#classmodelmap)<br> output class for Map payloads |
 | static class | [ClassModel.ClassSchemaBoxed](#classschemaboxed)<br> sealed validated payload class |
+| static class | [ClassModel.ClassSchemaBoxedString](#classschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ClassModel.ClassSchema](#classschema)<br> schema class |
 
 ## ClassModel1Boxed

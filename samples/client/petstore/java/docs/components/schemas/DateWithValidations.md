@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [DateWithValidations.DateWithValidations1Boxed](#datewithvalidations1boxed)<br> sealed validated payload class |
+| static class | [DateWithValidations.DateWithValidations1BoxedString](#datewithvalidations1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DateWithValidations.DateWithValidations1](#datewithvalidations1)<br> schema class |
 
 ## DateWithValidations1Boxed

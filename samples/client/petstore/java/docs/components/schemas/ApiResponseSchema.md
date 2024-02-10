@@ -13,14 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ApiResponseSchema.ApiResponseSchema1Boxed](#apiresponseschema1boxed)<br> sealed validated payload class |
+| static class | [ApiResponseSchema.ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ApiResponseSchema.ApiResponseSchema1](#apiresponseschema1)<br> schema class |
 | static class | [ApiResponseSchema.ApiResponseMapBuilder](#apiresponsemapbuilder)<br> builder for Map payloads |
 | static class | [ApiResponseSchema.ApiResponseMap](#apiresponsemap)<br> output class for Map payloads |
 | static class | [ApiResponseSchema.MessageBoxed](#messageboxed)<br> sealed validated payload class |
+| static class | [ApiResponseSchema.MessageBoxedString](#messageboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApiResponseSchema.Message](#message)<br> schema class |
 | static class | [ApiResponseSchema.TypeBoxed](#typeboxed)<br> sealed validated payload class |
+| static class | [ApiResponseSchema.TypeBoxedString](#typeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ApiResponseSchema.Type](#type)<br> schema class |
 | static class | [ApiResponseSchema.CodeBoxed](#codeboxed)<br> sealed validated payload class |
+| static class | [ApiResponseSchema.CodeBoxedNumber](#codeboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ApiResponseSchema.Code](#code)<br> schema class |
 
 ## ApiResponseSchema1Boxed

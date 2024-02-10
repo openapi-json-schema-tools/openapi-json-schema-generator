@@ -12,36 +12,50 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [Schema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.CallbackBoxed](#callbackboxed)<br> sealed validated payload class |
+| static class | [Schema.CallbackBoxedString](#callbackboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.Callback](#callback)<br> schema class |
 | static class | [Schema.PasswordBoxed](#passwordboxed)<br> sealed validated payload class |
+| static class | [Schema.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.Password](#password)<br> schema class |
 | static class | [Schema.DateTimeBoxed](#datetimeboxed)<br> sealed validated payload class |
+| static class | [Schema.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.DateTime](#datetime)<br> schema class |
 | static class | [Schema.DateBoxed](#dateboxed)<br> sealed validated payload class |
+| static class | [Schema.DateBoxedString](#dateboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.Date](#date)<br> schema class |
 | static class | [Schema.BinaryBoxed](#binaryboxed)<br> sealed validated payload class |
 | static class | [Schema.Binary](#binary)<br> schema class |
 | static class | [Schema.ByteSchemaBoxed](#byteschemaboxed)<br> sealed validated payload class |
+| static class | [Schema.ByteSchemaBoxedString](#byteschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.ByteSchema](#byteschema)<br> schema class |
 | static class | [Schema.PatternWithoutDelimiterBoxed](#patternwithoutdelimiterboxed)<br> sealed validated payload class |
+| static class | [Schema.PatternWithoutDelimiterBoxedString](#patternwithoutdelimiterboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.PatternWithoutDelimiter](#patternwithoutdelimiter)<br> schema class |
 | static class | [Schema.StringSchemaBoxed](#stringschemaboxed)<br> sealed validated payload class |
+| static class | [Schema.StringSchemaBoxedString](#stringschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.StringSchema](#stringschema)<br> schema class |
 | static class | [Schema.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed validated payload class |
+| static class | [Schema.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema.DoubleSchema](#doubleschema)<br> schema class |
 | static class | [Schema.FloatSchemaBoxed](#floatschemaboxed)<br> sealed validated payload class |
+| static class | [Schema.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema.FloatSchema](#floatschema)<br> schema class |
 | static class | [Schema.NumberSchemaBoxed](#numberschemaboxed)<br> sealed validated payload class |
+| static class | [Schema.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema.NumberSchema](#numberschema)<br> schema class |
 | static class | [Schema.Int64Boxed](#int64boxed)<br> sealed validated payload class |
+| static class | [Schema.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema.Int64](#int64)<br> schema class |
 | static class | [Schema.Int32Boxed](#int32boxed)<br> sealed validated payload class |
+| static class | [Schema.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema.Int32](#int32)<br> schema class |
 | static class | [Schema.IntegerSchemaBoxed](#integerschemaboxed)<br> sealed validated payload class |
+| static class | [Schema.IntegerSchemaBoxedNumber](#integerschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema.IntegerSchema](#integerschema)<br> schema class |
 
 ## Schema1Boxed

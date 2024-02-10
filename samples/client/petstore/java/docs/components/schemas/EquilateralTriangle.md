@@ -14,12 +14,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EquilateralTriangle.EquilateralTriangle1Boxed](#equilateraltriangle1boxed)<br> sealed validated payload class |
+| static class | [EquilateralTriangle.EquilateralTriangle1BoxedVoid](#equilateraltriangle1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [EquilateralTriangle.EquilateralTriangle1BoxedBoolean](#equilateraltriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [EquilateralTriangle.EquilateralTriangle1BoxedNumber](#equilateraltriangle1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [EquilateralTriangle.EquilateralTriangle1BoxedString](#equilateraltriangle1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [EquilateralTriangle.EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [EquilateralTriangle.EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EquilateralTriangle.EquilateralTriangle1](#equilateraltriangle1)<br> schema class |
 | static class | [EquilateralTriangle.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [EquilateralTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EquilateralTriangle.Schema1](#schema1)<br> schema class |
 | static class | [EquilateralTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [EquilateralTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [EquilateralTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> sealed validated payload class |
+| static class | [EquilateralTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EquilateralTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [EquilateralTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |
 

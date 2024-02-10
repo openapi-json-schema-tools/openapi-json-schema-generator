@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [GrandparentAnimal.GrandparentAnimal1Boxed](#grandparentanimal1boxed)<br> sealed validated payload class |
+| static class | [GrandparentAnimal.GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimal1](#grandparentanimal1)<br> schema class |
 | static class | [GrandparentAnimal.GrandparentAnimalMapBuilder](#grandparentanimalmapbuilder)<br> builder for Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimalMap](#grandparentanimalmap)<br> output class for Map payloads |
 | static class | [GrandparentAnimal.PetTypeBoxed](#pettypeboxed)<br> sealed validated payload class |
+| static class | [GrandparentAnimal.PetTypeBoxedString](#pettypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
 
 ## GrandparentAnimal1Boxed

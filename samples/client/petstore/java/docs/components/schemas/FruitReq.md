@@ -11,8 +11,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FruitReq.FruitReq1Boxed](#fruitreq1boxed)<br> sealed validated payload class |
+| static class | [FruitReq.FruitReq1BoxedVoid](#fruitreq1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [FruitReq.FruitReq1BoxedBoolean](#fruitreq1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [FruitReq.FruitReq1BoxedNumber](#fruitreq1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [FruitReq.FruitReq1BoxedString](#fruitreq1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [FruitReq.FruitReq1BoxedList](#fruitreq1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [FruitReq.FruitReq1BoxedMap](#fruitreq1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FruitReq.FruitReq1](#fruitreq1)<br> schema class |
 | static class | [FruitReq.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
+| static class | [FruitReq.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [FruitReq.Schema0](#schema0)<br> schema class |
 
 ## FruitReq1Boxed

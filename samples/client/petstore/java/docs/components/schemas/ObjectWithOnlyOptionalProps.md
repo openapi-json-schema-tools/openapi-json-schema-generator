@@ -13,14 +13,23 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1Boxed](#objectwithonlyoptionalprops1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1BoxedMap](#objectwithonlyoptionalprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1](#objectwithonlyoptionalprops1)<br> schema class |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMapBuilder](#objectwithonlyoptionalpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap)<br> output class for Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.BBoxed](#bboxed)<br> sealed validated payload class |
+| static class | [ObjectWithOnlyOptionalProps.BBoxedNumber](#bboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithOnlyOptionalProps.B](#b)<br> schema class |
 | static class | [ObjectWithOnlyOptionalProps.ABoxed](#aboxed)<br> sealed validated payload class |
+| static class | [ObjectWithOnlyOptionalProps.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithOnlyOptionalProps.A](#a)<br> schema class |
 | static class | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [ObjectWithOnlyOptionalProps.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## ObjectWithOnlyOptionalProps1Boxed

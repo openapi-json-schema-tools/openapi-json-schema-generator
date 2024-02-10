@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithValidations.ObjectWithValidations1Boxed](#objectwithvalidations1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithValidations.ObjectWithValidations1BoxedMap](#objectwithvalidations1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithValidations.ObjectWithValidations1](#objectwithvalidations1)<br> schema class |
 
 ## ObjectWithValidations1Boxed

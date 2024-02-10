@@ -13,12 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Category.Category1Boxed](#category1boxed)<br> sealed validated payload class |
+| static class | [Category.Category1BoxedMap](#category1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Category.Category1](#category1)<br> schema class |
 | static class | [Category.CategoryMapBuilder](#categorymapbuilder)<br> builder for Map payloads |
 | static class | [Category.CategoryMap](#categorymap)<br> output class for Map payloads |
 | static class | [Category.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [Category.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Category.Name](#name)<br> schema class |
 | static class | [Category.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [Category.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Category.Id](#id)<br> schema class |
 
 ## Category1Boxed

@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NumberOnly.NumberOnly1Boxed](#numberonly1boxed)<br> sealed validated payload class |
+| static class | [NumberOnly.NumberOnly1BoxedMap](#numberonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NumberOnly.NumberOnly1](#numberonly1)<br> schema class |
 | static class | [NumberOnly.NumberOnlyMapBuilder](#numberonlymapbuilder)<br> builder for Map payloads |
 | static class | [NumberOnly.NumberOnlyMap](#numberonlymap)<br> output class for Map payloads |
 | static class | [NumberOnly.JustNumberBoxed](#justnumberboxed)<br> sealed validated payload class |
+| static class | [NumberOnly.JustNumberBoxedNumber](#justnumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberOnly.JustNumber](#justnumber)<br> schema class |
 
 ## NumberOnly1Boxed

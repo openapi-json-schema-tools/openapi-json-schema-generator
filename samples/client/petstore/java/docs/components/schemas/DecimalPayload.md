@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [DecimalPayload.DecimalPayload1Boxed](#decimalpayload1boxed)<br> sealed validated payload class |
+| static class | [DecimalPayload.DecimalPayload1BoxedString](#decimalpayload1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DecimalPayload.DecimalPayload1](#decimalpayload1)<br> schema class |
 
 ## DecimalPayload1Boxed

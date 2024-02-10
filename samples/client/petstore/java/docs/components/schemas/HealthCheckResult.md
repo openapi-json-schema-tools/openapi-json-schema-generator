@@ -13,10 +13,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [HealthCheckResult.HealthCheckResult1Boxed](#healthcheckresult1boxed)<br> sealed validated payload class |
+| static class | [HealthCheckResult.HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [HealthCheckResult.HealthCheckResult1](#healthcheckresult1)<br> schema class |
 | static class | [HealthCheckResult.HealthCheckResultMapBuilder](#healthcheckresultmapbuilder)<br> builder for Map payloads |
 | static class | [HealthCheckResult.HealthCheckResultMap](#healthcheckresultmap)<br> output class for Map payloads |
 | static class | [HealthCheckResult.NullableMessageBoxed](#nullablemessageboxed)<br> sealed validated payload class |
+| static class | [HealthCheckResult.NullableMessageBoxedVoid](#nullablemessageboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [HealthCheckResult.NullableMessageBoxedString](#nullablemessageboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HealthCheckResult.NullableMessage](#nullablemessage)<br> schema class |
 
 ## HealthCheckResult1Boxed

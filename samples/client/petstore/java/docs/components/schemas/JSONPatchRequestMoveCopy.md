@@ -14,17 +14,27 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1Boxed](#jsonpatchrequestmovecopy1boxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1BoxedMap](#jsonpatchrequestmovecopy1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1](#jsonpatchrequestmovecopy1)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMapBuilder](#jsonpatchrequestmovecopymapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.OpBoxed](#opboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestMoveCopy.OpBoxedString](#opboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestMoveCopy.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestMoveCopy.StringOpEnums](#stringopenums)<br>String enum |
 | static class | [JSONPatchRequestMoveCopy.PathBoxed](#pathboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestMoveCopy.PathBoxedString](#pathboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestMoveCopy.Path](#path)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.FromBoxed](#fromboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestMoveCopy.FromBoxedString](#fromboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestMoveCopy.From](#from)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestMoveCopy.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [JSONPatchRequestMoveCopy.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [JSONPatchRequestMoveCopy.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [JSONPatchRequestMoveCopy.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [JSONPatchRequestMoveCopy.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [JSONPatchRequestMoveCopy.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestMoveCopy.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## JSONPatchRequestMoveCopy1Boxed

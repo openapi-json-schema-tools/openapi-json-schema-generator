@@ -14,15 +14,19 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Whale.Whale1Boxed](#whale1boxed)<br> sealed validated payload class |
+| static class | [Whale.Whale1BoxedMap](#whale1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Whale.Whale1](#whale1)<br> schema class |
 | static class | [Whale.WhaleMapBuilder](#whalemapbuilder)<br> builder for Map payloads |
 | static class | [Whale.WhaleMap](#whalemap)<br> output class for Map payloads |
 | static class | [Whale.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
+| static class | [Whale.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Whale.ClassName](#classname)<br> schema class |
 | enum | [Whale.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 | static class | [Whale.HasTeethBoxed](#hasteethboxed)<br> sealed validated payload class |
+| static class | [Whale.HasTeethBoxedBoolean](#hasteethboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Whale.HasTeeth](#hasteeth)<br> schema class |
 | static class | [Whale.HasBaleenBoxed](#hasbaleenboxed)<br> sealed validated payload class |
+| static class | [Whale.HasBaleenBoxedBoolean](#hasbaleenboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Whale.HasBaleen](#hasbaleen)<br> schema class |
 
 ## Whale1Boxed

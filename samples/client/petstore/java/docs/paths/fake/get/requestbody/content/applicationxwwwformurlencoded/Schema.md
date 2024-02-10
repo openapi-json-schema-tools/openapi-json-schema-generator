@@ -15,17 +15,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [Schema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.EnumFormStringBoxed](#enumformstringboxed)<br> sealed validated payload class |
+| static class | [Schema.EnumFormStringBoxedString](#enumformstringboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.EnumFormString](#enumformstring)<br> schema class |
 | enum | [Schema.StringEnumFormStringEnums](#stringenumformstringenums)<br>String enum |
 | static class | [Schema.EnumFormStringArrayBoxed](#enumformstringarrayboxed)<br> sealed validated payload class |
+| static class | [Schema.EnumFormStringArrayBoxedList](#enumformstringarrayboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema.EnumFormStringArray](#enumformstringarray)<br> schema class |
 | static class | [Schema.EnumFormStringArrayListBuilder](#enumformstringarraylistbuilder)<br> builder for List payloads |
 | static class | [Schema.EnumFormStringArrayList](#enumformstringarraylist)<br> output class for List payloads |
 | static class | [Schema.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [Schema.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.Items](#items)<br> schema class |
 | enum | [Schema.StringItemsEnums](#stringitemsenums)<br>String enum |
 

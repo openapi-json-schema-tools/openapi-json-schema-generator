@@ -11,6 +11,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Quadrilateral.Quadrilateral1Boxed](#quadrilateral1boxed)<br> sealed validated payload class |
+| static class | [Quadrilateral.Quadrilateral1BoxedVoid](#quadrilateral1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Quadrilateral.Quadrilateral1BoxedBoolean](#quadrilateral1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Quadrilateral.Quadrilateral1BoxedNumber](#quadrilateral1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Quadrilateral.Quadrilateral1BoxedString](#quadrilateral1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Quadrilateral.Quadrilateral1BoxedList](#quadrilateral1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Quadrilateral.Quadrilateral1BoxedMap](#quadrilateral1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Quadrilateral.Quadrilateral1](#quadrilateral1)<br> schema class |
 
 ## Quadrilateral1Boxed

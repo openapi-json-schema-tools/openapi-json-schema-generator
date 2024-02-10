@@ -13,12 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Animal.Animal1Boxed](#animal1boxed)<br> sealed validated payload class |
+| static class | [Animal.Animal1BoxedMap](#animal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Animal.Animal1](#animal1)<br> schema class |
 | static class | [Animal.AnimalMapBuilder](#animalmapbuilder)<br> builder for Map payloads |
 | static class | [Animal.AnimalMap](#animalmap)<br> output class for Map payloads |
 | static class | [Animal.ColorBoxed](#colorboxed)<br> sealed validated payload class |
+| static class | [Animal.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Animal.Color](#color)<br> schema class |
 | static class | [Animal.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
+| static class | [Animal.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Animal.ClassName](#classname)<br> schema class |
 
 ## Animal1Boxed

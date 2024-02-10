@@ -11,6 +11,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Pig.Pig1Boxed](#pig1boxed)<br> sealed validated payload class |
+| static class | [Pig.Pig1BoxedVoid](#pig1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Pig.Pig1BoxedBoolean](#pig1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Pig.Pig1BoxedNumber](#pig1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Pig.Pig1BoxedString](#pig1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Pig.Pig1BoxedList](#pig1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Pig.Pig1BoxedMap](#pig1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Pig.Pig1](#pig1)<br> schema class |
 
 ## Pig1Boxed

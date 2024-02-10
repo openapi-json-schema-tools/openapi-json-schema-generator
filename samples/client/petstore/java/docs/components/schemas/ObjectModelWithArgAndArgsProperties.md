@@ -13,12 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)<br> sealed validated payload class |
+| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1](#objectmodelwithargandargsproperties1)<br> schema class |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapBuilder](#objectmodelwithargandargspropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap)<br> output class for Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ArgsBoxed](#argsboxed)<br> sealed validated payload class |
+| static class | [ObjectModelWithArgAndArgsProperties.ArgsBoxedString](#argsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Args](#args)<br> schema class |
 | static class | [ObjectModelWithArgAndArgsProperties.ArgBoxed](#argboxed)<br> sealed validated payload class |
+| static class | [ObjectModelWithArgAndArgsProperties.ArgBoxedString](#argboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Arg](#arg)<br> schema class |
 
 ## ObjectModelWithArgAndArgsProperties1Boxed

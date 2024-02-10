@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema0.Schema01Boxed](#schema01boxed)<br> sealed validated payload class |
+| static class | [Schema0.Schema01BoxedList](#schema01boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaListBuilder0](#schemalistbuilder0)<br> builder for List payloads |
 | static class | [Schema0.SchemaList0](#schemalist0)<br> output class for List payloads |
 | static class | [Schema0.Items0Boxed](#items0boxed)<br> sealed validated payload class |
+| static class | [Schema0.Items0BoxedString](#items0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Items0](#items0)<br> schema class |
 | enum | [Schema0.StringItemsEnums0](#stringitemsenums0)<br>String enum |
 

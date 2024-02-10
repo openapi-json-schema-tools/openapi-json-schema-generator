@@ -13,10 +13,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReturnSchema.ReturnSchema1Boxed](#returnschema1boxed)<br> sealed validated payload class |
+| static class | [ReturnSchema.ReturnSchema1BoxedVoid](#returnschema1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ReturnSchema.ReturnSchema1BoxedBoolean](#returnschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ReturnSchema.ReturnSchema1BoxedNumber](#returnschema1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ReturnSchema.ReturnSchema1BoxedString](#returnschema1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [ReturnSchema.ReturnSchema1BoxedList](#returnschema1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [ReturnSchema.ReturnSchema1BoxedMap](#returnschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReturnSchema.ReturnSchema1](#returnschema1)<br> schema class |
 | static class | [ReturnSchema.ReturnMapBuilder1](#returnmapbuilder1)<br> builder for Map payloads |
 | static class | [ReturnSchema.ReturnMap](#returnmap)<br> output class for Map payloads |
 | static class | [ReturnSchema.ReturnSchema2Boxed](#returnschema2boxed)<br> sealed validated payload class |
+| static class | [ReturnSchema.ReturnSchema2BoxedNumber](#returnschema2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ReturnSchema.ReturnSchema2](#returnschema2)<br> schema class |
 
 ## ReturnSchema1Boxed

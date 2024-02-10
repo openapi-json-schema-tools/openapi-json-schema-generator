@@ -13,10 +13,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [GmFruit.GmFruit1Boxed](#gmfruit1boxed)<br> sealed validated payload class |
+| static class | [GmFruit.GmFruit1BoxedVoid](#gmfruit1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [GmFruit.GmFruit1BoxedBoolean](#gmfruit1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [GmFruit.GmFruit1BoxedNumber](#gmfruit1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [GmFruit.GmFruit1BoxedString](#gmfruit1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [GmFruit.GmFruit1BoxedList](#gmfruit1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [GmFruit.GmFruit1BoxedMap](#gmfruit1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [GmFruit.GmFruit1](#gmfruit1)<br> schema class |
 | static class | [GmFruit.GmFruitMapBuilder](#gmfruitmapbuilder)<br> builder for Map payloads |
 | static class | [GmFruit.GmFruitMap](#gmfruitmap)<br> output class for Map payloads |
 | static class | [GmFruit.ColorBoxed](#colorboxed)<br> sealed validated payload class |
+| static class | [GmFruit.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [GmFruit.Color](#color)<br> schema class |
 
 ## GmFruit1Boxed

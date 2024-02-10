@@ -12,10 +12,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema0.Schema01Boxed](#schema01boxed)<br> sealed validated payload class |
+| static class | [Schema0.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaMapBuilder0](#schemamapbuilder0)<br> builder for Map payloads |
 | static class | [Schema0.SchemaMap0](#schemamap0)<br> output class for Map payloads |
 | static class | [Schema0.Keyword0Boxed](#keyword0boxed)<br> sealed validated payload class |
+| static class | [Schema0.Keyword0BoxedString](#keyword0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Keyword0](#keyword0)<br> schema class |
 
 ## Schema01Boxed

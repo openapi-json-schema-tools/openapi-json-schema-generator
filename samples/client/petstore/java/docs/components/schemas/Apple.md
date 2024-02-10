@@ -13,12 +13,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Apple.Apple1Boxed](#apple1boxed)<br> sealed validated payload class |
+| static class | [Apple.Apple1BoxedVoid](#apple1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Apple.Apple1BoxedMap](#apple1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Apple.Apple1](#apple1)<br> schema class |
 | static class | [Apple.AppleMapBuilder](#applemapbuilder)<br> builder for Map payloads |
 | static class | [Apple.AppleMap](#applemap)<br> output class for Map payloads |
 | static class | [Apple.OriginBoxed](#originboxed)<br> sealed validated payload class |
+| static class | [Apple.OriginBoxedString](#originboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Apple.Origin](#origin)<br> schema class |
 | static class | [Apple.CultivarBoxed](#cultivarboxed)<br> sealed validated payload class |
+| static class | [Apple.CultivarBoxedString](#cultivarboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Apple.Cultivar](#cultivar)<br> schema class |
 
 ## Apple1Boxed

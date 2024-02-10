@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [File.File1Boxed](#file1boxed)<br> sealed validated payload class |
+| static class | [File.File1BoxedMap](#file1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [File.File1](#file1)<br> schema class |
 | static class | [File.FileMapBuilder](#filemapbuilder)<br> builder for Map payloads |
 | static class | [File.FileMap](#filemap)<br> output class for Map payloads |
 | static class | [File.SourceURIBoxed](#sourceuriboxed)<br> sealed validated payload class |
+| static class | [File.SourceURIBoxedString](#sourceuriboxedstring)<br> boxed class to store validated String payloads |
 | static class | [File.SourceURI](#sourceuri)<br> schema class |
 
 ## File1Boxed

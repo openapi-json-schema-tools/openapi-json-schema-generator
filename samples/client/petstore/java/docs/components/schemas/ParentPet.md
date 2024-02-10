@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ParentPet.ParentPet1Boxed](#parentpet1boxed)<br> sealed validated payload class |
+| static class | [ParentPet.ParentPet1BoxedMap](#parentpet1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ParentPet.ParentPet1](#parentpet1)<br> schema class |
 
 ## ParentPet1Boxed

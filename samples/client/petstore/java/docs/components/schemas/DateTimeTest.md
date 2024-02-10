@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [DateTimeTest.DateTimeTest1Boxed](#datetimetest1boxed)<br> sealed validated payload class |
+| static class | [DateTimeTest.DateTimeTest1BoxedString](#datetimetest1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DateTimeTest.DateTimeTest1](#datetimetest1)<br> schema class |
 
 ## DateTimeTest1Boxed

@@ -14,12 +14,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [QuadrilateralInterface.QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)<br> sealed validated payload class |
+| static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedVoid](#quadrilateralinterface1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedBoolean](#quadrilateralinterface1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedNumber](#quadrilateralinterface1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedString](#quadrilateralinterface1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedList](#quadrilateralinterface1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedMap](#quadrilateralinterface1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [QuadrilateralInterface.QuadrilateralInterface1](#quadrilateralinterface1)<br> schema class |
 | static class | [QuadrilateralInterface.QuadrilateralInterfaceMapBuilder](#quadrilateralinterfacemapbuilder)<br> builder for Map payloads |
 | static class | [QuadrilateralInterface.QuadrilateralInterfaceMap](#quadrilateralinterfacemap)<br> output class for Map payloads |
 | static class | [QuadrilateralInterface.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> sealed validated payload class |
+| static class | [QuadrilateralInterface.QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [QuadrilateralInterface.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | static class | [QuadrilateralInterface.ShapeTypeBoxed](#shapetypeboxed)<br> sealed validated payload class |
+| static class | [QuadrilateralInterface.ShapeTypeBoxedString](#shapetypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [QuadrilateralInterface.ShapeType](#shapetype)<br> schema class |
 | enum | [QuadrilateralInterface.StringShapeTypeEnums](#stringshapetypeenums)<br>String enum |
 

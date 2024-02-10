@@ -13,12 +13,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Money.Money1Boxed](#money1boxed)<br> sealed validated payload class |
+| static class | [Money.Money1BoxedMap](#money1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Money.Money1](#money1)<br> schema class |
 | static class | [Money.MoneyMapBuilder](#moneymapbuilder)<br> builder for Map payloads |
 | static class | [Money.MoneyMap](#moneymap)<br> output class for Map payloads |
 | static class | [Money.AmountBoxed](#amountboxed)<br> sealed validated payload class |
+| static class | [Money.AmountBoxedString](#amountboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Money.Amount](#amount)<br> schema class |
 | static class | [Money.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [Money.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Money.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Money.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Money.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [Money.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [Money.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Money.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Money1Boxed

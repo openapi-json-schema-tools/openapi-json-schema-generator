@@ -13,12 +13,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ChildCat.ChildCat1Boxed](#childcat1boxed)<br> sealed validated payload class |
+| static class | [ChildCat.ChildCat1BoxedVoid](#childcat1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ChildCat.ChildCat1BoxedBoolean](#childcat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ChildCat.ChildCat1BoxedNumber](#childcat1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ChildCat.ChildCat1BoxedString](#childcat1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [ChildCat.ChildCat1BoxedList](#childcat1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [ChildCat.ChildCat1BoxedMap](#childcat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ChildCat.ChildCat1](#childcat1)<br> schema class |
 | static class | [ChildCat.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [ChildCat.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ChildCat.Schema1](#schema1)<br> schema class |
 | static class | [ChildCat.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ChildCat.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [ChildCat.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [ChildCat.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ChildCat.Name](#name)<br> schema class |
 
 ## ChildCat1Boxed

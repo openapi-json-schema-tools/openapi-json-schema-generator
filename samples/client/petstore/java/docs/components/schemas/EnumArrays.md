@@ -16,17 +16,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumArrays.EnumArrays1Boxed](#enumarrays1boxed)<br> sealed validated payload class |
+| static class | [EnumArrays.EnumArrays1BoxedMap](#enumarrays1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumArrays.EnumArrays1](#enumarrays1)<br> schema class |
 | static class | [EnumArrays.EnumArraysMapBuilder](#enumarraysmapbuilder)<br> builder for Map payloads |
 | static class | [EnumArrays.EnumArraysMap](#enumarraysmap)<br> output class for Map payloads |
 | static class | [EnumArrays.ArrayEnumBoxed](#arrayenumboxed)<br> sealed validated payload class |
+| static class | [EnumArrays.ArrayEnumBoxedList](#arrayenumboxedlist)<br> boxed class to store validated List payloads |
 | static class | [EnumArrays.ArrayEnum](#arrayenum)<br> schema class |
 | static class | [EnumArrays.ArrayEnumListBuilder](#arrayenumlistbuilder)<br> builder for List payloads |
 | static class | [EnumArrays.ArrayEnumList](#arrayenumlist)<br> output class for List payloads |
 | static class | [EnumArrays.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [EnumArrays.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumArrays.Items](#items)<br> schema class |
 | enum | [EnumArrays.StringItemsEnums](#stringitemsenums)<br>String enum |
 | static class | [EnumArrays.JustSymbolBoxed](#justsymbolboxed)<br> sealed validated payload class |
+| static class | [EnumArrays.JustSymbolBoxedString](#justsymbolboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumArrays.JustSymbol](#justsymbol)<br> schema class |
 | enum | [EnumArrays.StringJustSymbolEnums](#stringjustsymbolenums)<br>String enum |
 

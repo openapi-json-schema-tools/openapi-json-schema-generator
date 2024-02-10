@@ -13,12 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed)<br> sealed validated payload class |
+| static class | [HasOnlyReadOnly.HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnly1](#hasonlyreadonly1)<br> schema class |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder)<br> builder for Map payloads |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnlyMap](#hasonlyreadonlymap)<br> output class for Map payloads |
 | static class | [HasOnlyReadOnly.FooBoxed](#fooboxed)<br> sealed validated payload class |
+| static class | [HasOnlyReadOnly.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HasOnlyReadOnly.Foo](#foo)<br> schema class |
 | static class | [HasOnlyReadOnly.BarBoxed](#barboxed)<br> sealed validated payload class |
+| static class | [HasOnlyReadOnly.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HasOnlyReadOnly.Bar](#bar)<br> schema class |
 
 ## HasOnlyReadOnly1Boxed

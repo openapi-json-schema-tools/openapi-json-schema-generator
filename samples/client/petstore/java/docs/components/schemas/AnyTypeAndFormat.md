@@ -13,26 +13,81 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1Boxed](#anytypeandformat1boxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.AnyTypeAndFormat1BoxedMap](#anytypeandformat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1](#anytypeandformat1)<br> schema class |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder)<br> builder for Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMap](#anytypeandformatmap)<br> output class for Map payloads |
 | static class | [AnyTypeAndFormat.FloatSchemaBoxed](#floatschemaboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.FloatSchemaBoxedVoid](#floatschemaboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.FloatSchemaBoxedBoolean](#floatschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.FloatSchemaBoxedString](#floatschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.FloatSchemaBoxedList](#floatschemaboxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.FloatSchemaBoxedMap](#floatschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.FloatSchema](#floatschema)<br> schema class |
 | static class | [AnyTypeAndFormat.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.DoubleSchemaBoxedVoid](#doubleschemaboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.DoubleSchemaBoxedString](#doubleschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.DoubleSchemaBoxedList](#doubleschemaboxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.DoubleSchemaBoxedMap](#doubleschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.DoubleSchema](#doubleschema)<br> schema class |
 | static class | [AnyTypeAndFormat.Int64Boxed](#int64boxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.Int64BoxedVoid](#int64boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.Int64BoxedBoolean](#int64boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.Int64BoxedString](#int64boxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.Int64BoxedList](#int64boxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.Int64BoxedMap](#int64boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Int64](#int64)<br> schema class |
 | static class | [AnyTypeAndFormat.Int32Boxed](#int32boxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.Int32BoxedVoid](#int32boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.Int32BoxedBoolean](#int32boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.Int32BoxedString](#int32boxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.Int32BoxedList](#int32boxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.Int32BoxedMap](#int32boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Int32](#int32)<br> schema class |
 | static class | [AnyTypeAndFormat.BinaryBoxed](#binaryboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.BinaryBoxedVoid](#binaryboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.BinaryBoxedBoolean](#binaryboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.BinaryBoxedNumber](#binaryboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.BinaryBoxedString](#binaryboxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.BinaryBoxedList](#binaryboxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.BinaryBoxedMap](#binaryboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Binary](#binary)<br> schema class |
 | static class | [AnyTypeAndFormat.NumberSchemaBoxed](#numberschemaboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.NumberSchemaBoxedVoid](#numberschemaboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.NumberSchemaBoxedBoolean](#numberschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.NumberSchemaBoxedString](#numberschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.NumberSchemaBoxedList](#numberschemaboxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.NumberSchemaBoxedMap](#numberschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.NumberSchema](#numberschema)<br> schema class |
 | static class | [AnyTypeAndFormat.DatetimeBoxed](#datetimeboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.DatetimeBoxedVoid](#datetimeboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.DatetimeBoxedBoolean](#datetimeboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.DatetimeBoxedNumber](#datetimeboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.DatetimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.DatetimeBoxedList](#datetimeboxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.DatetimeBoxedMap](#datetimeboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Datetime](#datetime)<br> schema class |
 | static class | [AnyTypeAndFormat.DateBoxed](#dateboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.DateBoxedVoid](#dateboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.DateBoxedBoolean](#dateboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.DateBoxedNumber](#dateboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.DateBoxedString](#dateboxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.DateBoxedList](#dateboxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.DateBoxedMap](#dateboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Date](#date)<br> schema class |
 | static class | [AnyTypeAndFormat.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.UuidSchemaBoxedVoid](#uuidschemaboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeAndFormat.UuidSchemaBoxedBoolean](#uuidschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeAndFormat.UuidSchemaBoxedNumber](#uuidschemaboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeAndFormat.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeAndFormat.UuidSchemaBoxedList](#uuidschemaboxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeAndFormat.UuidSchemaBoxedMap](#uuidschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.UuidSchema](#uuidschema)<br> schema class |
 
 ## AnyTypeAndFormat1Boxed

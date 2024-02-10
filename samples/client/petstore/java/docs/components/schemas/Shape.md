@@ -11,6 +11,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Shape.Shape1Boxed](#shape1boxed)<br> sealed validated payload class |
+| static class | [Shape.Shape1BoxedVoid](#shape1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Shape.Shape1BoxedBoolean](#shape1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Shape.Shape1BoxedNumber](#shape1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Shape.Shape1BoxedString](#shape1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Shape.Shape1BoxedList](#shape1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Shape.Shape1BoxedMap](#shape1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Shape.Shape1](#shape1)<br> schema class |
 
 ## Shape1Boxed

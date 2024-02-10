@@ -12,6 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Currency.Currency1Boxed](#currency1boxed)<br> sealed validated payload class |
+| static class | [Currency.Currency1BoxedString](#currency1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Currency.Currency1](#currency1)<br> schema class |
 | enum | [Currency.StringCurrencyEnums](#stringcurrencyenums)<br>String enum |
 

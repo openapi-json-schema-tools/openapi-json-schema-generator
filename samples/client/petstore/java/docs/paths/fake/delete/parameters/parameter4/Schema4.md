@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema4.Schema41Boxed](#schema41boxed)<br> sealed validated payload class |
+| static class | [Schema4.Schema41BoxedString](#schema41boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
 | enum | [Schema4.StringSchemaEnums4](#stringschemaenums4)<br>String enum |
 

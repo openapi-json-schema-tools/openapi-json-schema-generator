@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [UUIDString.UUIDString1Boxed](#uuidstring1boxed)<br> sealed validated payload class |
+| static class | [UUIDString.UUIDString1BoxedString](#uuidstring1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [UUIDString.UUIDString1](#uuidstring1)<br> schema class |
 
 ## UUIDString1Boxed

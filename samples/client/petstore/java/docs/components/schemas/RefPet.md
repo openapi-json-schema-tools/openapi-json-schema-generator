@@ -11,6 +11,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RefPet.RefPet1Boxed](#refpet1boxed)<br> sealed validated payload class |
+| static class | [RefPet.RefPet1BoxedVoid](#refpet1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [RefPet.RefPet1BoxedBoolean](#refpet1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [RefPet.RefPet1BoxedNumber](#refpet1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [RefPet.RefPet1BoxedString](#refpet1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [RefPet.RefPet1BoxedList](#refpet1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [RefPet.RefPet1BoxedMap](#refpet1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [RefPet.RefPet1](#refpet1)<br> schema class |
 
 ## RefPet1Boxed

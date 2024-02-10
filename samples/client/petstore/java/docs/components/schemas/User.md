@@ -13,36 +13,67 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [User.User1Boxed](#user1boxed)<br> sealed validated payload class |
+| static class | [User.User1BoxedMap](#user1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.User1](#user1)<br> schema class |
 | static class | [User.UserMapBuilder](#usermapbuilder)<br> builder for Map payloads |
 | static class | [User.UserMap](#usermap)<br> output class for Map payloads |
 | static class | [User.AnyTypePropNullableBoxed](#anytypepropnullableboxed)<br> sealed validated payload class |
+| static class | [User.AnyTypePropNullableBoxedVoid](#anytypepropnullableboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [User.AnyTypePropNullableBoxedBoolean](#anytypepropnullableboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [User.AnyTypePropNullableBoxedNumber](#anytypepropnullableboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [User.AnyTypePropNullableBoxedString](#anytypepropnullableboxedstring)<br> boxed class to store validated String payloads |
+| static class | [User.AnyTypePropNullableBoxedList](#anytypepropnullableboxedlist)<br> boxed class to store validated List payloads |
+| static class | [User.AnyTypePropNullableBoxedMap](#anytypepropnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypePropNullable](#anytypepropnullable)<br> schema class |
 | static class | [User.AnyTypeExceptNullPropBoxed](#anytypeexceptnullpropboxed)<br> sealed validated payload class |
+| static class | [User.AnyTypeExceptNullPropBoxedVoid](#anytypeexceptnullpropboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [User.AnyTypeExceptNullPropBoxedBoolean](#anytypeexceptnullpropboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [User.AnyTypeExceptNullPropBoxedNumber](#anytypeexceptnullpropboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [User.AnyTypeExceptNullPropBoxedString](#anytypeexceptnullpropboxedstring)<br> boxed class to store validated String payloads |
+| static class | [User.AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist)<br> boxed class to store validated List payloads |
+| static class | [User.AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypeExceptNullProp](#anytypeexceptnullprop)<br> schema class |
 | static class | [User.NotBoxed](#notboxed)<br> sealed validated payload class |
+| static class | [User.NotBoxedVoid](#notboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [User.Not](#not)<br> schema class |
 | static class | [User.AnyTypePropBoxed](#anytypepropboxed)<br> sealed validated payload class |
+| static class | [User.AnyTypePropBoxedVoid](#anytypepropboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [User.AnyTypePropBoxedBoolean](#anytypepropboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [User.AnyTypePropBoxedNumber](#anytypepropboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [User.AnyTypePropBoxedString](#anytypepropboxedstring)<br> boxed class to store validated String payloads |
+| static class | [User.AnyTypePropBoxedList](#anytypepropboxedlist)<br> boxed class to store validated List payloads |
+| static class | [User.AnyTypePropBoxedMap](#anytypepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.AnyTypeProp](#anytypeprop)<br> schema class |
 | static class | [User.ObjectWithNoDeclaredPropsNullableBoxed](#objectwithnodeclaredpropsnullableboxed)<br> sealed validated payload class |
+| static class | [User.ObjectWithNoDeclaredPropsNullableBoxedVoid](#objectwithnodeclaredpropsnullableboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [User.ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.ObjectWithNoDeclaredPropsNullable](#objectwithnodeclaredpropsnullable)<br> schema class |
 | static class | [User.ObjectWithNoDeclaredPropsBoxed](#objectwithnodeclaredpropsboxed)<br> sealed validated payload class |
+| static class | [User.ObjectWithNoDeclaredPropsBoxedMap](#objectwithnodeclaredpropsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [User.ObjectWithNoDeclaredProps](#objectwithnodeclaredprops)<br> schema class |
 | static class | [User.UserStatusBoxed](#userstatusboxed)<br> sealed validated payload class |
+| static class | [User.UserStatusBoxedNumber](#userstatusboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [User.UserStatus](#userstatus)<br> schema class |
 | static class | [User.PhoneBoxed](#phoneboxed)<br> sealed validated payload class |
+| static class | [User.PhoneBoxedString](#phoneboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Phone](#phone)<br> schema class |
 | static class | [User.PasswordBoxed](#passwordboxed)<br> sealed validated payload class |
+| static class | [User.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Password](#password)<br> schema class |
 | static class | [User.EmailBoxed](#emailboxed)<br> sealed validated payload class |
+| static class | [User.EmailBoxedString](#emailboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Email](#email)<br> schema class |
 | static class | [User.LastNameBoxed](#lastnameboxed)<br> sealed validated payload class |
+| static class | [User.LastNameBoxedString](#lastnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.LastName](#lastname)<br> schema class |
 | static class | [User.FirstNameBoxed](#firstnameboxed)<br> sealed validated payload class |
+| static class | [User.FirstNameBoxedString](#firstnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.FirstName](#firstname)<br> schema class |
 | static class | [User.UsernameBoxed](#usernameboxed)<br> sealed validated payload class |
+| static class | [User.UsernameBoxedString](#usernameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [User.Username](#username)<br> schema class |
 | static class | [User.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [User.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [User.Id](#id)<br> schema class |
 
 ## User1Boxed

@@ -12,12 +12,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [Schema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.SomePropBoxed](#somepropboxed)<br> sealed validated payload class |
+| static class | [Schema.SomePropBoxedVoid](#somepropboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Schema.SomePropBoxedBoolean](#somepropboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Schema.SomePropBoxedNumber](#somepropboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Schema.SomePropBoxedString](#somepropboxedstring)<br> boxed class to store validated String payloads |
+| static class | [Schema.SomePropBoxedList](#somepropboxedlist)<br> boxed class to store validated List payloads |
+| static class | [Schema.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema.SomeProp](#someprop)<br> schema class |
 | static class | [Schema.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
+| static class | [Schema.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.Schema0](#schema0)<br> schema class |
 
 ## Schema1Boxed

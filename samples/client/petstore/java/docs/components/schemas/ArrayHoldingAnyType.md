@@ -13,10 +13,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1Boxed](#arrayholdinganytype1boxed)<br> sealed validated payload class |
+| static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1BoxedList](#arrayholdinganytype1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1](#arrayholdinganytype1)<br> schema class |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeListBuilder](#arrayholdinganytypelistbuilder)<br> builder for List payloads |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeList](#arrayholdinganytypelist)<br> output class for List payloads |
 | static class | [ArrayHoldingAnyType.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [ArrayHoldingAnyType.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ArrayHoldingAnyType.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ArrayHoldingAnyType.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ArrayHoldingAnyType.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| static class | [ArrayHoldingAnyType.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| static class | [ArrayHoldingAnyType.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ArrayHoldingAnyType.Items](#items)<br> schema class |
 
 ## ArrayHoldingAnyType1Boxed

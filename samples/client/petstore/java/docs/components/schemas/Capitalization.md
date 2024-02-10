@@ -13,20 +13,27 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Capitalization.Capitalization1Boxed](#capitalization1boxed)<br> sealed validated payload class |
+| static class | [Capitalization.Capitalization1BoxedMap](#capitalization1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Capitalization.Capitalization1](#capitalization1)<br> schema class |
 | static class | [Capitalization.CapitalizationMapBuilder](#capitalizationmapbuilder)<br> builder for Map payloads |
 | static class | [Capitalization.CapitalizationMap](#capitalizationmap)<br> output class for Map payloads |
 | static class | [Capitalization.ATTNAMEBoxed](#attnameboxed)<br> sealed validated payload class |
+| static class | [Capitalization.ATTNAMEBoxedString](#attnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.ATTNAME](#attname)<br> schema class |
 | static class | [Capitalization.SCAETHFlowPointsBoxed](#scaethflowpointsboxed)<br> sealed validated payload class |
+| static class | [Capitalization.SCAETHFlowPointsBoxedString](#scaethflowpointsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SCAETHFlowPoints](#scaethflowpoints)<br> schema class |
 | static class | [Capitalization.CapitalSnakeBoxed](#capitalsnakeboxed)<br> sealed validated payload class |
+| static class | [Capitalization.CapitalSnakeBoxedString](#capitalsnakeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.CapitalSnake](#capitalsnake)<br> schema class |
 | static class | [Capitalization.SmallSnakeBoxed](#smallsnakeboxed)<br> sealed validated payload class |
+| static class | [Capitalization.SmallSnakeBoxedString](#smallsnakeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SmallSnake](#smallsnake)<br> schema class |
 | static class | [Capitalization.CapitalCamelBoxed](#capitalcamelboxed)<br> sealed validated payload class |
+| static class | [Capitalization.CapitalCamelBoxedString](#capitalcamelboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.CapitalCamel](#capitalcamel)<br> schema class |
 | static class | [Capitalization.SmallCamelBoxed](#smallcamelboxed)<br> sealed validated payload class |
+| static class | [Capitalization.SmallCamelBoxedString](#smallcamelboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Capitalization.SmallCamel](#smallcamel)<br> schema class |
 
 ## Capitalization1Boxed

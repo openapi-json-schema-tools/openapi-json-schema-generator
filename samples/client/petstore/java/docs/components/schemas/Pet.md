@@ -16,25 +16,32 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Pet.Pet1Boxed](#pet1boxed)<br> sealed validated payload class |
+| static class | [Pet.Pet1BoxedMap](#pet1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Pet.Pet1](#pet1)<br> schema class |
 | static class | [Pet.PetMapBuilder](#petmapbuilder)<br> builder for Map payloads |
 | static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
 | static class | [Pet.TagsBoxed](#tagsboxed)<br> sealed validated payload class |
+| static class | [Pet.TagsBoxedList](#tagsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Pet.Tags](#tags)<br> schema class |
 | static class | [Pet.TagsListBuilder](#tagslistbuilder)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
 | static class | [Pet.StatusBoxed](#statusboxed)<br> sealed validated payload class |
+| static class | [Pet.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Status](#status)<br> schema class |
 | enum | [Pet.StringStatusEnums](#stringstatusenums)<br>String enum |
 | static class | [Pet.PhotoUrlsBoxed](#photourlsboxed)<br> sealed validated payload class |
+| static class | [Pet.PhotoUrlsBoxedList](#photourlsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
 | static class | [Pet.PhotoUrlsListBuilder](#photourlslistbuilder)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
 | static class | [Pet.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [Pet.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Items](#items)<br> schema class |
 | static class | [Pet.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [Pet.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Name](#name)<br> schema class |
 | static class | [Pet.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [Pet.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Pet.Id](#id)<br> schema class |
 
 ## Pet1Boxed

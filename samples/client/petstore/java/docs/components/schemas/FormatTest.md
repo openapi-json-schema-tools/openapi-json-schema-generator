@@ -15,54 +15,76 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FormatTest.FormatTest1Boxed](#formattest1boxed)<br> sealed validated payload class |
+| static class | [FormatTest.FormatTest1BoxedMap](#formattest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FormatTest.FormatTest1](#formattest1)<br> schema class |
 | static class | [FormatTest.FormatTestMapBuilder](#formattestmapbuilder)<br> builder for Map payloads |
 | static class | [FormatTest.FormatTestMap](#formattestmap)<br> output class for Map payloads |
 | static class | [FormatTest.NonePropBoxed](#nonepropboxed)<br> sealed validated payload class |
+| static class | [FormatTest.NonePropBoxedVoid](#nonepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [FormatTest.NoneProp](#noneprop)<br> schema class |
 | static class | [FormatTest.PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)<br> sealed validated payload class |
+| static class | [FormatTest.PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.PatternWithDigitsAndDelimiter](#patternwithdigitsanddelimiter)<br> schema class |
 | static class | [FormatTest.PatternWithDigitsBoxed](#patternwithdigitsboxed)<br> sealed validated payload class |
+| static class | [FormatTest.PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.PatternWithDigits](#patternwithdigits)<br> schema class |
 | static class | [FormatTest.PasswordBoxed](#passwordboxed)<br> sealed validated payload class |
+| static class | [FormatTest.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.Password](#password)<br> schema class |
 | static class | [FormatTest.UuidNoExampleBoxed](#uuidnoexampleboxed)<br> sealed validated payload class |
+| static class | [FormatTest.UuidNoExampleBoxedString](#uuidnoexampleboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.UuidNoExample](#uuidnoexample)<br> schema class |
 | static class | [FormatTest.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed validated payload class |
+| static class | [FormatTest.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.UuidSchema](#uuidschema)<br> schema class |
 | static class | [FormatTest.DateTimeBoxed](#datetimeboxed)<br> sealed validated payload class |
+| static class | [FormatTest.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.DateTime](#datetime)<br> schema class |
 | static class | [FormatTest.DateBoxed](#dateboxed)<br> sealed validated payload class |
+| static class | [FormatTest.DateBoxedString](#dateboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.Date](#date)<br> schema class |
 | static class | [FormatTest.BinaryBoxed](#binaryboxed)<br> sealed validated payload class |
 | static class | [FormatTest.Binary](#binary)<br> schema class |
 | static class | [FormatTest.ByteSchemaBoxed](#byteschemaboxed)<br> sealed validated payload class |
+| static class | [FormatTest.ByteSchemaBoxedString](#byteschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.ByteSchema](#byteschema)<br> schema class |
 | static class | [FormatTest.StringSchemaBoxed](#stringschemaboxed)<br> sealed validated payload class |
+| static class | [FormatTest.StringSchemaBoxedString](#stringschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.StringSchema](#stringschema)<br> schema class |
 | static class | [FormatTest.ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)<br> sealed validated payload class |
+| static class | [FormatTest.ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [FormatTest.ArrayWithUniqueItems](#arraywithuniqueitems)<br> schema class |
 | static class | [FormatTest.ArrayWithUniqueItemsListBuilder](#arraywithuniqueitemslistbuilder)<br> builder for List payloads |
 | static class | [FormatTest.ArrayWithUniqueItemsList](#arraywithuniqueitemslist)<br> output class for List payloads |
 | static class | [FormatTest.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [FormatTest.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Items](#items)<br> schema class |
 | static class | [FormatTest.Float64Boxed](#float64boxed)<br> sealed validated payload class |
+| static class | [FormatTest.Float64BoxedNumber](#float64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Float64](#float64)<br> schema class |
 | static class | [FormatTest.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed validated payload class |
+| static class | [FormatTest.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.DoubleSchema](#doubleschema)<br> schema class |
 | static class | [FormatTest.Float32Boxed](#float32boxed)<br> sealed validated payload class |
+| static class | [FormatTest.Float32BoxedNumber](#float32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Float32](#float32)<br> schema class |
 | static class | [FormatTest.FloatSchemaBoxed](#floatschemaboxed)<br> sealed validated payload class |
+| static class | [FormatTest.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.FloatSchema](#floatschema)<br> schema class |
 | static class | [FormatTest.NumberSchemaBoxed](#numberschemaboxed)<br> sealed validated payload class |
+| static class | [FormatTest.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.NumberSchema](#numberschema)<br> schema class |
 | static class | [FormatTest.Int64Boxed](#int64boxed)<br> sealed validated payload class |
+| static class | [FormatTest.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int64](#int64)<br> schema class |
 | static class | [FormatTest.Int32withValidationsBoxed](#int32withvalidationsboxed)<br> sealed validated payload class |
+| static class | [FormatTest.Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int32withValidations](#int32withvalidations)<br> schema class |
 | static class | [FormatTest.Int32Boxed](#int32boxed)<br> sealed validated payload class |
+| static class | [FormatTest.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int32](#int32)<br> schema class |
 | static class | [FormatTest.IntegerSchemaBoxed](#integerschemaboxed)<br> sealed validated payload class |
+| static class | [FormatTest.IntegerSchemaBoxedNumber](#integerschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.IntegerSchema](#integerschema)<br> schema class |
 
 ## FormatTest1Boxed

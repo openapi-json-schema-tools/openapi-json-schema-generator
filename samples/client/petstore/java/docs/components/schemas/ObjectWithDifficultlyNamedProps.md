@@ -13,14 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1Boxed](#objectwithdifficultlynamedprops1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1BoxedMap](#objectwithdifficultlynamedprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1](#objectwithdifficultlynamedprops1)<br> schema class |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMapBuilder](#objectwithdifficultlynamedpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap)<br> output class for Map payloads |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123NumberBoxed](#schema123numberboxed)<br> sealed validated payload class |
+| static class | [ObjectWithDifficultlyNamedProps.Schema123NumberBoxedNumber](#schema123numberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123Number](#schema123number)<br> schema class |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123listBoxed](#schema123listboxed)<br> sealed validated payload class |
+| static class | [ObjectWithDifficultlyNamedProps.Schema123listBoxedString](#schema123listboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123list](#schema123list)<br> schema class |
 | static class | [ObjectWithDifficultlyNamedProps.SpecialpropertynameBoxed](#specialpropertynameboxed)<br> sealed validated payload class |
+| static class | [ObjectWithDifficultlyNamedProps.SpecialpropertynameBoxedNumber](#specialpropertynameboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithDifficultlyNamedProps.Specialpropertyname](#specialpropertyname)<br> schema class |
 
 ## ObjectWithDifficultlyNamedProps1Boxed

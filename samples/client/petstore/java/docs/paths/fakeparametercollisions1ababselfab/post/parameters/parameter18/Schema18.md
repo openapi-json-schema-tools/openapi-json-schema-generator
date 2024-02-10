@@ -10,6 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema18.Schema181Boxed](#schema181boxed)<br> sealed validated payload class |
+| static class | [Schema18.Schema181BoxedString](#schema181boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema18.Schema181](#schema181)<br> schema class |
 
 ## Schema181Boxed

@@ -34,13 +34,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Variables.Variables1Boxed](#variables1boxed)<br> sealed validated payload class |
+| static class | [Variables.Variables1BoxedMap](#variables1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Variables.Variables1](#variables1)<br> schema class |
 | static class | [Variables.VariablesMapBuilder](#variablesmapbuilder)<br> builder for Map payloads |
 | static class | [Variables.VariablesMap](#variablesmap)<br> output class for Map payloads |
 | static class | [Variables.VersionBoxed](#versionboxed)<br> sealed validated payload class |
+| static class | [Variables.VersionBoxedString](#versionboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Variables.Version](#version)<br> schema class |
 | enum | [Variables.StringVersionEnums](#stringversionenums)<br>String enum |
 | static class | [Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Variables.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ### Variables1Boxed

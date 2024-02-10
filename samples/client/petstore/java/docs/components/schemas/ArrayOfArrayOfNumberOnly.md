@@ -15,18 +15,22 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1Boxed](#arrayofarrayofnumberonly1boxed)<br> sealed validated payload class |
+| static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1BoxedMap](#arrayofarrayofnumberonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1](#arrayofarrayofnumberonly1)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMapBuilder](#arrayofarrayofnumberonlymapbuilder)<br> builder for Map payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap)<br> output class for Map payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberBoxed](#arrayarraynumberboxed)<br> sealed validated payload class |
+| static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberBoxedList](#arrayarraynumberboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumber](#arrayarraynumber)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberListBuilder](#arrayarraynumberlistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberList](#arrayarraynumberlist)<br> output class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [ArrayOfArrayOfNumberOnly.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items](#items)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items1Boxed](#items1boxed)<br> sealed validated payload class |
+| static class | [ArrayOfArrayOfNumberOnly.Items1BoxedNumber](#items1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items1](#items1)<br> schema class |
 
 ## ArrayOfArrayOfNumberOnly1Boxed

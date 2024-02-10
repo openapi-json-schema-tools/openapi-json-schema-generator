@@ -13,42 +13,69 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1Boxed](#composedanyofdifferenttypesnovalidations1boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1BoxedVoid](#composedanyofdifferenttypesnovalidations1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean](#composedanyofdifferenttypesnovalidations1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1BoxedNumber](#composedanyofdifferenttypesnovalidations1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1BoxedString](#composedanyofdifferenttypesnovalidations1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1BoxedList](#composedanyofdifferenttypesnovalidations1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1BoxedMap](#composedanyofdifferenttypesnovalidations1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1](#composedanyofdifferenttypesnovalidations1)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema15Boxed](#schema15boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema15BoxedNumber](#schema15boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema15](#schema15)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema14Boxed](#schema14boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema14BoxedNumber](#schema14boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema14](#schema14)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema13Boxed](#schema13boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema13BoxedNumber](#schema13boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema13](#schema13)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema12Boxed](#schema12boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema12BoxedNumber](#schema12boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema12](#schema12)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema11Boxed](#schema11boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema11BoxedNumber](#schema11boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema11](#schema11)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema10Boxed](#schema10boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema10BoxedNumber](#schema10boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema10](#schema10)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9Boxed](#schema9boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9BoxedList](#schema9boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9](#schema9)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9ListBuilder](#schema9listbuilder)<br> builder for List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9List](#schema9list)<br> output class for List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Items](#items)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema8Boxed](#schema8boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema8BoxedVoid](#schema8boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema8](#schema8)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema7Boxed](#schema7boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema7BoxedBoolean](#schema7boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema7](#schema7)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema6Boxed](#schema6boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema6BoxedMap](#schema6boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema6](#schema6)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema5Boxed](#schema5boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema5BoxedString](#schema5boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema5](#schema5)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema4Boxed](#schema4boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema4BoxedString](#schema4boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema4](#schema4)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema3Boxed](#schema3boxed)<br> sealed validated payload class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema3](#schema3)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema2Boxed](#schema2boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema2BoxedString](#schema2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema2](#schema2)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema1](#schema1)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema0](#schema0)<br> schema class |
 
 ## ComposedAnyOfDifferentTypesNoValidations1Boxed

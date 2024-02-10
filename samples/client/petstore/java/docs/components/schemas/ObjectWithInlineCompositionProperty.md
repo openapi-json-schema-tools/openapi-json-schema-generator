@@ -13,12 +13,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1](#objectwithinlinecompositionproperty1)<br> schema class |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap)<br> output class for Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.SomePropBoxed](#somepropboxed)<br> sealed validated payload class |
+| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedVoid](#somepropboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedBoolean](#somepropboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedNumber](#somepropboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedString](#somepropboxedstring)<br> boxed class to store validated String payloads |
+| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedList](#somepropboxedlist)<br> boxed class to store validated List payloads |
+| static class | [ObjectWithInlineCompositionProperty.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.SomeProp](#someprop)<br> schema class |
 | static class | [ObjectWithInlineCompositionProperty.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
+| static class | [ObjectWithInlineCompositionProperty.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithInlineCompositionProperty.Schema0](#schema0)<br> schema class |
 
 ## ObjectWithInlineCompositionProperty1Boxed

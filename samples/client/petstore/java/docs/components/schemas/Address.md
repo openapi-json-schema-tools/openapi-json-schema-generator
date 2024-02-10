@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Address.Address1Boxed](#address1boxed)<br> sealed validated payload class |
+| static class | [Address.Address1BoxedMap](#address1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Address.Address1](#address1)<br> schema class |
 | static class | [Address.AddressMapBuilder](#addressmapbuilder)<br> builder for Map payloads |
 | static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
 | static class | [Address.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [Address.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Address1Boxed

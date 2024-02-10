@@ -14,10 +14,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [DanishPig.DanishPig1Boxed](#danishpig1boxed)<br> sealed validated payload class |
+| static class | [DanishPig.DanishPig1BoxedMap](#danishpig1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [DanishPig.DanishPig1](#danishpig1)<br> schema class |
 | static class | [DanishPig.DanishPigMapBuilder](#danishpigmapbuilder)<br> builder for Map payloads |
 | static class | [DanishPig.DanishPigMap](#danishpigmap)<br> output class for Map payloads |
 | static class | [DanishPig.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
+| static class | [DanishPig.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [DanishPig.ClassName](#classname)<br> schema class |
 | enum | [DanishPig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 

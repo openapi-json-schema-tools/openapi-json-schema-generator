@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectInterface.ObjectInterface1Boxed](#objectinterface1boxed)<br> sealed validated payload class |
+| static class | [ObjectInterface.ObjectInterface1BoxedMap](#objectinterface1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectInterface.ObjectInterface1](#objectinterface1)<br> schema class |
 
 ## ObjectInterface1Boxed

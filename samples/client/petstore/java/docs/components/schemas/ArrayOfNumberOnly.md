@@ -15,14 +15,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1Boxed](#arrayofnumberonly1boxed)<br> sealed validated payload class |
+| static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1BoxedMap](#arrayofnumberonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1](#arrayofnumberonly1)<br> schema class |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder)<br> builder for Map payloads |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMap](#arrayofnumberonlymap)<br> output class for Map payloads |
 | static class | [ArrayOfNumberOnly.ArrayNumberBoxed](#arraynumberboxed)<br> sealed validated payload class |
+| static class | [ArrayOfNumberOnly.ArrayNumberBoxedList](#arraynumberboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayOfNumberOnly.ArrayNumber](#arraynumber)<br> schema class |
 | static class | [ArrayOfNumberOnly.ArrayNumberListBuilder](#arraynumberlistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfNumberOnly.ArrayNumberList](#arraynumberlist)<br> output class for List payloads |
 | static class | [ArrayOfNumberOnly.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [ArrayOfNumberOnly.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ArrayOfNumberOnly.Items](#items)<br> schema class |
 
 ## ArrayOfNumberOnly1Boxed

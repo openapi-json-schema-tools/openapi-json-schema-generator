@@ -13,10 +13,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ComposedArray.ComposedArray1Boxed](#composedarray1boxed)<br> sealed validated payload class |
+| static class | [ComposedArray.ComposedArray1BoxedList](#composedarray1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
 | static class | [ComposedArray.ComposedArrayListBuilder](#composedarraylistbuilder)<br> builder for List payloads |
 | static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
 | static class | [ComposedArray.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [ComposedArray.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ComposedArray.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ComposedArray.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ComposedArray.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| static class | [ComposedArray.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| static class | [ComposedArray.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedArray.Items](#items)<br> schema class |
 
 ## ComposedArray1Boxed

@@ -13,12 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FromSchema.FromSchema1Boxed](#fromschema1boxed)<br> sealed validated payload class |
+| static class | [FromSchema.FromSchema1BoxedMap](#fromschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FromSchema.FromSchema1](#fromschema1)<br> schema class |
 | static class | [FromSchema.FromSchemaMapBuilder](#fromschemamapbuilder)<br> builder for Map payloads |
 | static class | [FromSchema.FromSchemaMap](#fromschemamap)<br> output class for Map payloads |
 | static class | [FromSchema.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [FromSchema.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FromSchema.Id](#id)<br> schema class |
 | static class | [FromSchema.DataBoxed](#databoxed)<br> sealed validated payload class |
+| static class | [FromSchema.DataBoxedString](#databoxedstring)<br> boxed class to store validated String payloads |
 | static class | [FromSchema.Data](#data)<br> schema class |
 
 ## FromSchema1Boxed

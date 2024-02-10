@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> sealed validated payload class |
+| static class | [IntegerMin15.IntegerMin151BoxedNumber](#integermin151boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMin15.IntegerMin151](#integermin151)<br> schema class |
 
 ## IntegerMin151Boxed

@@ -12,6 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [BooleanEnum.BooleanEnum1Boxed](#booleanenum1boxed)<br> sealed validated payload class |
+| static class | [BooleanEnum.BooleanEnum1BoxedBoolean](#booleanenum1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BooleanEnum.BooleanEnum1](#booleanenum1)<br> schema class |
 | enum | [BooleanEnum.BooleanBooleanEnumEnums](#booleanbooleanenumenums)<br>boolean enum |
 

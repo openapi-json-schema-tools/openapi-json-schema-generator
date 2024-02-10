@@ -14,15 +14,24 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemove1Boxed](#jsonpatchrequestremove1boxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestRemove.JSONPatchRequestRemove1BoxedMap](#jsonpatchrequestremove1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemove1](#jsonpatchrequestremove1)<br> schema class |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMapBuilder](#jsonpatchrequestremovemapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestRemove.OpBoxed](#opboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestRemove.OpBoxedString](#opboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestRemove.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestRemove.StringOpEnums](#stringopenums)<br>String enum |
 | static class | [JSONPatchRequestRemove.PathBoxed](#pathboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestRemove.PathBoxedString](#pathboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestRemove.Path](#path)<br> schema class |
 | static class | [JSONPatchRequestRemove.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestRemove.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [JSONPatchRequestRemove.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [JSONPatchRequestRemove.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [JSONPatchRequestRemove.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [JSONPatchRequestRemove.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [JSONPatchRequestRemove.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestRemove.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## JSONPatchRequestRemove1Boxed

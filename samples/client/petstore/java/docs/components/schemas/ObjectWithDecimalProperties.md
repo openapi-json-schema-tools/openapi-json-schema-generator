@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1Boxed](#objectwithdecimalproperties1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1](#objectwithdecimalproperties1)<br> schema class |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap)<br> output class for Map payloads |
 | static class | [ObjectWithDecimalProperties.WidthBoxed](#widthboxed)<br> sealed validated payload class |
+| static class | [ObjectWithDecimalProperties.WidthBoxedString](#widthboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithDecimalProperties.Width](#width)<br> schema class |
 
 ## ObjectWithDecimalProperties1Boxed

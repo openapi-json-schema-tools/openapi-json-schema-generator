@@ -11,8 +11,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NullableShape.NullableShape1Boxed](#nullableshape1boxed)<br> sealed validated payload class |
+| static class | [NullableShape.NullableShape1BoxedVoid](#nullableshape1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [NullableShape.NullableShape1BoxedBoolean](#nullableshape1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [NullableShape.NullableShape1BoxedNumber](#nullableshape1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [NullableShape.NullableShape1BoxedString](#nullableshape1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [NullableShape.NullableShape1BoxedList](#nullableshape1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [NullableShape.NullableShape1BoxedMap](#nullableshape1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableShape.NullableShape1](#nullableshape1)<br> schema class |
 | static class | [NullableShape.Schema2Boxed](#schema2boxed)<br> sealed validated payload class |
+| static class | [NullableShape.Schema2BoxedVoid](#schema2boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableShape.Schema2](#schema2)<br> schema class |
 
 ## NullableShape1Boxed

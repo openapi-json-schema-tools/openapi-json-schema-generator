@@ -13,14 +13,23 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Name.Name1Boxed](#name1boxed)<br> sealed validated payload class |
+| static class | [Name.Name1BoxedVoid](#name1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Name.Name1BoxedBoolean](#name1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Name.Name1BoxedNumber](#name1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Name.Name1BoxedString](#name1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Name.Name1BoxedList](#name1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Name.Name1BoxedMap](#name1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Name.Name1](#name1)<br> schema class |
 | static class | [Name.NameMapBuilder1](#namemapbuilder1)<br> builder for Map payloads |
 | static class | [Name.NameMap](#namemap)<br> output class for Map payloads |
 | static class | [Name.PropertyBoxed](#propertyboxed)<br> sealed validated payload class |
+| static class | [Name.PropertyBoxedString](#propertyboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Name.Property](#property)<br> schema class |
 | static class | [Name.SnakeCaseBoxed](#snakecaseboxed)<br> sealed validated payload class |
+| static class | [Name.SnakeCaseBoxedNumber](#snakecaseboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Name.SnakeCase](#snakecase)<br> schema class |
 | static class | [Name.Name2Boxed](#name2boxed)<br> sealed validated payload class |
+| static class | [Name.Name2BoxedNumber](#name2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Name.Name2](#name2)<br> schema class |
 
 ## Name1Boxed

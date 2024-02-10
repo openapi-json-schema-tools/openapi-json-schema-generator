@@ -13,12 +13,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [MyObjectDto.MyObjectDto1Boxed](#myobjectdto1boxed)<br> sealed validated payload class |
+| static class | [MyObjectDto.MyObjectDto1BoxedMap](#myobjectdto1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MyObjectDto.MyObjectDto1](#myobjectdto1)<br> schema class |
 | static class | [MyObjectDto.MyObjectDtoMapBuilder](#myobjectdtomapbuilder)<br> builder for Map payloads |
 | static class | [MyObjectDto.MyObjectDtoMap](#myobjectdtomap)<br> output class for Map payloads |
 | static class | [MyObjectDto.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [MyObjectDto.IdBoxedString](#idboxedstring)<br> boxed class to store validated String payloads |
 | static class | [MyObjectDto.Id](#id)<br> schema class |
 | static class | [MyObjectDto.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [MyObjectDto.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [MyObjectDto.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [MyObjectDto.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [MyObjectDto.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [MyObjectDto.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [MyObjectDto.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [MyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## MyObjectDto1Boxed

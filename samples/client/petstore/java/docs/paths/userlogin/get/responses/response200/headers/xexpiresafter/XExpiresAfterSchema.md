@@ -10,6 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [XExpiresAfterSchema.XExpiresAfterSchema1Boxed](#xexpiresafterschema1boxed)<br> sealed validated payload class |
+| static class | [XExpiresAfterSchema.XExpiresAfterSchema1BoxedString](#xexpiresafterschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [XExpiresAfterSchema.XExpiresAfterSchema1](#xexpiresafterschema1)<br> schema class |
 
 ## XExpiresAfterSchema1Boxed

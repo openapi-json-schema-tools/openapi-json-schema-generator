@@ -12,6 +12,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [StringEnum.StringEnum1Boxed](#stringenum1boxed)<br> sealed validated payload class |
+| static class | [StringEnum.StringEnum1BoxedVoid](#stringenum1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [StringEnum.StringEnum1BoxedString](#stringenum1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringEnum.StringEnum1](#stringenum1)<br> schema class |
 | enum | [StringEnum.StringStringEnumEnums](#stringstringenumenums)<br>String enum |
 | enum | [StringEnum.NullStringEnumEnums](#nullstringenumenums)<br>null enum |

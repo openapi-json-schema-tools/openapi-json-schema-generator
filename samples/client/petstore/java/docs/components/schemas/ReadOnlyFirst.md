@@ -13,12 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReadOnlyFirst.ReadOnlyFirst1Boxed](#readonlyfirst1boxed)<br> sealed validated payload class |
+| static class | [ReadOnlyFirst.ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirst1](#readonlyfirst1)<br> schema class |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder)<br> builder for Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMap](#readonlyfirstmap)<br> output class for Map payloads |
 | static class | [ReadOnlyFirst.BazBoxed](#bazboxed)<br> sealed validated payload class |
+| static class | [ReadOnlyFirst.BazBoxedString](#bazboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReadOnlyFirst.Baz](#baz)<br> schema class |
 | static class | [ReadOnlyFirst.BarBoxed](#barboxed)<br> sealed validated payload class |
+| static class | [ReadOnlyFirst.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
 
 ## ReadOnlyFirst1Boxed

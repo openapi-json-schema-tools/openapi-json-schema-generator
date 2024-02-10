@@ -12,6 +12,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerEnum.IntegerEnum1Boxed](#integerenum1boxed)<br> sealed validated payload class |
+| static class | [IntegerEnum.IntegerEnum1BoxedNumber](#integerenum1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerEnum.IntegerEnum1](#integerenum1)<br> schema class |
 | enum | [IntegerEnum.IntegerIntegerEnumEnums](#integerintegerenumenums)<br>Integer enum |
 | enum | [IntegerEnum.LongIntegerEnumEnums](#longintegerenumenums)<br>Long enum |

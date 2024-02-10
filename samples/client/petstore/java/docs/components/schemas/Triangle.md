@@ -11,6 +11,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Triangle.Triangle1Boxed](#triangle1boxed)<br> sealed validated payload class |
+| static class | [Triangle.Triangle1BoxedVoid](#triangle1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Triangle.Triangle1BoxedBoolean](#triangle1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Triangle.Triangle1BoxedNumber](#triangle1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Triangle.Triangle1BoxedString](#triangle1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Triangle.Triangle1BoxedList](#triangle1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Triangle.Triangle1BoxedMap](#triangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Triangle.Triangle1](#triangle1)<br> schema class |
 
 ## Triangle1Boxed

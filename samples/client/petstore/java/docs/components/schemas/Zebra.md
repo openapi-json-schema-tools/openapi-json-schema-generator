@@ -14,16 +14,25 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Zebra.Zebra1Boxed](#zebra1boxed)<br> sealed validated payload class |
+| static class | [Zebra.Zebra1BoxedMap](#zebra1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Zebra.Zebra1](#zebra1)<br> schema class |
 | static class | [Zebra.ZebraMapBuilder](#zebramapbuilder)<br> builder for Map payloads |
 | static class | [Zebra.ZebraMap](#zebramap)<br> output class for Map payloads |
 | static class | [Zebra.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
+| static class | [Zebra.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Zebra.ClassName](#classname)<br> schema class |
 | enum | [Zebra.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 | static class | [Zebra.TypeBoxed](#typeboxed)<br> sealed validated payload class |
+| static class | [Zebra.TypeBoxedString](#typeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Zebra.Type](#type)<br> schema class |
 | enum | [Zebra.StringTypeEnums](#stringtypeenums)<br>String enum |
 | static class | [Zebra.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [Zebra.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Zebra.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Zebra.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Zebra.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [Zebra.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [Zebra.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Zebra.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Zebra1Boxed

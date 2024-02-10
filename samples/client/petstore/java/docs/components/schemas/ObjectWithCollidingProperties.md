@@ -13,12 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1Boxed](#objectwithcollidingproperties1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1](#objectwithcollidingproperties1)<br> schema class |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap)<br> output class for Map payloads |
 | static class | [ObjectWithCollidingProperties.SomepropBoxed](#somepropboxed)<br> sealed validated payload class |
+| static class | [ObjectWithCollidingProperties.SomepropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.Someprop](#someprop)<br> schema class |
 | static class | [ObjectWithCollidingProperties.SomePropBoxed](#somepropboxed)<br> sealed validated payload class |
+| static class | [ObjectWithCollidingProperties.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.SomeProp](#someprop)<br> schema class |
 
 ## ObjectWithCollidingProperties1Boxed

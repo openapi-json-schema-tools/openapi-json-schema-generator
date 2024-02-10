@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerMax10.IntegerMax101Boxed](#integermax101boxed)<br> sealed validated payload class |
+| static class | [IntegerMax10.IntegerMax101BoxedNumber](#integermax101boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMax10.IntegerMax101](#integermax101)<br> schema class |
 
 ## IntegerMax101Boxed

@@ -10,6 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [XRateLimitSchema.XRateLimitSchema1Boxed](#xratelimitschema1boxed)<br> sealed validated payload class |
+| static class | [XRateLimitSchema.XRateLimitSchema1BoxedNumber](#xratelimitschema1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [XRateLimitSchema.XRateLimitSchema1](#xratelimitschema1)<br> schema class |
 
 ## XRateLimitSchema1Boxed

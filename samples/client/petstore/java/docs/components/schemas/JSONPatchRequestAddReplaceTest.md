@@ -14,17 +14,32 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1Boxed](#jsonpatchrequestaddreplacetest1boxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1BoxedMap](#jsonpatchrequestaddreplacetest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1](#jsonpatchrequestaddreplacetest1)<br> schema class |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapBuilder](#jsonpatchrequestaddreplacetestmapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.OpBoxed](#opboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.OpBoxedString](#opboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestAddReplaceTest.StringOpEnums](#stringopenums)<br>String enum |
 | static class | [JSONPatchRequestAddReplaceTest.ValueBoxed](#valueboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.ValueBoxedVoid](#valueboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [JSONPatchRequestAddReplaceTest.ValueBoxedBoolean](#valueboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [JSONPatchRequestAddReplaceTest.ValueBoxedNumber](#valueboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [JSONPatchRequestAddReplaceTest.ValueBoxedString](#valueboxedstring)<br> boxed class to store validated String payloads |
+| static class | [JSONPatchRequestAddReplaceTest.ValueBoxedList](#valueboxedlist)<br> boxed class to store validated List payloads |
+| static class | [JSONPatchRequestAddReplaceTest.ValueBoxedMap](#valueboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Value](#value)<br> schema class |
 | static class | [JSONPatchRequestAddReplaceTest.PathBoxed](#pathboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.PathBoxedString](#pathboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Path](#path)<br> schema class |
 | static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## JSONPatchRequestAddReplaceTest1Boxed

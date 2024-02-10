@@ -13,14 +13,23 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [BananaReq.BananaReq1Boxed](#bananareq1boxed)<br> sealed validated payload class |
+| static class | [BananaReq.BananaReq1BoxedMap](#bananareq1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [BananaReq.BananaReq1](#bananareq1)<br> schema class |
 | static class | [BananaReq.BananaReqMapBuilder](#bananareqmapbuilder)<br> builder for Map payloads |
 | static class | [BananaReq.BananaReqMap](#bananareqmap)<br> output class for Map payloads |
 | static class | [BananaReq.SweetBoxed](#sweetboxed)<br> sealed validated payload class |
+| static class | [BananaReq.SweetBoxedBoolean](#sweetboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BananaReq.Sweet](#sweet)<br> schema class |
 | static class | [BananaReq.LengthCmBoxed](#lengthcmboxed)<br> sealed validated payload class |
+| static class | [BananaReq.LengthCmBoxedNumber](#lengthcmboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [BananaReq.LengthCm](#lengthcm)<br> schema class |
 | static class | [BananaReq.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [BananaReq.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [BananaReq.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## BananaReq1Boxed

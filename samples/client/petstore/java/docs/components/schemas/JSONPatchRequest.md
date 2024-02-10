@@ -13,10 +13,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequest.JSONPatchRequest1Boxed](#jsonpatchrequest1boxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequest.JSONPatchRequest1BoxedList](#jsonpatchrequest1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [JSONPatchRequest.JSONPatchRequest1](#jsonpatchrequest1)<br> schema class |
 | static class | [JSONPatchRequest.JSONPatchRequestListBuilder](#jsonpatchrequestlistbuilder)<br> builder for List payloads |
 | static class | [JSONPatchRequest.JSONPatchRequestList](#jsonpatchrequestlist)<br> output class for List payloads |
 | static class | [JSONPatchRequest.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequest.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [JSONPatchRequest.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [JSONPatchRequest.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [JSONPatchRequest.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| static class | [JSONPatchRequest.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| static class | [JSONPatchRequest.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequest.Items](#items)<br> schema class |
 
 ## JSONPatchRequest1Boxed

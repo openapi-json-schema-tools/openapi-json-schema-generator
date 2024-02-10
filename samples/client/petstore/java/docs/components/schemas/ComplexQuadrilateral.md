@@ -14,12 +14,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ComplexQuadrilateral.ComplexQuadrilateral1Boxed](#complexquadrilateral1boxed)<br> sealed validated payload class |
+| static class | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedVoid](#complexquadrilateral1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedBoolean](#complexquadrilateral1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedNumber](#complexquadrilateral1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedString](#complexquadrilateral1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedList](#complexquadrilateral1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [ComplexQuadrilateral.ComplexQuadrilateral1BoxedMap](#complexquadrilateral1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComplexQuadrilateral.ComplexQuadrilateral1](#complexquadrilateral1)<br> schema class |
 | static class | [ComplexQuadrilateral.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [ComplexQuadrilateral.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComplexQuadrilateral.Schema1](#schema1)<br> schema class |
 | static class | [ComplexQuadrilateral.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ComplexQuadrilateral.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [ComplexQuadrilateral.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> sealed validated payload class |
+| static class | [ComplexQuadrilateral.QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ComplexQuadrilateral.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | enum | [ComplexQuadrilateral.StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums)<br>String enum |
 

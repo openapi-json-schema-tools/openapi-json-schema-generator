@@ -14,23 +14,28 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumTest.EnumTest1Boxed](#enumtest1boxed)<br> sealed validated payload class |
+| static class | [EnumTest.EnumTest1BoxedMap](#enumtest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumTest.EnumTest1](#enumtest1)<br> schema class |
 | static class | [EnumTest.EnumTestMapBuilder](#enumtestmapbuilder)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
 | static class | [EnumTest.EnumNumberBoxed](#enumnumberboxed)<br> sealed validated payload class |
+| static class | [EnumTest.EnumNumberBoxedNumber](#enumnumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
 | enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
 | enum | [EnumTest.FloatEnumNumberEnums](#floatenumnumberenums)<br>Float enum |
 | static class | [EnumTest.EnumIntegerBoxed](#enumintegerboxed)<br> sealed validated payload class |
+| static class | [EnumTest.EnumIntegerBoxedNumber](#enumintegerboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
 | enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>Integer enum |
 | enum | [EnumTest.LongEnumIntegerEnums](#longenumintegerenums)<br>Long enum |
 | enum | [EnumTest.FloatEnumIntegerEnums](#floatenumintegerenums)<br>Float enum |
 | enum | [EnumTest.DoubleEnumIntegerEnums](#doubleenumintegerenums)<br>Double enum |
 | static class | [EnumTest.EnumStringRequiredBoxed](#enumstringrequiredboxed)<br> sealed validated payload class |
+| static class | [EnumTest.EnumStringRequiredBoxedString](#enumstringrequiredboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumTest.EnumStringRequired](#enumstringrequired)<br> schema class |
 | enum | [EnumTest.StringEnumStringRequiredEnums](#stringenumstringrequiredenums)<br>String enum |
 | static class | [EnumTest.EnumStringBoxed](#enumstringboxed)<br> sealed validated payload class |
+| static class | [EnumTest.EnumStringBoxedString](#enumstringboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
 | enum | [EnumTest.StringEnumStringEnums](#stringenumstringenums)<br>String enum |
 

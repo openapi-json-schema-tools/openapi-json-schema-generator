@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [StringSchema.StringSchema1Boxed](#stringschema1boxed)<br> sealed validated payload class |
+| static class | [StringSchema.StringSchema1BoxedString](#stringschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringSchema.StringSchema1](#stringschema1)<br> schema class |
 
 ## StringSchema1Boxed

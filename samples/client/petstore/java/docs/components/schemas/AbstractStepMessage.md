@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AbstractStepMessage.AbstractStepMessage1Boxed](#abstractstepmessage1boxed)<br> sealed validated payload class |
+| static class | [AbstractStepMessage.AbstractStepMessage1BoxedMap](#abstractstepmessage1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AbstractStepMessage.AbstractStepMessage1](#abstractstepmessage1)<br> schema class |
 | static class | [AbstractStepMessage.AbstractStepMessageMapBuilder](#abstractstepmessagemapbuilder)<br> builder for Map payloads |
 | static class | [AbstractStepMessage.AbstractStepMessageMap](#abstractstepmessagemap)<br> output class for Map payloads |
 | static class | [AbstractStepMessage.DiscriminatorBoxed](#discriminatorboxed)<br> sealed validated payload class |
+| static class | [AbstractStepMessage.DiscriminatorBoxedString](#discriminatorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AbstractStepMessage.Discriminator](#discriminator)<br> schema class |
 
 ## AbstractStepMessage1Boxed

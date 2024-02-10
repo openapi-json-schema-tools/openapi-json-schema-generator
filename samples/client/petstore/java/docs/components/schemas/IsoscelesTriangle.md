@@ -14,12 +14,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IsoscelesTriangle.IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)<br> sealed validated payload class |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedVoid](#isoscelestriangle1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedBoolean](#isoscelestriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedNumber](#isoscelestriangle1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedString](#isoscelestriangle1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IsoscelesTriangle.IsoscelesTriangle1](#isoscelestriangle1)<br> schema class |
 | static class | [IsoscelesTriangle.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [IsoscelesTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IsoscelesTriangle.Schema1](#schema1)<br> schema class |
 | static class | [IsoscelesTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [IsoscelesTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [IsoscelesTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> sealed validated payload class |
+| static class | [IsoscelesTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [IsoscelesTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [IsoscelesTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |
 

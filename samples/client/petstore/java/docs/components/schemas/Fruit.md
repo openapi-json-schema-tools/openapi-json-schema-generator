@@ -13,10 +13,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Fruit.Fruit1Boxed](#fruit1boxed)<br> sealed validated payload class |
+| static class | [Fruit.Fruit1BoxedVoid](#fruit1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Fruit.Fruit1BoxedBoolean](#fruit1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Fruit.Fruit1BoxedNumber](#fruit1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Fruit.Fruit1BoxedString](#fruit1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Fruit.Fruit1BoxedList](#fruit1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Fruit.Fruit1BoxedMap](#fruit1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Fruit.Fruit1](#fruit1)<br> schema class |
 | static class | [Fruit.FruitMapBuilder](#fruitmapbuilder)<br> builder for Map payloads |
 | static class | [Fruit.FruitMap](#fruitmap)<br> output class for Map payloads |
 | static class | [Fruit.ColorBoxed](#colorboxed)<br> sealed validated payload class |
+| static class | [Fruit.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Fruit.Color](#color)<br> schema class |
 
 ## Fruit1Boxed

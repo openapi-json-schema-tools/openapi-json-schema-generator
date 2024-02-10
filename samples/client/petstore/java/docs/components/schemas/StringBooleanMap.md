@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [StringBooleanMap.StringBooleanMap1Boxed](#stringbooleanmap1boxed)<br> sealed validated payload class |
+| static class | [StringBooleanMap.StringBooleanMap1BoxedMap](#stringbooleanmap1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [StringBooleanMap.StringBooleanMap1](#stringbooleanmap1)<br> schema class |
 | static class | [StringBooleanMap.StringBooleanMapMapBuilder](#stringbooleanmapmapbuilder)<br> builder for Map payloads |
 | static class | [StringBooleanMap.StringBooleanMapMap](#stringbooleanmapmap)<br> output class for Map payloads |
 | static class | [StringBooleanMap.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [StringBooleanMap.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [StringBooleanMap.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## StringBooleanMap1Boxed

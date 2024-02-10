@@ -13,12 +13,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Dog.Dog1Boxed](#dog1boxed)<br> sealed validated payload class |
+| static class | [Dog.Dog1BoxedVoid](#dog1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Dog.Dog1BoxedBoolean](#dog1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Dog.Dog1BoxedNumber](#dog1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Dog.Dog1BoxedString](#dog1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Dog.Dog1BoxedList](#dog1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Dog.Dog1BoxedMap](#dog1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Dog.Dog1](#dog1)<br> schema class |
 | static class | [Dog.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [Dog.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Dog.Schema1](#schema1)<br> schema class |
 | static class | [Dog.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [Dog.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [Dog.BreedBoxed](#breedboxed)<br> sealed validated payload class |
+| static class | [Dog.BreedBoxedString](#breedboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Dog.Breed](#breed)<br> schema class |
 
 ## Dog1Boxed

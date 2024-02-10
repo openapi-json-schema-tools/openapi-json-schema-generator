@@ -13,10 +13,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1Boxed](#reqpropsfromtrueaddprops1boxed)<br> sealed validated payload class |
+| static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1BoxedMap](#reqpropsfromtrueaddprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1](#reqpropsfromtrueaddprops1)<br> schema class |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap)<br> output class for Map payloads |
 | static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReqPropsFromTrueAddProps.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## ReqPropsFromTrueAddProps1Boxed

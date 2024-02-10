@@ -10,6 +10,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)<br> sealed validated payload class |
+| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedVoid](#refcontentschemaheaderschema1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedBoolean](#refcontentschemaheaderschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedNumber](#refcontentschemaheaderschema1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedString](#refcontentschemaheaderschema1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedList](#refcontentschemaheaderschema1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedMap](#refcontentschemaheaderschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1](#refcontentschemaheaderschema1)<br> schema class |
 
 ## RefContentSchemaHeaderSchema1Boxed

@@ -13,12 +13,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema200Response.Schema200Response1Boxed](#schema200response1boxed)<br> sealed validated payload class |
+| static class | [Schema200Response.Schema200Response1BoxedVoid](#schema200response1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Schema200Response.Schema200Response1BoxedBoolean](#schema200response1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Schema200Response.Schema200Response1BoxedNumber](#schema200response1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Schema200Response.Schema200Response1BoxedString](#schema200response1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Schema200Response.Schema200Response1BoxedList](#schema200response1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Schema200Response.Schema200Response1BoxedMap](#schema200response1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema200Response.Schema200Response1](#schema200response1)<br> schema class |
 | static class | [Schema200Response.Schema200ResponseMapBuilder](#schema200responsemapbuilder)<br> builder for Map payloads |
 | static class | [Schema200Response.Schema200ResponseMap](#schema200responsemap)<br> output class for Map payloads |
 | static class | [Schema200Response.ClassSchemaBoxed](#classschemaboxed)<br> sealed validated payload class |
+| static class | [Schema200Response.ClassSchemaBoxedString](#classschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema200Response.ClassSchema](#classschema)<br> schema class |
 | static class | [Schema200Response.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [Schema200Response.NameBoxedNumber](#nameboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema200Response.Name](#name)<br> schema class |
 
 ## Schema200Response1Boxed

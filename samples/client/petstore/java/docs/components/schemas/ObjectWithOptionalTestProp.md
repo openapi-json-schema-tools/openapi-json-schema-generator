@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1](#objectwithoptionaltestprop1)<br> schema class |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap)<br> output class for Map payloads |
 | static class | [ObjectWithOptionalTestProp.TestBoxed](#testboxed)<br> sealed validated payload class |
+| static class | [ObjectWithOptionalTestProp.TestBoxedString](#testboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithOptionalTestProp.Test](#test)<br> schema class |
 
 ## ObjectWithOptionalTestProp1Boxed

@@ -10,8 +10,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema0.Schema01Boxed](#schema01boxed)<br> sealed validated payload class |
+| static class | [Schema0.Schema01BoxedVoid](#schema01boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Schema0.Schema01BoxedBoolean](#schema01boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Schema0.Schema01BoxedNumber](#schema01boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Schema0.Schema01BoxedString](#schema01boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Schema0.Schema01BoxedList](#schema01boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Schema0.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.Schema00Boxed](#schema00boxed)<br> sealed validated payload class |
+| static class | [Schema0.Schema00BoxedString](#schema00boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Schema00](#schema00)<br> schema class |
 
 ## Schema01Boxed

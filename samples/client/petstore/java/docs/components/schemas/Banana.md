@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Banana.Banana1Boxed](#banana1boxed)<br> sealed validated payload class |
+| static class | [Banana.Banana1BoxedMap](#banana1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Banana.Banana1](#banana1)<br> schema class |
 | static class | [Banana.BananaMapBuilder](#bananamapbuilder)<br> builder for Map payloads |
 | static class | [Banana.BananaMap](#bananamap)<br> output class for Map payloads |
 | static class | [Banana.LengthCmBoxed](#lengthcmboxed)<br> sealed validated payload class |
+| static class | [Banana.LengthCmBoxedNumber](#lengthcmboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Banana.LengthCm](#lengthcm)<br> schema class |
 
 ## Banana1Boxed

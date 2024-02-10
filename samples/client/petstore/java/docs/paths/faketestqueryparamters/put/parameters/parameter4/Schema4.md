@@ -12,10 +12,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema4.Schema41Boxed](#schema41boxed)<br> sealed validated payload class |
+| static class | [Schema4.Schema41BoxedList](#schema41boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
 | static class | [Schema4.SchemaListBuilder4](#schemalistbuilder4)<br> builder for List payloads |
 | static class | [Schema4.SchemaList4](#schemalist4)<br> output class for List payloads |
 | static class | [Schema4.Items4Boxed](#items4boxed)<br> sealed validated payload class |
+| static class | [Schema4.Items4BoxedString](#items4boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema4.Items4](#items4)<br> schema class |
 
 ## Schema41Boxed

@@ -14,10 +14,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [BasquePig.BasquePig1Boxed](#basquepig1boxed)<br> sealed validated payload class |
+| static class | [BasquePig.BasquePig1BoxedMap](#basquepig1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [BasquePig.BasquePig1](#basquepig1)<br> schema class |
 | static class | [BasquePig.BasquePigMapBuilder](#basquepigmapbuilder)<br> builder for Map payloads |
 | static class | [BasquePig.BasquePigMap](#basquepigmap)<br> output class for Map payloads |
 | static class | [BasquePig.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
+| static class | [BasquePig.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [BasquePig.ClassName](#classname)<br> schema class |
 | enum | [BasquePig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 

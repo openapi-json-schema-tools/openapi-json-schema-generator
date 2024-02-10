@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [BooleanSchema.BooleanSchema1Boxed](#booleanschema1boxed)<br> sealed validated payload class |
+| static class | [BooleanSchema.BooleanSchema1BoxedBoolean](#booleanschema1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BooleanSchema.BooleanSchema1](#booleanschema1)<br> schema class |
 
 ## BooleanSchema1Boxed

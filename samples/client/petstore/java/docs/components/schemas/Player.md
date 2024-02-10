@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Player.Player1Boxed](#player1boxed)<br> sealed validated payload class |
+| static class | [Player.Player1BoxedMap](#player1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Player.Player1](#player1)<br> schema class |
 | static class | [Player.PlayerMapBuilder](#playermapbuilder)<br> builder for Map payloads |
 | static class | [Player.PlayerMap](#playermap)<br> output class for Map payloads |
 | static class | [Player.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [Player.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Player.Name](#name)<br> schema class |
 
 ## Player1Boxed

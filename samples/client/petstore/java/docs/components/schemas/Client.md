@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Client.Client1Boxed](#client1boxed)<br> sealed validated payload class |
+| static class | [Client.Client1BoxedMap](#client1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Client.Client1](#client1)<br> schema class |
 | static class | [Client.ClientMapBuilder1](#clientmapbuilder1)<br> builder for Map payloads |
 | static class | [Client.ClientMap](#clientmap)<br> output class for Map payloads |
 | static class | [Client.Client2Boxed](#client2boxed)<br> sealed validated payload class |
+| static class | [Client.Client2BoxedString](#client2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Client.Client2](#client2)<br> schema class |
 
 ## Client1Boxed

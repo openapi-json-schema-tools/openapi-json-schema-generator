@@ -15,10 +15,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Drawing.Drawing1Boxed](#drawing1boxed)<br> sealed validated payload class |
+| static class | [Drawing.Drawing1BoxedMap](#drawing1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
 | static class | [Drawing.DrawingMapBuilder](#drawingmapbuilder)<br> builder for Map payloads |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
 | static class | [Drawing.ShapesBoxed](#shapesboxed)<br> sealed validated payload class |
+| static class | [Drawing.ShapesBoxedList](#shapesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
 | static class | [Drawing.ShapesListBuilder](#shapeslistbuilder)<br> builder for List payloads |
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |

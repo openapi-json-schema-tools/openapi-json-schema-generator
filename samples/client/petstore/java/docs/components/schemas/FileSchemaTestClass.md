@@ -15,10 +15,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FileSchemaTestClass.FileSchemaTestClass1Boxed](#fileschematestclass1boxed)<br> sealed validated payload class |
+| static class | [FileSchemaTestClass.FileSchemaTestClass1BoxedMap](#fileschematestclass1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FileSchemaTestClass.FileSchemaTestClass1](#fileschematestclass1)<br> schema class |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder)<br> builder for Map payloads |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMap](#fileschematestclassmap)<br> output class for Map payloads |
 | static class | [FileSchemaTestClass.FilesBoxed](#filesboxed)<br> sealed validated payload class |
+| static class | [FileSchemaTestClass.FilesBoxedList](#filesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [FileSchemaTestClass.Files](#files)<br> schema class |
 | static class | [FileSchemaTestClass.FilesListBuilder](#fileslistbuilder)<br> builder for List payloads |
 | static class | [FileSchemaTestClass.FilesList](#fileslist)<br> output class for List payloads |

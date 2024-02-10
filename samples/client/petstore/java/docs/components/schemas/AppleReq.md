@@ -13,14 +13,23 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AppleReq.AppleReq1Boxed](#applereq1boxed)<br> sealed validated payload class |
+| static class | [AppleReq.AppleReq1BoxedMap](#applereq1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AppleReq.AppleReq1](#applereq1)<br> schema class |
 | static class | [AppleReq.AppleReqMapBuilder](#applereqmapbuilder)<br> builder for Map payloads |
 | static class | [AppleReq.AppleReqMap](#applereqmap)<br> output class for Map payloads |
 | static class | [AppleReq.MealyBoxed](#mealyboxed)<br> sealed validated payload class |
+| static class | [AppleReq.MealyBoxedBoolean](#mealyboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AppleReq.Mealy](#mealy)<br> schema class |
 | static class | [AppleReq.CultivarBoxed](#cultivarboxed)<br> sealed validated payload class |
+| static class | [AppleReq.CultivarBoxedString](#cultivarboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AppleReq.Cultivar](#cultivar)<br> schema class |
 | static class | [AppleReq.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [AppleReq.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AppleReq.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AppleReq.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AppleReq.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [AppleReq.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [AppleReq.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AppleReq.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AppleReq1Boxed

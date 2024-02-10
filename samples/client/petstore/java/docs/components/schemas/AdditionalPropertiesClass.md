@@ -13,48 +13,78 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClass1Boxed](#additionalpropertiesclass1boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesClass1BoxedMap](#additionalpropertiesclass1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClass1](#additionalpropertiesclass1)<br> schema class |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClassMapBuilder](#additionalpropertiesclassmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClassMap](#additionalpropertiesclassmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringBoxed](#mapwithundeclaredpropertiesstringboxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringBoxedMap](#mapwithundeclaredpropertiesstringboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesString](#mapwithundeclaredpropertiesstring)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMapBuilder](#mapwithundeclaredpropertiesstringmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties5Boxed](#additionalproperties5boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.AdditionalProperties5BoxedString](#additionalproperties5boxedstring)<br> boxed class to store validated String payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties5](#additionalproperties5)<br> schema class |
 | static class | [AdditionalPropertiesClass.EmptyMapBoxed](#emptymapboxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.EmptyMapBoxedMap](#emptymapboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.EmptyMap](#emptymap)<br> schema class |
 | static class | [AdditionalPropertiesClass.EmptyMapMapBuilder](#emptymapmapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.EmptyMapMap](#emptymapmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties4Boxed](#additionalproperties4boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.AdditionalProperties4BoxedVoid](#additionalproperties4boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties4BoxedBoolean](#additionalproperties4boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties4BoxedNumber](#additionalproperties4boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties4BoxedString](#additionalproperties4boxedstring)<br> boxed class to store validated String payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties4BoxedList](#additionalproperties4boxedlist)<br> boxed class to store validated List payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties4BoxedMap](#additionalproperties4boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties4](#additionalproperties4)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Boxed](#mapwithundeclaredpropertiesanytype3boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3BoxedMap](#mapwithundeclaredpropertiesanytype3boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3](#mapwithundeclaredpropertiesanytype3)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3MapBuilder](#mapwithundeclaredpropertiesanytype3mapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties3BoxedBoolean](#additionalproperties3boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties3BoxedNumber](#additionalproperties3boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties3BoxedString](#additionalproperties3boxedstring)<br> boxed class to store validated String payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties3BoxedList](#additionalproperties3boxedlist)<br> boxed class to store validated List payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2Boxed](#mapwithundeclaredpropertiesanytype2boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2BoxedMap](#mapwithundeclaredpropertiesanytype2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2](#mapwithundeclaredpropertiesanytype2)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1Boxed](#mapwithundeclaredpropertiesanytype1boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1BoxedMap](#mapwithundeclaredpropertiesanytype1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1](#mapwithundeclaredpropertiesanytype1)<br> schema class |
 | static class | [AdditionalPropertiesClass.Anytype1Boxed](#anytype1boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.Anytype1BoxedVoid](#anytype1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AdditionalPropertiesClass.Anytype1BoxedBoolean](#anytype1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AdditionalPropertiesClass.Anytype1BoxedNumber](#anytype1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AdditionalPropertiesClass.Anytype1BoxedString](#anytype1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [AdditionalPropertiesClass.Anytype1BoxedList](#anytype1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [AdditionalPropertiesClass.Anytype1BoxedMap](#anytype1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.Anytype1](#anytype1)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapOfMapPropertyBoxed](#mapofmappropertyboxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.MapOfMapPropertyBoxedMap](#mapofmappropertyboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.MapOfMapProperty](#mapofmapproperty)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapOfMapPropertyMapBuilder](#mapofmappropertymapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapOfMapPropertyMap](#mapofmappropertymap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesMapBuilder2](#additionalpropertiesmapbuilder2)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.AdditionalProperties2BoxedString](#additionalproperties2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapPropertyBoxed](#mappropertyboxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.MapPropertyBoxedMap](#mappropertyboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AdditionalPropertiesClass.MapProperty](#mapproperty)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapPropertyMapBuilder](#mappropertymapbuilder)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapPropertyMap](#mappropertymap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalPropertiesClass1Boxed

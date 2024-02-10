@@ -10,6 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NumberHeaderSchema.NumberHeaderSchema1Boxed](#numberheaderschema1boxed)<br> sealed validated payload class |
+| static class | [NumberHeaderSchema.NumberHeaderSchema1BoxedString](#numberheaderschema1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [NumberHeaderSchema.NumberHeaderSchema1](#numberheaderschema1)<br> schema class |
 
 ## NumberHeaderSchema1Boxed

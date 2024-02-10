@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NumberSchema.NumberSchema1Boxed](#numberschema1boxed)<br> sealed validated payload class |
+| static class | [NumberSchema.NumberSchema1BoxedNumber](#numberschema1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberSchema.NumberSchema1](#numberschema1)<br> schema class |
 
 ## NumberSchema1Boxed

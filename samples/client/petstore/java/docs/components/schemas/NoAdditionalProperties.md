@@ -13,14 +13,23 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NoAdditionalProperties.NoAdditionalProperties1Boxed](#noadditionalproperties1boxed)<br> sealed validated payload class |
+| static class | [NoAdditionalProperties.NoAdditionalProperties1BoxedMap](#noadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NoAdditionalProperties.NoAdditionalProperties1](#noadditionalproperties1)<br> schema class |
 | static class | [NoAdditionalProperties.NoAdditionalPropertiesMapBuilder](#noadditionalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [NoAdditionalProperties.NoAdditionalPropertiesMap](#noadditionalpropertiesmap)<br> output class for Map payloads |
 | static class | [NoAdditionalProperties.PetIdBoxed](#petidboxed)<br> sealed validated payload class |
+| static class | [NoAdditionalProperties.PetIdBoxedNumber](#petidboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NoAdditionalProperties.PetId](#petid)<br> schema class |
 | static class | [NoAdditionalProperties.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [NoAdditionalProperties.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NoAdditionalProperties.Id](#id)<br> schema class |
 | static class | [NoAdditionalProperties.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [NoAdditionalProperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [NoAdditionalProperties.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [NoAdditionalProperties.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [NoAdditionalProperties.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [NoAdditionalProperties.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [NoAdditionalProperties.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NoAdditionalProperties.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## NoAdditionalProperties1Boxed

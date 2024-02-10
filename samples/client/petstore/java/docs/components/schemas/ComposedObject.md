@@ -11,8 +11,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ComposedObject.ComposedObject1Boxed](#composedobject1boxed)<br> sealed validated payload class |
+| static class | [ComposedObject.ComposedObject1BoxedMap](#composedobject1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedObject.ComposedObject1](#composedobject1)<br> schema class |
 | static class | [ComposedObject.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
+| static class | [ComposedObject.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ComposedObject.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ComposedObject.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ComposedObject.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| static class | [ComposedObject.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
+| static class | [ComposedObject.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ComposedObject.Schema0](#schema0)<br> schema class |
 
 ## ComposedObject1Boxed

@@ -11,8 +11,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AnyTypeNotString.AnyTypeNotString1Boxed](#anytypenotstring1boxed)<br> sealed validated payload class |
+| static class | [AnyTypeNotString.AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [AnyTypeNotString.AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [AnyTypeNotString.AnyTypeNotString1BoxedNumber](#anytypenotstring1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [AnyTypeNotString.AnyTypeNotString1BoxedString](#anytypenotstring1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [AnyTypeNotString.AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [AnyTypeNotString.AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeNotString.AnyTypeNotString1](#anytypenotstring1)<br> schema class |
 | static class | [AnyTypeNotString.NotBoxed](#notboxed)<br> sealed validated payload class |
+| static class | [AnyTypeNotString.NotBoxedString](#notboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AnyTypeNotString.Not](#not)<br> schema class |
 
 ## AnyTypeNotString1Boxed

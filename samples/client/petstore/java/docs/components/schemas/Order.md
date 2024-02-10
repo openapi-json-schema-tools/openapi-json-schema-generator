@@ -14,21 +14,28 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Order.Order1Boxed](#order1boxed)<br> sealed validated payload class |
+| static class | [Order.Order1BoxedMap](#order1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Order.Order1](#order1)<br> schema class |
 | static class | [Order.OrderMapBuilder](#ordermapbuilder)<br> builder for Map payloads |
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
 | static class | [Order.CompleteBoxed](#completeboxed)<br> sealed validated payload class |
+| static class | [Order.CompleteBoxedBoolean](#completeboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Order.Complete](#complete)<br> schema class |
 | static class | [Order.StatusBoxed](#statusboxed)<br> sealed validated payload class |
+| static class | [Order.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Order.Status](#status)<br> schema class |
 | enum | [Order.StringStatusEnums](#stringstatusenums)<br>String enum |
 | static class | [Order.ShipDateBoxed](#shipdateboxed)<br> sealed validated payload class |
+| static class | [Order.ShipDateBoxedString](#shipdateboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Order.ShipDate](#shipdate)<br> schema class |
 | static class | [Order.QuantityBoxed](#quantityboxed)<br> sealed validated payload class |
+| static class | [Order.QuantityBoxedNumber](#quantityboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.Quantity](#quantity)<br> schema class |
 | static class | [Order.PetIdBoxed](#petidboxed)<br> sealed validated payload class |
+| static class | [Order.PetIdBoxedNumber](#petidboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.PetId](#petid)<br> schema class |
 | static class | [Order.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [Order.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.Id](#id)<br> schema class |
 
 ## Order1Boxed

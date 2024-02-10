@@ -11,6 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)<br> sealed validated payload class |
+| static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1](#numberwithexclusiveminmax1)<br> schema class |
 
 ## NumberWithExclusiveMinMax1Boxed

@@ -13,10 +13,12 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [PublicKey.PublicKey1Boxed](#publickey1boxed)<br> sealed validated payload class |
+| static class | [PublicKey.PublicKey1BoxedMap](#publickey1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PublicKey.PublicKey1](#publickey1)<br> schema class |
 | static class | [PublicKey.PublicKeyMapBuilder](#publickeymapbuilder)<br> builder for Map payloads |
 | static class | [PublicKey.PublicKeyMap](#publickeymap)<br> output class for Map payloads |
 | static class | [PublicKey.KeyBoxed](#keyboxed)<br> sealed validated payload class |
+| static class | [PublicKey.KeyBoxedString](#keyboxedstring)<br> boxed class to store validated String payloads |
 | static class | [PublicKey.Key](#key)<br> schema class |
 
 ## PublicKey1Boxed

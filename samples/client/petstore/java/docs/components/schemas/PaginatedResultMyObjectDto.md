@@ -15,16 +15,25 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1Boxed](#paginatedresultmyobjectdto1boxed)<br> sealed validated payload class |
+| static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1BoxedMap](#paginatedresultmyobjectdto1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1](#paginatedresultmyobjectdto1)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapBuilder](#paginatedresultmyobjectdtomapbuilder)<br> builder for Map payloads |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap)<br> output class for Map payloads |
 | static class | [PaginatedResultMyObjectDto.ResultsBoxed](#resultsboxed)<br> sealed validated payload class |
+| static class | [PaginatedResultMyObjectDto.ResultsBoxedList](#resultsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [PaginatedResultMyObjectDto.Results](#results)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.ResultsListBuilder](#resultslistbuilder)<br> builder for List payloads |
 | static class | [PaginatedResultMyObjectDto.ResultsList](#resultslist)<br> output class for List payloads |
 | static class | [PaginatedResultMyObjectDto.CountBoxed](#countboxed)<br> sealed validated payload class |
+| static class | [PaginatedResultMyObjectDto.CountBoxedNumber](#countboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [PaginatedResultMyObjectDto.Count](#count)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [PaginatedResultMyObjectDto.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PaginatedResultMyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## PaginatedResultMyObjectDto1Boxed

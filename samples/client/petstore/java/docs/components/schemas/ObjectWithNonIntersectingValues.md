@@ -13,12 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1](#objectwithnonintersectingvalues1)<br> schema class |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap)<br> output class for Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ABoxed](#aboxed)<br> sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.ABoxedNumber](#aboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithNonIntersectingValues.A](#a)<br> schema class |
 | static class | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithNonIntersectingValues.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## ObjectWithNonIntersectingValues1Boxed

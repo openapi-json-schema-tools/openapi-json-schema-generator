@@ -13,12 +13,20 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Cat.Cat1Boxed](#cat1boxed)<br> sealed validated payload class |
+| static class | [Cat.Cat1BoxedVoid](#cat1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Cat.Cat1BoxedBoolean](#cat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Cat.Cat1BoxedNumber](#cat1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Cat.Cat1BoxedString](#cat1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Cat.Cat1BoxedList](#cat1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Cat.Cat1BoxedMap](#cat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Cat.Cat1](#cat1)<br> schema class |
 | static class | [Cat.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [Cat.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Cat.Schema1](#schema1)<br> schema class |
 | static class | [Cat.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [Cat.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [Cat.DeclawedBoxed](#declawedboxed)<br> sealed validated payload class |
+| static class | [Cat.DeclawedBoxedBoolean](#declawedboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Cat.Declawed](#declawed)<br> schema class |
 
 ## Cat1Boxed
