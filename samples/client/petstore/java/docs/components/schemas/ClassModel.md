@@ -157,9 +157,14 @@ Model for testing model with &quot;_class&quot; property
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | [ClassModelMap](#classmodelmap) | validate([Map&lt;?, ?&gt;](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedString](#classmodel1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedVoid](#classmodel1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedNumber](#classmodel1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedBoolean](#classmodel1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClassModelMapBuilder
 public class ClassModelMapBuilder<br>

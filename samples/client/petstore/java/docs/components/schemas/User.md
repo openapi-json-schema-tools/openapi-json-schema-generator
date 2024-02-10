@@ -503,9 +503,14 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [AnyTypeExceptNullPropBoxedString](#anytypeexceptnullpropboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [AnyTypeExceptNullPropBoxedVoid](#anytypeexceptnullpropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [AnyTypeExceptNullPropBoxedNumber](#anytypeexceptnullpropboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [AnyTypeExceptNullPropBoxedBoolean](#anytypeexceptnullpropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotBoxed
 public static abstract sealed class NotBoxed<br>

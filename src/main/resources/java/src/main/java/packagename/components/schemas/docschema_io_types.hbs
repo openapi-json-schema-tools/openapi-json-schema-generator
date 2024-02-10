@@ -11,6 +11,7 @@
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
     {{#and enumInfo enumInfo.typeToValues.boolean}}
 | boolean | validate([Boolean{{enumInfo.jsonPathPiece.pascalCase}}](#boolean{{enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
@@ -25,6 +26,10 @@
     {{else}}
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
     {{/if}}
+| [{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}}) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 {{else}}
     {{#each types}}
         {{#eq this "boolean"}}

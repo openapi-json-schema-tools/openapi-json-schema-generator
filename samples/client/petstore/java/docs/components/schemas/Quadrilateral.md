@@ -147,8 +147,13 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [Quadrilateral1BoxedString](#quadrilateral1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Quadrilateral1BoxedVoid](#quadrilateral1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [Quadrilateral1BoxedNumber](#quadrilateral1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Quadrilateral1BoxedBoolean](#quadrilateral1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -164,9 +164,14 @@ Model for testing model name same as property name
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | [NameMap](#namemap) | validate([Map&lt;?, ?&gt;](#namemapbuilder1) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [Name1BoxedString](#name1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Name1BoxedVoid](#name1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [Name1BoxedNumber](#name1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Name1BoxedBoolean](#name1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NameMap0Builder
 public class NameMap0Builder<br>

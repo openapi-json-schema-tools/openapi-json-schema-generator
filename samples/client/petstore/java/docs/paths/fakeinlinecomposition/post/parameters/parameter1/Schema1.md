@@ -267,9 +267,14 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [SomeProp1BoxedString](#someprop1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [SomeProp1BoxedVoid](#someprop1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [SomeProp1BoxedNumber](#someprop1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [SomeProp1BoxedBoolean](#someprop1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema01Boxed
 public static abstract sealed class Schema01Boxed<br>

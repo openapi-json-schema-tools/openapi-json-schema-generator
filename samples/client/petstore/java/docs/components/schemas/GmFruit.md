@@ -155,9 +155,14 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | [GmFruitMap](#gmfruitmap) | validate([Map&lt;?, ?&gt;](#gmfruitmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [GmFruit1BoxedString](#gmfruit1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [GmFruit1BoxedVoid](#gmfruit1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [GmFruit1BoxedNumber](#gmfruit1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [GmFruit1BoxedBoolean](#gmfruit1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## GmFruitMapBuilder
 public class GmFruitMapBuilder<br>

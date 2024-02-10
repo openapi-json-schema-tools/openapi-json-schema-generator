@@ -160,9 +160,14 @@ model with an invalid class name for python, starts with a number
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | [Schema200ResponseMap](#schema200responsemap) | validate([Map&lt;?, ?&gt;](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [Schema200Response1BoxedString](#schema200response1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Schema200Response1BoxedVoid](#schema200response1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [Schema200Response1BoxedNumber](#schema200response1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Schema200Response1BoxedBoolean](#schema200response1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema200ResponseMapBuilder
 public class Schema200ResponseMapBuilder<br>
