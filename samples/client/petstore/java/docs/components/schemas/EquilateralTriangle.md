@@ -167,8 +167,8 @@ A schema class that validates payloads
 | [EquilateralTriangle1BoxedVoid](#equilateraltriangle1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [EquilateralTriangle1BoxedNumber](#equilateraltriangle1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [EquilateralTriangle1BoxedBoolean](#equilateraltriangle1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [EquilateralTriangle1BoxedMap](#equilateraltriangle1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [EquilateralTriangle1BoxedList](#equilateraltriangle1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
@@ -235,7 +235,7 @@ EquilateralTriangle.Schema1Map validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
-| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Schema1Map](#schema1map) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>

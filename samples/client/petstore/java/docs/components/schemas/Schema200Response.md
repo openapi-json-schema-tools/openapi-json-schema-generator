@@ -168,8 +168,8 @@ model with an invalid class name for python, starts with a number
 | [Schema200Response1BoxedVoid](#schema200response1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [Schema200Response1BoxedNumber](#schema200response1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [Schema200Response1BoxedBoolean](#schema200response1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [Schema200Response1BoxedMap](#schema200response1boxedmap) | validateAndBox([Schema200ResponseMap](#schema200responsemap) arg, SchemaConfiguration configuration) |
-| [Schema200Response1BoxedList](#schema200response1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [Schema200Response1BoxedMap](#schema200response1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema200Response1BoxedList](#schema200response1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema200ResponseMapBuilder
 public class Schema200ResponseMapBuilder<br>

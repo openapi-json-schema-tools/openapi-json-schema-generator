@@ -87,7 +87,7 @@ ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate([List<?>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
-| [ArrayWithValidationsInItems1BoxedList](#arraywithvalidationsinitems1boxedlist) | validateAndBox([ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) arg, SchemaConfiguration configuration) |
+| [ArrayWithValidationsInItems1BoxedList](#arraywithvalidationsinitems1boxedlist) | validateAndBox([List<?>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithValidationsInItemsListBuilder
 public class ArrayWithValidationsInItemsListBuilder<br>

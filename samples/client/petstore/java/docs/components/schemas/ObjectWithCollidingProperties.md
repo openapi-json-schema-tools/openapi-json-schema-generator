@@ -90,7 +90,7 @@ ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap validatedPayload 
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map&lt;?, ?&gt;](#objectwithcollidingpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
-| [ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap) | validateAndBox([ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) arg, SchemaConfiguration configuration) |
+| [ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithcollidingpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithCollidingPropertiesMapBuilder
 public class ObjectWithCollidingPropertiesMapBuilder<br>

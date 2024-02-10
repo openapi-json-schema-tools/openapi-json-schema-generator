@@ -158,8 +158,8 @@ A schema class that validates payloads
 | [FruitReq1BoxedVoid](#fruitreq1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [FruitReq1BoxedNumber](#fruitreq1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [FruitReq1BoxedBoolean](#fruitreq1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [FruitReq1BoxedMap](#fruitreq1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [FruitReq1BoxedList](#fruitreq1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [FruitReq1BoxedMap](#fruitreq1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [FruitReq1BoxedList](#fruitreq1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>

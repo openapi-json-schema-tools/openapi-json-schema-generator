@@ -103,7 +103,7 @@ JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map&lt;?, ?&gt;](#jsonpatchrequestremovemapbuilder) arg, SchemaConfiguration configuration) |
-| [JSONPatchRequestRemove1BoxedMap](#jsonpatchrequestremove1boxedmap) | validateAndBox([JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestRemove1BoxedMap](#jsonpatchrequestremove1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#jsonpatchrequestremovemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestRemoveMap00Builder
 public class JSONPatchRequestRemoveMap00Builder<br>

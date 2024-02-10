@@ -120,7 +120,7 @@ Schema.SchemaList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaList](#schemalist) | validate([List<?>](#schemalistbuilder) arg, SchemaConfiguration configuration) |
-| [Schema1BoxedList](#schema1boxedlist) | validateAndBox([SchemaList](#schemalist) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedList](#schema1boxedlist) | validateAndBox([List<?>](#schemalistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListBuilder
 public class SchemaListBuilder<br>

@@ -168,8 +168,8 @@ A schema class that validates payloads
 | [TriangleInterface1BoxedVoid](#triangleinterface1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [TriangleInterface1BoxedNumber](#triangleinterface1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [TriangleInterface1BoxedBoolean](#triangleinterface1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [TriangleInterface1BoxedMap](#triangleinterface1boxedmap) | validateAndBox([TriangleInterfaceMap](#triangleinterfacemap) arg, SchemaConfiguration configuration) |
-| [TriangleInterface1BoxedList](#triangleinterface1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [TriangleInterface1BoxedMap](#triangleinterface1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#triangleinterfacemapbuilder) arg, SchemaConfiguration configuration) |
+| [TriangleInterface1BoxedList](#triangleinterface1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TriangleInterfaceMap00Builder
 public class TriangleInterfaceMap00Builder<br>

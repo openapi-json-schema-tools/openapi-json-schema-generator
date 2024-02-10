@@ -85,7 +85,7 @@ Schema3.SchemaList3 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaList3](#schemalist3) | validate([List<?>](#schemalistbuilder3) arg, SchemaConfiguration configuration) |
-| [Schema31BoxedList](#schema31boxedlist) | validateAndBox([SchemaList3](#schemalist3) arg, SchemaConfiguration configuration) |
+| [Schema31BoxedList](#schema31boxedlist) | validateAndBox([List<?>](#schemalistbuilder3) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListBuilder3
 public class SchemaListBuilder3<br>

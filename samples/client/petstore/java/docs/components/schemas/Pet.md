@@ -144,7 +144,7 @@ Pet.PetMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PetMap](#petmap) | validate([Map&lt;?, ?&gt;](#petmapbuilder) arg, SchemaConfiguration configuration) |
-| [Pet1BoxedMap](#pet1boxedmap) | validateAndBox([PetMap](#petmap) arg, SchemaConfiguration configuration) |
+| [Pet1BoxedMap](#pet1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#petmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PetMap00Builder
 public class PetMap00Builder<br>
@@ -321,7 +321,7 @@ Pet.TagsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [TagsList](#tagslist) | validate([List<?>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
-| [TagsBoxedList](#tagsboxedlist) | validateAndBox([TagsList](#tagslist) arg, SchemaConfiguration configuration) |
+| [TagsBoxedList](#tagsboxedlist) | validateAndBox([List<?>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TagsListBuilder
 public class TagsListBuilder<br>
@@ -497,7 +497,7 @@ Pet.PhotoUrlsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PhotoUrlsList](#photourlslist) | validate([List<?>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
-| [PhotoUrlsBoxedList](#photourlsboxedlist) | validateAndBox([PhotoUrlsList](#photourlslist) arg, SchemaConfiguration configuration) |
+| [PhotoUrlsBoxedList](#photourlsboxedlist) | validateAndBox([List<?>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PhotoUrlsListBuilder
 public class PhotoUrlsListBuilder<br>

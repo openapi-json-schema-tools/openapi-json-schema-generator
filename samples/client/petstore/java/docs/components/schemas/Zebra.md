@@ -104,7 +104,7 @@ Zebra.ZebraMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ZebraMap](#zebramap) | validate([Map&lt;?, ?&gt;](#zebramapbuilder) arg, SchemaConfiguration configuration) |
-| [Zebra1BoxedMap](#zebra1boxedmap) | validateAndBox([ZebraMap](#zebramap) arg, SchemaConfiguration configuration) |
+| [Zebra1BoxedMap](#zebra1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#zebramapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ZebraMap0Builder
 public class ZebraMap0Builder<br>

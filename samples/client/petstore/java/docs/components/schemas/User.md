@@ -157,7 +157,7 @@ User.UserMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [UserMap](#usermap) | validate([Map&lt;?, ?&gt;](#usermapbuilder) arg, SchemaConfiguration configuration) |
-| [User1BoxedMap](#user1boxedmap) | validateAndBox([UserMap](#usermap) arg, SchemaConfiguration configuration) |
+| [User1BoxedMap](#user1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#usermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UserMapBuilder
 public class UserMapBuilder<br>
@@ -512,8 +512,8 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | [AnyTypeExceptNullPropBoxedVoid](#anytypeexceptnullpropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [AnyTypeExceptNullPropBoxedNumber](#anytypeexceptnullpropboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [AnyTypeExceptNullPropBoxedBoolean](#anytypeexceptnullpropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotBoxed
 public static abstract sealed class NotBoxed<br>
@@ -753,7 +753,7 @@ Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | [ObjectWithNoDeclaredPropsNullableBoxedVoid](#objectwithnodeclaredpropsnullableboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
-| [ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNoDeclaredPropsBoxed
 public static abstract sealed class ObjectWithNoDeclaredPropsBoxed<br>

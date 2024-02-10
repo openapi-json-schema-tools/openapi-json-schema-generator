@@ -92,7 +92,7 @@ ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap valid
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map&lt;?, ?&gt;](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
-| [ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap) | validateAndBox([ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) arg, SchemaConfiguration configuration) |
+| [ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithInlineCompositionPropertyMapBuilder
 public class ObjectWithInlineCompositionPropertyMapBuilder<br>
@@ -277,8 +277,8 @@ A schema class that validates payloads
 | [SomePropBoxedVoid](#somepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [SomePropBoxedNumber](#somepropboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [SomePropBoxedBoolean](#somepropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [SomePropBoxedMap](#somepropboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [SomePropBoxedList](#somepropboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [SomePropBoxedMap](#somepropboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [SomePropBoxedList](#somepropboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>

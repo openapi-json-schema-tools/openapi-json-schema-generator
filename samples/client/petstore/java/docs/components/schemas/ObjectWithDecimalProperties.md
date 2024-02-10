@@ -100,7 +100,7 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map&lt;?, ?&gt;](#objectwithdecimalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
-| [ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap) | validateAndBox([ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) arg, SchemaConfiguration configuration) |
+| [ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithdecimalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithDecimalPropertiesMapBuilder
 public class ObjectWithDecimalPropertiesMapBuilder<br>

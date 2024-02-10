@@ -168,8 +168,8 @@ A schema class that validates payloads
 | [QuadrilateralInterface1BoxedVoid](#quadrilateralinterface1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [QuadrilateralInterface1BoxedNumber](#quadrilateralinterface1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [QuadrilateralInterface1BoxedBoolean](#quadrilateralinterface1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [QuadrilateralInterface1BoxedMap](#quadrilateralinterface1boxedmap) | validateAndBox([QuadrilateralInterfaceMap](#quadrilateralinterfacemap) arg, SchemaConfiguration configuration) |
-| [QuadrilateralInterface1BoxedList](#quadrilateralinterface1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [QuadrilateralInterface1BoxedMap](#quadrilateralinterface1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#quadrilateralinterfacemapbuilder) arg, SchemaConfiguration configuration) |
+| [QuadrilateralInterface1BoxedList](#quadrilateralinterface1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## QuadrilateralInterfaceMap00Builder
 public class QuadrilateralInterfaceMap00Builder<br>

@@ -155,7 +155,7 @@ A schema class that validates payloads
 | [SomeObject1BoxedVoid](#someobject1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [SomeObject1BoxedNumber](#someobject1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [SomeObject1BoxedBoolean](#someobject1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [SomeObject1BoxedMap](#someobject1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [SomeObject1BoxedList](#someobject1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [SomeObject1BoxedMap](#someobject1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [SomeObject1BoxedList](#someobject1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

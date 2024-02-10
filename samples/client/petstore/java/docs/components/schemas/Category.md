@@ -92,7 +92,7 @@ Category.CategoryMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [CategoryMap](#categorymap) | validate([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
-| [Category1BoxedMap](#category1boxedmap) | validateAndBox([CategoryMap](#categorymap) arg, SchemaConfiguration configuration) |
+| [Category1BoxedMap](#category1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CategoryMap0Builder
 public class CategoryMap0Builder<br>

@@ -89,7 +89,7 @@ DanishPig.DanishPigMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DanishPigMap](#danishpigmap) | validate([Map&lt;?, ?&gt;](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
-| [DanishPig1BoxedMap](#danishpig1boxedmap) | validateAndBox([DanishPigMap](#danishpigmap) arg, SchemaConfiguration configuration) |
+| [DanishPig1BoxedMap](#danishpig1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DanishPigMap0Builder
 public class DanishPigMap0Builder<br>

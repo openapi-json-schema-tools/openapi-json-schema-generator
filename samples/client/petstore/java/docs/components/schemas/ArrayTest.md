@@ -142,7 +142,7 @@ ArrayTest.ArrayTestMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayTestMap](#arraytestmap) | validate([Map&lt;?, ?&gt;](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
-| [ArrayTest1BoxedMap](#arraytest1boxedmap) | validateAndBox([ArrayTestMap](#arraytestmap) arg, SchemaConfiguration configuration) |
+| [ArrayTest1BoxedMap](#arraytest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayTestMapBuilder
 public class ArrayTestMapBuilder<br>
@@ -264,7 +264,7 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([List<?>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
-| [ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist) | validateAndBox([ArrayArrayOfModelList](#arrayarrayofmodellist) arg, SchemaConfiguration configuration) |
+| [ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist) | validateAndBox([List<?>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayArrayOfModelListBuilder
 public class ArrayArrayOfModelListBuilder<br>
@@ -370,7 +370,7 @@ ArrayTest.ItemsList1 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList1](#itemslist1) | validate([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
-| [Items3BoxedList](#items3boxedlist) | validateAndBox([ItemsList1](#itemslist1) arg, SchemaConfiguration configuration) |
+| [Items3BoxedList](#items3boxedlist) | validateAndBox([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder1
 public class ItemsListBuilder1<br>
@@ -469,7 +469,7 @@ ArrayTest.ArrayArrayOfIntegerList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate([List<?>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
-| [ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist) | validateAndBox([ArrayArrayOfIntegerList](#arrayarrayofintegerlist) arg, SchemaConfiguration configuration) |
+| [ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist) | validateAndBox([List<?>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayArrayOfIntegerListBuilder
 public class ArrayArrayOfIntegerListBuilder<br>
@@ -565,7 +565,7 @@ ArrayTest.ItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList](#itemslist) | validate([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
-| [Items1BoxedList](#items1boxedlist) | validateAndBox([ItemsList](#itemslist) arg, SchemaConfiguration configuration) |
+| [Items1BoxedList](#items1boxedlist) | validateAndBox([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder
 public class ItemsListBuilder<br>
@@ -698,7 +698,7 @@ ArrayTest.ArrayOfStringList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayOfStringList](#arrayofstringlist) | validate([List<?>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
-| [ArrayOfStringBoxedList](#arrayofstringboxedlist) | validateAndBox([ArrayOfStringList](#arrayofstringlist) arg, SchemaConfiguration configuration) |
+| [ArrayOfStringBoxedList](#arrayofstringboxedlist) | validateAndBox([List<?>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfStringListBuilder
 public class ArrayOfStringListBuilder<br>

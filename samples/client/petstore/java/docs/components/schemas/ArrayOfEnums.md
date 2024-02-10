@@ -83,7 +83,7 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayOfEnumsList](#arrayofenumslist) | validate([List<?>](#arrayofenumslistbuilder) arg, SchemaConfiguration configuration) |
-| [ArrayOfEnums1BoxedList](#arrayofenums1boxedlist) | validateAndBox([ArrayOfEnumsList](#arrayofenumslist) arg, SchemaConfiguration configuration) |
+| [ArrayOfEnums1BoxedList](#arrayofenums1boxedlist) | validateAndBox([List<?>](#arrayofenumslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfEnumsListBuilder
 public class ArrayOfEnumsListBuilder<br>

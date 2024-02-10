@@ -94,7 +94,7 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap val
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate([Map&lt;?, ?&gt;](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
-| [AdditionalPropertiesWithArrayOfEnums1BoxedMap](#additionalpropertieswitharrayofenums1boxedmap) | validateAndBox([AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesWithArrayOfEnums1BoxedMap](#additionalpropertieswitharrayofenums1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertieswitharrayofenumsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesWithArrayOfEnumsMapBuilder
 public class AdditionalPropertiesWithArrayOfEnumsMapBuilder<br>
@@ -190,7 +190,7 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesList](#additionalpropertieslist) | validate([List<?>](#additionalpropertieslistbuilder) arg, SchemaConfiguration configuration) |
-| [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist) | validateAndBox([AdditionalPropertiesList](#additionalpropertieslist) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist) | validateAndBox([List<?>](#additionalpropertieslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesListBuilder
 public class AdditionalPropertiesListBuilder<br>

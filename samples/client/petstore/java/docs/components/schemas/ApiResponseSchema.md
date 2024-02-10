@@ -96,7 +96,7 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ApiResponseMap](#apiresponsemap) | validate([Map&lt;?, ?&gt;](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
-| [ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap) | validateAndBox([ApiResponseMap](#apiresponsemap) arg, SchemaConfiguration configuration) |
+| [ApiResponseSchema1BoxedMap](#apiresponseschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#apiresponsemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ApiResponseMapBuilder
 public class ApiResponseMapBuilder<br>

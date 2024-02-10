@@ -86,7 +86,7 @@ Client.ClientMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ClientMap](#clientmap) | validate([Map&lt;?, ?&gt;](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
-| [Client1BoxedMap](#client1boxedmap) | validateAndBox([ClientMap](#clientmap) arg, SchemaConfiguration configuration) |
+| [Client1BoxedMap](#client1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#clientmapbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClientMapBuilder1
 public class ClientMapBuilder1<br>

@@ -89,7 +89,7 @@ BasquePig.BasquePigMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [BasquePigMap](#basquepigmap) | validate([Map&lt;?, ?&gt;](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
-| [BasquePig1BoxedMap](#basquepig1boxedmap) | validateAndBox([BasquePigMap](#basquepigmap) arg, SchemaConfiguration configuration) |
+| [BasquePig1BoxedMap](#basquepig1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#basquepigmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BasquePigMap0Builder
 public class BasquePigMap0Builder<br>

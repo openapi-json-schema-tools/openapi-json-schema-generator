@@ -82,7 +82,7 @@ SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map&lt;?, ?&gt;](#selfreferencingobjectmodelmapbuilder) arg, SchemaConfiguration configuration) |
-| [SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap) | validateAndBox([SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) arg, SchemaConfiguration configuration) |
+| [SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#selfreferencingobjectmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SelfReferencingObjectModelMapBuilder
 public class SelfReferencingObjectModelMapBuilder<br>

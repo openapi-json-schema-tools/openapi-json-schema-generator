@@ -118,7 +118,7 @@ Apple.AppleMap validatedPayload =
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | [Apple1BoxedVoid](#apple1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [AppleMap](#applemap) | validate([Map&lt;?, ?&gt;](#applemapbuilder) arg, SchemaConfiguration configuration) |
-| [Apple1BoxedMap](#apple1boxedmap) | validateAndBox([AppleMap](#applemap) arg, SchemaConfiguration configuration) |
+| [Apple1BoxedMap](#apple1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#applemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AppleMap0Builder
 public class AppleMap0Builder<br>

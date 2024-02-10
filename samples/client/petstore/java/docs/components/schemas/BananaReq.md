@@ -101,7 +101,7 @@ BananaReq.BananaReqMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [BananaReqMap](#bananareqmap) | validate([Map&lt;?, ?&gt;](#bananareqmapbuilder) arg, SchemaConfiguration configuration) |
-| [BananaReq1BoxedMap](#bananareq1boxedmap) | validateAndBox([BananaReqMap](#bananareqmap) arg, SchemaConfiguration configuration) |
+| [BananaReq1BoxedMap](#bananareq1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#bananareqmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BananaReqMap0Builder
 public class BananaReqMap0Builder<br>

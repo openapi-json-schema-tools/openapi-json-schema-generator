@@ -107,7 +107,7 @@ PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map&lt;?, ?&gt;](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
-| [PaginatedResultMyObjectDto1BoxedMap](#paginatedresultmyobjectdto1boxedmap) | validateAndBox([PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) arg, SchemaConfiguration configuration) |
+| [PaginatedResultMyObjectDto1BoxedMap](#paginatedresultmyobjectdto1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#paginatedresultmyobjectdtomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PaginatedResultMyObjectDtoMap00Builder
 public class PaginatedResultMyObjectDtoMap00Builder<br>
@@ -256,7 +256,7 @@ PaginatedResultMyObjectDto.ResultsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ResultsList](#resultslist) | validate([List<?>](#resultslistbuilder) arg, SchemaConfiguration configuration) |
-| [ResultsBoxedList](#resultsboxedlist) | validateAndBox([ResultsList](#resultslist) arg, SchemaConfiguration configuration) |
+| [ResultsBoxedList](#resultsboxedlist) | validateAndBox([List<?>](#resultslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ResultsListBuilder
 public class ResultsListBuilder<br>

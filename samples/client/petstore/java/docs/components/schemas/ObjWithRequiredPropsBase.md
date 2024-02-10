@@ -87,7 +87,7 @@ ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map&lt;?, ?&gt;](#objwithrequiredpropsbasemapbuilder) arg, SchemaConfiguration configuration) |
-| [ObjWithRequiredPropsBase1BoxedMap](#objwithrequiredpropsbase1boxedmap) | validateAndBox([ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) arg, SchemaConfiguration configuration) |
+| [ObjWithRequiredPropsBase1BoxedMap](#objwithrequiredpropsbase1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objwithrequiredpropsbasemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjWithRequiredPropsBaseMap0Builder
 public class ObjWithRequiredPropsBaseMap0Builder<br>

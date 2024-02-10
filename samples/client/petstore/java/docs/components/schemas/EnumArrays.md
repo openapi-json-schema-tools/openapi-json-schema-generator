@@ -104,7 +104,7 @@ EnumArrays.EnumArraysMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EnumArraysMap](#enumarraysmap) | validate([Map&lt;?, ?&gt;](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
-| [EnumArrays1BoxedMap](#enumarrays1boxedmap) | validateAndBox([EnumArraysMap](#enumarraysmap) arg, SchemaConfiguration configuration) |
+| [EnumArrays1BoxedMap](#enumarrays1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumArraysMapBuilder
 public class EnumArraysMapBuilder<br>
@@ -213,7 +213,7 @@ EnumArrays.ArrayEnumList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
-| [ArrayEnumBoxedList](#arrayenumboxedlist) | validateAndBox([ArrayEnumList](#arrayenumlist) arg, SchemaConfiguration configuration) |
+| [ArrayEnumBoxedList](#arrayenumboxedlist) | validateAndBox([List<?>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayEnumListBuilder
 public class ArrayEnumListBuilder<br>

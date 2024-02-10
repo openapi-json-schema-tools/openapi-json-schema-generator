@@ -161,8 +161,8 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 | [NullableShape1BoxedVoid](#nullableshape1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [NullableShape1BoxedNumber](#nullableshape1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [NullableShape1BoxedBoolean](#nullableshape1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [NullableShape1BoxedMap](#nullableshape1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [NullableShape1BoxedList](#nullableshape1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [NullableShape1BoxedMap](#nullableshape1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [NullableShape1BoxedList](#nullableshape1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2Boxed
 public static abstract sealed class Schema2Boxed<br>

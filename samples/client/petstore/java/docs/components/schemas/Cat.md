@@ -165,8 +165,8 @@ A schema class that validates payloads
 | [Cat1BoxedVoid](#cat1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [Cat1BoxedNumber](#cat1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [Cat1BoxedBoolean](#cat1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [Cat1BoxedMap](#cat1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [Cat1BoxedList](#cat1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [Cat1BoxedMap](#cat1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [Cat1BoxedList](#cat1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
@@ -233,7 +233,7 @@ Cat.Schema1Map validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
-| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Schema1Map](#schema1map) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>

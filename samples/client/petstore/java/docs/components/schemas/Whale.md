@@ -99,7 +99,7 @@ Whale.WhaleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [WhaleMap](#whalemap) | validate([Map&lt;?, ?&gt;](#whalemapbuilder) arg, SchemaConfiguration configuration) |
-| [Whale1BoxedMap](#whale1boxedmap) | validateAndBox([WhaleMap](#whalemap) arg, SchemaConfiguration configuration) |
+| [Whale1BoxedMap](#whale1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#whalemapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## WhaleMap0Builder
 public class WhaleMap0Builder<br>

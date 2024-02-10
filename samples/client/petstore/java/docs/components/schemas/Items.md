@@ -87,7 +87,7 @@ Items.ItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList](#itemslist) | validate([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
-| [Items1BoxedList](#items1boxedlist) | validateAndBox([ItemsList](#itemslist) arg, SchemaConfiguration configuration) |
+| [Items1BoxedList](#items1boxedlist) | validateAndBox([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder
 public class ItemsListBuilder<br>

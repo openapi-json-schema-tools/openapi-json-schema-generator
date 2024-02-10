@@ -161,8 +161,8 @@ The value may be a shape or the &#x27;null&#x27; value. This is introduced in OA
 | [ShapeOrNull1BoxedVoid](#shapeornull1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [ShapeOrNull1BoxedNumber](#shapeornull1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [ShapeOrNull1BoxedBoolean](#shapeornull1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [ShapeOrNull1BoxedMap](#shapeornull1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [ShapeOrNull1BoxedList](#shapeornull1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [ShapeOrNull1BoxedMap](#shapeornull1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [ShapeOrNull1BoxedList](#shapeornull1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>

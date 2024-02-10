@@ -90,7 +90,7 @@ ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate([Map&lt;?, ?&gt;](#reqpropsfromtrueaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
-| [ReqPropsFromTrueAddProps1BoxedMap](#reqpropsfromtrueaddprops1boxedmap) | validateAndBox([ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromTrueAddProps1BoxedMap](#reqpropsfromtrueaddprops1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#reqpropsfromtrueaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReqPropsFromTrueAddPropsMap00Builder
 public class ReqPropsFromTrueAddPropsMap00Builder<br>

@@ -89,7 +89,7 @@ PublicKey.PublicKeyMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PublicKeyMap](#publickeymap) | validate([Map&lt;?, ?&gt;](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
-| [PublicKey1BoxedMap](#publickey1boxedmap) | validateAndBox([PublicKeyMap](#publickeymap) arg, SchemaConfiguration configuration) |
+| [PublicKey1BoxedMap](#publickey1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#publickeymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PublicKeyMapBuilder
 public class PublicKeyMapBuilder<br>

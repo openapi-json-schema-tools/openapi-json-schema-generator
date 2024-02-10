@@ -81,7 +81,7 @@ ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map&lt;?, ?&gt;](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
-| [ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap) | validateAndBox([ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromUnsetAddProps1BoxedMap](#reqpropsfromunsetaddprops1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#reqpropsfromunsetaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReqPropsFromUnsetAddPropsMap00Builder
 public class ReqPropsFromUnsetAddPropsMap00Builder<br>

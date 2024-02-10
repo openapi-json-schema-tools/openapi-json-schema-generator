@@ -141,7 +141,7 @@ MapTest.MapTestMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapTestMap](#maptestmap) | validate([Map&lt;?, ?&gt;](#maptestmapbuilder) arg, SchemaConfiguration configuration) |
-| [MapTest1BoxedMap](#maptest1boxedmap) | validateAndBox([MapTestMap](#maptestmap) arg, SchemaConfiguration configuration) |
+| [MapTest1BoxedMap](#maptest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#maptestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapTestMapBuilder
 public class MapTestMapBuilder<br>
@@ -253,7 +253,7 @@ MapTest.DirectMapMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DirectMapMap](#directmapmap) | validate([Map&lt;?, ?&gt;](#directmapmapbuilder) arg, SchemaConfiguration configuration) |
-| [DirectMapBoxedMap](#directmapboxedmap) | validateAndBox([DirectMapMap](#directmapmap) arg, SchemaConfiguration configuration) |
+| [DirectMapBoxedMap](#directmapboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#directmapmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DirectMapMapBuilder
 public class DirectMapMapBuilder<br>
@@ -383,7 +383,7 @@ MapTest.MapOfEnumStringMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapOfEnumStringMap](#mapofenumstringmap) | validate([Map&lt;?, ?&gt;](#mapofenumstringmapbuilder) arg, SchemaConfiguration configuration) |
-| [MapOfEnumStringBoxedMap](#mapofenumstringboxedmap) | validateAndBox([MapOfEnumStringMap](#mapofenumstringmap) arg, SchemaConfiguration configuration) |
+| [MapOfEnumStringBoxedMap](#mapofenumstringboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapofenumstringmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapOfEnumStringMapBuilder
 public class MapOfEnumStringMapBuilder<br>
@@ -563,7 +563,7 @@ MapTest.MapMapOfStringMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapMapOfStringMap](#mapmapofstringmap) | validate([Map&lt;?, ?&gt;](#mapmapofstringmapbuilder) arg, SchemaConfiguration configuration) |
-| [MapMapOfStringBoxedMap](#mapmapofstringboxedmap) | validateAndBox([MapMapOfStringMap](#mapmapofstringmap) arg, SchemaConfiguration configuration) |
+| [MapMapOfStringBoxedMap](#mapmapofstringboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapmapofstringmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapMapOfStringMapBuilder
 public class MapMapOfStringMapBuilder<br>
@@ -659,7 +659,7 @@ MapTest.AdditionalPropertiesMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#additionalpropertiesmapbuilder1) arg, SchemaConfiguration configuration) |
-| [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap) | validateAndBox([AdditionalPropertiesMap](#additionalpropertiesmap) arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertiesmapbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesMapBuilder1
 public class AdditionalPropertiesMapBuilder1<br>

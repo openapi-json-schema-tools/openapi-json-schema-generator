@@ -91,7 +91,7 @@ HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map&lt;?, ?&gt;](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
-| [HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap) | validateAndBox([HasOnlyReadOnlyMap](#hasonlyreadonlymap) arg, SchemaConfiguration configuration) |
+| [HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HasOnlyReadOnlyMapBuilder
 public class HasOnlyReadOnlyMapBuilder<br>

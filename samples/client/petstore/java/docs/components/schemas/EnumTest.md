@@ -111,7 +111,7 @@ EnumTest.EnumTestMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EnumTestMap](#enumtestmap) | validate([Map&lt;?, ?&gt;](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
-| [EnumTest1BoxedMap](#enumtest1boxedmap) | validateAndBox([EnumTestMap](#enumtestmap) arg, SchemaConfiguration configuration) |
+| [EnumTest1BoxedMap](#enumtest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumTestMap0Builder
 public class EnumTestMap0Builder<br>

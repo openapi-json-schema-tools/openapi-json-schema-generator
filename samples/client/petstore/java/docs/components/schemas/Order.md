@@ -113,7 +113,7 @@ Order.OrderMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [OrderMap](#ordermap) | validate([Map&lt;?, ?&gt;](#ordermapbuilder) arg, SchemaConfiguration configuration) |
-| [Order1BoxedMap](#order1boxedmap) | validateAndBox([OrderMap](#ordermap) arg, SchemaConfiguration configuration) |
+| [Order1BoxedMap](#order1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#ordermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## OrderMapBuilder
 public class OrderMapBuilder<br>

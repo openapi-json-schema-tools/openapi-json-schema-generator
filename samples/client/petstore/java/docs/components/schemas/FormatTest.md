@@ -196,7 +196,7 @@ FormatTest.FormatTestMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap](#formattestmap) | validate([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
-| [FormatTest1BoxedMap](#formattest1boxedmap) | validateAndBox([FormatTestMap](#formattestmap) arg, SchemaConfiguration configuration) |
+| [FormatTest1BoxedMap](#formattest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FormatTestMap0000Builder
 public class FormatTestMap0000Builder<br>
@@ -1105,7 +1105,7 @@ FormatTest.ArrayWithUniqueItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
-| [ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist) | validateAndBox([ArrayWithUniqueItemsList](#arraywithuniqueitemslist) arg, SchemaConfiguration configuration) |
+| [ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist) | validateAndBox([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithUniqueItemsListBuilder
 public class ArrayWithUniqueItemsListBuilder<br>

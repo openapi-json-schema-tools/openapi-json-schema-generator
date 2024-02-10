@@ -89,7 +89,7 @@ ComposedArray.ComposedArrayList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ComposedArrayList](#composedarraylist) | validate([List<?>](#composedarraylistbuilder) arg, SchemaConfiguration configuration) |
-| [ComposedArray1BoxedList](#composedarray1boxedlist) | validateAndBox([ComposedArrayList](#composedarraylist) arg, SchemaConfiguration configuration) |
+| [ComposedArray1BoxedList](#composedarray1boxedlist) | validateAndBox([List<?>](#composedarraylistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ComposedArrayListBuilder
 public class ComposedArrayListBuilder<br>

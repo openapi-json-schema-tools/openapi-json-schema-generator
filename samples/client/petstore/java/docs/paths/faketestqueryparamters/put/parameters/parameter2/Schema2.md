@@ -85,7 +85,7 @@ Schema2.SchemaList2 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaList2](#schemalist2) | validate([List<?>](#schemalistbuilder2) arg, SchemaConfiguration configuration) |
-| [Schema21BoxedList](#schema21boxedlist) | validateAndBox([SchemaList2](#schemalist2) arg, SchemaConfiguration configuration) |
+| [Schema21BoxedList](#schema21boxedlist) | validateAndBox([List<?>](#schemalistbuilder2) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListBuilder2
 public class SchemaListBuilder2<br>

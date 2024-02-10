@@ -90,7 +90,7 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [HealthCheckResultMap](#healthcheckresultmap) | validate([Map&lt;?, ?&gt;](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
-| [HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap) | validateAndBox([HealthCheckResultMap](#healthcheckresultmap) arg, SchemaConfiguration configuration) |
+| [HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HealthCheckResultMapBuilder
 public class HealthCheckResultMapBuilder<br>

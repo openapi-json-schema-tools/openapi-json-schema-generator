@@ -214,8 +214,8 @@ A schema class that validates payloads
 | [ComposedAnyOfDifferentTypesNoValidations1BoxedVoid](#composedanyofdifferenttypesnovalidations1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [ComposedAnyOfDifferentTypesNoValidations1BoxedNumber](#composedanyofdifferenttypesnovalidations1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean](#composedanyofdifferenttypesnovalidations1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [ComposedAnyOfDifferentTypesNoValidations1BoxedMap](#composedanyofdifferenttypesnovalidations1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [ComposedAnyOfDifferentTypesNoValidations1BoxedList](#composedanyofdifferenttypesnovalidations1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [ComposedAnyOfDifferentTypesNoValidations1BoxedMap](#composedanyofdifferenttypesnovalidations1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [ComposedAnyOfDifferentTypesNoValidations1BoxedList](#composedanyofdifferenttypesnovalidations1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema15Boxed
 public static abstract sealed class Schema15Boxed<br>
@@ -484,7 +484,7 @@ ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema9List](#schema9list) | validate([List<?>](#schema9listbuilder) arg, SchemaConfiguration configuration) |
-| [Schema9BoxedList](#schema9boxedlist) | validateAndBox([Schema9List](#schema9list) arg, SchemaConfiguration configuration) |
+| [Schema9BoxedList](#schema9boxedlist) | validateAndBox([List<?>](#schema9listbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema9ListBuilder
 public class Schema9ListBuilder<br>

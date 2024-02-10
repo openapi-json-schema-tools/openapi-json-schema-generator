@@ -158,8 +158,8 @@ A schema class that validates payloads
 | [AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [AnyTypeNotString1BoxedNumber](#anytypenotstring1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotBoxed
 public static abstract sealed class NotBoxed<br>

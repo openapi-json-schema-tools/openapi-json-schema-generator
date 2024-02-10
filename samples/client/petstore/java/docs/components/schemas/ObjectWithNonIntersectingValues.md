@@ -92,7 +92,7 @@ ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayl
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map&lt;?, ?&gt;](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
-| [ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap) | validateAndBox([ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) arg, SchemaConfiguration configuration) |
+| [ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNonIntersectingValuesMapBuilder
 public class ObjectWithNonIntersectingValuesMapBuilder<br>

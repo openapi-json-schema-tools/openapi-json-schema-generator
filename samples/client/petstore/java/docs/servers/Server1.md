@@ -118,7 +118,7 @@ Variables.VariablesMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [VariablesMap](#variablesmap) | validate([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
-| [Variables1BoxedMap](#variables1boxedmap) | validateAndBox([VariablesMap](#variablesmap) arg, SchemaConfiguration configuration) |
+| [Variables1BoxedMap](#variables1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ### VariablesMap0Builder
 public class VariablesMap0Builder<br>

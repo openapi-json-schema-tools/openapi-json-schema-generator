@@ -167,8 +167,8 @@ A schema class that validates payloads
 | [IsoscelesTriangle1BoxedVoid](#isoscelestriangle1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [IsoscelesTriangle1BoxedNumber](#isoscelestriangle1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [IsoscelesTriangle1BoxedBoolean](#isoscelestriangle1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
-| [IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
@@ -235,7 +235,7 @@ IsoscelesTriangle.Schema1Map validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
-| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Schema1Map](#schema1map) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>

@@ -92,7 +92,7 @@ ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap valid
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map&lt;?, ?&gt;](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
-| [ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap) | validateAndBox([ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) arg, SchemaConfiguration configuration) |
+| [ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectmodelwithargandargspropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectModelWithArgAndArgsPropertiesMap00Builder
 public class ObjectModelWithArgAndArgsPropertiesMap00Builder<br>

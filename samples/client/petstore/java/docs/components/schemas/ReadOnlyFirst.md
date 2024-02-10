@@ -91,7 +91,7 @@ ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map&lt;?, ?&gt;](#readonlyfirstmapbuilder) arg, SchemaConfiguration configuration) |
-| [ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap) | validateAndBox([ReadOnlyFirstMap](#readonlyfirstmap) arg, SchemaConfiguration configuration) |
+| [ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#readonlyfirstmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReadOnlyFirstMapBuilder
 public class ReadOnlyFirstMapBuilder<br>

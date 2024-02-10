@@ -86,7 +86,7 @@ Address.AddressMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AddressMap](#addressmap) | validate([Map&lt;?, ?&gt;](#addressmapbuilder) arg, SchemaConfiguration configuration) |
-| [Address1BoxedMap](#address1boxedmap) | validateAndBox([AddressMap](#addressmap) arg, SchemaConfiguration configuration) |
+| [Address1BoxedMap](#address1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#addressmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AddressMapBuilder
 public class AddressMapBuilder<br>

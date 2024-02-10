@@ -111,7 +111,7 @@ Capitalization.CapitalizationMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [CapitalizationMap](#capitalizationmap) | validate([Map&lt;?, ?&gt;](#capitalizationmapbuilder) arg, SchemaConfiguration configuration) |
-| [Capitalization1BoxedMap](#capitalization1boxedmap) | validateAndBox([CapitalizationMap](#capitalizationmap) arg, SchemaConfiguration configuration) |
+| [Capitalization1BoxedMap](#capitalization1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#capitalizationmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CapitalizationMapBuilder
 public class CapitalizationMapBuilder<br>
