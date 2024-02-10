@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.BooleanSchema.java
 public class BooleanSchema
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [BooleanSchema.BooleanSchema1Boxed](#booleanschema1boxed)<br> sealed validated payload class |
+| static class | [BooleanSchema.BooleanSchema1Boxed](#booleanschema1boxed)<br> abstract sealed validated payload class |
 | static class | [BooleanSchema.BooleanSchema1BoxedBoolean](#booleanschema1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BooleanSchema.BooleanSchema1](#booleanschema1)<br> schema class |
 
@@ -19,11 +19,11 @@ public static abstract sealed class BooleanSchema1Boxed<br>
 permits<br>
 [BooleanSchema1BoxedBoolean](#booleanschema1boxedboolean)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## BooleanSchema1BoxedBoolean
 public static final class BooleanSchema1BoxedBoolean<br>
-extends BooleanSchema1Boxed
+extends [BooleanSchema1Boxed](#booleanschema1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 

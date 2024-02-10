@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.SpecialModelname.java
 public class SpecialModelname
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SpecialModelname.SpecialModelname1Boxed](#specialmodelname1boxed)<br> sealed validated payload class |
+| static class | [SpecialModelname.SpecialModelname1Boxed](#specialmodelname1boxed)<br> abstract sealed validated payload class |
 | static class | [SpecialModelname.SpecialModelname1BoxedMap](#specialmodelname1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SpecialModelname.SpecialModelname1](#specialmodelname1)<br> schema class |
 | static class | [SpecialModelname.SpecialModelnameMapBuilder](#specialmodelnamemapbuilder)<br> builder for Map payloads |
 | static class | [SpecialModelname.SpecialModelnameMap](#specialmodelnamemap)<br> output class for Map payloads |
-| static class | [SpecialModelname.ABoxed](#aboxed)<br> sealed validated payload class |
+| static class | [SpecialModelname.ABoxed](#aboxed)<br> abstract sealed validated payload class |
 | static class | [SpecialModelname.ABoxedString](#aboxedstring)<br> boxed class to store validated String payloads |
 | static class | [SpecialModelname.A](#a)<br> schema class |
 
@@ -26,23 +26,23 @@ public static abstract sealed class SpecialModelname1Boxed<br>
 permits<br>
 [SpecialModelname1BoxedMap](#specialmodelname1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SpecialModelname1BoxedMap
 public static final class SpecialModelname1BoxedMap<br>
-extends SpecialModelname1Boxed
+extends [SpecialModelname1Boxed](#specialmodelname1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| SpecialModelname1BoxedMap(SpecialModelnameMap data)<br>Creates an instance, private visibility |
+| SpecialModelname1BoxedMap([SpecialModelnameMap](#specialmodelnamemap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| SpecialModelnameMap | data<br>validated payload |
+| [SpecialModelnameMap](#specialmodelnamemap) | data<br>validated payload |
 
 ## SpecialModelname1
 public static class SpecialModelname1<br>
@@ -135,11 +135,11 @@ public static abstract sealed class ABoxed<br>
 permits<br>
 [ABoxedString](#aboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ABoxedString
 public static final class ABoxedString<br>
-extends ABoxed
+extends [ABoxed](#aboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

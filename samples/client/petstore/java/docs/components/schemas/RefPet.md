@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.RefPet.java
 public class RefPet
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [RefPet.RefPet1Boxed](#refpet1boxed)<br> sealed validated payload class |
+| static class | [RefPet.RefPet1Boxed](#refpet1boxed)<br> abstract sealed validated payload class |
 | static class | [RefPet.RefPet1BoxedVoid](#refpet1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [RefPet.RefPet1BoxedBoolean](#refpet1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [RefPet.RefPet1BoxedNumber](#refpet1boxednumber)<br> boxed class to store validated Number payloads |
@@ -29,11 +29,11 @@ permits<br>
 [RefPet1BoxedList](#refpet1boxedlist),
 [RefPet1BoxedMap](#refpet1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## RefPet1BoxedVoid
 public static final class RefPet1BoxedVoid<br>
-extends RefPet1Boxed
+extends [RefPet1Boxed](#refpet1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -49,7 +49,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## RefPet1BoxedBoolean
 public static final class RefPet1BoxedBoolean<br>
-extends RefPet1Boxed
+extends [RefPet1Boxed](#refpet1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -65,7 +65,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## RefPet1BoxedNumber
 public static final class RefPet1BoxedNumber<br>
-extends RefPet1Boxed
+extends [RefPet1Boxed](#refpet1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -81,7 +81,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## RefPet1BoxedString
 public static final class RefPet1BoxedString<br>
-extends RefPet1Boxed
+extends [RefPet1Boxed](#refpet1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -97,7 +97,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## RefPet1BoxedList
 public static final class RefPet1BoxedList<br>
-extends RefPet1Boxed
+extends [RefPet1Boxed](#refpet1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -113,7 +113,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## RefPet1BoxedMap
 public static final class RefPet1BoxedMap<br>
-extends RefPet1Boxed
+extends [RefPet1Boxed](#refpet1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

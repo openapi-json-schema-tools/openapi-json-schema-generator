@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.NumberOnly.java
 public class NumberOnly
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NumberOnly.NumberOnly1Boxed](#numberonly1boxed)<br> sealed validated payload class |
+| static class | [NumberOnly.NumberOnly1Boxed](#numberonly1boxed)<br> abstract sealed validated payload class |
 | static class | [NumberOnly.NumberOnly1BoxedMap](#numberonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NumberOnly.NumberOnly1](#numberonly1)<br> schema class |
 | static class | [NumberOnly.NumberOnlyMapBuilder](#numberonlymapbuilder)<br> builder for Map payloads |
 | static class | [NumberOnly.NumberOnlyMap](#numberonlymap)<br> output class for Map payloads |
-| static class | [NumberOnly.JustNumberBoxed](#justnumberboxed)<br> sealed validated payload class |
+| static class | [NumberOnly.JustNumberBoxed](#justnumberboxed)<br> abstract sealed validated payload class |
 | static class | [NumberOnly.JustNumberBoxedNumber](#justnumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberOnly.JustNumber](#justnumber)<br> schema class |
 
@@ -26,23 +26,23 @@ public static abstract sealed class NumberOnly1Boxed<br>
 permits<br>
 [NumberOnly1BoxedMap](#numberonly1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NumberOnly1BoxedMap
 public static final class NumberOnly1BoxedMap<br>
-extends NumberOnly1Boxed
+extends [NumberOnly1Boxed](#numberonly1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NumberOnly1BoxedMap(NumberOnlyMap data)<br>Creates an instance, private visibility |
+| NumberOnly1BoxedMap([NumberOnlyMap](#numberonlymap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| NumberOnlyMap | data<br>validated payload |
+| [NumberOnlyMap](#numberonlymap) | data<br>validated payload |
 
 ## NumberOnly1
 public static class NumberOnly1<br>
@@ -135,11 +135,11 @@ public static abstract sealed class JustNumberBoxed<br>
 permits<br>
 [JustNumberBoxedNumber](#justnumberboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## JustNumberBoxedNumber
 public static final class JustNumberBoxedNumber<br>
-extends JustNumberBoxed
+extends [JustNumberBoxed](#justnumberboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

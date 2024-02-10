@@ -3,27 +3,27 @@ org.openapijsonschematools.client.components.schemas.ObjectWithDifficultlyNamedP
 public class ObjectWithDifficultlyNamedProps
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1Boxed](#objectwithdifficultlynamedprops1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1Boxed](#objectwithdifficultlynamedprops1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1BoxedMap](#objectwithdifficultlynamedprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1](#objectwithdifficultlynamedprops1)<br> schema class |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMapBuilder](#objectwithdifficultlynamedpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap)<br> output class for Map payloads |
-| static class | [ObjectWithDifficultlyNamedProps.Schema123NumberBoxed](#schema123numberboxed)<br> sealed validated payload class |
+| static class | [ObjectWithDifficultlyNamedProps.Schema123NumberBoxed](#schema123numberboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123NumberBoxedNumber](#schema123numberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123Number](#schema123number)<br> schema class |
-| static class | [ObjectWithDifficultlyNamedProps.Schema123listBoxed](#schema123listboxed)<br> sealed validated payload class |
+| static class | [ObjectWithDifficultlyNamedProps.Schema123listBoxed](#schema123listboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123listBoxedString](#schema123listboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithDifficultlyNamedProps.Schema123list](#schema123list)<br> schema class |
-| static class | [ObjectWithDifficultlyNamedProps.SpecialpropertynameBoxed](#specialpropertynameboxed)<br> sealed validated payload class |
+| static class | [ObjectWithDifficultlyNamedProps.SpecialpropertynameBoxed](#specialpropertynameboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithDifficultlyNamedProps.SpecialpropertynameBoxedNumber](#specialpropertynameboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithDifficultlyNamedProps.Specialpropertyname](#specialpropertyname)<br> schema class |
 
@@ -32,23 +32,23 @@ public static abstract sealed class ObjectWithDifficultlyNamedProps1Boxed<br>
 permits<br>
 [ObjectWithDifficultlyNamedProps1BoxedMap](#objectwithdifficultlynamedprops1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectWithDifficultlyNamedProps1BoxedMap
 public static final class ObjectWithDifficultlyNamedProps1BoxedMap<br>
-extends ObjectWithDifficultlyNamedProps1Boxed
+extends [ObjectWithDifficultlyNamedProps1Boxed](#objectwithdifficultlynamedprops1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectWithDifficultlyNamedProps1BoxedMap(ObjectWithDifficultlyNamedPropsMap data)<br>Creates an instance, private visibility |
+| ObjectWithDifficultlyNamedProps1BoxedMap([ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectWithDifficultlyNamedPropsMap | data<br>validated payload |
+| [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | data<br>validated payload |
 
 ## ObjectWithDifficultlyNamedProps1
 public static class ObjectWithDifficultlyNamedProps1<br>
@@ -169,11 +169,11 @@ public static abstract sealed class Schema123NumberBoxed<br>
 permits<br>
 [Schema123NumberBoxedNumber](#schema123numberboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema123NumberBoxedNumber
 public static final class Schema123NumberBoxedNumber<br>
-extends Schema123NumberBoxed
+extends [Schema123NumberBoxed](#schema123numberboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -203,11 +203,11 @@ public static abstract sealed class Schema123listBoxed<br>
 permits<br>
 [Schema123listBoxedString](#schema123listboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema123listBoxedString
 public static final class Schema123listBoxedString<br>
-extends Schema123listBoxed
+extends [Schema123listBoxed](#schema123listboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -237,11 +237,11 @@ public static abstract sealed class SpecialpropertynameBoxed<br>
 permits<br>
 [SpecialpropertynameBoxedNumber](#specialpropertynameboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SpecialpropertynameBoxedNumber
 public static final class SpecialpropertynameBoxedNumber<br>
-extends SpecialpropertynameBoxed
+extends [SpecialpropertynameBoxed](#specialpropertynameboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

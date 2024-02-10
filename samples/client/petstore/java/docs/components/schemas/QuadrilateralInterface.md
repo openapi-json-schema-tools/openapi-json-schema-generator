@@ -3,9 +3,9 @@ org.openapijsonschematools.client.components.schemas.QuadrilateralInterface.java
 public class QuadrilateralInterface
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -13,7 +13,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [QuadrilateralInterface.QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)<br> sealed validated payload class |
+| static class | [QuadrilateralInterface.QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)<br> abstract sealed validated payload class |
 | static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedVoid](#quadrilateralinterface1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedBoolean](#quadrilateralinterface1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [QuadrilateralInterface.QuadrilateralInterface1BoxedNumber](#quadrilateralinterface1boxednumber)<br> boxed class to store validated Number payloads |
@@ -23,10 +23,10 @@ A class that contains necessary nested
 | static class | [QuadrilateralInterface.QuadrilateralInterface1](#quadrilateralinterface1)<br> schema class |
 | static class | [QuadrilateralInterface.QuadrilateralInterfaceMapBuilder](#quadrilateralinterfacemapbuilder)<br> builder for Map payloads |
 | static class | [QuadrilateralInterface.QuadrilateralInterfaceMap](#quadrilateralinterfacemap)<br> output class for Map payloads |
-| static class | [QuadrilateralInterface.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> sealed validated payload class |
+| static class | [QuadrilateralInterface.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> abstract sealed validated payload class |
 | static class | [QuadrilateralInterface.QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [QuadrilateralInterface.QuadrilateralType](#quadrilateraltype)<br> schema class |
-| static class | [QuadrilateralInterface.ShapeTypeBoxed](#shapetypeboxed)<br> sealed validated payload class |
+| static class | [QuadrilateralInterface.ShapeTypeBoxed](#shapetypeboxed)<br> abstract sealed validated payload class |
 | static class | [QuadrilateralInterface.ShapeTypeBoxedString](#shapetypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [QuadrilateralInterface.ShapeType](#shapetype)<br> schema class |
 | enum | [QuadrilateralInterface.StringShapeTypeEnums](#stringshapetypeenums)<br>String enum |
@@ -41,11 +41,11 @@ permits<br>
 [QuadrilateralInterface1BoxedList](#quadrilateralinterface1boxedlist),
 [QuadrilateralInterface1BoxedMap](#quadrilateralinterface1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## QuadrilateralInterface1BoxedVoid
 public static final class QuadrilateralInterface1BoxedVoid<br>
-extends QuadrilateralInterface1Boxed
+extends [QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -61,7 +61,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## QuadrilateralInterface1BoxedBoolean
 public static final class QuadrilateralInterface1BoxedBoolean<br>
-extends QuadrilateralInterface1Boxed
+extends [QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -77,7 +77,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## QuadrilateralInterface1BoxedNumber
 public static final class QuadrilateralInterface1BoxedNumber<br>
-extends QuadrilateralInterface1Boxed
+extends [QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -93,7 +93,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## QuadrilateralInterface1BoxedString
 public static final class QuadrilateralInterface1BoxedString<br>
-extends QuadrilateralInterface1Boxed
+extends [QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -109,7 +109,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## QuadrilateralInterface1BoxedList
 public static final class QuadrilateralInterface1BoxedList<br>
-extends QuadrilateralInterface1Boxed
+extends [QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -125,19 +125,19 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## QuadrilateralInterface1BoxedMap
 public static final class QuadrilateralInterface1BoxedMap<br>
-extends QuadrilateralInterface1Boxed
+extends [QuadrilateralInterface1Boxed](#quadrilateralinterface1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| QuadrilateralInterface1BoxedMap(QuadrilateralInterfaceMap data)<br>Creates an instance, private visibility |
+| QuadrilateralInterface1BoxedMap([QuadrilateralInterfaceMap](#quadrilateralinterfacemap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| QuadrilateralInterfaceMap | data<br>validated payload |
+| [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | data<br>validated payload |
 
 ## QuadrilateralInterface1
 public static class QuadrilateralInterface1<br>
@@ -266,11 +266,11 @@ public static abstract sealed class QuadrilateralTypeBoxed<br>
 permits<br>
 [QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## QuadrilateralTypeBoxedString
 public static final class QuadrilateralTypeBoxedString<br>
-extends QuadrilateralTypeBoxed
+extends [QuadrilateralTypeBoxed](#quadrilateraltypeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -300,11 +300,11 @@ public static abstract sealed class ShapeTypeBoxed<br>
 permits<br>
 [ShapeTypeBoxedString](#shapetypeboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ShapeTypeBoxedString
 public static final class ShapeTypeBoxedString<br>
-extends ShapeTypeBoxed
+extends [ShapeTypeBoxed](#shapetypeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

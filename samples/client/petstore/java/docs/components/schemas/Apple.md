@@ -3,25 +3,25 @@ org.openapijsonschematools.client.components.schemas.Apple.java
 public class Apple
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Apple.Apple1Boxed](#apple1boxed)<br> sealed validated payload class |
+| static class | [Apple.Apple1Boxed](#apple1boxed)<br> abstract sealed validated payload class |
 | static class | [Apple.Apple1BoxedVoid](#apple1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Apple.Apple1BoxedMap](#apple1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Apple.Apple1](#apple1)<br> schema class |
 | static class | [Apple.AppleMapBuilder](#applemapbuilder)<br> builder for Map payloads |
 | static class | [Apple.AppleMap](#applemap)<br> output class for Map payloads |
-| static class | [Apple.OriginBoxed](#originboxed)<br> sealed validated payload class |
+| static class | [Apple.OriginBoxed](#originboxed)<br> abstract sealed validated payload class |
 | static class | [Apple.OriginBoxedString](#originboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Apple.Origin](#origin)<br> schema class |
-| static class | [Apple.CultivarBoxed](#cultivarboxed)<br> sealed validated payload class |
+| static class | [Apple.CultivarBoxed](#cultivarboxed)<br> abstract sealed validated payload class |
 | static class | [Apple.CultivarBoxedString](#cultivarboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Apple.Cultivar](#cultivar)<br> schema class |
 
@@ -31,11 +31,11 @@ permits<br>
 [Apple1BoxedVoid](#apple1boxedvoid),
 [Apple1BoxedMap](#apple1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Apple1BoxedVoid
 public static final class Apple1BoxedVoid<br>
-extends Apple1Boxed
+extends [Apple1Boxed](#apple1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -51,19 +51,19 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Apple1BoxedMap
 public static final class Apple1BoxedMap<br>
-extends Apple1Boxed
+extends [Apple1Boxed](#apple1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Apple1BoxedMap(AppleMap data)<br>Creates an instance, private visibility |
+| Apple1BoxedMap([AppleMap](#applemap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| AppleMap | data<br>validated payload |
+| [AppleMap](#applemap) | data<br>validated payload |
 
 ## Apple1
 public static class Apple1<br>
@@ -181,11 +181,11 @@ public static abstract sealed class OriginBoxed<br>
 permits<br>
 [OriginBoxedString](#originboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## OriginBoxedString
 public static final class OriginBoxedString<br>
-extends OriginBoxed
+extends [OriginBoxed](#originboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -244,11 +244,11 @@ public static abstract sealed class CultivarBoxed<br>
 permits<br>
 [CultivarBoxedString](#cultivarboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## CultivarBoxedString
 public static final class CultivarBoxedString<br>
-extends CultivarBoxed
+extends [CultivarBoxed](#cultivarboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

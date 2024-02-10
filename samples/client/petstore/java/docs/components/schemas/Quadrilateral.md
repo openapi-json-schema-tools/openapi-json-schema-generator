@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.Quadrilateral.java
 public class Quadrilateral
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Quadrilateral.Quadrilateral1Boxed](#quadrilateral1boxed)<br> sealed validated payload class |
+| static class | [Quadrilateral.Quadrilateral1Boxed](#quadrilateral1boxed)<br> abstract sealed validated payload class |
 | static class | [Quadrilateral.Quadrilateral1BoxedVoid](#quadrilateral1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Quadrilateral.Quadrilateral1BoxedBoolean](#quadrilateral1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Quadrilateral.Quadrilateral1BoxedNumber](#quadrilateral1boxednumber)<br> boxed class to store validated Number payloads |
@@ -29,11 +29,11 @@ permits<br>
 [Quadrilateral1BoxedList](#quadrilateral1boxedlist),
 [Quadrilateral1BoxedMap](#quadrilateral1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Quadrilateral1BoxedVoid
 public static final class Quadrilateral1BoxedVoid<br>
-extends Quadrilateral1Boxed
+extends [Quadrilateral1Boxed](#quadrilateral1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -49,7 +49,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Quadrilateral1BoxedBoolean
 public static final class Quadrilateral1BoxedBoolean<br>
-extends Quadrilateral1Boxed
+extends [Quadrilateral1Boxed](#quadrilateral1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -65,7 +65,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Quadrilateral1BoxedNumber
 public static final class Quadrilateral1BoxedNumber<br>
-extends Quadrilateral1Boxed
+extends [Quadrilateral1Boxed](#quadrilateral1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -81,7 +81,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Quadrilateral1BoxedString
 public static final class Quadrilateral1BoxedString<br>
-extends Quadrilateral1Boxed
+extends [Quadrilateral1Boxed](#quadrilateral1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -97,7 +97,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Quadrilateral1BoxedList
 public static final class Quadrilateral1BoxedList<br>
-extends Quadrilateral1Boxed
+extends [Quadrilateral1Boxed](#quadrilateral1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -113,7 +113,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Quadrilateral1BoxedMap
 public static final class Quadrilateral1BoxedMap<br>
-extends Quadrilateral1Boxed
+extends [Quadrilateral1Boxed](#quadrilateral1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

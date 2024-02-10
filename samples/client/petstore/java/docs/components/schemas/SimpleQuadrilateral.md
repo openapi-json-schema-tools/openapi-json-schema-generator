@@ -3,9 +3,9 @@ org.openapijsonschematools.client.components.schemas.SimpleQuadrilateral.java
 public class SimpleQuadrilateral
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -13,7 +13,7 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SimpleQuadrilateral.SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)<br> sealed validated payload class |
+| static class | [SimpleQuadrilateral.SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)<br> abstract sealed validated payload class |
 | static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedVoid](#simplequadrilateral1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedBoolean](#simplequadrilateral1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedNumber](#simplequadrilateral1boxednumber)<br> boxed class to store validated Number payloads |
@@ -21,12 +21,12 @@ A class that contains necessary nested
 | static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedList](#simplequadrilateral1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [SimpleQuadrilateral.SimpleQuadrilateral1BoxedMap](#simplequadrilateral1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SimpleQuadrilateral.SimpleQuadrilateral1](#simplequadrilateral1)<br> schema class |
-| static class | [SimpleQuadrilateral.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [SimpleQuadrilateral.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
 | static class | [SimpleQuadrilateral.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SimpleQuadrilateral.Schema1](#schema1)<br> schema class |
 | static class | [SimpleQuadrilateral.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [SimpleQuadrilateral.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [SimpleQuadrilateral.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> sealed validated payload class |
+| static class | [SimpleQuadrilateral.QuadrilateralTypeBoxed](#quadrilateraltypeboxed)<br> abstract sealed validated payload class |
 | static class | [SimpleQuadrilateral.QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [SimpleQuadrilateral.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | enum | [SimpleQuadrilateral.StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums)<br>String enum |
@@ -41,11 +41,11 @@ permits<br>
 [SimpleQuadrilateral1BoxedList](#simplequadrilateral1boxedlist),
 [SimpleQuadrilateral1BoxedMap](#simplequadrilateral1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SimpleQuadrilateral1BoxedVoid
 public static final class SimpleQuadrilateral1BoxedVoid<br>
-extends SimpleQuadrilateral1Boxed
+extends [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -61,7 +61,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## SimpleQuadrilateral1BoxedBoolean
 public static final class SimpleQuadrilateral1BoxedBoolean<br>
-extends SimpleQuadrilateral1Boxed
+extends [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -77,7 +77,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## SimpleQuadrilateral1BoxedNumber
 public static final class SimpleQuadrilateral1BoxedNumber<br>
-extends SimpleQuadrilateral1Boxed
+extends [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -93,7 +93,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## SimpleQuadrilateral1BoxedString
 public static final class SimpleQuadrilateral1BoxedString<br>
-extends SimpleQuadrilateral1Boxed
+extends [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -109,7 +109,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## SimpleQuadrilateral1BoxedList
 public static final class SimpleQuadrilateral1BoxedList<br>
-extends SimpleQuadrilateral1Boxed
+extends [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -125,7 +125,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## SimpleQuadrilateral1BoxedMap
 public static final class SimpleQuadrilateral1BoxedMap<br>
-extends SimpleQuadrilateral1Boxed
+extends [SimpleQuadrilateral1Boxed](#simplequadrilateral1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -175,23 +175,23 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
 public static final class Schema1BoxedMap<br>
-extends Schema1Boxed
+extends [Schema1Boxed](#schema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema1BoxedMap(Schema1Map data)<br>Creates an instance, private visibility |
+| Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Schema1Map | data<br>validated payload |
+| [Schema1Map](#schema1map) | data<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -282,11 +282,11 @@ public static abstract sealed class QuadrilateralTypeBoxed<br>
 permits<br>
 [QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## QuadrilateralTypeBoxedString
 public static final class QuadrilateralTypeBoxedString<br>
-extends QuadrilateralTypeBoxed
+extends [QuadrilateralTypeBoxed](#quadrilateraltypeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

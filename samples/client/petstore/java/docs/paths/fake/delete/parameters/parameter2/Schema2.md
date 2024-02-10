@@ -2,14 +2,14 @@
 public class Schema2
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema2.Schema21Boxed](#schema21boxed)<br> sealed validated payload class |
+| static class | [Schema2.Schema21Boxed](#schema21boxed)<br> abstract sealed validated payload class |
 | static class | [Schema2.Schema21BoxedNumber](#schema21boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema2.Schema21](#schema21)<br> schema class |
 
@@ -18,11 +18,11 @@ public static abstract sealed class Schema21Boxed<br>
 permits<br>
 [Schema21BoxedNumber](#schema21boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema21BoxedNumber
 public static final class Schema21BoxedNumber<br>
-extends Schema21Boxed
+extends [Schema21Boxed](#schema21boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

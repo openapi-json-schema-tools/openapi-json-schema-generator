@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.ObjectWithInvalidNamedRefed
 public class ObjectWithInvalidNamedRefedProperties
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1BoxedMap](#objectwithinvalidnamedrefedproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1](#objectwithinvalidnamedrefedproperties1)<br> schema class |
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMapBuilder](#objectwithinvalidnamedrefedpropertiesmapbuilder)<br> builder for Map payloads |
@@ -23,23 +23,23 @@ public static abstract sealed class ObjectWithInvalidNamedRefedProperties1Boxed<
 permits<br>
 [ObjectWithInvalidNamedRefedProperties1BoxedMap](#objectwithinvalidnamedrefedproperties1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectWithInvalidNamedRefedProperties1BoxedMap
 public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap<br>
-extends ObjectWithInvalidNamedRefedProperties1Boxed
+extends [ObjectWithInvalidNamedRefedProperties1Boxed](#objectwithinvalidnamedrefedproperties1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectWithInvalidNamedRefedProperties1BoxedMap(ObjectWithInvalidNamedRefedPropertiesMap data)<br>Creates an instance, private visibility |
+| ObjectWithInvalidNamedRefedProperties1BoxedMap([ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectWithInvalidNamedRefedPropertiesMap | data<br>validated payload |
+| [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | data<br>validated payload |
 
 ## ObjectWithInvalidNamedRefedProperties1
 public static class ObjectWithInvalidNamedRefedProperties1<br>

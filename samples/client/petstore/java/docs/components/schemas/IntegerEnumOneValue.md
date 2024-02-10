@@ -3,15 +3,15 @@ org.openapijsonschematools.client.components.schemas.IntegerEnumOneValue.java
 public class IntegerEnumOneValue
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerEnumOneValue.IntegerEnumOneValue1Boxed](#integerenumonevalue1boxed)<br> sealed validated payload class |
+| static class | [IntegerEnumOneValue.IntegerEnumOneValue1Boxed](#integerenumonevalue1boxed)<br> abstract sealed validated payload class |
 | static class | [IntegerEnumOneValue.IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerEnumOneValue.IntegerEnumOneValue1](#integerenumonevalue1)<br> schema class |
 | enum | [IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums](#integerintegerenumonevalueenums)<br>Integer enum |
@@ -24,11 +24,11 @@ public static abstract sealed class IntegerEnumOneValue1Boxed<br>
 permits<br>
 [IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## IntegerEnumOneValue1BoxedNumber
 public static final class IntegerEnumOneValue1BoxedNumber<br>
-extends IntegerEnumOneValue1Boxed
+extends [IntegerEnumOneValue1Boxed](#integerenumonevalue1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

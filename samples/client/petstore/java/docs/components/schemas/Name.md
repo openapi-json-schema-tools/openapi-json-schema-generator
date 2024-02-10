@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.Name.java
 public class Name
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Name.Name1Boxed](#name1boxed)<br> sealed validated payload class |
+| static class | [Name.Name1Boxed](#name1boxed)<br> abstract sealed validated payload class |
 | static class | [Name.Name1BoxedVoid](#name1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Name.Name1BoxedBoolean](#name1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Name.Name1BoxedNumber](#name1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,13 +22,13 @@ A class that contains necessary nested
 | static class | [Name.Name1](#name1)<br> schema class |
 | static class | [Name.NameMapBuilder1](#namemapbuilder1)<br> builder for Map payloads |
 | static class | [Name.NameMap](#namemap)<br> output class for Map payloads |
-| static class | [Name.PropertyBoxed](#propertyboxed)<br> sealed validated payload class |
+| static class | [Name.PropertyBoxed](#propertyboxed)<br> abstract sealed validated payload class |
 | static class | [Name.PropertyBoxedString](#propertyboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Name.Property](#property)<br> schema class |
-| static class | [Name.SnakeCaseBoxed](#snakecaseboxed)<br> sealed validated payload class |
+| static class | [Name.SnakeCaseBoxed](#snakecaseboxed)<br> abstract sealed validated payload class |
 | static class | [Name.SnakeCaseBoxedNumber](#snakecaseboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Name.SnakeCase](#snakecase)<br> schema class |
-| static class | [Name.Name2Boxed](#name2boxed)<br> sealed validated payload class |
+| static class | [Name.Name2Boxed](#name2boxed)<br> abstract sealed validated payload class |
 | static class | [Name.Name2BoxedNumber](#name2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Name.Name2](#name2)<br> schema class |
 
@@ -42,11 +42,11 @@ permits<br>
 [Name1BoxedList](#name1boxedlist),
 [Name1BoxedMap](#name1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Name1BoxedVoid
 public static final class Name1BoxedVoid<br>
-extends Name1Boxed
+extends [Name1Boxed](#name1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -62,7 +62,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Name1BoxedBoolean
 public static final class Name1BoxedBoolean<br>
-extends Name1Boxed
+extends [Name1Boxed](#name1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -78,7 +78,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Name1BoxedNumber
 public static final class Name1BoxedNumber<br>
-extends Name1Boxed
+extends [Name1Boxed](#name1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -94,7 +94,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Name1BoxedString
 public static final class Name1BoxedString<br>
-extends Name1Boxed
+extends [Name1Boxed](#name1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -110,7 +110,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Name1BoxedList
 public static final class Name1BoxedList<br>
-extends Name1Boxed
+extends [Name1Boxed](#name1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -126,19 +126,19 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Name1BoxedMap
 public static final class Name1BoxedMap<br>
-extends Name1Boxed
+extends [Name1Boxed](#name1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Name1BoxedMap(NameMap data)<br>Creates an instance, private visibility |
+| Name1BoxedMap([NameMap](#namemap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| NameMap | data<br>validated payload |
+| [NameMap](#namemap) | data<br>validated payload |
 
 ## Name1
 public static class Name1<br>
@@ -240,11 +240,11 @@ public static abstract sealed class PropertyBoxed<br>
 permits<br>
 [PropertyBoxedString](#propertyboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## PropertyBoxedString
 public static final class PropertyBoxedString<br>
-extends PropertyBoxed
+extends [PropertyBoxed](#propertyboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -277,11 +277,11 @@ public static abstract sealed class SnakeCaseBoxed<br>
 permits<br>
 [SnakeCaseBoxedNumber](#snakecaseboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SnakeCaseBoxedNumber
 public static final class SnakeCaseBoxedNumber<br>
-extends SnakeCaseBoxed
+extends [SnakeCaseBoxed](#snakecaseboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -311,11 +311,11 @@ public static abstract sealed class Name2Boxed<br>
 permits<br>
 [Name2BoxedNumber](#name2boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Name2BoxedNumber
 public static final class Name2BoxedNumber<br>
-extends Name2Boxed
+extends [Name2Boxed](#name2boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

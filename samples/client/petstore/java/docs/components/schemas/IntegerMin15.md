@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.IntegerMin15.java
 public class IntegerMin15
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> sealed validated payload class |
+| static class | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> abstract sealed validated payload class |
 | static class | [IntegerMin15.IntegerMin151BoxedNumber](#integermin151boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMin15.IntegerMin151](#integermin151)<br> schema class |
 
@@ -19,11 +19,11 @@ public static abstract sealed class IntegerMin151Boxed<br>
 permits<br>
 [IntegerMin151BoxedNumber](#integermin151boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## IntegerMin151BoxedNumber
 public static final class IntegerMin151BoxedNumber<br>
-extends IntegerMin151Boxed
+extends [IntegerMin151Boxed](#integermin151boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

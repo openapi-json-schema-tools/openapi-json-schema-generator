@@ -2,14 +2,14 @@
 public class RefContentSchemaHeaderSchema
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)<br> sealed validated payload class |
+| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)<br> abstract sealed validated payload class |
 | static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedVoid](#refcontentschemaheaderschema1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedBoolean](#refcontentschemaheaderschema1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1BoxedNumber](#refcontentschemaheaderschema1boxednumber)<br> boxed class to store validated Number payloads |
@@ -28,11 +28,11 @@ permits<br>
 [RefContentSchemaHeaderSchema1BoxedList](#refcontentschemaheaderschema1boxedlist),
 [RefContentSchemaHeaderSchema1BoxedMap](#refcontentschemaheaderschema1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## RefContentSchemaHeaderSchema1BoxedVoid
 public static final class RefContentSchemaHeaderSchema1BoxedVoid<br>
-extends RefContentSchemaHeaderSchema1Boxed
+extends [RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -48,7 +48,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## RefContentSchemaHeaderSchema1BoxedBoolean
 public static final class RefContentSchemaHeaderSchema1BoxedBoolean<br>
-extends RefContentSchemaHeaderSchema1Boxed
+extends [RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -64,7 +64,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## RefContentSchemaHeaderSchema1BoxedNumber
 public static final class RefContentSchemaHeaderSchema1BoxedNumber<br>
-extends RefContentSchemaHeaderSchema1Boxed
+extends [RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -80,7 +80,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## RefContentSchemaHeaderSchema1BoxedString
 public static final class RefContentSchemaHeaderSchema1BoxedString<br>
-extends RefContentSchemaHeaderSchema1Boxed
+extends [RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -96,7 +96,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## RefContentSchemaHeaderSchema1BoxedList
 public static final class RefContentSchemaHeaderSchema1BoxedList<br>
-extends RefContentSchemaHeaderSchema1Boxed
+extends [RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -112,7 +112,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## RefContentSchemaHeaderSchema1BoxedMap
 public static final class RefContentSchemaHeaderSchema1BoxedMap<br>
-extends RefContentSchemaHeaderSchema1Boxed
+extends [RefContentSchemaHeaderSchema1Boxed](#refcontentschemaheaderschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

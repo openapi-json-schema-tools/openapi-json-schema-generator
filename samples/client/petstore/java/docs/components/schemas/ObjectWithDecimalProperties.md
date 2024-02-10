@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.ObjectWithDecimalProperties
 public class ObjectWithDecimalProperties
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1Boxed](#objectwithdecimalproperties1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1Boxed](#objectwithdecimalproperties1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1](#objectwithdecimalproperties1)<br> schema class |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMapBuilder](#objectwithdecimalpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap)<br> output class for Map payloads |
-| static class | [ObjectWithDecimalProperties.WidthBoxed](#widthboxed)<br> sealed validated payload class |
+| static class | [ObjectWithDecimalProperties.WidthBoxed](#widthboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithDecimalProperties.WidthBoxedString](#widthboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithDecimalProperties.Width](#width)<br> schema class |
 
@@ -26,23 +26,23 @@ public static abstract sealed class ObjectWithDecimalProperties1Boxed<br>
 permits<br>
 [ObjectWithDecimalProperties1BoxedMap](#objectwithdecimalproperties1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectWithDecimalProperties1BoxedMap
 public static final class ObjectWithDecimalProperties1BoxedMap<br>
-extends ObjectWithDecimalProperties1Boxed
+extends [ObjectWithDecimalProperties1Boxed](#objectwithdecimalproperties1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectWithDecimalProperties1BoxedMap(ObjectWithDecimalPropertiesMap data)<br>Creates an instance, private visibility |
+| ObjectWithDecimalProperties1BoxedMap([ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectWithDecimalPropertiesMap | data<br>validated payload |
+| [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | data<br>validated payload |
 
 ## ObjectWithDecimalProperties1
 public static class ObjectWithDecimalProperties1<br>
@@ -150,11 +150,11 @@ public static abstract sealed class WidthBoxed<br>
 permits<br>
 [WidthBoxedString](#widthboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## WidthBoxedString
 public static final class WidthBoxedString<br>
-extends WidthBoxed
+extends [WidthBoxed](#widthboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

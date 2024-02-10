@@ -3,24 +3,24 @@ org.openapijsonschematools.client.components.schemas.ObjectModelWithArgAndArgsPr
 public class ObjectModelWithArgAndArgsProperties
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)<br> sealed validated payload class |
+| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1](#objectmodelwithargandargsproperties1)<br> schema class |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMapBuilder](#objectmodelwithargandargspropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap)<br> output class for Map payloads |
-| static class | [ObjectModelWithArgAndArgsProperties.ArgsBoxed](#argsboxed)<br> sealed validated payload class |
+| static class | [ObjectModelWithArgAndArgsProperties.ArgsBoxed](#argsboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectModelWithArgAndArgsProperties.ArgsBoxedString](#argsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Args](#args)<br> schema class |
-| static class | [ObjectModelWithArgAndArgsProperties.ArgBoxed](#argboxed)<br> sealed validated payload class |
+| static class | [ObjectModelWithArgAndArgsProperties.ArgBoxed](#argboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectModelWithArgAndArgsProperties.ArgBoxedString](#argboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectModelWithArgAndArgsProperties.Arg](#arg)<br> schema class |
 
@@ -29,23 +29,23 @@ public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed<br
 permits<br>
 [ObjectModelWithArgAndArgsProperties1BoxedMap](#objectmodelwithargandargsproperties1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectModelWithArgAndArgsProperties1BoxedMap
 public static final class ObjectModelWithArgAndArgsProperties1BoxedMap<br>
-extends ObjectModelWithArgAndArgsProperties1Boxed
+extends [ObjectModelWithArgAndArgsProperties1Boxed](#objectmodelwithargandargsproperties1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectModelWithArgAndArgsProperties1BoxedMap(ObjectModelWithArgAndArgsPropertiesMap data)<br>Creates an instance, private visibility |
+| ObjectModelWithArgAndArgsProperties1BoxedMap([ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectModelWithArgAndArgsPropertiesMap | data<br>validated payload |
+| [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | data<br>validated payload |
 
 ## ObjectModelWithArgAndArgsProperties1
 public static class ObjectModelWithArgAndArgsProperties1<br>
@@ -187,11 +187,11 @@ public static abstract sealed class ArgsBoxed<br>
 permits<br>
 [ArgsBoxedString](#argsboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ArgsBoxedString
 public static final class ArgsBoxedString<br>
-extends ArgsBoxed
+extends [ArgsBoxed](#argsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -221,11 +221,11 @@ public static abstract sealed class ArgBoxed<br>
 permits<br>
 [ArgBoxedString](#argboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ArgBoxedString
 public static final class ArgBoxedString<br>
-extends ArgBoxed
+extends [ArgBoxed](#argboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

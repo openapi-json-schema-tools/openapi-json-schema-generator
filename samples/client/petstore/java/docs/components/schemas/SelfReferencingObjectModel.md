@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.SelfReferencingObjectModel.
 public class SelfReferencingObjectModel
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)<br> sealed validated payload class |
+| static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)<br> abstract sealed validated payload class |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModel1](#selfreferencingobjectmodel1)<br> schema class |
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMapBuilder](#selfreferencingobjectmodelmapbuilder)<br> builder for Map payloads |
@@ -23,23 +23,23 @@ public static abstract sealed class SelfReferencingObjectModel1Boxed<br>
 permits<br>
 [SelfReferencingObjectModel1BoxedMap](#selfreferencingobjectmodel1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SelfReferencingObjectModel1BoxedMap
 public static final class SelfReferencingObjectModel1BoxedMap<br>
-extends SelfReferencingObjectModel1Boxed
+extends [SelfReferencingObjectModel1Boxed](#selfreferencingobjectmodel1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| SelfReferencingObjectModel1BoxedMap(SelfReferencingObjectModelMap data)<br>Creates an instance, private visibility |
+| SelfReferencingObjectModel1BoxedMap([SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| SelfReferencingObjectModelMap | data<br>validated payload |
+| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | data<br>validated payload |
 
 ## SelfReferencingObjectModel1
 public static class SelfReferencingObjectModel1<br>

@@ -3,24 +3,24 @@ org.openapijsonschematools.client.components.schemas.Category.java
 public class Category
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Category.Category1Boxed](#category1boxed)<br> sealed validated payload class |
+| static class | [Category.Category1Boxed](#category1boxed)<br> abstract sealed validated payload class |
 | static class | [Category.Category1BoxedMap](#category1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Category.Category1](#category1)<br> schema class |
 | static class | [Category.CategoryMapBuilder](#categorymapbuilder)<br> builder for Map payloads |
 | static class | [Category.CategoryMap](#categorymap)<br> output class for Map payloads |
-| static class | [Category.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [Category.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
 | static class | [Category.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Category.Name](#name)<br> schema class |
-| static class | [Category.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [Category.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
 | static class | [Category.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Category.Id](#id)<br> schema class |
 
@@ -29,23 +29,23 @@ public static abstract sealed class Category1Boxed<br>
 permits<br>
 [Category1BoxedMap](#category1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Category1BoxedMap
 public static final class Category1BoxedMap<br>
-extends Category1Boxed
+extends [Category1Boxed](#category1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Category1BoxedMap(CategoryMap data)<br>Creates an instance, private visibility |
+| Category1BoxedMap([CategoryMap](#categorymap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| CategoryMap | data<br>validated payload |
+| [CategoryMap](#categorymap) | data<br>validated payload |
 
 ## Category1
 public static class Category1<br>
@@ -158,11 +158,11 @@ public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NameBoxedString
 public static final class NameBoxedString<br>
-extends NameBoxed
+extends [NameBoxed](#nameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -221,11 +221,11 @@ public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
 public static final class IdBoxedNumber<br>
-extends IdBoxed
+extends [IdBoxed](#idboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.Bar.java
 public class Bar
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Bar.Bar1Boxed](#bar1boxed)<br> sealed validated payload class |
+| static class | [Bar.Bar1Boxed](#bar1boxed)<br> abstract sealed validated payload class |
 | static class | [Bar.Bar1BoxedString](#bar1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Bar.Bar1](#bar1)<br> schema class |
 
@@ -19,11 +19,11 @@ public static abstract sealed class Bar1Boxed<br>
 permits<br>
 [Bar1BoxedString](#bar1boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Bar1BoxedString
 public static final class Bar1BoxedString<br>
-extends Bar1Boxed
+extends [Bar1Boxed](#bar1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

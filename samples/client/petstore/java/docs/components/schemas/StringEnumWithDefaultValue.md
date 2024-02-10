@@ -3,15 +3,15 @@ org.openapijsonschematools.client.components.schemas.StringEnumWithDefaultValue.
 public class StringEnumWithDefaultValue
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1Boxed](#stringenumwithdefaultvalue1boxed)<br> sealed validated payload class |
+| static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1Boxed](#stringenumwithdefaultvalue1boxed)<br> abstract sealed validated payload class |
 | static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1BoxedString](#stringenumwithdefaultvalue1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1](#stringenumwithdefaultvalue1)<br> schema class |
 | enum | [StringEnumWithDefaultValue.StringStringEnumWithDefaultValueEnums](#stringstringenumwithdefaultvalueenums)<br>String enum |
@@ -21,11 +21,11 @@ public static abstract sealed class StringEnumWithDefaultValue1Boxed<br>
 permits<br>
 [StringEnumWithDefaultValue1BoxedString](#stringenumwithdefaultvalue1boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## StringEnumWithDefaultValue1BoxedString
 public static final class StringEnumWithDefaultValue1BoxedString<br>
-extends StringEnumWithDefaultValue1Boxed
+extends [StringEnumWithDefaultValue1Boxed](#stringenumwithdefaultvalue1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

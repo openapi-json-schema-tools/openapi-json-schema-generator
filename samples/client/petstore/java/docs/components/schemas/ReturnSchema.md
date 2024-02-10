@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.ReturnSchema.java
 public class ReturnSchema
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ReturnSchema.ReturnSchema1Boxed](#returnschema1boxed)<br> sealed validated payload class |
+| static class | [ReturnSchema.ReturnSchema1Boxed](#returnschema1boxed)<br> abstract sealed validated payload class |
 | static class | [ReturnSchema.ReturnSchema1BoxedVoid](#returnschema1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ReturnSchema.ReturnSchema1BoxedBoolean](#returnschema1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [ReturnSchema.ReturnSchema1BoxedNumber](#returnschema1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [ReturnSchema.ReturnSchema1](#returnschema1)<br> schema class |
 | static class | [ReturnSchema.ReturnMapBuilder1](#returnmapbuilder1)<br> builder for Map payloads |
 | static class | [ReturnSchema.ReturnMap](#returnmap)<br> output class for Map payloads |
-| static class | [ReturnSchema.ReturnSchema2Boxed](#returnschema2boxed)<br> sealed validated payload class |
+| static class | [ReturnSchema.ReturnSchema2Boxed](#returnschema2boxed)<br> abstract sealed validated payload class |
 | static class | [ReturnSchema.ReturnSchema2BoxedNumber](#returnschema2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ReturnSchema.ReturnSchema2](#returnschema2)<br> schema class |
 
@@ -36,11 +36,11 @@ permits<br>
 [ReturnSchema1BoxedList](#returnschema1boxedlist),
 [ReturnSchema1BoxedMap](#returnschema1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ReturnSchema1BoxedVoid
 public static final class ReturnSchema1BoxedVoid<br>
-extends ReturnSchema1Boxed
+extends [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -56,7 +56,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ReturnSchema1BoxedBoolean
 public static final class ReturnSchema1BoxedBoolean<br>
-extends ReturnSchema1Boxed
+extends [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -72,7 +72,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ReturnSchema1BoxedNumber
 public static final class ReturnSchema1BoxedNumber<br>
-extends ReturnSchema1Boxed
+extends [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -88,7 +88,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ReturnSchema1BoxedString
 public static final class ReturnSchema1BoxedString<br>
-extends ReturnSchema1Boxed
+extends [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -104,7 +104,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ReturnSchema1BoxedList
 public static final class ReturnSchema1BoxedList<br>
-extends ReturnSchema1Boxed
+extends [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -120,19 +120,19 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ReturnSchema1BoxedMap
 public static final class ReturnSchema1BoxedMap<br>
-extends ReturnSchema1Boxed
+extends [ReturnSchema1Boxed](#returnschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ReturnSchema1BoxedMap(ReturnMap data)<br>Creates an instance, private visibility |
+| ReturnSchema1BoxedMap([ReturnMap](#returnmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ReturnMap | data<br>validated payload |
+| [ReturnMap](#returnmap) | data<br>validated payload |
 
 ## ReturnSchema1
 public static class ReturnSchema1<br>
@@ -213,11 +213,11 @@ public static abstract sealed class ReturnSchema2Boxed<br>
 permits<br>
 [ReturnSchema2BoxedNumber](#returnschema2boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ReturnSchema2BoxedNumber
 public static final class ReturnSchema2BoxedNumber<br>
-extends ReturnSchema2Boxed
+extends [ReturnSchema2Boxed](#returnschema2boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

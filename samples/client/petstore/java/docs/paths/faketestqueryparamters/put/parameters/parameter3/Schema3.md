@@ -2,21 +2,21 @@
 public class Schema3
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema3.Schema31Boxed](#schema31boxed)<br> sealed validated payload class |
+| static class | [Schema3.Schema31Boxed](#schema31boxed)<br> abstract sealed validated payload class |
 | static class | [Schema3.Schema31BoxedList](#schema31boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema3.Schema31](#schema31)<br> schema class |
 | static class | [Schema3.SchemaListBuilder3](#schemalistbuilder3)<br> builder for List payloads |
 | static class | [Schema3.SchemaList3](#schemalist3)<br> output class for List payloads |
-| static class | [Schema3.Items3Boxed](#items3boxed)<br> sealed validated payload class |
+| static class | [Schema3.Items3Boxed](#items3boxed)<br> abstract sealed validated payload class |
 | static class | [Schema3.Items3BoxedString](#items3boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema3.Items3](#items3)<br> schema class |
 
@@ -25,23 +25,23 @@ public static abstract sealed class Schema31Boxed<br>
 permits<br>
 [Schema31BoxedList](#schema31boxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema31BoxedList
 public static final class Schema31BoxedList<br>
-extends Schema31Boxed
+extends [Schema31Boxed](#schema31boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema31BoxedList(SchemaList3 data)<br>Creates an instance, private visibility |
+| Schema31BoxedList([SchemaList3](#schemalist3) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| SchemaList3 | data<br>validated payload |
+| [SchemaList3](#schemalist3) | data<br>validated payload |
 
 ## Schema31
 public static class Schema31<br>
@@ -121,11 +121,11 @@ public static abstract sealed class Items3Boxed<br>
 permits<br>
 [Items3BoxedString](#items3boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Items3BoxedString
 public static final class Items3BoxedString<br>
-extends Items3Boxed
+extends [Items3Boxed](#items3boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

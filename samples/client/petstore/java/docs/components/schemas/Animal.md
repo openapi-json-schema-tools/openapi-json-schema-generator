@@ -3,24 +3,24 @@ org.openapijsonschematools.client.components.schemas.Animal.java
 public class Animal
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Animal.Animal1Boxed](#animal1boxed)<br> sealed validated payload class |
+| static class | [Animal.Animal1Boxed](#animal1boxed)<br> abstract sealed validated payload class |
 | static class | [Animal.Animal1BoxedMap](#animal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Animal.Animal1](#animal1)<br> schema class |
 | static class | [Animal.AnimalMapBuilder](#animalmapbuilder)<br> builder for Map payloads |
 | static class | [Animal.AnimalMap](#animalmap)<br> output class for Map payloads |
-| static class | [Animal.ColorBoxed](#colorboxed)<br> sealed validated payload class |
+| static class | [Animal.ColorBoxed](#colorboxed)<br> abstract sealed validated payload class |
 | static class | [Animal.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Animal.Color](#color)<br> schema class |
-| static class | [Animal.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
+| static class | [Animal.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
 | static class | [Animal.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Animal.ClassName](#classname)<br> schema class |
 
@@ -29,23 +29,23 @@ public static abstract sealed class Animal1Boxed<br>
 permits<br>
 [Animal1BoxedMap](#animal1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Animal1BoxedMap
 public static final class Animal1BoxedMap<br>
-extends Animal1Boxed
+extends [Animal1Boxed](#animal1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Animal1BoxedMap(AnimalMap data)<br>Creates an instance, private visibility |
+| Animal1BoxedMap([AnimalMap](#animalmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| AnimalMap | data<br>validated payload |
+| [AnimalMap](#animalmap) | data<br>validated payload |
 
 ## Animal1
 public static class Animal1<br>
@@ -155,11 +155,11 @@ public static abstract sealed class ColorBoxed<br>
 permits<br>
 [ColorBoxedString](#colorboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ColorBoxedString
 public static final class ColorBoxedString<br>
-extends ColorBoxed
+extends [ColorBoxed](#colorboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -218,11 +218,11 @@ public static abstract sealed class ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
 public static final class ClassNameBoxedString<br>
-extends ClassNameBoxed
+extends [ClassNameBoxed](#classnameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

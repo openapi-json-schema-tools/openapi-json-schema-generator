@@ -3,24 +3,24 @@ org.openapijsonschematools.client.components.schemas.Tag.java
 public class Tag
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Tag.Tag1Boxed](#tag1boxed)<br> sealed validated payload class |
+| static class | [Tag.Tag1Boxed](#tag1boxed)<br> abstract sealed validated payload class |
 | static class | [Tag.Tag1BoxedMap](#tag1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Tag.Tag1](#tag1)<br> schema class |
 | static class | [Tag.TagMapBuilder](#tagmapbuilder)<br> builder for Map payloads |
 | static class | [Tag.TagMap](#tagmap)<br> output class for Map payloads |
-| static class | [Tag.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [Tag.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
 | static class | [Tag.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Tag.Name](#name)<br> schema class |
-| static class | [Tag.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [Tag.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
 | static class | [Tag.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Tag.Id](#id)<br> schema class |
 
@@ -29,23 +29,23 @@ public static abstract sealed class Tag1Boxed<br>
 permits<br>
 [Tag1BoxedMap](#tag1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Tag1BoxedMap
 public static final class Tag1BoxedMap<br>
-extends Tag1Boxed
+extends [Tag1Boxed](#tag1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Tag1BoxedMap(TagMap data)<br>Creates an instance, private visibility |
+| Tag1BoxedMap([TagMap](#tagmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| TagMap | data<br>validated payload |
+| [TagMap](#tagmap) | data<br>validated payload |
 
 ## Tag1
 public static class Tag1<br>
@@ -142,11 +142,11 @@ public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NameBoxedString
 public static final class NameBoxedString<br>
-extends NameBoxed
+extends [NameBoxed](#nameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -176,11 +176,11 @@ public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
 public static final class IdBoxedNumber<br>
-extends IdBoxed
+extends [IdBoxed](#idboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

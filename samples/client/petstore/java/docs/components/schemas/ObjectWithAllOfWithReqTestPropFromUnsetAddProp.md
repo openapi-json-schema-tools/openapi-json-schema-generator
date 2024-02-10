@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.ObjectWithAllOfWithReqTestP
 public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid](#objectwithallofwithreqtestpropfromunsetaddprop1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean](#objectwithallofwithreqtestpropfromunsetaddprop1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber](#objectwithallofwithreqtestpropfromunsetaddprop1boxednumber)<br> boxed class to store validated Number payloads |
@@ -20,12 +20,12 @@ A class that contains necessary nested
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList](#objectwithallofwithreqtestpropfromunsetaddprop1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap](#objectwithallofwithreqtestpropfromunsetaddprop1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1](#objectwithallofwithreqtestpropfromunsetaddprop1)<br> schema class |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1](#schema1)<br> schema class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Name](#name)<br> schema class |
 
@@ -39,11 +39,11 @@ permits<br>
 [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList](#objectwithallofwithreqtestpropfromunsetaddprop1boxedlist),
 [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap](#objectwithallofwithreqtestpropfromunsetaddprop1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid<br>
-extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -59,7 +59,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean<br>
-extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -75,7 +75,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber<br>
-extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -91,7 +91,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString<br>
-extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -107,7 +107,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList<br>
-extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -123,7 +123,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap<br>
-extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+extends [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed](#objectwithallofwithreqtestpropfromunsetaddprop1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -173,23 +173,23 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
 public static final class Schema1BoxedMap<br>
-extends Schema1Boxed
+extends [Schema1Boxed](#schema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema1BoxedMap(Schema1Map data)<br>Creates an instance, private visibility |
+| Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Schema1Map | data<br>validated payload |
+| [Schema1Map](#schema1map) | data<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -305,11 +305,11 @@ public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NameBoxedString
 public static final class NameBoxedString<br>
-extends NameBoxed
+extends [NameBoxed](#nameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -3,24 +3,24 @@ org.openapijsonschematools.client.components.schemas.FromSchema.java
 public class FromSchema
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [FromSchema.FromSchema1Boxed](#fromschema1boxed)<br> sealed validated payload class |
+| static class | [FromSchema.FromSchema1Boxed](#fromschema1boxed)<br> abstract sealed validated payload class |
 | static class | [FromSchema.FromSchema1BoxedMap](#fromschema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FromSchema.FromSchema1](#fromschema1)<br> schema class |
 | static class | [FromSchema.FromSchemaMapBuilder](#fromschemamapbuilder)<br> builder for Map payloads |
 | static class | [FromSchema.FromSchemaMap](#fromschemamap)<br> output class for Map payloads |
-| static class | [FromSchema.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [FromSchema.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
 | static class | [FromSchema.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FromSchema.Id](#id)<br> schema class |
-| static class | [FromSchema.DataBoxed](#databoxed)<br> sealed validated payload class |
+| static class | [FromSchema.DataBoxed](#databoxed)<br> abstract sealed validated payload class |
 | static class | [FromSchema.DataBoxedString](#databoxedstring)<br> boxed class to store validated String payloads |
 | static class | [FromSchema.Data](#data)<br> schema class |
 
@@ -29,23 +29,23 @@ public static abstract sealed class FromSchema1Boxed<br>
 permits<br>
 [FromSchema1BoxedMap](#fromschema1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## FromSchema1BoxedMap
 public static final class FromSchema1BoxedMap<br>
-extends FromSchema1Boxed
+extends [FromSchema1Boxed](#fromschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FromSchema1BoxedMap(FromSchemaMap data)<br>Creates an instance, private visibility |
+| FromSchema1BoxedMap([FromSchemaMap](#fromschemamap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| FromSchemaMap | data<br>validated payload |
+| [FromSchemaMap](#fromschemamap) | data<br>validated payload |
 
 ## FromSchema1
 public static class FromSchema1<br>
@@ -142,11 +142,11 @@ public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
 public static final class IdBoxedNumber<br>
-extends IdBoxed
+extends [IdBoxed](#idboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -176,11 +176,11 @@ public static abstract sealed class DataBoxed<br>
 permits<br>
 [DataBoxedString](#databoxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## DataBoxedString
 public static final class DataBoxedString<br>
-extends DataBoxed
+extends [DataBoxed](#databoxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

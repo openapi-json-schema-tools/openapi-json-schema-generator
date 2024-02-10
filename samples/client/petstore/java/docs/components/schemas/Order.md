@@ -3,9 +3,9 @@ org.openapijsonschematools.client.components.schemas.Order.java
 public class Order
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -13,28 +13,28 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Order.Order1Boxed](#order1boxed)<br> sealed validated payload class |
+| static class | [Order.Order1Boxed](#order1boxed)<br> abstract sealed validated payload class |
 | static class | [Order.Order1BoxedMap](#order1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Order.Order1](#order1)<br> schema class |
 | static class | [Order.OrderMapBuilder](#ordermapbuilder)<br> builder for Map payloads |
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
-| static class | [Order.CompleteBoxed](#completeboxed)<br> sealed validated payload class |
+| static class | [Order.CompleteBoxed](#completeboxed)<br> abstract sealed validated payload class |
 | static class | [Order.CompleteBoxedBoolean](#completeboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Order.Complete](#complete)<br> schema class |
-| static class | [Order.StatusBoxed](#statusboxed)<br> sealed validated payload class |
+| static class | [Order.StatusBoxed](#statusboxed)<br> abstract sealed validated payload class |
 | static class | [Order.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Order.Status](#status)<br> schema class |
 | enum | [Order.StringStatusEnums](#stringstatusenums)<br>String enum |
-| static class | [Order.ShipDateBoxed](#shipdateboxed)<br> sealed validated payload class |
+| static class | [Order.ShipDateBoxed](#shipdateboxed)<br> abstract sealed validated payload class |
 | static class | [Order.ShipDateBoxedString](#shipdateboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Order.ShipDate](#shipdate)<br> schema class |
-| static class | [Order.QuantityBoxed](#quantityboxed)<br> sealed validated payload class |
+| static class | [Order.QuantityBoxed](#quantityboxed)<br> abstract sealed validated payload class |
 | static class | [Order.QuantityBoxedNumber](#quantityboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.Quantity](#quantity)<br> schema class |
-| static class | [Order.PetIdBoxed](#petidboxed)<br> sealed validated payload class |
+| static class | [Order.PetIdBoxed](#petidboxed)<br> abstract sealed validated payload class |
 | static class | [Order.PetIdBoxedNumber](#petidboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.PetId](#petid)<br> schema class |
-| static class | [Order.IdBoxed](#idboxed)<br> sealed validated payload class |
+| static class | [Order.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
 | static class | [Order.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Order.Id](#id)<br> schema class |
 
@@ -43,23 +43,23 @@ public static abstract sealed class Order1Boxed<br>
 permits<br>
 [Order1BoxedMap](#order1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Order1BoxedMap
 public static final class Order1BoxedMap<br>
-extends Order1Boxed
+extends [Order1Boxed](#order1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Order1BoxedMap(OrderMap data)<br>Creates an instance, private visibility |
+| Order1BoxedMap([OrderMap](#ordermap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| OrderMap | data<br>validated payload |
+| [OrderMap](#ordermap) | data<br>validated payload |
 
 ## Order1
 public static class Order1<br>
@@ -177,11 +177,11 @@ public static abstract sealed class CompleteBoxed<br>
 permits<br>
 [CompleteBoxedBoolean](#completeboxedboolean)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## CompleteBoxedBoolean
 public static final class CompleteBoxedBoolean<br>
-extends CompleteBoxed
+extends [CompleteBoxed](#completeboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -211,11 +211,11 @@ public static abstract sealed class StatusBoxed<br>
 permits<br>
 [StatusBoxedString](#statusboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## StatusBoxedString
 public static final class StatusBoxedString<br>
-extends StatusBoxed
+extends [StatusBoxed](#statusboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -291,11 +291,11 @@ public static abstract sealed class ShipDateBoxed<br>
 permits<br>
 [ShipDateBoxedString](#shipdateboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ShipDateBoxedString
 public static final class ShipDateBoxedString<br>
-extends ShipDateBoxed
+extends [ShipDateBoxed](#shipdateboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -325,11 +325,11 @@ public static abstract sealed class QuantityBoxed<br>
 permits<br>
 [QuantityBoxedNumber](#quantityboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## QuantityBoxedNumber
 public static final class QuantityBoxedNumber<br>
-extends QuantityBoxed
+extends [QuantityBoxed](#quantityboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -359,11 +359,11 @@ public static abstract sealed class PetIdBoxed<br>
 permits<br>
 [PetIdBoxedNumber](#petidboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## PetIdBoxedNumber
 public static final class PetIdBoxedNumber<br>
-extends PetIdBoxed
+extends [PetIdBoxed](#petidboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -393,11 +393,11 @@ public static abstract sealed class IdBoxed<br>
 permits<br>
 [IdBoxedNumber](#idboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## IdBoxedNumber
 public static final class IdBoxedNumber<br>
-extends IdBoxed
+extends [IdBoxed](#idboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

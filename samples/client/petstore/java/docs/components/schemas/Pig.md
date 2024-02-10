@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.Pig.java
 public class Pig
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Pig.Pig1Boxed](#pig1boxed)<br> sealed validated payload class |
+| static class | [Pig.Pig1Boxed](#pig1boxed)<br> abstract sealed validated payload class |
 | static class | [Pig.Pig1BoxedVoid](#pig1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Pig.Pig1BoxedBoolean](#pig1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Pig.Pig1BoxedNumber](#pig1boxednumber)<br> boxed class to store validated Number payloads |
@@ -29,11 +29,11 @@ permits<br>
 [Pig1BoxedList](#pig1boxedlist),
 [Pig1BoxedMap](#pig1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Pig1BoxedVoid
 public static final class Pig1BoxedVoid<br>
-extends Pig1Boxed
+extends [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -49,7 +49,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Pig1BoxedBoolean
 public static final class Pig1BoxedBoolean<br>
-extends Pig1Boxed
+extends [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -65,7 +65,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Pig1BoxedNumber
 public static final class Pig1BoxedNumber<br>
-extends Pig1Boxed
+extends [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -81,7 +81,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Pig1BoxedString
 public static final class Pig1BoxedString<br>
-extends Pig1Boxed
+extends [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -97,7 +97,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Pig1BoxedList
 public static final class Pig1BoxedList<br>
-extends Pig1Boxed
+extends [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -113,7 +113,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Pig1BoxedMap
 public static final class Pig1BoxedMap<br>
-extends Pig1Boxed
+extends [Pig1Boxed](#pig1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

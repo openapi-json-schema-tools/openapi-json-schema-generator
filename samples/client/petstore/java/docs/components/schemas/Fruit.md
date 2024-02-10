@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.Fruit.java
 public class Fruit
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Fruit.Fruit1Boxed](#fruit1boxed)<br> sealed validated payload class |
+| static class | [Fruit.Fruit1Boxed](#fruit1boxed)<br> abstract sealed validated payload class |
 | static class | [Fruit.Fruit1BoxedVoid](#fruit1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Fruit.Fruit1BoxedBoolean](#fruit1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Fruit.Fruit1BoxedNumber](#fruit1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [Fruit.Fruit1](#fruit1)<br> schema class |
 | static class | [Fruit.FruitMapBuilder](#fruitmapbuilder)<br> builder for Map payloads |
 | static class | [Fruit.FruitMap](#fruitmap)<br> output class for Map payloads |
-| static class | [Fruit.ColorBoxed](#colorboxed)<br> sealed validated payload class |
+| static class | [Fruit.ColorBoxed](#colorboxed)<br> abstract sealed validated payload class |
 | static class | [Fruit.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Fruit.Color](#color)<br> schema class |
 
@@ -36,11 +36,11 @@ permits<br>
 [Fruit1BoxedList](#fruit1boxedlist),
 [Fruit1BoxedMap](#fruit1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Fruit1BoxedVoid
 public static final class Fruit1BoxedVoid<br>
-extends Fruit1Boxed
+extends [Fruit1Boxed](#fruit1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -56,7 +56,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Fruit1BoxedBoolean
 public static final class Fruit1BoxedBoolean<br>
-extends Fruit1Boxed
+extends [Fruit1Boxed](#fruit1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -72,7 +72,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Fruit1BoxedNumber
 public static final class Fruit1BoxedNumber<br>
-extends Fruit1Boxed
+extends [Fruit1Boxed](#fruit1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -88,7 +88,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Fruit1BoxedString
 public static final class Fruit1BoxedString<br>
-extends Fruit1Boxed
+extends [Fruit1Boxed](#fruit1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -104,7 +104,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Fruit1BoxedList
 public static final class Fruit1BoxedList<br>
-extends Fruit1Boxed
+extends [Fruit1Boxed](#fruit1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -120,19 +120,19 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Fruit1BoxedMap
 public static final class Fruit1BoxedMap<br>
-extends Fruit1Boxed
+extends [Fruit1Boxed](#fruit1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Fruit1BoxedMap(FruitMap data)<br>Creates an instance, private visibility |
+| Fruit1BoxedMap([FruitMap](#fruitmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| FruitMap | data<br>validated payload |
+| [FruitMap](#fruitmap) | data<br>validated payload |
 
 ## Fruit1
 public static class Fruit1<br>
@@ -210,11 +210,11 @@ public static abstract sealed class ColorBoxed<br>
 permits<br>
 [ColorBoxedString](#colorboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ColorBoxedString
 public static final class ColorBoxedString<br>
-extends ColorBoxed
+extends [ColorBoxed](#colorboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

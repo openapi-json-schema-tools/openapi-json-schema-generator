@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.DecimalPayload.java
 public class DecimalPayload
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [DecimalPayload.DecimalPayload1Boxed](#decimalpayload1boxed)<br> sealed validated payload class |
+| static class | [DecimalPayload.DecimalPayload1Boxed](#decimalpayload1boxed)<br> abstract sealed validated payload class |
 | static class | [DecimalPayload.DecimalPayload1BoxedString](#decimalpayload1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [DecimalPayload.DecimalPayload1](#decimalpayload1)<br> schema class |
 
@@ -19,11 +19,11 @@ public static abstract sealed class DecimalPayload1Boxed<br>
 permits<br>
 [DecimalPayload1BoxedString](#decimalpayload1boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## DecimalPayload1BoxedString
 public static final class DecimalPayload1BoxedString<br>
-extends DecimalPayload1Boxed
+extends [DecimalPayload1Boxed](#decimalpayload1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.NumberWithValidations.java
 public class NumberWithValidations
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NumberWithValidations.NumberWithValidations1Boxed](#numberwithvalidations1boxed)<br> sealed validated payload class |
+| static class | [NumberWithValidations.NumberWithValidations1Boxed](#numberwithvalidations1boxed)<br> abstract sealed validated payload class |
 | static class | [NumberWithValidations.NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberWithValidations.NumberWithValidations1](#numberwithvalidations1)<br> schema class |
 
@@ -19,11 +19,11 @@ public static abstract sealed class NumberWithValidations1Boxed<br>
 permits<br>
 [NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NumberWithValidations1BoxedNumber
 public static final class NumberWithValidations1BoxedNumber<br>
-extends NumberWithValidations1Boxed
+extends [NumberWithValidations1Boxed](#numberwithvalidations1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

@@ -2,14 +2,14 @@
 public class RefSchemaHeaderSchema
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [RefSchemaHeaderSchema.RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)<br> sealed validated payload class |
+| static class | [RefSchemaHeaderSchema.RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)<br> abstract sealed validated payload class |
 | static class | [RefSchemaHeaderSchema.RefSchemaHeaderSchema1BoxedVoid](#refschemaheaderschema1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [RefSchemaHeaderSchema.RefSchemaHeaderSchema1BoxedBoolean](#refschemaheaderschema1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [RefSchemaHeaderSchema.RefSchemaHeaderSchema1BoxedNumber](#refschemaheaderschema1boxednumber)<br> boxed class to store validated Number payloads |
@@ -28,11 +28,11 @@ permits<br>
 [RefSchemaHeaderSchema1BoxedList](#refschemaheaderschema1boxedlist),
 [RefSchemaHeaderSchema1BoxedMap](#refschemaheaderschema1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## RefSchemaHeaderSchema1BoxedVoid
 public static final class RefSchemaHeaderSchema1BoxedVoid<br>
-extends RefSchemaHeaderSchema1Boxed
+extends [RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -48,7 +48,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## RefSchemaHeaderSchema1BoxedBoolean
 public static final class RefSchemaHeaderSchema1BoxedBoolean<br>
-extends RefSchemaHeaderSchema1Boxed
+extends [RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -64,7 +64,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## RefSchemaHeaderSchema1BoxedNumber
 public static final class RefSchemaHeaderSchema1BoxedNumber<br>
-extends RefSchemaHeaderSchema1Boxed
+extends [RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -80,7 +80,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## RefSchemaHeaderSchema1BoxedString
 public static final class RefSchemaHeaderSchema1BoxedString<br>
-extends RefSchemaHeaderSchema1Boxed
+extends [RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -96,7 +96,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## RefSchemaHeaderSchema1BoxedList
 public static final class RefSchemaHeaderSchema1BoxedList<br>
-extends RefSchemaHeaderSchema1Boxed
+extends [RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -112,7 +112,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## RefSchemaHeaderSchema1BoxedMap
 public static final class RefSchemaHeaderSchema1BoxedMap<br>
-extends RefSchemaHeaderSchema1Boxed
+extends [RefSchemaHeaderSchema1Boxed](#refschemaheaderschema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

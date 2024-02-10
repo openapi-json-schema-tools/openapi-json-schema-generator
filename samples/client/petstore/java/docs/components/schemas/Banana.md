@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.Banana.java
 public class Banana
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Banana.Banana1Boxed](#banana1boxed)<br> sealed validated payload class |
+| static class | [Banana.Banana1Boxed](#banana1boxed)<br> abstract sealed validated payload class |
 | static class | [Banana.Banana1BoxedMap](#banana1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Banana.Banana1](#banana1)<br> schema class |
 | static class | [Banana.BananaMapBuilder](#bananamapbuilder)<br> builder for Map payloads |
 | static class | [Banana.BananaMap](#bananamap)<br> output class for Map payloads |
-| static class | [Banana.LengthCmBoxed](#lengthcmboxed)<br> sealed validated payload class |
+| static class | [Banana.LengthCmBoxed](#lengthcmboxed)<br> abstract sealed validated payload class |
 | static class | [Banana.LengthCmBoxedNumber](#lengthcmboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Banana.LengthCm](#lengthcm)<br> schema class |
 
@@ -26,23 +26,23 @@ public static abstract sealed class Banana1Boxed<br>
 permits<br>
 [Banana1BoxedMap](#banana1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Banana1BoxedMap
 public static final class Banana1BoxedMap<br>
-extends Banana1Boxed
+extends [Banana1Boxed](#banana1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Banana1BoxedMap(BananaMap data)<br>Creates an instance, private visibility |
+| Banana1BoxedMap([BananaMap](#bananamap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| BananaMap | data<br>validated payload |
+| [BananaMap](#bananamap) | data<br>validated payload |
 
 ## Banana1
 public static class Banana1<br>
@@ -151,11 +151,11 @@ public static abstract sealed class LengthCmBoxed<br>
 permits<br>
 [LengthCmBoxedNumber](#lengthcmboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## LengthCmBoxedNumber
 public static final class LengthCmBoxedNumber<br>
-extends LengthCmBoxed
+extends [LengthCmBoxed](#lengthcmboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

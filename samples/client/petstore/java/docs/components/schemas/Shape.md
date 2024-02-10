@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.Shape.java
 public class Shape
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Shape.Shape1Boxed](#shape1boxed)<br> sealed validated payload class |
+| static class | [Shape.Shape1Boxed](#shape1boxed)<br> abstract sealed validated payload class |
 | static class | [Shape.Shape1BoxedVoid](#shape1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Shape.Shape1BoxedBoolean](#shape1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Shape.Shape1BoxedNumber](#shape1boxednumber)<br> boxed class to store validated Number payloads |
@@ -29,11 +29,11 @@ permits<br>
 [Shape1BoxedList](#shape1boxedlist),
 [Shape1BoxedMap](#shape1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Shape1BoxedVoid
 public static final class Shape1BoxedVoid<br>
-extends Shape1Boxed
+extends [Shape1Boxed](#shape1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -49,7 +49,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Shape1BoxedBoolean
 public static final class Shape1BoxedBoolean<br>
-extends Shape1Boxed
+extends [Shape1Boxed](#shape1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -65,7 +65,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Shape1BoxedNumber
 public static final class Shape1BoxedNumber<br>
-extends Shape1Boxed
+extends [Shape1Boxed](#shape1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -81,7 +81,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Shape1BoxedString
 public static final class Shape1BoxedString<br>
-extends Shape1Boxed
+extends [Shape1Boxed](#shape1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -97,7 +97,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Shape1BoxedList
 public static final class Shape1BoxedList<br>
-extends Shape1Boxed
+extends [Shape1Boxed](#shape1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -113,7 +113,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Shape1BoxedMap
 public static final class Shape1BoxedMap<br>
-extends Shape1Boxed
+extends [Shape1Boxed](#shape1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

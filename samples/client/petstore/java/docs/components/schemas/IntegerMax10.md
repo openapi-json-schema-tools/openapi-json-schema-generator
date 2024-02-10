@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.IntegerMax10.java
 public class IntegerMax10
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [IntegerMax10.IntegerMax101Boxed](#integermax101boxed)<br> sealed validated payload class |
+| static class | [IntegerMax10.IntegerMax101Boxed](#integermax101boxed)<br> abstract sealed validated payload class |
 | static class | [IntegerMax10.IntegerMax101BoxedNumber](#integermax101boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMax10.IntegerMax101](#integermax101)<br> schema class |
 
@@ -19,11 +19,11 @@ public static abstract sealed class IntegerMax101Boxed<br>
 permits<br>
 [IntegerMax101BoxedNumber](#integermax101boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## IntegerMax101BoxedNumber
 public static final class IntegerMax101BoxedNumber<br>
-extends IntegerMax101Boxed
+extends [IntegerMax101Boxed](#integermax101boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

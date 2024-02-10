@@ -3,9 +3,9 @@ org.openapijsonschematools.client.components.schemas.EnumArrays.java
 public class EnumArrays
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -15,21 +15,21 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EnumArrays.EnumArrays1Boxed](#enumarrays1boxed)<br> sealed validated payload class |
+| static class | [EnumArrays.EnumArrays1Boxed](#enumarrays1boxed)<br> abstract sealed validated payload class |
 | static class | [EnumArrays.EnumArrays1BoxedMap](#enumarrays1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumArrays.EnumArrays1](#enumarrays1)<br> schema class |
 | static class | [EnumArrays.EnumArraysMapBuilder](#enumarraysmapbuilder)<br> builder for Map payloads |
 | static class | [EnumArrays.EnumArraysMap](#enumarraysmap)<br> output class for Map payloads |
-| static class | [EnumArrays.ArrayEnumBoxed](#arrayenumboxed)<br> sealed validated payload class |
+| static class | [EnumArrays.ArrayEnumBoxed](#arrayenumboxed)<br> abstract sealed validated payload class |
 | static class | [EnumArrays.ArrayEnumBoxedList](#arrayenumboxedlist)<br> boxed class to store validated List payloads |
 | static class | [EnumArrays.ArrayEnum](#arrayenum)<br> schema class |
 | static class | [EnumArrays.ArrayEnumListBuilder](#arrayenumlistbuilder)<br> builder for List payloads |
 | static class | [EnumArrays.ArrayEnumList](#arrayenumlist)<br> output class for List payloads |
-| static class | [EnumArrays.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [EnumArrays.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
 | static class | [EnumArrays.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumArrays.Items](#items)<br> schema class |
 | enum | [EnumArrays.StringItemsEnums](#stringitemsenums)<br>String enum |
-| static class | [EnumArrays.JustSymbolBoxed](#justsymbolboxed)<br> sealed validated payload class |
+| static class | [EnumArrays.JustSymbolBoxed](#justsymbolboxed)<br> abstract sealed validated payload class |
 | static class | [EnumArrays.JustSymbolBoxedString](#justsymbolboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumArrays.JustSymbol](#justsymbol)<br> schema class |
 | enum | [EnumArrays.StringJustSymbolEnums](#stringjustsymbolenums)<br>String enum |
@@ -39,23 +39,23 @@ public static abstract sealed class EnumArrays1Boxed<br>
 permits<br>
 [EnumArrays1BoxedMap](#enumarrays1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## EnumArrays1BoxedMap
 public static final class EnumArrays1BoxedMap<br>
-extends EnumArrays1Boxed
+extends [EnumArrays1Boxed](#enumarrays1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| EnumArrays1BoxedMap(EnumArraysMap data)<br>Creates an instance, private visibility |
+| EnumArrays1BoxedMap([EnumArraysMap](#enumarraysmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| EnumArraysMap | data<br>validated payload |
+| [EnumArraysMap](#enumarraysmap) | data<br>validated payload |
 
 ## EnumArrays1
 public static class EnumArrays1<br>
@@ -153,23 +153,23 @@ public static abstract sealed class ArrayEnumBoxed<br>
 permits<br>
 [ArrayEnumBoxedList](#arrayenumboxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ArrayEnumBoxedList
 public static final class ArrayEnumBoxedList<br>
-extends ArrayEnumBoxed
+extends [ArrayEnumBoxed](#arrayenumboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ArrayEnumBoxedList(ArrayEnumList data)<br>Creates an instance, private visibility |
+| ArrayEnumBoxedList([ArrayEnumList](#arrayenumlist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ArrayEnumList | data<br>validated payload |
+| [ArrayEnumList](#arrayenumlist) | data<br>validated payload |
 
 ## ArrayEnum
 public static class ArrayEnum<br>
@@ -250,11 +250,11 @@ public static abstract sealed class ItemsBoxed<br>
 permits<br>
 [ItemsBoxedString](#itemsboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>
-extends ItemsBoxed
+extends [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -326,11 +326,11 @@ public static abstract sealed class JustSymbolBoxed<br>
 permits<br>
 [JustSymbolBoxedString](#justsymbolboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## JustSymbolBoxedString
 public static final class JustSymbolBoxedString<br>
-extends JustSymbolBoxed
+extends [JustSymbolBoxed](#justsymbolboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

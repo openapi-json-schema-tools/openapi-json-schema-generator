@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.ObjectInterface.java
 public class ObjectInterface
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectInterface.ObjectInterface1Boxed](#objectinterface1boxed)<br> sealed validated payload class |
+| static class | [ObjectInterface.ObjectInterface1Boxed](#objectinterface1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectInterface.ObjectInterface1BoxedMap](#objectinterface1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectInterface.ObjectInterface1](#objectinterface1)<br> schema class |
 
@@ -19,11 +19,11 @@ public static abstract sealed class ObjectInterface1Boxed<br>
 permits<br>
 [ObjectInterface1BoxedMap](#objectinterface1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectInterface1BoxedMap
 public static final class ObjectInterface1BoxedMap<br>
-extends ObjectInterface1Boxed
+extends [ObjectInterface1Boxed](#objectinterface1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

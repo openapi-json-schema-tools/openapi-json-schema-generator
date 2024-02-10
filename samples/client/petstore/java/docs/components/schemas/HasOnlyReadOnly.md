@@ -3,24 +3,24 @@ org.openapijsonschematools.client.components.schemas.HasOnlyReadOnly.java
 public class HasOnlyReadOnly
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [HasOnlyReadOnly.HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed)<br> sealed validated payload class |
+| static class | [HasOnlyReadOnly.HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed)<br> abstract sealed validated payload class |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnly1](#hasonlyreadonly1)<br> schema class |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder)<br> builder for Map payloads |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnlyMap](#hasonlyreadonlymap)<br> output class for Map payloads |
-| static class | [HasOnlyReadOnly.FooBoxed](#fooboxed)<br> sealed validated payload class |
+| static class | [HasOnlyReadOnly.FooBoxed](#fooboxed)<br> abstract sealed validated payload class |
 | static class | [HasOnlyReadOnly.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HasOnlyReadOnly.Foo](#foo)<br> schema class |
-| static class | [HasOnlyReadOnly.BarBoxed](#barboxed)<br> sealed validated payload class |
+| static class | [HasOnlyReadOnly.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
 | static class | [HasOnlyReadOnly.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HasOnlyReadOnly.Bar](#bar)<br> schema class |
 
@@ -29,23 +29,23 @@ public static abstract sealed class HasOnlyReadOnly1Boxed<br>
 permits<br>
 [HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## HasOnlyReadOnly1BoxedMap
 public static final class HasOnlyReadOnly1BoxedMap<br>
-extends HasOnlyReadOnly1Boxed
+extends [HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| HasOnlyReadOnly1BoxedMap(HasOnlyReadOnlyMap data)<br>Creates an instance, private visibility |
+| HasOnlyReadOnly1BoxedMap([HasOnlyReadOnlyMap](#hasonlyreadonlymap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| HasOnlyReadOnlyMap | data<br>validated payload |
+| [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | data<br>validated payload |
 
 ## HasOnlyReadOnly1
 public static class HasOnlyReadOnly1<br>
@@ -139,11 +139,11 @@ public static abstract sealed class FooBoxed<br>
 permits<br>
 [FooBoxedString](#fooboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## FooBoxedString
 public static final class FooBoxedString<br>
-extends FooBoxed
+extends [FooBoxed](#fooboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -173,11 +173,11 @@ public static abstract sealed class BarBoxed<br>
 permits<br>
 [BarBoxedString](#barboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## BarBoxedString
 public static final class BarBoxedString<br>
-extends BarBoxed
+extends [BarBoxed](#barboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

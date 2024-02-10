@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.ReqPropsFromTrueAddProps.ja
 public class ReqPropsFromTrueAddProps
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1Boxed](#reqpropsfromtrueaddprops1boxed)<br> sealed validated payload class |
+| static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1Boxed](#reqpropsfromtrueaddprops1boxed)<br> abstract sealed validated payload class |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1BoxedMap](#reqpropsfromtrueaddprops1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1](#reqpropsfromtrueaddprops1)<br> schema class |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMapBuilder](#reqpropsfromtrueaddpropsmapbuilder)<br> builder for Map payloads |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap)<br> output class for Map payloads |
-| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
 | static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [ReqPropsFromTrueAddProps.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
@@ -31,23 +31,23 @@ public static abstract sealed class ReqPropsFromTrueAddProps1Boxed<br>
 permits<br>
 [ReqPropsFromTrueAddProps1BoxedMap](#reqpropsfromtrueaddprops1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ReqPropsFromTrueAddProps1BoxedMap
 public static final class ReqPropsFromTrueAddProps1BoxedMap<br>
-extends ReqPropsFromTrueAddProps1Boxed
+extends [ReqPropsFromTrueAddProps1Boxed](#reqpropsfromtrueaddprops1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ReqPropsFromTrueAddProps1BoxedMap(ReqPropsFromTrueAddPropsMap data)<br>Creates an instance, private visibility |
+| ReqPropsFromTrueAddProps1BoxedMap([ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ReqPropsFromTrueAddPropsMap | data<br>validated payload |
+| [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | data<br>validated payload |
 
 ## ReqPropsFromTrueAddProps1
 public static class ReqPropsFromTrueAddProps1<br>
@@ -222,11 +222,11 @@ permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedVoid
 public static final class AdditionalPropertiesBoxedVoid<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -242,7 +242,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedBoolean
 public static final class AdditionalPropertiesBoxedBoolean<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -258,7 +258,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## AdditionalPropertiesBoxedNumber
 public static final class AdditionalPropertiesBoxedNumber<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -274,7 +274,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -290,7 +290,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedList
 public static final class AdditionalPropertiesBoxedList<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -306,7 +306,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedMap
 public static final class AdditionalPropertiesBoxedMap<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

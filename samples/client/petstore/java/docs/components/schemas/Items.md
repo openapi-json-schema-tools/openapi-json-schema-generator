@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.Items.java
 public class Items
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Items.Items1Boxed](#items1boxed)<br> sealed validated payload class |
+| static class | [Items.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
 | static class | [Items.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Items.Items1](#items1)<br> schema class |
 | static class | [Items.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [Items.ItemsList](#itemslist)<br> output class for List payloads |
-| static class | [Items.Items2Boxed](#items2boxed)<br> sealed validated payload class |
+| static class | [Items.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
 | static class | [Items.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Items.Items2](#items2)<br> schema class |
 
@@ -26,23 +26,23 @@ public static abstract sealed class Items1Boxed<br>
 permits<br>
 [Items1BoxedList](#items1boxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Items1BoxedList
 public static final class Items1BoxedList<br>
-extends Items1Boxed
+extends [Items1Boxed](#items1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Items1BoxedList(ItemsList data)<br>Creates an instance, private visibility |
+| Items1BoxedList([ItemsList](#itemslist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ItemsList | data<br>validated payload |
+| [ItemsList](#itemslist) | data<br>validated payload |
 
 ## Items1
 public static class Items1<br>
@@ -123,11 +123,11 @@ public static abstract sealed class Items2Boxed<br>
 permits<br>
 [Items2BoxedMap](#items2boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Items2BoxedMap
 public static final class Items2BoxedMap<br>
-extends Items2Boxed
+extends [Items2Boxed](#items2boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

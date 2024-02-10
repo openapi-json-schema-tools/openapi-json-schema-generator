@@ -10,9 +10,9 @@
 public class {{containerJsonPathPiece.pascalCase}}
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 {{#if containsArrayOutputClass}}
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
@@ -30,7 +30,7 @@ A class that contains necessary nested
 | ----------------- | ---------------------- |
 {{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
-| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})<br> sealed validated payload class |
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})<br> abstract sealed validated payload class |
         {{#each types}}
             {{#eq this "null"}}
 | static class | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}})<br> boxed class to store validated null payloads |

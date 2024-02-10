@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.AnyTypeNotString.java
 public class AnyTypeNotString
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [AnyTypeNotString.AnyTypeNotString1Boxed](#anytypenotstring1boxed)<br> sealed validated payload class |
+| static class | [AnyTypeNotString.AnyTypeNotString1Boxed](#anytypenotstring1boxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeNotString.AnyTypeNotString1BoxedVoid](#anytypenotstring1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeNotString.AnyTypeNotString1BoxedBoolean](#anytypenotstring1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeNotString.AnyTypeNotString1BoxedNumber](#anytypenotstring1boxednumber)<br> boxed class to store validated Number payloads |
@@ -18,7 +18,7 @@ A class that contains necessary nested
 | static class | [AnyTypeNotString.AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeNotString.AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeNotString.AnyTypeNotString1](#anytypenotstring1)<br> schema class |
-| static class | [AnyTypeNotString.NotBoxed](#notboxed)<br> sealed validated payload class |
+| static class | [AnyTypeNotString.NotBoxed](#notboxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeNotString.NotBoxedString](#notboxedstring)<br> boxed class to store validated String payloads |
 | static class | [AnyTypeNotString.Not](#not)<br> schema class |
 
@@ -32,11 +32,11 @@ permits<br>
 [AnyTypeNotString1BoxedList](#anytypenotstring1boxedlist),
 [AnyTypeNotString1BoxedMap](#anytypenotstring1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AnyTypeNotString1BoxedVoid
 public static final class AnyTypeNotString1BoxedVoid<br>
-extends AnyTypeNotString1Boxed
+extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -52,7 +52,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AnyTypeNotString1BoxedBoolean
 public static final class AnyTypeNotString1BoxedBoolean<br>
-extends AnyTypeNotString1Boxed
+extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -68,7 +68,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## AnyTypeNotString1BoxedNumber
 public static final class AnyTypeNotString1BoxedNumber<br>
-extends AnyTypeNotString1Boxed
+extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -84,7 +84,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## AnyTypeNotString1BoxedString
 public static final class AnyTypeNotString1BoxedString<br>
-extends AnyTypeNotString1Boxed
+extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -100,7 +100,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## AnyTypeNotString1BoxedList
 public static final class AnyTypeNotString1BoxedList<br>
-extends AnyTypeNotString1Boxed
+extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -116,7 +116,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## AnyTypeNotString1BoxedMap
 public static final class AnyTypeNotString1BoxedMap<br>
-extends AnyTypeNotString1Boxed
+extends [AnyTypeNotString1Boxed](#anytypenotstring1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -166,11 +166,11 @@ public static abstract sealed class NotBoxed<br>
 permits<br>
 [NotBoxedString](#notboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NotBoxedString
 public static final class NotBoxedString<br>
-extends NotBoxed
+extends [NotBoxed](#notboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

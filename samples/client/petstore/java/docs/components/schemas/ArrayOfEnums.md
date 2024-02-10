@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.ArrayOfEnums.java
 public class ArrayOfEnums
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ArrayOfEnums.ArrayOfEnums1Boxed](#arrayofenums1boxed)<br> sealed validated payload class |
+| static class | [ArrayOfEnums.ArrayOfEnums1Boxed](#arrayofenums1boxed)<br> abstract sealed validated payload class |
 | static class | [ArrayOfEnums.ArrayOfEnums1BoxedList](#arrayofenums1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayOfEnums.ArrayOfEnums1](#arrayofenums1)<br> schema class |
 | static class | [ArrayOfEnums.ArrayOfEnumsListBuilder](#arrayofenumslistbuilder)<br> builder for List payloads |
@@ -23,23 +23,23 @@ public static abstract sealed class ArrayOfEnums1Boxed<br>
 permits<br>
 [ArrayOfEnums1BoxedList](#arrayofenums1boxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ArrayOfEnums1BoxedList
 public static final class ArrayOfEnums1BoxedList<br>
-extends ArrayOfEnums1Boxed
+extends [ArrayOfEnums1Boxed](#arrayofenums1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ArrayOfEnums1BoxedList(ArrayOfEnumsList data)<br>Creates an instance, private visibility |
+| ArrayOfEnums1BoxedList([ArrayOfEnumsList](#arrayofenumslist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ArrayOfEnumsList | data<br>validated payload |
+| [ArrayOfEnumsList](#arrayofenumslist) | data<br>validated payload |
 
 ## ArrayOfEnums1
 public static class ArrayOfEnums1<br>

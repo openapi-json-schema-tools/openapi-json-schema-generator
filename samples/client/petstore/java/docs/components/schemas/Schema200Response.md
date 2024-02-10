@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.Schema200Response.java
 public class Schema200Response
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema200Response.Schema200Response1Boxed](#schema200response1boxed)<br> sealed validated payload class |
+| static class | [Schema200Response.Schema200Response1Boxed](#schema200response1boxed)<br> abstract sealed validated payload class |
 | static class | [Schema200Response.Schema200Response1BoxedVoid](#schema200response1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Schema200Response.Schema200Response1BoxedBoolean](#schema200response1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Schema200Response.Schema200Response1BoxedNumber](#schema200response1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,10 +22,10 @@ A class that contains necessary nested
 | static class | [Schema200Response.Schema200Response1](#schema200response1)<br> schema class |
 | static class | [Schema200Response.Schema200ResponseMapBuilder](#schema200responsemapbuilder)<br> builder for Map payloads |
 | static class | [Schema200Response.Schema200ResponseMap](#schema200responsemap)<br> output class for Map payloads |
-| static class | [Schema200Response.ClassSchemaBoxed](#classschemaboxed)<br> sealed validated payload class |
+| static class | [Schema200Response.ClassSchemaBoxed](#classschemaboxed)<br> abstract sealed validated payload class |
 | static class | [Schema200Response.ClassSchemaBoxedString](#classschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema200Response.ClassSchema](#classschema)<br> schema class |
-| static class | [Schema200Response.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [Schema200Response.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
 | static class | [Schema200Response.NameBoxedNumber](#nameboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema200Response.Name](#name)<br> schema class |
 
@@ -39,11 +39,11 @@ permits<br>
 [Schema200Response1BoxedList](#schema200response1boxedlist),
 [Schema200Response1BoxedMap](#schema200response1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema200Response1BoxedVoid
 public static final class Schema200Response1BoxedVoid<br>
-extends Schema200Response1Boxed
+extends [Schema200Response1Boxed](#schema200response1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -59,7 +59,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Schema200Response1BoxedBoolean
 public static final class Schema200Response1BoxedBoolean<br>
-extends Schema200Response1Boxed
+extends [Schema200Response1Boxed](#schema200response1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -75,7 +75,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Schema200Response1BoxedNumber
 public static final class Schema200Response1BoxedNumber<br>
-extends Schema200Response1Boxed
+extends [Schema200Response1Boxed](#schema200response1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -91,7 +91,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Schema200Response1BoxedString
 public static final class Schema200Response1BoxedString<br>
-extends Schema200Response1Boxed
+extends [Schema200Response1Boxed](#schema200response1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -107,7 +107,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Schema200Response1BoxedList
 public static final class Schema200Response1BoxedList<br>
-extends Schema200Response1Boxed
+extends [Schema200Response1Boxed](#schema200response1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -123,19 +123,19 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Schema200Response1BoxedMap
 public static final class Schema200Response1BoxedMap<br>
-extends Schema200Response1Boxed
+extends [Schema200Response1Boxed](#schema200response1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema200Response1BoxedMap(Schema200ResponseMap data)<br>Creates an instance, private visibility |
+| Schema200Response1BoxedMap([Schema200ResponseMap](#schema200responsemap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Schema200ResponseMap | data<br>validated payload |
+| [Schema200ResponseMap](#schema200responsemap) | data<br>validated payload |
 
 ## Schema200Response1
 public static class Schema200Response1<br>
@@ -218,11 +218,11 @@ public static abstract sealed class ClassSchemaBoxed<br>
 permits<br>
 [ClassSchemaBoxedString](#classschemaboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ClassSchemaBoxedString
 public static final class ClassSchemaBoxedString<br>
-extends ClassSchemaBoxed
+extends [ClassSchemaBoxed](#classschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -255,11 +255,11 @@ public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedNumber](#nameboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NameBoxedNumber
 public static final class NameBoxedNumber<br>
-extends NameBoxed
+extends [NameBoxed](#nameboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

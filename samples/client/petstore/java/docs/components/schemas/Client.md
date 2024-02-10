@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.Client.java
 public class Client
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Client.Client1Boxed](#client1boxed)<br> sealed validated payload class |
+| static class | [Client.Client1Boxed](#client1boxed)<br> abstract sealed validated payload class |
 | static class | [Client.Client1BoxedMap](#client1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Client.Client1](#client1)<br> schema class |
 | static class | [Client.ClientMapBuilder1](#clientmapbuilder1)<br> builder for Map payloads |
 | static class | [Client.ClientMap](#clientmap)<br> output class for Map payloads |
-| static class | [Client.Client2Boxed](#client2boxed)<br> sealed validated payload class |
+| static class | [Client.Client2Boxed](#client2boxed)<br> abstract sealed validated payload class |
 | static class | [Client.Client2BoxedString](#client2boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Client.Client2](#client2)<br> schema class |
 
@@ -26,23 +26,23 @@ public static abstract sealed class Client1Boxed<br>
 permits<br>
 [Client1BoxedMap](#client1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Client1BoxedMap
 public static final class Client1BoxedMap<br>
-extends Client1Boxed
+extends [Client1Boxed](#client1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Client1BoxedMap(ClientMap data)<br>Creates an instance, private visibility |
+| Client1BoxedMap([ClientMap](#clientmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ClientMap | data<br>validated payload |
+| [ClientMap](#clientmap) | data<br>validated payload |
 
 ## Client1
 public static class Client1<br>
@@ -132,11 +132,11 @@ public static abstract sealed class Client2Boxed<br>
 permits<br>
 [Client2BoxedString](#client2boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Client2BoxedString
 public static final class Client2BoxedString<br>
-extends Client2Boxed
+extends [Client2Boxed](#client2boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

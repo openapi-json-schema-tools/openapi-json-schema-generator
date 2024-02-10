@@ -3,9 +3,9 @@ org.openapijsonschematools.client.components.schemas.FileSchemaTestClass.java
 public class FileSchemaTestClass
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -14,12 +14,12 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [FileSchemaTestClass.FileSchemaTestClass1Boxed](#fileschematestclass1boxed)<br> sealed validated payload class |
+| static class | [FileSchemaTestClass.FileSchemaTestClass1Boxed](#fileschematestclass1boxed)<br> abstract sealed validated payload class |
 | static class | [FileSchemaTestClass.FileSchemaTestClass1BoxedMap](#fileschematestclass1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FileSchemaTestClass.FileSchemaTestClass1](#fileschematestclass1)<br> schema class |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMapBuilder](#fileschematestclassmapbuilder)<br> builder for Map payloads |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMap](#fileschematestclassmap)<br> output class for Map payloads |
-| static class | [FileSchemaTestClass.FilesBoxed](#filesboxed)<br> sealed validated payload class |
+| static class | [FileSchemaTestClass.FilesBoxed](#filesboxed)<br> abstract sealed validated payload class |
 | static class | [FileSchemaTestClass.FilesBoxedList](#filesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [FileSchemaTestClass.Files](#files)<br> schema class |
 | static class | [FileSchemaTestClass.FilesListBuilder](#fileslistbuilder)<br> builder for List payloads |
@@ -30,23 +30,23 @@ public static abstract sealed class FileSchemaTestClass1Boxed<br>
 permits<br>
 [FileSchemaTestClass1BoxedMap](#fileschematestclass1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## FileSchemaTestClass1BoxedMap
 public static final class FileSchemaTestClass1BoxedMap<br>
-extends FileSchemaTestClass1Boxed
+extends [FileSchemaTestClass1Boxed](#fileschematestclass1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FileSchemaTestClass1BoxedMap(FileSchemaTestClassMap data)<br>Creates an instance, private visibility |
+| FileSchemaTestClass1BoxedMap([FileSchemaTestClassMap](#fileschematestclassmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| FileSchemaTestClassMap | data<br>validated payload |
+| [FileSchemaTestClassMap](#fileschematestclassmap) | data<br>validated payload |
 
 ## FileSchemaTestClass1
 public static class FileSchemaTestClass1<br>
@@ -140,23 +140,23 @@ public static abstract sealed class FilesBoxed<br>
 permits<br>
 [FilesBoxedList](#filesboxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## FilesBoxedList
 public static final class FilesBoxedList<br>
-extends FilesBoxed
+extends [FilesBoxed](#filesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FilesBoxedList(FilesList data)<br>Creates an instance, private visibility |
+| FilesBoxedList([FilesList](#fileslist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| FilesList | data<br>validated payload |
+| [FilesList](#fileslist) | data<br>validated payload |
 
 ## Files
 public static class Files<br>

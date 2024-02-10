@@ -2,21 +2,21 @@
 public class Schema1
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema1.Schema11Boxed](#schema11boxed)<br> sealed validated payload class |
+| static class | [Schema1.Schema11Boxed](#schema11boxed)<br> abstract sealed validated payload class |
 | static class | [Schema1.Schema11BoxedList](#schema11boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema1.Schema11](#schema11)<br> schema class |
 | static class | [Schema1.SchemaListBuilder1](#schemalistbuilder1)<br> builder for List payloads |
 | static class | [Schema1.SchemaList1](#schemalist1)<br> output class for List payloads |
-| static class | [Schema1.Items1Boxed](#items1boxed)<br> sealed validated payload class |
+| static class | [Schema1.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
 | static class | [Schema1.Items1BoxedString](#items1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema1.Items1](#items1)<br> schema class |
 
@@ -25,23 +25,23 @@ public static abstract sealed class Schema11Boxed<br>
 permits<br>
 [Schema11BoxedList](#schema11boxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema11BoxedList
 public static final class Schema11BoxedList<br>
-extends Schema11Boxed
+extends [Schema11Boxed](#schema11boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema11BoxedList(SchemaList1 data)<br>Creates an instance, private visibility |
+| Schema11BoxedList([SchemaList1](#schemalist1) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| SchemaList1 | data<br>validated payload |
+| [SchemaList1](#schemalist1) | data<br>validated payload |
 
 ## Schema11
 public static class Schema11<br>
@@ -121,11 +121,11 @@ public static abstract sealed class Items1Boxed<br>
 permits<br>
 [Items1BoxedString](#items1boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Items1BoxedString
 public static final class Items1BoxedString<br>
-extends Items1Boxed
+extends [Items1Boxed](#items1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

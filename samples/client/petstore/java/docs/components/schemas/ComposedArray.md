@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.ComposedArray.java
 public class ComposedArray
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ComposedArray.ComposedArray1Boxed](#composedarray1boxed)<br> sealed validated payload class |
+| static class | [ComposedArray.ComposedArray1Boxed](#composedarray1boxed)<br> abstract sealed validated payload class |
 | static class | [ComposedArray.ComposedArray1BoxedList](#composedarray1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
 | static class | [ComposedArray.ComposedArrayListBuilder](#composedarraylistbuilder)<br> builder for List payloads |
 | static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
-| static class | [ComposedArray.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [ComposedArray.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
 | static class | [ComposedArray.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ComposedArray.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [ComposedArray.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
@@ -31,23 +31,23 @@ public static abstract sealed class ComposedArray1Boxed<br>
 permits<br>
 [ComposedArray1BoxedList](#composedarray1boxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ComposedArray1BoxedList
 public static final class ComposedArray1BoxedList<br>
-extends ComposedArray1Boxed
+extends [ComposedArray1Boxed](#composedarray1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ComposedArray1BoxedList(ComposedArrayList data)<br>Creates an instance, private visibility |
+| ComposedArray1BoxedList([ComposedArrayList](#composedarraylist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ComposedArrayList | data<br>validated payload |
+| [ComposedArrayList](#composedarraylist) | data<br>validated payload |
 
 ## ComposedArray1
 public static class ComposedArray1<br>
@@ -138,11 +138,11 @@ permits<br>
 [ItemsBoxedList](#itemsboxedlist),
 [ItemsBoxedMap](#itemsboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ItemsBoxedVoid
 public static final class ItemsBoxedVoid<br>
-extends ItemsBoxed
+extends [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -158,7 +158,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ItemsBoxedBoolean
 public static final class ItemsBoxedBoolean<br>
-extends ItemsBoxed
+extends [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -174,7 +174,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ItemsBoxedNumber
 public static final class ItemsBoxedNumber<br>
-extends ItemsBoxed
+extends [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -190,7 +190,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>
-extends ItemsBoxed
+extends [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -206,7 +206,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ItemsBoxedList
 public static final class ItemsBoxedList<br>
-extends ItemsBoxed
+extends [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -222,7 +222,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ItemsBoxedMap
 public static final class ItemsBoxedMap<br>
-extends ItemsBoxed
+extends [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

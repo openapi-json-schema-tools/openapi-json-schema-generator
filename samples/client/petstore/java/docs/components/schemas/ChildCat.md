@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.ChildCat.java
 public class ChildCat
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ChildCat.ChildCat1Boxed](#childcat1boxed)<br> sealed validated payload class |
+| static class | [ChildCat.ChildCat1Boxed](#childcat1boxed)<br> abstract sealed validated payload class |
 | static class | [ChildCat.ChildCat1BoxedVoid](#childcat1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ChildCat.ChildCat1BoxedBoolean](#childcat1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [ChildCat.ChildCat1BoxedNumber](#childcat1boxednumber)<br> boxed class to store validated Number payloads |
@@ -20,12 +20,12 @@ A class that contains necessary nested
 | static class | [ChildCat.ChildCat1BoxedList](#childcat1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ChildCat.ChildCat1BoxedMap](#childcat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ChildCat.ChildCat1](#childcat1)<br> schema class |
-| static class | [ChildCat.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [ChildCat.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
 | static class | [ChildCat.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ChildCat.Schema1](#schema1)<br> schema class |
 | static class | [ChildCat.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ChildCat.Schema1Map](#schema1map)<br> output class for Map payloads |
-| static class | [ChildCat.NameBoxed](#nameboxed)<br> sealed validated payload class |
+| static class | [ChildCat.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
 | static class | [ChildCat.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ChildCat.Name](#name)<br> schema class |
 
@@ -39,11 +39,11 @@ permits<br>
 [ChildCat1BoxedList](#childcat1boxedlist),
 [ChildCat1BoxedMap](#childcat1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ChildCat1BoxedVoid
 public static final class ChildCat1BoxedVoid<br>
-extends ChildCat1Boxed
+extends [ChildCat1Boxed](#childcat1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -59,7 +59,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ChildCat1BoxedBoolean
 public static final class ChildCat1BoxedBoolean<br>
-extends ChildCat1Boxed
+extends [ChildCat1Boxed](#childcat1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -75,7 +75,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ChildCat1BoxedNumber
 public static final class ChildCat1BoxedNumber<br>
-extends ChildCat1Boxed
+extends [ChildCat1Boxed](#childcat1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -91,7 +91,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ChildCat1BoxedString
 public static final class ChildCat1BoxedString<br>
-extends ChildCat1Boxed
+extends [ChildCat1Boxed](#childcat1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -107,7 +107,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ChildCat1BoxedList
 public static final class ChildCat1BoxedList<br>
-extends ChildCat1Boxed
+extends [ChildCat1Boxed](#childcat1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -123,7 +123,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ChildCat1BoxedMap
 public static final class ChildCat1BoxedMap<br>
-extends ChildCat1Boxed
+extends [ChildCat1Boxed](#childcat1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -173,23 +173,23 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
 public static final class Schema1BoxedMap<br>
-extends Schema1Boxed
+extends [Schema1Boxed](#schema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema1BoxedMap(Schema1Map data)<br>Creates an instance, private visibility |
+| Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Schema1Map | data<br>validated payload |
+| [Schema1Map](#schema1map) | data<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -279,11 +279,11 @@ public static abstract sealed class NameBoxed<br>
 permits<br>
 [NameBoxedString](#nameboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NameBoxedString
 public static final class NameBoxedString<br>
-extends NameBoxed
+extends [NameBoxed](#nameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

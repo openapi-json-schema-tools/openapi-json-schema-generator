@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.Address.java
 public class Address
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Address.Address1Boxed](#address1boxed)<br> sealed validated payload class |
+| static class | [Address.Address1Boxed](#address1boxed)<br> abstract sealed validated payload class |
 | static class | [Address.Address1BoxedMap](#address1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Address.Address1](#address1)<br> schema class |
 | static class | [Address.AddressMapBuilder](#addressmapbuilder)<br> builder for Map payloads |
 | static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
-| static class | [Address.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [Address.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
 | static class | [Address.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -26,23 +26,23 @@ public static abstract sealed class Address1Boxed<br>
 permits<br>
 [Address1BoxedMap](#address1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Address1BoxedMap
 public static final class Address1BoxedMap<br>
-extends Address1Boxed
+extends [Address1Boxed](#address1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Address1BoxedMap(AddressMap data)<br>Creates an instance, private visibility |
+| Address1BoxedMap([AddressMap](#addressmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| AddressMap | data<br>validated payload |
+| [AddressMap](#addressmap) | data<br>validated payload |
 
 ## Address1
 public static class Address1<br>
@@ -125,11 +125,11 @@ public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedNumber
 public static final class AdditionalPropertiesBoxedNumber<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.StringBooleanMap.java
 public class StringBooleanMap
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [StringBooleanMap.StringBooleanMap1Boxed](#stringbooleanmap1boxed)<br> sealed validated payload class |
+| static class | [StringBooleanMap.StringBooleanMap1Boxed](#stringbooleanmap1boxed)<br> abstract sealed validated payload class |
 | static class | [StringBooleanMap.StringBooleanMap1BoxedMap](#stringbooleanmap1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [StringBooleanMap.StringBooleanMap1](#stringbooleanmap1)<br> schema class |
 | static class | [StringBooleanMap.StringBooleanMapMapBuilder](#stringbooleanmapmapbuilder)<br> builder for Map payloads |
 | static class | [StringBooleanMap.StringBooleanMapMap](#stringbooleanmapmap)<br> output class for Map payloads |
-| static class | [StringBooleanMap.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [StringBooleanMap.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
 | static class | [StringBooleanMap.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [StringBooleanMap.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -26,23 +26,23 @@ public static abstract sealed class StringBooleanMap1Boxed<br>
 permits<br>
 [StringBooleanMap1BoxedMap](#stringbooleanmap1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## StringBooleanMap1BoxedMap
 public static final class StringBooleanMap1BoxedMap<br>
-extends StringBooleanMap1Boxed
+extends [StringBooleanMap1Boxed](#stringbooleanmap1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StringBooleanMap1BoxedMap(StringBooleanMapMap data)<br>Creates an instance, private visibility |
+| StringBooleanMap1BoxedMap([StringBooleanMapMap](#stringbooleanmapmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| StringBooleanMapMap | data<br>validated payload |
+| [StringBooleanMapMap](#stringbooleanmapmap) | data<br>validated payload |
 
 ## StringBooleanMap1
 public static class StringBooleanMap1<br>
@@ -122,11 +122,11 @@ public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedBoolean
 public static final class AdditionalPropertiesBoxedBoolean<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 

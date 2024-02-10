@@ -2,9 +2,9 @@
 public class Schema
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -13,17 +13,17 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema.Schema1Boxed](#schema1boxed)<br> sealed validated payload class |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
 | static class | [Schema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
-| static class | [Schema.FilesBoxed](#filesboxed)<br> sealed validated payload class |
+| static class | [Schema.FilesBoxed](#filesboxed)<br> abstract sealed validated payload class |
 | static class | [Schema.FilesBoxedList](#filesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema.Files](#files)<br> schema class |
 | static class | [Schema.FilesListBuilder](#fileslistbuilder)<br> builder for List payloads |
 | static class | [Schema.FilesList](#fileslist)<br> output class for List payloads |
-| static class | [Schema.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [Schema.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
 | static class | [Schema.Items](#items)<br> schema class |
 
 ## Schema1Boxed
@@ -31,23 +31,23 @@ public static abstract sealed class Schema1Boxed<br>
 permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema1BoxedMap
 public static final class Schema1BoxedMap<br>
-extends Schema1Boxed
+extends [Schema1Boxed](#schema1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema1BoxedMap(SchemaMap data)<br>Creates an instance, private visibility |
+| Schema1BoxedMap([SchemaMap](#schemamap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| SchemaMap | data<br>validated payload |
+| [SchemaMap](#schemamap) | data<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -140,23 +140,23 @@ public static abstract sealed class FilesBoxed<br>
 permits<br>
 [FilesBoxedList](#filesboxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## FilesBoxedList
 public static final class FilesBoxedList<br>
-extends FilesBoxed
+extends [FilesBoxed](#filesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FilesBoxedList(FilesList data)<br>Creates an instance, private visibility |
+| FilesBoxedList([FilesList](#fileslist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| FilesList | data<br>validated payload |
+| [FilesList](#fileslist) | data<br>validated payload |
 
 ## Files
 public static class Files<br>
@@ -235,7 +235,7 @@ A class to store validated List payloads
 public static abstract sealed class ItemsBoxed<br>
 permits<br>
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Items
 public static class Items<br>

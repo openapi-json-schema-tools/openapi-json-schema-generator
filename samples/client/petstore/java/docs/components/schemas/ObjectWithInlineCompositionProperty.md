@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.ObjectWithInlineComposition
 public class ObjectWithInlineCompositionProperty
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1](#objectwithinlinecompositionproperty1)<br> schema class |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMapBuilder](#objectwithinlinecompositionpropertymapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap)<br> output class for Map payloads |
-| static class | [ObjectWithInlineCompositionProperty.SomePropBoxed](#somepropboxed)<br> sealed validated payload class |
+| static class | [ObjectWithInlineCompositionProperty.SomePropBoxed](#somepropboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithInlineCompositionProperty.SomePropBoxedVoid](#somepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [ObjectWithInlineCompositionProperty.SomePropBoxedBoolean](#somepropboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [ObjectWithInlineCompositionProperty.SomePropBoxedNumber](#somepropboxednumber)<br> boxed class to store validated Number payloads |
@@ -25,7 +25,7 @@ A class that contains necessary nested
 | static class | [ObjectWithInlineCompositionProperty.SomePropBoxedList](#somepropboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ObjectWithInlineCompositionProperty.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithInlineCompositionProperty.SomeProp](#someprop)<br> schema class |
-| static class | [ObjectWithInlineCompositionProperty.Schema0Boxed](#schema0boxed)<br> sealed validated payload class |
+| static class | [ObjectWithInlineCompositionProperty.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithInlineCompositionProperty.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithInlineCompositionProperty.Schema0](#schema0)<br> schema class |
 
@@ -34,23 +34,23 @@ public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed<br
 permits<br>
 [ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectWithInlineCompositionProperty1BoxedMap
 public static final class ObjectWithInlineCompositionProperty1BoxedMap<br>
-extends ObjectWithInlineCompositionProperty1Boxed
+extends [ObjectWithInlineCompositionProperty1Boxed](#objectwithinlinecompositionproperty1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectWithInlineCompositionProperty1BoxedMap(ObjectWithInlineCompositionPropertyMap data)<br>Creates an instance, private visibility |
+| ObjectWithInlineCompositionProperty1BoxedMap([ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectWithInlineCompositionPropertyMap | data<br>validated payload |
+| [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | data<br>validated payload |
 
 ## ObjectWithInlineCompositionProperty1
 public static class ObjectWithInlineCompositionProperty1<br>
@@ -151,11 +151,11 @@ permits<br>
 [SomePropBoxedList](#somepropboxedlist),
 [SomePropBoxedMap](#somepropboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SomePropBoxedVoid
 public static final class SomePropBoxedVoid<br>
-extends SomePropBoxed
+extends [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -171,7 +171,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## SomePropBoxedBoolean
 public static final class SomePropBoxedBoolean<br>
-extends SomePropBoxed
+extends [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -187,7 +187,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## SomePropBoxedNumber
 public static final class SomePropBoxedNumber<br>
-extends SomePropBoxed
+extends [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -203,7 +203,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## SomePropBoxedString
 public static final class SomePropBoxedString<br>
-extends SomePropBoxed
+extends [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -219,7 +219,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## SomePropBoxedList
 public static final class SomePropBoxedList<br>
-extends SomePropBoxed
+extends [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -235,7 +235,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## SomePropBoxedMap
 public static final class SomePropBoxedMap<br>
-extends SomePropBoxed
+extends [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -285,11 +285,11 @@ public static abstract sealed class Schema0Boxed<br>
 permits<br>
 [Schema0BoxedString](#schema0boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema0BoxedString
 public static final class Schema0BoxedString<br>
-extends Schema0Boxed
+extends [Schema0Boxed](#schema0boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

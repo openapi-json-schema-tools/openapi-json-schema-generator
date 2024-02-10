@@ -2,21 +2,21 @@
 public class Schema0
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema0.Schema01Boxed](#schema01boxed)<br> sealed validated payload class |
+| static class | [Schema0.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
 | static class | [Schema0.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaMapBuilder0](#schemamapbuilder0)<br> builder for Map payloads |
 | static class | [Schema0.SchemaMap0](#schemamap0)<br> output class for Map payloads |
-| static class | [Schema0.Keyword0Boxed](#keyword0boxed)<br> sealed validated payload class |
+| static class | [Schema0.Keyword0Boxed](#keyword0boxed)<br> abstract sealed validated payload class |
 | static class | [Schema0.Keyword0BoxedString](#keyword0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Keyword0](#keyword0)<br> schema class |
 
@@ -25,23 +25,23 @@ public static abstract sealed class Schema01Boxed<br>
 permits<br>
 [Schema01BoxedMap](#schema01boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema01BoxedMap
 public static final class Schema01BoxedMap<br>
-extends Schema01Boxed
+extends [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema01BoxedMap(SchemaMap0 data)<br>Creates an instance, private visibility |
+| Schema01BoxedMap([SchemaMap0](#schemamap0) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| SchemaMap0 | data<br>validated payload |
+| [SchemaMap0](#schemamap0) | data<br>validated payload |
 
 ## Schema01
 public static class Schema01<br>
@@ -131,11 +131,11 @@ public static abstract sealed class Keyword0Boxed<br>
 permits<br>
 [Keyword0BoxedString](#keyword0boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Keyword0BoxedString
 public static final class Keyword0BoxedString<br>
-extends Keyword0Boxed
+extends [Keyword0Boxed](#keyword0boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

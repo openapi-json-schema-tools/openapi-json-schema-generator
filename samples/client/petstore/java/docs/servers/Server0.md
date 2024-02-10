@@ -23,9 +23,9 @@ petstore server
 public class Variables
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -33,20 +33,20 @@ A class that contains necessary nested
 ### Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Variables.Variables1Boxed](#variables1boxed)<br> sealed validated payload class |
+| static class | [Variables.Variables1Boxed](#variables1boxed)<br> abstract sealed validated payload class |
 | static class | [Variables.Variables1BoxedMap](#variables1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Variables.Variables1](#variables1)<br> schema class |
 | static class | [Variables.VariablesMapBuilder](#variablesmapbuilder)<br> builder for Map payloads |
 | static class | [Variables.VariablesMap](#variablesmap)<br> output class for Map payloads |
-| static class | [Variables.PortBoxed](#portboxed)<br> sealed validated payload class |
+| static class | [Variables.PortBoxed](#portboxed)<br> abstract sealed validated payload class |
 | static class | [Variables.PortBoxedString](#portboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Variables.Port](#port)<br> schema class |
 | enum | [Variables.StringPortEnums](#stringportenums)<br>String enum |
-| static class | [Variables.ServerBoxed](#serverboxed)<br> sealed validated payload class |
+| static class | [Variables.ServerBoxed](#serverboxed)<br> abstract sealed validated payload class |
 | static class | [Variables.ServerBoxedString](#serverboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Variables.Server](#server)<br> schema class |
 | enum | [Variables.StringServerEnums](#stringserverenums)<br>String enum |
-| static class | [Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
 | static class | [Variables.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Variables.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Variables.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
@@ -60,23 +60,23 @@ public static abstract sealed class Variables1Boxed<br>
 permits<br>
 [Variables1BoxedMap](#variables1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ### Variables1BoxedMap
 public static final class Variables1BoxedMap<br>
-extends Variables1Boxed
+extends [Variables1Boxed](#variables1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 #### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Variables1BoxedMap(VariablesMap data)<br>Creates an instance, private visibility |
+| Variables1BoxedMap([VariablesMap](#variablesmap) data)<br>Creates an instance, private visibility |
 
 #### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| VariablesMap | data<br>validated payload |
+| [VariablesMap](#variablesmap) | data<br>validated payload |
 
 ### Variables1
 public static class Variables1<br>
@@ -213,11 +213,11 @@ public static abstract sealed class PortBoxed<br>
 permits<br>
 [PortBoxedString](#portboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ### PortBoxedString
 public static final class PortBoxedString<br>
-extends PortBoxed
+extends [PortBoxed](#portboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -293,11 +293,11 @@ public static abstract sealed class ServerBoxed<br>
 permits<br>
 [ServerBoxedString](#serverboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ### ServerBoxedString
 public static final class ServerBoxedString<br>
-extends ServerBoxed
+extends [ServerBoxed](#serverboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -379,11 +379,11 @@ permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ### AdditionalPropertiesBoxedVoid
 public static final class AdditionalPropertiesBoxedVoid<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -399,7 +399,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ### AdditionalPropertiesBoxedBoolean
 public static final class AdditionalPropertiesBoxedBoolean<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -415,7 +415,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ### AdditionalPropertiesBoxedNumber
 public static final class AdditionalPropertiesBoxedNumber<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -431,7 +431,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ### AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -447,7 +447,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ### AdditionalPropertiesBoxedList
 public static final class AdditionalPropertiesBoxedList<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -463,7 +463,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ### AdditionalPropertiesBoxedMap
 public static final class AdditionalPropertiesBoxedMap<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

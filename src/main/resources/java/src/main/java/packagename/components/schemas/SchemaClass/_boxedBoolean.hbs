@@ -1,7 +1,7 @@
 {{#if forDocs}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedBoolean" "")) }}
 public static final class {{jsonPathPiece.pascalCase}}BoxedBoolean<br>
-extends {{jsonPathPiece.pascalCase}}Boxed
+extends [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 

@@ -3,16 +3,16 @@ org.openapijsonschematools.client.components.schemas.GmFruit.java
 public class GmFruit
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [GmFruit.GmFruit1Boxed](#gmfruit1boxed)<br> sealed validated payload class |
+| static class | [GmFruit.GmFruit1Boxed](#gmfruit1boxed)<br> abstract sealed validated payload class |
 | static class | [GmFruit.GmFruit1BoxedVoid](#gmfruit1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [GmFruit.GmFruit1BoxedBoolean](#gmfruit1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [GmFruit.GmFruit1BoxedNumber](#gmfruit1boxednumber)<br> boxed class to store validated Number payloads |
@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [GmFruit.GmFruit1](#gmfruit1)<br> schema class |
 | static class | [GmFruit.GmFruitMapBuilder](#gmfruitmapbuilder)<br> builder for Map payloads |
 | static class | [GmFruit.GmFruitMap](#gmfruitmap)<br> output class for Map payloads |
-| static class | [GmFruit.ColorBoxed](#colorboxed)<br> sealed validated payload class |
+| static class | [GmFruit.ColorBoxed](#colorboxed)<br> abstract sealed validated payload class |
 | static class | [GmFruit.ColorBoxedString](#colorboxedstring)<br> boxed class to store validated String payloads |
 | static class | [GmFruit.Color](#color)<br> schema class |
 
@@ -36,11 +36,11 @@ permits<br>
 [GmFruit1BoxedList](#gmfruit1boxedlist),
 [GmFruit1BoxedMap](#gmfruit1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## GmFruit1BoxedVoid
 public static final class GmFruit1BoxedVoid<br>
-extends GmFruit1Boxed
+extends [GmFruit1Boxed](#gmfruit1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -56,7 +56,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## GmFruit1BoxedBoolean
 public static final class GmFruit1BoxedBoolean<br>
-extends GmFruit1Boxed
+extends [GmFruit1Boxed](#gmfruit1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -72,7 +72,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## GmFruit1BoxedNumber
 public static final class GmFruit1BoxedNumber<br>
-extends GmFruit1Boxed
+extends [GmFruit1Boxed](#gmfruit1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -88,7 +88,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## GmFruit1BoxedString
 public static final class GmFruit1BoxedString<br>
-extends GmFruit1Boxed
+extends [GmFruit1Boxed](#gmfruit1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -104,7 +104,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## GmFruit1BoxedList
 public static final class GmFruit1BoxedList<br>
-extends GmFruit1Boxed
+extends [GmFruit1Boxed](#gmfruit1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -120,19 +120,19 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## GmFruit1BoxedMap
 public static final class GmFruit1BoxedMap<br>
-extends GmFruit1Boxed
+extends [GmFruit1Boxed](#gmfruit1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| GmFruit1BoxedMap(GmFruitMap data)<br>Creates an instance, private visibility |
+| GmFruit1BoxedMap([GmFruitMap](#gmfruitmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| GmFruitMap | data<br>validated payload |
+| [GmFruitMap](#gmfruitmap) | data<br>validated payload |
 
 ## GmFruit1
 public static class GmFruit1<br>
@@ -210,11 +210,11 @@ public static abstract sealed class ColorBoxed<br>
 permits<br>
 [ColorBoxedString](#colorboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ColorBoxedString
 public static final class ColorBoxedString<br>
-extends ColorBoxed
+extends [ColorBoxed](#colorboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

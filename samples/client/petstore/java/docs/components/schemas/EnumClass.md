@@ -3,15 +3,15 @@ org.openapijsonschematools.client.components.schemas.EnumClass.java
 public class EnumClass
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [EnumClass.EnumClass1Boxed](#enumclass1boxed)<br> sealed validated payload class |
+| static class | [EnumClass.EnumClass1Boxed](#enumclass1boxed)<br> abstract sealed validated payload class |
 | static class | [EnumClass.EnumClass1BoxedString](#enumclass1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumClass.EnumClass1](#enumclass1)<br> schema class |
 | enum | [EnumClass.StringEnumClassEnums](#stringenumclassenums)<br>String enum |
@@ -21,11 +21,11 @@ public static abstract sealed class EnumClass1Boxed<br>
 permits<br>
 [EnumClass1BoxedString](#enumclass1boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## EnumClass1BoxedString
 public static final class EnumClass1BoxedString<br>
-extends EnumClass1Boxed
+extends [EnumClass1Boxed](#enumclass1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

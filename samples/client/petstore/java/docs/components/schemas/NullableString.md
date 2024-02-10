@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.NullableString.java
 public class NullableString
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NullableString.NullableString1Boxed](#nullablestring1boxed)<br> sealed validated payload class |
+| static class | [NullableString.NullableString1Boxed](#nullablestring1boxed)<br> abstract sealed validated payload class |
 | static class | [NullableString.NullableString1BoxedVoid](#nullablestring1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableString.NullableString1BoxedString](#nullablestring1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableString.NullableString1](#nullablestring1)<br> schema class |
@@ -21,11 +21,11 @@ permits<br>
 [NullableString1BoxedVoid](#nullablestring1boxedvoid),
 [NullableString1BoxedString](#nullablestring1boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NullableString1BoxedVoid
 public static final class NullableString1BoxedVoid<br>
-extends NullableString1Boxed
+extends [NullableString1Boxed](#nullablestring1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -41,7 +41,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## NullableString1BoxedString
 public static final class NullableString1BoxedString<br>
-extends NullableString1Boxed
+extends [NullableString1Boxed](#nullablestring1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

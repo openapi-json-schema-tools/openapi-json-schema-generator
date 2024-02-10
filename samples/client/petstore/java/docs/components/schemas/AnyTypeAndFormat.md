@@ -3,21 +3,21 @@ org.openapijsonschematools.client.components.schemas.AnyTypeAndFormat.java
 public class AnyTypeAndFormat
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [AnyTypeAndFormat.AnyTypeAndFormat1Boxed](#anytypeandformat1boxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.AnyTypeAndFormat1Boxed](#anytypeandformat1boxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1BoxedMap](#anytypeandformat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1](#anytypeandformat1)<br> schema class |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder)<br> builder for Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMap](#anytypeandformatmap)<br> output class for Map payloads |
-| static class | [AnyTypeAndFormat.FloatSchemaBoxed](#floatschemaboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.FloatSchemaBoxed](#floatschemaboxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.FloatSchemaBoxedVoid](#floatschemaboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.FloatSchemaBoxedBoolean](#floatschemaboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
@@ -25,7 +25,7 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.FloatSchemaBoxedList](#floatschemaboxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeAndFormat.FloatSchemaBoxedMap](#floatschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.FloatSchema](#floatschema)<br> schema class |
-| static class | [AnyTypeAndFormat.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.DoubleSchemaBoxed](#doubleschemaboxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.DoubleSchemaBoxedVoid](#doubleschemaboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
@@ -33,7 +33,7 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.DoubleSchemaBoxedList](#doubleschemaboxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeAndFormat.DoubleSchemaBoxedMap](#doubleschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.DoubleSchema](#doubleschema)<br> schema class |
-| static class | [AnyTypeAndFormat.Int64Boxed](#int64boxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.Int64Boxed](#int64boxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.Int64BoxedVoid](#int64boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.Int64BoxedBoolean](#int64boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
@@ -41,7 +41,7 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.Int64BoxedList](#int64boxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeAndFormat.Int64BoxedMap](#int64boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Int64](#int64)<br> schema class |
-| static class | [AnyTypeAndFormat.Int32Boxed](#int32boxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.Int32Boxed](#int32boxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.Int32BoxedVoid](#int32boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.Int32BoxedBoolean](#int32boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
@@ -49,7 +49,7 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.Int32BoxedList](#int32boxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeAndFormat.Int32BoxedMap](#int32boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Int32](#int32)<br> schema class |
-| static class | [AnyTypeAndFormat.BinaryBoxed](#binaryboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.BinaryBoxed](#binaryboxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.BinaryBoxedVoid](#binaryboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.BinaryBoxedBoolean](#binaryboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.BinaryBoxedNumber](#binaryboxednumber)<br> boxed class to store validated Number payloads |
@@ -57,7 +57,7 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.BinaryBoxedList](#binaryboxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeAndFormat.BinaryBoxedMap](#binaryboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Binary](#binary)<br> schema class |
-| static class | [AnyTypeAndFormat.NumberSchemaBoxed](#numberschemaboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.NumberSchemaBoxed](#numberschemaboxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.NumberSchemaBoxedVoid](#numberschemaboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.NumberSchemaBoxedBoolean](#numberschemaboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
@@ -65,7 +65,7 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.NumberSchemaBoxedList](#numberschemaboxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeAndFormat.NumberSchemaBoxedMap](#numberschemaboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.NumberSchema](#numberschema)<br> schema class |
-| static class | [AnyTypeAndFormat.DatetimeBoxed](#datetimeboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.DatetimeBoxed](#datetimeboxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.DatetimeBoxedVoid](#datetimeboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.DatetimeBoxedBoolean](#datetimeboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.DatetimeBoxedNumber](#datetimeboxednumber)<br> boxed class to store validated Number payloads |
@@ -73,7 +73,7 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.DatetimeBoxedList](#datetimeboxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeAndFormat.DatetimeBoxedMap](#datetimeboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Datetime](#datetime)<br> schema class |
-| static class | [AnyTypeAndFormat.DateBoxed](#dateboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.DateBoxed](#dateboxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.DateBoxedVoid](#dateboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.DateBoxedBoolean](#dateboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.DateBoxedNumber](#dateboxednumber)<br> boxed class to store validated Number payloads |
@@ -81,7 +81,7 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.DateBoxedList](#dateboxedlist)<br> boxed class to store validated List payloads |
 | static class | [AnyTypeAndFormat.DateBoxedMap](#dateboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Date](#date)<br> schema class |
-| static class | [AnyTypeAndFormat.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed validated payload class |
+| static class | [AnyTypeAndFormat.UuidSchemaBoxed](#uuidschemaboxed)<br> abstract sealed validated payload class |
 | static class | [AnyTypeAndFormat.UuidSchemaBoxedVoid](#uuidschemaboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [AnyTypeAndFormat.UuidSchemaBoxedBoolean](#uuidschemaboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [AnyTypeAndFormat.UuidSchemaBoxedNumber](#uuidschemaboxednumber)<br> boxed class to store validated Number payloads |
@@ -95,23 +95,23 @@ public static abstract sealed class AnyTypeAndFormat1Boxed<br>
 permits<br>
 [AnyTypeAndFormat1BoxedMap](#anytypeandformat1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AnyTypeAndFormat1BoxedMap
 public static final class AnyTypeAndFormat1BoxedMap<br>
-extends AnyTypeAndFormat1Boxed
+extends [AnyTypeAndFormat1Boxed](#anytypeandformat1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| AnyTypeAndFormat1BoxedMap(AnyTypeAndFormatMap data)<br>Creates an instance, private visibility |
+| AnyTypeAndFormat1BoxedMap([AnyTypeAndFormatMap](#anytypeandformatmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| AnyTypeAndFormatMap | data<br>validated payload |
+| [AnyTypeAndFormatMap](#anytypeandformatmap) | data<br>validated payload |
 
 ## AnyTypeAndFormat1
 public static class AnyTypeAndFormat1<br>
@@ -288,11 +288,11 @@ permits<br>
 [FloatSchemaBoxedList](#floatschemaboxedlist),
 [FloatSchemaBoxedMap](#floatschemaboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## FloatSchemaBoxedVoid
 public static final class FloatSchemaBoxedVoid<br>
-extends FloatSchemaBoxed
+extends [FloatSchemaBoxed](#floatschemaboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -308,7 +308,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## FloatSchemaBoxedBoolean
 public static final class FloatSchemaBoxedBoolean<br>
-extends FloatSchemaBoxed
+extends [FloatSchemaBoxed](#floatschemaboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -324,7 +324,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## FloatSchemaBoxedNumber
 public static final class FloatSchemaBoxedNumber<br>
-extends FloatSchemaBoxed
+extends [FloatSchemaBoxed](#floatschemaboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -340,7 +340,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## FloatSchemaBoxedString
 public static final class FloatSchemaBoxedString<br>
-extends FloatSchemaBoxed
+extends [FloatSchemaBoxed](#floatschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -356,7 +356,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## FloatSchemaBoxedList
 public static final class FloatSchemaBoxedList<br>
-extends FloatSchemaBoxed
+extends [FloatSchemaBoxed](#floatschemaboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -372,7 +372,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## FloatSchemaBoxedMap
 public static final class FloatSchemaBoxedMap<br>
-extends FloatSchemaBoxed
+extends [FloatSchemaBoxed](#floatschemaboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -427,11 +427,11 @@ permits<br>
 [DoubleSchemaBoxedList](#doubleschemaboxedlist),
 [DoubleSchemaBoxedMap](#doubleschemaboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## DoubleSchemaBoxedVoid
 public static final class DoubleSchemaBoxedVoid<br>
-extends DoubleSchemaBoxed
+extends [DoubleSchemaBoxed](#doubleschemaboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -447,7 +447,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## DoubleSchemaBoxedBoolean
 public static final class DoubleSchemaBoxedBoolean<br>
-extends DoubleSchemaBoxed
+extends [DoubleSchemaBoxed](#doubleschemaboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -463,7 +463,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## DoubleSchemaBoxedNumber
 public static final class DoubleSchemaBoxedNumber<br>
-extends DoubleSchemaBoxed
+extends [DoubleSchemaBoxed](#doubleschemaboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -479,7 +479,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## DoubleSchemaBoxedString
 public static final class DoubleSchemaBoxedString<br>
-extends DoubleSchemaBoxed
+extends [DoubleSchemaBoxed](#doubleschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -495,7 +495,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## DoubleSchemaBoxedList
 public static final class DoubleSchemaBoxedList<br>
-extends DoubleSchemaBoxed
+extends [DoubleSchemaBoxed](#doubleschemaboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -511,7 +511,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## DoubleSchemaBoxedMap
 public static final class DoubleSchemaBoxedMap<br>
-extends DoubleSchemaBoxed
+extends [DoubleSchemaBoxed](#doubleschemaboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -566,11 +566,11 @@ permits<br>
 [Int64BoxedList](#int64boxedlist),
 [Int64BoxedMap](#int64boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Int64BoxedVoid
 public static final class Int64BoxedVoid<br>
-extends Int64Boxed
+extends [Int64Boxed](#int64boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -586,7 +586,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Int64BoxedBoolean
 public static final class Int64BoxedBoolean<br>
-extends Int64Boxed
+extends [Int64Boxed](#int64boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -602,7 +602,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Int64BoxedNumber
 public static final class Int64BoxedNumber<br>
-extends Int64Boxed
+extends [Int64Boxed](#int64boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -618,7 +618,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Int64BoxedString
 public static final class Int64BoxedString<br>
-extends Int64Boxed
+extends [Int64Boxed](#int64boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -634,7 +634,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Int64BoxedList
 public static final class Int64BoxedList<br>
-extends Int64Boxed
+extends [Int64Boxed](#int64boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -650,7 +650,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Int64BoxedMap
 public static final class Int64BoxedMap<br>
-extends Int64Boxed
+extends [Int64Boxed](#int64boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -705,11 +705,11 @@ permits<br>
 [Int32BoxedList](#int32boxedlist),
 [Int32BoxedMap](#int32boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Int32BoxedVoid
 public static final class Int32BoxedVoid<br>
-extends Int32Boxed
+extends [Int32Boxed](#int32boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -725,7 +725,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Int32BoxedBoolean
 public static final class Int32BoxedBoolean<br>
-extends Int32Boxed
+extends [Int32Boxed](#int32boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -741,7 +741,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## Int32BoxedNumber
 public static final class Int32BoxedNumber<br>
-extends Int32Boxed
+extends [Int32Boxed](#int32boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -757,7 +757,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## Int32BoxedString
 public static final class Int32BoxedString<br>
-extends Int32Boxed
+extends [Int32Boxed](#int32boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -773,7 +773,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## Int32BoxedList
 public static final class Int32BoxedList<br>
-extends Int32Boxed
+extends [Int32Boxed](#int32boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -789,7 +789,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## Int32BoxedMap
 public static final class Int32BoxedMap<br>
-extends Int32Boxed
+extends [Int32Boxed](#int32boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -844,11 +844,11 @@ permits<br>
 [BinaryBoxedList](#binaryboxedlist),
 [BinaryBoxedMap](#binaryboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## BinaryBoxedVoid
 public static final class BinaryBoxedVoid<br>
-extends BinaryBoxed
+extends [BinaryBoxed](#binaryboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -864,7 +864,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## BinaryBoxedBoolean
 public static final class BinaryBoxedBoolean<br>
-extends BinaryBoxed
+extends [BinaryBoxed](#binaryboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -880,7 +880,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## BinaryBoxedNumber
 public static final class BinaryBoxedNumber<br>
-extends BinaryBoxed
+extends [BinaryBoxed](#binaryboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -896,7 +896,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## BinaryBoxedString
 public static final class BinaryBoxedString<br>
-extends BinaryBoxed
+extends [BinaryBoxed](#binaryboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -912,7 +912,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## BinaryBoxedList
 public static final class BinaryBoxedList<br>
-extends BinaryBoxed
+extends [BinaryBoxed](#binaryboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -928,7 +928,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## BinaryBoxedMap
 public static final class BinaryBoxedMap<br>
-extends BinaryBoxed
+extends [BinaryBoxed](#binaryboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -983,11 +983,11 @@ permits<br>
 [NumberSchemaBoxedList](#numberschemaboxedlist),
 [NumberSchemaBoxedMap](#numberschemaboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NumberSchemaBoxedVoid
 public static final class NumberSchemaBoxedVoid<br>
-extends NumberSchemaBoxed
+extends [NumberSchemaBoxed](#numberschemaboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1003,7 +1003,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## NumberSchemaBoxedBoolean
 public static final class NumberSchemaBoxedBoolean<br>
-extends NumberSchemaBoxed
+extends [NumberSchemaBoxed](#numberschemaboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -1019,7 +1019,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## NumberSchemaBoxedNumber
 public static final class NumberSchemaBoxedNumber<br>
-extends NumberSchemaBoxed
+extends [NumberSchemaBoxed](#numberschemaboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1035,7 +1035,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## NumberSchemaBoxedString
 public static final class NumberSchemaBoxedString<br>
-extends NumberSchemaBoxed
+extends [NumberSchemaBoxed](#numberschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -1051,7 +1051,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## NumberSchemaBoxedList
 public static final class NumberSchemaBoxedList<br>
-extends NumberSchemaBoxed
+extends [NumberSchemaBoxed](#numberschemaboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -1067,7 +1067,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## NumberSchemaBoxedMap
 public static final class NumberSchemaBoxedMap<br>
-extends NumberSchemaBoxed
+extends [NumberSchemaBoxed](#numberschemaboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -1122,11 +1122,11 @@ permits<br>
 [DatetimeBoxedList](#datetimeboxedlist),
 [DatetimeBoxedMap](#datetimeboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## DatetimeBoxedVoid
 public static final class DatetimeBoxedVoid<br>
-extends DatetimeBoxed
+extends [DatetimeBoxed](#datetimeboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1142,7 +1142,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## DatetimeBoxedBoolean
 public static final class DatetimeBoxedBoolean<br>
-extends DatetimeBoxed
+extends [DatetimeBoxed](#datetimeboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -1158,7 +1158,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## DatetimeBoxedNumber
 public static final class DatetimeBoxedNumber<br>
-extends DatetimeBoxed
+extends [DatetimeBoxed](#datetimeboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1174,7 +1174,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## DatetimeBoxedString
 public static final class DatetimeBoxedString<br>
-extends DatetimeBoxed
+extends [DatetimeBoxed](#datetimeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -1190,7 +1190,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## DatetimeBoxedList
 public static final class DatetimeBoxedList<br>
-extends DatetimeBoxed
+extends [DatetimeBoxed](#datetimeboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -1206,7 +1206,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## DatetimeBoxedMap
 public static final class DatetimeBoxedMap<br>
-extends DatetimeBoxed
+extends [DatetimeBoxed](#datetimeboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -1261,11 +1261,11 @@ permits<br>
 [DateBoxedList](#dateboxedlist),
 [DateBoxedMap](#dateboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## DateBoxedVoid
 public static final class DateBoxedVoid<br>
-extends DateBoxed
+extends [DateBoxed](#dateboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1281,7 +1281,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## DateBoxedBoolean
 public static final class DateBoxedBoolean<br>
-extends DateBoxed
+extends [DateBoxed](#dateboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -1297,7 +1297,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## DateBoxedNumber
 public static final class DateBoxedNumber<br>
-extends DateBoxed
+extends [DateBoxed](#dateboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1313,7 +1313,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## DateBoxedString
 public static final class DateBoxedString<br>
-extends DateBoxed
+extends [DateBoxed](#dateboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -1329,7 +1329,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## DateBoxedList
 public static final class DateBoxedList<br>
-extends DateBoxed
+extends [DateBoxed](#dateboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -1345,7 +1345,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## DateBoxedMap
 public static final class DateBoxedMap<br>
-extends DateBoxed
+extends [DateBoxed](#dateboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -1400,11 +1400,11 @@ permits<br>
 [UuidSchemaBoxedList](#uuidschemaboxedlist),
 [UuidSchemaBoxedMap](#uuidschemaboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## UuidSchemaBoxedVoid
 public static final class UuidSchemaBoxedVoid<br>
-extends UuidSchemaBoxed
+extends [UuidSchemaBoxed](#uuidschemaboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1420,7 +1420,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## UuidSchemaBoxedBoolean
 public static final class UuidSchemaBoxedBoolean<br>
-extends UuidSchemaBoxed
+extends [UuidSchemaBoxed](#uuidschemaboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -1436,7 +1436,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## UuidSchemaBoxedNumber
 public static final class UuidSchemaBoxedNumber<br>
-extends UuidSchemaBoxed
+extends [UuidSchemaBoxed](#uuidschemaboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1452,7 +1452,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## UuidSchemaBoxedString
 public static final class UuidSchemaBoxedString<br>
-extends UuidSchemaBoxed
+extends [UuidSchemaBoxed](#uuidschemaboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -1468,7 +1468,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## UuidSchemaBoxedList
 public static final class UuidSchemaBoxedList<br>
-extends UuidSchemaBoxed
+extends [UuidSchemaBoxed](#uuidschemaboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -1484,7 +1484,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## UuidSchemaBoxedMap
 public static final class UuidSchemaBoxedMap<br>
-extends UuidSchemaBoxed
+extends [UuidSchemaBoxed](#uuidschemaboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

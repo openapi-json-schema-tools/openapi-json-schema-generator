@@ -3,14 +3,14 @@ org.openapijsonschematools.client.components.schemas.NumberWithExclusiveMinMax.j
 public class NumberWithExclusiveMinMax
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)<br> sealed validated payload class |
+| static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)<br> abstract sealed validated payload class |
 | static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1](#numberwithexclusiveminmax1)<br> schema class |
 
@@ -19,11 +19,11 @@ public static abstract sealed class NumberWithExclusiveMinMax1Boxed<br>
 permits<br>
 [NumberWithExclusiveMinMax1BoxedNumber](#numberwithexclusiveminmax1boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NumberWithExclusiveMinMax1BoxedNumber
 public static final class NumberWithExclusiveMinMax1BoxedNumber<br>
-extends NumberWithExclusiveMinMax1Boxed
+extends [NumberWithExclusiveMinMax1Boxed](#numberwithexclusiveminmax1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

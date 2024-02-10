@@ -2,14 +2,14 @@
 public class Int32JsonContentTypeHeaderSchema
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1Boxed](#int32jsoncontenttypeheaderschema1boxed)<br> sealed validated payload class |
+| static class | [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1Boxed](#int32jsoncontenttypeheaderschema1boxed)<br> abstract sealed validated payload class |
 | static class | [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1BoxedNumber](#int32jsoncontenttypeheaderschema1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1](#int32jsoncontenttypeheaderschema1)<br> schema class |
 
@@ -18,11 +18,11 @@ public static abstract sealed class Int32JsonContentTypeHeaderSchema1Boxed<br>
 permits<br>
 [Int32JsonContentTypeHeaderSchema1BoxedNumber](#int32jsoncontenttypeheaderschema1boxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Int32JsonContentTypeHeaderSchema1BoxedNumber
 public static final class Int32JsonContentTypeHeaderSchema1BoxedNumber<br>
-extends Int32JsonContentTypeHeaderSchema1Boxed
+extends [Int32JsonContentTypeHeaderSchema1Boxed](#int32jsoncontenttypeheaderschema1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 

@@ -3,24 +3,24 @@ org.openapijsonschematools.client.components.schemas.ObjectWithCollidingProperti
 public class ObjectWithCollidingProperties
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1Boxed](#objectwithcollidingproperties1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1Boxed](#objectwithcollidingproperties1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingProperties1](#objectwithcollidingproperties1)<br> schema class |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMapBuilder](#objectwithcollidingpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap)<br> output class for Map payloads |
-| static class | [ObjectWithCollidingProperties.SomepropBoxed](#somepropboxed)<br> sealed validated payload class |
+| static class | [ObjectWithCollidingProperties.SomepropBoxed](#somepropboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithCollidingProperties.SomepropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.Someprop](#someprop)<br> schema class |
-| static class | [ObjectWithCollidingProperties.SomePropBoxed](#somepropboxed)<br> sealed validated payload class |
+| static class | [ObjectWithCollidingProperties.SomePropBoxed](#somepropboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithCollidingProperties.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithCollidingProperties.SomeProp](#someprop)<br> schema class |
 
@@ -29,23 +29,23 @@ public static abstract sealed class ObjectWithCollidingProperties1Boxed<br>
 permits<br>
 [ObjectWithCollidingProperties1BoxedMap](#objectwithcollidingproperties1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectWithCollidingProperties1BoxedMap
 public static final class ObjectWithCollidingProperties1BoxedMap<br>
-extends ObjectWithCollidingProperties1Boxed
+extends [ObjectWithCollidingProperties1Boxed](#objectwithcollidingproperties1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectWithCollidingProperties1BoxedMap(ObjectWithCollidingPropertiesMap data)<br>Creates an instance, private visibility |
+| ObjectWithCollidingProperties1BoxedMap([ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectWithCollidingPropertiesMap | data<br>validated payload |
+| [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | data<br>validated payload |
 
 ## ObjectWithCollidingProperties1
 public static class ObjectWithCollidingProperties1<br>
@@ -138,11 +138,11 @@ public static abstract sealed class SomepropBoxed<br>
 permits<br>
 [SomepropBoxedMap](#somepropboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SomepropBoxedMap
 public static final class SomepropBoxedMap<br>
-extends SomepropBoxed
+extends [SomepropBoxed](#somepropboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -172,11 +172,11 @@ public static abstract sealed class SomePropBoxed<br>
 permits<br>
 [SomePropBoxedMap](#somepropboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SomePropBoxedMap
 public static final class SomePropBoxedMap<br>
-extends SomePropBoxed
+extends [SomePropBoxed](#somepropboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

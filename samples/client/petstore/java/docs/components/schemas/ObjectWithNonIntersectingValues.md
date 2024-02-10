@@ -3,24 +3,24 @@ org.openapijsonschematools.client.components.schemas.ObjectWithNonIntersectingVa
 public class ObjectWithNonIntersectingValues
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)<br> sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1](#objectwithnonintersectingvalues1)<br> schema class |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap)<br> output class for Map payloads |
-| static class | [ObjectWithNonIntersectingValues.ABoxed](#aboxed)<br> sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.ABoxed](#aboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithNonIntersectingValues.ABoxedNumber](#aboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithNonIntersectingValues.A](#a)<br> schema class |
-| static class | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
 | static class | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithNonIntersectingValues.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -29,23 +29,23 @@ public static abstract sealed class ObjectWithNonIntersectingValues1Boxed<br>
 permits<br>
 [ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectWithNonIntersectingValues1BoxedMap
 public static final class ObjectWithNonIntersectingValues1BoxedMap<br>
-extends ObjectWithNonIntersectingValues1Boxed
+extends [ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectWithNonIntersectingValues1BoxedMap(ObjectWithNonIntersectingValuesMap data)<br>Creates an instance, private visibility |
+| ObjectWithNonIntersectingValues1BoxedMap([ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectWithNonIntersectingValuesMap | data<br>validated payload |
+| [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | data<br>validated payload |
 
 ## ObjectWithNonIntersectingValues1
 public static class ObjectWithNonIntersectingValues1<br>
@@ -133,11 +133,11 @@ public static abstract sealed class ABoxed<br>
 permits<br>
 [ABoxedNumber](#aboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ABoxedNumber
 public static final class ABoxedNumber<br>
-extends ABoxed
+extends [ABoxed](#aboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -167,11 +167,11 @@ public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

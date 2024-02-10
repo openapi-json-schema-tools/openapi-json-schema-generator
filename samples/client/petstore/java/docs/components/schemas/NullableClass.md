@@ -3,9 +3,9 @@ org.openapijsonschematools.client.components.schemas.NullableClass.java
 public class NullableClass
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -14,92 +14,92 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [NullableClass.NullableClass1Boxed](#nullableclass1boxed)<br> sealed validated payload class |
+| static class | [NullableClass.NullableClass1Boxed](#nullableclass1boxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.NullableClass1BoxedMap](#nullableclass1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.NullableClass1](#nullableclass1)<br> schema class |
 | static class | [NullableClass.NullableClassMapBuilder](#nullableclassmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.NullableClassMap](#nullableclassmap)<br> output class for Map payloads |
-| static class | [NullableClass.ObjectItemsNullableBoxed](#objectitemsnullableboxed)<br> sealed validated payload class |
+| static class | [NullableClass.ObjectItemsNullableBoxed](#objectitemsnullableboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.ObjectItemsNullableBoxedMap](#objectitemsnullableboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectItemsNullable](#objectitemsnullable)<br> schema class |
 | static class | [NullableClass.ObjectItemsNullableMapBuilder](#objectitemsnullablemapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectItemsNullableMap](#objectitemsnullablemap)<br> output class for Map payloads |
-| static class | [NullableClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> sealed validated payload class |
+| static class | [NullableClass.AdditionalProperties2Boxed](#additionalproperties2boxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
-| static class | [NullableClass.ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.ObjectAndItemsNullablePropBoxedVoid](#objectanditemsnullablepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullableProp](#objectanditemsnullableprop)<br> schema class |
 | static class | [NullableClass.ObjectAndItemsNullablePropMapBuilder](#objectanditemsnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap)<br> output class for Map payloads |
-| static class | [NullableClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> sealed validated payload class |
+| static class | [NullableClass.AdditionalProperties1Boxed](#additionalproperties1boxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
-| static class | [NullableClass.ObjectNullablePropBoxed](#objectnullablepropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.ObjectNullablePropBoxed](#objectnullablepropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.ObjectNullablePropBoxedVoid](#objectnullablepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.ObjectNullablePropBoxedMap](#objectnullablepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.ObjectNullableProp](#objectnullableprop)<br> schema class |
 | static class | [NullableClass.ObjectNullablePropMapBuilder](#objectnullablepropmapbuilder)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectNullablePropMap](#objectnullablepropmap)<br> output class for Map payloads |
-| static class | [NullableClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [NullableClass.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties](#additionalproperties)<br> schema class |
-| static class | [NullableClass.ArrayItemsNullableBoxed](#arrayitemsnullableboxed)<br> sealed validated payload class |
+| static class | [NullableClass.ArrayItemsNullableBoxed](#arrayitemsnullableboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.ArrayItemsNullableBoxedList](#arrayitemsnullableboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayItemsNullable](#arrayitemsnullable)<br> schema class |
 | static class | [NullableClass.ArrayItemsNullableListBuilder](#arrayitemsnullablelistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayItemsNullableList](#arrayitemsnullablelist)<br> output class for List payloads |
-| static class | [NullableClass.Items2Boxed](#items2boxed)<br> sealed validated payload class |
+| static class | [NullableClass.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.Items2BoxedVoid](#items2boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.Items2BoxedMap](#items2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items2](#items2)<br> schema class |
-| static class | [NullableClass.ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.ArrayAndItemsNullablePropBoxedVoid](#arrayanditemsnullablepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayAndItemsNullableProp](#arrayanditemsnullableprop)<br> schema class |
 | static class | [NullableClass.ArrayAndItemsNullablePropListBuilder](#arrayanditemsnullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist)<br> output class for List payloads |
-| static class | [NullableClass.Items1Boxed](#items1boxed)<br> sealed validated payload class |
+| static class | [NullableClass.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.Items1BoxedVoid](#items1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.Items1BoxedMap](#items1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items1](#items1)<br> schema class |
-| static class | [NullableClass.ArrayNullablePropBoxed](#arraynullablepropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.ArrayNullablePropBoxed](#arraynullablepropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.ArrayNullablePropBoxedVoid](#arraynullablepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.ArrayNullablePropBoxedList](#arraynullablepropboxedlist)<br> boxed class to store validated List payloads |
 | static class | [NullableClass.ArrayNullableProp](#arraynullableprop)<br> schema class |
 | static class | [NullableClass.ArrayNullablePropListBuilder](#arraynullableproplistbuilder)<br> builder for List payloads |
 | static class | [NullableClass.ArrayNullablePropList](#arraynullableproplist)<br> output class for List payloads |
-| static class | [NullableClass.ItemsBoxed](#itemsboxed)<br> sealed validated payload class |
+| static class | [NullableClass.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.Items](#items)<br> schema class |
-| static class | [NullableClass.DatetimePropBoxed](#datetimepropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.DatetimePropBoxed](#datetimepropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.DatetimePropBoxedVoid](#datetimepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.DatetimePropBoxedString](#datetimepropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.DatetimeProp](#datetimeprop)<br> schema class |
-| static class | [NullableClass.DatePropBoxed](#datepropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.DatePropBoxed](#datepropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.DatePropBoxedVoid](#datepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.DatePropBoxedString](#datepropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.DateProp](#dateprop)<br> schema class |
-| static class | [NullableClass.StringPropBoxed](#stringpropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.StringPropBoxed](#stringpropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.StringPropBoxedVoid](#stringpropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.StringPropBoxedString](#stringpropboxedstring)<br> boxed class to store validated String payloads |
 | static class | [NullableClass.StringProp](#stringprop)<br> schema class |
-| static class | [NullableClass.BooleanPropBoxed](#booleanpropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.BooleanPropBoxed](#booleanpropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.BooleanPropBoxedVoid](#booleanpropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.BooleanPropBoxedBoolean](#booleanpropboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [NullableClass.BooleanProp](#booleanprop)<br> schema class |
-| static class | [NullableClass.NumberPropBoxed](#numberpropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.NumberPropBoxed](#numberpropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.NumberPropBoxedVoid](#numberpropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.NumberPropBoxedNumber](#numberpropboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NullableClass.NumberProp](#numberprop)<br> schema class |
-| static class | [NullableClass.IntegerPropBoxed](#integerpropboxed)<br> sealed validated payload class |
+| static class | [NullableClass.IntegerPropBoxed](#integerpropboxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.IntegerPropBoxedVoid](#integerpropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.IntegerPropBoxedNumber](#integerpropboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NullableClass.IntegerProp](#integerprop)<br> schema class |
-| static class | [NullableClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> sealed validated payload class |
+| static class | [NullableClass.AdditionalProperties3Boxed](#additionalproperties3boxed)<br> abstract sealed validated payload class |
 | static class | [NullableClass.AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [NullableClass.AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NullableClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
@@ -109,23 +109,23 @@ public static abstract sealed class NullableClass1Boxed<br>
 permits<br>
 [NullableClass1BoxedMap](#nullableclass1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NullableClass1BoxedMap
 public static final class NullableClass1BoxedMap<br>
-extends NullableClass1Boxed
+extends [NullableClass1Boxed](#nullableclass1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NullableClass1BoxedMap(NullableClassMap data)<br>Creates an instance, private visibility |
+| NullableClass1BoxedMap([NullableClassMap](#nullableclassmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| NullableClassMap | data<br>validated payload |
+| [NullableClassMap](#nullableclassmap) | data<br>validated payload |
 
 ## NullableClass1
 public static class NullableClass1<br>
@@ -280,23 +280,23 @@ public static abstract sealed class ObjectItemsNullableBoxed<br>
 permits<br>
 [ObjectItemsNullableBoxedMap](#objectitemsnullableboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectItemsNullableBoxedMap
 public static final class ObjectItemsNullableBoxedMap<br>
-extends ObjectItemsNullableBoxed
+extends [ObjectItemsNullableBoxed](#objectitemsnullableboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectItemsNullableBoxedMap(ObjectItemsNullableMap data)<br>Creates an instance, private visibility |
+| ObjectItemsNullableBoxedMap([ObjectItemsNullableMap](#objectitemsnullablemap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectItemsNullableMap | data<br>validated payload |
+| [ObjectItemsNullableMap](#objectitemsnullablemap) | data<br>validated payload |
 
 ## ObjectItemsNullable
 public static class ObjectItemsNullable<br>
@@ -378,11 +378,11 @@ permits<br>
 [AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid),
 [AdditionalProperties2BoxedMap](#additionalproperties2boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties2BoxedVoid
 public static final class AdditionalProperties2BoxedVoid<br>
-extends AdditionalProperties2Boxed
+extends [AdditionalProperties2Boxed](#additionalproperties2boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -398,7 +398,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AdditionalProperties2BoxedMap
 public static final class AdditionalProperties2BoxedMap<br>
-extends AdditionalProperties2Boxed
+extends [AdditionalProperties2Boxed](#additionalproperties2boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -459,11 +459,11 @@ permits<br>
 [ObjectAndItemsNullablePropBoxedVoid](#objectanditemsnullablepropboxedvoid),
 [ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectAndItemsNullablePropBoxedVoid
 public static final class ObjectAndItemsNullablePropBoxedVoid<br>
-extends ObjectAndItemsNullablePropBoxed
+extends [ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -479,19 +479,19 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ObjectAndItemsNullablePropBoxedMap
 public static final class ObjectAndItemsNullablePropBoxedMap<br>
-extends ObjectAndItemsNullablePropBoxed
+extends [ObjectAndItemsNullablePropBoxed](#objectanditemsnullablepropboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectAndItemsNullablePropBoxedMap(ObjectAndItemsNullablePropMap data)<br>Creates an instance, private visibility |
+| ObjectAndItemsNullablePropBoxedMap([ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectAndItemsNullablePropMap | data<br>validated payload |
+| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | data<br>validated payload |
 
 ## ObjectAndItemsNullableProp
 public static class ObjectAndItemsNullableProp<br>
@@ -581,11 +581,11 @@ permits<br>
 [AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid),
 [AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties1BoxedVoid
 public static final class AdditionalProperties1BoxedVoid<br>
-extends AdditionalProperties1Boxed
+extends [AdditionalProperties1Boxed](#additionalproperties1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -601,7 +601,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AdditionalProperties1BoxedMap
 public static final class AdditionalProperties1BoxedMap<br>
-extends AdditionalProperties1Boxed
+extends [AdditionalProperties1Boxed](#additionalproperties1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -662,11 +662,11 @@ permits<br>
 [ObjectNullablePropBoxedVoid](#objectnullablepropboxedvoid),
 [ObjectNullablePropBoxedMap](#objectnullablepropboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ObjectNullablePropBoxedVoid
 public static final class ObjectNullablePropBoxedVoid<br>
-extends ObjectNullablePropBoxed
+extends [ObjectNullablePropBoxed](#objectnullablepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -682,19 +682,19 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ObjectNullablePropBoxedMap
 public static final class ObjectNullablePropBoxedMap<br>
-extends ObjectNullablePropBoxed
+extends [ObjectNullablePropBoxed](#objectnullablepropboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ObjectNullablePropBoxedMap(ObjectNullablePropMap data)<br>Creates an instance, private visibility |
+| ObjectNullablePropBoxedMap([ObjectNullablePropMap](#objectnullablepropmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ObjectNullablePropMap | data<br>validated payload |
+| [ObjectNullablePropMap](#objectnullablepropmap) | data<br>validated payload |
 
 ## ObjectNullableProp
 public static class ObjectNullableProp<br>
@@ -780,11 +780,11 @@ public static abstract sealed class AdditionalPropertiesBoxed<br>
 permits<br>
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedMap
 public static final class AdditionalPropertiesBoxedMap<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -814,23 +814,23 @@ public static abstract sealed class ArrayItemsNullableBoxed<br>
 permits<br>
 [ArrayItemsNullableBoxedList](#arrayitemsnullableboxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ArrayItemsNullableBoxedList
 public static final class ArrayItemsNullableBoxedList<br>
-extends ArrayItemsNullableBoxed
+extends [ArrayItemsNullableBoxed](#arrayitemsnullableboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ArrayItemsNullableBoxedList(ArrayItemsNullableList data)<br>Creates an instance, private visibility |
+| ArrayItemsNullableBoxedList([ArrayItemsNullableList](#arrayitemsnullablelist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ArrayItemsNullableList | data<br>validated payload |
+| [ArrayItemsNullableList](#arrayitemsnullablelist) | data<br>validated payload |
 
 ## ArrayItemsNullable
 public static class ArrayItemsNullable<br>
@@ -912,11 +912,11 @@ permits<br>
 [Items2BoxedVoid](#items2boxedvoid),
 [Items2BoxedMap](#items2boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Items2BoxedVoid
 public static final class Items2BoxedVoid<br>
-extends Items2Boxed
+extends [Items2Boxed](#items2boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -932,7 +932,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Items2BoxedMap
 public static final class Items2BoxedMap<br>
-extends Items2Boxed
+extends [Items2Boxed](#items2boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -993,11 +993,11 @@ permits<br>
 [ArrayAndItemsNullablePropBoxedVoid](#arrayanditemsnullablepropboxedvoid),
 [ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ArrayAndItemsNullablePropBoxedVoid
 public static final class ArrayAndItemsNullablePropBoxedVoid<br>
-extends ArrayAndItemsNullablePropBoxed
+extends [ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1013,19 +1013,19 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ArrayAndItemsNullablePropBoxedList
 public static final class ArrayAndItemsNullablePropBoxedList<br>
-extends ArrayAndItemsNullablePropBoxed
+extends [ArrayAndItemsNullablePropBoxed](#arrayanditemsnullablepropboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ArrayAndItemsNullablePropBoxedList(ArrayAndItemsNullablePropList data)<br>Creates an instance, private visibility |
+| ArrayAndItemsNullablePropBoxedList([ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ArrayAndItemsNullablePropList | data<br>validated payload |
+| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | data<br>validated payload |
 
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
@@ -1115,11 +1115,11 @@ permits<br>
 [Items1BoxedVoid](#items1boxedvoid),
 [Items1BoxedMap](#items1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Items1BoxedVoid
 public static final class Items1BoxedVoid<br>
-extends Items1Boxed
+extends [Items1Boxed](#items1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1135,7 +1135,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## Items1BoxedMap
 public static final class Items1BoxedMap<br>
-extends Items1Boxed
+extends [Items1Boxed](#items1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -1196,11 +1196,11 @@ permits<br>
 [ArrayNullablePropBoxedVoid](#arraynullablepropboxedvoid),
 [ArrayNullablePropBoxedList](#arraynullablepropboxedlist)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ArrayNullablePropBoxedVoid
 public static final class ArrayNullablePropBoxedVoid<br>
-extends ArrayNullablePropBoxed
+extends [ArrayNullablePropBoxed](#arraynullablepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1216,19 +1216,19 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ArrayNullablePropBoxedList
 public static final class ArrayNullablePropBoxedList<br>
-extends ArrayNullablePropBoxed
+extends [ArrayNullablePropBoxed](#arraynullablepropboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ArrayNullablePropBoxedList(ArrayNullablePropList data)<br>Creates an instance, private visibility |
+| ArrayNullablePropBoxedList([ArrayNullablePropList](#arraynullableproplist) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ArrayNullablePropList | data<br>validated payload |
+| [ArrayNullablePropList](#arraynullableproplist) | data<br>validated payload |
 
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
@@ -1314,11 +1314,11 @@ public static abstract sealed class ItemsBoxed<br>
 permits<br>
 [ItemsBoxedMap](#itemsboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ItemsBoxedMap
 public static final class ItemsBoxedMap<br>
-extends ItemsBoxed
+extends [ItemsBoxed](#itemsboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -1349,11 +1349,11 @@ permits<br>
 [DatetimePropBoxedVoid](#datetimepropboxedvoid),
 [DatetimePropBoxedString](#datetimepropboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## DatetimePropBoxedVoid
 public static final class DatetimePropBoxedVoid<br>
-extends DatetimePropBoxed
+extends [DatetimePropBoxed](#datetimepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1369,7 +1369,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## DatetimePropBoxedString
 public static final class DatetimePropBoxedString<br>
-extends DatetimePropBoxed
+extends [DatetimePropBoxed](#datetimepropboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -1437,11 +1437,11 @@ permits<br>
 [DatePropBoxedVoid](#datepropboxedvoid),
 [DatePropBoxedString](#datepropboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## DatePropBoxedVoid
 public static final class DatePropBoxedVoid<br>
-extends DatePropBoxed
+extends [DatePropBoxed](#datepropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1457,7 +1457,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## DatePropBoxedString
 public static final class DatePropBoxedString<br>
-extends DatePropBoxed
+extends [DatePropBoxed](#datepropboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -1525,11 +1525,11 @@ permits<br>
 [StringPropBoxedVoid](#stringpropboxedvoid),
 [StringPropBoxedString](#stringpropboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## StringPropBoxedVoid
 public static final class StringPropBoxedVoid<br>
-extends StringPropBoxed
+extends [StringPropBoxed](#stringpropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1545,7 +1545,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## StringPropBoxedString
 public static final class StringPropBoxedString<br>
-extends StringPropBoxed
+extends [StringPropBoxed](#stringpropboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -1612,11 +1612,11 @@ permits<br>
 [BooleanPropBoxedVoid](#booleanpropboxedvoid),
 [BooleanPropBoxedBoolean](#booleanpropboxedboolean)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## BooleanPropBoxedVoid
 public static final class BooleanPropBoxedVoid<br>
-extends BooleanPropBoxed
+extends [BooleanPropBoxed](#booleanpropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1632,7 +1632,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## BooleanPropBoxedBoolean
 public static final class BooleanPropBoxedBoolean<br>
-extends BooleanPropBoxed
+extends [BooleanPropBoxed](#booleanpropboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -1699,11 +1699,11 @@ permits<br>
 [NumberPropBoxedVoid](#numberpropboxedvoid),
 [NumberPropBoxedNumber](#numberpropboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## NumberPropBoxedVoid
 public static final class NumberPropBoxedVoid<br>
-extends NumberPropBoxed
+extends [NumberPropBoxed](#numberpropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1719,7 +1719,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## NumberPropBoxedNumber
 public static final class NumberPropBoxedNumber<br>
-extends NumberPropBoxed
+extends [NumberPropBoxed](#numberpropboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1786,11 +1786,11 @@ permits<br>
 [IntegerPropBoxedVoid](#integerpropboxedvoid),
 [IntegerPropBoxedNumber](#integerpropboxednumber)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## IntegerPropBoxedVoid
 public static final class IntegerPropBoxedVoid<br>
-extends IntegerPropBoxed
+extends [IntegerPropBoxed](#integerpropboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1806,7 +1806,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## IntegerPropBoxedNumber
 public static final class IntegerPropBoxedNumber<br>
-extends IntegerPropBoxed
+extends [IntegerPropBoxed](#integerpropboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -1874,11 +1874,11 @@ permits<br>
 [AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid),
 [AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalProperties3BoxedVoid
 public static final class AdditionalProperties3BoxedVoid<br>
-extends AdditionalProperties3Boxed
+extends [AdditionalProperties3Boxed](#additionalproperties3boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -1894,7 +1894,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AdditionalProperties3BoxedMap
 public static final class AdditionalProperties3BoxedMap<br>
-extends AdditionalProperties3Boxed
+extends [AdditionalProperties3Boxed](#additionalproperties3boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

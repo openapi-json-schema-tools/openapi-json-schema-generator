@@ -2,21 +2,21 @@
 public class Schema1
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Schema1.Schema11Boxed](#schema11boxed)<br> sealed validated payload class |
+| static class | [Schema1.Schema11Boxed](#schema11boxed)<br> abstract sealed validated payload class |
 | static class | [Schema1.Schema11BoxedMap](#schema11boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema1.Schema11](#schema11)<br> schema class |
 | static class | [Schema1.SchemaMapBuilder1](#schemamapbuilder1)<br> builder for Map payloads |
 | static class | [Schema1.SchemaMap1](#schemamap1)<br> output class for Map payloads |
-| static class | [Schema1.SomeProp1Boxed](#someprop1boxed)<br> sealed validated payload class |
+| static class | [Schema1.SomeProp1Boxed](#someprop1boxed)<br> abstract sealed validated payload class |
 | static class | [Schema1.SomeProp1BoxedVoid](#someprop1boxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Schema1.SomeProp1BoxedBoolean](#someprop1boxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Schema1.SomeProp1BoxedNumber](#someprop1boxednumber)<br> boxed class to store validated Number payloads |
@@ -24,7 +24,7 @@ A class that contains necessary nested
 | static class | [Schema1.SomeProp1BoxedList](#someprop1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema1.SomeProp1BoxedMap](#someprop1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema1.SomeProp1](#someprop1)<br> schema class |
-| static class | [Schema1.Schema01Boxed](#schema01boxed)<br> sealed validated payload class |
+| static class | [Schema1.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
 | static class | [Schema1.Schema01BoxedString](#schema01boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema1.Schema01](#schema01)<br> schema class |
 
@@ -33,23 +33,23 @@ public static abstract sealed class Schema11Boxed<br>
 permits<br>
 [Schema11BoxedMap](#schema11boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema11BoxedMap
 public static final class Schema11BoxedMap<br>
-extends Schema11Boxed
+extends [Schema11Boxed](#schema11boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Schema11BoxedMap(SchemaMap1 data)<br>Creates an instance, private visibility |
+| Schema11BoxedMap([SchemaMap1](#schemamap1) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| SchemaMap1 | data<br>validated payload |
+| [SchemaMap1](#schemamap1) | data<br>validated payload |
 
 ## Schema11
 public static class Schema11<br>
@@ -150,11 +150,11 @@ permits<br>
 [SomeProp1BoxedList](#someprop1boxedlist),
 [SomeProp1BoxedMap](#someprop1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## SomeProp1BoxedVoid
 public static final class SomeProp1BoxedVoid<br>
-extends SomeProp1Boxed
+extends [SomeProp1Boxed](#someprop1boxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -170,7 +170,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## SomeProp1BoxedBoolean
 public static final class SomeProp1BoxedBoolean<br>
-extends SomeProp1Boxed
+extends [SomeProp1Boxed](#someprop1boxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -186,7 +186,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## SomeProp1BoxedNumber
 public static final class SomeProp1BoxedNumber<br>
-extends SomeProp1Boxed
+extends [SomeProp1Boxed](#someprop1boxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -202,7 +202,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## SomeProp1BoxedString
 public static final class SomeProp1BoxedString<br>
-extends SomeProp1Boxed
+extends [SomeProp1Boxed](#someprop1boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -218,7 +218,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## SomeProp1BoxedList
 public static final class SomeProp1BoxedList<br>
-extends SomeProp1Boxed
+extends [SomeProp1Boxed](#someprop1boxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -234,7 +234,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## SomeProp1BoxedMap
 public static final class SomeProp1BoxedMap<br>
-extends SomeProp1Boxed
+extends [SomeProp1Boxed](#someprop1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -284,11 +284,11 @@ public static abstract sealed class Schema01Boxed<br>
 permits<br>
 [Schema01BoxedString](#schema01boxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Schema01BoxedString
 public static final class Schema01BoxedString<br>
-extends Schema01Boxed
+extends [Schema01Boxed](#schema01boxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 

@@ -3,9 +3,9 @@ org.openapijsonschematools.client.components.schemas.Zebra.java
 public class Zebra
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -13,20 +13,20 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [Zebra.Zebra1Boxed](#zebra1boxed)<br> sealed validated payload class |
+| static class | [Zebra.Zebra1Boxed](#zebra1boxed)<br> abstract sealed validated payload class |
 | static class | [Zebra.Zebra1BoxedMap](#zebra1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Zebra.Zebra1](#zebra1)<br> schema class |
 | static class | [Zebra.ZebraMapBuilder](#zebramapbuilder)<br> builder for Map payloads |
 | static class | [Zebra.ZebraMap](#zebramap)<br> output class for Map payloads |
-| static class | [Zebra.ClassNameBoxed](#classnameboxed)<br> sealed validated payload class |
+| static class | [Zebra.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
 | static class | [Zebra.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Zebra.ClassName](#classname)<br> schema class |
 | enum | [Zebra.StringClassNameEnums](#stringclassnameenums)<br>String enum |
-| static class | [Zebra.TypeBoxed](#typeboxed)<br> sealed validated payload class |
+| static class | [Zebra.TypeBoxed](#typeboxed)<br> abstract sealed validated payload class |
 | static class | [Zebra.TypeBoxedString](#typeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Zebra.Type](#type)<br> schema class |
 | enum | [Zebra.StringTypeEnums](#stringtypeenums)<br>String enum |
-| static class | [Zebra.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [Zebra.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
 | static class | [Zebra.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [Zebra.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Zebra.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
@@ -40,23 +40,23 @@ public static abstract sealed class Zebra1Boxed<br>
 permits<br>
 [Zebra1BoxedMap](#zebra1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Zebra1BoxedMap
 public static final class Zebra1BoxedMap<br>
-extends Zebra1Boxed
+extends [Zebra1Boxed](#zebra1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Zebra1BoxedMap(ZebraMap data)<br>Creates an instance, private visibility |
+| Zebra1BoxedMap([ZebraMap](#zebramap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| ZebraMap | data<br>validated payload |
+| [ZebraMap](#zebramap) | data<br>validated payload |
 
 ## Zebra1
 public static class Zebra1<br>
@@ -169,11 +169,11 @@ public static abstract sealed class ClassNameBoxed<br>
 permits<br>
 [ClassNameBoxedString](#classnameboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ClassNameBoxedString
 public static final class ClassNameBoxedString<br>
-extends ClassNameBoxed
+extends [ClassNameBoxed](#classnameboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -244,11 +244,11 @@ public static abstract sealed class TypeBoxed<br>
 permits<br>
 [TypeBoxedString](#typeboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## TypeBoxedString
 public static final class TypeBoxedString<br>
-extends TypeBoxed
+extends [TypeBoxed](#typeboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -326,11 +326,11 @@ permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedVoid
 public static final class AdditionalPropertiesBoxedVoid<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -346,7 +346,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedBoolean
 public static final class AdditionalPropertiesBoxedBoolean<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -362,7 +362,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## AdditionalPropertiesBoxedNumber
 public static final class AdditionalPropertiesBoxedNumber<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -378,7 +378,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -394,7 +394,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedList
 public static final class AdditionalPropertiesBoxedList<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -410,7 +410,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedMap
 public static final class AdditionalPropertiesBoxedMap<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 

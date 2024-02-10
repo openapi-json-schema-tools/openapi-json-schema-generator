@@ -3,9 +3,9 @@ org.openapijsonschematools.client.components.schemas.JSONPatchRequestAddReplaceT
 public class JSONPatchRequestAddReplaceTest
 
 A class that contains necessary nested
-- schema classes (which validates payloads), extends JsonSchema
-- a sealed class which stores validated payloads, java version of a sum type
-- boxed class(es) to store validated payloads, sealed permits class implementation(s)
+- schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -13,16 +13,16 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1Boxed](#jsonpatchrequestaddreplacetest1boxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1Boxed](#jsonpatchrequestaddreplacetest1boxed)<br> abstract sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1BoxedMap](#jsonpatchrequestaddreplacetest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1](#jsonpatchrequestaddreplacetest1)<br> schema class |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapBuilder](#jsonpatchrequestaddreplacetestmapbuilder)<br> builder for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap)<br> output class for Map payloads |
-| static class | [JSONPatchRequestAddReplaceTest.OpBoxed](#opboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.OpBoxed](#opboxed)<br> abstract sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.OpBoxedString](#opboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Op](#op)<br> schema class |
 | enum | [JSONPatchRequestAddReplaceTest.StringOpEnums](#stringopenums)<br>String enum |
-| static class | [JSONPatchRequestAddReplaceTest.ValueBoxed](#valueboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.ValueBoxed](#valueboxed)<br> abstract sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.ValueBoxedVoid](#valueboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [JSONPatchRequestAddReplaceTest.ValueBoxedBoolean](#valueboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [JSONPatchRequestAddReplaceTest.ValueBoxedNumber](#valueboxednumber)<br> boxed class to store validated Number payloads |
@@ -30,10 +30,10 @@ A class that contains necessary nested
 | static class | [JSONPatchRequestAddReplaceTest.ValueBoxedList](#valueboxedlist)<br> boxed class to store validated List payloads |
 | static class | [JSONPatchRequestAddReplaceTest.ValueBoxedMap](#valueboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Value](#value)<br> schema class |
-| static class | [JSONPatchRequestAddReplaceTest.PathBoxed](#pathboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.PathBoxed](#pathboxed)<br> abstract sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.PathBoxedString](#pathboxedstring)<br> boxed class to store validated String payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Path](#path)<br> schema class |
-| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed validated payload class |
+| static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
 | static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [JSONPatchRequestAddReplaceTest.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
@@ -47,23 +47,23 @@ public static abstract sealed class JSONPatchRequestAddReplaceTest1Boxed<br>
 permits<br>
 [JSONPatchRequestAddReplaceTest1BoxedMap](#jsonpatchrequestaddreplacetest1boxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## JSONPatchRequestAddReplaceTest1BoxedMap
 public static final class JSONPatchRequestAddReplaceTest1BoxedMap<br>
-extends JSONPatchRequestAddReplaceTest1Boxed
+extends [JSONPatchRequestAddReplaceTest1Boxed](#jsonpatchrequestaddreplacetest1boxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| JSONPatchRequestAddReplaceTest1BoxedMap(JSONPatchRequestAddReplaceTestMap data)<br>Creates an instance, private visibility |
+| JSONPatchRequestAddReplaceTest1BoxedMap([JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) data)<br>Creates an instance, private visibility |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| JSONPatchRequestAddReplaceTestMap | data<br>validated payload |
+| [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | data<br>validated payload |
 
 ## JSONPatchRequestAddReplaceTest1
 public static class JSONPatchRequestAddReplaceTest1<br>
@@ -301,11 +301,11 @@ public static abstract sealed class OpBoxed<br>
 permits<br>
 [OpBoxedString](#opboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## OpBoxedString
 public static final class OpBoxedString<br>
-extends OpBoxed
+extends [OpBoxed](#opboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -386,11 +386,11 @@ permits<br>
 [ValueBoxedList](#valueboxedlist),
 [ValueBoxedMap](#valueboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## ValueBoxedVoid
 public static final class ValueBoxedVoid<br>
-extends ValueBoxed
+extends [ValueBoxed](#valueboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -406,7 +406,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## ValueBoxedBoolean
 public static final class ValueBoxedBoolean<br>
-extends ValueBoxed
+extends [ValueBoxed](#valueboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -422,7 +422,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## ValueBoxedNumber
 public static final class ValueBoxedNumber<br>
-extends ValueBoxed
+extends [ValueBoxed](#valueboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -438,7 +438,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## ValueBoxedString
 public static final class ValueBoxedString<br>
-extends ValueBoxed
+extends [ValueBoxed](#valueboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -454,7 +454,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## ValueBoxedList
 public static final class ValueBoxedList<br>
-extends ValueBoxed
+extends [ValueBoxed](#valueboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -470,7 +470,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## ValueBoxedMap
 public static final class ValueBoxedMap<br>
-extends ValueBoxed
+extends [ValueBoxed](#valueboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
@@ -503,11 +503,11 @@ public static abstract sealed class PathBoxed<br>
 permits<br>
 [PathBoxedString](#pathboxedstring)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## PathBoxedString
 public static final class PathBoxedString<br>
-extends PathBoxed
+extends [PathBoxed](#pathboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -545,11 +545,11 @@ permits<br>
 [AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
-A sealed class that stores validated payloads using boxed classes
+abstract sealed class that stores validated payloads using boxed classes
 
 ## AdditionalPropertiesBoxedVoid
 public static final class AdditionalPropertiesBoxedVoid<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated null payloads, sealed permits class implementation
 
@@ -565,7 +565,7 @@ a boxed class to store validated null payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedBoolean
 public static final class AdditionalPropertiesBoxedBoolean<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated boolean payloads, sealed permits class implementation
 
@@ -581,7 +581,7 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 
 ## AdditionalPropertiesBoxedNumber
 public static final class AdditionalPropertiesBoxedNumber<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Number payloads, sealed permits class implementation
 
@@ -597,7 +597,7 @@ a boxed class to store validated Number payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated String payloads, sealed permits class implementation
 
@@ -613,7 +613,7 @@ a boxed class to store validated String payloads, sealed permits class implement
 
 ## AdditionalPropertiesBoxedList
 public static final class AdditionalPropertiesBoxedList<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated List payloads, sealed permits class implementation
 
@@ -629,7 +629,7 @@ a boxed class to store validated List payloads, sealed permits class implementat
 
 ## AdditionalPropertiesBoxedMap
 public static final class AdditionalPropertiesBoxedMap<br>
-extends AdditionalPropertiesBoxed
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 a boxed class to store validated Map payloads, sealed permits class implementation
 
