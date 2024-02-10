@@ -115,6 +115,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## Name1BoxedMap
+public static final class Name1BoxedMap<br>
+extends Name1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Name1BoxedMap(NameMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| NameMap | data<br>validated payload |
+
 ## Name1
 public static class Name1<br>
 extends JsonSchema

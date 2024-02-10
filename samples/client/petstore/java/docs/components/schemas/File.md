@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## File1BoxedMap
+public static final class File1BoxedMap<br>
+extends File1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| File1BoxedMap(FileMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FileMap | data<br>validated payload |
+
 ## File1
 public static class File1<br>
 extends JsonSchema

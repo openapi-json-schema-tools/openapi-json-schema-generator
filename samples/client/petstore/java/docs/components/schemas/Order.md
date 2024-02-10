@@ -38,6 +38,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Order1BoxedMap
+public static final class Order1BoxedMap<br>
+extends Order1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Order1BoxedMap(OrderMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| OrderMap | data<br>validated payload |
+
 ## Order1
 public static class Order1<br>
 extends JsonSchema

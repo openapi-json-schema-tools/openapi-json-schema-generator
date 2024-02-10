@@ -32,6 +32,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ArrayOfNumberOnly1BoxedMap
+public static final class ArrayOfNumberOnly1BoxedMap<br>
+extends ArrayOfNumberOnly1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayOfNumberOnly1BoxedMap(ArrayOfNumberOnlyMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ArrayOfNumberOnlyMap | data<br>validated payload |
+
 ## ArrayOfNumberOnly1
 public static class ArrayOfNumberOnly1<br>
 extends JsonSchema

@@ -34,6 +34,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## JSONPatchRequestMoveCopy1BoxedMap
+public static final class JSONPatchRequestMoveCopy1BoxedMap<br>
+extends JSONPatchRequestMoveCopy1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JSONPatchRequestMoveCopy1BoxedMap(JSONPatchRequestMoveCopyMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| JSONPatchRequestMoveCopyMap | data<br>validated payload |
+
 ## JSONPatchRequestMoveCopy1
 public static class JSONPatchRequestMoveCopy1<br>
 extends JsonSchema
@@ -477,6 +493,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## AdditionalPropertiesBoxedMap
+public static final class AdditionalPropertiesBoxedMap<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

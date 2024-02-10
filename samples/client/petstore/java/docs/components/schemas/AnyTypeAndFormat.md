@@ -42,6 +42,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AnyTypeAndFormat1BoxedMap
+public static final class AnyTypeAndFormat1BoxedMap<br>
+extends AnyTypeAndFormat1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypeAndFormat1BoxedMap(AnyTypeAndFormatMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| AnyTypeAndFormatMap | data<br>validated payload |
+
 ## AnyTypeAndFormat1
 public static class AnyTypeAndFormat1<br>
 extends JsonSchema
@@ -298,6 +314,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## FloatSchemaBoxedMap
+public static final class FloatSchemaBoxedMap<br>
+extends FloatSchemaBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FloatSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -413,6 +445,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## DoubleSchemaBoxedMap
+public static final class DoubleSchemaBoxedMap<br>
+extends DoubleSchemaBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DoubleSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -530,6 +578,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## Int64BoxedMap
+public static final class Int64BoxedMap<br>
+extends Int64Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int64BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## Int64
 public static class Int64<br>
 extends JsonSchema
@@ -645,6 +709,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## Int32BoxedMap
+public static final class Int32BoxedMap<br>
+extends Int32Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int32BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## Int32
 public static class Int32<br>
@@ -762,6 +842,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## BinaryBoxedMap
+public static final class BinaryBoxedMap<br>
+extends BinaryBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BinaryBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
@@ -877,6 +973,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## NumberSchemaBoxedMap
+public static final class NumberSchemaBoxedMap<br>
+extends NumberSchemaBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -994,6 +1106,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## DatetimeBoxedMap
+public static final class DatetimeBoxedMap<br>
+extends DatetimeBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DatetimeBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## Datetime
 public static class Datetime<br>
 extends JsonSchema
@@ -1110,6 +1238,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## DateBoxedMap
+public static final class DateBoxedMap<br>
+extends DateBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## Date
 public static class Date<br>
 extends JsonSchema
@@ -1225,6 +1369,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## UuidSchemaBoxedMap
+public static final class UuidSchemaBoxedMap<br>
+extends UuidSchemaBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>

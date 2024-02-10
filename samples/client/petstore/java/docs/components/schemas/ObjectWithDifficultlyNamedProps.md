@@ -30,6 +30,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjectWithDifficultlyNamedProps1BoxedMap
+public static final class ObjectWithDifficultlyNamedProps1BoxedMap<br>
+extends ObjectWithDifficultlyNamedProps1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithDifficultlyNamedProps1BoxedMap(ObjectWithDifficultlyNamedPropsMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ObjectWithDifficultlyNamedPropsMap | data<br>validated payload |
+
 ## ObjectWithDifficultlyNamedProps1
 public static class ObjectWithDifficultlyNamedProps1<br>
 extends JsonSchema

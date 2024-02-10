@@ -28,6 +28,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjectWithCollidingProperties1BoxedMap
+public static final class ObjectWithCollidingProperties1BoxedMap<br>
+extends ObjectWithCollidingProperties1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithCollidingProperties1BoxedMap(ObjectWithCollidingPropertiesMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ObjectWithCollidingPropertiesMap | data<br>validated payload |
+
 ## ObjectWithCollidingProperties1
 public static class ObjectWithCollidingProperties1<br>
 extends JsonSchema
@@ -120,6 +136,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## SomepropBoxedMap
+public static final class SomepropBoxedMap<br>
+extends SomepropBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomepropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## Someprop
 public static class Someprop<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -137,6 +169,22 @@ permits<br>
 [SomePropBoxedMap](#somepropboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## SomePropBoxedMap
+public static final class SomePropBoxedMap<br>
+extends SomePropBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomePropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## SomeProp
 public static class SomeProp<br>

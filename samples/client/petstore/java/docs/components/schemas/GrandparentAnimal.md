@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## GrandparentAnimal1BoxedMap
+public static final class GrandparentAnimal1BoxedMap<br>
+extends GrandparentAnimal1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| GrandparentAnimal1BoxedMap(GrandparentAnimalMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| GrandparentAnimalMap | data<br>validated payload |
+
 ## GrandparentAnimal1
 public static class GrandparentAnimal1<br>
 extends JsonSchema

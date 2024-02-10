@@ -113,6 +113,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## Schema200Response1BoxedMap
+public static final class Schema200Response1BoxedMap<br>
+extends Schema200Response1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema200Response1BoxedMap(Schema200ResponseMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Schema200ResponseMap | data<br>validated payload |
+
 ## Schema200Response1
 public static class Schema200Response1<br>
 extends JsonSchema

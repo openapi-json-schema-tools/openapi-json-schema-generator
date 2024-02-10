@@ -24,6 +24,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjectModelWithRefProps1BoxedMap
+public static final class ObjectModelWithRefProps1BoxedMap<br>
+extends ObjectModelWithRefProps1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectModelWithRefProps1BoxedMap(ObjectModelWithRefPropsMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ObjectModelWithRefPropsMap | data<br>validated payload |
+
 ## ObjectModelWithRefProps1
 public static class ObjectModelWithRefProps1<br>
 extends JsonSchema

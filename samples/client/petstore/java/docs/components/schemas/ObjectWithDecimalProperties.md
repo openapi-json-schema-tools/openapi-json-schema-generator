@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjectWithDecimalProperties1BoxedMap
+public static final class ObjectWithDecimalProperties1BoxedMap<br>
+extends ObjectWithDecimalProperties1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithDecimalProperties1BoxedMap(ObjectWithDecimalPropertiesMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ObjectWithDecimalPropertiesMap | data<br>validated payload |
+
 ## ObjectWithDecimalProperties1
 public static class ObjectWithDecimalProperties1<br>
 extends JsonSchema

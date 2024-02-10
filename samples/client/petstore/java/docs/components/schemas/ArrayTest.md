@@ -50,6 +50,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ArrayTest1BoxedMap
+public static final class ArrayTest1BoxedMap<br>
+extends ArrayTest1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayTest1BoxedMap(ArrayTestMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ArrayTestMap | data<br>validated payload |
+
 ## ArrayTest1
 public static class ArrayTest1<br>
 extends JsonSchema

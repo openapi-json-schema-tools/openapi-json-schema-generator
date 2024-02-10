@@ -27,6 +27,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema11BoxedMap
+public static final class Schema11BoxedMap<br>
+extends Schema11Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema11BoxedMap(SchemaMap1 data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| SchemaMap1 | data<br>validated payload |
+
 ## Schema11
 public static class Schema11<br>
 extends JsonSchema
@@ -206,6 +222,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## SomeProp1BoxedMap
+public static final class SomeProp1BoxedMap<br>
+extends SomeProp1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomeProp1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## SomeProp1
 public static class SomeProp1<br>

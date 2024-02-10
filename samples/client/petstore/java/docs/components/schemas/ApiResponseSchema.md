@@ -30,6 +30,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ApiResponseSchema1BoxedMap
+public static final class ApiResponseSchema1BoxedMap<br>
+extends ApiResponseSchema1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ApiResponseSchema1BoxedMap(ApiResponseMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ApiResponseMap | data<br>validated payload |
+
 ## ApiResponseSchema1
 public static class ApiResponseSchema1<br>
 extends JsonSchema

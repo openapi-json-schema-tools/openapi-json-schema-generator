@@ -24,6 +24,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjectWithInvalidNamedRefedProperties1BoxedMap
+public static final class ObjectWithInvalidNamedRefedProperties1BoxedMap<br>
+extends ObjectWithInvalidNamedRefedProperties1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithInvalidNamedRefedProperties1BoxedMap(ObjectWithInvalidNamedRefedPropertiesMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ObjectWithInvalidNamedRefedPropertiesMap | data<br>validated payload |
+
 ## ObjectWithInvalidNamedRefedProperties1
 public static class ObjectWithInvalidNamedRefedProperties1<br>
 extends JsonSchema

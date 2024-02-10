@@ -22,6 +22,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ComposedObject1BoxedMap
+public static final class ComposedObject1BoxedMap<br>
+extends ComposedObject1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedObject1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## ComposedObject1
 public static class ComposedObject1<br>
 extends JsonSchema
@@ -130,6 +146,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## Schema0BoxedMap
+public static final class Schema0BoxedMap<br>
+extends Schema0Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>

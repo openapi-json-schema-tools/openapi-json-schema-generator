@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjWithRequiredPropsBase1BoxedMap
+public static final class ObjWithRequiredPropsBase1BoxedMap<br>
+extends ObjWithRequiredPropsBase1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjWithRequiredPropsBase1BoxedMap(ObjWithRequiredPropsBaseMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ObjWithRequiredPropsBaseMap | data<br>validated payload |
+
 ## ObjWithRequiredPropsBase1
 public static class ObjWithRequiredPropsBase1<br>
 extends JsonSchema

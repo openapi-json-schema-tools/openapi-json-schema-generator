@@ -32,6 +32,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## MixedPropertiesAndAdditionalPropertiesClass1BoxedMap
+public static final class MixedPropertiesAndAdditionalPropertiesClass1BoxedMap<br>
+extends MixedPropertiesAndAdditionalPropertiesClass1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MixedPropertiesAndAdditionalPropertiesClass1BoxedMap(MixedPropertiesAndAdditionalPropertiesClassMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MixedPropertiesAndAdditionalPropertiesClassMap | data<br>validated payload |
+
 ## MixedPropertiesAndAdditionalPropertiesClass1
 public static class MixedPropertiesAndAdditionalPropertiesClass1<br>
 extends JsonSchema
@@ -142,6 +158,22 @@ permits<br>
 [MapSchemaBoxedMap](#mapschemaboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## MapSchemaBoxedMap
+public static final class MapSchemaBoxedMap<br>
+extends MapSchemaBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapSchemaBoxedMap(MapMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MapMap | data<br>validated payload |
 
 ## MapSchema
 public static class MapSchema<br>

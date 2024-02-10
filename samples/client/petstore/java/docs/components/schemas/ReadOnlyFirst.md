@@ -28,6 +28,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ReadOnlyFirst1BoxedMap
+public static final class ReadOnlyFirst1BoxedMap<br>
+extends ReadOnlyFirst1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReadOnlyFirst1BoxedMap(ReadOnlyFirstMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ReadOnlyFirstMap | data<br>validated payload |
+
 ## ReadOnlyFirst1
 public static class ReadOnlyFirst1<br>
 extends JsonSchema

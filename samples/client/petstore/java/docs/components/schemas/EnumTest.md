@@ -41,6 +41,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## EnumTest1BoxedMap
+public static final class EnumTest1BoxedMap<br>
+extends EnumTest1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumTest1BoxedMap(EnumTestMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| EnumTestMap | data<br>validated payload |
+
 ## EnumTest1
 public static class EnumTest1<br>
 extends JsonSchema

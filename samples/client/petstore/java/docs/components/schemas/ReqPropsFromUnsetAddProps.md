@@ -24,6 +24,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ReqPropsFromUnsetAddProps1BoxedMap
+public static final class ReqPropsFromUnsetAddProps1BoxedMap<br>
+extends ReqPropsFromUnsetAddProps1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReqPropsFromUnsetAddProps1BoxedMap(ReqPropsFromUnsetAddPropsMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ReqPropsFromUnsetAddPropsMap | data<br>validated payload |
+
 ## ReqPropsFromUnsetAddProps1
 public static class ReqPropsFromUnsetAddProps1<br>
 extends JsonSchema

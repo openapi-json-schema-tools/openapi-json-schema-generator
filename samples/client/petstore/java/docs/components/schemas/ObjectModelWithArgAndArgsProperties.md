@@ -28,6 +28,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjectModelWithArgAndArgsProperties1BoxedMap
+public static final class ObjectModelWithArgAndArgsProperties1BoxedMap<br>
+extends ObjectModelWithArgAndArgsProperties1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectModelWithArgAndArgsProperties1BoxedMap(ObjectModelWithArgAndArgsPropertiesMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ObjectModelWithArgAndArgsPropertiesMap | data<br>validated payload |
+
 ## ObjectModelWithArgAndArgsProperties1
 public static class ObjectModelWithArgAndArgsProperties1<br>
 extends JsonSchema

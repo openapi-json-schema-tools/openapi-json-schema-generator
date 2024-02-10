@@ -64,6 +64,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalPropertiesClass1BoxedMap
+public static final class AdditionalPropertiesClass1BoxedMap<br>
+extends AdditionalPropertiesClass1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesClass1BoxedMap(AdditionalPropertiesClassMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| AdditionalPropertiesClassMap | data<br>validated payload |
+
 ## AdditionalPropertiesClass1
 public static class AdditionalPropertiesClass1<br>
 extends JsonSchema
@@ -210,6 +226,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## MapWithUndeclaredPropertiesStringBoxedMap
+public static final class MapWithUndeclaredPropertiesStringBoxedMap<br>
+extends MapWithUndeclaredPropertiesStringBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapWithUndeclaredPropertiesStringBoxedMap(MapWithUndeclaredPropertiesStringMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MapWithUndeclaredPropertiesStringMap | data<br>validated payload |
+
 ## MapWithUndeclaredPropertiesString
 public static class MapWithUndeclaredPropertiesString<br>
 extends JsonSchema
@@ -322,6 +354,22 @@ permits<br>
 [EmptyMapBoxedMap](#emptymapboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## EmptyMapBoxedMap
+public static final class EmptyMapBoxedMap<br>
+extends EmptyMapBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EmptyMapBoxedMap(EmptyMapMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| EmptyMapMap | data<br>validated payload |
 
 ## EmptyMap
 public static class EmptyMap<br>
@@ -486,6 +534,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## AdditionalProperties4BoxedMap
+public static final class AdditionalProperties4BoxedMap<br>
+extends AdditionalProperties4Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
@@ -503,6 +567,22 @@ permits<br>
 [MapWithUndeclaredPropertiesAnytype3BoxedMap](#mapwithundeclaredpropertiesanytype3boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## MapWithUndeclaredPropertiesAnytype3BoxedMap
+public static final class MapWithUndeclaredPropertiesAnytype3BoxedMap<br>
+extends MapWithUndeclaredPropertiesAnytype3Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapWithUndeclaredPropertiesAnytype3BoxedMap(MapWithUndeclaredPropertiesAnytype3Map data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MapWithUndeclaredPropertiesAnytype3Map | data<br>validated payload |
 
 ## MapWithUndeclaredPropertiesAnytype3
 public static class MapWithUndeclaredPropertiesAnytype3<br>
@@ -674,6 +754,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## AdditionalProperties3BoxedMap
+public static final class AdditionalProperties3BoxedMap<br>
+extends AdditionalProperties3Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties3BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -692,6 +788,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## MapWithUndeclaredPropertiesAnytype2BoxedMap
+public static final class MapWithUndeclaredPropertiesAnytype2BoxedMap<br>
+extends MapWithUndeclaredPropertiesAnytype2Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapWithUndeclaredPropertiesAnytype2BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## MapWithUndeclaredPropertiesAnytype2
 public static class MapWithUndeclaredPropertiesAnytype2<br>
 extends MapJsonSchema.MapJsonSchema1
@@ -709,6 +821,22 @@ permits<br>
 [MapWithUndeclaredPropertiesAnytype1BoxedMap](#mapwithundeclaredpropertiesanytype1boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## MapWithUndeclaredPropertiesAnytype1BoxedMap
+public static final class MapWithUndeclaredPropertiesAnytype1BoxedMap<br>
+extends MapWithUndeclaredPropertiesAnytype1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapWithUndeclaredPropertiesAnytype1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## MapWithUndeclaredPropertiesAnytype1
 public static class MapWithUndeclaredPropertiesAnytype1<br>
@@ -813,6 +941,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## Anytype1BoxedMap
+public static final class Anytype1BoxedMap<br>
+extends Anytype1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Anytype1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## Anytype1
 public static class Anytype1<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -830,6 +974,22 @@ permits<br>
 [MapOfMapPropertyBoxedMap](#mapofmappropertyboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## MapOfMapPropertyBoxedMap
+public static final class MapOfMapPropertyBoxedMap<br>
+extends MapOfMapPropertyBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapOfMapPropertyBoxedMap(MapOfMapPropertyMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MapOfMapPropertyMap | data<br>validated payload |
 
 ## MapOfMapProperty
 public static class MapOfMapProperty<br>
@@ -916,6 +1076,22 @@ permits<br>
 [AdditionalProperties1BoxedMap](#additionalproperties1boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## AdditionalProperties1BoxedMap
+public static final class AdditionalProperties1BoxedMap<br>
+extends AdditionalProperties1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties1BoxedMap(AdditionalPropertiesMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| AdditionalPropertiesMap | data<br>validated payload |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -1029,6 +1205,22 @@ permits<br>
 [MapPropertyBoxedMap](#mappropertyboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## MapPropertyBoxedMap
+public static final class MapPropertyBoxedMap<br>
+extends MapPropertyBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapPropertyBoxedMap(MapPropertyMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MapPropertyMap | data<br>validated payload |
 
 ## MapProperty
 public static class MapProperty<br>

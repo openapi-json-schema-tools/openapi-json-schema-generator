@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## StringBooleanMap1BoxedMap
+public static final class StringBooleanMap1BoxedMap<br>
+extends StringBooleanMap1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StringBooleanMap1BoxedMap(StringBooleanMapMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| StringBooleanMapMap | data<br>validated payload |
+
 ## StringBooleanMap1
 public static class StringBooleanMap1<br>
 extends JsonSchema

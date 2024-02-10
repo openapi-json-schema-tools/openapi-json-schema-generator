@@ -20,6 +20,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjectInterface1BoxedMap
+public static final class ObjectInterface1BoxedMap<br>
+extends ObjectInterface1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectInterface1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## ObjectInterface1
 public static class ObjectInterface1<br>
 extends MapJsonSchema.MapJsonSchema1

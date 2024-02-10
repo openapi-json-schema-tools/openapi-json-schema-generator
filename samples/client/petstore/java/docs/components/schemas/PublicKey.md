@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## PublicKey1BoxedMap
+public static final class PublicKey1BoxedMap<br>
+extends PublicKey1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PublicKey1BoxedMap(PublicKeyMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| PublicKeyMap | data<br>validated payload |
+
 ## PublicKey1
 public static class PublicKey1<br>
 extends JsonSchema

@@ -28,6 +28,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## DanishPig1BoxedMap
+public static final class DanishPig1BoxedMap<br>
+extends DanishPig1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DanishPig1BoxedMap(DanishPigMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| DanishPigMap | data<br>validated payload |
+
 ## DanishPig1
 public static class DanishPig1<br>
 extends JsonSchema

@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Banana1BoxedMap
+public static final class Banana1BoxedMap<br>
+extends Banana1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Banana1BoxedMap(BananaMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| BananaMap | data<br>validated payload |
+
 ## Banana1
 public static class Banana1<br>
 extends JsonSchema

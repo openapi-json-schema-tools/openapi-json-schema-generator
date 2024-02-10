@@ -53,6 +53,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+### Variables1BoxedMap
+public static final class Variables1BoxedMap<br>
+extends Variables1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+#### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Variables1BoxedMap(VariablesMap data)<br>Creates an instance, private visibility |
+
+#### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| VariablesMap | data<br>validated payload |
+
 ### Variables1
 public static class Variables1<br>
 extends JsonSchema
@@ -432,6 +448,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+### AdditionalPropertiesBoxedMap
+public static final class AdditionalPropertiesBoxedMap<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+#### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+#### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ### AdditionalProperties
 public static class AdditionalProperties<br>

@@ -28,6 +28,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ObjectWithNonIntersectingValues1BoxedMap
+public static final class ObjectWithNonIntersectingValues1BoxedMap<br>
+extends ObjectWithNonIntersectingValues1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithNonIntersectingValues1BoxedMap(ObjectWithNonIntersectingValuesMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ObjectWithNonIntersectingValuesMap | data<br>validated payload |
+
 ## ObjectWithNonIntersectingValues1
 public static class ObjectWithNonIntersectingValues1<br>
 extends JsonSchema

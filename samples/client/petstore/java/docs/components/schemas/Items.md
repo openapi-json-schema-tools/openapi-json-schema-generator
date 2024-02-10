@@ -122,6 +122,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Items2BoxedMap
+public static final class Items2BoxedMap<br>
+extends Items2Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items2BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## Items2
 public static class Items2<br>
 extends MapJsonSchema.MapJsonSchema1

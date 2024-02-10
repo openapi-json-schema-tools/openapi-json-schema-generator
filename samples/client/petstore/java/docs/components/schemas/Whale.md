@@ -32,6 +32,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Whale1BoxedMap
+public static final class Whale1BoxedMap<br>
+extends Whale1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Whale1BoxedMap(WhaleMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| WhaleMap | data<br>validated payload |
+
 ## Whale1
 public static class Whale1<br>
 extends JsonSchema

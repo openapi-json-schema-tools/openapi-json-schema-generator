@@ -52,6 +52,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## User1BoxedMap
+public static final class User1BoxedMap<br>
+extends User1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| User1BoxedMap(UserMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| UserMap | data<br>validated payload |
+
 ## User1
 public static class User1<br>
 extends JsonSchema
@@ -295,6 +311,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## AnyTypePropNullableBoxedMap
+public static final class AnyTypePropNullableBoxedMap<br>
+extends AnyTypePropNullableBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropNullableBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -400,6 +432,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## AnyTypeExceptNullPropBoxedMap
+public static final class AnyTypeExceptNullPropBoxedMap<br>
+extends AnyTypeExceptNullPropBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -554,6 +602,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## AnyTypePropBoxedMap
+public static final class AnyTypePropBoxedMap<br>
+extends AnyTypePropBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## AnyTypeProp
 public static class AnyTypeProp<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -591,6 +655,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
+
+## ObjectWithNoDeclaredPropsNullableBoxedMap
+public static final class ObjectWithNoDeclaredPropsNullableBoxedMap<br>
+extends ObjectWithNoDeclaredPropsNullableBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>
@@ -640,6 +720,22 @@ permits<br>
 [ObjectWithNoDeclaredPropsBoxedMap](#objectwithnodeclaredpropsboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ObjectWithNoDeclaredPropsBoxedMap
+public static final class ObjectWithNoDeclaredPropsBoxedMap<br>
+extends ObjectWithNoDeclaredPropsBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithNoDeclaredPropsBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>

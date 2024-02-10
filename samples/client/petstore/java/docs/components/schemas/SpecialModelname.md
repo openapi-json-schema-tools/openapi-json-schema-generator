@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## SpecialModelname1BoxedMap
+public static final class SpecialModelname1BoxedMap<br>
+extends SpecialModelname1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SpecialModelname1BoxedMap(SpecialModelnameMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| SpecialModelnameMap | data<br>validated payload |
+
 ## SpecialModelname1
 public static class SpecialModelname1<br>
 extends JsonSchema

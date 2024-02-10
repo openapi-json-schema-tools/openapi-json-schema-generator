@@ -72,6 +72,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## FormatTest1BoxedMap
+public static final class FormatTest1BoxedMap<br>
+extends FormatTest1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTest1BoxedMap(FormatTestMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FormatTestMap | data<br>validated payload |
+
 ## FormatTest1
 public static class FormatTest1<br>
 extends JsonSchema

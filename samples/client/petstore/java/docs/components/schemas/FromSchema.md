@@ -28,6 +28,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## FromSchema1BoxedMap
+public static final class FromSchema1BoxedMap<br>
+extends FromSchema1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FromSchema1BoxedMap(FromSchemaMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FromSchemaMap | data<br>validated payload |
+
 ## FromSchema1
 public static class FromSchema1<br>
 extends JsonSchema

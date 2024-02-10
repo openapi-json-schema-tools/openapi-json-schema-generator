@@ -121,6 +121,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## ComposedOneOfDifferentTypes1BoxedMap
+public static final class ComposedOneOfDifferentTypes1BoxedMap<br>
+extends ComposedOneOfDifferentTypes1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedOneOfDifferentTypes1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## ComposedOneOfDifferentTypes1
 public static class ComposedOneOfDifferentTypes1<br>
 extends JsonSchema
@@ -406,6 +422,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## ItemsBoxedMap
+public static final class ItemsBoxedMap<br>
+extends ItemsBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## Items
 public static class Items<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -423,6 +455,22 @@ permits<br>
 [Schema4BoxedMap](#schema4boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema4BoxedMap
+public static final class Schema4BoxedMap<br>
+extends Schema4Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## Schema4
 public static class Schema4<br>

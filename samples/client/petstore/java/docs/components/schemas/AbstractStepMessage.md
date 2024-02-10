@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AbstractStepMessage1BoxedMap
+public static final class AbstractStepMessage1BoxedMap<br>
+extends AbstractStepMessage1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AbstractStepMessage1BoxedMap(AbstractStepMessageMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| AbstractStepMessageMap | data<br>validated payload |
+
 ## AbstractStepMessage1
 public static class AbstractStepMessage1<br>
 extends JsonSchema

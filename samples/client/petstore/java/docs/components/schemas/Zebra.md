@@ -33,6 +33,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Zebra1BoxedMap
+public static final class Zebra1BoxedMap<br>
+extends Zebra1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Zebra1BoxedMap(ZebraMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ZebraMap | data<br>validated payload |
+
 ## Zebra1
 public static class Zebra1<br>
 extends JsonSchema
@@ -379,6 +395,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## AdditionalPropertiesBoxedMap
+public static final class AdditionalPropertiesBoxedMap<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

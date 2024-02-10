@@ -40,6 +40,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalPropertiesSchema1BoxedMap
+public static final class AdditionalPropertiesSchema1BoxedMap<br>
+extends AdditionalPropertiesSchema1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesSchema1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## AdditionalPropertiesSchema1
 public static class AdditionalPropertiesSchema1<br>
 extends JsonSchema
@@ -63,6 +79,22 @@ permits<br>
 [Schema2BoxedMap](#schema2boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema2BoxedMap
+public static final class Schema2BoxedMap<br>
+extends Schema2Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema2BoxedMap(Schema2Map data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Schema2Map | data<br>validated payload |
 
 ## Schema2
 public static class Schema2<br>
@@ -234,6 +266,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## AdditionalProperties2BoxedMap
+public static final class AdditionalProperties2BoxedMap<br>
+extends AdditionalProperties2Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -264,6 +312,22 @@ permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema1BoxedMap
+public static final class Schema1BoxedMap<br>
+extends Schema1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedMap(Schema1Map data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Schema1Map | data<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -435,6 +499,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## AdditionalProperties1BoxedMap
+public static final class AdditionalProperties1BoxedMap<br>
+extends AdditionalProperties1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -465,6 +545,22 @@ permits<br>
 [Schema0BoxedMap](#schema0boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema0BoxedMap
+public static final class Schema0BoxedMap<br>
+extends Schema0Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0BoxedMap(Schema0Map data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Schema0Map | data<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>
@@ -635,6 +731,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
+
+## AdditionalPropertiesBoxedMap
+public static final class AdditionalPropertiesBoxedMap<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

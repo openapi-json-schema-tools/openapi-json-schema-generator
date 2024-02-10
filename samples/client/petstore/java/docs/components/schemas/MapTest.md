@@ -48,6 +48,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## MapTest1BoxedMap
+public static final class MapTest1BoxedMap<br>
+extends MapTest1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapTest1BoxedMap(MapTestMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MapTestMap | data<br>validated payload |
+
 ## MapTest1
 public static class MapTest1<br>
 extends JsonSchema
@@ -170,6 +186,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## DirectMapBoxedMap
+public static final class DirectMapBoxedMap<br>
+extends DirectMapBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DirectMapBoxedMap(DirectMapMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| DirectMapMap | data<br>validated payload |
+
 ## DirectMap
 public static class DirectMap<br>
 extends JsonSchema
@@ -282,6 +314,22 @@ permits<br>
 [MapOfEnumStringBoxedMap](#mapofenumstringboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## MapOfEnumStringBoxedMap
+public static final class MapOfEnumStringBoxedMap<br>
+extends MapOfEnumStringBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapOfEnumStringBoxedMap(MapOfEnumStringMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MapOfEnumStringMap | data<br>validated payload |
 
 ## MapOfEnumString
 public static class MapOfEnumString<br>
@@ -438,6 +486,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## MapMapOfStringBoxedMap
+public static final class MapMapOfStringBoxedMap<br>
+extends MapMapOfStringBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MapMapOfStringBoxedMap(MapMapOfStringMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| MapMapOfStringMap | data<br>validated payload |
+
 ## MapMapOfString
 public static class MapMapOfString<br>
 extends JsonSchema
@@ -523,6 +587,22 @@ permits<br>
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## AdditionalPropertiesBoxedMap
+public static final class AdditionalPropertiesBoxedMap<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| AdditionalPropertiesMap | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

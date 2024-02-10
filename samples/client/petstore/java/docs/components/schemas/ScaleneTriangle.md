@@ -115,6 +115,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## ScaleneTriangle1BoxedMap
+public static final class ScaleneTriangle1BoxedMap<br>
+extends ScaleneTriangle1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ScaleneTriangle1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## ScaleneTriangle1
 public static class ScaleneTriangle1<br>
 extends JsonSchema
@@ -145,6 +161,22 @@ permits<br>
 [Schema1BoxedMap](#schema1boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema1BoxedMap
+public static final class Schema1BoxedMap<br>
+extends Schema1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedMap(Schema1Map data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Schema1Map | data<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>

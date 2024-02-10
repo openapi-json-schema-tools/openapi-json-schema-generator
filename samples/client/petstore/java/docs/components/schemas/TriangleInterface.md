@@ -115,6 +115,22 @@ a boxed class to store validated List payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | FrozenList<@Nullable Object> | data<br>validated payload |
 
+## TriangleInterface1BoxedMap
+public static final class TriangleInterface1BoxedMap<br>
+extends TriangleInterface1Boxed
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleInterface1BoxedMap(TriangleInterfaceMap data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| TriangleInterfaceMap | data<br>validated payload |
+
 ## TriangleInterface1
 public static class TriangleInterface1<br>
 extends JsonSchema
