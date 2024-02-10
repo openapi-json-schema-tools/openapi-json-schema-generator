@@ -93,6 +93,7 @@ Drawing.DrawingMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DrawingMap](#drawingmap) | validate([Map&lt;?, ?&gt;](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
+| [Drawing1BoxedMap](#drawing1boxedmap) | validateAndBox([DrawingMap](#drawingmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DrawingMapBuilder
 public class DrawingMapBuilder<br>
@@ -226,6 +227,7 @@ Drawing.ShapesList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ShapesList](#shapeslist) | validate([List<?>](#shapeslistbuilder) arg, SchemaConfiguration configuration) |
+| [ShapesBoxedList](#shapesboxedlist) | validateAndBox([ShapesList](#shapeslist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ShapesListBuilder
 public class ShapesListBuilder<br>

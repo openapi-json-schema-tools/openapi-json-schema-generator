@@ -83,6 +83,7 @@ int validatedPayload = ComposedNumber.ComposedNumber1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [ComposedNumber1BoxedNumber](#composednumber1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>

@@ -159,12 +159,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [Dog1BoxedString](#dog1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [Dog1BoxedVoid](#dog1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [Dog1BoxedNumber](#dog1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [Dog1BoxedBoolean](#dog1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [Dog1BoxedMap](#dog1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [Dog1BoxedList](#dog1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1Boxed
 public static abstract sealed class Schema1Boxed<br>
@@ -231,6 +233,7 @@ Dog.Schema1Map validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Schema1Map](#schema1map) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>

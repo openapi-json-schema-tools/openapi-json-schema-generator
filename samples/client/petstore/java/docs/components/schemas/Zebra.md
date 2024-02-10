@@ -104,6 +104,7 @@ Zebra.ZebraMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ZebraMap](#zebramap) | validate([Map&lt;?, ?&gt;](#zebramapbuilder) arg, SchemaConfiguration configuration) |
+| [Zebra1BoxedMap](#zebra1boxedmap) | validateAndBox([ZebraMap](#zebramap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ZebraMap0Builder
 public class ZebraMap0Builder<br>
@@ -225,6 +226,7 @@ String validatedPayload = Zebra.ClassName.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
+| [ClassNameBoxedString](#classnameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>
@@ -299,6 +301,7 @@ String validatedPayload = Zebra.Type.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringTypeEnums](#stringtypeenums) arg, SchemaConfiguration configuration) |
+| [TypeBoxedString](#typeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringTypeEnums
 public enum StringTypeEnums<br>

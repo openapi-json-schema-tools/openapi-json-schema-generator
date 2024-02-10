@@ -89,6 +89,7 @@ File.FileMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FileMap](#filemap) | validate([Map&lt;?, ?&gt;](#filemapbuilder) arg, SchemaConfiguration configuration) |
+| [File1BoxedMap](#file1boxedmap) | validateAndBox([FileMap](#filemap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FileMapBuilder
 public class FileMapBuilder<br>

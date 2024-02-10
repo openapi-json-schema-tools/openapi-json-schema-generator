@@ -124,6 +124,7 @@ Variables.VariablesMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [VariablesMap](#variablesmap) | validate([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
+| [Variables1BoxedMap](#variables1boxedmap) | validateAndBox([VariablesMap](#variablesmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ### VariablesMap00Builder
 public class VariablesMap00Builder<br>
@@ -273,6 +274,7 @@ String validatedPayload = Variables.Port.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringPortEnums](#stringportenums) arg, SchemaConfiguration configuration) |
+| [PortBoxedString](#portboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ### StringPortEnums
 public enum StringPortEnums<br>
@@ -352,6 +354,7 @@ String validatedPayload = Variables.Server.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringServerEnums](#stringserverenums) arg, SchemaConfiguration configuration) |
+| [ServerBoxedString](#serverboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ### StringServerEnums
 public enum StringServerEnums<br>

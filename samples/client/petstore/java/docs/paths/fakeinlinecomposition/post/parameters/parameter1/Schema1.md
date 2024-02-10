@@ -91,6 +91,7 @@ Schema1.SchemaMap1 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap1](#schemamap1) | validate([Map&lt;?, ?&gt;](#schemamapbuilder1) arg, SchemaConfiguration configuration) |
+| [Schema11BoxedMap](#schema11boxedmap) | validateAndBox([SchemaMap1](#schemamap1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder1
 public class SchemaMapBuilder1<br>
@@ -269,12 +270,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [SomeProp1BoxedString](#someprop1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [SomeProp1BoxedVoid](#someprop1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [SomeProp1BoxedNumber](#someprop1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [SomeProp1BoxedBoolean](#someprop1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [SomeProp1BoxedMap](#someprop1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [SomeProp1BoxedList](#someprop1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema01Boxed
 public static abstract sealed class Schema01Boxed<br>
@@ -337,4 +340,5 @@ String validatedPayload = Schema1.Schema01.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [Schema01BoxedString](#schema01boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

@@ -108,6 +108,7 @@ JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map&lt;?, ?&gt;](#jsonpatchrequestmovecopymapbuilder) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestMoveCopy1BoxedMap](#jsonpatchrequestmovecopy1boxedmap) | validateAndBox([JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestMoveCopyMap000Builder
 public class JSONPatchRequestMoveCopyMap000Builder<br>
@@ -325,6 +326,7 @@ String validatedPayload = JSONPatchRequestMoveCopy.Op.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringOpEnums](#stringopenums) arg, SchemaConfiguration configuration) |
+| [OpBoxedString](#opboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringOpEnums
 public enum StringOpEnums<br>

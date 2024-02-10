@@ -163,6 +163,8 @@ A schema class that validates payloads
 | [Fruit1BoxedVoid](#fruit1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [Fruit1BoxedNumber](#fruit1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [Fruit1BoxedBoolean](#fruit1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [Fruit1BoxedMap](#fruit1boxedmap) | validateAndBox([FruitMap](#fruitmap) arg, SchemaConfiguration configuration) |
+| [Fruit1BoxedList](#fruit1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FruitMapBuilder
 public class FruitMapBuilder<br>

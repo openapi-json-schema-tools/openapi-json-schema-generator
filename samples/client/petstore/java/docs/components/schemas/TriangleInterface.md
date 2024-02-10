@@ -168,6 +168,8 @@ A schema class that validates payloads
 | [TriangleInterface1BoxedVoid](#triangleinterface1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [TriangleInterface1BoxedNumber](#triangleinterface1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [TriangleInterface1BoxedBoolean](#triangleinterface1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [TriangleInterface1BoxedMap](#triangleinterface1boxedmap) | validateAndBox([TriangleInterfaceMap](#triangleinterfacemap) arg, SchemaConfiguration configuration) |
+| [TriangleInterface1BoxedList](#triangleinterface1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TriangleInterfaceMap00Builder
 public class TriangleInterfaceMap00Builder<br>
@@ -355,6 +357,7 @@ String validatedPayload = TriangleInterface.ShapeType.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringShapeTypeEnums](#stringshapetypeenums) arg, SchemaConfiguration configuration) |
+| [ShapeTypeBoxedString](#shapetypeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringShapeTypeEnums
 public enum StringShapeTypeEnums<br>

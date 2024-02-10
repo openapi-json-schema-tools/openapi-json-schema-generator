@@ -93,6 +93,7 @@ AnimalFarm.AnimalFarmList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AnimalFarmList](#animalfarmlist) | validate([List<?>](#animalfarmlistbuilder) arg, SchemaConfiguration configuration) |
+| [AnimalFarm1BoxedList](#animalfarm1boxedlist) | validateAndBox([AnimalFarmList](#animalfarmlist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AnimalFarmListBuilder
 public class AnimalFarmListBuilder<br>

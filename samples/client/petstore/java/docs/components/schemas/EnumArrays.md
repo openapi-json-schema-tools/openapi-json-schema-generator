@@ -104,6 +104,7 @@ EnumArrays.EnumArraysMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EnumArraysMap](#enumarraysmap) | validate([Map&lt;?, ?&gt;](#enumarraysmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumArrays1BoxedMap](#enumarrays1boxedmap) | validateAndBox([EnumArraysMap](#enumarraysmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumArraysMapBuilder
 public class EnumArraysMapBuilder<br>
@@ -212,6 +213,7 @@ EnumArrays.ArrayEnumList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayEnumBoxedList](#arrayenumboxedlist) | validateAndBox([ArrayEnumList](#arrayenumlist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayEnumListBuilder
 public class ArrayEnumListBuilder<br>
@@ -305,6 +307,7 @@ String validatedPayload = EnumArrays.Items.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringItemsEnums](#stringitemsenums) arg, SchemaConfiguration configuration) |
+| [ItemsBoxedString](#itemsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringItemsEnums
 public enum StringItemsEnums<br>
@@ -380,6 +383,7 @@ String validatedPayload = EnumArrays.JustSymbol.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringJustSymbolEnums](#stringjustsymbolenums) arg, SchemaConfiguration configuration) |
+| [JustSymbolBoxedString](#justsymbolboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringJustSymbolEnums
 public enum StringJustSymbolEnums<br>

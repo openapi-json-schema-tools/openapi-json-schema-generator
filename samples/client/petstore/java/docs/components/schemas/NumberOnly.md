@@ -86,6 +86,7 @@ NumberOnly.NumberOnlyMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [NumberOnlyMap](#numberonlymap) | validate([Map&lt;?, ?&gt;](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [NumberOnly1BoxedMap](#numberonly1boxedmap) | validateAndBox([NumberOnlyMap](#numberonlymap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberOnlyMapBuilder
 public class NumberOnlyMapBuilder<br>

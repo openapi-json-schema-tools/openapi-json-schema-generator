@@ -91,6 +91,7 @@ FromSchema.FromSchemaMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FromSchemaMap](#fromschemamap) | validate([Map&lt;?, ?&gt;](#fromschemamapbuilder) arg, SchemaConfiguration configuration) |
+| [FromSchema1BoxedMap](#fromschema1boxedmap) | validateAndBox([FromSchemaMap](#fromschemamap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FromSchemaMapBuilder
 public class FromSchemaMapBuilder<br>

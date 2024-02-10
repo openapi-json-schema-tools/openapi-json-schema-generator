@@ -76,5 +76,6 @@ int validatedPayload = NumberWithValidations.NumberWithValidations1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

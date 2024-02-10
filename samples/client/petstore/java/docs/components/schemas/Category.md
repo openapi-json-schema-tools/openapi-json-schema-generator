@@ -92,6 +92,7 @@ Category.CategoryMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [CategoryMap](#categorymap) | validate([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
+| [Category1BoxedMap](#category1boxedmap) | validateAndBox([CategoryMap](#categorymap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CategoryMap0Builder
 public class CategoryMap0Builder<br>
@@ -213,6 +214,7 @@ String validatedPayload = Category.Name.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [NameBoxedString](#nameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IdBoxed
 public static abstract sealed class IdBoxed<br>

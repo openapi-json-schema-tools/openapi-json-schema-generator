@@ -149,11 +149,13 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [SomeObject1BoxedString](#someobject1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [SomeObject1BoxedVoid](#someobject1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [SomeObject1BoxedNumber](#someobject1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [SomeObject1BoxedBoolean](#someobject1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [SomeObject1BoxedMap](#someobject1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [SomeObject1BoxedList](#someobject1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

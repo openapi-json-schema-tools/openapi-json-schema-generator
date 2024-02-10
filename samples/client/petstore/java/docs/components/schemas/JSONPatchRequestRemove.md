@@ -103,6 +103,7 @@ JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map&lt;?, ?&gt;](#jsonpatchrequestremovemapbuilder) arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestRemove1BoxedMap](#jsonpatchrequestremove1boxedmap) | validateAndBox([JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestRemoveMap00Builder
 public class JSONPatchRequestRemoveMap00Builder<br>
@@ -249,6 +250,7 @@ String validatedPayload = JSONPatchRequestRemove.Op.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringOpEnums](#stringopenums) arg, SchemaConfiguration configuration) |
+| [OpBoxedString](#opboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringOpEnums
 public enum StringOpEnums<br>

@@ -203,6 +203,7 @@ NullableClass.NullableClassMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [NullableClassMap](#nullableclassmap) | validate([Map&lt;?, ?&gt;](#nullableclassmapbuilder) arg, SchemaConfiguration configuration) |
+| [NullableClass1BoxedMap](#nullableclass1boxedmap) | validateAndBox([NullableClassMap](#nullableclassmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NullableClassMapBuilder
 public class NullableClassMapBuilder<br>
@@ -339,6 +340,7 @@ NullableClass.ObjectItemsNullableMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map&lt;?, ?&gt;](#objectitemsnullablemapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectItemsNullableBoxedMap](#objectitemsnullableboxedmap) | validateAndBox([ObjectItemsNullableMap](#objectitemsnullablemap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectItemsNullableMapBuilder
 public class ObjectItemsNullableMapBuilder<br>
@@ -447,7 +449,9 @@ Void validatedPayload = NullableClass.AdditionalProperties2.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [AdditionalProperties2BoxedVoid](#additionalproperties2boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [AdditionalProperties2BoxedMap](#additionalproperties2boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullablePropBoxed
 public static abstract sealed class ObjectAndItemsNullablePropBoxed<br>
@@ -537,7 +541,9 @@ NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ObjectAndItemsNullablePropBoxedVoid](#objectanditemsnullablepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map&lt;?, ?&gt;](#objectanditemsnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap) | validateAndBox([ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullablePropMapBuilder
 public class ObjectAndItemsNullablePropMapBuilder<br>
@@ -646,7 +652,9 @@ Void validatedPayload = NullableClass.AdditionalProperties1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [AdditionalProperties1BoxedVoid](#additionalproperties1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [AdditionalProperties1BoxedMap](#additionalproperties1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullablePropBoxed
 public static abstract sealed class ObjectNullablePropBoxed<br>
@@ -734,7 +742,9 @@ NullableClass.ObjectNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ObjectNullablePropBoxedVoid](#objectnullablepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map&lt;?, ?&gt;](#objectnullablepropmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectNullablePropBoxedMap](#objectnullablepropboxedmap) | validateAndBox([ObjectNullablePropMap](#objectnullablepropmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullablePropMapBuilder
 public class ObjectNullablePropMapBuilder<br>
@@ -864,6 +874,7 @@ NullableClass.ArrayItemsNullableList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayItemsNullableList](#arrayitemsnullablelist) | validate([List<?>](#arrayitemsnullablelistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayItemsNullableBoxedList](#arrayitemsnullableboxedlist) | validateAndBox([ArrayItemsNullableList](#arrayitemsnullablelist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayItemsNullableListBuilder
 public class ArrayItemsNullableListBuilder<br>
@@ -972,7 +983,9 @@ Void validatedPayload = NullableClass.Items2.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [Items2BoxedVoid](#items2boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [Items2BoxedMap](#items2boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayAndItemsNullablePropBoxed
 public static abstract sealed class ArrayAndItemsNullablePropBoxed<br>
@@ -1062,7 +1075,9 @@ NullableClass.ArrayAndItemsNullablePropList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ArrayAndItemsNullablePropBoxedVoid](#arrayanditemsnullablepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | validate([List<?>](#arrayanditemsnullableproplistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist) | validateAndBox([ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayAndItemsNullablePropListBuilder
 public class ArrayAndItemsNullablePropListBuilder<br>
@@ -1171,7 +1186,9 @@ Void validatedPayload = NullableClass.Items1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [Items1BoxedVoid](#items1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [Items1BoxedMap](#items1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNullablePropBoxed
 public static abstract sealed class ArrayNullablePropBoxed<br>
@@ -1259,7 +1276,9 @@ NullableClass.ArrayNullablePropList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ArrayNullablePropBoxedVoid](#arraynullablepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [ArrayNullablePropList](#arraynullableproplist) | validate([List<?>](#arraynullableproplistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayNullablePropBoxedList](#arraynullablepropboxedlist) | validateAndBox([ArrayNullablePropList](#arraynullableproplist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNullablePropListBuilder
 public class ArrayNullablePropListBuilder<br>
@@ -1408,7 +1427,9 @@ String validatedPayload = NullableClass.DatetimeProp.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [DatetimePropBoxedVoid](#datetimepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [DatetimePropBoxedString](#datetimepropboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DatePropBoxed
 public static abstract sealed class DatePropBoxed<br>
@@ -1494,7 +1515,9 @@ String validatedPayload = NullableClass.DateProp.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [DatePropBoxedVoid](#datepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [DatePropBoxedString](#datepropboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringPropBoxed
 public static abstract sealed class StringPropBoxed<br>
@@ -1579,7 +1602,9 @@ String validatedPayload = NullableClass.StringProp.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [StringPropBoxedVoid](#stringpropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [StringPropBoxedString](#stringpropboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BooleanPropBoxed
 public static abstract sealed class BooleanPropBoxed<br>
@@ -1664,7 +1689,9 @@ boolean validatedPayload = NullableClass.BooleanProp.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [BooleanPropBoxedVoid](#booleanpropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| [BooleanPropBoxedBoolean](#booleanpropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberPropBoxed
 public static abstract sealed class NumberPropBoxed<br>
@@ -1749,7 +1776,9 @@ int validatedPayload = NullableClass.NumberProp.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [NumberPropBoxedVoid](#numberpropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [NumberPropBoxedNumber](#numberpropboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerPropBoxed
 public static abstract sealed class IntegerPropBoxed<br>
@@ -1835,7 +1864,9 @@ int validatedPayload = NullableClass.IntegerProp.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [IntegerPropBoxedVoid](#integerpropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [IntegerPropBoxedNumber](#integerpropboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalProperties3Boxed
 public static abstract sealed class AdditionalProperties3Boxed<br>
@@ -1914,6 +1945,8 @@ Void validatedPayload = NullableClass.AdditionalProperties3.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [AdditionalProperties3BoxedVoid](#additionalproperties3boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [AdditionalProperties3BoxedMap](#additionalproperties3boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

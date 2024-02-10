@@ -172,6 +172,8 @@ Model for testing model name same as property name
 | [Name1BoxedVoid](#name1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [Name1BoxedNumber](#name1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [Name1BoxedBoolean](#name1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [Name1BoxedMap](#name1boxedmap) | validateAndBox([NameMap](#namemap) arg, SchemaConfiguration configuration) |
+| [Name1BoxedList](#name1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NameMap0Builder
 public class NameMap0Builder<br>

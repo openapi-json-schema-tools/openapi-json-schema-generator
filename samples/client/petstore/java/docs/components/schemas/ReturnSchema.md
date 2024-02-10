@@ -165,6 +165,8 @@ Model for testing reserved words
 | [ReturnSchema1BoxedVoid](#returnschema1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [ReturnSchema1BoxedNumber](#returnschema1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [ReturnSchema1BoxedBoolean](#returnschema1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [ReturnSchema1BoxedMap](#returnschema1boxedmap) | validateAndBox([ReturnMap](#returnmap) arg, SchemaConfiguration configuration) |
+| [ReturnSchema1BoxedList](#returnschema1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReturnMapBuilder1
 public class ReturnMapBuilder1<br>

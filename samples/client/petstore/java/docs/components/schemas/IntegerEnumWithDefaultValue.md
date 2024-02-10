@@ -82,6 +82,7 @@ int validatedPayload = IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [IntegerEnumWithDefaultValue1BoxedNumber](#integerenumwithdefaultvalue1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerIntegerEnumWithDefaultValueEnums
 public enum IntegerIntegerEnumWithDefaultValueEnums<br>

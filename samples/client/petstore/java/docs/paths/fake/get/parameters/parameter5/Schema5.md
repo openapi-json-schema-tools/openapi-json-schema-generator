@@ -78,6 +78,7 @@ double validatedPayload = Schema5.Schema51.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| [Schema51BoxedNumber](#schema51boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DoubleSchemaEnums5
 public enum DoubleSchemaEnums5<br>

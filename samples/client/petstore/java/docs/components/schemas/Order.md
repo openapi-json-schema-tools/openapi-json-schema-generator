@@ -113,6 +113,7 @@ Order.OrderMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [OrderMap](#ordermap) | validate([Map&lt;?, ?&gt;](#ordermapbuilder) arg, SchemaConfiguration configuration) |
+| [Order1BoxedMap](#order1boxedmap) | validateAndBox([OrderMap](#ordermap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## OrderMapBuilder
 public class OrderMapBuilder<br>
@@ -270,6 +271,7 @@ String validatedPayload = Order.Status.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStatusEnums](#stringstatusenums) arg, SchemaConfiguration configuration) |
+| [StatusBoxedString](#statusboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringStatusEnums
 public enum StringStatusEnums<br>

@@ -92,6 +92,7 @@ Animal.AnimalMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AnimalMap](#animalmap) | validate([Map&lt;?, ?&gt;](#animalmapbuilder) arg, SchemaConfiguration configuration) |
+| [Animal1BoxedMap](#animal1boxedmap) | validateAndBox([AnimalMap](#animalmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AnimalMap0Builder
 public class AnimalMap0Builder<br>
@@ -210,6 +211,7 @@ String validatedPayload = Animal.Color.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [ColorBoxedString](#colorboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClassNameBoxed
 public static abstract sealed class ClassNameBoxed<br>

@@ -89,6 +89,7 @@ Player.PlayerMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PlayerMap](#playermap) | validate([Map&lt;?, ?&gt;](#playermapbuilder) arg, SchemaConfiguration configuration) |
+| [Player1BoxedMap](#player1boxedmap) | validateAndBox([PlayerMap](#playermap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PlayerMapBuilder
 public class PlayerMapBuilder<br>

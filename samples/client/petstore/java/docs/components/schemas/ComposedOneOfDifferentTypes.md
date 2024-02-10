@@ -179,12 +179,14 @@ this is a model that allows payloads of type object or number
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [ComposedOneOfDifferentTypes1BoxedString](#composedoneofdifferenttypes1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [ComposedOneOfDifferentTypes1BoxedVoid](#composedoneofdifferenttypes1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [ComposedOneOfDifferentTypes1BoxedNumber](#composedoneofdifferenttypes1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [ComposedOneOfDifferentTypes1BoxedBoolean](#composedoneofdifferenttypes1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [ComposedOneOfDifferentTypes1BoxedMap](#composedoneofdifferenttypes1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [ComposedOneOfDifferentTypes1BoxedList](#composedoneofdifferenttypes1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema6Boxed
 public static abstract sealed class Schema6Boxed<br>
@@ -248,6 +250,7 @@ String validatedPayload = ComposedOneOfDifferentTypes.Schema6.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [Schema6BoxedString](#schema6boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema5Boxed
 public static abstract sealed class Schema5Boxed<br>
@@ -314,6 +317,7 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema5List](#schema5list) | validate([List<?>](#schema5listbuilder) arg, SchemaConfiguration configuration) |
+| [Schema5BoxedList](#schema5boxedlist) | validateAndBox([Schema5List](#schema5list) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema5ListBuilder
 public class Schema5ListBuilder<br>
@@ -511,6 +515,7 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [Schema4BoxedMap](#schema4boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema3Boxed
 public static abstract sealed class Schema3Boxed<br>

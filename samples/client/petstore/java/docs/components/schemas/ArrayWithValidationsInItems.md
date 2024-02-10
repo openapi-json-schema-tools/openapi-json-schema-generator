@@ -87,6 +87,7 @@ ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate([List<?>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayWithValidationsInItems1BoxedList](#arraywithvalidationsinitems1boxedlist) | validateAndBox([ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithValidationsInItemsListBuilder
 public class ArrayWithValidationsInItemsListBuilder<br>
@@ -182,5 +183,6 @@ long validatedPayload = ArrayWithValidationsInItems.Items.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [ItemsBoxedNumber](#itemsboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

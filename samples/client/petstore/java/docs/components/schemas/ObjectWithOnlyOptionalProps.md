@@ -100,6 +100,7 @@ ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | validate([Map&lt;?, ?&gt;](#objectwithonlyoptionalpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithOnlyOptionalProps1BoxedMap](#objectwithonlyoptionalprops1boxedmap) | validateAndBox([ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithOnlyOptionalPropsMapBuilder
 public class ObjectWithOnlyOptionalPropsMapBuilder<br>

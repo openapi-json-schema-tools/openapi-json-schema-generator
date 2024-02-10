@@ -118,6 +118,7 @@ Variables.VariablesMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [VariablesMap](#variablesmap) | validate([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
+| [Variables1BoxedMap](#variables1boxedmap) | validateAndBox([VariablesMap](#variablesmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ### VariablesMap0Builder
 public class VariablesMap0Builder<br>
@@ -227,6 +228,7 @@ String validatedPayload = Variables.Version.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringVersionEnums](#stringversionenums) arg, SchemaConfiguration configuration) |
+| [VersionBoxedString](#versionboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ### StringVersionEnums
 public enum StringVersionEnums<br>

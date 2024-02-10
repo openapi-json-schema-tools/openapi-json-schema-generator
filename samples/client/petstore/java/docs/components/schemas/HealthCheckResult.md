@@ -90,6 +90,7 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [HealthCheckResultMap](#healthcheckresultmap) | validate([Map&lt;?, ?&gt;](#healthcheckresultmapbuilder) arg, SchemaConfiguration configuration) |
+| [HealthCheckResult1BoxedMap](#healthcheckresult1boxedmap) | validateAndBox([HealthCheckResultMap](#healthcheckresultmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HealthCheckResultMapBuilder
 public class HealthCheckResultMapBuilder<br>
@@ -214,6 +215,8 @@ String validatedPayload = HealthCheckResult.NullableMessage.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [NullableMessageBoxedVoid](#nullablemessageboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [NullableMessageBoxedString](#nullablemessageboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

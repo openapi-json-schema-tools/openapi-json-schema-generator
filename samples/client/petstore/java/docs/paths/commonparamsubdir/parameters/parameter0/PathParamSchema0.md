@@ -77,6 +77,7 @@ String validatedPayload = PathParamSchema0.PathParamSchema01.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringPathParamSchemaEnums0](#stringpathparamschemaenums0) arg, SchemaConfiguration configuration) |
+| [PathParamSchema01BoxedString](#pathparamschema01boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringPathParamSchemaEnums0
 public enum StringPathParamSchemaEnums0<br>

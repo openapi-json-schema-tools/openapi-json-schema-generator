@@ -150,6 +150,7 @@ Schema.SchemaMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap](#schemamap) | validate([Map&lt;?, ?&gt;](#schemamapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([SchemaMap](#schemamap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMap0000Builder
 public class SchemaMap0000Builder<br>
@@ -625,6 +626,7 @@ String validatedPayload = Schema.Password.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [PasswordBoxedString](#passwordboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DateTimeBoxed
 public static abstract sealed class DateTimeBoxed<br>
@@ -691,6 +693,7 @@ String validatedPayload = Schema.DateTime.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [DateTimeBoxedString](#datetimeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DateBoxed
 public static abstract sealed class DateBoxed<br>
@@ -840,6 +843,7 @@ String validatedPayload = Schema.PatternWithoutDelimiter.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [PatternWithoutDelimiterBoxedString](#patternwithoutdelimiterboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringSchemaBoxed
 public static abstract sealed class StringSchemaBoxed<br>
@@ -905,6 +909,7 @@ String validatedPayload = Schema.StringSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [StringSchemaBoxedString](#stringschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DoubleSchemaBoxed
 public static abstract sealed class DoubleSchemaBoxed<br>
@@ -972,6 +977,7 @@ double validatedPayload = Schema.DoubleSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxedNumber](#doubleschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FloatSchemaBoxed
 public static abstract sealed class FloatSchemaBoxed<br>
@@ -1038,6 +1044,7 @@ float validatedPayload = Schema.FloatSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | float | validate(float arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxedNumber](#floatschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberSchemaBoxed
 public static abstract sealed class NumberSchemaBoxed<br>
@@ -1104,6 +1111,7 @@ int validatedPayload = Schema.NumberSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxedNumber](#numberschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int64Boxed
 public static abstract sealed class Int64Boxed<br>
@@ -1208,6 +1216,7 @@ int validatedPayload = Schema.Int32.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
+| [Int32BoxedNumber](#int32boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerSchemaBoxed
 public static abstract sealed class IntegerSchemaBoxed<br>
@@ -1275,4 +1284,5 @@ int validatedPayload = Schema.IntegerSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [IntegerSchemaBoxedNumber](#integerschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

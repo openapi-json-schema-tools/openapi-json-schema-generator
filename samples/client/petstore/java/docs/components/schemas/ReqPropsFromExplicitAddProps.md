@@ -87,6 +87,7 @@ ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map&lt;?, ?&gt;](#reqpropsfromexplicitaddpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ReqPropsFromExplicitAddProps1BoxedMap](#reqpropsfromexplicitaddprops1boxedmap) | validateAndBox([ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReqPropsFromExplicitAddPropsMap00Builder
 public class ReqPropsFromExplicitAddPropsMap00Builder<br>

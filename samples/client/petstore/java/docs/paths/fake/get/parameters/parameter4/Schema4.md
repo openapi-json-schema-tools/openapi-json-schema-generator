@@ -80,6 +80,7 @@ int validatedPayload = Schema4.Schema41.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
+| [Schema41BoxedNumber](#schema41boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerSchemaEnums4
 public enum IntegerSchemaEnums4<br>

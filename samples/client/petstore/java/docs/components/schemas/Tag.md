@@ -91,6 +91,7 @@ Tag.TagMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [TagMap](#tagmap) | validate([Map&lt;?, ?&gt;](#tagmapbuilder) arg, SchemaConfiguration configuration) |
+| [Tag1BoxedMap](#tag1boxedmap) | validateAndBox([TagMap](#tagmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TagMapBuilder
 public class TagMapBuilder<br>

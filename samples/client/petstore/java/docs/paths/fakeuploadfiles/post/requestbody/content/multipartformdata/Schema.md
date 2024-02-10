@@ -94,6 +94,7 @@ Schema.SchemaMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap](#schemamap) | validate([Map&lt;?, ?&gt;](#schemamapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([SchemaMap](#schemamap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder
 public class SchemaMapBuilder<br>
@@ -199,6 +200,7 @@ Schema.FilesList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FilesList](#fileslist) | validate([List<?>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
+| [FilesBoxedList](#filesboxedlist) | validateAndBox([FilesList](#fileslist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FilesListBuilder
 public class FilesListBuilder<br>

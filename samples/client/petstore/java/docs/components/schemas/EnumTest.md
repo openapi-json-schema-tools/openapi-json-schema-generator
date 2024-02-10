@@ -111,6 +111,7 @@ EnumTest.EnumTestMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EnumTestMap](#enumtestmap) | validate([Map&lt;?, ?&gt;](#enumtestmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumTest1BoxedMap](#enumtest1boxedmap) | validateAndBox([EnumTestMap](#enumtestmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumTestMap0Builder
 public class EnumTestMap0Builder<br>
@@ -281,6 +282,7 @@ double validatedPayload = EnumTest.EnumNumber.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| [EnumNumberBoxedNumber](#enumnumberboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DoubleEnumNumberEnums
 public enum DoubleEnumNumberEnums<br>
@@ -368,6 +370,7 @@ int validatedPayload = EnumTest.EnumInteger.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
+| [EnumIntegerBoxedNumber](#enumintegerboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerEnumIntegerEnums
 public enum IntegerEnumIntegerEnums<br>
@@ -479,6 +482,7 @@ String validatedPayload = EnumTest.EnumStringRequired.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumStringRequiredEnums](#stringenumstringrequiredenums) arg, SchemaConfiguration configuration) |
+| [EnumStringRequiredBoxedString](#enumstringrequiredboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringEnumStringRequiredEnums
 public enum StringEnumStringRequiredEnums<br>
@@ -555,6 +559,7 @@ String validatedPayload = EnumTest.EnumString.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumStringEnums](#stringenumstringenums) arg, SchemaConfiguration configuration) |
+| [EnumStringBoxedString](#enumstringboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringEnumStringEnums
 public enum StringEnumStringEnums<br>

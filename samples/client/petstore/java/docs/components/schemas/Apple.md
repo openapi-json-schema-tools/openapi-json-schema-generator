@@ -116,7 +116,9 @@ Apple.AppleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [Apple1BoxedVoid](#apple1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [AppleMap](#applemap) | validate([Map&lt;?, ?&gt;](#applemapbuilder) arg, SchemaConfiguration configuration) |
+| [Apple1BoxedMap](#apple1boxedmap) | validateAndBox([AppleMap](#applemap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AppleMap0Builder
 public class AppleMap0Builder<br>
@@ -235,6 +237,7 @@ String validatedPayload = Apple.Origin.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [OriginBoxedString](#originboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CultivarBoxed
 public static abstract sealed class CultivarBoxed<br>
@@ -297,5 +300,6 @@ String validatedPayload = Apple.Cultivar.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [CultivarBoxedString](#cultivarboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

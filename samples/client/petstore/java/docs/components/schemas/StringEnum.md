@@ -103,8 +103,10 @@ String validatedPayload = StringEnum.StringEnum1.validate(
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
 | Void | validate([NullStringEnumEnums](#nullstringenumenums) arg, SchemaConfiguration configuration) |
+| [StringEnum1BoxedVoid](#stringenum1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStringEnumEnums](#stringstringenumenums) arg, SchemaConfiguration configuration) |
+| [StringEnum1BoxedString](#stringenum1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringStringEnumEnums
 public enum StringStringEnumEnums<br>

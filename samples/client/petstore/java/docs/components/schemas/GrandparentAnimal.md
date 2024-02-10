@@ -87,6 +87,7 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map&lt;?, ?&gt;](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
+| [GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap) | validateAndBox([GrandparentAnimalMap](#grandparentanimalmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## GrandparentAnimalMap0Builder
 public class GrandparentAnimalMap0Builder<br>

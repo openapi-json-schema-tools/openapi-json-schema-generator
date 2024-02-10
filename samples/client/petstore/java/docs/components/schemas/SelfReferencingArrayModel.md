@@ -81,6 +81,7 @@ SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<?>](#selfreferencingarraymodellistbuilder) arg, SchemaConfiguration configuration) |
+| [SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist) | validateAndBox([SelfReferencingArrayModelList](#selfreferencingarraymodellist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SelfReferencingArrayModelListBuilder
 public class SelfReferencingArrayModelListBuilder<br>

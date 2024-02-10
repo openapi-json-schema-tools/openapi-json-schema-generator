@@ -144,6 +144,7 @@ Pet.PetMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PetMap](#petmap) | validate([Map&lt;?, ?&gt;](#petmapbuilder) arg, SchemaConfiguration configuration) |
+| [Pet1BoxedMap](#pet1boxedmap) | validateAndBox([PetMap](#petmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PetMap00Builder
 public class PetMap00Builder<br>
@@ -320,6 +321,7 @@ Pet.TagsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [TagsList](#tagslist) | validate([List<?>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
+| [TagsBoxedList](#tagsboxedlist) | validateAndBox([TagsList](#tagslist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TagsListBuilder
 public class TagsListBuilder<br>
@@ -415,6 +417,7 @@ String validatedPayload = Pet.Status.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStatusEnums](#stringstatusenums) arg, SchemaConfiguration configuration) |
+| [StatusBoxedString](#statusboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringStatusEnums
 public enum StringStatusEnums<br>
@@ -494,6 +497,7 @@ Pet.PhotoUrlsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PhotoUrlsList](#photourlslist) | validate([List<?>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
+| [PhotoUrlsBoxedList](#photourlsboxedlist) | validateAndBox([PhotoUrlsList](#photourlslist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PhotoUrlsListBuilder
 public class PhotoUrlsListBuilder<br>

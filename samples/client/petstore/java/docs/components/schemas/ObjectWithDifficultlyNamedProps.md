@@ -100,6 +100,7 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map&lt;?, ?&gt;](#objectwithdifficultlynamedpropsmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithDifficultlyNamedProps1BoxedMap](#objectwithdifficultlynamedprops1boxedmap) | validateAndBox([ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithDifficultlyNamedPropsMap0Builder
 public class ObjectWithDifficultlyNamedPropsMap0Builder<br>

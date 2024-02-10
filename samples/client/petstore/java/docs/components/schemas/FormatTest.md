@@ -196,6 +196,7 @@ FormatTest.FormatTestMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap](#formattestmap) | validate([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
+| [FormatTest1BoxedMap](#formattest1boxedmap) | validateAndBox([FormatTestMap](#formattestmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FormatTestMap0000Builder
 public class FormatTestMap0000Builder<br>
@@ -665,6 +666,7 @@ String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PatternWithDigitsBoxed
 public static abstract sealed class PatternWithDigitsBoxed<br>
@@ -730,6 +732,7 @@ String validatedPayload = FormatTest.PatternWithDigits.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [PatternWithDigitsBoxedString](#patternwithdigitsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PasswordBoxed
 public static abstract sealed class PasswordBoxed<br>
@@ -794,6 +797,7 @@ String validatedPayload = FormatTest.Password.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [PasswordBoxedString](#passwordboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UuidNoExampleBoxed
 public static abstract sealed class UuidNoExampleBoxed<br>
@@ -1033,6 +1037,7 @@ String validatedPayload = FormatTest.StringSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [StringSchemaBoxedString](#stringschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithUniqueItemsBoxed
 public static abstract sealed class ArrayWithUniqueItemsBoxed<br>
@@ -1100,6 +1105,7 @@ FormatTest.ArrayWithUniqueItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist) | validateAndBox([ArrayWithUniqueItemsList](#arraywithuniqueitemslist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithUniqueItemsListBuilder
 public class ArrayWithUniqueItemsListBuilder<br>
@@ -1264,6 +1270,7 @@ double validatedPayload = FormatTest.DoubleSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxedNumber](#doubleschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Float32Boxed
 public static abstract sealed class Float32Boxed<br>
@@ -1365,6 +1372,7 @@ float validatedPayload = FormatTest.FloatSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | float | validate(float arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxedNumber](#floatschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberSchemaBoxed
 public static abstract sealed class NumberSchemaBoxed<br>
@@ -1429,6 +1437,7 @@ int validatedPayload = FormatTest.NumberSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxedNumber](#numberschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int64Boxed
 public static abstract sealed class Int64Boxed<br>
@@ -1527,6 +1536,7 @@ int validatedPayload = FormatTest.Int32withValidations.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
+| [Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int32Boxed
 public static abstract sealed class Int32Boxed<br>
@@ -1626,5 +1636,6 @@ int validatedPayload = FormatTest.IntegerSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [IntegerSchemaBoxedNumber](#integerschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

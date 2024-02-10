@@ -101,6 +101,7 @@ NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | validate([Map&lt;?, ?&gt;](#noadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [NoAdditionalProperties1BoxedMap](#noadditionalproperties1boxedmap) | validateAndBox([NoAdditionalPropertiesMap](#noadditionalpropertiesmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NoAdditionalPropertiesMap0Builder
 public class NoAdditionalPropertiesMap0Builder<br>

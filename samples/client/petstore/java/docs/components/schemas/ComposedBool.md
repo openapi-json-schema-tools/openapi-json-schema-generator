@@ -83,6 +83,7 @@ boolean validatedPayload = ComposedBool.ComposedBool1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| [ComposedBool1BoxedBoolean](#composedbool1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>

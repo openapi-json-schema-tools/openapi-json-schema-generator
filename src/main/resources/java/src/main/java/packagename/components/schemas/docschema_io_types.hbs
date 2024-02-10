@@ -19,7 +19,7 @@
     {{#if mapOutputJsonPathPiece }}
 | [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map&lt;?, ?&gt;](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
     {{else}}
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
 | [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
@@ -30,6 +30,8 @@
 | [{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}}) | validateAndBox({{#if mapOutputJsonPathPiece}}[{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}){{else}}FrozenMap<@Nullable Object>{{/if}} arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}}) | validateAndBox({{#if arrayOutputJsonPathPiece}}[{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}){{else}}FrozenList<@Nullable Object>{{/if}} arg, SchemaConfiguration configuration) |
 {{else}}
     {{#each types}}
         {{#eq this "boolean"}}
@@ -37,12 +39,14 @@
             {{#and ../enumInfo enumInfo.typeToValues.boolean}}
 | boolean | validate([Boolean{{../enumInfo.jsonPathPiece.pascalCase}}](#boolean{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
             {{/and}}
+| [{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
         {{else}}
             {{#eq this "null"}}
 | Void | validate(Void arg, SchemaConfiguration configuration) |
                 {{#and ../enumInfo ../enumInfo.typeToValues.null}}
 | Void | validate([Null{{../enumInfo.jsonPathPiece.pascalCase}}](#null{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
                 {{/and}}
+| [{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}) | validateAndBox(Void arg, SchemaConfiguration configuration) |
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}
@@ -53,6 +57,7 @@
                         {{#and ../enumInfo ../enumInfo.typeToValues.string}}
 | String | validate([String{{../enumInfo.jsonPathPiece.pascalCase}}](#string{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
                         {{/and}}
+| [{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}}) | validateAndBox(String arg, SchemaConfiguration configuration) |
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
@@ -75,6 +80,7 @@
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}
+| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number arg, SchemaConfiguration configuration) |
                     {{else}}
                         {{#eq this "integer"}}
                             {{#eq ../format null}}
@@ -86,6 +92,7 @@
 | long | validate(long arg, SchemaConfiguration configuration) |
                                 {{/eq}}
                             {{/eq}}
+| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number arg, SchemaConfiguration configuration) |
                         {{else}}
                             {{#eq this "array"}}
                                 {{#if ../arrayOutputJsonPathPiece}}
@@ -93,6 +100,7 @@
                                 {{else}}
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
                                 {{/if}}
+| [{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}}) | validateAndBox({{#if arrayOutputJsonPathPiece}}[{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}){{else}}FrozenList<@Nullable Object>{{/if}} arg, SchemaConfiguration configuration) |
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#if ../mapOutputJsonPathPiece}}
@@ -100,6 +108,7 @@
                                     {{else}}
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
                                     {{/if}}
+| [{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}}) | validateAndBox({{#if mapOutputJsonPathPiece}}[{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}){{else}}FrozenMap<@Nullable Object>{{/if}} arg, SchemaConfiguration configuration) |
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}

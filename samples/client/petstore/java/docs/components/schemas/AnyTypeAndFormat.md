@@ -153,6 +153,7 @@ AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map&lt;?, ?&gt;](#anytypeandformatmapbuilder) arg, SchemaConfiguration configuration) |
+| [AnyTypeAndFormat1BoxedMap](#anytypeandformat1boxedmap) | validateAndBox([AnyTypeAndFormatMap](#anytypeandformatmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AnyTypeAndFormatMapBuilder
 public class AnyTypeAndFormatMapBuilder<br>
@@ -407,12 +408,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [FloatSchemaBoxedString](#floatschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [FloatSchemaBoxedVoid](#floatschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [FloatSchemaBoxedNumber](#floatschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [FloatSchemaBoxedBoolean](#floatschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxedMap](#floatschemaboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxedList](#floatschemaboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DoubleSchemaBoxed
 public static abstract sealed class DoubleSchemaBoxed<br>
@@ -544,12 +547,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [DoubleSchemaBoxedString](#doubleschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [DoubleSchemaBoxedVoid](#doubleschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [DoubleSchemaBoxedNumber](#doubleschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxedMap](#doubleschemaboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxedList](#doubleschemaboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int64Boxed
 public static abstract sealed class Int64Boxed<br>
@@ -681,12 +686,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [Int64BoxedString](#int64boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [Int64BoxedVoid](#int64boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [Int64BoxedNumber](#int64boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [Int64BoxedBoolean](#int64boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [Int64BoxedMap](#int64boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [Int64BoxedList](#int64boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int32Boxed
 public static abstract sealed class Int32Boxed<br>
@@ -818,12 +825,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [Int32BoxedString](#int32boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [Int32BoxedVoid](#int32boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [Int32BoxedNumber](#int32boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [Int32BoxedBoolean](#int32boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [Int32BoxedMap](#int32boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [Int32BoxedList](#int32boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BinaryBoxed
 public static abstract sealed class BinaryBoxed<br>
@@ -955,12 +964,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [BinaryBoxedString](#binaryboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [BinaryBoxedVoid](#binaryboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [BinaryBoxedNumber](#binaryboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [BinaryBoxedBoolean](#binaryboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [BinaryBoxedMap](#binaryboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [BinaryBoxedList](#binaryboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberSchemaBoxed
 public static abstract sealed class NumberSchemaBoxed<br>
@@ -1092,12 +1103,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [NumberSchemaBoxedString](#numberschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [NumberSchemaBoxedVoid](#numberschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [NumberSchemaBoxedNumber](#numberschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [NumberSchemaBoxedBoolean](#numberschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxedMap](#numberschemaboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxedList](#numberschemaboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DatetimeBoxed
 public static abstract sealed class DatetimeBoxed<br>
@@ -1229,12 +1242,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [DatetimeBoxedString](#datetimeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [DatetimeBoxedVoid](#datetimeboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [DatetimeBoxedNumber](#datetimeboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [DatetimeBoxedBoolean](#datetimeboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [DatetimeBoxedMap](#datetimeboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [DatetimeBoxedList](#datetimeboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DateBoxed
 public static abstract sealed class DateBoxed<br>
@@ -1366,12 +1381,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [DateBoxedString](#dateboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [DateBoxedVoid](#dateboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [DateBoxedNumber](#dateboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [DateBoxedBoolean](#dateboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [DateBoxedMap](#dateboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [DateBoxedList](#dateboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UuidSchemaBoxed
 public static abstract sealed class UuidSchemaBoxed<br>
@@ -1503,11 +1520,13 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [UuidSchemaBoxedString](#uuidschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [UuidSchemaBoxedVoid](#uuidschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [UuidSchemaBoxedNumber](#uuidschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [UuidSchemaBoxedBoolean](#uuidschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [UuidSchemaBoxedMap](#uuidschemaboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [UuidSchemaBoxedList](#uuidschemaboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

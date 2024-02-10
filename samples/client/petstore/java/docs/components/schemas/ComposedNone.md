@@ -83,6 +83,7 @@ Void validatedPayload = ComposedNone.ComposedNone1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ComposedNone1BoxedVoid](#composednone1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>

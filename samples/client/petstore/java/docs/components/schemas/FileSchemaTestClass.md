@@ -92,6 +92,7 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map&lt;?, ?&gt;](#fileschematestclassmapbuilder) arg, SchemaConfiguration configuration) |
+| [FileSchemaTestClass1BoxedMap](#fileschematestclass1boxedmap) | validateAndBox([FileSchemaTestClassMap](#fileschematestclassmap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FileSchemaTestClassMapBuilder
 public class FileSchemaTestClassMapBuilder<br>
@@ -197,6 +198,7 @@ FileSchemaTestClass.FilesList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FilesList](#fileslist) | validate([List<?>](#fileslistbuilder) arg, SchemaConfiguration configuration) |
+| [FilesBoxedList](#filesboxedlist) | validateAndBox([FilesList](#fileslist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FilesListBuilder
 public class FilesListBuilder<br>

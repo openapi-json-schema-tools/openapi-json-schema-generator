@@ -92,6 +92,7 @@ ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap valid
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map&lt;?, ?&gt;](#objectwithinlinecompositionpropertymapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithInlineCompositionProperty1BoxedMap](#objectwithinlinecompositionproperty1boxedmap) | validateAndBox([ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithInlineCompositionPropertyMapBuilder
 public class ObjectWithInlineCompositionPropertyMapBuilder<br>
@@ -270,12 +271,14 @@ A schema class that validates payloads
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [SomePropBoxedString](#somepropboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [SomePropBoxedVoid](#somepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [SomePropBoxedNumber](#somepropboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [SomePropBoxedBoolean](#somepropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [SomePropBoxedMap](#somepropboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [SomePropBoxedList](#somepropboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0Boxed
 public static abstract sealed class Schema0Boxed<br>
@@ -338,5 +341,6 @@ String validatedPayload = ObjectWithInlineCompositionProperty.Schema0.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [Schema0BoxedString](#schema0boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -81,6 +81,7 @@ int validatedPayload = IntegerEnumOneValue.IntegerEnumOneValue1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerIntegerEnumOneValueEnums
 public enum IntegerIntegerEnumOneValueEnums<br>

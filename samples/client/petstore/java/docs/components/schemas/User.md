@@ -157,6 +157,7 @@ User.UserMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [UserMap](#usermap) | validate([Map&lt;?, ?&gt;](#usermapbuilder) arg, SchemaConfiguration configuration) |
+| [User1BoxedMap](#user1boxedmap) | validateAndBox([UserMap](#usermap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UserMapBuilder
 public class UserMapBuilder<br>
@@ -505,12 +506,14 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [AnyTypeExceptNullPropBoxedString](#anytypeexceptnullpropboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [AnyTypeExceptNullPropBoxedVoid](#anytypeexceptnullpropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [AnyTypeExceptNullPropBoxedNumber](#anytypeexceptnullpropboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [AnyTypeExceptNullPropBoxedBoolean](#anytypeexceptnullpropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [AnyTypeExceptNullPropBoxedList](#anytypeexceptnullpropboxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotBoxed
 public static abstract sealed class NotBoxed<br>
@@ -748,7 +751,9 @@ Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ObjectWithNoDeclaredPropsNullableBoxedVoid](#objectwithnodeclaredpropsnullableboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNoDeclaredPropsBoxed
 public static abstract sealed class ObjectWithNoDeclaredPropsBoxed<br>

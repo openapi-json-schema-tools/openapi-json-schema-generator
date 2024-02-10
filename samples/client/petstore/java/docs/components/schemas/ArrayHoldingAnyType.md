@@ -89,6 +89,7 @@ ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate([List<?>](#arrayholdinganytypelistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayHoldingAnyType1BoxedList](#arrayholdinganytype1boxedlist) | validateAndBox([ArrayHoldingAnyTypeList](#arrayholdinganytypelist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayHoldingAnyTypeListBuilder
 public class ArrayHoldingAnyTypeListBuilder<br>

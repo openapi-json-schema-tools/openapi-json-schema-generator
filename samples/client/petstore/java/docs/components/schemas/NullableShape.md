@@ -155,12 +155,14 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 | double | validate(double arg, SchemaConfiguration configuration) |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | [NullableShape1BoxedString](#nullableshape1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | [NullableShape1BoxedVoid](#nullableshape1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
 | [NullableShape1BoxedNumber](#nullableshape1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | [NullableShape1BoxedBoolean](#nullableshape1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [NullableShape1BoxedMap](#nullableshape1boxedmap) | validateAndBox(FrozenMap<@Nullable Object> arg, SchemaConfiguration configuration) |
+| [NullableShape1BoxedList](#nullableshape1boxedlist) | validateAndBox(FrozenList<@Nullable Object> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema2Boxed
 public static abstract sealed class Schema2Boxed<br>

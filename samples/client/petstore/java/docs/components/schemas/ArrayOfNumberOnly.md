@@ -96,6 +96,7 @@ ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | validate([Map&lt;?, ?&gt;](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfNumberOnly1BoxedMap](#arrayofnumberonly1boxedmap) | validateAndBox([ArrayOfNumberOnlyMap](#arrayofnumberonlymap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfNumberOnlyMapBuilder
 public class ArrayOfNumberOnlyMapBuilder<br>
@@ -201,6 +202,7 @@ ArrayOfNumberOnly.ArrayNumberList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayNumberList](#arraynumberlist) | validate([List<?>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayNumberBoxedList](#arraynumberboxedlist) | validateAndBox([ArrayNumberList](#arraynumberlist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNumberListBuilder
 public class ArrayNumberListBuilder<br>

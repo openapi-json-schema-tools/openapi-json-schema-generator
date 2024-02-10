@@ -103,6 +103,7 @@ Schema.SchemaMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap](#schemamap) | validate([Map&lt;?, ?&gt;](#schemamapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([SchemaMap](#schemamap) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder
 public class SchemaMapBuilder<br>
@@ -212,6 +213,7 @@ String validatedPayload = Schema.EnumFormString.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumFormStringEnums](#stringenumformstringenums) arg, SchemaConfiguration configuration) |
+| [EnumFormStringBoxedString](#enumformstringboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringEnumFormStringEnums
 public enum StringEnumFormStringEnums<br>
@@ -294,6 +296,7 @@ Schema.EnumFormStringArrayList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EnumFormStringArrayList](#enumformstringarraylist) | validate([List<?>](#enumformstringarraylistbuilder) arg, SchemaConfiguration configuration) |
+| [EnumFormStringArrayBoxedList](#enumformstringarrayboxedlist) | validateAndBox([EnumFormStringArrayList](#enumformstringarraylist) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumFormStringArrayListBuilder
 public class EnumFormStringArrayListBuilder<br>
@@ -388,6 +391,7 @@ String validatedPayload = Schema.Items.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringItemsEnums](#stringitemsenums) arg, SchemaConfiguration configuration) |
+| [ItemsBoxedString](#itemsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringItemsEnums
 public enum StringItemsEnums<br>
