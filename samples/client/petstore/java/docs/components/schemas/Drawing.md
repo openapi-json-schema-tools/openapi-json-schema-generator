@@ -152,6 +152,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ShapesBoxedList
+public static final class ShapesBoxedList<br>
+extends ShapesBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ShapesBoxedList(ShapesList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ShapesList | data<br>validated payload |
+
 ## Shapes
 public static class Shapes<br>
 extends JsonSchema

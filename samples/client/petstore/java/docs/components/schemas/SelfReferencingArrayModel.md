@@ -24,6 +24,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## SelfReferencingArrayModel1BoxedList
+public static final class SelfReferencingArrayModel1BoxedList<br>
+extends SelfReferencingArrayModel1Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SelfReferencingArrayModel1BoxedList(SelfReferencingArrayModelList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| SelfReferencingArrayModelList | data<br>validated payload |
+
 ## SelfReferencingArrayModel1
 public static class SelfReferencingArrayModel1<br>
 extends JsonSchema

@@ -130,6 +130,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ArrayArrayNumberBoxedList
+public static final class ArrayArrayNumberBoxedList<br>
+extends ArrayArrayNumberBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayArrayNumberBoxedList(ArrayArrayNumberList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ArrayArrayNumberList | data<br>validated payload |
+
 ## ArrayArrayNumber
 public static class ArrayArrayNumber<br>
 extends JsonSchema
@@ -211,6 +227,22 @@ permits<br>
 [ItemsBoxedList](#itemsboxedlist)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ItemsBoxedList
+public static final class ItemsBoxedList<br>
+extends ItemsBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedList(ItemsList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ItemsList | data<br>validated payload |
 
 ## Items
 public static class Items<br>

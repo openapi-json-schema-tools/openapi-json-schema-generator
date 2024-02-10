@@ -99,6 +99,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## ComplexQuadrilateral1BoxedList
+public static final class ComplexQuadrilateral1BoxedList<br>
+extends ComplexQuadrilateral1Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComplexQuadrilateral1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## ComplexQuadrilateral1
 public static class ComplexQuadrilateral1<br>
 extends JsonSchema

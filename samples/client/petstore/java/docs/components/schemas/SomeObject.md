@@ -89,6 +89,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## SomeObject1BoxedList
+public static final class SomeObject1BoxedList<br>
+extends SomeObject1Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomeObject1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## SomeObject1
 public static class SomeObject1<br>
 extends JsonSchema

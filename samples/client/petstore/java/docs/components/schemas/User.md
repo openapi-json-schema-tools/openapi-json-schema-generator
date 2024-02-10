@@ -279,6 +279,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## AnyTypePropNullableBoxedList
+public static final class AnyTypePropNullableBoxedList<br>
+extends AnyTypePropNullableBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropNullableBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -368,6 +384,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
+
+## AnyTypeExceptNullPropBoxedList
+public static final class AnyTypeExceptNullPropBoxedList<br>
+extends AnyTypeExceptNullPropBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -505,6 +537,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
+
+## AnyTypePropBoxedList
+public static final class AnyTypePropBoxedList<br>
+extends AnyTypePropBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
 
 ## AnyTypeProp
 public static class AnyTypeProp<br>

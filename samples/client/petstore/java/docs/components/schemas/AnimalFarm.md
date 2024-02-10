@@ -24,6 +24,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AnimalFarm1BoxedList
+public static final class AnimalFarm1BoxedList<br>
+extends AnimalFarm1Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnimalFarm1BoxedList(AnimalFarmList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| AnimalFarmList | data<br>validated payload |
+
 ## AnimalFarm1
 public static class AnimalFarm1<br>
 extends JsonSchema

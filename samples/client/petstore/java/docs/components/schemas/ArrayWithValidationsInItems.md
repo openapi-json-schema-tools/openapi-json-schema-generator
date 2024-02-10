@@ -26,6 +26,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ArrayWithValidationsInItems1BoxedList
+public static final class ArrayWithValidationsInItems1BoxedList<br>
+extends ArrayWithValidationsInItems1Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayWithValidationsInItems1BoxedList(ArrayWithValidationsInItemsList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ArrayWithValidationsInItemsList | data<br>validated payload |
+
 ## ArrayWithValidationsInItems1
 public static class ArrayWithValidationsInItems1<br>
 extends JsonSchema

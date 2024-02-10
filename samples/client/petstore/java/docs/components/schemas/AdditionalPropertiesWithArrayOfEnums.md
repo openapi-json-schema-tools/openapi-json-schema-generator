@@ -113,6 +113,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalPropertiesBoxedList
+public static final class AdditionalPropertiesBoxedList<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedList(AdditionalPropertiesList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| AdditionalPropertiesList | data<br>validated payload |
+
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends JsonSchema

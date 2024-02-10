@@ -419,6 +419,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## ValueBoxedList
+public static final class ValueBoxedList<br>
+extends ValueBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ValueBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## Value
 public static class Value<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -545,6 +561,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
+
+## AdditionalPropertiesBoxedList
+public static final class AdditionalPropertiesBoxedList<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -229,6 +229,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## TagsBoxedList
+public static final class TagsBoxedList<br>
+extends TagsBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TagsBoxedList(TagsList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| TagsList | data<br>validated payload |
+
 ## Tags
 public static class Tags<br>
 extends JsonSchema
@@ -396,6 +412,22 @@ permits<br>
 [PhotoUrlsBoxedList](#photourlsboxedlist)
 
 A sealed class that stores validated payloads using boxed classes
+
+## PhotoUrlsBoxedList
+public static final class PhotoUrlsBoxedList<br>
+extends PhotoUrlsBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PhotoUrlsBoxedList(PhotoUrlsList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| PhotoUrlsList | data<br>validated payload |
 
 ## PhotoUrls
 public static class PhotoUrls<br>

@@ -292,6 +292,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+### AdditionalPropertiesBoxedList
+public static final class AdditionalPropertiesBoxedList<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+#### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+#### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ### AdditionalProperties
 public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1

@@ -127,6 +127,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## ComposedAnyOfDifferentTypesNoValidations1BoxedList
+public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedList<br>
+extends ComposedAnyOfDifferentTypesNoValidations1Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedAnyOfDifferentTypesNoValidations1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## ComposedAnyOfDifferentTypesNoValidations1
 public static class ComposedAnyOfDifferentTypesNoValidations1<br>
 extends JsonSchema
@@ -362,6 +378,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema9BoxedList
+public static final class Schema9BoxedList<br>
+extends Schema9Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema9BoxedList(Schema9List data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Schema9List | data<br>validated payload |
+
 ## Schema9
 public static class Schema9<br>
 extends JsonSchema
@@ -515,6 +547,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
+
+## ItemsBoxedList
+public static final class ItemsBoxedList<br>
+extends ItemsBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
 
 ## Items
 public static class Items<br>

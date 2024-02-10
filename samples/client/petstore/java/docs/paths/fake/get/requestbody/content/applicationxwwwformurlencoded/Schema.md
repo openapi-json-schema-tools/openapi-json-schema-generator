@@ -213,6 +213,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## EnumFormStringArrayBoxedList
+public static final class EnumFormStringArrayBoxedList<br>
+extends EnumFormStringArrayBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumFormStringArrayBoxedList(EnumFormStringArrayList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| EnumFormStringArrayList | data<br>validated payload |
+
 ## EnumFormStringArray
 public static class EnumFormStringArray<br>
 extends JsonSchema

@@ -134,6 +134,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ArrayEnumBoxedList
+public static final class ArrayEnumBoxedList<br>
+extends ArrayEnumBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayEnumBoxedList(ArrayEnumList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ArrayEnumList | data<br>validated payload |
+
 ## ArrayEnum
 public static class ArrayEnum<br>
 extends JsonSchema

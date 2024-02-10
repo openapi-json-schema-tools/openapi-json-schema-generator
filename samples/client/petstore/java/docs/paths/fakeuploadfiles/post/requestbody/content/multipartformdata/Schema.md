@@ -123,6 +123,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## FilesBoxedList
+public static final class FilesBoxedList<br>
+extends FilesBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FilesBoxedList(FilesList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FilesList | data<br>validated payload |
+
 ## Files
 public static class Files<br>
 extends JsonSchema

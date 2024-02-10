@@ -282,6 +282,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## FloatSchemaBoxedList
+public static final class FloatSchemaBoxedList<br>
+extends FloatSchemaBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FloatSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -381,6 +397,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
+
+## DoubleSchemaBoxedList
+public static final class DoubleSchemaBoxedList<br>
+extends DoubleSchemaBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DoubleSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -482,6 +514,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## Int64BoxedList
+public static final class Int64BoxedList<br>
+extends Int64Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int64BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## Int64
 public static class Int64<br>
 extends JsonSchema
@@ -581,6 +629,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
+
+## Int32BoxedList
+public static final class Int32BoxedList<br>
+extends Int32Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int32BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
 
 ## Int32
 public static class Int32<br>
@@ -682,6 +746,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## BinaryBoxedList
+public static final class BinaryBoxedList<br>
+extends BinaryBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BinaryBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
@@ -781,6 +861,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
+
+## NumberSchemaBoxedList
+public static final class NumberSchemaBoxedList<br>
+extends NumberSchemaBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -882,6 +978,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## DatetimeBoxedList
+public static final class DatetimeBoxedList<br>
+extends DatetimeBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DatetimeBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## Datetime
 public static class Datetime<br>
 extends JsonSchema
@@ -982,6 +1094,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
 
+## DateBoxedList
+public static final class DateBoxedList<br>
+extends DateBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
 ## Date
 public static class Date<br>
 extends JsonSchema
@@ -1081,6 +1209,22 @@ a boxed class to store validated String payloads, sealed permits class implement
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | String | data<br>validated payload |
+
+## UuidSchemaBoxedList
+public static final class UuidSchemaBoxedList<br>
+extends UuidSchemaBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>

@@ -25,6 +25,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema41BoxedList
+public static final class Schema41BoxedList<br>
+extends Schema41Boxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema41BoxedList(SchemaList4 data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| SchemaList4 | data<br>validated payload |
+
 ## Schema41
 public static class Schema41<br>
 extends JsonSchema

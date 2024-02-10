@@ -659,6 +659,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ArrayItemsNullableBoxedList
+public static final class ArrayItemsNullableBoxedList<br>
+extends ArrayItemsNullableBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayItemsNullableBoxedList(ArrayItemsNullableList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ArrayItemsNullableList | data<br>validated payload |
+
 ## ArrayItemsNullable
 public static class ArrayItemsNullable<br>
 extends JsonSchema
@@ -818,6 +834,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
+
+## ArrayAndItemsNullablePropBoxedList
+public static final class ArrayAndItemsNullablePropBoxedList<br>
+extends ArrayAndItemsNullablePropBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayAndItemsNullablePropBoxedList(ArrayAndItemsNullablePropList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ArrayAndItemsNullablePropList | data<br>validated payload |
 
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
@@ -985,6 +1017,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
+
+## ArrayNullablePropBoxedList
+public static final class ArrayNullablePropBoxedList<br>
+extends ArrayNullablePropBoxed
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayNullablePropBoxedList(ArrayNullablePropList data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| ArrayNullablePropList | data<br>validated payload |
 
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
