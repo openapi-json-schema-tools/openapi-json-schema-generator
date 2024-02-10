@@ -144,6 +144,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## SomePropBoxedBoolean
+public static final class SomePropBoxedBoolean<br>
+extends SomePropBoxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomePropBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## SomeProp
 public static class SomeProp<br>
 extends JsonSchema

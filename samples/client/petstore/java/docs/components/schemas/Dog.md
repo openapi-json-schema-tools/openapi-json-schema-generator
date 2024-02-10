@@ -49,6 +49,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## Dog1BoxedBoolean
+public static final class Dog1BoxedBoolean<br>
+extends Dog1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Dog1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## Dog1
 public static class Dog1<br>
 extends JsonSchema

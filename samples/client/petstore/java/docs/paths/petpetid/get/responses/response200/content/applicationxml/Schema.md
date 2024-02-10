@@ -40,6 +40,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## Schema1BoxedBoolean
+public static final class Schema1BoxedBoolean<br>
+extends Schema1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## Schema1
 public static class Schema1<br>
 extends [Pet.Pet1](../../../../../../../../components/schemas/Pet.md#pet1)

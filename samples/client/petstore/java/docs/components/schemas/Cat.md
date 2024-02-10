@@ -49,6 +49,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## Cat1BoxedBoolean
+public static final class Cat1BoxedBoolean<br>
+extends Cat1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Cat1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## Cat1
 public static class Cat1<br>
 extends JsonSchema
@@ -168,6 +184,22 @@ permits<br>
 [DeclawedBoxedBoolean](#declawedboxedboolean)
 
 A sealed class that stores validated payloads using boxed classes
+
+## DeclawedBoxedBoolean
+public static final class DeclawedBoxedBoolean<br>
+extends DeclawedBoxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DeclawedBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
 
 ## Declawed
 public static class Declawed<br>

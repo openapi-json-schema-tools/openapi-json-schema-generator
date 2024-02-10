@@ -22,6 +22,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ComposedBool1BoxedBoolean
+public static final class ComposedBool1BoxedBoolean<br>
+extends ComposedBool1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedBool1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## ComposedBool1
 public static class ComposedBool1<br>
 extends JsonSchema
@@ -88,6 +104,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
+
+## Schema0BoxedBoolean
+public static final class Schema0BoxedBoolean<br>
+extends Schema0Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>

@@ -204,6 +204,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## HasTeethBoxedBoolean
+public static final class HasTeethBoxedBoolean<br>
+extends HasTeethBoxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| HasTeethBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## HasTeeth
 public static class HasTeeth<br>
 extends BooleanJsonSchema.BooleanJsonSchema1
@@ -221,6 +237,22 @@ permits<br>
 [HasBaleenBoxedBoolean](#hasbaleenboxedboolean)
 
 A sealed class that stores validated payloads using boxed classes
+
+## HasBaleenBoxedBoolean
+public static final class HasBaleenBoxedBoolean<br>
+extends HasBaleenBoxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| HasBaleenBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
 
 ## HasBaleen
 public static class HasBaleen<br>

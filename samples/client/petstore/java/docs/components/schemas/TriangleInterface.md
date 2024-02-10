@@ -51,6 +51,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## TriangleInterface1BoxedBoolean
+public static final class TriangleInterface1BoxedBoolean<br>
+extends TriangleInterface1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleInterface1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## TriangleInterface1
 public static class TriangleInterface1<br>
 extends JsonSchema

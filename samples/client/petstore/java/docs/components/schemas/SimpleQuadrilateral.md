@@ -51,6 +51,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## SimpleQuadrilateral1BoxedBoolean
+public static final class SimpleQuadrilateral1BoxedBoolean<br>
+extends SimpleQuadrilateral1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SimpleQuadrilateral1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## SimpleQuadrilateral1
 public static class SimpleQuadrilateral1<br>
 extends JsonSchema

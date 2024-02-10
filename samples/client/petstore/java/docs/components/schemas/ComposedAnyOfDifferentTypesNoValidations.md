@@ -79,6 +79,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean
+public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean<br>
+extends ComposedAnyOfDifferentTypesNoValidations1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## ComposedAnyOfDifferentTypesNoValidations1
 public static class ComposedAnyOfDifferentTypesNoValidations1<br>
 extends JsonSchema
@@ -324,6 +340,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## ItemsBoxedBoolean
+public static final class ItemsBoxedBoolean<br>
+extends ItemsBoxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## Items
 public static class Items<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -375,6 +407,22 @@ permits<br>
 [Schema7BoxedBoolean](#schema7boxedboolean)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema7BoxedBoolean
+public static final class Schema7BoxedBoolean<br>
+extends Schema7Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema7BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
 
 ## Schema7
 public static class Schema7<br>

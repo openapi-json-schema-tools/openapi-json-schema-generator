@@ -20,6 +20,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## BooleanSchema1BoxedBoolean
+public static final class BooleanSchema1BoxedBoolean<br>
+extends BooleanSchema1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BooleanSchema1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## BooleanSchema1
 public static class BooleanSchema1<br>
 extends BooleanJsonSchema.BooleanJsonSchema1

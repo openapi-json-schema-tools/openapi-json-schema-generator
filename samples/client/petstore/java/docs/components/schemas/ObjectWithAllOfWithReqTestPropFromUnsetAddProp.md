@@ -49,6 +49,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean
+public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean<br>
+extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1
 public static class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1<br>
 extends JsonSchema
