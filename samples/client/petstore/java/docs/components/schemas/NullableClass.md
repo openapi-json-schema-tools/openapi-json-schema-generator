@@ -311,6 +311,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalProperties2BoxedVoid
+public static final class AdditionalProperties2BoxedVoid<br>
+extends AdditionalProperties2Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties2BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -357,6 +373,22 @@ permits<br>
 [ObjectAndItemsNullablePropBoxedMap](#objectanditemsnullablepropboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ObjectAndItemsNullablePropBoxedVoid
+public static final class ObjectAndItemsNullablePropBoxedVoid<br>
+extends ObjectAndItemsNullablePropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectAndItemsNullablePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## ObjectAndItemsNullableProp
 public static class ObjectAndItemsNullableProp<br>
@@ -446,6 +478,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalProperties1BoxedVoid
+public static final class AdditionalProperties1BoxedVoid<br>
+extends AdditionalProperties1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -492,6 +540,22 @@ permits<br>
 [ObjectNullablePropBoxedMap](#objectnullablepropboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ObjectNullablePropBoxedVoid
+public static final class ObjectNullablePropBoxedVoid<br>
+extends ObjectNullablePropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectNullablePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## ObjectNullableProp
 public static class ObjectNullableProp<br>
@@ -676,6 +740,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Items2BoxedVoid
+public static final class Items2BoxedVoid<br>
+extends Items2Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items2BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Items2
 public static class Items2<br>
 extends JsonSchema
@@ -722,6 +802,22 @@ permits<br>
 [ArrayAndItemsNullablePropBoxedList](#arrayanditemsnullablepropboxedlist)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ArrayAndItemsNullablePropBoxedVoid
+public static final class ArrayAndItemsNullablePropBoxedVoid<br>
+extends ArrayAndItemsNullablePropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayAndItemsNullablePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
@@ -811,6 +907,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Items1BoxedVoid
+public static final class Items1BoxedVoid<br>
+extends Items1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Items1
 public static class Items1<br>
 extends JsonSchema
@@ -857,6 +969,22 @@ permits<br>
 [ArrayNullablePropBoxedList](#arraynullablepropboxedlist)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ArrayNullablePropBoxedVoid
+public static final class ArrayNullablePropBoxedVoid<br>
+extends ArrayNullablePropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayNullablePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
@@ -961,6 +1089,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## DatetimePropBoxedVoid
+public static final class DatetimePropBoxedVoid<br>
+extends DatetimePropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DatetimePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## DatetimeProp
 public static class DatetimeProp<br>
 extends JsonSchema
@@ -1014,6 +1158,22 @@ permits<br>
 [DatePropBoxedString](#datepropboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## DatePropBoxedVoid
+public static final class DatePropBoxedVoid<br>
+extends DatePropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DatePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## DateProp
 public static class DateProp<br>
@@ -1069,6 +1229,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## StringPropBoxedVoid
+public static final class StringPropBoxedVoid<br>
+extends StringPropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StringPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## StringProp
 public static class StringProp<br>
 extends JsonSchema
@@ -1121,6 +1297,22 @@ permits<br>
 [BooleanPropBoxedBoolean](#booleanpropboxedboolean)
 
 A sealed class that stores validated payloads using boxed classes
+
+## BooleanPropBoxedVoid
+public static final class BooleanPropBoxedVoid<br>
+extends BooleanPropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BooleanPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## BooleanProp
 public static class BooleanProp<br>
@@ -1175,6 +1367,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## NumberPropBoxedVoid
+public static final class NumberPropBoxedVoid<br>
+extends NumberPropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## NumberProp
 public static class NumberProp<br>
 extends JsonSchema
@@ -1227,6 +1435,22 @@ permits<br>
 [IntegerPropBoxedNumber](#integerpropboxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## IntegerPropBoxedVoid
+public static final class IntegerPropBoxedVoid<br>
+extends IntegerPropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IntegerPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## IntegerProp
 public static class IntegerProp<br>
@@ -1281,6 +1505,22 @@ permits<br>
 [AdditionalProperties3BoxedMap](#additionalproperties3boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## AdditionalProperties3BoxedVoid
+public static final class AdditionalProperties3BoxedVoid<br>
+extends AdditionalProperties3Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties3BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>

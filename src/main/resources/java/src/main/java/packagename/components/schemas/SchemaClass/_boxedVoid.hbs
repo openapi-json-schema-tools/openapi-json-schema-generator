@@ -1,4 +1,20 @@
 {{#if forDocs}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedVoid" "")) }}
+public static final class {{jsonPathPiece.pascalCase}}BoxedVoid<br>
+extends {{jsonPathPiece.pascalCase}}Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 {{else}}
 public static final class {{jsonPathPiece.pascalCase}}BoxedVoid extends {{jsonPathPiece.pascalCase}}Boxed {
     public final Void data;

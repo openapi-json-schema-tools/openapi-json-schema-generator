@@ -35,6 +35,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Name1BoxedVoid
+public static final class Name1BoxedVoid<br>
+extends Name1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Name1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Name1
 public static class Name1<br>
 extends JsonSchema

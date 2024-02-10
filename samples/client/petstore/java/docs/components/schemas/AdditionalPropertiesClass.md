@@ -390,6 +390,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalProperties4BoxedVoid
+public static final class AdditionalProperties4BoxedVoid<br>
+extends AdditionalProperties4Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties4BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
@@ -498,6 +514,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalProperties3BoxedVoid
+public static final class AdditionalProperties3BoxedVoid<br>
+extends AdditionalProperties3Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties3BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -556,6 +588,22 @@ permits<br>
 [Anytype1BoxedMap](#anytype1boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Anytype1BoxedVoid
+public static final class Anytype1BoxedVoid<br>
+extends Anytype1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Anytype1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## Anytype1
 public static class Anytype1<br>

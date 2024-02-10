@@ -33,6 +33,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Dog1BoxedVoid
+public static final class Dog1BoxedVoid<br>
+extends Dog1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Dog1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Dog1
 public static class Dog1<br>
 extends JsonSchema

@@ -73,6 +73,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema0BoxedVoid
+public static final class Schema0BoxedVoid<br>
+extends Schema0Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Schema0
 public static class Schema0<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1

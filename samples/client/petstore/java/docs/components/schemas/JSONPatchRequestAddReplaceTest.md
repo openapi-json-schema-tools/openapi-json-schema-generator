@@ -339,6 +339,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ValueBoxedVoid
+public static final class ValueBoxedVoid<br>
+extends ValueBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ValueBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Value
 public static class Value<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -385,6 +401,22 @@ permits<br>
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## AdditionalPropertiesBoxedVoid
+public static final class AdditionalPropertiesBoxedVoid<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

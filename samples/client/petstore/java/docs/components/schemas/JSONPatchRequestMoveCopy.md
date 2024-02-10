@@ -350,6 +350,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalPropertiesBoxedVoid
+public static final class AdditionalPropertiesBoxedVoid<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1

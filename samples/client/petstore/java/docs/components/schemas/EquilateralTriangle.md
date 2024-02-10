@@ -35,6 +35,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## EquilateralTriangle1BoxedVoid
+public static final class EquilateralTriangle1BoxedVoid<br>
+extends EquilateralTriangle1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EquilateralTriangle1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## EquilateralTriangle1
 public static class EquilateralTriangle1<br>
 extends JsonSchema

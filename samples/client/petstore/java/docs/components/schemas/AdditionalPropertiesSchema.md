@@ -154,6 +154,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalProperties2BoxedVoid
+public static final class AdditionalProperties2BoxedVoid<br>
+extends AdditionalProperties2Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties2BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends JsonSchema
@@ -275,6 +291,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalProperties1BoxedVoid
+public static final class AdditionalProperties1BoxedVoid<br>
+extends AdditionalProperties1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
 extends JsonSchema
@@ -395,6 +427,22 @@ permits<br>
 [AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## AdditionalPropertiesBoxedVoid
+public static final class AdditionalPropertiesBoxedVoid<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

@@ -215,6 +215,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AnyTypePropNullableBoxedVoid
+public static final class AnyTypePropNullableBoxedVoid<br>
+extends AnyTypePropNullableBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropNullableBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -240,6 +256,22 @@ permits<br>
 [AnyTypeExceptNullPropBoxedMap](#anytypeexceptnullpropboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## AnyTypeExceptNullPropBoxedVoid
+public static final class AnyTypeExceptNullPropBoxedVoid<br>
+extends AnyTypeExceptNullPropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypeExceptNullPropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -275,6 +307,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## NotBoxedVoid
+public static final class NotBoxedVoid<br>
+extends NotBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NotBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Not
 public static class Not<br>
 extends NullJsonSchema.NullJsonSchema1
@@ -298,6 +346,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AnyTypePropBoxedVoid
+public static final class AnyTypePropBoxedVoid<br>
+extends AnyTypePropBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## AnyTypeProp
 public static class AnyTypeProp<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -319,6 +383,22 @@ permits<br>
 [ObjectWithNoDeclaredPropsNullableBoxedMap](#objectwithnodeclaredpropsnullableboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ObjectWithNoDeclaredPropsNullableBoxedVoid
+public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid<br>
+extends ObjectWithNoDeclaredPropsNullableBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>

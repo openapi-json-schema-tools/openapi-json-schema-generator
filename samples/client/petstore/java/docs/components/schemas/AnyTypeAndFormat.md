@@ -218,6 +218,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## FloatSchemaBoxedVoid
+public static final class FloatSchemaBoxedVoid<br>
+extends FloatSchemaBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FloatSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -253,6 +269,22 @@ permits<br>
 [DoubleSchemaBoxedMap](#doubleschemaboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## DoubleSchemaBoxedVoid
+public static final class DoubleSchemaBoxedVoid<br>
+extends DoubleSchemaBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DoubleSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -290,6 +322,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Int64BoxedVoid
+public static final class Int64BoxedVoid<br>
+extends Int64Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int64BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Int64
 public static class Int64<br>
 extends JsonSchema
@@ -325,6 +373,22 @@ permits<br>
 [Int32BoxedMap](#int32boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Int32BoxedVoid
+public static final class Int32BoxedVoid<br>
+extends Int32Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int32BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## Int32
 public static class Int32<br>
@@ -362,6 +426,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## BinaryBoxedVoid
+public static final class BinaryBoxedVoid<br>
+extends BinaryBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BinaryBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Binary
 public static class Binary<br>
 extends JsonSchema
@@ -397,6 +477,22 @@ permits<br>
 [NumberSchemaBoxedMap](#numberschemaboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## NumberSchemaBoxedVoid
+public static final class NumberSchemaBoxedVoid<br>
+extends NumberSchemaBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -434,6 +530,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## DatetimeBoxedVoid
+public static final class DatetimeBoxedVoid<br>
+extends DatetimeBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DatetimeBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Datetime
 public static class Datetime<br>
 extends JsonSchema
@@ -470,6 +582,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## DateBoxedVoid
+public static final class DateBoxedVoid<br>
+extends DateBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Date
 public static class Date<br>
 extends JsonSchema
@@ -505,6 +633,22 @@ permits<br>
 [UuidSchemaBoxedMap](#uuidschemaboxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## UuidSchemaBoxedVoid
+public static final class UuidSchemaBoxedVoid<br>
+extends UuidSchemaBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>

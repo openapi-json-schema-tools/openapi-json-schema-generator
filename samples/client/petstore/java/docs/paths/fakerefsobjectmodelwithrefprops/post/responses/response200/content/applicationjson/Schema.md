@@ -24,6 +24,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema1BoxedVoid
+public static final class Schema1BoxedVoid<br>
+extends Schema1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Schema1
 public static class Schema1<br>
 extends [ObjectModelWithRefProps.ObjectModelWithRefProps1](../../../../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops1)

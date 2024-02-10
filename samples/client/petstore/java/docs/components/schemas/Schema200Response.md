@@ -33,6 +33,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema200Response1BoxedVoid
+public static final class Schema200Response1BoxedVoid<br>
+extends Schema200Response1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema200Response1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Schema200Response1
 public static class Schema200Response1<br>
 extends JsonSchema

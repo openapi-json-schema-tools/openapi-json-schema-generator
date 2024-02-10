@@ -63,6 +63,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ComposedAnyOfDifferentTypesNoValidations1BoxedVoid
+public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedVoid<br>
+extends ComposedAnyOfDifferentTypesNoValidations1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## ComposedAnyOfDifferentTypesNoValidations1
 public static class ComposedAnyOfDifferentTypesNoValidations1<br>
 extends JsonSchema
@@ -292,6 +308,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ItemsBoxedVoid
+public static final class ItemsBoxedVoid<br>
+extends ItemsBoxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## Items
 public static class Items<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -309,6 +341,22 @@ permits<br>
 [Schema8BoxedVoid](#schema8boxedvoid)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema8BoxedVoid
+public static final class Schema8BoxedVoid<br>
+extends Schema8Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema8BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## Schema8
 public static class Schema8<br>

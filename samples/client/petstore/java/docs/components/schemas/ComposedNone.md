@@ -22,6 +22,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ComposedNone1BoxedVoid
+public static final class ComposedNone1BoxedVoid<br>
+extends ComposedNone1Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedNone1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## ComposedNone1
 public static class ComposedNone1<br>
 extends JsonSchema
@@ -72,6 +88,22 @@ permits<br>
 [Schema0BoxedMap](#schema0boxedmap)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema0BoxedVoid
+public static final class Schema0BoxedVoid<br>
+extends Schema0Boxed
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
 
 ## Schema0
 public static class Schema0<br>
