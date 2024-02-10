@@ -4,7 +4,7 @@ import {{{packageName}}}.mediatype.MediaType;
 
 import java.util.Map;
 
-public class RequestBodyMaker {
+public abstract class RequestBodySerializer<T> {
     /*
     * Describes a single request body
     * content: content_type to MediaType schema info
@@ -20,8 +20,10 @@ public class RequestBodyMaker {
     public final Map<String, MediaType<?>> content;
     public final boolean required;
 
-    public RequestBodyMaker(Map<String, MediaType<?>> content, boolean required) {
+    public RequestBodySerializer(Map<String, MediaType<?>> content, boolean required) {
         this.content = content;
         this.required = required;
     }
+
+    public abstract SerializedRequestBody serialize(T requestBody);
 }

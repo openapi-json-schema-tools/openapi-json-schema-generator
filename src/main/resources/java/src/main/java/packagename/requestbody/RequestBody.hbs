@@ -1,13 +1,6 @@
 package {{{packageName}}}.requestbody;
 
-import java.net.http.HttpRequest;
-
-public class RequestBody {
-    public final String contentType;
-    public final HttpRequest.BodyPublisher bodyPublisher;
-
-    protected RequestBody(String contentType, HttpRequest.BodyPublisher bodyPublisher) {
-        this.contentType = contentType;
-        this.bodyPublisher = bodyPublisher;
-    }
+public interface RequestBody<SealedSchemaOutputClass> {
+    String contentType();
+    SealedSchemaOutputClass schema();
 }
