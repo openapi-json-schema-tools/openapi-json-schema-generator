@@ -133,6 +133,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## EnumFormStringBoxedString
+public static final class EnumFormStringBoxedString<br>
+extends EnumFormStringBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumFormStringBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## EnumFormString
 public static class EnumFormString<br>
 extends JsonSchema
@@ -279,6 +295,22 @@ permits<br>
 [ItemsBoxedString](#itemsboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ItemsBoxedString
+public static final class ItemsBoxedString<br>
+extends ItemsBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Items
 public static class Items<br>

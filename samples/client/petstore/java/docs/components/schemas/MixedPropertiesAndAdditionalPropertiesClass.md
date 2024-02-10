@@ -233,6 +233,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## DateTimeBoxedString
+public static final class DateTimeBoxedString<br>
+extends DateTimeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateTimeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## DateTime
 public static class DateTime<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1
@@ -250,6 +266,22 @@ permits<br>
 [UuidSchemaBoxedString](#uuidschemaboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## UuidSchemaBoxedString
+public static final class UuidSchemaBoxedString<br>
+extends UuidSchemaBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>

@@ -63,6 +63,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## ClassModel1BoxedString
+public static final class ClassModel1BoxedString<br>
+extends ClassModel1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassModel1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## ClassModel1
 public static class ClassModel1<br>
 extends JsonSchema
@@ -135,6 +151,22 @@ permits<br>
 [ClassSchemaBoxedString](#classschemaboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ClassSchemaBoxedString
+public static final class ClassSchemaBoxedString<br>
+extends ClassSchemaBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## ClassSchema
 public static class ClassSchema<br>

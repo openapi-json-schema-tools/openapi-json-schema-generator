@@ -21,6 +21,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## PathParamSchema01BoxedString
+public static final class PathParamSchema01BoxedString<br>
+extends PathParamSchema01Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PathParamSchema01BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## PathParamSchema01
 public static class PathParamSchema01<br>
 extends JsonSchema

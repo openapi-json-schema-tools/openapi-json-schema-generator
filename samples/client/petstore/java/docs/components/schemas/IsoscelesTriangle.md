@@ -67,6 +67,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## IsoscelesTriangle1BoxedString
+public static final class IsoscelesTriangle1BoxedString<br>
+extends IsoscelesTriangle1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IsoscelesTriangle1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## IsoscelesTriangle1
 public static class IsoscelesTriangle1<br>
 extends JsonSchema
@@ -187,6 +203,22 @@ permits<br>
 [TriangleTypeBoxedString](#triangletypeboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## TriangleTypeBoxedString
+public static final class TriangleTypeBoxedString<br>
+extends TriangleTypeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleTypeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## TriangleType
 public static class TriangleType<br>

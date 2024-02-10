@@ -289,6 +289,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalProperties5BoxedString
+public static final class AdditionalProperties5BoxedString<br>
+extends AdditionalProperties5Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties5BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## AdditionalProperties5
 public static class AdditionalProperties5<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -421,6 +437,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AdditionalProperties4BoxedString
+public static final class AdditionalProperties4BoxedString<br>
+extends AdditionalProperties4Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties4BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
@@ -562,6 +594,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## AdditionalProperties3BoxedString
+public static final class AdditionalProperties3BoxedString<br>
+extends AdditionalProperties3Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties3BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -652,6 +700,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## Anytype1BoxedString
+public static final class Anytype1BoxedString<br>
+extends Anytype1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Anytype1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Anytype1
 public static class Anytype1<br>
@@ -836,6 +900,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AdditionalProperties2BoxedString
+public static final class AdditionalProperties2BoxedString<br>
+extends AdditionalProperties2Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties2BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -932,6 +1012,22 @@ permits<br>
 [AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## AdditionalPropertiesBoxedString
+public static final class AdditionalPropertiesBoxedString<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

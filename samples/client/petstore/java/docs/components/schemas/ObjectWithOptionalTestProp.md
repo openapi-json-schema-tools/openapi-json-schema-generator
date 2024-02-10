@@ -115,6 +115,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## TestBoxedString
+public static final class TestBoxedString<br>
+extends TestBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TestBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Test
 public static class Test<br>
 extends StringJsonSchema.StringJsonSchema1

@@ -1105,6 +1105,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## DatetimePropBoxedString
+public static final class DatetimePropBoxedString<br>
+extends DatetimePropBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DatetimePropBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## DatetimeProp
 public static class DatetimeProp<br>
 extends JsonSchema
@@ -1175,6 +1191,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## DatePropBoxedString
+public static final class DatePropBoxedString<br>
+extends DatePropBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DatePropBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## DateProp
 public static class DateProp<br>
 extends JsonSchema
@@ -1244,6 +1276,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
+
+## StringPropBoxedString
+public static final class StringPropBoxedString<br>
+extends StringPropBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StringPropBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## StringProp
 public static class StringProp<br>

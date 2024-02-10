@@ -120,6 +120,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## StatusBoxedString
+public static final class StatusBoxedString<br>
+extends StatusBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StatusBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Status
 public static class Status<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -140,6 +156,22 @@ permits<br>
 [NameBoxedString](#nameboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## NameBoxedString
+public static final class NameBoxedString<br>
+extends NameBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Name
 public static class Name<br>

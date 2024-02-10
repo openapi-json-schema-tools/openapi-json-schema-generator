@@ -40,6 +40,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## StringEnum1BoxedString
+public static final class StringEnum1BoxedString<br>
+extends StringEnum1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StringEnum1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## StringEnum1
 public static class StringEnum1<br>
 extends JsonSchema

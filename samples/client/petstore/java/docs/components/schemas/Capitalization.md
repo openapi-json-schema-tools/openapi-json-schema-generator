@@ -145,6 +145,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ATTNAMEBoxedString
+public static final class ATTNAMEBoxedString<br>
+extends ATTNAMEBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ATTNAMEBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## ATTNAME
 public static class ATTNAME<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -166,6 +182,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## SCAETHFlowPointsBoxedString
+public static final class SCAETHFlowPointsBoxedString<br>
+extends SCAETHFlowPointsBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SCAETHFlowPointsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## SCAETHFlowPoints
 public static class SCAETHFlowPoints<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -183,6 +215,22 @@ permits<br>
 [CapitalSnakeBoxedString](#capitalsnakeboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## CapitalSnakeBoxedString
+public static final class CapitalSnakeBoxedString<br>
+extends CapitalSnakeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| CapitalSnakeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## CapitalSnake
 public static class CapitalSnake<br>
@@ -202,6 +250,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## SmallSnakeBoxedString
+public static final class SmallSnakeBoxedString<br>
+extends SmallSnakeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SmallSnakeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## SmallSnake
 public static class SmallSnake<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -220,6 +284,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## CapitalCamelBoxedString
+public static final class CapitalCamelBoxedString<br>
+extends CapitalCamelBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| CapitalCamelBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## CapitalCamel
 public static class CapitalCamel<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -237,6 +317,22 @@ permits<br>
 [SmallCamelBoxedString](#smallcamelboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## SmallCamelBoxedString
+public static final class SmallCamelBoxedString<br>
+extends SmallCamelBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SmallCamelBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## SmallCamel
 public static class SmallCamel<br>

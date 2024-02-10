@@ -20,6 +20,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## StringWithValidation1BoxedString
+public static final class StringWithValidation1BoxedString<br>
+extends StringWithValidation1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StringWithValidation1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## StringWithValidation1
 public static class StringWithValidation1<br>
 extends JsonSchema

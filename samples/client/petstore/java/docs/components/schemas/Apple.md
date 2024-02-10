@@ -161,6 +161,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## OriginBoxedString
+public static final class OriginBoxedString<br>
+extends OriginBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| OriginBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Origin
 public static class Origin<br>
 extends JsonSchema
@@ -206,6 +222,22 @@ permits<br>
 [CultivarBoxedString](#cultivarboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## CultivarBoxedString
+public static final class CultivarBoxedString<br>
+extends CultivarBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| CultivarBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Cultivar
 public static class Cultivar<br>

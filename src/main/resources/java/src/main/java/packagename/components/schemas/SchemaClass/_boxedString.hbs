@@ -1,4 +1,20 @@
 {{#if forDocs}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedString" "")) }}
+public static final class {{jsonPathPiece.pascalCase}}BoxedString<br>
+extends {{jsonPathPiece.pascalCase}}Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}BoxedString(String data)<br>Creates an instance, private visibility |
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 {{else}}
 public static final class {{jsonPathPiece.pascalCase}}BoxedString extends {{jsonPathPiece.pascalCase}}Boxed {
     public final String data;

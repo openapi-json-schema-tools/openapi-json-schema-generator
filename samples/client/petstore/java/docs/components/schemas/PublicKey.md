@@ -118,6 +118,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## KeyBoxedString
+public static final class KeyBoxedString<br>
+extends KeyBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| KeyBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Key
 public static class Key<br>
 extends StringJsonSchema.StringJsonSchema1

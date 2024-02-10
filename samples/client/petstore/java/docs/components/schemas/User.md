@@ -247,6 +247,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## AnyTypePropNullableBoxedString
+public static final class AnyTypePropNullableBoxedString<br>
+extends AnyTypePropNullableBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropNullableBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -304,6 +320,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AnyTypeExceptNullPropBoxedString
+public static final class AnyTypeExceptNullPropBoxedString<br>
+extends AnyTypeExceptNullPropBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypeExceptNullPropBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -409,6 +441,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AnyTypePropBoxedString
+public static final class AnyTypePropBoxedString<br>
+extends AnyTypePropBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## AnyTypeProp
 public static class AnyTypeProp<br>
@@ -539,6 +587,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## PhoneBoxedString
+public static final class PhoneBoxedString<br>
+extends PhoneBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PhoneBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Phone
 public static class Phone<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -556,6 +620,22 @@ permits<br>
 [PasswordBoxedString](#passwordboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## PasswordBoxedString
+public static final class PasswordBoxedString<br>
+extends PasswordBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PasswordBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Password
 public static class Password<br>
@@ -575,6 +655,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## EmailBoxedString
+public static final class EmailBoxedString<br>
+extends EmailBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EmailBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Email
 public static class Email<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -592,6 +688,22 @@ permits<br>
 [LastNameBoxedString](#lastnameboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## LastNameBoxedString
+public static final class LastNameBoxedString<br>
+extends LastNameBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| LastNameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## LastName
 public static class LastName<br>
@@ -611,6 +723,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## FirstNameBoxedString
+public static final class FirstNameBoxedString<br>
+extends FirstNameBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FirstNameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## FirstName
 public static class FirstName<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -628,6 +756,22 @@ permits<br>
 [UsernameBoxedString](#usernameboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## UsernameBoxedString
+public static final class UsernameBoxedString<br>
+extends UsernameBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UsernameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Username
 public static class Username<br>

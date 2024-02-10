@@ -67,6 +67,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## QuadrilateralInterface1BoxedString
+public static final class QuadrilateralInterface1BoxedString<br>
+extends QuadrilateralInterface1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| QuadrilateralInterface1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## QuadrilateralInterface1
 public static class QuadrilateralInterface1<br>
 extends JsonSchema
@@ -189,6 +205,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## QuadrilateralTypeBoxedString
+public static final class QuadrilateralTypeBoxedString<br>
+extends QuadrilateralTypeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| QuadrilateralTypeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## QuadrilateralType
 public static class QuadrilateralType<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -206,6 +238,22 @@ permits<br>
 [ShapeTypeBoxedString](#shapetypeboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ShapeTypeBoxedString
+public static final class ShapeTypeBoxedString<br>
+extends ShapeTypeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ShapeTypeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## ShapeType
 public static class ShapeType<br>

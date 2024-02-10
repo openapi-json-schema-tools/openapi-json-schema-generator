@@ -169,6 +169,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ArgsBoxedString
+public static final class ArgsBoxedString<br>
+extends ArgsBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArgsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Args
 public static class Args<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -186,6 +202,22 @@ permits<br>
 [ArgBoxedString](#argboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ArgBoxedString
+public static final class ArgBoxedString<br>
+extends ArgBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArgBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Arg
 public static class Arg<br>

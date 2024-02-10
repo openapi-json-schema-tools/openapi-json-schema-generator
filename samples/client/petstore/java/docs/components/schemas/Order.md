@@ -189,6 +189,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## StatusBoxedString
+public static final class StatusBoxedString<br>
+extends StatusBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StatusBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Status
 public static class Status<br>
 extends JsonSchema
@@ -251,6 +267,22 @@ permits<br>
 [ShipDateBoxedString](#shipdateboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ShipDateBoxedString
+public static final class ShipDateBoxedString<br>
+extends ShipDateBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ShipDateBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## ShipDate
 public static class ShipDate<br>

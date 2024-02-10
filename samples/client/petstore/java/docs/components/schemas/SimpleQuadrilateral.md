@@ -67,6 +67,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## SimpleQuadrilateral1BoxedString
+public static final class SimpleQuadrilateral1BoxedString<br>
+extends SimpleQuadrilateral1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SimpleQuadrilateral1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## SimpleQuadrilateral1
 public static class SimpleQuadrilateral1<br>
 extends JsonSchema
@@ -187,6 +203,22 @@ permits<br>
 [QuadrilateralTypeBoxedString](#quadrilateraltypeboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## QuadrilateralTypeBoxedString
+public static final class QuadrilateralTypeBoxedString<br>
+extends QuadrilateralTypeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| QuadrilateralTypeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>

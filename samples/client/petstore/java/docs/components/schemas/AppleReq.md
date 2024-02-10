@@ -164,6 +164,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## CultivarBoxedString
+public static final class CultivarBoxedString<br>
+extends CultivarBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| CultivarBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Cultivar
 public static class Cultivar<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -218,6 +234,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AdditionalPropertiesBoxedString
+public static final class AdditionalPropertiesBoxedString<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

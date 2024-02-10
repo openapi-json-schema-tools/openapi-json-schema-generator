@@ -128,6 +128,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## MessageBoxedString
+public static final class MessageBoxedString<br>
+extends MessageBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| MessageBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Message
 public static class Message<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -145,6 +161,22 @@ permits<br>
 [TypeBoxedString](#typeboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## TypeBoxedString
+public static final class TypeBoxedString<br>
+extends TypeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TypeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Type
 public static class Type<br>

@@ -168,6 +168,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Param2BoxedString
+public static final class Param2BoxedString<br>
+extends Param2Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Param2BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Param2
 public static class Param2<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -188,6 +204,22 @@ permits<br>
 [ParamBoxedString](#paramboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ParamBoxedString
+public static final class ParamBoxedString<br>
+extends ParamBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ParamBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Param
 public static class Param<br>

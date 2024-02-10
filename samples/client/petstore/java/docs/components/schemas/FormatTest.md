@@ -570,6 +570,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## PatternWithDigitsAndDelimiterBoxedString
+public static final class PatternWithDigitsAndDelimiterBoxedString<br>
+extends PatternWithDigitsAndDelimiterBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PatternWithDigitsAndDelimiterBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
 extends JsonSchema
@@ -618,6 +634,22 @@ permits<br>
 [PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## PatternWithDigitsBoxedString
+public static final class PatternWithDigitsBoxedString<br>
+extends PatternWithDigitsBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PatternWithDigitsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## PatternWithDigits
 public static class PatternWithDigits<br>
@@ -668,6 +700,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## PasswordBoxedString
+public static final class PasswordBoxedString<br>
+extends PasswordBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PasswordBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Password
 public static class Password<br>
 extends JsonSchema
@@ -716,6 +764,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## UuidNoExampleBoxedString
+public static final class UuidNoExampleBoxedString<br>
+extends UuidNoExampleBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidNoExampleBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## UuidNoExample
 public static class UuidNoExample<br>
 extends UuidJsonSchema.UuidJsonSchema1
@@ -733,6 +797,22 @@ permits<br>
 [UuidSchemaBoxedString](#uuidschemaboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## UuidSchemaBoxedString
+public static final class UuidSchemaBoxedString<br>
+extends UuidSchemaBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>
@@ -752,6 +832,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## DateTimeBoxedString
+public static final class DateTimeBoxedString<br>
+extends DateTimeBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateTimeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## DateTime
 public static class DateTime<br>
 extends DateTimeJsonSchema.DateTimeJsonSchema1
@@ -769,6 +865,22 @@ permits<br>
 [DateBoxedString](#dateboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## DateBoxedString
+public static final class DateBoxedString<br>
+extends DateBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Date
 public static class Date<br>
@@ -800,6 +912,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ByteSchemaBoxedString
+public static final class ByteSchemaBoxedString<br>
+extends ByteSchemaBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ByteSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## ByteSchema
 public static class ByteSchema<br>
 extends StringJsonSchema.StringJsonSchema1
@@ -812,6 +940,22 @@ permits<br>
 [StringSchemaBoxedString](#stringschemaboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## StringSchemaBoxedString
+public static final class StringSchemaBoxedString<br>
+extends StringSchemaBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StringSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## StringSchema
 public static class StringSchema<br>

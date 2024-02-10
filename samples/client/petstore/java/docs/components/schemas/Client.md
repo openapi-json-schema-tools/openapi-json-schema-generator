@@ -115,6 +115,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Client2BoxedString
+public static final class Client2BoxedString<br>
+extends Client2Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Client2BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Client2
 public static class Client2<br>
 extends StringJsonSchema.StringJsonSchema1

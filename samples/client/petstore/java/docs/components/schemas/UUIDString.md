@@ -20,6 +20,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## UUIDString1BoxedString
+public static final class UUIDString1BoxedString<br>
+extends UUIDString1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UUIDString1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## UUIDString1
 public static class UUIDString1<br>
 extends JsonSchema

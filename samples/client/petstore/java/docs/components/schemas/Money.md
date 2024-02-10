@@ -162,6 +162,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## AmountBoxedString
+public static final class AmountBoxedString<br>
+extends AmountBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AmountBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Amount
 public static class Amount<br>
 extends DecimalJsonSchema.DecimalJsonSchema1
@@ -216,6 +232,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AdditionalPropertiesBoxedString
+public static final class AdditionalPropertiesBoxedString<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

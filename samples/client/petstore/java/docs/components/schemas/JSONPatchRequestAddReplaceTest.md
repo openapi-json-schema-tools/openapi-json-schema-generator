@@ -271,6 +271,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## OpBoxedString
+public static final class OpBoxedString<br>
+extends OpBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| OpBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Op
 public static class Op<br>
 extends JsonSchema
@@ -371,6 +387,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## ValueBoxedString
+public static final class ValueBoxedString<br>
+extends ValueBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ValueBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Value
 public static class Value<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -391,6 +423,22 @@ permits<br>
 [PathBoxedString](#pathboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## PathBoxedString
+public static final class PathBoxedString<br>
+extends PathBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PathBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Path
 public static class Path<br>
@@ -449,6 +497,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AdditionalPropertiesBoxedString
+public static final class AdditionalPropertiesBoxedString<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

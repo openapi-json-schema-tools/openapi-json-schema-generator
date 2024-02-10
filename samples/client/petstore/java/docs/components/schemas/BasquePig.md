@@ -134,6 +134,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ClassNameBoxedString
+public static final class ClassNameBoxedString<br>
+extends ClassNameBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassNameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## ClassName
 public static class ClassName<br>
 extends JsonSchema

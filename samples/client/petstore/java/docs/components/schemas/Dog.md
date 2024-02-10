@@ -65,6 +65,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## Dog1BoxedString
+public static final class Dog1BoxedString<br>
+extends Dog1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Dog1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Dog1
 public static class Dog1<br>
 extends JsonSchema
@@ -184,6 +200,22 @@ permits<br>
 [BreedBoxedString](#breedboxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## BreedBoxedString
+public static final class BreedBoxedString<br>
+extends BreedBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BreedBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Breed
 public static class Breed<br>

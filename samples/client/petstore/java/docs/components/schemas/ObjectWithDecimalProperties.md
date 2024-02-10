@@ -133,6 +133,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## WidthBoxedString
+public static final class WidthBoxedString<br>
+extends WidthBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| WidthBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Width
 public static class Width<br>
 extends DecimalJsonSchema.DecimalJsonSchema1

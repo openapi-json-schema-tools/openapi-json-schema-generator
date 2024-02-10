@@ -37,6 +37,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## NullableString1BoxedString
+public static final class NullableString1BoxedString<br>
+extends NullableString1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NullableString1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## NullableString1
 public static class NullableString1<br>
 extends JsonSchema

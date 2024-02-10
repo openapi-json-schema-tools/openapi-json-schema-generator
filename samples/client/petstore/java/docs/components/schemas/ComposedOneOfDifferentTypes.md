@@ -73,6 +73,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## ComposedOneOfDifferentTypes1BoxedString
+public static final class ComposedOneOfDifferentTypes1BoxedString<br>
+extends ComposedOneOfDifferentTypes1Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedOneOfDifferentTypes1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## ComposedOneOfDifferentTypes1
 public static class ComposedOneOfDifferentTypes1<br>
 extends JsonSchema
@@ -106,6 +122,22 @@ permits<br>
 [Schema6BoxedString](#schema6boxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema6BoxedString
+public static final class Schema6BoxedString<br>
+extends Schema6Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema6BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Schema6
 public static class Schema6<br>
@@ -278,6 +310,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## ItemsBoxedString
+public static final class ItemsBoxedString<br>
+extends ItemsBoxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Items
 public static class Items<br>
 extends AnyTypeJsonSchema.AnyTypeJsonSchema1
@@ -320,6 +368,22 @@ permits<br>
 [Schema3BoxedString](#schema3boxedstring)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema3BoxedString
+public static final class Schema3BoxedString<br>
+extends Schema3Boxed
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema3BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Schema3
 public static class Schema3<br>
