@@ -4,11 +4,38 @@ public class NumberWithValidations
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NumberWithValidations.NumberWithValidations1Boxed](#numberwithvalidations1boxed)<br> abstract sealed validated payload class |
+| static class | [NumberWithValidations.NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberWithValidations.NumberWithValidations1](#numberwithvalidations1)<br> schema class |
+
+## NumberWithValidations1Boxed
+public static abstract sealed class NumberWithValidations1Boxed<br>
+permits<br>
+[NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NumberWithValidations1BoxedNumber
+public static final class NumberWithValidations1BoxedNumber<br>
+extends [NumberWithValidations1Boxed](#numberwithvalidations1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberWithValidations1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## NumberWithValidations1
 public static class NumberWithValidations1<br>
@@ -49,5 +76,6 @@ int validatedPayload = NumberWithValidations.NumberWithValidations1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [NumberWithValidations1BoxedNumber](#numberwithvalidations1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

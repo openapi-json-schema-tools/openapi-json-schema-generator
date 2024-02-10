@@ -6,7 +6,7 @@ public class StringTypeMatchesStrings {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class StringTypeMatchesStrings1 extends StringJsonSchema {
+    public static class StringTypeMatchesStrings1 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable StringTypeMatchesStrings1 instance = null;
         public static StringTypeMatchesStrings1 getInstance() {
             if (instance == null) {

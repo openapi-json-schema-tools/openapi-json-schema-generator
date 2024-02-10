@@ -4,6 +4,8 @@ public class FormatTest
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -12,33 +14,101 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [FormatTest.FormatTest1Boxed](#formattest1boxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.FormatTest1BoxedMap](#formattest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FormatTest.FormatTest1](#formattest1)<br> schema class |
 | static class | [FormatTest.FormatTestMapBuilder](#formattestmapbuilder)<br> builder for Map payloads |
 | static class | [FormatTest.FormatTestMap](#formattestmap)<br> output class for Map payloads |
+| static class | [FormatTest.NonePropBoxed](#nonepropboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.NonePropBoxedVoid](#nonepropboxedvoid)<br> boxed class to store validated null payloads |
 | static class | [FormatTest.NoneProp](#noneprop)<br> schema class |
+| static class | [FormatTest.PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.PatternWithDigitsAndDelimiter](#patternwithdigitsanddelimiter)<br> schema class |
+| static class | [FormatTest.PatternWithDigitsBoxed](#patternwithdigitsboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.PatternWithDigits](#patternwithdigits)<br> schema class |
+| static class | [FormatTest.PasswordBoxed](#passwordboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.PasswordBoxedString](#passwordboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.Password](#password)<br> schema class |
+| static class | [FormatTest.UuidNoExampleBoxed](#uuidnoexampleboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.UuidNoExampleBoxedString](#uuidnoexampleboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.UuidNoExample](#uuidnoexample)<br> schema class |
+| static class | [FormatTest.UuidSchemaBoxed](#uuidschemaboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.UuidSchema](#uuidschema)<br> schema class |
+| static class | [FormatTest.DateTimeBoxed](#datetimeboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.DateTime](#datetime)<br> schema class |
+| static class | [FormatTest.DateBoxed](#dateboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.DateBoxedString](#dateboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.Date](#date)<br> schema class |
+| static class | [FormatTest.BinaryBoxed](#binaryboxed)<br> abstract sealed validated payload class |
 | static class | [FormatTest.Binary](#binary)<br> schema class |
+| static class | [FormatTest.ByteSchemaBoxed](#byteschemaboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.ByteSchemaBoxedString](#byteschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.ByteSchema](#byteschema)<br> schema class |
+| static class | [FormatTest.StringSchemaBoxed](#stringschemaboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.StringSchemaBoxedString](#stringschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.StringSchema](#stringschema)<br> schema class |
+| static class | [FormatTest.ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [FormatTest.ArrayWithUniqueItems](#arraywithuniqueitems)<br> schema class |
 | static class | [FormatTest.ArrayWithUniqueItemsListBuilder](#arraywithuniqueitemslistbuilder)<br> builder for List payloads |
 | static class | [FormatTest.ArrayWithUniqueItemsList](#arraywithuniqueitemslist)<br> output class for List payloads |
+| static class | [FormatTest.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Items](#items)<br> schema class |
+| static class | [FormatTest.Float64Boxed](#float64boxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.Float64BoxedNumber](#float64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Float64](#float64)<br> schema class |
+| static class | [FormatTest.DoubleSchemaBoxed](#doubleschemaboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.DoubleSchema](#doubleschema)<br> schema class |
+| static class | [FormatTest.Float32Boxed](#float32boxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.Float32BoxedNumber](#float32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Float32](#float32)<br> schema class |
+| static class | [FormatTest.FloatSchemaBoxed](#floatschemaboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.FloatSchema](#floatschema)<br> schema class |
+| static class | [FormatTest.NumberSchemaBoxed](#numberschemaboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.NumberSchema](#numberschema)<br> schema class |
+| static class | [FormatTest.Int64Boxed](#int64boxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int64](#int64)<br> schema class |
+| static class | [FormatTest.Int32withValidationsBoxed](#int32withvalidationsboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int32withValidations](#int32withvalidations)<br> schema class |
+| static class | [FormatTest.Int32Boxed](#int32boxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int32](#int32)<br> schema class |
+| static class | [FormatTest.IntegerSchemaBoxed](#integerschemaboxed)<br> abstract sealed validated payload class |
+| static class | [FormatTest.IntegerSchemaBoxedNumber](#integerschemaboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.IntegerSchema](#integerschema)<br> schema class |
+
+## FormatTest1Boxed
+public static abstract sealed class FormatTest1Boxed<br>
+permits<br>
+[FormatTest1BoxedMap](#formattest1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## FormatTest1BoxedMap
+public static final class FormatTest1BoxedMap<br>
+extends [FormatTest1Boxed](#formattest1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FormatTest1BoxedMap([FormatTestMap](#formattestmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [FormatTestMap](#formattestmap) | data<br>validated payload |
 
 ## FormatTest1
 public static class FormatTest1<br>
@@ -126,6 +196,7 @@ FormatTest.FormatTestMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap](#formattestmap) | validate([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
+| [FormatTest1BoxedMap](#formattest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FormatTestMap0000Builder
 public class FormatTestMap0000Builder<br>
@@ -497,15 +568,62 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## NonePropBoxed
+public static abstract sealed class NonePropBoxed<br>
+permits<br>
+[NonePropBoxedVoid](#nonepropboxedvoid)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NonePropBoxedVoid
+public static final class NonePropBoxedVoid<br>
+extends [NonePropBoxed](#nonepropboxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NonePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
 ## NoneProp
 public static class NoneProp<br>
-extends NullJsonSchema
+extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NullJsonSchema.NullJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## PatternWithDigitsAndDelimiterBoxed
+public static abstract sealed class PatternWithDigitsAndDelimiterBoxed<br>
+permits<br>
+[PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## PatternWithDigitsAndDelimiterBoxedString
+public static final class PatternWithDigitsAndDelimiterBoxedString<br>
+extends [PatternWithDigitsAndDelimiterBoxed](#patternwithdigitsanddelimiterboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PatternWithDigitsAndDelimiterBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
@@ -548,7 +666,31 @@ String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [PatternWithDigitsAndDelimiterBoxedString](#patternwithdigitsanddelimiterboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## PatternWithDigitsBoxed
+public static abstract sealed class PatternWithDigitsBoxed<br>
+permits<br>
+[PatternWithDigitsBoxedString](#patternwithdigitsboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## PatternWithDigitsBoxedString
+public static final class PatternWithDigitsBoxedString<br>
+extends [PatternWithDigitsBoxed](#patternwithdigitsboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PatternWithDigitsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## PatternWithDigits
 public static class PatternWithDigits<br>
 extends JsonSchema
@@ -590,7 +732,31 @@ String validatedPayload = FormatTest.PatternWithDigits.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [PatternWithDigitsBoxedString](#patternwithdigitsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## PasswordBoxed
+public static abstract sealed class PasswordBoxed<br>
+permits<br>
+[PasswordBoxedString](#passwordboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## PasswordBoxedString
+public static final class PasswordBoxedString<br>
+extends [PasswordBoxed](#passwordboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PasswordBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Password
 public static class Password<br>
 extends JsonSchema
@@ -631,46 +797,149 @@ String validatedPayload = FormatTest.Password.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [PasswordBoxedString](#passwordboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## UuidNoExampleBoxed
+public static abstract sealed class UuidNoExampleBoxed<br>
+permits<br>
+[UuidNoExampleBoxedString](#uuidnoexampleboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## UuidNoExampleBoxedString
+public static final class UuidNoExampleBoxedString<br>
+extends [UuidNoExampleBoxed](#uuidnoexampleboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidNoExampleBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## UuidNoExample
 public static class UuidNoExample<br>
-extends UuidJsonSchema
+extends UuidJsonSchema.UuidJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema.UuidJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## UuidSchemaBoxed
+public static abstract sealed class UuidSchemaBoxed<br>
+permits<br>
+[UuidSchemaBoxedString](#uuidschemaboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## UuidSchemaBoxedString
+public static final class UuidSchemaBoxedString<br>
+extends [UuidSchemaBoxed](#uuidschemaboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## UuidSchema
 public static class UuidSchema<br>
-extends UuidJsonSchema
+extends UuidJsonSchema.UuidJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema.UuidJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## DateTimeBoxed
+public static abstract sealed class DateTimeBoxed<br>
+permits<br>
+[DateTimeBoxedString](#datetimeboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## DateTimeBoxedString
+public static final class DateTimeBoxedString<br>
+extends [DateTimeBoxed](#datetimeboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateTimeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## DateTime
 public static class DateTime<br>
-extends DateTimeJsonSchema
+extends DateTimeJsonSchema.DateTimeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema.DateTimeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## DateBoxed
+public static abstract sealed class DateBoxed<br>
+permits<br>
+[DateBoxedString](#dateboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## DateBoxedString
+public static final class DateBoxedString<br>
+extends [DateBoxed](#dateboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Date
 public static class Date<br>
-extends DateJsonSchema
+extends DateJsonSchema.DateJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema.DateJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## BinaryBoxed
+public static abstract sealed class BinaryBoxed<br>
+permits<br>
+
+abstract sealed class that stores validated payloads using boxed classes
 
 ## Binary
 public static class Binary<br>
@@ -678,11 +947,57 @@ extends JsonSchema
 
 A schema class that validates payloads
 
+## ByteSchemaBoxed
+public static abstract sealed class ByteSchemaBoxed<br>
+permits<br>
+[ByteSchemaBoxedString](#byteschemaboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ByteSchemaBoxedString
+public static final class ByteSchemaBoxedString<br>
+extends [ByteSchemaBoxed](#byteschemaboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ByteSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## ByteSchema
 public static class ByteSchema<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
+
+## StringSchemaBoxed
+public static abstract sealed class StringSchemaBoxed<br>
+permits<br>
+[StringSchemaBoxedString](#stringschemaboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## StringSchemaBoxedString
+public static final class StringSchemaBoxedString<br>
+extends [StringSchemaBoxed](#stringschemaboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StringSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## StringSchema
 public static class StringSchema<br>
@@ -722,7 +1037,31 @@ String validatedPayload = FormatTest.StringSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [StringSchemaBoxedString](#stringschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## ArrayWithUniqueItemsBoxed
+public static abstract sealed class ArrayWithUniqueItemsBoxed<br>
+permits<br>
+[ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ArrayWithUniqueItemsBoxedList
+public static final class ArrayWithUniqueItemsBoxedList<br>
+extends [ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayWithUniqueItemsBoxedList([ArrayWithUniqueItemsList](#arraywithuniqueitemslist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | data<br>validated payload |
+
 ## ArrayWithUniqueItems
 public static class ArrayWithUniqueItems<br>
 extends JsonSchema
@@ -766,6 +1105,7 @@ FormatTest.ArrayWithUniqueItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist) | validateAndBox([List<?>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithUniqueItemsListBuilder
 public class ArrayWithUniqueItemsListBuilder<br>
@@ -799,25 +1139,96 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([List<Number>](#arraywithuniqueitemslistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedNumber](#itemsboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ItemsBoxedNumber
+public static final class ItemsBoxedNumber<br>
+extends [ItemsBoxed](#itemsboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Items
 public static class Items<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## Float64Boxed
+public static abstract sealed class Float64Boxed<br>
+permits<br>
+[Float64BoxedNumber](#float64boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Float64BoxedNumber
+public static final class Float64BoxedNumber<br>
+extends [Float64Boxed](#float64boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Float64BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Float64
 public static class Float64<br>
-extends DoubleJsonSchema
+extends DoubleJsonSchema.DoubleJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.DoubleJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DoubleJsonSchema.DoubleJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## DoubleSchemaBoxed
+public static abstract sealed class DoubleSchemaBoxed<br>
+permits<br>
+[DoubleSchemaBoxedNumber](#doubleschemaboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## DoubleSchemaBoxedNumber
+public static final class DoubleSchemaBoxedNumber<br>
+extends [DoubleSchemaBoxed](#doubleschemaboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DoubleSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -859,16 +1270,64 @@ double validatedPayload = FormatTest.DoubleSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxedNumber](#doubleschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Float32Boxed
+public static abstract sealed class Float32Boxed<br>
+permits<br>
+[Float32BoxedNumber](#float32boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Float32BoxedNumber
+public static final class Float32BoxedNumber<br>
+extends [Float32Boxed](#float32boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Float32BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Float32
 public static class Float32<br>
-extends FloatJsonSchema
+extends FloatJsonSchema.FloatJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema.FloatJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## FloatSchemaBoxed
+public static abstract sealed class FloatSchemaBoxed<br>
+permits<br>
+[FloatSchemaBoxedNumber](#floatschemaboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## FloatSchemaBoxedNumber
+public static final class FloatSchemaBoxedNumber<br>
+extends [FloatSchemaBoxed](#floatschemaboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FloatSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -913,7 +1372,31 @@ float validatedPayload = FormatTest.FloatSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | float | validate(float arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxedNumber](#floatschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## NumberSchemaBoxed
+public static abstract sealed class NumberSchemaBoxed<br>
+permits<br>
+[NumberSchemaBoxedNumber](#numberschemaboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NumberSchemaBoxedNumber
+public static final class NumberSchemaBoxedNumber<br>
+extends [NumberSchemaBoxed](#numberschemaboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## NumberSchema
 public static class NumberSchema<br>
 extends JsonSchema
@@ -954,16 +1437,64 @@ int validatedPayload = FormatTest.NumberSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxedNumber](#numberschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Int64Boxed
+public static abstract sealed class Int64Boxed<br>
+permits<br>
+[Int64BoxedNumber](#int64boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Int64BoxedNumber
+public static final class Int64BoxedNumber<br>
+extends [Int64Boxed](#int64boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int64BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Int64
 public static class Int64<br>
-extends Int64JsonSchema
+extends Int64JsonSchema.Int64JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema.Int64JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## Int32withValidationsBoxed
+public static abstract sealed class Int32withValidationsBoxed<br>
+permits<br>
+[Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Int32withValidationsBoxedNumber
+public static final class Int32withValidationsBoxedNumber<br>
+extends [Int32withValidationsBoxed](#int32withvalidationsboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int32withValidationsBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Int32withValidations
 public static class Int32withValidations<br>
@@ -1005,16 +1536,64 @@ int validatedPayload = FormatTest.Int32withValidations.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
+| [Int32withValidationsBoxedNumber](#int32withvalidationsboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Int32Boxed
+public static abstract sealed class Int32Boxed<br>
+permits<br>
+[Int32BoxedNumber](#int32boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Int32BoxedNumber
+public static final class Int32BoxedNumber<br>
+extends [Int32Boxed](#int32boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int32BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Int32
 public static class Int32<br>
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema.Int32JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## IntegerSchemaBoxed
+public static abstract sealed class IntegerSchemaBoxed<br>
+permits<br>
+[IntegerSchemaBoxedNumber](#integerschemaboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## IntegerSchemaBoxedNumber
+public static final class IntegerSchemaBoxedNumber<br>
+extends [IntegerSchemaBoxed](#integerschemaboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IntegerSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## IntegerSchema
 public static class IntegerSchema<br>
@@ -1057,5 +1636,6 @@ int validatedPayload = FormatTest.IntegerSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [IntegerSchemaBoxedNumber](#integerschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

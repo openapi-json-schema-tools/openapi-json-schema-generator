@@ -38,7 +38,7 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class A extends IntJsonSchema {
+    public static class A extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable A instance = null;
         public static A getInstance() {
             if (instance == null) {
@@ -49,7 +49,52 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
     }
     
     
-    public static class Aaa extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class AaaBoxed permits AaaBoxedVoid, AaaBoxedBoolean, AaaBoxedNumber, AaaBoxedString, AaaBoxedList, AaaBoxedMap {}
+    
+    public static final class AaaBoxedVoid extends AaaBoxed {
+        public final Void data;
+        private AaaBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AaaBoxedBoolean extends AaaBoxed {
+        public final boolean data;
+        private AaaBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AaaBoxedNumber extends AaaBoxed {
+        public final Number data;
+        private AaaBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AaaBoxedString extends AaaBoxed {
+        public final String data;
+        private AaaBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AaaBoxedList extends AaaBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private AaaBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AaaBoxedMap extends AaaBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AaaBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Aaa extends JsonSchema implements NullSchemaValidator<AaaBoxedVoid>, BooleanSchemaValidator<AaaBoxedBoolean>, NumberSchemaValidator<AaaBoxedNumber>, StringSchemaValidator<AaaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AaaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AaaBoxedMap> {
         private static @Nullable Aaa instance = null;
     
         protected Aaa() {
@@ -242,9 +287,78 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public AaaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AaaBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public AaaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AaaBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public AaaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AaaBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public AaaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AaaBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public AaaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AaaBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public AaaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AaaBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class MultipleSimultaneousPatternpropertiesAreValidated1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class MultipleSimultaneousPatternpropertiesAreValidated1Boxed permits MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid, MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean, MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber, MultipleSimultaneousPatternpropertiesAreValidated1BoxedString, MultipleSimultaneousPatternpropertiesAreValidated1BoxedList, MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap {}
+    
+    public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
+        public final Void data;
+        private MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
+        public final boolean data;
+        private MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
+        public final Number data;
+        private MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedString extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
+        public final String data;
+        private MultipleSimultaneousPatternpropertiesAreValidated1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedList extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private MultipleSimultaneousPatternpropertiesAreValidated1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class MultipleSimultaneousPatternpropertiesAreValidated1 extends JsonSchema implements NullSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid>, BooleanSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean>, NumberSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber>, StringSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, MultipleSimultaneousPatternpropertiesAreValidated1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -445,6 +559,30 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public MultipleSimultaneousPatternpropertiesAreValidated1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MultipleSimultaneousPatternpropertiesAreValidated1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public MultipleSimultaneousPatternpropertiesAreValidated1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MultipleSimultaneousPatternpropertiesAreValidated1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap(validate(arg, configuration));
         }
     }
 }

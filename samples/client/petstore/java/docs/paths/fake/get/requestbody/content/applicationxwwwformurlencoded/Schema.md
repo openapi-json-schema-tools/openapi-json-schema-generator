@@ -3,6 +3,8 @@ public class Schema
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -12,16 +14,47 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| static class | [Schema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+| static class | [Schema.EnumFormStringBoxed](#enumformstringboxed)<br> abstract sealed validated payload class |
+| static class | [Schema.EnumFormStringBoxedString](#enumformstringboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.EnumFormString](#enumformstring)<br> schema class |
 | enum | [Schema.StringEnumFormStringEnums](#stringenumformstringenums)<br>String enum |
+| static class | [Schema.EnumFormStringArrayBoxed](#enumformstringarrayboxed)<br> abstract sealed validated payload class |
+| static class | [Schema.EnumFormStringArrayBoxedList](#enumformstringarrayboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema.EnumFormStringArray](#enumformstringarray)<br> schema class |
 | static class | [Schema.EnumFormStringArrayListBuilder](#enumformstringarraylistbuilder)<br> builder for List payloads |
 | static class | [Schema.EnumFormStringArrayList](#enumformstringarraylist)<br> output class for List payloads |
+| static class | [Schema.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| static class | [Schema.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.Items](#items)<br> schema class |
 | enum | [Schema.StringItemsEnums](#stringitemsenums)<br>String enum |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema1BoxedMap
+public static final class Schema1BoxedMap<br>
+extends [Schema1Boxed](#schema1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedMap([SchemaMap](#schemamap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap](#schemamap) | data<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -70,6 +103,7 @@ Schema.SchemaMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap](#schemamap) | validate([Map&lt;?, ?&gt;](#schemamapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder
 public class SchemaMapBuilder<br>
@@ -112,6 +146,29 @@ A class to store validated Map payloads
 | [EnumFormStringArrayList](#enumformstringarraylist) | enum_form_string_array()<br>[optional] |
 | String | enum_form_string()<br>[optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## EnumFormStringBoxed
+public static abstract sealed class EnumFormStringBoxed<br>
+permits<br>
+[EnumFormStringBoxedString](#enumformstringboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## EnumFormStringBoxedString
+public static final class EnumFormStringBoxedString<br>
+extends [EnumFormStringBoxed](#enumformstringboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumFormStringBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## EnumFormString
 public static class EnumFormString<br>
@@ -156,6 +213,7 @@ String validatedPayload = Schema.EnumFormString.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumFormStringEnums](#stringenumformstringenums) arg, SchemaConfiguration configuration) |
+| [EnumFormStringBoxedString](#enumformstringboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringEnumFormStringEnums
 public enum StringEnumFormStringEnums<br>
@@ -169,6 +227,29 @@ A class that stores String enum values
 | _ABC | value = "_abc" |
 | HYPHEN_MINUS_EFG | value = "-efg" |
 | LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS | value = "(xyz)" |
+
+## EnumFormStringArrayBoxed
+public static abstract sealed class EnumFormStringArrayBoxed<br>
+permits<br>
+[EnumFormStringArrayBoxedList](#enumformstringarrayboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## EnumFormStringArrayBoxedList
+public static final class EnumFormStringArrayBoxedList<br>
+extends [EnumFormStringArrayBoxed](#enumformstringarrayboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumFormStringArrayBoxedList([EnumFormStringArrayList](#enumformstringarraylist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [EnumFormStringArrayList](#enumformstringarraylist) | data<br>validated payload |
 
 ## EnumFormStringArray
 public static class EnumFormStringArray<br>
@@ -215,6 +296,7 @@ Schema.EnumFormStringArrayList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EnumFormStringArrayList](#enumformstringarraylist) | validate([List<?>](#enumformstringarraylistbuilder) arg, SchemaConfiguration configuration) |
+| [EnumFormStringArrayBoxedList](#enumformstringarrayboxedlist) | validateAndBox([List<?>](#enumformstringarraylistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumFormStringArrayListBuilder
 public class EnumFormStringArrayListBuilder<br>
@@ -245,6 +327,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [EnumFormStringArrayList](#enumformstringarraylist) | of([List<String>](#enumformstringarraylistbuilder) arg, SchemaConfiguration configuration) |
+
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedString](#itemsboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ItemsBoxedString
+public static final class ItemsBoxedString<br>
+extends [ItemsBoxed](#itemsboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Items
 public static class Items<br>
@@ -286,6 +391,7 @@ String validatedPayload = Schema.Items.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringItemsEnums](#stringitemsenums) arg, SchemaConfiguration configuration) |
+| [ItemsBoxedString](#itemsboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringItemsEnums
 public enum StringItemsEnums<br>

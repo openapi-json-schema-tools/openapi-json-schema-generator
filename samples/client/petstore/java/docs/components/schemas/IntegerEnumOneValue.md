@@ -4,16 +4,43 @@ public class IntegerEnumOneValue
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [IntegerEnumOneValue.IntegerEnumOneValue1Boxed](#integerenumonevalue1boxed)<br> abstract sealed validated payload class |
+| static class | [IntegerEnumOneValue.IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerEnumOneValue.IntegerEnumOneValue1](#integerenumonevalue1)<br> schema class |
 | enum | [IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums](#integerintegerenumonevalueenums)<br>Integer enum |
 | enum | [IntegerEnumOneValue.LongIntegerEnumOneValueEnums](#longintegerenumonevalueenums)<br>Long enum |
 | enum | [IntegerEnumOneValue.FloatIntegerEnumOneValueEnums](#floatintegerenumonevalueenums)<br>Float enum |
 | enum | [IntegerEnumOneValue.DoubleIntegerEnumOneValueEnums](#doubleintegerenumonevalueenums)<br>Double enum |
+
+## IntegerEnumOneValue1Boxed
+public static abstract sealed class IntegerEnumOneValue1Boxed<br>
+permits<br>
+[IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## IntegerEnumOneValue1BoxedNumber
+public static final class IntegerEnumOneValue1BoxedNumber<br>
+extends [IntegerEnumOneValue1Boxed](#integerenumonevalue1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IntegerEnumOneValue1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## IntegerEnumOneValue1
 public static class IntegerEnumOneValue1<br>
@@ -54,6 +81,7 @@ int validatedPayload = IntegerEnumOneValue.IntegerEnumOneValue1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [IntegerEnumOneValue1BoxedNumber](#integerenumonevalue1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerIntegerEnumOneValueEnums
 public enum IntegerIntegerEnumOneValueEnums<br>

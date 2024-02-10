@@ -4,6 +4,8 @@ public class ArrayTest
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -12,26 +14,65 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ArrayTest.ArrayTest1Boxed](#arraytest1boxed)<br> abstract sealed validated payload class |
+| static class | [ArrayTest.ArrayTest1BoxedMap](#arraytest1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ArrayTest.ArrayTest1](#arraytest1)<br> schema class |
 | static class | [ArrayTest.ArrayTestMapBuilder](#arraytestmapbuilder)<br> builder for Map payloads |
 | static class | [ArrayTest.ArrayTestMap](#arraytestmap)<br> output class for Map payloads |
+| static class | [ArrayTest.ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)<br> abstract sealed validated payload class |
+| static class | [ArrayTest.ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayArrayOfModel](#arrayarrayofmodel)<br> schema class |
 | static class | [ArrayTest.ArrayArrayOfModelListBuilder](#arrayarrayofmodellistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfModelList](#arrayarrayofmodellist)<br> output class for List payloads |
+| static class | [ArrayTest.Items3Boxed](#items3boxed)<br> abstract sealed validated payload class |
+| static class | [ArrayTest.Items3BoxedList](#items3boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.Items3](#items3)<br> schema class |
 | static class | [ArrayTest.ItemsListBuilder1](#itemslistbuilder1)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList1](#itemslist1)<br> output class for List payloads |
+| static class | [ArrayTest.ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)<br> abstract sealed validated payload class |
+| static class | [ArrayTest.ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayArrayOfInteger](#arrayarrayofinteger)<br> schema class |
 | static class | [ArrayTest.ArrayArrayOfIntegerListBuilder](#arrayarrayofintegerlistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfIntegerList](#arrayarrayofintegerlist)<br> output class for List payloads |
+| static class | [ArrayTest.Items1Boxed](#items1boxed)<br> abstract sealed validated payload class |
+| static class | [ArrayTest.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.Items1](#items1)<br> schema class |
 | static class | [ArrayTest.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList](#itemslist)<br> output class for List payloads |
+| static class | [ArrayTest.Items2Boxed](#items2boxed)<br> abstract sealed validated payload class |
+| static class | [ArrayTest.Items2BoxedNumber](#items2boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ArrayTest.Items2](#items2)<br> schema class |
+| static class | [ArrayTest.ArrayOfStringBoxed](#arrayofstringboxed)<br> abstract sealed validated payload class |
+| static class | [ArrayTest.ArrayOfStringBoxedList](#arrayofstringboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayTest.ArrayOfString](#arrayofstring)<br> schema class |
 | static class | [ArrayTest.ArrayOfStringListBuilder](#arrayofstringlistbuilder)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayOfStringList](#arrayofstringlist)<br> output class for List payloads |
+| static class | [ArrayTest.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| static class | [ArrayTest.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ArrayTest.Items](#items)<br> schema class |
+
+## ArrayTest1Boxed
+public static abstract sealed class ArrayTest1Boxed<br>
+permits<br>
+[ArrayTest1BoxedMap](#arraytest1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ArrayTest1BoxedMap
+public static final class ArrayTest1BoxedMap<br>
+extends [ArrayTest1Boxed](#arraytest1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayTest1BoxedMap([ArrayTestMap](#arraytestmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ArrayTestMap](#arraytestmap) | data<br>validated payload |
 
 ## ArrayTest1
 public static class ArrayTest1<br>
@@ -101,6 +142,7 @@ ArrayTest.ArrayTestMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayTestMap](#arraytestmap) | validate([Map&lt;?, ?&gt;](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayTest1BoxedMap](#arraytest1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#arraytestmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayTestMapBuilder
 public class ArrayTestMapBuilder<br>
@@ -144,6 +186,29 @@ A class to store validated Map payloads
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | array_array_of_integer()<br>[optional] |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | array_array_of_model()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ArrayArrayOfModelBoxed
+public static abstract sealed class ArrayArrayOfModelBoxed<br>
+permits<br>
+[ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ArrayArrayOfModelBoxedList
+public static final class ArrayArrayOfModelBoxedList<br>
+extends [ArrayArrayOfModelBoxed](#arrayarrayofmodelboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayArrayOfModelBoxedList([ArrayArrayOfModelList](#arrayarrayofmodellist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ArrayArrayOfModelList](#arrayarrayofmodellist) | data<br>validated payload |
 
 ## ArrayArrayOfModel
 public static class ArrayArrayOfModel<br>
@@ -199,6 +264,7 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([List<?>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayArrayOfModelBoxedList](#arrayarrayofmodelboxedlist) | validateAndBox([List<?>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayArrayOfModelListBuilder
 public class ArrayArrayOfModelListBuilder<br>
@@ -228,6 +294,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of([List<List<Map<String, ? extends @Nullable Object>>>](#arrayarrayofmodellistbuilder) arg, SchemaConfiguration configuration) |
+
+## Items3Boxed
+public static abstract sealed class Items3Boxed<br>
+permits<br>
+[Items3BoxedList](#items3boxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Items3BoxedList
+public static final class Items3BoxedList<br>
+extends [Items3Boxed](#items3boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items3BoxedList([ItemsList1](#itemslist1) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ItemsList1](#itemslist1) | data<br>validated payload |
 
 ## Items3
 public static class Items3<br>
@@ -281,6 +370,7 @@ ArrayTest.ItemsList1 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList1](#itemslist1) | validate([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
+| [Items3BoxedList](#items3boxedlist) | validateAndBox([List<?>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder1
 public class ItemsListBuilder1<br>
@@ -310,6 +400,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList1](#itemslist1) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistbuilder1) arg, SchemaConfiguration configuration) |
+
+## ArrayArrayOfIntegerBoxed
+public static abstract sealed class ArrayArrayOfIntegerBoxed<br>
+permits<br>
+[ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ArrayArrayOfIntegerBoxedList
+public static final class ArrayArrayOfIntegerBoxedList<br>
+extends [ArrayArrayOfIntegerBoxed](#arrayarrayofintegerboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayArrayOfIntegerBoxedList([ArrayArrayOfIntegerList](#arrayarrayofintegerlist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | data<br>validated payload |
 
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>
@@ -356,6 +469,7 @@ ArrayTest.ArrayArrayOfIntegerList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate([List<?>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayArrayOfIntegerBoxedList](#arrayarrayofintegerboxedlist) | validateAndBox([List<?>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayArrayOfIntegerListBuilder
 public class ArrayArrayOfIntegerListBuilder<br>
@@ -385,6 +499,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | of([List<List<Number>>](#arrayarrayofintegerlistbuilder) arg, SchemaConfiguration configuration) |
+
+## Items1Boxed
+public static abstract sealed class Items1Boxed<br>
+permits<br>
+[Items1BoxedList](#items1boxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Items1BoxedList
+public static final class Items1BoxedList<br>
+extends [Items1Boxed](#items1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items1BoxedList([ItemsList](#itemslist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ItemsList](#itemslist) | data<br>validated payload |
 
 ## Items1
 public static class Items1<br>
@@ -428,6 +565,7 @@ ArrayTest.ItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ItemsList](#itemslist) | validate([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
+| [Items1BoxedList](#items1boxedlist) | validateAndBox([List<?>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListBuilder
 public class ItemsListBuilder<br>
@@ -461,15 +599,62 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | of([List<Number>](#itemslistbuilder) arg, SchemaConfiguration configuration) |
 
+## Items2Boxed
+public static abstract sealed class Items2Boxed<br>
+permits<br>
+[Items2BoxedNumber](#items2boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Items2BoxedNumber
+public static final class Items2BoxedNumber<br>
+extends [Items2Boxed](#items2boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items2BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Items2
 public static class Items2<br>
-extends Int64JsonSchema
+extends Int64JsonSchema.Int64JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema.Int64JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## ArrayOfStringBoxed
+public static abstract sealed class ArrayOfStringBoxed<br>
+permits<br>
+[ArrayOfStringBoxedList](#arrayofstringboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ArrayOfStringBoxedList
+public static final class ArrayOfStringBoxedList<br>
+extends [ArrayOfStringBoxed](#arrayofstringboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayOfStringBoxedList([ArrayOfStringList](#arrayofstringlist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ArrayOfStringList](#arrayofstringlist) | data<br>validated payload |
 
 ## ArrayOfString
 public static class ArrayOfString<br>
@@ -513,6 +698,7 @@ ArrayTest.ArrayOfStringList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayOfStringList](#arrayofstringlist) | validate([List<?>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfStringBoxedList](#arrayofstringboxedlist) | validateAndBox([List<?>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfStringListBuilder
 public class ArrayOfStringListBuilder<br>
@@ -543,14 +729,38 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayOfStringList](#arrayofstringlist) | of([List<String>](#arrayofstringlistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedString](#itemsboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ItemsBoxedString
+public static final class ItemsBoxedString<br>
+extends [ItemsBoxed](#itemsboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Items
 public static class Items<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -18,53 +18,69 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class DateTimeJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static @Nullable DateTimeJsonSchema instance = null;
-
-    protected DateTimeJsonSchema() {
-        super(new JsonSchemaInfo()
-            .type(Set.of(String.class))
-            .format("date-time")
-        );
+public class DateTimeJsonSchema {
+    public static abstract sealed class DateTimeJsonSchema1Boxed permits DateTimeJsonSchema1BoxedString {
     }
-
-    public static DateTimeJsonSchema getInstance() {
-        if (instance == null) {
-            instance = new DateTimeJsonSchema();
+    public static final class DateTimeJsonSchema1BoxedString extends DateTimeJsonSchema1Boxed {
+        public final String data;
+        private DateTimeJsonSchema1BoxedString(String data) {
+            this.data = data;
         }
-        return instance;
     }
 
-    @Override
-    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-        Set<List<Object>> pathSet = new HashSet<>();
-        List<Object> pathToItem = List.of("args[0");
-        String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-        SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
-        ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-        PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-        return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
+    public static class DateTimeJsonSchema1 extends JsonSchema implements StringSchemaValidator<DateTimeJsonSchema1BoxedString> {
+        private static @Nullable DateTimeJsonSchema1 instance = null;
 
-    public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-        return validate(arg.toString(), configuration);
-    }
-
-    @Override
-    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        if (arg instanceof String) {
-            return getNewInstance((String) arg, pathToItem, pathToSchemas);
+        protected DateTimeJsonSchema1() {
+            super(new JsonSchemaInfo()
+                    .type(Set.of(String.class))
+                    .format("date-time")
+            );
         }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-    }
 
-    @Override
-    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
-        if (arg instanceof String) {
-            return validate((String) arg, configuration);
-        } else if (arg instanceof ZonedDateTime) {
-            return validate((ZonedDateTime) arg, configuration);
+        public static DateTimeJsonSchema1 getInstance() {
+            if (instance == null) {
+                instance = new DateTimeJsonSchema1();
+            }
+            return instance;
         }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+
+        @Override
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.toString(), configuration);
+        }
+
+        @Override
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof String) {
+                return validate((String) arg, configuration);
+            } else if (arg instanceof ZonedDateTime) {
+                return validate((ZonedDateTime) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public DateTimeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DateTimeJsonSchema1BoxedString(validate(arg, configuration));
+        }
     }
 }

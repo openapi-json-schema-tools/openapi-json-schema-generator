@@ -1,0 +1,4 @@
+@Override
+public {{jsonPathPiece.pascalCase}}BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    return new {{jsonPathPiece.pascalCase}}BoxedString(validate(arg, configuration));
+}

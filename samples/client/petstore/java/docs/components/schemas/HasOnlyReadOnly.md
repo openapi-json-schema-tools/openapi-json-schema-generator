@@ -4,17 +4,48 @@ public class HasOnlyReadOnly
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [HasOnlyReadOnly.HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed)<br> abstract sealed validated payload class |
+| static class | [HasOnlyReadOnly.HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnly1](#hasonlyreadonly1)<br> schema class |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnlyMapBuilder](#hasonlyreadonlymapbuilder)<br> builder for Map payloads |
 | static class | [HasOnlyReadOnly.HasOnlyReadOnlyMap](#hasonlyreadonlymap)<br> output class for Map payloads |
+| static class | [HasOnlyReadOnly.FooBoxed](#fooboxed)<br> abstract sealed validated payload class |
+| static class | [HasOnlyReadOnly.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HasOnlyReadOnly.Foo](#foo)<br> schema class |
+| static class | [HasOnlyReadOnly.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
+| static class | [HasOnlyReadOnly.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
 | static class | [HasOnlyReadOnly.Bar](#bar)<br> schema class |
+
+## HasOnlyReadOnly1Boxed
+public static abstract sealed class HasOnlyReadOnly1Boxed<br>
+permits<br>
+[HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## HasOnlyReadOnly1BoxedMap
+public static final class HasOnlyReadOnly1BoxedMap<br>
+extends [HasOnlyReadOnly1Boxed](#hasonlyreadonly1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| HasOnlyReadOnly1BoxedMap([HasOnlyReadOnlyMap](#hasonlyreadonlymap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | data<br>validated payload |
 
 ## HasOnlyReadOnly1
 public static class HasOnlyReadOnly1<br>
@@ -60,6 +91,7 @@ HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map&lt;?, ?&gt;](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [HasOnlyReadOnly1BoxedMap](#hasonlyreadonly1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#hasonlyreadonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HasOnlyReadOnlyMapBuilder
 public class HasOnlyReadOnlyMapBuilder<br>
@@ -102,24 +134,72 @@ A class to store validated Map payloads
 | String | foo()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## FooBoxed
+public static abstract sealed class FooBoxed<br>
+permits<br>
+[FooBoxedString](#fooboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## FooBoxedString
+public static final class FooBoxedString<br>
+extends [FooBoxed](#fooboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FooBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Foo
 public static class Foo<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## BarBoxed
+public static abstract sealed class BarBoxed<br>
+permits<br>
+[BarBoxedString](#barboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## BarBoxedString
+public static final class BarBoxedString<br>
+extends [BarBoxed](#barboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BarBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Bar
 public static class Bar<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

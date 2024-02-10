@@ -36,7 +36,52 @@ public class IfAndElseWithoutThen {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ElseSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {}
+    
+    public static final class ElseSchemaBoxedVoid extends ElseSchemaBoxed {
+        public final Void data;
+        private ElseSchemaBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ElseSchemaBoxedBoolean extends ElseSchemaBoxed {
+        public final boolean data;
+        private ElseSchemaBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ElseSchemaBoxedNumber extends ElseSchemaBoxed {
+        public final Number data;
+        private ElseSchemaBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ElseSchemaBoxedString extends ElseSchemaBoxed {
+        public final String data;
+        private ElseSchemaBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ElseSchemaBoxedList extends ElseSchemaBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private ElseSchemaBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ElseSchemaBoxedMap extends ElseSchemaBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ElseSchema extends JsonSchema implements NullSchemaValidator<ElseSchemaBoxedVoid>, BooleanSchemaValidator<ElseSchemaBoxedBoolean>, NumberSchemaValidator<ElseSchemaBoxedNumber>, StringSchemaValidator<ElseSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ElseSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ElseSchemaBoxedMap> {
         private static @Nullable ElseSchema instance = null;
     
         protected ElseSchema() {
@@ -229,9 +274,78 @@ public class IfAndElseWithoutThen {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ElseSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ElseSchemaBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ElseSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ElseSchemaBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ElseSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ElseSchemaBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ElseSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ElseSchemaBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ElseSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ElseSchemaBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ElseSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ElseSchemaBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class IfSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {}
+    
+    public static final class IfSchemaBoxedVoid extends IfSchemaBoxed {
+        public final Void data;
+        private IfSchemaBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfSchemaBoxedBoolean extends IfSchemaBoxed {
+        public final boolean data;
+        private IfSchemaBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfSchemaBoxedNumber extends IfSchemaBoxed {
+        public final Number data;
+        private IfSchemaBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfSchemaBoxedString extends IfSchemaBoxed {
+        public final String data;
+        private IfSchemaBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfSchemaBoxedList extends IfSchemaBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private IfSchemaBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfSchemaBoxedMap extends IfSchemaBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class IfSchema extends JsonSchema implements NullSchemaValidator<IfSchemaBoxedVoid>, BooleanSchemaValidator<IfSchemaBoxedBoolean>, NumberSchemaValidator<IfSchemaBoxedNumber>, StringSchemaValidator<IfSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IfSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IfSchemaBoxedMap> {
         private static @Nullable IfSchema instance = null;
     
         protected IfSchema() {
@@ -424,9 +538,78 @@ public class IfAndElseWithoutThen {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public IfSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfSchemaBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public IfSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfSchemaBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public IfSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfSchemaBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public IfSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfSchemaBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public IfSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfSchemaBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public IfSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfSchemaBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class IfAndElseWithoutThen1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class IfAndElseWithoutThen1Boxed permits IfAndElseWithoutThen1BoxedVoid, IfAndElseWithoutThen1BoxedBoolean, IfAndElseWithoutThen1BoxedNumber, IfAndElseWithoutThen1BoxedString, IfAndElseWithoutThen1BoxedList, IfAndElseWithoutThen1BoxedMap {}
+    
+    public static final class IfAndElseWithoutThen1BoxedVoid extends IfAndElseWithoutThen1Boxed {
+        public final Void data;
+        private IfAndElseWithoutThen1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfAndElseWithoutThen1BoxedBoolean extends IfAndElseWithoutThen1Boxed {
+        public final boolean data;
+        private IfAndElseWithoutThen1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfAndElseWithoutThen1BoxedNumber extends IfAndElseWithoutThen1Boxed {
+        public final Number data;
+        private IfAndElseWithoutThen1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfAndElseWithoutThen1BoxedString extends IfAndElseWithoutThen1Boxed {
+        public final String data;
+        private IfAndElseWithoutThen1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfAndElseWithoutThen1BoxedList extends IfAndElseWithoutThen1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private IfAndElseWithoutThen1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IfAndElseWithoutThen1BoxedMap extends IfAndElseWithoutThen1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private IfAndElseWithoutThen1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class IfAndElseWithoutThen1 extends JsonSchema implements NullSchemaValidator<IfAndElseWithoutThen1BoxedVoid>, BooleanSchemaValidator<IfAndElseWithoutThen1BoxedBoolean>, NumberSchemaValidator<IfAndElseWithoutThen1BoxedNumber>, StringSchemaValidator<IfAndElseWithoutThen1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IfAndElseWithoutThen1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IfAndElseWithoutThen1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -625,6 +808,30 @@ public class IfAndElseWithoutThen {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public IfAndElseWithoutThen1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfAndElseWithoutThen1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public IfAndElseWithoutThen1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfAndElseWithoutThen1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public IfAndElseWithoutThen1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfAndElseWithoutThen1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public IfAndElseWithoutThen1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfAndElseWithoutThen1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public IfAndElseWithoutThen1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfAndElseWithoutThen1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public IfAndElseWithoutThen1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IfAndElseWithoutThen1BoxedMap(validate(arg, configuration));
         }
     }
 }

@@ -35,7 +35,7 @@ public class MapTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties1 extends StringJsonSchema {
+    public static class AdditionalProperties1 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable AdditionalProperties1 instance = null;
         public static AdditionalProperties1 getInstance() {
             if (instance == null) {
@@ -95,7 +95,17 @@ public class MapTest {
     }
     
     
-    public static class AdditionalProperties extends JsonSchema implements MapSchemaValidator<AdditionalPropertiesMap> {
+    public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {}
+    
+    public static final class AdditionalPropertiesBoxedMap extends AdditionalPropertiesBoxed {
+        public final AdditionalPropertiesMap data;
+        private AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class AdditionalProperties extends JsonSchema implements MapSchemaValidator<AdditionalPropertiesMap, AdditionalPropertiesBoxedMap> {
         private static @Nullable AdditionalProperties instance = null;
     
         protected AdditionalProperties() {
@@ -163,6 +173,10 @@ public class MapTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public AdditionalPropertiesBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalPropertiesBoxedMap(validate(arg, configuration));
+        }
     }
     
     
@@ -215,7 +229,17 @@ public class MapTest {
     }
     
     
-    public static class MapMapOfString extends JsonSchema implements MapSchemaValidator<MapMapOfStringMap> {
+    public static abstract sealed class MapMapOfStringBoxed permits MapMapOfStringBoxedMap {}
+    
+    public static final class MapMapOfStringBoxedMap extends MapMapOfStringBoxed {
+        public final MapMapOfStringMap data;
+        private MapMapOfStringBoxedMap(MapMapOfStringMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class MapMapOfString extends JsonSchema implements MapSchemaValidator<MapMapOfStringMap, MapMapOfStringBoxedMap> {
         private static @Nullable MapMapOfString instance = null;
     
         protected MapMapOfString() {
@@ -283,6 +307,10 @@ public class MapTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public MapMapOfStringBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MapMapOfStringBoxedMap(validate(arg, configuration));
+        }
     }
     
     public enum StringAdditionalPropertiesEnums implements StringValueMethod {
@@ -299,7 +327,18 @@ public class MapTest {
     }
     
     
-    public static class AdditionalProperties2 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringAdditionalPropertiesEnums> {
+    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {}
+    
+    public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
+        public final String data;
+        private AdditionalProperties2BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class AdditionalProperties2 extends JsonSchema implements StringSchemaValidator<AdditionalProperties2BoxedString>, StringEnumValidator<StringAdditionalPropertiesEnums> {
         private static @Nullable AdditionalProperties2 instance = null;
     
         protected AdditionalProperties2() {
@@ -350,6 +389,10 @@ public class MapTest {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public AdditionalProperties2BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalProperties2BoxedString(validate(arg, configuration));
         }
     }    
     
@@ -409,7 +452,17 @@ public class MapTest {
     }
     
     
-    public static class MapOfEnumString extends JsonSchema implements MapSchemaValidator<MapOfEnumStringMap> {
+    public static abstract sealed class MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {}
+    
+    public static final class MapOfEnumStringBoxedMap extends MapOfEnumStringBoxed {
+        public final MapOfEnumStringMap data;
+        private MapOfEnumStringBoxedMap(MapOfEnumStringMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class MapOfEnumString extends JsonSchema implements MapSchemaValidator<MapOfEnumStringMap, MapOfEnumStringBoxedMap> {
         private static @Nullable MapOfEnumString instance = null;
     
         protected MapOfEnumString() {
@@ -477,10 +530,14 @@ public class MapTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public MapOfEnumStringBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MapOfEnumStringBoxedMap(validate(arg, configuration));
+        }
     }
     
     
-    public static class AdditionalProperties3 extends BooleanJsonSchema {
+    public static class AdditionalProperties3 extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable AdditionalProperties3 instance = null;
         public static AdditionalProperties3 getInstance() {
             if (instance == null) {
@@ -545,7 +602,17 @@ public class MapTest {
     }
     
     
-    public static class DirectMap extends JsonSchema implements MapSchemaValidator<DirectMapMap> {
+    public static abstract sealed class DirectMapBoxed permits DirectMapBoxedMap {}
+    
+    public static final class DirectMapBoxedMap extends DirectMapBoxed {
+        public final DirectMapMap data;
+        private DirectMapBoxedMap(DirectMapMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class DirectMap extends JsonSchema implements MapSchemaValidator<DirectMapMap, DirectMapBoxedMap> {
         private static @Nullable DirectMap instance = null;
     
         protected DirectMap() {
@@ -612,6 +679,10 @@ public class MapTest {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public DirectMapBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DirectMapBoxedMap(validate(arg, configuration));
         }
     }
     
@@ -760,7 +831,17 @@ public class MapTest {
     }
     
     
-    public static class MapTest1 extends JsonSchema implements MapSchemaValidator<MapTestMap> {
+    public static abstract sealed class MapTest1Boxed permits MapTest1BoxedMap {}
+    
+    public static final class MapTest1BoxedMap extends MapTest1Boxed {
+        public final MapTestMap data;
+        private MapTest1BoxedMap(MapTestMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class MapTest1 extends JsonSchema implements MapSchemaValidator<MapTestMap, MapTest1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -835,6 +916,10 @@ public class MapTest {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public MapTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new MapTest1BoxedMap(validate(arg, configuration));
         }
     }
 

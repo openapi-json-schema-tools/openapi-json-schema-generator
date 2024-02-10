@@ -4,18 +4,56 @@ public class BananaReq
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [BananaReq.BananaReq1Boxed](#bananareq1boxed)<br> abstract sealed validated payload class |
+| static class | [BananaReq.BananaReq1BoxedMap](#bananareq1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [BananaReq.BananaReq1](#bananareq1)<br> schema class |
 | static class | [BananaReq.BananaReqMapBuilder](#bananareqmapbuilder)<br> builder for Map payloads |
 | static class | [BananaReq.BananaReqMap](#bananareqmap)<br> output class for Map payloads |
+| static class | [BananaReq.SweetBoxed](#sweetboxed)<br> abstract sealed validated payload class |
+| static class | [BananaReq.SweetBoxedBoolean](#sweetboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [BananaReq.Sweet](#sweet)<br> schema class |
+| static class | [BananaReq.LengthCmBoxed](#lengthcmboxed)<br> abstract sealed validated payload class |
+| static class | [BananaReq.LengthCmBoxedNumber](#lengthcmboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [BananaReq.LengthCm](#lengthcm)<br> schema class |
+| static class | [BananaReq.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| static class | [BananaReq.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| static class | [BananaReq.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [BananaReq.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## BananaReq1Boxed
+public static abstract sealed class BananaReq1Boxed<br>
+permits<br>
+[BananaReq1BoxedMap](#bananareq1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## BananaReq1BoxedMap
+public static final class BananaReq1BoxedMap<br>
+extends [BananaReq1Boxed](#bananareq1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BananaReq1BoxedMap([BananaReqMap](#bananareqmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [BananaReqMap](#bananareqmap) | data<br>validated payload |
 
 ## BananaReq1
 public static class BananaReq1<br>
@@ -63,6 +101,7 @@ BananaReq.BananaReqMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [BananaReqMap](#bananareqmap) | validate([Map&lt;?, ?&gt;](#bananareqmapbuilder) arg, SchemaConfiguration configuration) |
+| [BananaReq1BoxedMap](#bananareq1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#bananareqmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BananaReqMap0Builder
 public class BananaReqMap0Builder<br>
@@ -113,34 +152,191 @@ A class to store validated Map payloads
 | Number | lengthCm()<br> |
 | boolean | sweet()<br>[optional] |
 
+## SweetBoxed
+public static abstract sealed class SweetBoxed<br>
+permits<br>
+[SweetBoxedBoolean](#sweetboxedboolean)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## SweetBoxedBoolean
+public static final class SweetBoxedBoolean<br>
+extends [SweetBoxed](#sweetboxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SweetBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## Sweet
 public static class Sweet<br>
-extends BooleanJsonSchema
+extends BooleanJsonSchema.BooleanJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## LengthCmBoxed
+public static abstract sealed class LengthCmBoxed<br>
+permits<br>
+[LengthCmBoxedNumber](#lengthcmboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## LengthCmBoxedNumber
+public static final class LengthCmBoxedNumber<br>
+extends [LengthCmBoxed](#lengthcmboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| LengthCmBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## LengthCm
 public static class LengthCm<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## AdditionalPropertiesBoxedVoid
+public static final class AdditionalPropertiesBoxedVoid<br>
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## AdditionalPropertiesBoxedBoolean
+public static final class AdditionalPropertiesBoxedBoolean<br>
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## AdditionalPropertiesBoxedNumber
+public static final class AdditionalPropertiesBoxedNumber<br>
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## AdditionalPropertiesBoxedString
+public static final class AdditionalPropertiesBoxedString<br>
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## AdditionalPropertiesBoxedList
+public static final class AdditionalPropertiesBoxedList<br>
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## AdditionalPropertiesBoxedMap
+public static final class AdditionalPropertiesBoxedMap<br>
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends NotAnyTypeJsonSchema
+extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

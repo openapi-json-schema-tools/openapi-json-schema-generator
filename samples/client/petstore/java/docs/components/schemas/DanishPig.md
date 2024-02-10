@@ -4,6 +4,8 @@ public class DanishPig
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -11,11 +13,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [DanishPig.DanishPig1Boxed](#danishpig1boxed)<br> abstract sealed validated payload class |
+| static class | [DanishPig.DanishPig1BoxedMap](#danishpig1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [DanishPig.DanishPig1](#danishpig1)<br> schema class |
 | static class | [DanishPig.DanishPigMapBuilder](#danishpigmapbuilder)<br> builder for Map payloads |
 | static class | [DanishPig.DanishPigMap](#danishpigmap)<br> output class for Map payloads |
+| static class | [DanishPig.ClassNameBoxed](#classnameboxed)<br> abstract sealed validated payload class |
+| static class | [DanishPig.ClassNameBoxedString](#classnameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [DanishPig.ClassName](#classname)<br> schema class |
 | enum | [DanishPig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
+
+## DanishPig1Boxed
+public static abstract sealed class DanishPig1Boxed<br>
+permits<br>
+[DanishPig1BoxedMap](#danishpig1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## DanishPig1BoxedMap
+public static final class DanishPig1BoxedMap<br>
+extends [DanishPig1Boxed](#danishpig1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DanishPig1BoxedMap([DanishPigMap](#danishpigmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [DanishPigMap](#danishpigmap) | data<br>validated payload |
 
 ## DanishPig1
 public static class DanishPig1<br>
@@ -60,6 +89,7 @@ DanishPig.DanishPigMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DanishPigMap](#danishpigmap) | validate([Map&lt;?, ?&gt;](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
+| [DanishPig1BoxedMap](#danishpig1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#danishpigmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DanishPigMap0Builder
 public class DanishPigMap0Builder<br>
@@ -116,6 +146,29 @@ A class to store validated Map payloads
 | String | className()<br> must be one of ["DanishPig"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ClassNameBoxed
+public static abstract sealed class ClassNameBoxed<br>
+permits<br>
+[ClassNameBoxedString](#classnameboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ClassNameBoxedString
+public static final class ClassNameBoxedString<br>
+extends [ClassNameBoxed](#classnameboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassNameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## ClassName
 public static class ClassName<br>
 extends JsonSchema
@@ -155,6 +208,7 @@ String validatedPayload = DanishPig.ClassName.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
+| [ClassNameBoxedString](#classnameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>

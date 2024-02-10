@@ -36,7 +36,7 @@ public class Pet {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Id extends Int64JsonSchema {
+    public static class Id extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable Id instance = null;
         public static Id getInstance() {
             if (instance == null) {
@@ -47,7 +47,7 @@ public class Pet {
     }
     
     
-    public static class Name extends StringJsonSchema {
+    public static class Name extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Name instance = null;
         public static Name getInstance() {
             if (instance == null) {
@@ -58,7 +58,7 @@ public class Pet {
     }
     
     
-    public static class Items extends StringJsonSchema {
+    public static class Items extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {
@@ -101,7 +101,18 @@ public class Pet {
     }
     
     
-    public static class PhotoUrls extends JsonSchema implements ListSchemaValidator<PhotoUrlsList> {
+    public static abstract sealed class PhotoUrlsBoxed permits PhotoUrlsBoxedList {}
+    
+    public static final class PhotoUrlsBoxedList extends PhotoUrlsBoxed {
+        public final PhotoUrlsList data;
+        private PhotoUrlsBoxedList(PhotoUrlsList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class PhotoUrls extends JsonSchema implements ListSchemaValidator<PhotoUrlsList, PhotoUrlsBoxedList> {
         private static @Nullable PhotoUrls instance = null;
     
         protected PhotoUrls() {
@@ -165,6 +176,10 @@ public class Pet {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public PhotoUrlsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PhotoUrlsBoxedList(validate(arg, configuration));
+        }
     }    
     public enum StringStatusEnums implements StringValueMethod {
         AVAILABLE("available"),
@@ -181,7 +196,18 @@ public class Pet {
     }
     
     
-    public static class Status extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringStatusEnums> {
+    public static abstract sealed class StatusBoxed permits StatusBoxedString {}
+    
+    public static final class StatusBoxedString extends StatusBoxed {
+        public final String data;
+        private StatusBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Status extends JsonSchema implements StringSchemaValidator<StatusBoxedString>, StringEnumValidator<StringStatusEnums> {
         private static @Nullable Status instance = null;
     
         protected Status() {
@@ -234,6 +260,10 @@ public class Pet {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public StatusBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StatusBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class TagsList extends FrozenList<Tag.TagMap> {
@@ -268,7 +298,18 @@ public class Pet {
     }
     
     
-    public static class Tags extends JsonSchema implements ListSchemaValidator<TagsList> {
+    public static abstract sealed class TagsBoxed permits TagsBoxedList {}
+    
+    public static final class TagsBoxedList extends TagsBoxed {
+        public final TagsList data;
+        private TagsBoxedList(TagsList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Tags extends JsonSchema implements ListSchemaValidator<TagsList, TagsBoxedList> {
         private static @Nullable Tags instance = null;
     
         protected Tags() {
@@ -331,6 +372,10 @@ public class Pet {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public TagsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new TagsBoxedList(validate(arg, configuration));
         }
     }    
     
@@ -587,7 +632,17 @@ public class Pet {
     }
     
     
-    public static class Pet1 extends JsonSchema implements MapSchemaValidator<PetMap> {
+    public static abstract sealed class Pet1Boxed permits Pet1BoxedMap {}
+    
+    public static final class Pet1BoxedMap extends Pet1Boxed {
+        public final PetMap data;
+        private Pet1BoxedMap(PetMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Pet1 extends JsonSchema implements MapSchemaValidator<PetMap, Pet1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -670,6 +725,10 @@ public class Pet {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public Pet1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Pet1BoxedMap(validate(arg, configuration));
         }
     }
 

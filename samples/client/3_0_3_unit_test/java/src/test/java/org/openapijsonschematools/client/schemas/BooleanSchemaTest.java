@@ -15,7 +15,7 @@ import java.util.List;
 
 public class BooleanSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final BooleanJsonSchema booleanJsonSchema = BooleanJsonSchema.getInstance();
+    static final BooleanJsonSchema.BooleanJsonSchema1 booleanJsonSchema = BooleanJsonSchema.BooleanJsonSchema1.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,

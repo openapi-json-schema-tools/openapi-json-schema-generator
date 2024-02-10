@@ -52,7 +52,18 @@ public class IsoscelesTriangle {
     }
     
     
-    public static class TriangleType extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringTriangleTypeEnums> {
+    public static abstract sealed class TriangleTypeBoxed permits TriangleTypeBoxedString {}
+    
+    public static final class TriangleTypeBoxedString extends TriangleTypeBoxed {
+        public final String data;
+        private TriangleTypeBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class TriangleType extends JsonSchema implements StringSchemaValidator<TriangleTypeBoxedString>, StringEnumValidator<StringTriangleTypeEnums> {
         private static @Nullable TriangleType instance = null;
     
         protected TriangleType() {
@@ -102,6 +113,10 @@ public class IsoscelesTriangle {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public TriangleTypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new TriangleTypeBoxedString(validate(arg, configuration));
         }
     }    
     
@@ -177,7 +192,17 @@ public class IsoscelesTriangle {
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map> {
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
+    public static final class Schema1BoxedMap extends Schema1Boxed {
+        public final Schema1Map data;
+        private Schema1BoxedMap(Schema1Map data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -244,10 +269,59 @@ public class IsoscelesTriangle {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema1BoxedMap(validate(arg, configuration));
+        }
     }
     
     
-    public static class IsoscelesTriangle1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class IsoscelesTriangle1Boxed permits IsoscelesTriangle1BoxedVoid, IsoscelesTriangle1BoxedBoolean, IsoscelesTriangle1BoxedNumber, IsoscelesTriangle1BoxedString, IsoscelesTriangle1BoxedList, IsoscelesTriangle1BoxedMap {}
+    
+    public static final class IsoscelesTriangle1BoxedVoid extends IsoscelesTriangle1Boxed {
+        public final Void data;
+        private IsoscelesTriangle1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IsoscelesTriangle1BoxedBoolean extends IsoscelesTriangle1Boxed {
+        public final boolean data;
+        private IsoscelesTriangle1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IsoscelesTriangle1BoxedNumber extends IsoscelesTriangle1Boxed {
+        public final Number data;
+        private IsoscelesTriangle1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IsoscelesTriangle1BoxedString extends IsoscelesTriangle1Boxed {
+        public final String data;
+        private IsoscelesTriangle1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IsoscelesTriangle1BoxedList extends IsoscelesTriangle1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private IsoscelesTriangle1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IsoscelesTriangle1BoxedMap extends IsoscelesTriangle1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private IsoscelesTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class IsoscelesTriangle1 extends JsonSchema implements NullSchemaValidator<IsoscelesTriangle1BoxedVoid>, BooleanSchemaValidator<IsoscelesTriangle1BoxedBoolean>, NumberSchemaValidator<IsoscelesTriangle1BoxedNumber>, StringSchemaValidator<IsoscelesTriangle1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IsoscelesTriangle1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IsoscelesTriangle1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -448,6 +522,30 @@ public class IsoscelesTriangle {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public IsoscelesTriangle1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IsoscelesTriangle1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public IsoscelesTriangle1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IsoscelesTriangle1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public IsoscelesTriangle1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IsoscelesTriangle1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public IsoscelesTriangle1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IsoscelesTriangle1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public IsoscelesTriangle1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IsoscelesTriangle1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public IsoscelesTriangle1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IsoscelesTriangle1BoxedMap(validate(arg, configuration));
         }
     }
 }

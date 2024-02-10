@@ -38,7 +38,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Name extends StringJsonSchema {
+    public static class Name extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Name instance = null;
         public static Name getInstance() {
             if (instance == null) {
@@ -194,7 +194,17 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map> {
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
+    public static final class Schema1BoxedMap extends Schema1Boxed {
+        public final Schema1Map data;
+        private Schema1BoxedMap(Schema1Map data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -264,10 +274,59 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema1BoxedMap(validate(arg, configuration));
+        }
     }
     
     
-    public static class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed permits ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap {}
+    
+    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
+        public final Void data;
+        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
+        public final boolean data;
+        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
+        public final Number data;
+        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
+        public final String data;
+        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1 extends JsonSchema implements NullSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid>, BooleanSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean>, NumberSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber>, StringSchemaValidator<ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -468,6 +527,30 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedMap(validate(arg, configuration));
         }
     }
 }

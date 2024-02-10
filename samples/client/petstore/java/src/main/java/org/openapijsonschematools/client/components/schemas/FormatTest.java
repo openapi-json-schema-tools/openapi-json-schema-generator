@@ -44,7 +44,18 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class IntegerSchema extends JsonSchema implements NumberSchemaValidator {
+    public static abstract sealed class IntegerSchemaBoxed permits IntegerSchemaBoxedNumber {}
+    
+    public static final class IntegerSchemaBoxedNumber extends IntegerSchemaBoxed {
+        public final Number data;
+        private IntegerSchemaBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class IntegerSchema extends JsonSchema implements NumberSchemaValidator<IntegerSchemaBoxedNumber> {
         private static @Nullable IntegerSchema instance = null;
     
         protected IntegerSchema() {
@@ -110,9 +121,13 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public IntegerSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IntegerSchemaBoxedNumber(validate(arg, configuration));
+        }
     }    
     
-    public static class Int32 extends Int32JsonSchema {
+    public static class Int32 extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable Int32 instance = null;
         public static Int32 getInstance() {
             if (instance == null) {
@@ -123,7 +138,18 @@ public class FormatTest {
     }
     
     
-    public static class Int32withValidations extends JsonSchema implements NumberSchemaValidator {
+    public static abstract sealed class Int32withValidationsBoxed permits Int32withValidationsBoxedNumber {}
+    
+    public static final class Int32withValidationsBoxedNumber extends Int32withValidationsBoxed {
+        public final Number data;
+        private Int32withValidationsBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Int32withValidations extends JsonSchema implements NumberSchemaValidator<Int32withValidationsBoxedNumber> {
         private static @Nullable Int32withValidations instance = null;
     
         protected Int32withValidations() {
@@ -180,9 +206,13 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Int32withValidationsBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Int32withValidationsBoxedNumber(validate(arg, configuration));
+        }
     }    
     
-    public static class Int64 extends Int64JsonSchema {
+    public static class Int64 extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable Int64 instance = null;
         public static Int64 getInstance() {
             if (instance == null) {
@@ -193,7 +223,18 @@ public class FormatTest {
     }
     
     
-    public static class NumberSchema extends JsonSchema implements NumberSchemaValidator {
+    public static abstract sealed class NumberSchemaBoxed permits NumberSchemaBoxedNumber {}
+    
+    public static final class NumberSchemaBoxedNumber extends NumberSchemaBoxed {
+        public final Number data;
+        private NumberSchemaBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class NumberSchema extends JsonSchema implements NumberSchemaValidator<NumberSchemaBoxedNumber> {
         private static @Nullable NumberSchema instance = null;
     
         protected NumberSchema() {
@@ -258,9 +299,24 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public NumberSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NumberSchemaBoxedNumber(validate(arg, configuration));
+        }
     }    
     
-    public static class FloatSchema extends JsonSchema implements NumberSchemaValidator {
+    public static abstract sealed class FloatSchemaBoxed permits FloatSchemaBoxedNumber {}
+    
+    public static final class FloatSchemaBoxedNumber extends FloatSchemaBoxed {
+        public final Number data;
+        private FloatSchemaBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class FloatSchema extends JsonSchema implements NumberSchemaValidator<FloatSchemaBoxedNumber> {
         private static @Nullable FloatSchema instance = null;
     
         protected FloatSchema() {
@@ -312,9 +368,13 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public FloatSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FloatSchemaBoxedNumber(validate(arg, configuration));
+        }
     }    
     
-    public static class Float32 extends FloatJsonSchema {
+    public static class Float32 extends FloatJsonSchema.FloatJsonSchema1 {
         private static @Nullable Float32 instance = null;
         public static Float32 getInstance() {
             if (instance == null) {
@@ -325,7 +385,18 @@ public class FormatTest {
     }
     
     
-    public static class DoubleSchema extends JsonSchema implements NumberSchemaValidator {
+    public static abstract sealed class DoubleSchemaBoxed permits DoubleSchemaBoxedNumber {}
+    
+    public static final class DoubleSchemaBoxedNumber extends DoubleSchemaBoxed {
+        public final Number data;
+        private DoubleSchemaBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class DoubleSchema extends JsonSchema implements NumberSchemaValidator<DoubleSchemaBoxedNumber> {
         private static @Nullable DoubleSchema instance = null;
     
         protected DoubleSchema() {
@@ -377,9 +448,13 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public DoubleSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DoubleSchemaBoxedNumber(validate(arg, configuration));
+        }
     }    
     
-    public static class Float64 extends DoubleJsonSchema {
+    public static class Float64 extends DoubleJsonSchema.DoubleJsonSchema1 {
         private static @Nullable Float64 instance = null;
         public static Float64 getInstance() {
             if (instance == null) {
@@ -390,7 +465,7 @@ public class FormatTest {
     }
     
     
-    public static class Items extends NumberJsonSchema {
+    public static class Items extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {
@@ -448,7 +523,18 @@ public class FormatTest {
     }
     
     
-    public static class ArrayWithUniqueItems extends JsonSchema implements ListSchemaValidator<ArrayWithUniqueItemsList> {
+    public static abstract sealed class ArrayWithUniqueItemsBoxed permits ArrayWithUniqueItemsBoxedList {}
+    
+    public static final class ArrayWithUniqueItemsBoxedList extends ArrayWithUniqueItemsBoxed {
+        public final ArrayWithUniqueItemsList data;
+        private ArrayWithUniqueItemsBoxedList(ArrayWithUniqueItemsList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class ArrayWithUniqueItems extends JsonSchema implements ListSchemaValidator<ArrayWithUniqueItemsList, ArrayWithUniqueItemsBoxedList> {
         private static @Nullable ArrayWithUniqueItems instance = null;
     
         protected ArrayWithUniqueItems() {
@@ -513,9 +599,24 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ArrayWithUniqueItemsBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayWithUniqueItemsBoxedList(validate(arg, configuration));
+        }
     }    
     
-    public static class StringSchema extends JsonSchema implements StringSchemaValidator {
+    public static abstract sealed class StringSchemaBoxed permits StringSchemaBoxedString {}
+    
+    public static final class StringSchemaBoxedString extends StringSchemaBoxed {
+        public final String data;
+        private StringSchemaBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class StringSchema extends JsonSchema implements StringSchemaValidator<StringSchemaBoxedString> {
         private static @Nullable StringSchema instance = null;
     
         protected StringSchema() {
@@ -562,9 +663,13 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public StringSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StringSchemaBoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class ByteSchema extends StringJsonSchema {
+    public static class ByteSchema extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable ByteSchema instance = null;
         public static ByteSchema getInstance() {
             if (instance == null) {
@@ -575,7 +680,7 @@ public class FormatTest {
     }
     
     
-    public static class Binary extends StringJsonSchema {
+    public static class Binary extends StringJsonSchema.StringJsonSchema1 {
         // BinarySchema
         private static @Nullable Binary instance = null;
         public static Binary getInstance() {
@@ -587,7 +692,7 @@ public class FormatTest {
     }
     
     
-    public static class Date extends DateJsonSchema {
+    public static class Date extends DateJsonSchema.DateJsonSchema1 {
         private static @Nullable Date instance = null;
         public static Date getInstance() {
             if (instance == null) {
@@ -598,7 +703,7 @@ public class FormatTest {
     }
     
     
-    public static class DateTime extends DateTimeJsonSchema {
+    public static class DateTime extends DateTimeJsonSchema.DateTimeJsonSchema1 {
         private static @Nullable DateTime instance = null;
         public static DateTime getInstance() {
             if (instance == null) {
@@ -609,7 +714,7 @@ public class FormatTest {
     }
     
     
-    public static class UuidSchema extends UuidJsonSchema {
+    public static class UuidSchema extends UuidJsonSchema.UuidJsonSchema1 {
         private static @Nullable UuidSchema instance = null;
         public static UuidSchema getInstance() {
             if (instance == null) {
@@ -620,7 +725,7 @@ public class FormatTest {
     }
     
     
-    public static class UuidNoExample extends UuidJsonSchema {
+    public static class UuidNoExample extends UuidJsonSchema.UuidJsonSchema1 {
         private static @Nullable UuidNoExample instance = null;
         public static UuidNoExample getInstance() {
             if (instance == null) {
@@ -631,7 +736,18 @@ public class FormatTest {
     }
     
     
-    public static class Password extends JsonSchema implements StringSchemaValidator {
+    public static abstract sealed class PasswordBoxed permits PasswordBoxedString {}
+    
+    public static final class PasswordBoxedString extends PasswordBoxed {
+        public final String data;
+        private PasswordBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Password extends JsonSchema implements StringSchemaValidator<PasswordBoxedString> {
         private static @Nullable Password instance = null;
     
         protected Password() {
@@ -677,9 +793,24 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public PasswordBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PasswordBoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class PatternWithDigits extends JsonSchema implements StringSchemaValidator {
+    public static abstract sealed class PatternWithDigitsBoxed permits PatternWithDigitsBoxedString {}
+    
+    public static final class PatternWithDigitsBoxedString extends PatternWithDigitsBoxed {
+        public final String data;
+        private PatternWithDigitsBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class PatternWithDigits extends JsonSchema implements StringSchemaValidator<PatternWithDigitsBoxedString> {
         private static @Nullable PatternWithDigits instance = null;
     
         protected PatternWithDigits() {
@@ -725,9 +856,24 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public PatternWithDigitsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PatternWithDigitsBoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class PatternWithDigitsAndDelimiter extends JsonSchema implements StringSchemaValidator {
+    public static abstract sealed class PatternWithDigitsAndDelimiterBoxed permits PatternWithDigitsAndDelimiterBoxedString {}
+    
+    public static final class PatternWithDigitsAndDelimiterBoxedString extends PatternWithDigitsAndDelimiterBoxed {
+        public final String data;
+        private PatternWithDigitsAndDelimiterBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class PatternWithDigitsAndDelimiter extends JsonSchema implements StringSchemaValidator<PatternWithDigitsAndDelimiterBoxedString> {
         private static @Nullable PatternWithDigitsAndDelimiter instance = null;
     
         protected PatternWithDigitsAndDelimiter() {
@@ -774,9 +920,13 @@ public class FormatTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public PatternWithDigitsAndDelimiterBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PatternWithDigitsAndDelimiterBoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class NoneProp extends NullJsonSchema {
+    public static class NoneProp extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable NoneProp instance = null;
         public static NoneProp getInstance() {
             if (instance == null) {
@@ -1672,7 +1822,17 @@ public class FormatTest {
     }
     
     
-    public static class FormatTest1 extends JsonSchema implements MapSchemaValidator<FormatTestMap> {
+    public static abstract sealed class FormatTest1Boxed permits FormatTest1BoxedMap {}
+    
+    public static final class FormatTest1BoxedMap extends FormatTest1Boxed {
+        public final FormatTestMap data;
+        private FormatTest1BoxedMap(FormatTestMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class FormatTest1 extends JsonSchema implements MapSchemaValidator<FormatTestMap, FormatTest1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -1770,6 +1930,10 @@ public class FormatTest {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public FormatTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FormatTest1BoxedMap(validate(arg, configuration));
         }
     }
 

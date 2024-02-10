@@ -19,7 +19,18 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema01 extends JsonSchema implements NumberSchemaValidator {
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedNumber {}
+    
+    public static final class Schema01BoxedNumber extends Schema01Boxed {
+        public final Number data;
+        private Schema01BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Schema01 extends JsonSchema implements NumberSchemaValidator<Schema01BoxedNumber> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -83,6 +94,10 @@ public class Schema0 {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public Schema01BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedNumber(validate(arg, configuration));
         }
     }
 }

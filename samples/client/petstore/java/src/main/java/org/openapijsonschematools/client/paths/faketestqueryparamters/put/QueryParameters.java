@@ -35,7 +35,7 @@ public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
@@ -1407,7 +1407,17 @@ public class QueryParameters {
     }
     
     
-    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<QueryParametersMap> {
+    public static abstract sealed class QueryParameters1Boxed permits QueryParameters1BoxedMap {}
+    
+    public static final class QueryParameters1BoxedMap extends QueryParameters1Boxed {
+        public final QueryParametersMap data;
+        private QueryParameters1BoxedMap(QueryParametersMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<QueryParametersMap, QueryParameters1BoxedMap> {
         private static @Nullable QueryParameters1 instance = null;
     
         protected QueryParameters1() {
@@ -1487,6 +1497,10 @@ public class QueryParameters {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public QueryParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new QueryParameters1BoxedMap(validate(arg, configuration));
         }
     }
 

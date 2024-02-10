@@ -4,16 +4,43 @@ public class SimpleEnumValidation
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [SimpleEnumValidation.SimpleEnumValidation1Boxed](#simpleenumvalidation1boxed)<br> abstract sealed validated payload class |
+| static class | [SimpleEnumValidation.SimpleEnumValidation1BoxedNumber](#simpleenumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [SimpleEnumValidation.SimpleEnumValidation1](#simpleenumvalidation1)<br> schema class |
 | enum | [SimpleEnumValidation.IntegerSimpleEnumValidationEnums](#integersimpleenumvalidationenums)<br>Integer enum |
 | enum | [SimpleEnumValidation.LongSimpleEnumValidationEnums](#longsimpleenumvalidationenums)<br>Long enum |
 | enum | [SimpleEnumValidation.FloatSimpleEnumValidationEnums](#floatsimpleenumvalidationenums)<br>Float enum |
 | enum | [SimpleEnumValidation.DoubleSimpleEnumValidationEnums](#doublesimpleenumvalidationenums)<br>Double enum |
+
+## SimpleEnumValidation1Boxed
+public static abstract sealed class SimpleEnumValidation1Boxed<br>
+permits<br>
+[SimpleEnumValidation1BoxedNumber](#simpleenumvalidation1boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## SimpleEnumValidation1BoxedNumber
+public static final class SimpleEnumValidation1BoxedNumber<br>
+extends [SimpleEnumValidation1Boxed](#simpleenumvalidation1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SimpleEnumValidation1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## SimpleEnumValidation1
 public static class SimpleEnumValidation1<br>
@@ -53,6 +80,7 @@ int validatedPayload = SimpleEnumValidation.SimpleEnumValidation1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
+| [SimpleEnumValidation1BoxedNumber](#simpleenumvalidation1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerSimpleEnumValidationEnums
 public enum IntegerSimpleEnumValidationEnums<br>

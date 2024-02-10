@@ -4,11 +4,128 @@ public class Pig
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Pig.Pig1Boxed](#pig1boxed)<br> abstract sealed validated payload class |
+| static class | [Pig.Pig1BoxedVoid](#pig1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Pig.Pig1BoxedBoolean](#pig1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Pig.Pig1BoxedNumber](#pig1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Pig.Pig1BoxedString](#pig1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Pig.Pig1BoxedList](#pig1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Pig.Pig1BoxedMap](#pig1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Pig.Pig1](#pig1)<br> schema class |
+
+## Pig1Boxed
+public static abstract sealed class Pig1Boxed<br>
+permits<br>
+[Pig1BoxedVoid](#pig1boxedvoid),
+[Pig1BoxedBoolean](#pig1boxedboolean),
+[Pig1BoxedNumber](#pig1boxednumber),
+[Pig1BoxedString](#pig1boxedstring),
+[Pig1BoxedList](#pig1boxedlist),
+[Pig1BoxedMap](#pig1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Pig1BoxedVoid
+public static final class Pig1BoxedVoid<br>
+extends [Pig1Boxed](#pig1boxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Pig1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## Pig1BoxedBoolean
+public static final class Pig1BoxedBoolean<br>
+extends [Pig1Boxed](#pig1boxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Pig1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## Pig1BoxedNumber
+public static final class Pig1BoxedNumber<br>
+extends [Pig1Boxed](#pig1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Pig1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## Pig1BoxedString
+public static final class Pig1BoxedString<br>
+extends [Pig1Boxed](#pig1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Pig1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## Pig1BoxedList
+public static final class Pig1BoxedList<br>
+extends [Pig1Boxed](#pig1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Pig1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## Pig1BoxedMap
+public static final class Pig1BoxedMap<br>
+extends [Pig1Boxed](#pig1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Pig1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## Pig1
 public static class Pig1<br>
@@ -30,8 +147,15 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [Pig1BoxedString](#pig1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Pig1BoxedVoid](#pig1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [Pig1BoxedNumber](#pig1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Pig1BoxedBoolean](#pig1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [Pig1BoxedMap](#pig1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [Pig1BoxedList](#pig1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

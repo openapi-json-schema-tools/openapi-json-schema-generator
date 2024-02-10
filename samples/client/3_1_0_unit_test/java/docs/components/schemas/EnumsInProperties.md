@@ -4,6 +4,8 @@ public class EnumsInProperties
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -11,13 +13,42 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [EnumsInProperties.EnumsInProperties1Boxed](#enumsinproperties1boxed)<br> abstract sealed validated payload class |
+| static class | [EnumsInProperties.EnumsInProperties1BoxedMap](#enumsinproperties1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [EnumsInProperties.EnumsInProperties1](#enumsinproperties1)<br> schema class |
 | static class | [EnumsInProperties.EnumsInPropertiesMapBuilder](#enumsinpropertiesmapbuilder)<br> builder for Map payloads |
 | static class | [EnumsInProperties.EnumsInPropertiesMap](#enumsinpropertiesmap)<br> output class for Map payloads |
+| static class | [EnumsInProperties.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
+| static class | [EnumsInProperties.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumsInProperties.Bar](#bar)<br> schema class |
 | enum | [EnumsInProperties.StringBarEnums](#stringbarenums)<br>String enum |
+| static class | [EnumsInProperties.FooBoxed](#fooboxed)<br> abstract sealed validated payload class |
+| static class | [EnumsInProperties.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
 | static class | [EnumsInProperties.Foo](#foo)<br> schema class |
 | enum | [EnumsInProperties.StringFooEnums](#stringfooenums)<br>String enum |
+
+## EnumsInProperties1Boxed
+public static abstract sealed class EnumsInProperties1Boxed<br>
+permits<br>
+[EnumsInProperties1BoxedMap](#enumsinproperties1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## EnumsInProperties1BoxedMap
+public static final class EnumsInProperties1BoxedMap<br>
+extends [EnumsInProperties1Boxed](#enumsinproperties1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumsInProperties1BoxedMap([EnumsInPropertiesMap](#enumsinpropertiesmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [EnumsInPropertiesMap](#enumsinpropertiesmap) | data<br>validated payload |
 
 ## EnumsInProperties1
 public static class EnumsInProperties1<br>
@@ -64,6 +95,7 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map&lt;?, ?&gt;](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| [EnumsInProperties1BoxedMap](#enumsinproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#enumsinpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumsInPropertiesMap0Builder
 public class EnumsInPropertiesMap0Builder<br>
@@ -123,6 +155,29 @@ A class to store validated Map payloads
 | String | foo()<br>[optional] must be one of ["foo"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## BarBoxed
+public static abstract sealed class BarBoxed<br>
+permits<br>
+[BarBoxedString](#barboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## BarBoxedString
+public static final class BarBoxedString<br>
+extends [BarBoxed](#barboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BarBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Bar
 public static class Bar<br>
 extends JsonSchema
@@ -162,6 +217,7 @@ String validatedPayload = EnumsInProperties.Bar.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringBarEnums](#stringbarenums) arg, SchemaConfiguration configuration) |
+| [BarBoxedString](#barboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringBarEnums
 public enum StringBarEnums<br>
@@ -173,6 +229,29 @@ A class that stores String enum values
 | Enum Constant | Description |
 | ------------- | ----------- |
 | BAR | value = "bar" |
+
+## FooBoxed
+public static abstract sealed class FooBoxed<br>
+permits<br>
+[FooBoxedString](#fooboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## FooBoxedString
+public static final class FooBoxedString<br>
+extends [FooBoxed](#fooboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FooBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Foo
 public static class Foo<br>
@@ -213,6 +292,7 @@ String validatedPayload = EnumsInProperties.Foo.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringFooEnums](#stringfooenums) arg, SchemaConfiguration configuration) |
+| [FooBoxedString](#fooboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringFooEnums
 public enum StringFooEnums<br>

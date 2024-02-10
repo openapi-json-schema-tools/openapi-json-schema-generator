@@ -4,17 +4,48 @@ public class ObjectWithNonIntersectingValues
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)<br> abstract sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1](#objectwithnonintersectingvalues1)<br> schema class |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMapBuilder](#objectwithnonintersectingvaluesmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap)<br> output class for Map payloads |
+| static class | [ObjectWithNonIntersectingValues.ABoxed](#aboxed)<br> abstract sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.ABoxedNumber](#aboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ObjectWithNonIntersectingValues.A](#a)<br> schema class |
+| static class | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> abstract sealed validated payload class |
+| static class | [ObjectWithNonIntersectingValues.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithNonIntersectingValues.AdditionalProperties](#additionalproperties)<br> schema class |
+
+## ObjectWithNonIntersectingValues1Boxed
+public static abstract sealed class ObjectWithNonIntersectingValues1Boxed<br>
+permits<br>
+[ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ObjectWithNonIntersectingValues1BoxedMap
+public static final class ObjectWithNonIntersectingValues1BoxedMap<br>
+extends [ObjectWithNonIntersectingValues1Boxed](#objectwithnonintersectingvalues1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithNonIntersectingValues1BoxedMap([ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | data<br>validated payload |
 
 ## ObjectWithNonIntersectingValues1
 public static class ObjectWithNonIntersectingValues1<br>
@@ -61,6 +92,7 @@ ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayl
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map&lt;?, ?&gt;](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithNonIntersectingValues1BoxedMap](#objectwithnonintersectingvalues1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithnonintersectingvaluesmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNonIntersectingValuesMapBuilder
 public class ObjectWithNonIntersectingValuesMapBuilder<br>
@@ -96,24 +128,72 @@ A class to store validated Map payloads
 | Number | a()<br>[optional] |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ABoxed
+public static abstract sealed class ABoxed<br>
+permits<br>
+[ABoxedNumber](#aboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ABoxedNumber
+public static final class ABoxedNumber<br>
+extends [ABoxed](#aboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ABoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## A
 public static class A<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## AdditionalPropertiesBoxed
+public static abstract sealed class AdditionalPropertiesBoxed<br>
+permits<br>
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## AdditionalPropertiesBoxedString
+public static final class AdditionalPropertiesBoxedString<br>
+extends [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -52,7 +52,18 @@ public class EquilateralTriangle {
     }
     
     
-    public static class TriangleType extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringTriangleTypeEnums> {
+    public static abstract sealed class TriangleTypeBoxed permits TriangleTypeBoxedString {}
+    
+    public static final class TriangleTypeBoxedString extends TriangleTypeBoxed {
+        public final String data;
+        private TriangleTypeBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class TriangleType extends JsonSchema implements StringSchemaValidator<TriangleTypeBoxedString>, StringEnumValidator<StringTriangleTypeEnums> {
         private static @Nullable TriangleType instance = null;
     
         protected TriangleType() {
@@ -102,6 +113,10 @@ public class EquilateralTriangle {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public TriangleTypeBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new TriangleTypeBoxedString(validate(arg, configuration));
         }
     }    
     
@@ -177,7 +192,17 @@ public class EquilateralTriangle {
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map> {
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
+    public static final class Schema1BoxedMap extends Schema1Boxed {
+        public final Schema1Map data;
+        private Schema1BoxedMap(Schema1Map data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Schema1Map, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -244,10 +269,59 @@ public class EquilateralTriangle {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema1BoxedMap(validate(arg, configuration));
+        }
     }
     
     
-    public static class EquilateralTriangle1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class EquilateralTriangle1Boxed permits EquilateralTriangle1BoxedVoid, EquilateralTriangle1BoxedBoolean, EquilateralTriangle1BoxedNumber, EquilateralTriangle1BoxedString, EquilateralTriangle1BoxedList, EquilateralTriangle1BoxedMap {}
+    
+    public static final class EquilateralTriangle1BoxedVoid extends EquilateralTriangle1Boxed {
+        public final Void data;
+        private EquilateralTriangle1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class EquilateralTriangle1BoxedBoolean extends EquilateralTriangle1Boxed {
+        public final boolean data;
+        private EquilateralTriangle1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class EquilateralTriangle1BoxedNumber extends EquilateralTriangle1Boxed {
+        public final Number data;
+        private EquilateralTriangle1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class EquilateralTriangle1BoxedString extends EquilateralTriangle1Boxed {
+        public final String data;
+        private EquilateralTriangle1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class EquilateralTriangle1BoxedList extends EquilateralTriangle1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private EquilateralTriangle1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class EquilateralTriangle1BoxedMap extends EquilateralTriangle1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private EquilateralTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class EquilateralTriangle1 extends JsonSchema implements NullSchemaValidator<EquilateralTriangle1BoxedVoid>, BooleanSchemaValidator<EquilateralTriangle1BoxedBoolean>, NumberSchemaValidator<EquilateralTriangle1BoxedNumber>, StringSchemaValidator<EquilateralTriangle1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, EquilateralTriangle1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, EquilateralTriangle1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -448,6 +522,30 @@ public class EquilateralTriangle {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public EquilateralTriangle1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EquilateralTriangle1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public EquilateralTriangle1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EquilateralTriangle1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public EquilateralTriangle1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EquilateralTriangle1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public EquilateralTriangle1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EquilateralTriangle1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public EquilateralTriangle1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EquilateralTriangle1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public EquilateralTriangle1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EquilateralTriangle1BoxedMap(validate(arg, configuration));
         }
     }
 }

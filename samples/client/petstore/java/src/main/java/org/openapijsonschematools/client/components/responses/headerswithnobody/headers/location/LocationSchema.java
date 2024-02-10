@@ -6,7 +6,7 @@ public class LocationSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class LocationSchema1 extends StringJsonSchema {
+    public static class LocationSchema1 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable LocationSchema1 instance = null;
         public static LocationSchema1 getInstance() {
             if (instance == null) {

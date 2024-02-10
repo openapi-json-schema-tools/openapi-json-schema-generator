@@ -30,7 +30,7 @@ public class HeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
@@ -93,7 +93,17 @@ public class HeaderParameters {
     }
     
     
-    public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<HeaderParametersMap> {
+    public static abstract sealed class HeaderParameters1Boxed permits HeaderParameters1BoxedMap {}
+    
+    public static final class HeaderParameters1BoxedMap extends HeaderParameters1Boxed {
+        public final HeaderParametersMap data;
+        private HeaderParameters1BoxedMap(HeaderParametersMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<HeaderParametersMap, HeaderParameters1BoxedMap> {
         private static @Nullable HeaderParameters1 instance = null;
     
         protected HeaderParameters1() {
@@ -163,6 +173,10 @@ public class HeaderParameters {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public HeaderParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new HeaderParameters1BoxedMap(validate(arg, configuration));
         }
     }
 

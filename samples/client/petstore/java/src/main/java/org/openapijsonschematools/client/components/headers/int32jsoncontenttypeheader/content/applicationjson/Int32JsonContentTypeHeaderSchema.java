@@ -6,7 +6,7 @@ public class Int32JsonContentTypeHeaderSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Int32JsonContentTypeHeaderSchema1 extends Int32JsonSchema {
+    public static class Int32JsonContentTypeHeaderSchema1 extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable Int32JsonContentTypeHeaderSchema1 instance = null;
         public static Int32JsonContentTypeHeaderSchema1 getInstance() {
             if (instance == null) {

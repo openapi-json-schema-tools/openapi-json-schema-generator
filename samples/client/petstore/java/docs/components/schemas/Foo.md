@@ -4,15 +4,42 @@ public class Foo
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Foo.Foo1Boxed](#foo1boxed)<br> abstract sealed validated payload class |
+| static class | [Foo.Foo1BoxedMap](#foo1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Foo.Foo1](#foo1)<br> schema class |
 | static class | [Foo.FooMapBuilder](#foomapbuilder)<br> builder for Map payloads |
 | static class | [Foo.FooMap](#foomap)<br> output class for Map payloads |
+
+## Foo1Boxed
+public static abstract sealed class Foo1Boxed<br>
+permits<br>
+[Foo1BoxedMap](#foo1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Foo1BoxedMap
+public static final class Foo1BoxedMap<br>
+extends [Foo1Boxed](#foo1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Foo1BoxedMap([FooMap](#foomap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [FooMap](#foomap) | data<br>validated payload |
 
 ## Foo1
 public static class Foo1<br>
@@ -54,6 +81,7 @@ Foo.FooMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FooMap](#foomap) | validate([Map&lt;?, ?&gt;](#foomapbuilder) arg, SchemaConfiguration configuration) |
+| [Foo1BoxedMap](#foo1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#foomapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FooMapBuilder
 public class FooMapBuilder<br>

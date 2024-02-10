@@ -29,7 +29,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Param extends StringJsonSchema {
+    public static class Param extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Param instance = null;
         public static Param getInstance() {
             if (instance == null) {
@@ -40,7 +40,7 @@ public class Schema {
     }
     
     
-    public static class Param2 extends StringJsonSchema {
+    public static class Param2 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Param2 instance = null;
         public static Param2 getInstance() {
             if (instance == null) {
@@ -175,7 +175,17 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap> {
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
+    public static final class Schema1BoxedMap extends Schema1Boxed {
+        public final SchemaMap data;
+        private Schema1BoxedMap(SchemaMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -246,6 +256,10 @@ public class Schema {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema1BoxedMap(validate(arg, configuration));
         }
     }
 

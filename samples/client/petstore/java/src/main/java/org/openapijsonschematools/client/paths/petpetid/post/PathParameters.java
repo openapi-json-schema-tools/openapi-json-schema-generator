@@ -30,7 +30,7 @@ public class PathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
@@ -118,7 +118,17 @@ public class PathParameters {
     }
     
     
-    public static class PathParameters1 extends JsonSchema implements MapSchemaValidator<PathParametersMap> {
+    public static abstract sealed class PathParameters1Boxed permits PathParameters1BoxedMap {}
+    
+    public static final class PathParameters1BoxedMap extends PathParameters1Boxed {
+        public final PathParametersMap data;
+        private PathParameters1BoxedMap(PathParametersMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class PathParameters1 extends JsonSchema implements MapSchemaValidator<PathParametersMap, PathParameters1BoxedMap> {
         private static @Nullable PathParameters1 instance = null;
     
         protected PathParameters1() {
@@ -191,6 +201,10 @@ public class PathParameters {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public PathParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PathParameters1BoxedMap(validate(arg, configuration));
         }
     }
 

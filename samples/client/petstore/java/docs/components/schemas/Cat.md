@@ -4,17 +4,138 @@ public class Cat
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Cat.Cat1Boxed](#cat1boxed)<br> abstract sealed validated payload class |
+| static class | [Cat.Cat1BoxedVoid](#cat1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Cat.Cat1BoxedBoolean](#cat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Cat.Cat1BoxedNumber](#cat1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Cat.Cat1BoxedString](#cat1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Cat.Cat1BoxedList](#cat1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [Cat.Cat1BoxedMap](#cat1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Cat.Cat1](#cat1)<br> schema class |
+| static class | [Cat.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| static class | [Cat.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Cat.Schema1](#schema1)<br> schema class |
 | static class | [Cat.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [Cat.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [Cat.DeclawedBoxed](#declawedboxed)<br> abstract sealed validated payload class |
+| static class | [Cat.DeclawedBoxedBoolean](#declawedboxedboolean)<br> boxed class to store validated boolean payloads |
 | static class | [Cat.Declawed](#declawed)<br> schema class |
+
+## Cat1Boxed
+public static abstract sealed class Cat1Boxed<br>
+permits<br>
+[Cat1BoxedVoid](#cat1boxedvoid),
+[Cat1BoxedBoolean](#cat1boxedboolean),
+[Cat1BoxedNumber](#cat1boxednumber),
+[Cat1BoxedString](#cat1boxedstring),
+[Cat1BoxedList](#cat1boxedlist),
+[Cat1BoxedMap](#cat1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Cat1BoxedVoid
+public static final class Cat1BoxedVoid<br>
+extends [Cat1Boxed](#cat1boxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Cat1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## Cat1BoxedBoolean
+public static final class Cat1BoxedBoolean<br>
+extends [Cat1Boxed](#cat1boxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Cat1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## Cat1BoxedNumber
+public static final class Cat1BoxedNumber<br>
+extends [Cat1Boxed](#cat1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Cat1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## Cat1BoxedString
+public static final class Cat1BoxedString<br>
+extends [Cat1Boxed](#cat1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Cat1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## Cat1BoxedList
+public static final class Cat1BoxedList<br>
+extends [Cat1Boxed](#cat1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Cat1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## Cat1BoxedMap
+public static final class Cat1BoxedMap<br>
+extends [Cat1Boxed](#cat1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Cat1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## Cat1
 public static class Cat1<br>
@@ -36,10 +157,40 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [Cat1BoxedString](#cat1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Cat1BoxedVoid](#cat1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [Cat1BoxedNumber](#cat1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [Cat1BoxedBoolean](#cat1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [Cat1BoxedMap](#cat1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [Cat1BoxedList](#cat1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema1BoxedMap
+public static final class Schema1BoxedMap<br>
+extends [Schema1Boxed](#schema1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [Schema1Map](#schema1map) | data<br>validated payload |
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -82,6 +233,7 @@ Cat.Schema1Map validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
@@ -122,14 +274,38 @@ A class to store validated Map payloads
 | boolean | declawed()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## DeclawedBoxed
+public static abstract sealed class DeclawedBoxed<br>
+permits<br>
+[DeclawedBoxedBoolean](#declawedboxedboolean)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## DeclawedBoxedBoolean
+public static final class DeclawedBoxedBoolean<br>
+extends [DeclawedBoxed](#declawedboxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DeclawedBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
 ## Declawed
 public static class Declawed<br>
-extends BooleanJsonSchema
+extends BooleanJsonSchema.BooleanJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

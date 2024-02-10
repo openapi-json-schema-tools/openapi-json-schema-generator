@@ -6,7 +6,7 @@ public class NumberHeaderSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class NumberHeaderSchema1 extends DecimalJsonSchema {
+    public static class NumberHeaderSchema1 extends DecimalJsonSchema.DecimalJsonSchema1 {
         private static @Nullable NumberHeaderSchema1 instance = null;
         public static NumberHeaderSchema1 getInstance() {
             if (instance == null) {

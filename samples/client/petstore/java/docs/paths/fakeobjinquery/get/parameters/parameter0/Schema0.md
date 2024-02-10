@@ -3,16 +3,45 @@ public class Schema0
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema0.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
+| static class | [Schema0.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaMapBuilder0](#schemamapbuilder0)<br> builder for Map payloads |
 | static class | [Schema0.SchemaMap0](#schemamap0)<br> output class for Map payloads |
+| static class | [Schema0.Keyword0Boxed](#keyword0boxed)<br> abstract sealed validated payload class |
+| static class | [Schema0.Keyword0BoxedString](#keyword0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Keyword0](#keyword0)<br> schema class |
+
+## Schema01Boxed
+public static abstract sealed class Schema01Boxed<br>
+permits<br>
+[Schema01BoxedMap](#schema01boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema01BoxedMap
+public static final class Schema01BoxedMap<br>
+extends [Schema01Boxed](#schema01boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema01BoxedMap([SchemaMap0](#schemamap0) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap0](#schemamap0) | data<br>validated payload |
 
 ## Schema01
 public static class Schema01<br>
@@ -56,6 +85,7 @@ Schema0.SchemaMap0 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap0](#schemamap0) | validate([Map&lt;?, ?&gt;](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
+| [Schema01BoxedMap](#schema01boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schemamapbuilder0) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder0
 public class SchemaMapBuilder0<br>
@@ -96,12 +126,36 @@ A class to store validated Map payloads
 | String | keyword()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Keyword0Boxed
+public static abstract sealed class Keyword0Boxed<br>
+permits<br>
+[Keyword0BoxedString](#keyword0boxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Keyword0BoxedString
+public static final class Keyword0BoxedString<br>
+extends [Keyword0Boxed](#keyword0boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Keyword0BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Keyword0
 public static class Keyword0<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |

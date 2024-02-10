@@ -3,17 +3,53 @@ public class Schema
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| static class | [Schema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMapBuilder](#schemamapbuilder)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+| static class | [Schema.SomePropBoxed](#somepropboxed)<br> abstract sealed validated payload class |
+| static class | [Schema.SomePropBoxedVoid](#somepropboxedvoid)<br> boxed class to store validated null payloads |
+| static class | [Schema.SomePropBoxedBoolean](#somepropboxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [Schema.SomePropBoxedNumber](#somepropboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [Schema.SomePropBoxedString](#somepropboxedstring)<br> boxed class to store validated String payloads |
+| static class | [Schema.SomePropBoxedList](#somepropboxedlist)<br> boxed class to store validated List payloads |
+| static class | [Schema.SomePropBoxedMap](#somepropboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Schema.SomeProp](#someprop)<br> schema class |
+| static class | [Schema.Schema0Boxed](#schema0boxed)<br> abstract sealed validated payload class |
+| static class | [Schema.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema.Schema0](#schema0)<br> schema class |
+
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema1BoxedMap
+public static final class Schema1BoxedMap<br>
+extends [Schema1Boxed](#schema1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedMap([SchemaMap](#schemamap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [SchemaMap](#schemamap) | data<br>validated payload |
 
 ## Schema1
 public static class Schema1<br>
@@ -55,6 +91,7 @@ Schema.SchemaMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaMap](#schemamap) | validate([Map&lt;?, ?&gt;](#schemamapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder
 public class SchemaMapBuilder<br>
@@ -103,6 +140,114 @@ A class to store validated Map payloads
 | @Nullable Object | someProp()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## SomePropBoxed
+public static abstract sealed class SomePropBoxed<br>
+permits<br>
+[SomePropBoxedVoid](#somepropboxedvoid),
+[SomePropBoxedBoolean](#somepropboxedboolean),
+[SomePropBoxedNumber](#somepropboxednumber),
+[SomePropBoxedString](#somepropboxedstring),
+[SomePropBoxedList](#somepropboxedlist),
+[SomePropBoxedMap](#somepropboxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## SomePropBoxedVoid
+public static final class SomePropBoxedVoid<br>
+extends [SomePropBoxed](#somepropboxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomePropBoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## SomePropBoxedBoolean
+public static final class SomePropBoxedBoolean<br>
+extends [SomePropBoxed](#somepropboxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomePropBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## SomePropBoxedNumber
+public static final class SomePropBoxedNumber<br>
+extends [SomePropBoxed](#somepropboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomePropBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## SomePropBoxedString
+public static final class SomePropBoxedString<br>
+extends [SomePropBoxed](#somepropboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomePropBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## SomePropBoxedList
+public static final class SomePropBoxedList<br>
+extends [SomePropBoxed](#somepropboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomePropBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## SomePropBoxedMap
+public static final class SomePropBoxedMap<br>
+extends [SomePropBoxed](#somepropboxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomePropBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
+
 ## SomeProp
 public static class SomeProp<br>
 extends JsonSchema
@@ -123,10 +268,40 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [SomePropBoxedString](#somepropboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [SomePropBoxedVoid](#somepropboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [SomePropBoxedNumber](#somepropboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [SomePropBoxedBoolean](#somepropboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [SomePropBoxedMap](#somepropboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [SomePropBoxedList](#somepropboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema0Boxed
+public static abstract sealed class Schema0Boxed<br>
+permits<br>
+[Schema0BoxedString](#schema0boxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema0BoxedString
+public static final class Schema0BoxedString<br>
+extends [Schema0Boxed](#schema0boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Schema0
 public static class Schema0<br>
 extends JsonSchema
@@ -165,4 +340,5 @@ String validatedPayload = Schema.Schema0.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [Schema0BoxedString](#schema0boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

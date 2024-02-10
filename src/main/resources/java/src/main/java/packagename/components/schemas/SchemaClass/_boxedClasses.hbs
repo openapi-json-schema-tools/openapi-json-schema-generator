@@ -1,0 +1,31 @@
+{{#if types}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedClass }}
+    {{#each types}}
+        {{#eq this "null"}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedVoid }}
+        {{/eq}}
+        {{#eq this "boolean"}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedBoolean }}
+        {{/eq}}
+        {{#and (eq this "string") (neq ../format "binary") }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedString }}
+        {{/and}}
+        {{#or (eq this "number") (eq this "integer")}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedNumber }}
+        {{/or}}
+        {{#eq this "array"}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedList }}
+        {{/eq}}
+        {{#eq this "object"}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedMap }}
+        {{/eq}}
+    {{/each}}
+{{else}}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedClass }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedVoid }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedBoolean }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedNumber }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedString }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedList }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/_boxedMap }}
+{{/if}}

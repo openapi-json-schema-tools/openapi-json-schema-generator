@@ -4,13 +4,40 @@ public class StringEnumWithDefaultValue
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1Boxed](#stringenumwithdefaultvalue1boxed)<br> abstract sealed validated payload class |
+| static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1BoxedString](#stringenumwithdefaultvalue1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1](#stringenumwithdefaultvalue1)<br> schema class |
 | enum | [StringEnumWithDefaultValue.StringStringEnumWithDefaultValueEnums](#stringstringenumwithdefaultvalueenums)<br>String enum |
+
+## StringEnumWithDefaultValue1Boxed
+public static abstract sealed class StringEnumWithDefaultValue1Boxed<br>
+permits<br>
+[StringEnumWithDefaultValue1BoxedString](#stringenumwithdefaultvalue1boxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## StringEnumWithDefaultValue1BoxedString
+public static final class StringEnumWithDefaultValue1BoxedString<br>
+extends [StringEnumWithDefaultValue1Boxed](#stringenumwithdefaultvalue1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StringEnumWithDefaultValue1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## StringEnumWithDefaultValue1
 public static class StringEnumWithDefaultValue1<br>
@@ -52,6 +79,7 @@ String validatedPayload = StringEnumWithDefaultValue.StringEnumWithDefaultValue1
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStringEnumWithDefaultValueEnums](#stringstringenumwithdefaultvalueenums) arg, SchemaConfiguration configuration) |
+| [StringEnumWithDefaultValue1BoxedString](#stringenumwithdefaultvalue1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringStringEnumWithDefaultValueEnums
 public enum StringStringEnumWithDefaultValueEnums<br>

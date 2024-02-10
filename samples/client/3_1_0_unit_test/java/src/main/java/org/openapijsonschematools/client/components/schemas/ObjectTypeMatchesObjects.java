@@ -7,7 +7,7 @@ public class ObjectTypeMatchesObjects {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ObjectTypeMatchesObjects1 extends MapJsonSchema {
+    public static class ObjectTypeMatchesObjects1 extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable ObjectTypeMatchesObjects1 instance = null;
         public static ObjectTypeMatchesObjects1 getInstance() {
             if (instance == null) {

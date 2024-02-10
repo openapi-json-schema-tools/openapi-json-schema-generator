@@ -4,6 +4,8 @@ public class IsoscelesTriangle
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -11,12 +13,131 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)<br> abstract sealed validated payload class |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedVoid](#isoscelestriangle1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedBoolean](#isoscelestriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedNumber](#isoscelestriangle1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedString](#isoscelestriangle1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [IsoscelesTriangle.IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IsoscelesTriangle.IsoscelesTriangle1](#isoscelestriangle1)<br> schema class |
+| static class | [IsoscelesTriangle.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| static class | [IsoscelesTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IsoscelesTriangle.Schema1](#schema1)<br> schema class |
 | static class | [IsoscelesTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [IsoscelesTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [IsoscelesTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> abstract sealed validated payload class |
+| static class | [IsoscelesTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [IsoscelesTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [IsoscelesTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |
+
+## IsoscelesTriangle1Boxed
+public static abstract sealed class IsoscelesTriangle1Boxed<br>
+permits<br>
+[IsoscelesTriangle1BoxedVoid](#isoscelestriangle1boxedvoid),
+[IsoscelesTriangle1BoxedBoolean](#isoscelestriangle1boxedboolean),
+[IsoscelesTriangle1BoxedNumber](#isoscelestriangle1boxednumber),
+[IsoscelesTriangle1BoxedString](#isoscelestriangle1boxedstring),
+[IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist),
+[IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## IsoscelesTriangle1BoxedVoid
+public static final class IsoscelesTriangle1BoxedVoid<br>
+extends [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IsoscelesTriangle1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## IsoscelesTriangle1BoxedBoolean
+public static final class IsoscelesTriangle1BoxedBoolean<br>
+extends [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IsoscelesTriangle1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## IsoscelesTriangle1BoxedNumber
+public static final class IsoscelesTriangle1BoxedNumber<br>
+extends [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IsoscelesTriangle1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## IsoscelesTriangle1BoxedString
+public static final class IsoscelesTriangle1BoxedString<br>
+extends [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IsoscelesTriangle1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## IsoscelesTriangle1BoxedList
+public static final class IsoscelesTriangle1BoxedList<br>
+extends [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IsoscelesTriangle1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## IsoscelesTriangle1BoxedMap
+public static final class IsoscelesTriangle1BoxedMap<br>
+extends [IsoscelesTriangle1Boxed](#isoscelestriangle1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IsoscelesTriangle1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## IsoscelesTriangle1
 public static class IsoscelesTriangle1<br>
@@ -38,10 +159,40 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [IsoscelesTriangle1BoxedString](#isoscelestriangle1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [IsoscelesTriangle1BoxedVoid](#isoscelestriangle1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [IsoscelesTriangle1BoxedNumber](#isoscelestriangle1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IsoscelesTriangle1BoxedBoolean](#isoscelestriangle1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [IsoscelesTriangle1BoxedMap](#isoscelestriangle1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [IsoscelesTriangle1BoxedList](#isoscelestriangle1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema1BoxedMap
+public static final class Schema1BoxedMap<br>
+extends [Schema1Boxed](#schema1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [Schema1Map](#schema1map) | data<br>validated payload |
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -84,6 +235,7 @@ IsoscelesTriangle.Schema1Map validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
@@ -125,6 +277,29 @@ A class to store validated Map payloads
 | String | triangleType()<br>[optional] must be one of ["IsoscelesTriangle"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## TriangleTypeBoxed
+public static abstract sealed class TriangleTypeBoxed<br>
+permits<br>
+[TriangleTypeBoxedString](#triangletypeboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## TriangleTypeBoxedString
+public static final class TriangleTypeBoxedString<br>
+extends [TriangleTypeBoxed](#triangletypeboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleTypeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## TriangleType
 public static class TriangleType<br>
 extends JsonSchema
@@ -164,6 +339,7 @@ String validatedPayload = IsoscelesTriangle.TriangleType.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringTriangleTypeEnums](#stringtriangletypeenums) arg, SchemaConfiguration configuration) |
+| [TriangleTypeBoxedString](#triangletypeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringTriangleTypeEnums
 public enum StringTriangleTypeEnums<br>

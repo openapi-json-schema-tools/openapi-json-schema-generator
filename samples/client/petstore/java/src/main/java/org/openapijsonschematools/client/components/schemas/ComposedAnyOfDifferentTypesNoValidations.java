@@ -48,7 +48,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends MapJsonSchema {
+    public static class Schema0 extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable Schema0 instance = null;
         public static Schema0 getInstance() {
             if (instance == null) {
@@ -59,7 +59,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema1 extends DateJsonSchema {
+    public static class Schema1 extends DateJsonSchema.DateJsonSchema1 {
         private static @Nullable Schema1 instance = null;
         public static Schema1 getInstance() {
             if (instance == null) {
@@ -70,7 +70,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema2 extends DateTimeJsonSchema {
+    public static class Schema2 extends DateTimeJsonSchema.DateTimeJsonSchema1 {
         private static @Nullable Schema2 instance = null;
         public static Schema2 getInstance() {
             if (instance == null) {
@@ -81,7 +81,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema3 extends StringJsonSchema {
+    public static class Schema3 extends StringJsonSchema.StringJsonSchema1 {
         // BinarySchema
         private static @Nullable Schema3 instance = null;
         public static Schema3 getInstance() {
@@ -93,7 +93,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema4 extends StringJsonSchema {
+    public static class Schema4 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Schema4 instance = null;
         public static Schema4 getInstance() {
             if (instance == null) {
@@ -104,7 +104,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema5 extends StringJsonSchema {
+    public static class Schema5 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Schema5 instance = null;
         public static Schema5 getInstance() {
             if (instance == null) {
@@ -115,7 +115,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema6 extends MapJsonSchema {
+    public static class Schema6 extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable Schema6 instance = null;
         public static Schema6 getInstance() {
             if (instance == null) {
@@ -126,7 +126,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema7 extends BooleanJsonSchema {
+    public static class Schema7 extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable Schema7 instance = null;
         public static Schema7 getInstance() {
             if (instance == null) {
@@ -137,7 +137,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema8 extends NullJsonSchema {
+    public static class Schema8 extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable Schema8 instance = null;
         public static Schema8 getInstance() {
             if (instance == null) {
@@ -148,7 +148,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Items extends AnyTypeJsonSchema {
+    public static class Items extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {
@@ -231,7 +231,18 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema9 extends JsonSchema implements ListSchemaValidator<Schema9List> {
+    public static abstract sealed class Schema9Boxed permits Schema9BoxedList {}
+    
+    public static final class Schema9BoxedList extends Schema9Boxed {
+        public final Schema9List data;
+        private Schema9BoxedList(Schema9List data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Schema9 extends JsonSchema implements ListSchemaValidator<Schema9List, Schema9BoxedList> {
         private static @Nullable Schema9 instance = null;
     
         protected Schema9() {
@@ -292,9 +303,13 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema9BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema9BoxedList(validate(arg, configuration));
+        }
     }    
     
-    public static class Schema10 extends NumberJsonSchema {
+    public static class Schema10 extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Schema10 instance = null;
         public static Schema10 getInstance() {
             if (instance == null) {
@@ -305,7 +320,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema11 extends FloatJsonSchema {
+    public static class Schema11 extends FloatJsonSchema.FloatJsonSchema1 {
         private static @Nullable Schema11 instance = null;
         public static Schema11 getInstance() {
             if (instance == null) {
@@ -316,7 +331,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema12 extends DoubleJsonSchema {
+    public static class Schema12 extends DoubleJsonSchema.DoubleJsonSchema1 {
         private static @Nullable Schema12 instance = null;
         public static Schema12 getInstance() {
             if (instance == null) {
@@ -327,7 +342,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema13 extends IntJsonSchema {
+    public static class Schema13 extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable Schema13 instance = null;
         public static Schema13 getInstance() {
             if (instance == null) {
@@ -338,7 +353,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema14 extends Int32JsonSchema {
+    public static class Schema14 extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable Schema14 instance = null;
         public static Schema14 getInstance() {
             if (instance == null) {
@@ -349,7 +364,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class Schema15 extends Int64JsonSchema {
+    public static class Schema15 extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable Schema15 instance = null;
         public static Schema15 getInstance() {
             if (instance == null) {
@@ -360,7 +375,52 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public static class ComposedAnyOfDifferentTypesNoValidations1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ComposedAnyOfDifferentTypesNoValidations1Boxed permits ComposedAnyOfDifferentTypesNoValidations1BoxedVoid, ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean, ComposedAnyOfDifferentTypesNoValidations1BoxedNumber, ComposedAnyOfDifferentTypesNoValidations1BoxedString, ComposedAnyOfDifferentTypesNoValidations1BoxedList, ComposedAnyOfDifferentTypesNoValidations1BoxedMap {}
+    
+    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedVoid extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+        public final Void data;
+        private ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+        public final boolean data;
+        private ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedNumber extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+        public final Number data;
+        private ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedString extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+        public final String data;
+        private ComposedAnyOfDifferentTypesNoValidations1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedList extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private ComposedAnyOfDifferentTypesNoValidations1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedMap extends ComposedAnyOfDifferentTypesNoValidations1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ComposedAnyOfDifferentTypesNoValidations1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ComposedAnyOfDifferentTypesNoValidations1 extends JsonSchema implements NullSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedVoid>, BooleanSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean>, NumberSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedNumber>, StringSchemaValidator<ComposedAnyOfDifferentTypesNoValidations1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ComposedAnyOfDifferentTypesNoValidations1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ComposedAnyOfDifferentTypesNoValidations1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -575,6 +635,30 @@ public class ComposedAnyOfDifferentTypesNoValidations {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ComposedAnyOfDifferentTypesNoValidations1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedAnyOfDifferentTypesNoValidations1BoxedMap(validate(arg, configuration));
         }
     }
 }

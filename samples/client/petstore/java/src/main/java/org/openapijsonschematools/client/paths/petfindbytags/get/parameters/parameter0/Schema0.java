@@ -23,7 +23,7 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items0 extends StringJsonSchema {
+    public static class Items0 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Items0 instance = null;
         public static Items0 getInstance() {
             if (instance == null) {
@@ -66,7 +66,18 @@ public class Schema0 {
     }
     
     
-    public static class Schema01 extends JsonSchema implements ListSchemaValidator<SchemaList0> {
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedList {}
+    
+    public static final class Schema01BoxedList extends Schema01Boxed {
+        public final SchemaList0 data;
+        private Schema01BoxedList(SchemaList0 data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Schema01 extends JsonSchema implements ListSchemaValidator<SchemaList0, Schema01BoxedList> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -129,6 +140,10 @@ public class Schema0 {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public Schema01BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedList(validate(arg, configuration));
         }
     }
 }

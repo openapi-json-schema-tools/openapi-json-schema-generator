@@ -17,48 +17,63 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class BooleanJsonSchema extends JsonSchema implements BooleanSchemaValidator {
-    private static @Nullable BooleanJsonSchema instance = null;
-
-    protected BooleanJsonSchema() {
-        super(new JsonSchemaInfo()
-            .type(Set.of(Boolean.class))
-        );
+public class BooleanJsonSchema {
+    public static abstract sealed class BooleanJsonSchema1Boxed permits BooleanJsonSchema1BoxedBoolean {
     }
-
-    public static BooleanJsonSchema getInstance() {
-        if (instance == null) {
-            instance = new BooleanJsonSchema();
+    public static final class BooleanJsonSchema1BoxedBoolean extends BooleanJsonSchema1Boxed {
+        public final boolean data;
+        private BooleanJsonSchema1BoxedBoolean(boolean data) {
+            this.data = data;
         }
-        return instance;
     }
+    public static class BooleanJsonSchema1 extends JsonSchema implements BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
+        private static @Nullable BooleanJsonSchema1 instance = null;
 
-    @Override
-    public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-        Set<List<Object>> pathSet = new HashSet<>();
-        List<Object> pathToItem = List.of("args[0");
-        boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-        SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
-        ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-        PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-        return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
-
-    @Override
-    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        if (arg instanceof Boolean) {
-            boolean boolArg = (Boolean) arg;
-            return getNewInstance(boolArg, pathToItem, pathToSchemas);
+        protected BooleanJsonSchema1() {
+            super(new JsonSchemaInfo()
+                    .type(Set.of(Boolean.class))
+            );
         }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-    }
 
-    @Override
-    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
-        if (arg instanceof Boolean) {
-            boolean boolArg = (Boolean) arg;
-            return validate(boolArg, configuration);
+        public static BooleanJsonSchema1 getInstance() {
+            if (instance == null) {
+                instance = new BooleanJsonSchema1();
+            }
+            return instance;
         }
-        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+
+        @Override
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+
+        @Override
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Boolean) {
+                boolean boolArg = (Boolean) arg;
+                return getNewInstance(boolArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+            if (arg instanceof Boolean) {
+                boolean boolArg = (Boolean) arg;
+                return validate(boolArg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }
+
+        @Override
+        public BooleanJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BooleanJsonSchema1BoxedBoolean(validate(arg, configuration));
+        }
     }
 }

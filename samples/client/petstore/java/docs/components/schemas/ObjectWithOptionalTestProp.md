@@ -4,16 +4,45 @@ public class ObjectWithOptionalTestProp
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)<br> abstract sealed validated payload class |
+| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1](#objectwithoptionaltestprop1)<br> schema class |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapBuilder](#objectwithoptionaltestpropmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap)<br> output class for Map payloads |
+| static class | [ObjectWithOptionalTestProp.TestBoxed](#testboxed)<br> abstract sealed validated payload class |
+| static class | [ObjectWithOptionalTestProp.TestBoxedString](#testboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ObjectWithOptionalTestProp.Test](#test)<br> schema class |
+
+## ObjectWithOptionalTestProp1Boxed
+public static abstract sealed class ObjectWithOptionalTestProp1Boxed<br>
+permits<br>
+[ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ObjectWithOptionalTestProp1BoxedMap
+public static final class ObjectWithOptionalTestProp1BoxedMap<br>
+extends [ObjectWithOptionalTestProp1Boxed](#objectwithoptionaltestprop1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithOptionalTestProp1BoxedMap([ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | data<br>validated payload |
 
 ## ObjectWithOptionalTestProp1
 public static class ObjectWithOptionalTestProp1<br>
@@ -57,6 +86,7 @@ ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map&lt;?, ?&gt;](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
+| [ObjectWithOptionalTestProp1BoxedMap](#objectwithoptionaltestprop1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectwithoptionaltestpropmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithOptionalTestPropMapBuilder
 public class ObjectWithOptionalTestPropMapBuilder<br>
@@ -97,14 +127,38 @@ A class to store validated Map payloads
 | String | test()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## TestBoxed
+public static abstract sealed class TestBoxed<br>
+permits<br>
+[TestBoxedString](#testboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## TestBoxedString
+public static final class TestBoxedString<br>
+extends [TestBoxed](#testboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TestBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Test
 public static class Test<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

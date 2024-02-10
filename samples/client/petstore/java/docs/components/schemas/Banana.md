@@ -4,16 +4,45 @@ public class Banana
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Banana.Banana1Boxed](#banana1boxed)<br> abstract sealed validated payload class |
+| static class | [Banana.Banana1BoxedMap](#banana1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Banana.Banana1](#banana1)<br> schema class |
 | static class | [Banana.BananaMapBuilder](#bananamapbuilder)<br> builder for Map payloads |
 | static class | [Banana.BananaMap](#bananamap)<br> output class for Map payloads |
+| static class | [Banana.LengthCmBoxed](#lengthcmboxed)<br> abstract sealed validated payload class |
+| static class | [Banana.LengthCmBoxedNumber](#lengthcmboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Banana.LengthCm](#lengthcm)<br> schema class |
+
+## Banana1Boxed
+public static abstract sealed class Banana1Boxed<br>
+permits<br>
+[Banana1BoxedMap](#banana1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Banana1BoxedMap
+public static final class Banana1BoxedMap<br>
+extends [Banana1Boxed](#banana1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Banana1BoxedMap([BananaMap](#bananamap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [BananaMap](#bananamap) | data<br>validated payload |
 
 ## Banana1
 public static class Banana1<br>
@@ -58,6 +87,7 @@ Banana.BananaMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [BananaMap](#bananamap) | validate([Map&lt;?, ?&gt;](#bananamapbuilder) arg, SchemaConfiguration configuration) |
+| [Banana1BoxedMap](#banana1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#bananamapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BananaMap0Builder
 public class BananaMap0Builder<br>
@@ -116,14 +146,38 @@ A class to store validated Map payloads
 | Number | lengthCm()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## LengthCmBoxed
+public static abstract sealed class LengthCmBoxed<br>
+permits<br>
+[LengthCmBoxedNumber](#lengthcmboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## LengthCmBoxedNumber
+public static final class LengthCmBoxedNumber<br>
+extends [LengthCmBoxed](#lengthcmboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| LengthCmBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## LengthCm
 public static class LengthCm<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

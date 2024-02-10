@@ -32,7 +32,7 @@ public class ArrayTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items extends StringJsonSchema {
+    public static class Items extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {
@@ -75,7 +75,18 @@ public class ArrayTest {
     }
     
     
-    public static class ArrayOfString extends JsonSchema implements ListSchemaValidator<ArrayOfStringList> {
+    public static abstract sealed class ArrayOfStringBoxed permits ArrayOfStringBoxedList {}
+    
+    public static final class ArrayOfStringBoxedList extends ArrayOfStringBoxed {
+        public final ArrayOfStringList data;
+        private ArrayOfStringBoxedList(ArrayOfStringList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class ArrayOfString extends JsonSchema implements ListSchemaValidator<ArrayOfStringList, ArrayOfStringBoxedList> {
         private static @Nullable ArrayOfString instance = null;
     
         protected ArrayOfString() {
@@ -139,9 +150,13 @@ public class ArrayTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ArrayOfStringBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayOfStringBoxedList(validate(arg, configuration));
+        }
     }    
     
-    public static class Items2 extends Int64JsonSchema {
+    public static class Items2 extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable Items2 instance = null;
         public static Items2 getInstance() {
             if (instance == null) {
@@ -199,7 +214,18 @@ public class ArrayTest {
     }
     
     
-    public static class Items1 extends JsonSchema implements ListSchemaValidator<ItemsList> {
+    public static abstract sealed class Items1Boxed permits Items1BoxedList {}
+    
+    public static final class Items1BoxedList extends Items1Boxed {
+        public final ItemsList data;
+        private Items1BoxedList(ItemsList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Items1 extends JsonSchema implements ListSchemaValidator<ItemsList, Items1BoxedList> {
         private static @Nullable Items1 instance = null;
     
         protected Items1() {
@@ -263,6 +289,10 @@ public class ArrayTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Items1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Items1BoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class ArrayArrayOfIntegerList extends FrozenList<ItemsList> {
@@ -297,7 +327,18 @@ public class ArrayTest {
     }
     
     
-    public static class ArrayArrayOfInteger extends JsonSchema implements ListSchemaValidator<ArrayArrayOfIntegerList> {
+    public static abstract sealed class ArrayArrayOfIntegerBoxed permits ArrayArrayOfIntegerBoxedList {}
+    
+    public static final class ArrayArrayOfIntegerBoxedList extends ArrayArrayOfIntegerBoxed {
+        public final ArrayArrayOfIntegerList data;
+        private ArrayArrayOfIntegerBoxedList(ArrayArrayOfIntegerList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class ArrayArrayOfInteger extends JsonSchema implements ListSchemaValidator<ArrayArrayOfIntegerList, ArrayArrayOfIntegerBoxedList> {
         private static @Nullable ArrayArrayOfInteger instance = null;
     
         protected ArrayArrayOfInteger() {
@@ -361,6 +402,10 @@ public class ArrayTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ArrayArrayOfIntegerBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayArrayOfIntegerBoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class ItemsList1 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> {
@@ -395,7 +440,18 @@ public class ArrayTest {
     }
     
     
-    public static class Items3 extends JsonSchema implements ListSchemaValidator<ItemsList1> {
+    public static abstract sealed class Items3Boxed permits Items3BoxedList {}
+    
+    public static final class Items3BoxedList extends Items3Boxed {
+        public final ItemsList1 data;
+        private Items3BoxedList(ItemsList1 data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Items3 extends JsonSchema implements ListSchemaValidator<ItemsList1, Items3BoxedList> {
         private static @Nullable Items3 instance = null;
     
         protected Items3() {
@@ -459,6 +515,10 @@ public class ArrayTest {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Items3BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Items3BoxedList(validate(arg, configuration));
+        }
     }    
     
     public static class ArrayArrayOfModelList extends FrozenList<ItemsList1> {
@@ -493,7 +553,18 @@ public class ArrayTest {
     }
     
     
-    public static class ArrayArrayOfModel extends JsonSchema implements ListSchemaValidator<ArrayArrayOfModelList> {
+    public static abstract sealed class ArrayArrayOfModelBoxed permits ArrayArrayOfModelBoxedList {}
+    
+    public static final class ArrayArrayOfModelBoxedList extends ArrayArrayOfModelBoxed {
+        public final ArrayArrayOfModelList data;
+        private ArrayArrayOfModelBoxedList(ArrayArrayOfModelList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class ArrayArrayOfModel extends JsonSchema implements ListSchemaValidator<ArrayArrayOfModelList, ArrayArrayOfModelBoxedList> {
         private static @Nullable ArrayArrayOfModel instance = null;
     
         protected ArrayArrayOfModel() {
@@ -556,6 +627,10 @@ public class ArrayTest {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ArrayArrayOfModelBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayArrayOfModelBoxedList(validate(arg, configuration));
         }
     }    
     
@@ -677,7 +752,17 @@ public class ArrayTest {
     }
     
     
-    public static class ArrayTest1 extends JsonSchema implements MapSchemaValidator<ArrayTestMap> {
+    public static abstract sealed class ArrayTest1Boxed permits ArrayTest1BoxedMap {}
+    
+    public static final class ArrayTest1BoxedMap extends ArrayTest1Boxed {
+        public final ArrayTestMap data;
+        private ArrayTest1BoxedMap(ArrayTestMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ArrayTest1 extends JsonSchema implements MapSchemaValidator<ArrayTestMap, ArrayTest1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -751,6 +836,10 @@ public class ArrayTest {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ArrayTest1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayTest1BoxedMap(validate(arg, configuration));
         }
     }
 

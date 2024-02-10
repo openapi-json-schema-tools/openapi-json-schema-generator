@@ -4,6 +4,8 @@ public class ArrayOfNumberOnly
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -12,13 +14,42 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1Boxed](#arrayofnumberonly1boxed)<br> abstract sealed validated payload class |
+| static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1BoxedMap](#arrayofnumberonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1](#arrayofnumberonly1)<br> schema class |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMapBuilder](#arrayofnumberonlymapbuilder)<br> builder for Map payloads |
 | static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMap](#arrayofnumberonlymap)<br> output class for Map payloads |
+| static class | [ArrayOfNumberOnly.ArrayNumberBoxed](#arraynumberboxed)<br> abstract sealed validated payload class |
+| static class | [ArrayOfNumberOnly.ArrayNumberBoxedList](#arraynumberboxedlist)<br> boxed class to store validated List payloads |
 | static class | [ArrayOfNumberOnly.ArrayNumber](#arraynumber)<br> schema class |
 | static class | [ArrayOfNumberOnly.ArrayNumberListBuilder](#arraynumberlistbuilder)<br> builder for List payloads |
 | static class | [ArrayOfNumberOnly.ArrayNumberList](#arraynumberlist)<br> output class for List payloads |
+| static class | [ArrayOfNumberOnly.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| static class | [ArrayOfNumberOnly.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [ArrayOfNumberOnly.Items](#items)<br> schema class |
+
+## ArrayOfNumberOnly1Boxed
+public static abstract sealed class ArrayOfNumberOnly1Boxed<br>
+permits<br>
+[ArrayOfNumberOnly1BoxedMap](#arrayofnumberonly1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ArrayOfNumberOnly1BoxedMap
+public static final class ArrayOfNumberOnly1BoxedMap<br>
+extends [ArrayOfNumberOnly1Boxed](#arrayofnumberonly1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayOfNumberOnly1BoxedMap([ArrayOfNumberOnlyMap](#arrayofnumberonlymap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | data<br>validated payload |
 
 ## ArrayOfNumberOnly1
 public static class ArrayOfNumberOnly1<br>
@@ -65,6 +96,7 @@ ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | validate([Map&lt;?, ?&gt;](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayOfNumberOnly1BoxedMap](#arrayofnumberonly1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfNumberOnlyMapBuilder
 public class ArrayOfNumberOnlyMapBuilder<br>
@@ -104,6 +136,29 @@ A class to store validated Map payloads
 | static [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | of([Map<String, ? extends @Nullable Object>](#arrayofnumberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | [ArrayNumberList](#arraynumberlist) | ArrayNumber()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ArrayNumberBoxed
+public static abstract sealed class ArrayNumberBoxed<br>
+permits<br>
+[ArrayNumberBoxedList](#arraynumberboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ArrayNumberBoxedList
+public static final class ArrayNumberBoxedList<br>
+extends [ArrayNumberBoxed](#arraynumberboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ArrayNumberBoxedList([ArrayNumberList](#arraynumberlist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ArrayNumberList](#arraynumberlist) | data<br>validated payload |
 
 ## ArrayNumber
 public static class ArrayNumber<br>
@@ -147,6 +202,7 @@ ArrayOfNumberOnly.ArrayNumberList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ArrayNumberList](#arraynumberlist) | validate([List<?>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
+| [ArrayNumberBoxedList](#arraynumberboxedlist) | validateAndBox([List<?>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNumberListBuilder
 public class ArrayNumberListBuilder<br>
@@ -180,14 +236,38 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [ArrayNumberList](#arraynumberlist) | of([List<Number>](#arraynumberlistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedNumber](#itemsboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ItemsBoxedNumber
+public static final class ItemsBoxedNumber<br>
+extends [ItemsBoxed](#itemsboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Items
 public static class Items<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -4,16 +4,45 @@ public class NumberOnly
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NumberOnly.NumberOnly1Boxed](#numberonly1boxed)<br> abstract sealed validated payload class |
+| static class | [NumberOnly.NumberOnly1BoxedMap](#numberonly1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NumberOnly.NumberOnly1](#numberonly1)<br> schema class |
 | static class | [NumberOnly.NumberOnlyMapBuilder](#numberonlymapbuilder)<br> builder for Map payloads |
 | static class | [NumberOnly.NumberOnlyMap](#numberonlymap)<br> output class for Map payloads |
+| static class | [NumberOnly.JustNumberBoxed](#justnumberboxed)<br> abstract sealed validated payload class |
+| static class | [NumberOnly.JustNumberBoxedNumber](#justnumberboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [NumberOnly.JustNumber](#justnumber)<br> schema class |
+
+## NumberOnly1Boxed
+public static abstract sealed class NumberOnly1Boxed<br>
+permits<br>
+[NumberOnly1BoxedMap](#numberonly1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NumberOnly1BoxedMap
+public static final class NumberOnly1BoxedMap<br>
+extends [NumberOnly1Boxed](#numberonly1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberOnly1BoxedMap([NumberOnlyMap](#numberonlymap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [NumberOnlyMap](#numberonlymap) | data<br>validated payload |
 
 ## NumberOnly1
 public static class NumberOnly1<br>
@@ -57,6 +86,7 @@ NumberOnly.NumberOnlyMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [NumberOnlyMap](#numberonlymap) | validate([Map&lt;?, ?&gt;](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
+| [NumberOnly1BoxedMap](#numberonly1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#numberonlymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberOnlyMapBuilder
 public class NumberOnlyMapBuilder<br>
@@ -100,14 +130,38 @@ A class to store validated Map payloads
 | Number | JustNumber()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## JustNumberBoxed
+public static abstract sealed class JustNumberBoxed<br>
+permits<br>
+[JustNumberBoxedNumber](#justnumberboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## JustNumberBoxedNumber
+public static final class JustNumberBoxedNumber<br>
+extends [JustNumberBoxed](#justnumberboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| JustNumberBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## JustNumber
 public static class JustNumber<br>
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

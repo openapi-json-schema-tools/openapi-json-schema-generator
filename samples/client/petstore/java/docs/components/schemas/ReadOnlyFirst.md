@@ -4,17 +4,48 @@ public class ReadOnlyFirst
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ReadOnlyFirst.ReadOnlyFirst1Boxed](#readonlyfirst1boxed)<br> abstract sealed validated payload class |
+| static class | [ReadOnlyFirst.ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirst1](#readonlyfirst1)<br> schema class |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMapBuilder](#readonlyfirstmapbuilder)<br> builder for Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMap](#readonlyfirstmap)<br> output class for Map payloads |
+| static class | [ReadOnlyFirst.BazBoxed](#bazboxed)<br> abstract sealed validated payload class |
+| static class | [ReadOnlyFirst.BazBoxedString](#bazboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReadOnlyFirst.Baz](#baz)<br> schema class |
+| static class | [ReadOnlyFirst.BarBoxed](#barboxed)<br> abstract sealed validated payload class |
+| static class | [ReadOnlyFirst.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
+
+## ReadOnlyFirst1Boxed
+public static abstract sealed class ReadOnlyFirst1Boxed<br>
+permits<br>
+[ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ReadOnlyFirst1BoxedMap
+public static final class ReadOnlyFirst1BoxedMap<br>
+extends [ReadOnlyFirst1Boxed](#readonlyfirst1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReadOnlyFirst1BoxedMap([ReadOnlyFirstMap](#readonlyfirstmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ReadOnlyFirstMap](#readonlyfirstmap) | data<br>validated payload |
 
 ## ReadOnlyFirst1
 public static class ReadOnlyFirst1<br>
@@ -60,6 +91,7 @@ ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map&lt;?, ?&gt;](#readonlyfirstmapbuilder) arg, SchemaConfiguration configuration) |
+| [ReadOnlyFirst1BoxedMap](#readonlyfirst1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#readonlyfirstmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReadOnlyFirstMapBuilder
 public class ReadOnlyFirstMapBuilder<br>
@@ -102,24 +134,72 @@ A class to store validated Map payloads
 | String | baz()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## BazBoxed
+public static abstract sealed class BazBoxed<br>
+permits<br>
+[BazBoxedString](#bazboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## BazBoxedString
+public static final class BazBoxedString<br>
+extends [BazBoxed](#bazboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BazBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Baz
 public static class Baz<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## BarBoxed
+public static abstract sealed class BarBoxed<br>
+permits<br>
+[BarBoxedString](#barboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## BarBoxedString
+public static final class BarBoxedString<br>
+extends [BarBoxed](#barboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BarBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Bar
 public static class Bar<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

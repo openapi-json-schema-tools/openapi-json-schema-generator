@@ -4,6 +4,8 @@ public class Pet
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -13,20 +15,57 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Pet.Pet1Boxed](#pet1boxed)<br> abstract sealed validated payload class |
+| static class | [Pet.Pet1BoxedMap](#pet1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Pet.Pet1](#pet1)<br> schema class |
 | static class | [Pet.PetMapBuilder](#petmapbuilder)<br> builder for Map payloads |
 | static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
+| static class | [Pet.TagsBoxed](#tagsboxed)<br> abstract sealed validated payload class |
+| static class | [Pet.TagsBoxedList](#tagsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Pet.Tags](#tags)<br> schema class |
 | static class | [Pet.TagsListBuilder](#tagslistbuilder)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
+| static class | [Pet.StatusBoxed](#statusboxed)<br> abstract sealed validated payload class |
+| static class | [Pet.StatusBoxedString](#statusboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Status](#status)<br> schema class |
 | enum | [Pet.StringStatusEnums](#stringstatusenums)<br>String enum |
+| static class | [Pet.PhotoUrlsBoxed](#photourlsboxed)<br> abstract sealed validated payload class |
+| static class | [Pet.PhotoUrlsBoxedList](#photourlsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
 | static class | [Pet.PhotoUrlsListBuilder](#photourlslistbuilder)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
+| static class | [Pet.ItemsBoxed](#itemsboxed)<br> abstract sealed validated payload class |
+| static class | [Pet.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Items](#items)<br> schema class |
+| static class | [Pet.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| static class | [Pet.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Pet.Name](#name)<br> schema class |
+| static class | [Pet.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| static class | [Pet.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Pet.Id](#id)<br> schema class |
+
+## Pet1Boxed
+public static abstract sealed class Pet1Boxed<br>
+permits<br>
+[Pet1BoxedMap](#pet1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Pet1BoxedMap
+public static final class Pet1BoxedMap<br>
+extends [Pet1Boxed](#pet1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Pet1BoxedMap([PetMap](#petmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [PetMap](#petmap) | data<br>validated payload |
 
 ## Pet1
 public static class Pet1<br>
@@ -105,6 +144,7 @@ Pet.PetMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PetMap](#petmap) | validate([Map&lt;?, ?&gt;](#petmapbuilder) arg, SchemaConfiguration configuration) |
+| [Pet1BoxedMap](#pet1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#petmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PetMap00Builder
 public class PetMap00Builder<br>
@@ -206,6 +246,29 @@ A class to store validated Map payloads
 | String | status()<br>[optional] must be one of ["available", "pending", "sold"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## TagsBoxed
+public static abstract sealed class TagsBoxed<br>
+permits<br>
+[TagsBoxedList](#tagsboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## TagsBoxedList
+public static final class TagsBoxedList<br>
+extends [TagsBoxed](#tagsboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TagsBoxedList([TagsList](#tagslist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [TagsList](#tagslist) | data<br>validated payload |
+
 ## Tags
 public static class Tags<br>
 extends JsonSchema
@@ -258,6 +321,7 @@ Pet.TagsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [TagsList](#tagslist) | validate([List<?>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
+| [TagsBoxedList](#tagsboxedlist) | validateAndBox([List<?>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TagsListBuilder
 public class TagsListBuilder<br>
@@ -287,6 +351,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [TagsList](#tagslist) | of([List<Map<String, ? extends @Nullable Object>>](#tagslistbuilder) arg, SchemaConfiguration configuration) |
+
+## StatusBoxed
+public static abstract sealed class StatusBoxed<br>
+permits<br>
+[StatusBoxedString](#statusboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## StatusBoxedString
+public static final class StatusBoxedString<br>
+extends [StatusBoxed](#statusboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| StatusBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Status
 public static class Status<br>
@@ -330,6 +417,7 @@ String validatedPayload = Pet.Status.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStatusEnums](#stringstatusenums) arg, SchemaConfiguration configuration) |
+| [StatusBoxedString](#statusboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringStatusEnums
 public enum StringStatusEnums<br>
@@ -343,6 +431,29 @@ A class that stores String enum values
 | AVAILABLE | value = "available" |
 | PENDING | value = "pending" |
 | SOLD | value = "sold" |
+
+## PhotoUrlsBoxed
+public static abstract sealed class PhotoUrlsBoxed<br>
+permits<br>
+[PhotoUrlsBoxedList](#photourlsboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## PhotoUrlsBoxedList
+public static final class PhotoUrlsBoxedList<br>
+extends [PhotoUrlsBoxed](#photourlsboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PhotoUrlsBoxedList([PhotoUrlsList](#photourlslist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [PhotoUrlsList](#photourlslist) | data<br>validated payload |
 
 ## PhotoUrls
 public static class PhotoUrls<br>
@@ -386,6 +497,7 @@ Pet.PhotoUrlsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PhotoUrlsList](#photourlslist) | validate([List<?>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
+| [PhotoUrlsBoxedList](#photourlsboxedlist) | validateAndBox([List<?>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PhotoUrlsListBuilder
 public class PhotoUrlsListBuilder<br>
@@ -416,34 +528,106 @@ A class to store validated List payloads
 | ----------------- | ---------------------- |
 | static [PhotoUrlsList](#photourlslist) | of([List<String>](#photourlslistbuilder) arg, SchemaConfiguration configuration) |
 
+## ItemsBoxed
+public static abstract sealed class ItemsBoxed<br>
+permits<br>
+[ItemsBoxedString](#itemsboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ItemsBoxedString
+public static final class ItemsBoxedString<br>
+extends [ItemsBoxed](#itemsboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Items
 public static class Items<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
+permits<br>
+[NameBoxedString](#nameboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NameBoxedString
+public static final class NameBoxedString<br>
+extends [NameBoxed](#nameboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Name
 public static class Name<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
+
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedNumber](#idboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## IdBoxedNumber
+public static final class IdBoxedNumber<br>
+extends [IdBoxed](#idboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Id
 public static class Id<br>
-extends Int64JsonSchema
+extends Int64JsonSchema.Int64JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema.Int64JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

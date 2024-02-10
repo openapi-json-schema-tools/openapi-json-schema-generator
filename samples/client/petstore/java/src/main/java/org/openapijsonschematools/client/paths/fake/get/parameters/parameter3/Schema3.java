@@ -37,7 +37,18 @@ public class Schema3 {
     }
     
     
-    public static class Schema31 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringSchemaEnums3>, DefaultValueMethod<String> {
+    public static abstract sealed class Schema31Boxed permits Schema31BoxedString {}
+    
+    public static final class Schema31BoxedString extends Schema31Boxed {
+        public final String data;
+        private Schema31BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Schema31 extends JsonSchema implements StringSchemaValidator<Schema31BoxedString>, StringEnumValidator<StringSchemaEnums3>, DefaultValueMethod<String> {
         private static @Nullable Schema31 instance = null;
     
         protected Schema31() {
@@ -96,6 +107,10 @@ public class Schema3 {
                 return (String) defaultValue;
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
+        }
+        @Override
+        public Schema31BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema31BoxedString(validate(arg, configuration));
         }
     }
 }

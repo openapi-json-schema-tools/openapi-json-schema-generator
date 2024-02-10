@@ -4,16 +4,135 @@ public class ClassModel
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ClassModel.ClassModel1Boxed](#classmodel1boxed)<br> abstract sealed validated payload class |
+| static class | [ClassModel.ClassModel1BoxedVoid](#classmodel1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ClassModel.ClassModel1BoxedBoolean](#classmodel1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ClassModel.ClassModel1BoxedNumber](#classmodel1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ClassModel.ClassModel1BoxedString](#classmodel1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [ClassModel.ClassModel1BoxedList](#classmodel1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [ClassModel.ClassModel1BoxedMap](#classmodel1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ClassModel.ClassModel1](#classmodel1)<br> schema class |
 | static class | [ClassModel.ClassModelMapBuilder](#classmodelmapbuilder)<br> builder for Map payloads |
 | static class | [ClassModel.ClassModelMap](#classmodelmap)<br> output class for Map payloads |
+| static class | [ClassModel.ClassSchemaBoxed](#classschemaboxed)<br> abstract sealed validated payload class |
+| static class | [ClassModel.ClassSchemaBoxedString](#classschemaboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ClassModel.ClassSchema](#classschema)<br> schema class |
+
+## ClassModel1Boxed
+public static abstract sealed class ClassModel1Boxed<br>
+permits<br>
+[ClassModel1BoxedVoid](#classmodel1boxedvoid),
+[ClassModel1BoxedBoolean](#classmodel1boxedboolean),
+[ClassModel1BoxedNumber](#classmodel1boxednumber),
+[ClassModel1BoxedString](#classmodel1boxedstring),
+[ClassModel1BoxedList](#classmodel1boxedlist),
+[ClassModel1BoxedMap](#classmodel1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ClassModel1BoxedVoid
+public static final class ClassModel1BoxedVoid<br>
+extends [ClassModel1Boxed](#classmodel1boxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassModel1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## ClassModel1BoxedBoolean
+public static final class ClassModel1BoxedBoolean<br>
+extends [ClassModel1Boxed](#classmodel1boxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassModel1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## ClassModel1BoxedNumber
+public static final class ClassModel1BoxedNumber<br>
+extends [ClassModel1Boxed](#classmodel1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassModel1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## ClassModel1BoxedString
+public static final class ClassModel1BoxedString<br>
+extends [ClassModel1Boxed](#classmodel1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassModel1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## ClassModel1BoxedList
+public static final class ClassModel1BoxedList<br>
+extends [ClassModel1Boxed](#classmodel1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassModel1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## ClassModel1BoxedMap
+public static final class ClassModel1BoxedMap<br>
+extends [ClassModel1Boxed](#classmodel1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassModel1BoxedMap([ClassModelMap](#classmodelmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ClassModelMap](#classmodelmap) | data<br>validated payload |
 
 ## ClassModel1
 public static class ClassModel1<br>
@@ -38,9 +157,16 @@ Model for testing model with &quot;_class&quot; property
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | [ClassModelMap](#classmodelmap) | validate([Map&lt;?, ?&gt;](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedString](#classmodel1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedVoid](#classmodel1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedNumber](#classmodel1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedBoolean](#classmodel1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedMap](#classmodel1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#classmodelmapbuilder) arg, SchemaConfiguration configuration) |
+| [ClassModel1BoxedList](#classmodel1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClassModelMapBuilder
 public class ClassModelMapBuilder<br>
@@ -81,14 +207,38 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["_class"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ClassSchemaBoxed
+public static abstract sealed class ClassSchemaBoxed<br>
+permits<br>
+[ClassSchemaBoxedString](#classschemaboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ClassSchemaBoxedString
+public static final class ClassSchemaBoxedString<br>
+extends [ClassSchemaBoxed](#classschemaboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ClassSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## ClassSchema
 public static class ClassSchema<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

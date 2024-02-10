@@ -40,7 +40,7 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends BooleanJsonSchema {
+    public static class AdditionalProperties extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {
@@ -51,7 +51,7 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
     }
     
     
-    public static class Foo extends AnyTypeJsonSchema {
+    public static class Foo extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Foo instance = null;
         public static Foo getInstance() {
             if (instance == null) {
@@ -170,7 +170,52 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
     }
     
     
-    public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<Schema0Map> {
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {}
+    
+    public static final class Schema0BoxedVoid extends Schema0Boxed {
+        public final Void data;
+        private Schema0BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedBoolean extends Schema0Boxed {
+        public final boolean data;
+        private Schema0BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedNumber extends Schema0Boxed {
+        public final Number data;
+        private Schema0BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedString extends Schema0Boxed {
+        public final String data;
+        private Schema0BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedList extends Schema0Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private Schema0BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedMap extends Schema0Boxed {
+        public final Schema0Map data;
+        private Schema0BoxedMap(Schema0Map data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema0 extends JsonSchema implements NullSchemaValidator<Schema0BoxedVoid>, BooleanSchemaValidator<Schema0BoxedBoolean>, NumberSchemaValidator<Schema0BoxedNumber>, StringSchemaValidator<Schema0BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Schema0BoxedList>, MapSchemaValidator<Schema0Map, Schema0BoxedMap> {
         private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
@@ -365,6 +410,30 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema0BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class AdditionalpropertiesDoesNotLookInApplicatorsMap extends FrozenMap<Boolean> {
@@ -421,7 +490,52 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
     }
     
     
-    public static class AdditionalpropertiesDoesNotLookInApplicators1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<AdditionalpropertiesDoesNotLookInApplicatorsMap> {
+    public static abstract sealed class AdditionalpropertiesDoesNotLookInApplicators1Boxed permits AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid, AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean, AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber, AdditionalpropertiesDoesNotLookInApplicators1BoxedString, AdditionalpropertiesDoesNotLookInApplicators1BoxedList, AdditionalpropertiesDoesNotLookInApplicators1BoxedMap {}
+    
+    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
+        public final Void data;
+        private AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
+        public final boolean data;
+        private AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
+        public final Number data;
+        private AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedString extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
+        public final String data;
+        private AdditionalpropertiesDoesNotLookInApplicators1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedList extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private AdditionalpropertiesDoesNotLookInApplicators1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AdditionalpropertiesDoesNotLookInApplicators1BoxedMap extends AdditionalpropertiesDoesNotLookInApplicators1Boxed {
+        public final AdditionalpropertiesDoesNotLookInApplicatorsMap data;
+        private AdditionalpropertiesDoesNotLookInApplicators1BoxedMap(AdditionalpropertiesDoesNotLookInApplicatorsMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class AdditionalpropertiesDoesNotLookInApplicators1 extends JsonSchema implements NullSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid>, BooleanSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean>, NumberSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber>, StringSchemaValidator<AdditionalpropertiesDoesNotLookInApplicators1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AdditionalpropertiesDoesNotLookInApplicators1BoxedList>, MapSchemaValidator<AdditionalpropertiesDoesNotLookInApplicatorsMap, AdditionalpropertiesDoesNotLookInApplicators1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -625,6 +739,30 @@ public class AdditionalpropertiesDoesNotLookInApplicators {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalpropertiesDoesNotLookInApplicators1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalpropertiesDoesNotLookInApplicators1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalpropertiesDoesNotLookInApplicators1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalpropertiesDoesNotLookInApplicators1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalpropertiesDoesNotLookInApplicators1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalpropertiesDoesNotLookInApplicators1BoxedMap(validate(arg, configuration));
         }
     }
 }

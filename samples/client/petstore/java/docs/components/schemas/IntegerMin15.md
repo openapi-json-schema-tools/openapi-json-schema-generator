@@ -4,11 +4,38 @@ public class IntegerMin15
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [IntegerMin15.IntegerMin151Boxed](#integermin151boxed)<br> abstract sealed validated payload class |
+| static class | [IntegerMin15.IntegerMin151BoxedNumber](#integermin151boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [IntegerMin15.IntegerMin151](#integermin151)<br> schema class |
+
+## IntegerMin151Boxed
+public static abstract sealed class IntegerMin151Boxed<br>
+permits<br>
+[IntegerMin151BoxedNumber](#integermin151boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## IntegerMin151BoxedNumber
+public static final class IntegerMin151BoxedNumber<br>
+extends [IntegerMin151Boxed](#integermin151boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IntegerMin151BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## IntegerMin151
 public static class IntegerMin151<br>
@@ -49,5 +76,6 @@ long validatedPayload = IntegerMin15.IntegerMin151.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
+| [IntegerMin151BoxedNumber](#integermin151boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

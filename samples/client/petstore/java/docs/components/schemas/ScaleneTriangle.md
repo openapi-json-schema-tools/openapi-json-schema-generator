@@ -4,6 +4,8 @@ public class ScaleneTriangle
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 - enum classes
@@ -11,12 +13,131 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [ScaleneTriangle.ScaleneTriangle1Boxed](#scalenetriangle1boxed)<br> abstract sealed validated payload class |
+| static class | [ScaleneTriangle.ScaleneTriangle1BoxedVoid](#scalenetriangle1boxedvoid)<br> boxed class to store validated null payloads |
+| static class | [ScaleneTriangle.ScaleneTriangle1BoxedBoolean](#scalenetriangle1boxedboolean)<br> boxed class to store validated boolean payloads |
+| static class | [ScaleneTriangle.ScaleneTriangle1BoxedNumber](#scalenetriangle1boxednumber)<br> boxed class to store validated Number payloads |
+| static class | [ScaleneTriangle.ScaleneTriangle1BoxedString](#scalenetriangle1boxedstring)<br> boxed class to store validated String payloads |
+| static class | [ScaleneTriangle.ScaleneTriangle1BoxedList](#scalenetriangle1boxedlist)<br> boxed class to store validated List payloads |
+| static class | [ScaleneTriangle.ScaleneTriangle1BoxedMap](#scalenetriangle1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ScaleneTriangle.ScaleneTriangle1](#scalenetriangle1)<br> schema class |
+| static class | [ScaleneTriangle.Schema1Boxed](#schema1boxed)<br> abstract sealed validated payload class |
+| static class | [ScaleneTriangle.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [ScaleneTriangle.Schema1](#schema1)<br> schema class |
 | static class | [ScaleneTriangle.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
 | static class | [ScaleneTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [ScaleneTriangle.TriangleTypeBoxed](#triangletypeboxed)<br> abstract sealed validated payload class |
+| static class | [ScaleneTriangle.TriangleTypeBoxedString](#triangletypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [ScaleneTriangle.TriangleType](#triangletype)<br> schema class |
 | enum | [ScaleneTriangle.StringTriangleTypeEnums](#stringtriangletypeenums)<br>String enum |
+
+## ScaleneTriangle1Boxed
+public static abstract sealed class ScaleneTriangle1Boxed<br>
+permits<br>
+[ScaleneTriangle1BoxedVoid](#scalenetriangle1boxedvoid),
+[ScaleneTriangle1BoxedBoolean](#scalenetriangle1boxedboolean),
+[ScaleneTriangle1BoxedNumber](#scalenetriangle1boxednumber),
+[ScaleneTriangle1BoxedString](#scalenetriangle1boxedstring),
+[ScaleneTriangle1BoxedList](#scalenetriangle1boxedlist),
+[ScaleneTriangle1BoxedMap](#scalenetriangle1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ScaleneTriangle1BoxedVoid
+public static final class ScaleneTriangle1BoxedVoid<br>
+extends [ScaleneTriangle1Boxed](#scalenetriangle1boxed)
+
+a boxed class to store validated null payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ScaleneTriangle1BoxedVoid(Void data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Void | data<br>validated payload |
+
+## ScaleneTriangle1BoxedBoolean
+public static final class ScaleneTriangle1BoxedBoolean<br>
+extends [ScaleneTriangle1Boxed](#scalenetriangle1boxed)
+
+a boxed class to store validated boolean payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ScaleneTriangle1BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| boolean | data<br>validated payload |
+
+## ScaleneTriangle1BoxedNumber
+public static final class ScaleneTriangle1BoxedNumber<br>
+extends [ScaleneTriangle1Boxed](#scalenetriangle1boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ScaleneTriangle1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
+## ScaleneTriangle1BoxedString
+public static final class ScaleneTriangle1BoxedString<br>
+extends [ScaleneTriangle1Boxed](#scalenetriangle1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ScaleneTriangle1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
+## ScaleneTriangle1BoxedList
+public static final class ScaleneTriangle1BoxedList<br>
+extends [ScaleneTriangle1Boxed](#scalenetriangle1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ScaleneTriangle1BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenList<@Nullable Object> | data<br>validated payload |
+
+## ScaleneTriangle1BoxedMap
+public static final class ScaleneTriangle1BoxedMap<br>
+extends [ScaleneTriangle1Boxed](#scalenetriangle1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ScaleneTriangle1BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| FrozenMap<@Nullable Object> | data<br>validated payload |
 
 ## ScaleneTriangle1
 public static class ScaleneTriangle1<br>
@@ -38,10 +159,40 @@ A schema class that validates payloads
 | long | validate(long arg, SchemaConfiguration configuration) |
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| [ScaleneTriangle1BoxedString](#scalenetriangle1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ScaleneTriangle1BoxedVoid](#scalenetriangle1boxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [ScaleneTriangle1BoxedNumber](#scalenetriangle1boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ScaleneTriangle1BoxedBoolean](#scalenetriangle1boxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [ScaleneTriangle1BoxedMap](#scalenetriangle1boxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [ScaleneTriangle1BoxedList](#scalenetriangle1boxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## Schema1Boxed
+public static abstract sealed class Schema1Boxed<br>
+permits<br>
+[Schema1BoxedMap](#schema1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema1BoxedMap
+public static final class Schema1BoxedMap<br>
+extends [Schema1Boxed](#schema1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema1BoxedMap([Schema1Map](#schema1map) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [Schema1Map](#schema1map) | data<br>validated payload |
+
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -84,6 +235,7 @@ ScaleneTriangle.Schema1Map validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Schema1Map](#schema1map) | validate([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
+| [Schema1BoxedMap](#schema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema1mapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapBuilder
 public class Schema1MapBuilder<br>
@@ -125,6 +277,29 @@ A class to store validated Map payloads
 | String | triangleType()<br>[optional] must be one of ["ScaleneTriangle"] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## TriangleTypeBoxed
+public static abstract sealed class TriangleTypeBoxed<br>
+permits<br>
+[TriangleTypeBoxedString](#triangletypeboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## TriangleTypeBoxedString
+public static final class TriangleTypeBoxedString<br>
+extends [TriangleTypeBoxed](#triangletypeboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleTypeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## TriangleType
 public static class TriangleType<br>
 extends JsonSchema
@@ -164,6 +339,7 @@ String validatedPayload = ScaleneTriangle.TriangleType.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringTriangleTypeEnums](#stringtriangletypeenums) arg, SchemaConfiguration configuration) |
+| [TriangleTypeBoxedString](#triangletypeboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringTriangleTypeEnums
 public enum StringTriangleTypeEnums<br>

@@ -39,7 +39,7 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Proto extends NumberJsonSchema {
+    public static class Proto extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Proto instance = null;
         public static Proto getInstance() {
             if (instance == null) {
@@ -50,7 +50,7 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static class Length extends StringJsonSchema {
+    public static class Length extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Length instance = null;
         public static Length getInstance() {
             if (instance == null) {
@@ -127,7 +127,52 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static class ToStringSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<ToStringMap> {
+    public static abstract sealed class ToStringSchemaBoxed permits ToStringSchemaBoxedVoid, ToStringSchemaBoxedBoolean, ToStringSchemaBoxedNumber, ToStringSchemaBoxedString, ToStringSchemaBoxedList, ToStringSchemaBoxedMap {}
+    
+    public static final class ToStringSchemaBoxedVoid extends ToStringSchemaBoxed {
+        public final Void data;
+        private ToStringSchemaBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ToStringSchemaBoxedBoolean extends ToStringSchemaBoxed {
+        public final boolean data;
+        private ToStringSchemaBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ToStringSchemaBoxedNumber extends ToStringSchemaBoxed {
+        public final Number data;
+        private ToStringSchemaBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ToStringSchemaBoxedString extends ToStringSchemaBoxed {
+        public final String data;
+        private ToStringSchemaBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ToStringSchemaBoxedList extends ToStringSchemaBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private ToStringSchemaBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ToStringSchemaBoxedMap extends ToStringSchemaBoxed {
+        public final ToStringMap data;
+        private ToStringSchemaBoxedMap(ToStringMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ToStringSchema extends JsonSchema implements NullSchemaValidator<ToStringSchemaBoxedVoid>, BooleanSchemaValidator<ToStringSchemaBoxedBoolean>, NumberSchemaValidator<ToStringSchemaBoxedNumber>, StringSchemaValidator<ToStringSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ToStringSchemaBoxedList>, MapSchemaValidator<ToStringMap, ToStringSchemaBoxedMap> {
         private static @Nullable ToStringSchema instance = null;
     
         protected ToStringSchema() {
@@ -322,9 +367,33 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ToStringSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ToStringSchemaBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ToStringSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ToStringSchemaBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ToStringSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ToStringSchemaBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ToStringSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ToStringSchemaBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ToStringSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ToStringSchemaBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ToStringSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ToStringSchemaBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class Constructor extends NumberJsonSchema {
+    public static class Constructor extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable Constructor instance = null;
         public static Constructor getInstance() {
             if (instance == null) {
@@ -517,7 +586,52 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap> {
+    public static abstract sealed class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed permits PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap {}
+    
+    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
+        public final Void data;
+        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
+        public final boolean data;
+        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
+        public final Number data;
+        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
+        public final String data;
+        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
+        public final PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data;
+        private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap(PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1 extends JsonSchema implements NullSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid>, BooleanSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean>, NumberSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber>, StringSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList>, MapSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -719,6 +833,30 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap(validate(arg, configuration));
         }
     }
 }

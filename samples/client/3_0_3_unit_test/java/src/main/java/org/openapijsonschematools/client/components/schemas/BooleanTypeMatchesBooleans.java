@@ -6,7 +6,7 @@ public class BooleanTypeMatchesBooleans {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class BooleanTypeMatchesBooleans1 extends BooleanJsonSchema {
+    public static class BooleanTypeMatchesBooleans1 extends BooleanJsonSchema.BooleanJsonSchema1 {
         private static @Nullable BooleanTypeMatchesBooleans1 instance = null;
         public static BooleanTypeMatchesBooleans1 getInstance() {
             if (instance == null) {

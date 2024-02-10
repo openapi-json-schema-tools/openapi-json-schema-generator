@@ -36,7 +36,18 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class PropertyNames extends JsonSchema implements StringSchemaValidator {
+    public static abstract sealed class PropertyNamesBoxed permits PropertyNamesBoxedString {}
+    
+    public static final class PropertyNamesBoxedString extends PropertyNamesBoxed {
+        public final String data;
+        private PropertyNamesBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class PropertyNames extends JsonSchema implements StringSchemaValidator<PropertyNamesBoxedString> {
         private static @Nullable PropertyNames instance = null;
     
         protected PropertyNames() {
@@ -80,9 +91,13 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public PropertyNamesBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PropertyNamesBoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class UnevaluatedProperties extends NumberJsonSchema {
+    public static class UnevaluatedProperties extends NumberJsonSchema.NumberJsonSchema1 {
         private static @Nullable UnevaluatedProperties instance = null;
         public static UnevaluatedProperties getInstance() {
             if (instance == null) {
@@ -93,7 +108,52 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
     }
     
     
-    public static class UnevaluatedpropertiesNotAffectedByPropertynames1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class UnevaluatedpropertiesNotAffectedByPropertynames1Boxed permits UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap {}
+    
+    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
+        public final Void data;
+        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
+        public final boolean data;
+        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
+        public final Number data;
+        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
+        public final String data;
+        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class UnevaluatedpropertiesNotAffectedByPropertynames1 extends JsonSchema implements NullSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid>, BooleanSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean>, NumberSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber>, StringSchemaValidator<UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -292,6 +352,30 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap(validate(arg, configuration));
         }
     }
 }

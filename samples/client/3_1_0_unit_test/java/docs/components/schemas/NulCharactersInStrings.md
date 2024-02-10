@@ -4,13 +4,40 @@ public class NulCharactersInStrings
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [NulCharactersInStrings.NulCharactersInStrings1Boxed](#nulcharactersinstrings1boxed)<br> abstract sealed validated payload class |
+| static class | [NulCharactersInStrings.NulCharactersInStrings1BoxedString](#nulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
 | static class | [NulCharactersInStrings.NulCharactersInStrings1](#nulcharactersinstrings1)<br> schema class |
 | enum | [NulCharactersInStrings.StringNulCharactersInStringsEnums](#stringnulcharactersinstringsenums)<br>String enum |
+
+## NulCharactersInStrings1Boxed
+public static abstract sealed class NulCharactersInStrings1Boxed<br>
+permits<br>
+[NulCharactersInStrings1BoxedString](#nulcharactersinstrings1boxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NulCharactersInStrings1BoxedString
+public static final class NulCharactersInStrings1BoxedString<br>
+extends [NulCharactersInStrings1Boxed](#nulcharactersinstrings1boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NulCharactersInStrings1BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## NulCharactersInStrings1
 public static class NulCharactersInStrings1<br>
@@ -51,6 +78,7 @@ String validatedPayload = NulCharactersInStrings.NulCharactersInStrings1.validat
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringNulCharactersInStringsEnums](#stringnulcharactersinstringsenums) arg, SchemaConfiguration configuration) |
+| [NulCharactersInStrings1BoxedString](#nulcharactersinstrings1boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringNulCharactersInStringsEnums
 public enum StringNulCharactersInStringsEnums<br>

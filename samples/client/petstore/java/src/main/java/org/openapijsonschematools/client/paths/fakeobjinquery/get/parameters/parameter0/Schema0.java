@@ -29,7 +29,7 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Keyword0 extends StringJsonSchema {
+    public static class Keyword0 extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Keyword0 instance = null;
         public static Keyword0 getInstance() {
             if (instance == null) {
@@ -106,7 +106,17 @@ public class Schema0 {
     }
     
     
-    public static class Schema01 extends JsonSchema implements MapSchemaValidator<SchemaMap0> {
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedMap {}
+    
+    public static final class Schema01BoxedMap extends Schema01Boxed {
+        public final SchemaMap0 data;
+        private Schema01BoxedMap(SchemaMap0 data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema01 extends JsonSchema implements MapSchemaValidator<SchemaMap0, Schema01BoxedMap> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -172,6 +182,10 @@ public class Schema0 {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public Schema01BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedMap(validate(arg, configuration));
         }
     }
 

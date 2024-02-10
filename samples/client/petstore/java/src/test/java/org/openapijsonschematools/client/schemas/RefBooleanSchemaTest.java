@@ -15,11 +15,11 @@ import java.util.List;
 
 public class RefBooleanSchemaTest {
     public static class RefBooleanSchema {
-        public static class RefBooleanSchema1 extends BooleanJsonSchema{}
+        public static class RefBooleanSchema1 extends BooleanJsonSchema.BooleanJsonSchema1 {}
     }
 
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final BooleanJsonSchema refBooleanJsonSchema = RefBooleanSchema.RefBooleanSchema1.getInstance();
+    static final BooleanJsonSchema.BooleanJsonSchema1 refBooleanJsonSchema = RefBooleanSchema.RefBooleanSchema1.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,

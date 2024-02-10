@@ -48,7 +48,18 @@ public class Schema {
     }
     
     
-    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums>, DefaultValueMethod<String> {
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedString {}
+    
+    public static final class ItemsBoxedString extends ItemsBoxed {
+        public final String data;
+        private ItemsBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Items extends JsonSchema implements StringSchemaValidator<ItemsBoxedString>, StringEnumValidator<StringItemsEnums>, DefaultValueMethod<String> {
         private static @Nullable Items instance = null;
     
         protected Items() {
@@ -107,6 +118,10 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+        @Override
+        public ItemsBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ItemsBoxedString(validate(arg, configuration));
+        }
     }    
     
     public static class EnumFormStringArrayList extends FrozenList<String> {
@@ -146,7 +161,18 @@ public class Schema {
     }
     
     
-    public static class EnumFormStringArray extends JsonSchema implements ListSchemaValidator<EnumFormStringArrayList> {
+    public static abstract sealed class EnumFormStringArrayBoxed permits EnumFormStringArrayBoxedList {}
+    
+    public static final class EnumFormStringArrayBoxedList extends EnumFormStringArrayBoxed {
+        public final EnumFormStringArrayList data;
+        private EnumFormStringArrayBoxedList(EnumFormStringArrayList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class EnumFormStringArray extends JsonSchema implements ListSchemaValidator<EnumFormStringArrayList, EnumFormStringArrayBoxedList> {
         private static @Nullable EnumFormStringArray instance = null;
     
         protected EnumFormStringArray() {
@@ -210,6 +236,10 @@ public class Schema {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public EnumFormStringArrayBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumFormStringArrayBoxedList(validate(arg, configuration));
+        }
     }    
     public enum StringEnumFormStringEnums implements StringValueMethod {
         _ABC("_abc"),
@@ -226,7 +256,18 @@ public class Schema {
     }
     
     
-    public static class EnumFormString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumFormStringEnums>, DefaultValueMethod<String> {
+    public static abstract sealed class EnumFormStringBoxed permits EnumFormStringBoxedString {}
+    
+    public static final class EnumFormStringBoxedString extends EnumFormStringBoxed {
+        public final String data;
+        private EnumFormStringBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class EnumFormString extends JsonSchema implements StringSchemaValidator<EnumFormStringBoxedString>, StringEnumValidator<StringEnumFormStringEnums>, DefaultValueMethod<String> {
         private static @Nullable EnumFormString instance = null;
     
         protected EnumFormString() {
@@ -285,6 +326,10 @@ public class Schema {
                 return (String) defaultValue;
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
+        }
+        @Override
+        public EnumFormStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new EnumFormStringBoxedString(validate(arg, configuration));
         }
     }    
     
@@ -386,7 +431,17 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap> {
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    
+    public static final class Schema1BoxedMap extends Schema1Boxed {
+        public final SchemaMap data;
+        private Schema1BoxedMap(SchemaMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<SchemaMap, Schema1BoxedMap> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -453,6 +508,10 @@ public class Schema {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public Schema1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema1BoxedMap(validate(arg, configuration));
         }
     }
 

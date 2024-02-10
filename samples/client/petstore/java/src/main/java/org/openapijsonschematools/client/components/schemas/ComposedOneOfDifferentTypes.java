@@ -39,7 +39,7 @@ public class ComposedOneOfDifferentTypes {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema2 extends NullJsonSchema {
+    public static class Schema2 extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable Schema2 instance = null;
         public static Schema2 getInstance() {
             if (instance == null) {
@@ -50,7 +50,7 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public static class Schema3 extends DateJsonSchema {
+    public static class Schema3 extends DateJsonSchema.DateJsonSchema1 {
         private static @Nullable Schema3 instance = null;
         public static Schema3 getInstance() {
             if (instance == null) {
@@ -61,7 +61,17 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public static class Schema4 extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class Schema4Boxed permits Schema4BoxedMap {}
+    
+    public static final class Schema4BoxedMap extends Schema4Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private Schema4BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema4 extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, Schema4BoxedMap> {
         private static @Nullable Schema4 instance = null;
     
         protected Schema4() {
@@ -127,10 +137,14 @@ public class ComposedOneOfDifferentTypes {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema4BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema4BoxedMap(validate(arg, configuration));
+        }
     }
     
     
-    public static class Items extends AnyTypeJsonSchema {
+    public static class Items extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {
@@ -213,7 +227,18 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public static class Schema5 extends JsonSchema implements ListSchemaValidator<Schema5List> {
+    public static abstract sealed class Schema5Boxed permits Schema5BoxedList {}
+    
+    public static final class Schema5BoxedList extends Schema5Boxed {
+        public final Schema5List data;
+        private Schema5BoxedList(Schema5List data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Schema5 extends JsonSchema implements ListSchemaValidator<Schema5List, Schema5BoxedList> {
         private static @Nullable Schema5 instance = null;
     
         protected Schema5() {
@@ -276,9 +301,24 @@ public class ComposedOneOfDifferentTypes {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema5BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema5BoxedList(validate(arg, configuration));
+        }
     }    
     
-    public static class Schema6 extends JsonSchema implements StringSchemaValidator {
+    public static abstract sealed class Schema6Boxed permits Schema6BoxedString {}
+    
+    public static final class Schema6BoxedString extends Schema6Boxed {
+        public final String data;
+        private Schema6BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Schema6 extends JsonSchema implements StringSchemaValidator<Schema6BoxedString> {
         private static @Nullable Schema6 instance = null;
     
         protected Schema6() {
@@ -325,9 +365,58 @@ public class ComposedOneOfDifferentTypes {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema6BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema6BoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class ComposedOneOfDifferentTypes1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ComposedOneOfDifferentTypes1Boxed permits ComposedOneOfDifferentTypes1BoxedVoid, ComposedOneOfDifferentTypes1BoxedBoolean, ComposedOneOfDifferentTypes1BoxedNumber, ComposedOneOfDifferentTypes1BoxedString, ComposedOneOfDifferentTypes1BoxedList, ComposedOneOfDifferentTypes1BoxedMap {}
+    
+    public static final class ComposedOneOfDifferentTypes1BoxedVoid extends ComposedOneOfDifferentTypes1Boxed {
+        public final Void data;
+        private ComposedOneOfDifferentTypes1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedOneOfDifferentTypes1BoxedBoolean extends ComposedOneOfDifferentTypes1Boxed {
+        public final boolean data;
+        private ComposedOneOfDifferentTypes1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedOneOfDifferentTypes1BoxedNumber extends ComposedOneOfDifferentTypes1Boxed {
+        public final Number data;
+        private ComposedOneOfDifferentTypes1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedOneOfDifferentTypes1BoxedString extends ComposedOneOfDifferentTypes1Boxed {
+        public final String data;
+        private ComposedOneOfDifferentTypes1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedOneOfDifferentTypes1BoxedList extends ComposedOneOfDifferentTypes1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private ComposedOneOfDifferentTypes1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ComposedOneOfDifferentTypes1BoxedMap extends ComposedOneOfDifferentTypes1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ComposedOneOfDifferentTypes1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ComposedOneOfDifferentTypes1 extends JsonSchema implements NullSchemaValidator<ComposedOneOfDifferentTypes1BoxedVoid>, BooleanSchemaValidator<ComposedOneOfDifferentTypes1BoxedBoolean>, NumberSchemaValidator<ComposedOneOfDifferentTypes1BoxedNumber>, StringSchemaValidator<ComposedOneOfDifferentTypes1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ComposedOneOfDifferentTypes1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ComposedOneOfDifferentTypes1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -535,6 +624,30 @@ public class ComposedOneOfDifferentTypes {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ComposedOneOfDifferentTypes1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedOneOfDifferentTypes1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ComposedOneOfDifferentTypes1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedOneOfDifferentTypes1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public ComposedOneOfDifferentTypes1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedOneOfDifferentTypes1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public ComposedOneOfDifferentTypes1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedOneOfDifferentTypes1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public ComposedOneOfDifferentTypes1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedOneOfDifferentTypes1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public ComposedOneOfDifferentTypes1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ComposedOneOfDifferentTypes1BoxedMap(validate(arg, configuration));
         }
     }
 }

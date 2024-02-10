@@ -3,6 +3,8 @@ public class Schema0
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - enum classes
@@ -10,11 +12,38 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema0.Schema01Boxed](#schema01boxed)<br> abstract sealed validated payload class |
+| static class | [Schema0.Schema01BoxedList](#schema01boxedlist)<br> boxed class to store validated List payloads |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
 | static class | [Schema0.SchemaListBuilder0](#schemalistbuilder0)<br> builder for List payloads |
 | static class | [Schema0.SchemaList0](#schemalist0)<br> output class for List payloads |
+| static class | [Schema0.Items0Boxed](#items0boxed)<br> abstract sealed validated payload class |
+| static class | [Schema0.Items0BoxedString](#items0boxedstring)<br> boxed class to store validated String payloads |
 | static class | [Schema0.Items0](#items0)<br> schema class |
 | enum | [Schema0.StringItemsEnums0](#stringitemsenums0)<br>String enum |
+
+## Schema01Boxed
+public static abstract sealed class Schema01Boxed<br>
+permits<br>
+[Schema01BoxedList](#schema01boxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema01BoxedList
+public static final class Schema01BoxedList<br>
+extends [Schema01Boxed](#schema01boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema01BoxedList([SchemaList0](#schemalist0) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [SchemaList0](#schemalist0) | data<br>validated payload |
 
 ## Schema01
 public static class Schema01<br>
@@ -58,6 +87,7 @@ Schema0.SchemaList0 validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SchemaList0](#schemalist0) | validate([List<?>](#schemalistbuilder0) arg, SchemaConfiguration configuration) |
+| [Schema01BoxedList](#schema01boxedlist) | validateAndBox([List<?>](#schemalistbuilder0) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListBuilder0
 public class SchemaListBuilder0<br>
@@ -88,6 +118,29 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaList0](#schemalist0) | of([List<String>](#schemalistbuilder0) arg, SchemaConfiguration configuration) |
+
+## Items0Boxed
+public static abstract sealed class Items0Boxed<br>
+permits<br>
+[Items0BoxedString](#items0boxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Items0BoxedString
+public static final class Items0BoxedString<br>
+extends [Items0Boxed](#items0boxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items0BoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
 
 ## Items0
 public static class Items0<br>
@@ -129,6 +182,7 @@ String validatedPayload = Schema0.Items0.validate(
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringItemsEnums0](#stringitemsenums0) arg, SchemaConfiguration configuration) |
+| [Items0BoxedString](#items0boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringItemsEnums0
 public enum StringItemsEnums0<br>

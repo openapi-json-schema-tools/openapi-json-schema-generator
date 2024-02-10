@@ -6,7 +6,7 @@ public class IntegerTypeMatchesIntegers {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class IntegerTypeMatchesIntegers1 extends IntJsonSchema {
+    public static class IntegerTypeMatchesIntegers1 extends IntJsonSchema.IntJsonSchema1 {
         private static @Nullable IntegerTypeMatchesIntegers1 instance = null;
         public static IntegerTypeMatchesIntegers1 getInstance() {
             if (instance == null) {

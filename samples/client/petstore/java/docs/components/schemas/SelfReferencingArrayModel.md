@@ -4,15 +4,42 @@ public class SelfReferencingArrayModel
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1Boxed](#selfreferencingarraymodel1boxed)<br> abstract sealed validated payload class |
+| static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist)<br> boxed class to store validated List payloads |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1](#selfreferencingarraymodel1)<br> schema class |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelListBuilder](#selfreferencingarraymodellistbuilder)<br> builder for List payloads |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelList](#selfreferencingarraymodellist)<br> output class for List payloads |
+
+## SelfReferencingArrayModel1Boxed
+public static abstract sealed class SelfReferencingArrayModel1Boxed<br>
+permits<br>
+[SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## SelfReferencingArrayModel1BoxedList
+public static final class SelfReferencingArrayModel1BoxedList<br>
+extends [SelfReferencingArrayModel1Boxed](#selfreferencingarraymodel1boxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SelfReferencingArrayModel1BoxedList([SelfReferencingArrayModelList](#selfreferencingarraymodellist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | data<br>validated payload |
 
 ## SelfReferencingArrayModel1
 public static class SelfReferencingArrayModel1<br>
@@ -54,6 +81,7 @@ SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<?>](#selfreferencingarraymodellistbuilder) arg, SchemaConfiguration configuration) |
+| [SelfReferencingArrayModel1BoxedList](#selfreferencingarraymodel1boxedlist) | validateAndBox([List<?>](#selfreferencingarraymodellistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SelfReferencingArrayModelListBuilder
 public class SelfReferencingArrayModelListBuilder<br>

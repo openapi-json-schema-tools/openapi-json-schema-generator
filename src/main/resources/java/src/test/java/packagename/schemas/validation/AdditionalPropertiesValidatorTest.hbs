@@ -24,9 +24,9 @@ public class AdditionalPropertiesValidatorTest {
             super(new JsonSchemaInfo()
                     .type(Set.of(FrozenMap.class))
                     .properties(Map.ofEntries(
-                            new PropertyEntry("someString", StringJsonSchema.class)
+                            new PropertyEntry("someString", StringJsonSchema.StringJsonSchema1.class)
                     ))
-                    .additionalProperties(StringJsonSchema.class)
+                    .additionalProperties(StringJsonSchema.StringJsonSchema1.class)
             );
 
         }
@@ -89,7 +89,7 @@ public class AdditionalPropertiesValidatorTest {
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someAddProp");
         LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
-        StringJsonSchema schema = JsonSchemaFactory.getInstance(StringJsonSchema.class);
+        StringJsonSchema.StringJsonSchema1 schema = JsonSchemaFactory.getInstance(StringJsonSchema.StringJsonSchema1.class);
         expectedClasses.put(schema, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
@@ -108,7 +108,7 @@ public class AdditionalPropertiesValidatorTest {
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
                 new ValidationData(
-                    MapJsonSchema.getInstance(),
+                    MapJsonSchema.MapJsonSchema1.getInstance(),
                     1,
                     validationMetadata
                 )

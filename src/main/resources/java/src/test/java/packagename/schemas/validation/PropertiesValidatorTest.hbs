@@ -22,7 +22,7 @@ public class PropertiesValidatorTest {
             super(new JsonSchemaInfo()
                     .type(Set.of(Map.class))
                     .properties(Map.ofEntries(
-                            new PropertyEntry("someString", StringJsonSchema.class)
+                            new PropertyEntry("someString", StringJsonSchema.StringJsonSchema1.class)
                     ))
             );
 
@@ -77,7 +77,7 @@ public class PropertiesValidatorTest {
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someString");
         LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
-        expectedClasses.put(JsonSchemaFactory.getInstance(StringJsonSchema.class), null);
+        expectedClasses.put(JsonSchemaFactory.getInstance(StringJsonSchema.StringJsonSchema1.class), null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);

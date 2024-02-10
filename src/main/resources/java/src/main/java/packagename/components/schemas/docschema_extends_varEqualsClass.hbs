@@ -1,8 +1,8 @@
 {{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
     {{#if isBooleanSchemaTrue}}
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
     {{else}}
-extends NotAnyTypeJsonSchema
+extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
     {{/if}}
 {{else}}
     {{#if refInfo.refClass}}
@@ -13,33 +13,33 @@ extends [{{refInfo.refClass}}](#{{refInfo.ref.jsonPathPiece.kebabCase}})
         {{/if}}
     {{else}}
         {{#eq types null}}
-extends AnyTypeJsonSchema
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}
-extends NullJsonSchema
+extends NullJsonSchema.NullJsonSchema1
                 {{/eq}}
                 {{#eq this "object"}}
-extends MapJsonSchema
+extends MapJsonSchema.MapJsonSchema1
                 {{/eq}}
                 {{#eq this "array"}}
-extends ListJsonSchema
+extends ListJsonSchema.ListJsonSchema1
                 {{/eq}}
                 {{#eq this "boolean"}}
-extends BooleanJsonSchema
+extends BooleanJsonSchema.BooleanJsonSchema1
                 {{/eq}}
                 {{#eq this "string"}}
                     {{#eq ../format "date"}}
-extends DateJsonSchema
+extends DateJsonSchema.DateJsonSchema1
                     {{/eq}}
                     {{#eq ../format "date-time"}}
-extends DateTimeJsonSchema
+extends DateTimeJsonSchema.DateTimeJsonSchema1
                     {{/eq}}
                     {{#eq ../format "uuid"}}
-extends UuidJsonSchema
+extends UuidJsonSchema.UuidJsonSchema1
                     {{/eq}}
                     {{#eq ../format "number"}}
-extends DecimalJsonSchema
+extends DecimalJsonSchema.DecimalJsonSchema1
                     {{/eq}}
                     {{#eq ../format "binary"}}
 extends JsonSchema
@@ -49,7 +49,7 @@ extends JsonSchema
                             {{#neq ../format "uuid"}}
                                 {{#neq ../format "number"}}
                                     {{#neq ../format "binary"}}
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
                                     {{/neq}}
                                 {{/neq}}
                             {{/neq}}
@@ -58,26 +58,26 @@ extends StringJsonSchema
                 {{/eq}}
                 {{#eq this "integer"}}
                     {{#eq ../format "int32"}}
-extends Int32JsonSchema
+extends Int32JsonSchema.Int32JsonSchema1
                     {{/eq}}
                     {{#eq ../format "int64"}}
-extends Int64JsonSchema
+extends Int64JsonSchema.Int64JsonSchema1
                     {{/eq}}
                     {{#neq ../format "int32"}}
                         {{#neq ../format "int64"}}
-extends IntJsonSchema
+extends IntJsonSchema.IntJsonSchema1
                         {{/neq}}
                     {{/neq}}
                 {{/eq}}
                 {{#eq this "number"}}
                     {{#eq ../format null}}
-extends NumberJsonSchema
+extends NumberJsonSchema.NumberJsonSchema1
                     {{else}}
                         {{#eq ../format "float"}}
-extends FloatJsonSchema
+extends FloatJsonSchema.FloatJsonSchema1
                         {{else}}
                             {{#eq ../format "double"}}
-extends DoubleJsonSchema
+extends DoubleJsonSchema.DoubleJsonSchema1
                             {{/eq}}
                         {{/eq}}
                     {{/eq}}

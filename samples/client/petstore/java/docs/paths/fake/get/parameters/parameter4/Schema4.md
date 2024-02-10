@@ -3,16 +3,43 @@ public class Schema4
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Schema4.Schema41Boxed](#schema41boxed)<br> abstract sealed validated payload class |
+| static class | [Schema4.Schema41BoxedNumber](#schema41boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
 | enum | [Schema4.IntegerSchemaEnums4](#integerschemaenums4)<br>Integer enum |
 | enum | [Schema4.LongSchemaEnums4](#longschemaenums4)<br>Long enum |
 | enum | [Schema4.FloatSchemaEnums4](#floatschemaenums4)<br>Float enum |
 | enum | [Schema4.DoubleSchemaEnums4](#doubleschemaenums4)<br>Double enum |
+
+## Schema41Boxed
+public static abstract sealed class Schema41Boxed<br>
+permits<br>
+[Schema41BoxedNumber](#schema41boxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Schema41BoxedNumber
+public static final class Schema41BoxedNumber<br>
+extends [Schema41Boxed](#schema41boxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema41BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Schema41
 public static class Schema41<br>
@@ -53,6 +80,7 @@ int validatedPayload = Schema4.Schema41.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | int | validate(int arg, SchemaConfiguration configuration) |
+| [Schema41BoxedNumber](#schema41boxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerSchemaEnums4
 public enum IntegerSchemaEnums4<br>

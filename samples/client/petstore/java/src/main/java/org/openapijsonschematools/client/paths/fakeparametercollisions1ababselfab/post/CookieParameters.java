@@ -34,7 +34,7 @@ public class CookieParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
@@ -187,7 +187,17 @@ public class CookieParameters {
     }
     
     
-    public static class CookieParameters1 extends JsonSchema implements MapSchemaValidator<CookieParametersMap> {
+    public static abstract sealed class CookieParameters1Boxed permits CookieParameters1BoxedMap {}
+    
+    public static final class CookieParameters1BoxedMap extends CookieParameters1Boxed {
+        public final CookieParametersMap data;
+        private CookieParameters1BoxedMap(CookieParametersMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class CookieParameters1 extends JsonSchema implements MapSchemaValidator<CookieParametersMap, CookieParameters1BoxedMap> {
         private static @Nullable CookieParameters1 instance = null;
     
         protected CookieParameters1() {
@@ -258,6 +268,10 @@ public class CookieParameters {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public CookieParameters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new CookieParameters1BoxedMap(validate(arg, configuration));
         }
     }
 

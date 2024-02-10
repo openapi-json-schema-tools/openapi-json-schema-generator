@@ -4,17 +4,48 @@ public class Category
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Category.Category1Boxed](#category1boxed)<br> abstract sealed validated payload class |
+| static class | [Category.Category1BoxedMap](#category1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Category.Category1](#category1)<br> schema class |
 | static class | [Category.CategoryMapBuilder](#categorymapbuilder)<br> builder for Map payloads |
 | static class | [Category.CategoryMap](#categorymap)<br> output class for Map payloads |
+| static class | [Category.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| static class | [Category.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Category.Name](#name)<br> schema class |
+| static class | [Category.IdBoxed](#idboxed)<br> abstract sealed validated payload class |
+| static class | [Category.IdBoxedNumber](#idboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Category.Id](#id)<br> schema class |
+
+## Category1Boxed
+public static abstract sealed class Category1Boxed<br>
+permits<br>
+[Category1BoxedMap](#category1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Category1BoxedMap
+public static final class Category1BoxedMap<br>
+extends [Category1Boxed](#category1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Category1BoxedMap([CategoryMap](#categorymap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [CategoryMap](#categorymap) | data<br>validated payload |
 
 ## Category1
 public static class Category1<br>
@@ -61,6 +92,7 @@ Category.CategoryMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [CategoryMap](#categorymap) | validate([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
+| [Category1BoxedMap](#category1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#categorymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CategoryMap0Builder
 public class CategoryMap0Builder<br>
@@ -121,6 +153,29 @@ A class to store validated Map payloads
 | Number | id()<br>[optional] value must be a 64 bit integer |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
+permits<br>
+[NameBoxedString](#nameboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NameBoxedString
+public static final class NameBoxedString<br>
+extends [NameBoxed](#nameboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Name
 public static class Name<br>
 extends JsonSchema
@@ -159,15 +214,40 @@ String validatedPayload = Category.Name.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| [NameBoxedString](#nameboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IdBoxed
+public static abstract sealed class IdBoxed<br>
+permits<br>
+[IdBoxedNumber](#idboxednumber)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## IdBoxedNumber
+public static final class IdBoxedNumber<br>
+extends [IdBoxed](#idboxed)
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Id
 public static class Id<br>
-extends Int64JsonSchema
+extends Int64JsonSchema.Int64JsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema.Int64JsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

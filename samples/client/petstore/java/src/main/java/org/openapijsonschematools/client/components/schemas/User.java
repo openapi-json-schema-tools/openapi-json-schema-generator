@@ -43,7 +43,7 @@ public class User {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Id extends Int64JsonSchema {
+    public static class Id extends Int64JsonSchema.Int64JsonSchema1 {
         private static @Nullable Id instance = null;
         public static Id getInstance() {
             if (instance == null) {
@@ -54,7 +54,7 @@ public class User {
     }
     
     
-    public static class Username extends StringJsonSchema {
+    public static class Username extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Username instance = null;
         public static Username getInstance() {
             if (instance == null) {
@@ -65,7 +65,7 @@ public class User {
     }
     
     
-    public static class FirstName extends StringJsonSchema {
+    public static class FirstName extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable FirstName instance = null;
         public static FirstName getInstance() {
             if (instance == null) {
@@ -76,7 +76,7 @@ public class User {
     }
     
     
-    public static class LastName extends StringJsonSchema {
+    public static class LastName extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable LastName instance = null;
         public static LastName getInstance() {
             if (instance == null) {
@@ -87,7 +87,7 @@ public class User {
     }
     
     
-    public static class Email extends StringJsonSchema {
+    public static class Email extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Email instance = null;
         public static Email getInstance() {
             if (instance == null) {
@@ -98,7 +98,7 @@ public class User {
     }
     
     
-    public static class Password extends StringJsonSchema {
+    public static class Password extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Password instance = null;
         public static Password getInstance() {
             if (instance == null) {
@@ -109,7 +109,7 @@ public class User {
     }
     
     
-    public static class Phone extends StringJsonSchema {
+    public static class Phone extends StringJsonSchema.StringJsonSchema1 {
         private static @Nullable Phone instance = null;
         public static Phone getInstance() {
             if (instance == null) {
@@ -120,7 +120,7 @@ public class User {
     }
     
     
-    public static class UserStatus extends Int32JsonSchema {
+    public static class UserStatus extends Int32JsonSchema.Int32JsonSchema1 {
         private static @Nullable UserStatus instance = null;
         public static UserStatus getInstance() {
             if (instance == null) {
@@ -131,7 +131,7 @@ public class User {
     }
     
     
-    public static class ObjectWithNoDeclaredProps extends MapJsonSchema {
+    public static class ObjectWithNoDeclaredProps extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable ObjectWithNoDeclaredProps instance = null;
         public static ObjectWithNoDeclaredProps getInstance() {
             if (instance == null) {
@@ -142,7 +142,24 @@ public class User {
     }
     
     
-    public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {}
+    
+    public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid extends ObjectWithNoDeclaredPropsNullableBoxed {
+        public final Void data;
+        private ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ObjectWithNoDeclaredPropsNullableBoxedMap extends ObjectWithNoDeclaredPropsNullableBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema implements NullSchemaValidator<ObjectWithNoDeclaredPropsNullableBoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithNoDeclaredPropsNullableBoxedMap> {
         private static @Nullable ObjectWithNoDeclaredPropsNullable instance = null;
     
         protected ObjectWithNoDeclaredPropsNullable() {
@@ -224,9 +241,17 @@ public class User {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ObjectWithNoDeclaredPropsNullableBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithNoDeclaredPropsNullableBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ObjectWithNoDeclaredPropsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectWithNoDeclaredPropsNullableBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class AnyTypeProp extends AnyTypeJsonSchema {
+    public static class AnyTypeProp extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable AnyTypeProp instance = null;
         public static AnyTypeProp getInstance() {
             if (instance == null) {
@@ -237,7 +262,7 @@ public class User {
     }
     
     
-    public static class Not extends NullJsonSchema {
+    public static class Not extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable Not instance = null;
         public static Not getInstance() {
             if (instance == null) {
@@ -248,7 +273,52 @@ public class User {
     }
     
     
-    public static class AnyTypeExceptNullProp extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {}
+    
+    public static final class AnyTypeExceptNullPropBoxedVoid extends AnyTypeExceptNullPropBoxed {
+        public final Void data;
+        private AnyTypeExceptNullPropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AnyTypeExceptNullPropBoxedBoolean extends AnyTypeExceptNullPropBoxed {
+        public final boolean data;
+        private AnyTypeExceptNullPropBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AnyTypeExceptNullPropBoxedNumber extends AnyTypeExceptNullPropBoxed {
+        public final Number data;
+        private AnyTypeExceptNullPropBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AnyTypeExceptNullPropBoxedString extends AnyTypeExceptNullPropBoxed {
+        public final String data;
+        private AnyTypeExceptNullPropBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AnyTypeExceptNullPropBoxedList extends AnyTypeExceptNullPropBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AnyTypeExceptNullPropBoxedMap extends AnyTypeExceptNullPropBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class AnyTypeExceptNullProp extends JsonSchema implements NullSchemaValidator<AnyTypeExceptNullPropBoxedVoid>, BooleanSchemaValidator<AnyTypeExceptNullPropBoxedBoolean>, NumberSchemaValidator<AnyTypeExceptNullPropBoxedNumber>, StringSchemaValidator<AnyTypeExceptNullPropBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, AnyTypeExceptNullPropBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, AnyTypeExceptNullPropBoxedMap> {
         private static @Nullable AnyTypeExceptNullProp instance = null;
     
         protected AnyTypeExceptNullProp() {
@@ -441,9 +511,33 @@ public class User {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public AnyTypeExceptNullPropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeExceptNullPropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public AnyTypeExceptNullPropBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeExceptNullPropBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public AnyTypeExceptNullPropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeExceptNullPropBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public AnyTypeExceptNullPropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeExceptNullPropBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public AnyTypeExceptNullPropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeExceptNullPropBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public AnyTypeExceptNullPropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AnyTypeExceptNullPropBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class AnyTypePropNullable extends AnyTypeJsonSchema {
+    public static class AnyTypePropNullable extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
         private static @Nullable AnyTypePropNullable instance = null;
         public static AnyTypePropNullable getInstance() {
             if (instance == null) {
@@ -988,7 +1082,17 @@ public class User {
     }
     
     
-    public static class User1 extends JsonSchema implements MapSchemaValidator<UserMap> {
+    public static abstract sealed class User1Boxed permits User1BoxedMap {}
+    
+    public static final class User1BoxedMap extends User1Boxed {
+        public final UserMap data;
+        private User1BoxedMap(UserMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class User1 extends JsonSchema implements MapSchemaValidator<UserMap, User1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -1072,6 +1176,10 @@ public class User {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public User1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new User1BoxedMap(validate(arg, configuration));
         }
     }
 

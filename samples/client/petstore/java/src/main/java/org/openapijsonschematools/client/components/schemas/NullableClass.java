@@ -38,7 +38,24 @@ public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties3 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class AdditionalProperties3Boxed permits AdditionalProperties3BoxedVoid, AdditionalProperties3BoxedMap {}
+    
+    public static final class AdditionalProperties3BoxedVoid extends AdditionalProperties3Boxed {
+        public final Void data;
+        private AdditionalProperties3BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AdditionalProperties3BoxedMap extends AdditionalProperties3Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AdditionalProperties3BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class AdditionalProperties3 extends JsonSchema implements NullSchemaValidator<AdditionalProperties3BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties3BoxedMap> {
         private static @Nullable AdditionalProperties3 instance = null;
     
         protected AdditionalProperties3() {
@@ -120,9 +137,35 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public AdditionalProperties3BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalProperties3BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalProperties3BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalProperties3BoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class IntegerProp extends JsonSchema implements NullSchemaValidator, NumberSchemaValidator {
+    public static abstract sealed class IntegerPropBoxed permits IntegerPropBoxedVoid, IntegerPropBoxedNumber {}
+    
+    public static final class IntegerPropBoxedVoid extends IntegerPropBoxed {
+        public final Void data;
+        private IntegerPropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class IntegerPropBoxedNumber extends IntegerPropBoxed {
+        public final Number data;
+        private IntegerPropBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class IntegerProp extends JsonSchema implements NullSchemaValidator<IntegerPropBoxedVoid>, NumberSchemaValidator<IntegerPropBoxedNumber> {
         private static @Nullable IntegerProp instance = null;
     
         protected IntegerProp() {
@@ -201,9 +244,35 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public IntegerPropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IntegerPropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public IntegerPropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new IntegerPropBoxedNumber(validate(arg, configuration));
+        }
     }    
     
-    public static class NumberProp extends JsonSchema implements NullSchemaValidator, NumberSchemaValidator {
+    public static abstract sealed class NumberPropBoxed permits NumberPropBoxedVoid, NumberPropBoxedNumber {}
+    
+    public static final class NumberPropBoxedVoid extends NumberPropBoxed {
+        public final Void data;
+        private NumberPropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class NumberPropBoxedNumber extends NumberPropBoxed {
+        public final Number data;
+        private NumberPropBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class NumberProp extends JsonSchema implements NullSchemaValidator<NumberPropBoxedVoid>, NumberSchemaValidator<NumberPropBoxedNumber> {
         private static @Nullable NumberProp instance = null;
     
         protected NumberProp() {
@@ -281,9 +350,35 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public NumberPropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NumberPropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public NumberPropBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NumberPropBoxedNumber(validate(arg, configuration));
+        }
     }    
     
-    public static class BooleanProp extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator {
+    public static abstract sealed class BooleanPropBoxed permits BooleanPropBoxedVoid, BooleanPropBoxedBoolean {}
+    
+    public static final class BooleanPropBoxedVoid extends BooleanPropBoxed {
+        public final Void data;
+        private BooleanPropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class BooleanPropBoxedBoolean extends BooleanPropBoxed {
+        public final boolean data;
+        private BooleanPropBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class BooleanProp extends JsonSchema implements NullSchemaValidator<BooleanPropBoxedVoid>, BooleanSchemaValidator<BooleanPropBoxedBoolean> {
         private static @Nullable BooleanProp instance = null;
     
         protected BooleanProp() {
@@ -344,9 +439,35 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public BooleanPropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BooleanPropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public BooleanPropBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new BooleanPropBoxedBoolean(validate(arg, configuration));
+        }
     }    
     
-    public static class StringProp extends JsonSchema implements NullSchemaValidator, StringSchemaValidator {
+    public static abstract sealed class StringPropBoxed permits StringPropBoxedVoid, StringPropBoxedString {}
+    
+    public static final class StringPropBoxedVoid extends StringPropBoxed {
+        public final Void data;
+        private StringPropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class StringPropBoxedString extends StringPropBoxed {
+        public final String data;
+        private StringPropBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class StringProp extends JsonSchema implements NullSchemaValidator<StringPropBoxedVoid>, StringSchemaValidator<StringPropBoxedString> {
         private static @Nullable StringProp instance = null;
     
         protected StringProp() {
@@ -405,9 +526,35 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public StringPropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StringPropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public StringPropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new StringPropBoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class DateProp extends JsonSchema implements NullSchemaValidator, StringSchemaValidator {
+    public static abstract sealed class DatePropBoxed permits DatePropBoxedVoid, DatePropBoxedString {}
+    
+    public static final class DatePropBoxedVoid extends DatePropBoxed {
+        public final Void data;
+        private DatePropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DatePropBoxedString extends DatePropBoxed {
+        public final String data;
+        private DatePropBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class DateProp extends JsonSchema implements NullSchemaValidator<DatePropBoxedVoid>, StringSchemaValidator<DatePropBoxedString> {
         private static @Nullable DateProp instance = null;
     
         protected DateProp() {
@@ -467,9 +614,35 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public DatePropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DatePropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public DatePropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DatePropBoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class DatetimeProp extends JsonSchema implements NullSchemaValidator, StringSchemaValidator {
+    public static abstract sealed class DatetimePropBoxed permits DatetimePropBoxedVoid, DatetimePropBoxedString {}
+    
+    public static final class DatetimePropBoxedVoid extends DatetimePropBoxed {
+        public final Void data;
+        private DatetimePropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DatetimePropBoxedString extends DatetimePropBoxed {
+        public final String data;
+        private DatetimePropBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class DatetimeProp extends JsonSchema implements NullSchemaValidator<DatetimePropBoxedVoid>, StringSchemaValidator<DatetimePropBoxedString> {
         private static @Nullable DatetimeProp instance = null;
     
         protected DatetimeProp() {
@@ -529,9 +702,17 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public DatetimePropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DatetimePropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public DatetimePropBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DatetimePropBoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class Items extends MapJsonSchema {
+    public static class Items extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable Items instance = null;
         public static Items getInstance() {
             if (instance == null) {
@@ -574,7 +755,25 @@ public class NullableClass {
     }
     
     
-    public static class ArrayNullableProp extends JsonSchema implements NullSchemaValidator, ListSchemaValidator<ArrayNullablePropList> {
+    public static abstract sealed class ArrayNullablePropBoxed permits ArrayNullablePropBoxedVoid, ArrayNullablePropBoxedList {}
+    
+    public static final class ArrayNullablePropBoxedVoid extends ArrayNullablePropBoxed {
+        public final Void data;
+        private ArrayNullablePropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ArrayNullablePropBoxedList extends ArrayNullablePropBoxed {
+        public final ArrayNullablePropList data;
+        private ArrayNullablePropBoxedList(ArrayNullablePropList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class ArrayNullableProp extends JsonSchema implements NullSchemaValidator<ArrayNullablePropBoxedVoid>, ListSchemaValidator<ArrayNullablePropList, ArrayNullablePropBoxedList> {
         private static @Nullable ArrayNullableProp instance = null;
     
         protected ArrayNullableProp() {
@@ -656,9 +855,34 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ArrayNullablePropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayNullablePropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ArrayNullablePropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayNullablePropBoxedList(validate(arg, configuration));
+        }
     }    
     
-    public static class Items1 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class Items1Boxed permits Items1BoxedVoid, Items1BoxedMap {}
+    
+    public static final class Items1BoxedVoid extends Items1Boxed {
+        public final Void data;
+        private Items1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Items1BoxedMap extends Items1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private Items1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Items1 extends JsonSchema implements NullSchemaValidator<Items1BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, Items1BoxedMap> {
         private static @Nullable Items1 instance = null;
     
         protected Items1() {
@@ -740,6 +964,14 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Items1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Items1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public Items1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Items1BoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class ArrayAndItemsNullablePropList extends FrozenList<@Nullable FrozenMap<?>> {
@@ -779,7 +1011,25 @@ public class NullableClass {
     }
     
     
-    public static class ArrayAndItemsNullableProp extends JsonSchema implements NullSchemaValidator, ListSchemaValidator<ArrayAndItemsNullablePropList> {
+    public static abstract sealed class ArrayAndItemsNullablePropBoxed permits ArrayAndItemsNullablePropBoxedVoid, ArrayAndItemsNullablePropBoxedList {}
+    
+    public static final class ArrayAndItemsNullablePropBoxedVoid extends ArrayAndItemsNullablePropBoxed {
+        public final Void data;
+        private ArrayAndItemsNullablePropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ArrayAndItemsNullablePropBoxedList extends ArrayAndItemsNullablePropBoxed {
+        public final ArrayAndItemsNullablePropList data;
+        private ArrayAndItemsNullablePropBoxedList(ArrayAndItemsNullablePropList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class ArrayAndItemsNullableProp extends JsonSchema implements NullSchemaValidator<ArrayAndItemsNullablePropBoxedVoid>, ListSchemaValidator<ArrayAndItemsNullablePropList, ArrayAndItemsNullablePropBoxedList> {
         private static @Nullable ArrayAndItemsNullableProp instance = null;
     
         protected ArrayAndItemsNullableProp() {
@@ -861,9 +1111,34 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ArrayAndItemsNullablePropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayAndItemsNullablePropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ArrayAndItemsNullablePropBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayAndItemsNullablePropBoxedList(validate(arg, configuration));
+        }
     }    
     
-    public static class Items2 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class Items2Boxed permits Items2BoxedVoid, Items2BoxedMap {}
+    
+    public static final class Items2BoxedVoid extends Items2Boxed {
+        public final Void data;
+        private Items2BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Items2BoxedMap extends Items2Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private Items2BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Items2 extends JsonSchema implements NullSchemaValidator<Items2BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, Items2BoxedMap> {
         private static @Nullable Items2 instance = null;
     
         protected Items2() {
@@ -945,6 +1220,14 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Items2BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Items2BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public Items2BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Items2BoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class ArrayItemsNullableList extends FrozenList<@Nullable FrozenMap<?>> {
@@ -984,7 +1267,18 @@ public class NullableClass {
     }
     
     
-    public static class ArrayItemsNullable extends JsonSchema implements ListSchemaValidator<ArrayItemsNullableList> {
+    public static abstract sealed class ArrayItemsNullableBoxed permits ArrayItemsNullableBoxedList {}
+    
+    public static final class ArrayItemsNullableBoxedList extends ArrayItemsNullableBoxed {
+        public final ArrayItemsNullableList data;
+        private ArrayItemsNullableBoxedList(ArrayItemsNullableList data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class ArrayItemsNullable extends JsonSchema implements ListSchemaValidator<ArrayItemsNullableList, ArrayItemsNullableBoxedList> {
         private static @Nullable ArrayItemsNullable instance = null;
     
         protected ArrayItemsNullable() {
@@ -1048,9 +1342,13 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ArrayItemsNullableBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ArrayItemsNullableBoxedList(validate(arg, configuration));
+        }
     }    
     
-    public static class AdditionalProperties extends MapJsonSchema {
+    public static class AdditionalProperties extends MapJsonSchema.MapJsonSchema1 {
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
             if (instance == null) {
@@ -1110,7 +1408,24 @@ public class NullableClass {
     }
     
     
-    public static class ObjectNullableProp extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<ObjectNullablePropMap> {
+    public static abstract sealed class ObjectNullablePropBoxed permits ObjectNullablePropBoxedVoid, ObjectNullablePropBoxedMap {}
+    
+    public static final class ObjectNullablePropBoxedVoid extends ObjectNullablePropBoxed {
+        public final Void data;
+        private ObjectNullablePropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ObjectNullablePropBoxedMap extends ObjectNullablePropBoxed {
+        public final ObjectNullablePropMap data;
+        private ObjectNullablePropBoxedMap(ObjectNullablePropMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ObjectNullableProp extends JsonSchema implements NullSchemaValidator<ObjectNullablePropBoxedVoid>, MapSchemaValidator<ObjectNullablePropMap, ObjectNullablePropBoxedMap> {
         private static @Nullable ObjectNullableProp instance = null;
     
         protected ObjectNullableProp() {
@@ -1196,9 +1511,34 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ObjectNullablePropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectNullablePropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ObjectNullablePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectNullablePropBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class AdditionalProperties1 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedMap {}
+    
+    public static final class AdditionalProperties1BoxedVoid extends AdditionalProperties1Boxed {
+        public final Void data;
+        private AdditionalProperties1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AdditionalProperties1BoxedMap extends AdditionalProperties1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class AdditionalProperties1 extends JsonSchema implements NullSchemaValidator<AdditionalProperties1BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties1BoxedMap> {
         private static @Nullable AdditionalProperties1 instance = null;
     
         protected AdditionalProperties1() {
@@ -1280,6 +1620,14 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public AdditionalProperties1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalProperties1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalProperties1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalProperties1BoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class ObjectAndItemsNullablePropMap extends FrozenMap<@Nullable FrozenMap<?>> {
@@ -1338,7 +1686,24 @@ public class NullableClass {
     }
     
     
-    public static class ObjectAndItemsNullableProp extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<ObjectAndItemsNullablePropMap> {
+    public static abstract sealed class ObjectAndItemsNullablePropBoxed permits ObjectAndItemsNullablePropBoxedVoid, ObjectAndItemsNullablePropBoxedMap {}
+    
+    public static final class ObjectAndItemsNullablePropBoxedVoid extends ObjectAndItemsNullablePropBoxed {
+        public final Void data;
+        private ObjectAndItemsNullablePropBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class ObjectAndItemsNullablePropBoxedMap extends ObjectAndItemsNullablePropBoxed {
+        public final ObjectAndItemsNullablePropMap data;
+        private ObjectAndItemsNullablePropBoxedMap(ObjectAndItemsNullablePropMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ObjectAndItemsNullableProp extends JsonSchema implements NullSchemaValidator<ObjectAndItemsNullablePropBoxedVoid>, MapSchemaValidator<ObjectAndItemsNullablePropMap, ObjectAndItemsNullablePropBoxedMap> {
         private static @Nullable ObjectAndItemsNullableProp instance = null;
     
         protected ObjectAndItemsNullableProp() {
@@ -1424,9 +1789,34 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public ObjectAndItemsNullablePropBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectAndItemsNullablePropBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public ObjectAndItemsNullablePropBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectAndItemsNullablePropBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class AdditionalProperties2 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedMap {}
+    
+    public static final class AdditionalProperties2BoxedVoid extends AdditionalProperties2Boxed {
+        public final Void data;
+        private AdditionalProperties2BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class AdditionalProperties2BoxedMap extends AdditionalProperties2Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class AdditionalProperties2 extends JsonSchema implements NullSchemaValidator<AdditionalProperties2BoxedVoid>, MapSchemaValidator<FrozenMap<@Nullable Object>, AdditionalProperties2BoxedMap> {
         private static @Nullable AdditionalProperties2 instance = null;
     
         protected AdditionalProperties2() {
@@ -1508,6 +1898,14 @@ public class NullableClass {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public AdditionalProperties2BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalProperties2BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public AdditionalProperties2BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new AdditionalProperties2BoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class ObjectItemsNullableMap extends FrozenMap<@Nullable FrozenMap<?>> {
@@ -1566,7 +1964,17 @@ public class NullableClass {
     }
     
     
-    public static class ObjectItemsNullable extends JsonSchema implements MapSchemaValidator<ObjectItemsNullableMap> {
+    public static abstract sealed class ObjectItemsNullableBoxed permits ObjectItemsNullableBoxedMap {}
+    
+    public static final class ObjectItemsNullableBoxedMap extends ObjectItemsNullableBoxed {
+        public final ObjectItemsNullableMap data;
+        private ObjectItemsNullableBoxedMap(ObjectItemsNullableMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class ObjectItemsNullable extends JsonSchema implements MapSchemaValidator<ObjectItemsNullableMap, ObjectItemsNullableBoxedMap> {
         private static @Nullable ObjectItemsNullable instance = null;
     
         protected ObjectItemsNullable() {
@@ -1633,6 +2041,10 @@ public class NullableClass {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public ObjectItemsNullableBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ObjectItemsNullableBoxedMap(validate(arg, configuration));
         }
     }
     
@@ -2108,7 +2520,17 @@ public class NullableClass {
     }
     
     
-    public static class NullableClass1 extends JsonSchema implements MapSchemaValidator<NullableClassMap> {
+    public static abstract sealed class NullableClass1Boxed permits NullableClass1BoxedMap {}
+    
+    public static final class NullableClass1BoxedMap extends NullableClass1Boxed {
+        public final NullableClassMap data;
+        private NullableClass1BoxedMap(NullableClassMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class NullableClass1 extends JsonSchema implements MapSchemaValidator<NullableClassMap, NullableClass1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -2195,6 +2617,10 @@ public class NullableClass {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public NullableClass1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NullableClass1BoxedMap(validate(arg, configuration));
         }
     }
 

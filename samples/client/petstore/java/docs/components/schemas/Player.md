@@ -4,16 +4,45 @@ public class Player
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Player.Player1Boxed](#player1boxed)<br> abstract sealed validated payload class |
+| static class | [Player.Player1BoxedMap](#player1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Player.Player1](#player1)<br> schema class |
 | static class | [Player.PlayerMapBuilder](#playermapbuilder)<br> builder for Map payloads |
 | static class | [Player.PlayerMap](#playermap)<br> output class for Map payloads |
+| static class | [Player.NameBoxed](#nameboxed)<br> abstract sealed validated payload class |
+| static class | [Player.NameBoxedString](#nameboxedstring)<br> boxed class to store validated String payloads |
 | static class | [Player.Name](#name)<br> schema class |
+
+## Player1Boxed
+public static abstract sealed class Player1Boxed<br>
+permits<br>
+[Player1BoxedMap](#player1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Player1BoxedMap
+public static final class Player1BoxedMap<br>
+extends [Player1Boxed](#player1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Player1BoxedMap([PlayerMap](#playermap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [PlayerMap](#playermap) | data<br>validated payload |
 
 ## Player1
 public static class Player1<br>
@@ -60,6 +89,7 @@ Player.PlayerMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PlayerMap](#playermap) | validate([Map&lt;?, ?&gt;](#playermapbuilder) arg, SchemaConfiguration configuration) |
+| [Player1BoxedMap](#player1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#playermapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PlayerMapBuilder
 public class PlayerMapBuilder<br>
@@ -102,14 +132,38 @@ A class to store validated Map payloads
 | [PlayerMap](#playermap) | enemyPlayer()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## NameBoxed
+public static abstract sealed class NameBoxed<br>
+permits<br>
+[NameBoxedString](#nameboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## NameBoxedString
+public static final class NameBoxedString<br>
+extends [NameBoxed](#nameboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NameBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## Name
 public static class Name<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -4,16 +4,45 @@ public class GrandparentAnimal
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [GrandparentAnimal.GrandparentAnimal1Boxed](#grandparentanimal1boxed)<br> abstract sealed validated payload class |
+| static class | [GrandparentAnimal.GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimal1](#grandparentanimal1)<br> schema class |
 | static class | [GrandparentAnimal.GrandparentAnimalMapBuilder](#grandparentanimalmapbuilder)<br> builder for Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimalMap](#grandparentanimalmap)<br> output class for Map payloads |
+| static class | [GrandparentAnimal.PetTypeBoxed](#pettypeboxed)<br> abstract sealed validated payload class |
+| static class | [GrandparentAnimal.PetTypeBoxedString](#pettypeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
+
+## GrandparentAnimal1Boxed
+public static abstract sealed class GrandparentAnimal1Boxed<br>
+permits<br>
+[GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## GrandparentAnimal1BoxedMap
+public static final class GrandparentAnimal1BoxedMap<br>
+extends [GrandparentAnimal1Boxed](#grandparentanimal1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| GrandparentAnimal1BoxedMap([GrandparentAnimalMap](#grandparentanimalmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [GrandparentAnimalMap](#grandparentanimalmap) | data<br>validated payload |
 
 ## GrandparentAnimal1
 public static class GrandparentAnimal1<br>
@@ -58,6 +87,7 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map&lt;?, ?&gt;](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
+| [GrandparentAnimal1BoxedMap](#grandparentanimal1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#grandparentanimalmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## GrandparentAnimalMap0Builder
 public class GrandparentAnimalMap0Builder<br>
@@ -113,14 +143,38 @@ A class to store validated Map payloads
 | String | pet_type()<br> |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## PetTypeBoxed
+public static abstract sealed class PetTypeBoxed<br>
+permits<br>
+[PetTypeBoxedString](#pettypeboxedstring)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## PetTypeBoxedString
+public static final class PetTypeBoxedString<br>
+extends [PetTypeBoxed](#pettypeboxed)
+
+a boxed class to store validated String payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PetTypeBoxedString(String data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| String | data<br>validated payload |
+
 ## PetType
 public static class PetType<br>
-extends StringJsonSchema
+extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
+| validateAndBox                                                     |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

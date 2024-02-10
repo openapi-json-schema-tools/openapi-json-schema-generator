@@ -37,7 +37,52 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Footbar extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class FootbarBoxed permits FootbarBoxedVoid, FootbarBoxedBoolean, FootbarBoxedNumber, FootbarBoxedString, FootbarBoxedList, FootbarBoxedMap {}
+    
+    public static final class FootbarBoxedVoid extends FootbarBoxed {
+        public final Void data;
+        private FootbarBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FootbarBoxedBoolean extends FootbarBoxed {
+        public final boolean data;
+        private FootbarBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FootbarBoxedNumber extends FootbarBoxed {
+        public final Number data;
+        private FootbarBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FootbarBoxedString extends FootbarBoxed {
+        public final String data;
+        private FootbarBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FootbarBoxedList extends FootbarBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private FootbarBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FootbarBoxedMap extends FootbarBoxed {
+        public final FrozenMap<@Nullable Object> data;
+        private FootbarBoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Footbar extends JsonSchema implements NullSchemaValidator<FootbarBoxedVoid>, BooleanSchemaValidator<FootbarBoxedBoolean>, NumberSchemaValidator<FootbarBoxedNumber>, StringSchemaValidator<FootbarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FootbarBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FootbarBoxedMap> {
         private static @Nullable Footbar instance = null;
     
         protected Footbar() {
@@ -230,6 +275,30 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public FootbarBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FootbarBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public FootbarBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FootbarBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public FootbarBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FootbarBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public FootbarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FootbarBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public FootbarBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FootbarBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public FootbarBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FootbarBoxedMap(validate(arg, configuration));
+        }
     }    
     
     public static class FoobarMap extends FrozenMap<@Nullable Object> {
@@ -346,7 +415,52 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
     }
     
     
-    public static class Foobar extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FoobarMap> {
+    public static abstract sealed class FoobarBoxed permits FoobarBoxedVoid, FoobarBoxedBoolean, FoobarBoxedNumber, FoobarBoxedString, FoobarBoxedList, FoobarBoxedMap {}
+    
+    public static final class FoobarBoxedVoid extends FoobarBoxed {
+        public final Void data;
+        private FoobarBoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoobarBoxedBoolean extends FoobarBoxed {
+        public final boolean data;
+        private FoobarBoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoobarBoxedNumber extends FoobarBoxed {
+        public final Number data;
+        private FoobarBoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoobarBoxedString extends FoobarBoxed {
+        public final String data;
+        private FoobarBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoobarBoxedList extends FoobarBoxed {
+        public final FrozenList<@Nullable Object> data;
+        private FoobarBoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class FoobarBoxedMap extends FoobarBoxed {
+        public final FoobarMap data;
+        private FoobarBoxedMap(FoobarMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Foobar extends JsonSchema implements NullSchemaValidator<FoobarBoxedVoid>, BooleanSchemaValidator<FoobarBoxedBoolean>, NumberSchemaValidator<FoobarBoxedNumber>, StringSchemaValidator<FoobarBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FoobarBoxedList>, MapSchemaValidator<FoobarMap, FoobarBoxedMap> {
         private static @Nullable Foobar instance = null;
     
         protected Foobar() {
@@ -541,9 +655,78 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public FoobarBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoobarBoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public FoobarBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoobarBoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public FoobarBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoobarBoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public FoobarBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoobarBoxedString(validate(arg, configuration));
+        }
+        @Override
+        public FoobarBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoobarBoxedList(validate(arg, configuration));
+        }
+        @Override
+        public FoobarBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new FoobarBoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class DependentSchemasDependenciesWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class DependentSchemasDependenciesWithEscapedCharacters1Boxed permits DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid, DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean, DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber, DependentSchemasDependenciesWithEscapedCharacters1BoxedString, DependentSchemasDependenciesWithEscapedCharacters1BoxedList, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap {}
+    
+    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
+        public final Void data;
+        private DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
+        public final boolean data;
+        private DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
+        public final Number data;
+        private DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedString extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
+        public final String data;
+        private DependentSchemasDependenciesWithEscapedCharacters1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedList extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private DependentSchemasDependenciesWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedMap extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private DependentSchemasDependenciesWithEscapedCharacters1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class DependentSchemasDependenciesWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid>, BooleanSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean>, NumberSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber>, StringSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DependentSchemasDependenciesWithEscapedCharacters1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -744,6 +927,30 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependenciesWithEscapedCharacters1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependenciesWithEscapedCharacters1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependenciesWithEscapedCharacters1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependenciesWithEscapedCharacters1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public DependentSchemasDependenciesWithEscapedCharacters1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new DependentSchemasDependenciesWithEscapedCharacters1BoxedMap(validate(arg, configuration));
         }
     }
 }

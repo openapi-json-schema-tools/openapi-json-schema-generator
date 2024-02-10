@@ -4,6 +4,8 @@ public class Drawing
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+- abstract sealed classes which store validated payloads, java version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
 - classes to store validated list payloads, extends FrozenList
 - classes to build inputs for list payloads
 - classes to store validated map payloads, extends FrozenMap
@@ -12,12 +14,39 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
+| static class | [Drawing.Drawing1Boxed](#drawing1boxed)<br> abstract sealed validated payload class |
+| static class | [Drawing.Drawing1BoxedMap](#drawing1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
 | static class | [Drawing.DrawingMapBuilder](#drawingmapbuilder)<br> builder for Map payloads |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
+| static class | [Drawing.ShapesBoxed](#shapesboxed)<br> abstract sealed validated payload class |
+| static class | [Drawing.ShapesBoxedList](#shapesboxedlist)<br> boxed class to store validated List payloads |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
 | static class | [Drawing.ShapesListBuilder](#shapeslistbuilder)<br> builder for List payloads |
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
+
+## Drawing1Boxed
+public static abstract sealed class Drawing1Boxed<br>
+permits<br>
+[Drawing1BoxedMap](#drawing1boxedmap)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## Drawing1BoxedMap
+public static final class Drawing1BoxedMap<br>
+extends [Drawing1Boxed](#drawing1boxed)
+
+a boxed class to store validated Map payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Drawing1BoxedMap([DrawingMap](#drawingmap) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [DrawingMap](#drawingmap) | data<br>validated payload |
 
 ## Drawing1
 public static class Drawing1<br>
@@ -64,6 +93,7 @@ Drawing.DrawingMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DrawingMap](#drawingmap) | validate([Map&lt;?, ?&gt;](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
+| [Drawing1BoxedMap](#drawing1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#drawingmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DrawingMapBuilder
 public class DrawingMapBuilder<br>
@@ -134,6 +164,29 @@ A class to store validated Map payloads
 | [ShapesList](#shapeslist) | shapes()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ShapesBoxed
+public static abstract sealed class ShapesBoxed<br>
+permits<br>
+[ShapesBoxedList](#shapesboxedlist)
+
+abstract sealed class that stores validated payloads using boxed classes
+
+## ShapesBoxedList
+public static final class ShapesBoxedList<br>
+extends [ShapesBoxed](#shapesboxed)
+
+a boxed class to store validated List payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ShapesBoxedList([ShapesList](#shapeslist) data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| [ShapesList](#shapeslist) | data<br>validated payload |
+
 ## Shapes
 public static class Shapes<br>
 extends JsonSchema
@@ -174,6 +227,7 @@ Drawing.ShapesList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [ShapesList](#shapeslist) | validate([List<?>](#shapeslistbuilder) arg, SchemaConfiguration configuration) |
+| [ShapesBoxedList](#shapesboxedlist) | validateAndBox([List<?>](#shapeslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ShapesListBuilder
 public class ShapesListBuilder<br>

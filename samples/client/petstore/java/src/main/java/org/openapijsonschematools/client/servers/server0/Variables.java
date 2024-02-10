@@ -34,7 +34,7 @@ public class Variables {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
         private static @Nullable AdditionalProperties instance = null;
         public static AdditionalProperties getInstance() {
@@ -60,7 +60,18 @@ public class Variables {
     }
     
     
-    public static class Server extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringServerEnums>, DefaultValueMethod<String> {
+    public static abstract sealed class ServerBoxed permits ServerBoxedString {}
+    
+    public static final class ServerBoxedString extends ServerBoxed {
+        public final String data;
+        private ServerBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Server extends JsonSchema implements StringSchemaValidator<ServerBoxedString>, StringEnumValidator<StringServerEnums>, DefaultValueMethod<String> {
         private static @Nullable Server instance = null;
     
         protected Server() {
@@ -120,6 +131,10 @@ public class Variables {
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
         }
+        @Override
+        public ServerBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new ServerBoxedString(validate(arg, configuration));
+        }
     }    
     public enum StringPortEnums implements StringValueMethod {
         POSITIVE_80("80"),
@@ -135,7 +150,18 @@ public class Variables {
     }
     
     
-    public static class Port extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringPortEnums>, DefaultValueMethod<String> {
+    public static abstract sealed class PortBoxed permits PortBoxedString {}
+    
+    public static final class PortBoxedString extends PortBoxed {
+        public final String data;
+        private PortBoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Port extends JsonSchema implements StringSchemaValidator<PortBoxedString>, StringEnumValidator<StringPortEnums>, DefaultValueMethod<String> {
         private static @Nullable Port instance = null;
     
         protected Port() {
@@ -193,6 +219,10 @@ public class Variables {
                 return (String) defaultValue;
             }
             throw new InvalidTypeException("Invalid type stored in defaultValue");
+        }
+        @Override
+        public PortBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new PortBoxedString(validate(arg, configuration));
         }
     }    
     
@@ -320,7 +350,17 @@ public class Variables {
     }
     
     
-    public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap> {
+    public static abstract sealed class Variables1Boxed permits Variables1BoxedMap {}
+    
+    public static final class Variables1BoxedMap extends Variables1Boxed {
+        public final VariablesMap data;
+        private Variables1BoxedMap(VariablesMap data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Variables1 extends JsonSchema implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
         private static @Nullable Variables1 instance = null;
     
         protected Variables1() {
@@ -395,6 +435,10 @@ public class Variables {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Variables1BoxedMap(validate(arg, configuration));
         }
     }
 

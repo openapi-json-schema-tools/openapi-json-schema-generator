@@ -36,7 +36,7 @@ public class NestedOneofToCheckValidationSemantics {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema01 extends NullJsonSchema {
+    public static class Schema01 extends NullJsonSchema.NullJsonSchema1 {
         private static @Nullable Schema01 instance = null;
         public static Schema01 getInstance() {
             if (instance == null) {
@@ -47,7 +47,52 @@ public class NestedOneofToCheckValidationSemantics {
     }
     
     
-    public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {}
+    
+    public static final class Schema0BoxedVoid extends Schema0Boxed {
+        public final Void data;
+        private Schema0BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedBoolean extends Schema0Boxed {
+        public final boolean data;
+        private Schema0BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedNumber extends Schema0Boxed {
+        public final Number data;
+        private Schema0BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedString extends Schema0Boxed {
+        public final String data;
+        private Schema0BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedList extends Schema0Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private Schema0BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema0BoxedMap extends Schema0Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private Schema0BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema0 extends JsonSchema implements NullSchemaValidator<Schema0BoxedVoid>, BooleanSchemaValidator<Schema0BoxedBoolean>, NumberSchemaValidator<Schema0BoxedNumber>, StringSchemaValidator<Schema0BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Schema0BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Schema0BoxedMap> {
         private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
@@ -242,9 +287,78 @@ public class NestedOneofToCheckValidationSemantics {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema0BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public Schema0BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema0BoxedMap(validate(arg, configuration));
+        }
     }    
     
-    public static class NestedOneofToCheckValidationSemantics1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class NestedOneofToCheckValidationSemantics1Boxed permits NestedOneofToCheckValidationSemantics1BoxedVoid, NestedOneofToCheckValidationSemantics1BoxedBoolean, NestedOneofToCheckValidationSemantics1BoxedNumber, NestedOneofToCheckValidationSemantics1BoxedString, NestedOneofToCheckValidationSemantics1BoxedList, NestedOneofToCheckValidationSemantics1BoxedMap {}
+    
+    public static final class NestedOneofToCheckValidationSemantics1BoxedVoid extends NestedOneofToCheckValidationSemantics1Boxed {
+        public final Void data;
+        private NestedOneofToCheckValidationSemantics1BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class NestedOneofToCheckValidationSemantics1BoxedBoolean extends NestedOneofToCheckValidationSemantics1Boxed {
+        public final boolean data;
+        private NestedOneofToCheckValidationSemantics1BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class NestedOneofToCheckValidationSemantics1BoxedNumber extends NestedOneofToCheckValidationSemantics1Boxed {
+        public final Number data;
+        private NestedOneofToCheckValidationSemantics1BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class NestedOneofToCheckValidationSemantics1BoxedString extends NestedOneofToCheckValidationSemantics1Boxed {
+        public final String data;
+        private NestedOneofToCheckValidationSemantics1BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class NestedOneofToCheckValidationSemantics1BoxedList extends NestedOneofToCheckValidationSemantics1Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private NestedOneofToCheckValidationSemantics1BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class NestedOneofToCheckValidationSemantics1BoxedMap extends NestedOneofToCheckValidationSemantics1Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private NestedOneofToCheckValidationSemantics1BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class NestedOneofToCheckValidationSemantics1 extends JsonSchema implements NullSchemaValidator<NestedOneofToCheckValidationSemantics1BoxedVoid>, BooleanSchemaValidator<NestedOneofToCheckValidationSemantics1BoxedBoolean>, NumberSchemaValidator<NestedOneofToCheckValidationSemantics1BoxedNumber>, StringSchemaValidator<NestedOneofToCheckValidationSemantics1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NestedOneofToCheckValidationSemantics1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NestedOneofToCheckValidationSemantics1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -444,6 +558,30 @@ public class NestedOneofToCheckValidationSemantics {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public NestedOneofToCheckValidationSemantics1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NestedOneofToCheckValidationSemantics1BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public NestedOneofToCheckValidationSemantics1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NestedOneofToCheckValidationSemantics1BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public NestedOneofToCheckValidationSemantics1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NestedOneofToCheckValidationSemantics1BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public NestedOneofToCheckValidationSemantics1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NestedOneofToCheckValidationSemantics1BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public NestedOneofToCheckValidationSemantics1BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NestedOneofToCheckValidationSemantics1BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public NestedOneofToCheckValidationSemantics1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new NestedOneofToCheckValidationSemantics1BoxedMap(validate(arg, configuration));
         }
     }
 }

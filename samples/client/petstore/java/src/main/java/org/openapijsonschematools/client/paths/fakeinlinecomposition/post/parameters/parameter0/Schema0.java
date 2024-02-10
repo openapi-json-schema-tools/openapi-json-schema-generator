@@ -35,7 +35,18 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema00 extends JsonSchema implements StringSchemaValidator {
+    public static abstract sealed class Schema00Boxed permits Schema00BoxedString {}
+    
+    public static final class Schema00BoxedString extends Schema00Boxed {
+        public final String data;
+        private Schema00BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    
+    
+    public static class Schema00 extends JsonSchema implements StringSchemaValidator<Schema00BoxedString> {
         private static @Nullable Schema00 instance = null;
     
         protected Schema00() {
@@ -79,9 +90,58 @@ public class Schema0 {
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+        @Override
+        public Schema00BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema00BoxedString(validate(arg, configuration));
+        }
     }    
     
-    public static class Schema01 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedVoid, Schema01BoxedBoolean, Schema01BoxedNumber, Schema01BoxedString, Schema01BoxedList, Schema01BoxedMap {}
+    
+    public static final class Schema01BoxedVoid extends Schema01Boxed {
+        public final Void data;
+        private Schema01BoxedVoid(Void data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema01BoxedBoolean extends Schema01Boxed {
+        public final boolean data;
+        private Schema01BoxedBoolean(boolean data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema01BoxedNumber extends Schema01Boxed {
+        public final Number data;
+        private Schema01BoxedNumber(Number data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema01BoxedString extends Schema01Boxed {
+        public final String data;
+        private Schema01BoxedString(String data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema01BoxedList extends Schema01Boxed {
+        public final FrozenList<@Nullable Object> data;
+        private Schema01BoxedList(FrozenList<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    public static final class Schema01BoxedMap extends Schema01Boxed {
+        public final FrozenMap<@Nullable Object> data;
+        private Schema01BoxedMap(FrozenMap<@Nullable Object> data) {
+            this.data = data;
+        }
+    }
+    
+    
+    public static class Schema01 extends JsonSchema implements NullSchemaValidator<Schema01BoxedVoid>, BooleanSchemaValidator<Schema01BoxedBoolean>, NumberSchemaValidator<Schema01BoxedNumber>, StringSchemaValidator<Schema01BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, Schema01BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, Schema01BoxedMap> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -275,6 +335,30 @@ public class Schema0 {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+        }
+        @Override
+        public Schema01BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedVoid(validate(arg, configuration));
+        }
+        @Override
+        public Schema01BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedBoolean(validate(arg, configuration));
+        }
+        @Override
+        public Schema01BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedNumber(validate(arg, configuration));
+        }
+        @Override
+        public Schema01BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedString(validate(arg, configuration));
+        }
+        @Override
+        public Schema01BoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedList(validate(arg, configuration));
+        }
+        @Override
+        public Schema01BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            return new Schema01BoxedMap(validate(arg, configuration));
         }
     }
 }
