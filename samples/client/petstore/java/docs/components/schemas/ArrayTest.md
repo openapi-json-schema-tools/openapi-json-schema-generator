@@ -513,6 +513,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Items2BoxedNumber
+public static final class Items2BoxedNumber<br>
+extends Items2Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Items2BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Items2
 public static class Items2<br>
 extends Int64JsonSchema.Int64JsonSchema1

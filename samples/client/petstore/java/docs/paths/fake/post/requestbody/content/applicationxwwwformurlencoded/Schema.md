@@ -883,6 +883,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## DoubleSchemaBoxedNumber
+public static final class DoubleSchemaBoxedNumber<br>
+extends DoubleSchemaBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DoubleSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## DoubleSchema
 public static class DoubleSchema<br>
 extends JsonSchema
@@ -934,6 +950,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## FloatSchemaBoxedNumber
+public static final class FloatSchemaBoxedNumber<br>
+extends FloatSchemaBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FloatSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -983,6 +1015,22 @@ permits<br>
 [NumberSchemaBoxedNumber](#numberschemaboxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## NumberSchemaBoxedNumber
+public static final class NumberSchemaBoxedNumber<br>
+extends NumberSchemaBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## NumberSchema
 public static class NumberSchema<br>
@@ -1034,6 +1082,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Int64BoxedNumber
+public static final class Int64BoxedNumber<br>
+extends Int64Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int64BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Int64
 public static class Int64<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -1054,6 +1118,22 @@ permits<br>
 [Int32BoxedNumber](#int32boxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Int32BoxedNumber
+public static final class Int32BoxedNumber<br>
+extends Int32Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int32BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Int32
 public static class Int32<br>
@@ -1105,6 +1185,22 @@ permits<br>
 [IntegerSchemaBoxedNumber](#integerschemaboxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## IntegerSchemaBoxedNumber
+public static final class IntegerSchemaBoxedNumber<br>
+extends IntegerSchemaBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IntegerSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## IntegerSchema
 public static class IntegerSchema<br>

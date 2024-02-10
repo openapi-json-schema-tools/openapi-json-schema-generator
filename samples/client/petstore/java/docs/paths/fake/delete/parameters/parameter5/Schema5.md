@@ -19,6 +19,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema51BoxedNumber
+public static final class Schema51BoxedNumber<br>
+extends Schema51Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema51BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Schema51
 public static class Schema51<br>
 extends Int64JsonSchema.Int64JsonSchema1

@@ -205,6 +205,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## EnumNumberBoxedNumber
+public static final class EnumNumberBoxedNumber<br>
+extends EnumNumberBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumNumberBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## EnumNumber
 public static class EnumNumber<br>
 extends JsonSchema
@@ -275,6 +291,22 @@ permits<br>
 [EnumIntegerBoxedNumber](#enumintegerboxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## EnumIntegerBoxedNumber
+public static final class EnumIntegerBoxedNumber<br>
+extends EnumIntegerBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EnumIntegerBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## EnumInteger
 public static class EnumInteger<br>

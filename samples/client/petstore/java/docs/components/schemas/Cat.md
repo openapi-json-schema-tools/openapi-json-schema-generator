@@ -65,6 +65,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## Cat1BoxedNumber
+public static final class Cat1BoxedNumber<br>
+extends Cat1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Cat1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Cat1BoxedString
 public static final class Cat1BoxedString<br>
 extends Cat1Boxed

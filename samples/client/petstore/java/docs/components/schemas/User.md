@@ -247,6 +247,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## AnyTypePropNullableBoxedNumber
+public static final class AnyTypePropNullableBoxedNumber<br>
+extends AnyTypePropNullableBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropNullableBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## AnyTypePropNullableBoxedString
 public static final class AnyTypePropNullableBoxedString<br>
 extends AnyTypePropNullableBoxed
@@ -320,6 +336,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AnyTypeExceptNullPropBoxedNumber
+public static final class AnyTypeExceptNullPropBoxedNumber<br>
+extends AnyTypeExceptNullPropBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypeExceptNullPropBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## AnyTypeExceptNullPropBoxedString
 public static final class AnyTypeExceptNullPropBoxedString<br>
@@ -441,6 +473,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AnyTypePropBoxedNumber
+public static final class AnyTypePropBoxedNumber<br>
+extends AnyTypePropBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AnyTypePropBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## AnyTypePropBoxedString
 public static final class AnyTypePropBoxedString<br>
@@ -565,6 +613,22 @@ permits<br>
 [UserStatusBoxedNumber](#userstatusboxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## UserStatusBoxedNumber
+public static final class UserStatusBoxedNumber<br>
+extends UserStatusBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UserStatusBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## UserStatus
 public static class UserStatus<br>
@@ -790,6 +854,22 @@ permits<br>
 [IdBoxedNumber](#idboxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## IdBoxedNumber
+public static final class IdBoxedNumber<br>
+extends IdBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Id
 public static class Id<br>

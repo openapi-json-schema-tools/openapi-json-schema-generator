@@ -19,6 +19,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Int32JsonContentTypeHeaderSchema1BoxedNumber
+public static final class Int32JsonContentTypeHeaderSchema1BoxedNumber<br>
+extends Int32JsonContentTypeHeaderSchema1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int32JsonContentTypeHeaderSchema1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Int32JsonContentTypeHeaderSchema1
 public static class Int32JsonContentTypeHeaderSchema1<br>
 extends Int32JsonSchema.Int32JsonSchema1

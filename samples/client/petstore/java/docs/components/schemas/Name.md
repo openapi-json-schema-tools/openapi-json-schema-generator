@@ -67,6 +67,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## Name1BoxedNumber
+public static final class Name1BoxedNumber<br>
+extends Name1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Name1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Name1BoxedString
 public static final class Name1BoxedString<br>
 extends Name1Boxed
@@ -215,6 +231,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## SnakeCaseBoxedNumber
+public static final class SnakeCaseBoxedNumber<br>
+extends SnakeCaseBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SnakeCaseBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## SnakeCase
 public static class SnakeCase<br>
 extends Int32JsonSchema.Int32JsonSchema1
@@ -232,6 +264,22 @@ permits<br>
 [Name2BoxedNumber](#name2boxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Name2BoxedNumber
+public static final class Name2BoxedNumber<br>
+extends Name2Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Name2BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Name2
 public static class Name2<br>

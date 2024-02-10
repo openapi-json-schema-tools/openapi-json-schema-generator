@@ -73,6 +73,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## ComposedOneOfDifferentTypes1BoxedNumber
+public static final class ComposedOneOfDifferentTypes1BoxedNumber<br>
+extends ComposedOneOfDifferentTypes1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedOneOfDifferentTypes1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## ComposedOneOfDifferentTypes1BoxedString
 public static final class ComposedOneOfDifferentTypes1BoxedString<br>
 extends ComposedOneOfDifferentTypes1Boxed
@@ -309,6 +325,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## ItemsBoxedNumber
+public static final class ItemsBoxedNumber<br>
+extends ItemsBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>

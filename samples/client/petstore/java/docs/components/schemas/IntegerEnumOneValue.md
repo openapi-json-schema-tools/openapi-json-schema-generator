@@ -25,6 +25,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## IntegerEnumOneValue1BoxedNumber
+public static final class IntegerEnumOneValue1BoxedNumber<br>
+extends IntegerEnumOneValue1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IntegerEnumOneValue1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## IntegerEnumOneValue1
 public static class IntegerEnumOneValue1<br>
 extends JsonSchema

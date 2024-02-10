@@ -150,6 +150,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema123NumberBoxedNumber
+public static final class Schema123NumberBoxedNumber<br>
+extends Schema123NumberBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema123NumberBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Schema123Number
 public static class Schema123Number<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -201,6 +217,22 @@ permits<br>
 [SpecialpropertynameBoxedNumber](#specialpropertynameboxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## SpecialpropertynameBoxedNumber
+public static final class SpecialpropertynameBoxedNumber<br>
+extends SpecialpropertynameBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SpecialpropertynameBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Specialpropertyname
 public static class Specialpropertyname<br>

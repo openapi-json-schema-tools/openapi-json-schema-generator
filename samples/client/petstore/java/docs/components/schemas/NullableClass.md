@@ -1447,6 +1447,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
 
+## NumberPropBoxedNumber
+public static final class NumberPropBoxedNumber<br>
+extends NumberPropBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberPropBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## NumberProp
 public static class NumberProp<br>
 extends JsonSchema
@@ -1515,6 +1531,22 @@ a boxed class to store validated null payloads, sealed permits class implementat
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Void | data<br>validated payload |
+
+## IntegerPropBoxedNumber
+public static final class IntegerPropBoxedNumber<br>
+extends IntegerPropBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IntegerPropBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## IntegerProp
 public static class IntegerProp<br>

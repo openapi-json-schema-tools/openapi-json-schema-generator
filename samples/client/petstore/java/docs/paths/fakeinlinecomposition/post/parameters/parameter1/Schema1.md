@@ -159,6 +159,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## SomeProp1BoxedNumber
+public static final class SomeProp1BoxedNumber<br>
+extends SomeProp1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| SomeProp1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## SomeProp1BoxedString
 public static final class SomeProp1BoxedString<br>
 extends SomeProp1Boxed

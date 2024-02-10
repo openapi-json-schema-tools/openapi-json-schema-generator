@@ -67,6 +67,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## EquilateralTriangle1BoxedNumber
+public static final class EquilateralTriangle1BoxedNumber<br>
+extends EquilateralTriangle1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| EquilateralTriangle1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## EquilateralTriangle1BoxedString
 public static final class EquilateralTriangle1BoxedString<br>
 extends EquilateralTriangle1Boxed

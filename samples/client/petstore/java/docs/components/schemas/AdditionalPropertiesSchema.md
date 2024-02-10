@@ -186,6 +186,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## AdditionalProperties2BoxedNumber
+public static final class AdditionalProperties2BoxedNumber<br>
+extends AdditionalProperties2Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties2BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## AdditionalProperties2BoxedString
 public static final class AdditionalProperties2BoxedString<br>
 extends AdditionalProperties2Boxed
@@ -355,6 +371,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## AdditionalProperties1BoxedNumber
+public static final class AdditionalProperties1BoxedNumber<br>
+extends AdditionalProperties1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalProperties1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## AdditionalProperties1BoxedString
 public static final class AdditionalProperties1BoxedString<br>
 extends AdditionalProperties1Boxed
@@ -523,6 +555,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AdditionalPropertiesBoxedNumber
+public static final class AdditionalPropertiesBoxedNumber<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>

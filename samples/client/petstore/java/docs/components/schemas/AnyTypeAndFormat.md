@@ -250,6 +250,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## FloatSchemaBoxedNumber
+public static final class FloatSchemaBoxedNumber<br>
+extends FloatSchemaBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| FloatSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## FloatSchemaBoxedString
 public static final class FloatSchemaBoxedString<br>
 extends FloatSchemaBoxed
@@ -333,6 +349,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## DoubleSchemaBoxedNumber
+public static final class DoubleSchemaBoxedNumber<br>
+extends DoubleSchemaBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DoubleSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## DoubleSchemaBoxedString
 public static final class DoubleSchemaBoxedString<br>
@@ -418,6 +450,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## Int64BoxedNumber
+public static final class Int64BoxedNumber<br>
+extends Int64Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int64BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Int64BoxedString
 public static final class Int64BoxedString<br>
 extends Int64Boxed
@@ -501,6 +549,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## Int32BoxedNumber
+public static final class Int32BoxedNumber<br>
+extends Int32Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Int32BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Int32BoxedString
 public static final class Int32BoxedString<br>
@@ -586,6 +650,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## BinaryBoxedNumber
+public static final class BinaryBoxedNumber<br>
+extends BinaryBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| BinaryBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## BinaryBoxedString
 public static final class BinaryBoxedString<br>
 extends BinaryBoxed
@@ -669,6 +749,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## NumberSchemaBoxedNumber
+public static final class NumberSchemaBoxedNumber<br>
+extends NumberSchemaBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| NumberSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## NumberSchemaBoxedString
 public static final class NumberSchemaBoxedString<br>
@@ -754,6 +850,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## DatetimeBoxedNumber
+public static final class DatetimeBoxedNumber<br>
+extends DatetimeBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DatetimeBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## DatetimeBoxedString
 public static final class DatetimeBoxedString<br>
 extends DatetimeBoxed
@@ -838,6 +950,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## DateBoxedNumber
+public static final class DateBoxedNumber<br>
+extends DateBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| DateBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## DateBoxedString
 public static final class DateBoxedString<br>
 extends DateBoxed
@@ -921,6 +1049,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## UuidSchemaBoxedNumber
+public static final class UuidSchemaBoxedNumber<br>
+extends UuidSchemaBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| UuidSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## UuidSchemaBoxedString
 public static final class UuidSchemaBoxedString<br>

@@ -65,6 +65,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber
+public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber<br>
+extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString
 public static final class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1BoxedString<br>
 extends ObjectWithAllOfWithReqTestPropFromUnsetAddProp1Boxed

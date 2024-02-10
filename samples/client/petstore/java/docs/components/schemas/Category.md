@@ -202,6 +202,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## IdBoxedNumber
+public static final class IdBoxedNumber<br>
+extends IdBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Id
 public static class Id<br>
 extends Int64JsonSchema.Int64JsonSchema1

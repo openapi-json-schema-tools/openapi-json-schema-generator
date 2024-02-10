@@ -22,6 +22,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ComposedNumber1BoxedNumber
+public static final class ComposedNumber1BoxedNumber<br>
+extends ComposedNumber1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedNumber1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## ComposedNumber1
 public static class ComposedNumber1<br>
 extends JsonSchema
@@ -104,6 +120,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## Schema0BoxedNumber
+public static final class Schema0BoxedNumber<br>
+extends Schema0Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema0BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Schema0BoxedString
 public static final class Schema0BoxedString<br>

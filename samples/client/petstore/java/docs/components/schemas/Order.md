@@ -302,6 +302,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## QuantityBoxedNumber
+public static final class QuantityBoxedNumber<br>
+extends QuantityBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| QuantityBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Quantity
 public static class Quantity<br>
 extends Int32JsonSchema.Int32JsonSchema1
@@ -320,6 +336,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## PetIdBoxedNumber
+public static final class PetIdBoxedNumber<br>
+extends PetIdBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| PetIdBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## PetId
 public static class PetId<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -337,6 +369,22 @@ permits<br>
 [IdBoxedNumber](#idboxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## IdBoxedNumber
+public static final class IdBoxedNumber<br>
+extends IdBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| IdBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Id
 public static class Id<br>

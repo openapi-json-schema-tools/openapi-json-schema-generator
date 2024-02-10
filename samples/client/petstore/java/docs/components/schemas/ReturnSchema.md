@@ -63,6 +63,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## ReturnSchema1BoxedNumber
+public static final class ReturnSchema1BoxedNumber<br>
+extends ReturnSchema1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReturnSchema1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## ReturnSchema1BoxedString
 public static final class ReturnSchema1BoxedString<br>
 extends ReturnSchema1Boxed
@@ -152,6 +168,22 @@ permits<br>
 [ReturnSchema2BoxedNumber](#returnschema2boxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## ReturnSchema2BoxedNumber
+public static final class ReturnSchema2BoxedNumber<br>
+extends ReturnSchema2Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ReturnSchema2BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## ReturnSchema2
 public static class ReturnSchema2<br>

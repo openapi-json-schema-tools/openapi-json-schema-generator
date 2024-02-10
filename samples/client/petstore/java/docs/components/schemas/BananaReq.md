@@ -167,6 +167,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## LengthCmBoxedNumber
+public static final class LengthCmBoxedNumber<br>
+extends LengthCmBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| LengthCmBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## LengthCm
 public static class LengthCm<br>
 extends NumberJsonSchema.NumberJsonSchema1
@@ -221,6 +237,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## AdditionalPropertiesBoxedNumber
+public static final class AdditionalPropertiesBoxedNumber<br>
+extends AdditionalPropertiesBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## AdditionalPropertiesBoxedString
 public static final class AdditionalPropertiesBoxedString<br>

@@ -67,6 +67,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## TriangleInterface1BoxedNumber
+public static final class TriangleInterface1BoxedNumber<br>
+extends TriangleInterface1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| TriangleInterface1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## TriangleInterface1BoxedString
 public static final class TriangleInterface1BoxedString<br>
 extends TriangleInterface1Boxed

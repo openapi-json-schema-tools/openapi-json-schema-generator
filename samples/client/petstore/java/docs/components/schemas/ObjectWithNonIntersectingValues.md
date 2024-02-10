@@ -115,6 +115,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## ABoxedNumber
+public static final class ABoxedNumber<br>
+extends ABoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ABoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## A
 public static class A<br>
 extends NumberJsonSchema.NumberJsonSchema1

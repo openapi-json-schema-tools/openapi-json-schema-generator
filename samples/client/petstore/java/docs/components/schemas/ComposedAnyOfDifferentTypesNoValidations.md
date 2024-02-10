@@ -95,6 +95,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
 
+## ComposedAnyOfDifferentTypesNoValidations1BoxedNumber
+public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedNumber<br>
+extends ComposedAnyOfDifferentTypesNoValidations1Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ComposedAnyOfDifferentTypesNoValidations1BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## ComposedAnyOfDifferentTypesNoValidations1BoxedString
 public static final class ComposedAnyOfDifferentTypesNoValidations1BoxedString<br>
 extends ComposedAnyOfDifferentTypesNoValidations1Boxed
@@ -142,6 +158,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema15BoxedNumber
+public static final class Schema15BoxedNumber<br>
+extends Schema15Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema15BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Schema15
 public static class Schema15<br>
 extends Int64JsonSchema.Int64JsonSchema1
@@ -159,6 +191,22 @@ permits<br>
 [Schema14BoxedNumber](#schema14boxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema14BoxedNumber
+public static final class Schema14BoxedNumber<br>
+extends Schema14Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema14BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Schema14
 public static class Schema14<br>
@@ -178,6 +226,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema13BoxedNumber
+public static final class Schema13BoxedNumber<br>
+extends Schema13Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema13BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Schema13
 public static class Schema13<br>
 extends IntJsonSchema.IntJsonSchema1
@@ -195,6 +259,22 @@ permits<br>
 [Schema12BoxedNumber](#schema12boxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema12BoxedNumber
+public static final class Schema12BoxedNumber<br>
+extends Schema12Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema12BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Schema12
 public static class Schema12<br>
@@ -214,6 +294,22 @@ permits<br>
 
 A sealed class that stores validated payloads using boxed classes
 
+## Schema11BoxedNumber
+public static final class Schema11BoxedNumber<br>
+extends Schema11Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema11BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
+
 ## Schema11
 public static class Schema11<br>
 extends FloatJsonSchema.FloatJsonSchema1
@@ -231,6 +327,22 @@ permits<br>
 [Schema10BoxedNumber](#schema10boxednumber)
 
 A sealed class that stores validated payloads using boxed classes
+
+## Schema10BoxedNumber
+public static final class Schema10BoxedNumber<br>
+extends Schema10Boxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| Schema10BoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## Schema10
 public static class Schema10<br>
@@ -371,6 +483,22 @@ a boxed class to store validated boolean payloads, sealed permits class implemen
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | boolean | data<br>validated payload |
+
+## ItemsBoxedNumber
+public static final class ItemsBoxedNumber<br>
+extends ItemsBoxed
+
+a boxed class to store validated Number payloads, sealed permits class implementation
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ItemsBoxedNumber(Number data)<br>Creates an instance, private visibility |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| Number | data<br>validated payload |
 
 ## ItemsBoxedString
 public static final class ItemsBoxedString<br>
