@@ -488,6 +488,9 @@ src/main/java/org/openapijsonschematools/client/exceptions/InvalidAdditionalProp
 src/main/java/org/openapijsonschematools/client/exceptions/InvalidTypeException.java
 src/main/java/org/openapijsonschematools/client/exceptions/UnsetPropertyException.java
 src/main/java/org/openapijsonschematools/client/exceptions/ValidationException.java
+src/main/java/org/openapijsonschematools/client/mediatype/Encoding.java
+src/main/java/org/openapijsonschematools/client/mediatype/MediaType.java
+src/main/java/org/openapijsonschematools/client/parameter/ParameterStyle.java
 src/main/java/org/openapijsonschematools/client/paths/anotherfakedummy/patch/responses/response200/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/HeaderParameters.java
 src/main/java/org/openapijsonschematools/client/paths/commonparamsubdir/delete/PathParameters.java
@@ -716,6 +719,9 @@ src/main/java/org/openapijsonschematools/client/paths/userusername/get/responses
 src/main/java/org/openapijsonschematools/client/paths/userusername/get/responses/response200/content/applicationxml/Schema.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/PathParameters.java
 src/main/java/org/openapijsonschematools/client/paths/userusername/put/requestbody/content/applicationjson/Schema.java
+src/main/java/org/openapijsonschematools/client/requestbody/RequestBody.java
+src/main/java/org/openapijsonschematools/client/requestbody/RequestBodySerializer.java
+src/main/java/org/openapijsonschematools/client/requestbody/SerializedRequestBody.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java

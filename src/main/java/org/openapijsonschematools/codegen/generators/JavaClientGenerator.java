@@ -733,6 +733,33 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/configurations/ApiConfiguration.hbs",
                 packagePath() + File.separatorChar + "configurations",
                 "ApiConfiguration.java"));
+        // requestbody
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/requestbody/RequestBody.hbs",
+                packagePath() + File.separatorChar + "requestbody",
+                "RequestBody.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/requestbody/RequestBodySerializer.hbs",
+                packagePath() + File.separatorChar + "requestbody",
+                "RequestBodySerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/requestbody/SerializedRequestBody.hbs",
+                packagePath() + File.separatorChar + "requestbody",
+                "SerializedRequestBody.java"));
+        // mediatype
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/mediatype/MediaType.hbs",
+                packagePath() + File.separatorChar + "mediatype",
+                "MediaType.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/mediatype/Encoding.hbs",
+                packagePath() + File.separatorChar + "mediatype",
+                "Encoding.java"));
+        // parameter
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ParameterStyle.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ParameterStyle.java"));
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("src/main/java/packagename/components/schemas/Schema.hbs", ".java");

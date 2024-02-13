@@ -1,6 +1,6 @@
-package {{{packageName}}}.requestbody;
+package org.openapijsonschematools.client.requestbody;
 
-import {{{packageName}}}.mediatype.MediaType;
+import org.openapijsonschematools.client.mediatype.MediaType;
 
 import java.util.Map;
 
