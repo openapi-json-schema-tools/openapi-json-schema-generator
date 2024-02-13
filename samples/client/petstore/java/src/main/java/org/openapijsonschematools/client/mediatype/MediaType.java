@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.mediatype;
 
-import package org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Map;
@@ -14,15 +14,15 @@ public class MediaType<T extends JsonSchema> {
     *     The encoding object SHALL only apply to requestBody objects when the media type is
     *     multipart or application/x-www-form-urlencoded.
     */
-    public final Class<T> schema;
+    public final T schema;
     public final @Nullable Map<String, Encoding> encoding;
 
-    public MediaTypeWithoutEncoding(Class<T> schema, @Nullable Map<String, Encoding> encoding) {
+    public MediaType(T schema, @Nullable Map<String, Encoding> encoding) {
         this.schema = schema;
         this.encoding = encoding;
     }
 
-    public MediaTypeWithoutEncoding(Class<T> schema) {
+    public MediaType(T schema) {
         this.schema = schema;
         this.encoding = null;
     }

@@ -1,0 +1,46 @@
+{{> _helper_header }}
+
+{{#with requestBody}}
+package {{packageName}}.components.requestbodies;
+
+{{#if refInfo}}
+    {{#if imports}}
+
+    {{/if}}
+{{> _helper_imports }}
+{{jsonPathPiece.pascalCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+{{else}}
+import {{packageName}}.requestbody.RequestBodySerializer;
+import {{packageName}}.mediatype.MediaType;
+    {{#each content}}
+        {{#with schema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+        {{/with}}
+    {{/each}}
+
+import java.util.AbstractMap;
+import java.util.Map;
+
+public class {{jsonPathPiece.pascalCase}} extends RequestBodySerializer {
+    {{#each content}}
+
+    public static class {{@key.pascalCase}}MediaType extends MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}> {
+        public {{@key.pascalCase}}MediaType() {
+            super({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+        }
+    }
+    {{/each}}
+
+    public {{jsonPathPiece.pascalCase}}() {
+        super(
+            Map.ofEntries(
+    {{#each content}}
+                new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+    {{/each}}
+            ),
+            {{#if required}}true{{else}}false{{/if}}
+        );
+    }
+}
+{{/if}}
+{{/with}}

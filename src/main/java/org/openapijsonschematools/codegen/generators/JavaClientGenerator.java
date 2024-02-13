@@ -761,6 +761,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
 
+        // requestbodies
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/requestbodies/RequestBody.hbs", ".java");
+                }}
+        );
+        // shchema
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("src/main/java/packagename/components/schemas/Schema.hbs", ".java");
         jsonPathTemplateFiles.put(
@@ -830,6 +838,23 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String toSecuritySchemeFilename(String basename, String jsonPath) {
         return toModelName(basename, jsonPath);
+    }
+
+    @Override
+    public String toRequestBodyFilename(String componentName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces[1].equals("requestbodies") || pathPieces[1].equals("requestBodies")) {
+            if (pathPieces.length == 3) {
+                // #/requestBodies/SomeRequestBody
+                return toModelName(componentName, null);
+            }
+            return toModuleFilename(componentName, null);
+        }
+        if (pathPieces.length == 5) {
+            // #/paths/somePath/verb/requestBody
+            return toModelName(componentName, null);
+        }
+        return toModuleFilename(componentName, null);
     }
 
     @Override

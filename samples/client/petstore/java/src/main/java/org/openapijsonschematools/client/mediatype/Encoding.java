@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.mediatype;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-package org.openapijsonschematools.client.parameter.ParameterStyle;
+import org.openapijsonschematools.client.parameter.ParameterStyle;
 
 import java.util.Map;
 

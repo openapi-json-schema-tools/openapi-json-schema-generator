@@ -4,7 +4,7 @@ import org.openapijsonschematools.client.mediatype.MediaType;
 
 import java.util.Map;
 
-public abstract class RequestBodySerializer<T extends RequestBody> {
+public abstract class RequestBodySerializer {
     /*
     * Describes a single request body
     * content: content_type to MediaType schema info
@@ -25,5 +25,6 @@ public abstract class RequestBodySerializer<T extends RequestBody> {
         this.required = required;
     }
 
-    public abstract SerializedRequestBody serialize(T requestBody);
+    // public abstract SerializedRequestBody serialize(T requestBody);
+    // todo add T extends RequestBody generic as an input to this class
 }

@@ -3763,7 +3763,7 @@ public class DefaultGenerator implements Generator {
                 pathPieces[4] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
-            pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
+            pathPieces[3] = toRequestBodyFilename(pathPieces[3], jsonPath);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
@@ -4571,8 +4571,8 @@ public class DefaultGenerator implements Generator {
         return cmtContent;
     }
 
-    public String toRequestBodyFilename(String componentName) {
-        return toModuleFilename(componentName, null);
+    public String toRequestBodyFilename(String componentName, String jsonPath) {
+        return toModuleFilename(componentName, jsonPath);
     }
 
     protected String toRefModule(String ref, String sourceJsonPath, String expectedComponentType) {
@@ -4598,7 +4598,7 @@ public class DefaultGenerator implements Generator {
         }
         switch (expectedComponentType) {
             case "requestBodies":
-                return toRequestBodyFilename(refPieces[3]);
+                return toRequestBodyFilename(refPieces[3], ref);
             case "responses":
                 return toResponseModuleName(refPieces[3], ref);
             case "headers":
@@ -4876,7 +4876,7 @@ public class DefaultGenerator implements Generator {
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toRequestBodyFilename(usedKey);
+                snakeCaseName = toRequestBodyFilename(usedKey, sourceJsonPath);
                 pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":
