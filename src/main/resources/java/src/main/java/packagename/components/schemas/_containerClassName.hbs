@@ -43,7 +43,7 @@
                                         {{#eq ../format "int32"}}
 {{containerJsonPathPiece.pascalCase}} extends Int32JsonSchema
                                         {{~else}}
-                                            {{#eq ../format "int6"}}
+                                            {{#eq ../format "int64"}}
 {{containerJsonPathPiece.pascalCase}} extends Int64JsonSchema
                                             {{~else}}
 {{containerJsonPathPiece.pascalCase}} extends IntJsonSchema
