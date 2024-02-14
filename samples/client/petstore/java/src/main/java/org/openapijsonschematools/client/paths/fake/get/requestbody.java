@@ -6,16 +6,16 @@ package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.paths.fake.get.requestbody.content.applicationxwwwformurlencoded.Schema;
+import org.openapijsonschematools.client.paths.fake.get.requestbody.content.applicationxwwwformurlencoded.ApplicationxwwwformurlencodedSchema;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody extends RequestBodySerializer {
 
-    public static class ApplicationxwwwformurlencodedMediaType extends MediaType<Schema.Schema1> {
+    public static class ApplicationxwwwformurlencodedMediaType extends MediaType<ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1> {
         public ApplicationxwwwformurlencodedMediaType() {
-            super(Schema.Schema1.getInstance());
+            super(ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1.getInstance());
         }
     }
 

@@ -936,9 +936,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         - header schemas could also be refed
         - so all header schemas must be named by their header name to prevent collisions
          */
+        String[] pathPieces = sourceJsonPath.split("/");
         if (sourceJsonPath.endsWith("/schema")) {
             if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
-                String[] pathPieces = sourceJsonPath.split("/");
                 if (pathPieces[3].equals("parameters")) {
                     // #/paths/path/parameters/0/Schema -> PathParamSchema0
                     usedKey = "PathParam" + camelize(usedKey) + pathPieces[4]; // PathParamSchema0
@@ -951,7 +951,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     sourceJsonPath.startsWith("#/components/headers/") ||
                     (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/"))
                 ) {
-                String[] pathPieces = sourceJsonPath.split("/");
                 if (pathPieces[2].equals("headers")) {
                     // #/components/headers/someHeader/schema -> SomeHeaderSchema
                     usedKey =  camelize(pathPieces[3])+ camelize(usedKey);
@@ -962,6 +961,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     // #/paths/path/verb/responses/SomeResponse/headers/someHeader/schema
                     usedKey =  camelize(pathPieces[7])+ camelize(usedKey);
                 }
+            } else if (pathPieces[pathPieces.length-3].equals("content")) {
+                // #/requestBodies/SomeRequestBody/content/application-json/schema
+                String prefix = ModelUtils.decodeSlashes(pathPieces[pathPieces.length-2]);
+                prefix = sanitizeName(prefix, "[^a-zA-Z0-9]+");
+                prefix = camelize(prefix);
+                usedKey = prefix + camelize(usedKey);
             }
         }
 
@@ -2240,6 +2245,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
 
         String nameWithPrefixSuffix = sanitizeName(name);
+
         if (!StringUtils.isEmpty(modelNamePrefix)) {
             // add '_' so that model name can be camelized correctly
             nameWithPrefixSuffix = modelNamePrefix + "_" + nameWithPrefixSuffix;

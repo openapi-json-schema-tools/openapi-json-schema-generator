@@ -6,16 +6,16 @@ package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.requestbody.content.applicationjson.Schema;
+import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.requestbody.content.applicationjson.ApplicationjsonSchema;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
 public class RequestBody extends RequestBodySerializer {
 
-    public static class ApplicationjsonMediaType extends MediaType<Schema.Schema1> {
+    public static class ApplicationjsonMediaType extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1> {
         public ApplicationjsonMediaType() {
-            super(Schema.Schema1.getInstance());
+            super(ApplicationjsonSchema.ApplicationjsonSchema1.getInstance());
         }
     }
 
