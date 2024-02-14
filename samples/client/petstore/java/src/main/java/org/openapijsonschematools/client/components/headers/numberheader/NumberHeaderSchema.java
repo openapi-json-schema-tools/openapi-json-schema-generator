@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.components.headers.numberheader;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.DecimalJsonSchema;
 
-public class NumberHeaderSchema {
+public class NumberHeaderSchema extends StringJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

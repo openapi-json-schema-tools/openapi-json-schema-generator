@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.requ
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
-public class ApplicationoctetstreamSchema {
+public class ApplicationoctetstreamSchema extends StringJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

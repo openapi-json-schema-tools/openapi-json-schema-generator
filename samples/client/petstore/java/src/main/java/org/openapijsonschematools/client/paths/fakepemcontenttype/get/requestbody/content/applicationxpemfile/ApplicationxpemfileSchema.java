@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakepemcontenttype.get.requestbo
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
-public class ApplicationxpemfileSchema {
+public class ApplicationxpemfileSchema extends StringJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

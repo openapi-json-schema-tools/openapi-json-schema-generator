@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakewildcardresponses.get.respon
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
-public class ApplicationjsonSchema {
+public class ApplicationjsonSchema extends AnyTypeJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

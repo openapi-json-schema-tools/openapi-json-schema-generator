@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakejsonwithcharset.post.request
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
-public class Applicationjsoncharsetutf8Schema {
+public class Applicationjsoncharsetutf8Schema extends AnyTypeJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

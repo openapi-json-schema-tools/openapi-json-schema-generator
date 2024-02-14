@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.petpetid.post.parameters.paramet
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 
-public class Schema0 {
+public class Schema0 extends IntJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

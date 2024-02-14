@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakeparametercollisions1ababself
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
-public class Schema1 {
+public class Schema1 extends StringJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

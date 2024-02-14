@@ -1,0 +1,39 @@
+{{#if isCustomSchema}}
+{{jsonPathPiece.pascalCase}}Boxed
+{{~else}}
+    {{#or isBooleanSchemaTrue isSimpleAnyType}}
+AnyTypeJsonSchema1Boxed
+    {{~else}}
+        {{#if isBooleanSchemaFalse}}
+NotAnyTypeJsonSchema1Boxed
+        {{~else}}
+            {{#if isSimpleObject}}
+MapJsonSchema1Boxed
+            {{~else}}
+                {{#if isSimpleArray}}
+ListJsonSchema1Boxed
+                {{~else}}
+                    {{#if isSimpleBoolean}}
+BooleanJsonSchema1Boxed
+                    {{~else}}
+                        {{#if isSimpleInteger}}
+IntJsonSchema1Boxed
+                        {{~else}}
+                            {{#if isSimpleNumber}}
+NumberJsonSchema1Boxed
+                            {{~else}}
+                                {{#if isSimpleString}}
+StringJsonSchema1Boxed
+                                {{~else}}
+                                    {{#if isSimpleNull}}
+NullJsonSchema1Boxed
+                                    {{~/if}}
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    {{/or}}
+{{/if}}

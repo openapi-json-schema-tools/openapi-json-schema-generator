@@ -1,0 +1,74 @@
+{{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
+    {{#if isBooleanSchemaTrue}}
+{{containerJsonPathPiece.pascalCase}} extends AnyTypeJsonSchema
+    {{~else}}
+{{containerJsonPathPiece.pascalCase}} extends NotAnyTypeJsonSchema
+    {{~/if}}
+{{else}}
+    {{#eq types null }}
+        {{#if isSimpleAnyType }}
+{{containerJsonPathPiece.pascalCase}} extends AnyTypeJsonSchema
+        {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+        {{~/if}}
+    {{else}}
+        {{! types exist }}
+        {{#eq types.size 1}}
+            {{! one type }}
+            {{#each types}}
+                {{#eq this "object"}}
+                    {{#if isSimpleObject }}
+{{containerJsonPathPiece.pascalCase}} extends MapJsonSchema
+                    {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                    {{~/if}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#if isSimpleArray }}
+{{containerJsonPathPiece.pascalCase}} extends ListJsonSchema
+                        {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                        {{~/if}}
+                    {{else}}
+                        {{#eq this "boolean"}}
+                            {{#if isSimpleBoolean }}
+{{containerJsonPathPiece.pascalCase}} extends BooleanJsonSchema
+                            {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                            {{~/if}}
+                        {{else}}
+                            {{#or (eq this "number") (eq this "integer") }}
+                                {{#or isSimpleInteger isSimpleNumber }}
+                                    {{#if isSimpleInteger}}
+{{containerJsonPathPiece.pascalCase}} extends IntJsonSchema
+                                    {{~else}}
+{{containerJsonPathPiece.pascalCase}} extends NumberJsonSchema
+                                    {{~/if}}
+                                {{else}}
+{{containerJsonPathPiece.pascalCase}}
+                                {{~/or}}
+                            {{else}}
+                                {{#eq this "string"}}
+                                    {{#if isSimpleString}}
+{{containerJsonPathPiece.pascalCase}} extends StringJsonSchema
+                                    {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                                    {{~/if}}
+                                {{else}}
+                                    {{#if isSimpleNull }}
+{{containerJsonPathPiece.pascalCase}} extends NullJsonSchema
+                                    {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                                    {{~/if}}
+                                {{/eq}}
+                            {{/or}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{else}}
+            {{! multiple types }}
+{{containerJsonPathPiece.pascalCase}}
+        {{~/eq}}
+    {{/eq}}
+{{/or}}

@@ -37,10 +37,10 @@ public class RequestBody {
     }
 
     public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody {}
-    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.StringSchema1Boxed> {
+    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.StringJsonSchema1Boxed> {
         private final String contentType;
-        private final ApplicationjsonSchema.StringSchema1Boxed body;
-        public ApplicationjsonRequestBody(ApplicationjsonSchema.StringSchema1Boxed body) {
+        private final ApplicationjsonSchema.StringJsonSchema1Boxed body;
+        public ApplicationjsonRequestBody(ApplicationjsonSchema.StringJsonSchema1Boxed body) {
             contentType = "application/json";
             this.body = body;
         }
@@ -50,7 +50,7 @@ public class RequestBody {
         }
 
         @Override
-        public ApplicationjsonSchema.StringSchema1Boxed body() {
+        public ApplicationjsonSchema.StringJsonSchema1Boxed body() {
             return body;
         }
     }

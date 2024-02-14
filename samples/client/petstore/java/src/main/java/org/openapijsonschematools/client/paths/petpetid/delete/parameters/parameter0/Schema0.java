@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.petpetid.delete.parameters.param
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
-public class Schema0 {
+public class Schema0 extends StringJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

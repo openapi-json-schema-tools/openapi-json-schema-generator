@@ -49,10 +49,10 @@ public class {{jsonPathPiece.pascalCase}} {
 
     public static abstract sealed class SealedRequestBody permits {{#each content}}{{@key.pascalCase}}RequestBody{{#unless @last}}, {{/unless}}{{/each}} {}
     {{#each content}}
-    public static final class {{@key.pascalCase}}RequestBody extends SealedRequestBody implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}}> {
+    public static final class {{@key.pascalCase}}RequestBody extends SealedRequestBody implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}}> {
         private final String contentType;
-        private final {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body;
-        public {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body) {
+        private final {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body;
+        public {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body) {
             contentType = "{{{@key.original}}}";
             this.body = body;
         }
@@ -62,7 +62,7 @@ public class {{jsonPathPiece.pascalCase}} {
         }
 
         @Override
-        public {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body() {
+        public {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body() {
             return body;
         }
     }
