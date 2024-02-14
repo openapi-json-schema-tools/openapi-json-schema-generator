@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.schemas.FileSchemaTestClass;
+import org.openapijsonschematools.client.paths.fakebodywithfileschema.put.requestbody.content.applicationjson.ApplicationjsonSchema;
 
 import java.util.AbstractMap;
 import java.util.Map;

@@ -845,8 +845,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         String[] pathPieces = jsonPath.split("/");
         if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
             if (pathPieces.length == 4) {
-                // #/components/requestBodies/SomeRequestBody
-                return toModelName(componentName, null);
+                // #/components/requestBodies/Pet (can collide with component schema Pet import)
+                return toModelName( componentName + "RequestBody", null);
             }
             return toModuleFilename(componentName, null);
         }

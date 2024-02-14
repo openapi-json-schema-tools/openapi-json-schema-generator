@@ -5,4 +5,4 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 
-public class RefUserArray extends UserArray {}
+public class RefUserArray extends UserArrayRequestBody {}

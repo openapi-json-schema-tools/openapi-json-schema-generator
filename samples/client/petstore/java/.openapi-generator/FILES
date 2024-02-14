@@ -321,10 +321,10 @@ src/main/java/org/openapijsonschematools/client/components/headers/stringheader/
 src/main/java/org/openapijsonschematools/client/components/parameters/componentrefschemastringwithvalidation/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/components/parameters/pathusername/Schema.java
 src/main/java/org/openapijsonschematools/client/components/parameters/refschemastringwithvalidation/Schema.java
-src/main/java/org/openapijsonschematools/client/components/requestbodies/Client.java
-src/main/java/org/openapijsonschematools/client/components/requestbodies/Pet.java
-src/main/java/org/openapijsonschematools/client/components/requestbodies/RefUserArray.java
-src/main/java/org/openapijsonschematools/client/components/requestbodies/UserArray.java
+src/main/java/org/openapijsonschematools/client/components/requestbodies/ClientRequestBody.java
+src/main/java/org/openapijsonschematools/client/components/requestbodies/PetRequestBody.java
+src/main/java/org/openapijsonschematools/client/components/requestbodies/RefUserArrayRequestBody.java
+src/main/java/org/openapijsonschematools/client/components/requestbodies/UserArrayRequestBody.java
 src/main/java/org/openapijsonschematools/client/components/requestbodies/client/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/components/requestbodies/pet/content/applicationjson/ApplicationjsonSchema.java
 src/main/java/org/openapijsonschematools/client/components/requestbodies/pet/content/applicationxml/ApplicationxmlSchema.java

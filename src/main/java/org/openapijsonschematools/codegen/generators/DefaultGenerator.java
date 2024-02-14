@@ -4877,6 +4877,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toRequestBodyFilename(usedKey, sourceJsonPath);
+                // todo add getPascalCaseRequestBody()
                 pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":

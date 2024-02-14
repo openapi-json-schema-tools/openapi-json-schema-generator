@@ -16,9 +16,8 @@ import {{packageName}}.mediatype.MediaType;
                 {{#with getDeepestRef}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
                 {{/with}}
-            {{else}}
-import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
             {{/if}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/each}}
 
