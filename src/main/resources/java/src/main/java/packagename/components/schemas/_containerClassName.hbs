@@ -58,8 +58,24 @@
                             {{else}}
                                 {{#eq this "string"}}
                                     {{#if isSimpleString}}
+                                        {{#eq ../format "date"}}
+{{containerJsonPathPiece.pascalCase}} extends DateJsonSchema
+                                        {{~else}}
+                                            {{#eq ../format "date-time"}}
+{{containerJsonPathPiece.pascalCase}} extends DateTimeJsonSchema
+                                            {{~else}}
+                                                {{#eq ../format "number"}}
+{{containerJsonPathPiece.pascalCase}} extends DecimalJsonSchema
+                                                {{~else}}
+                                                    {{#eq ../format "uuid"}}
+{{containerJsonPathPiece.pascalCase}} extends UuidJsonSchema
+                                                    {{~else}}
 {{containerJsonPathPiece.pascalCase}} extends StringJsonSchema
-                                    {{~else}}
+                                                    {{~/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{else}}
 {{containerJsonPathPiece.pascalCase}}
                                     {{~/if}}
                                 {{else}}
