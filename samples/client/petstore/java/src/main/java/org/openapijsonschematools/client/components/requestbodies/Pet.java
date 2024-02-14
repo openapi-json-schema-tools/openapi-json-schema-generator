@@ -5,15 +5,16 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
-import org.openapijsonschematools.client.requestbody.RequestBody;
+import org.openapijsonschematools.client.requestbody.GenericRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationxml.ApplicationxmlSchema;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
-public class Pet extends RequestBodySerializer {
+public class Pet {
 
     public static class ApplicationjsonMediaType extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1> {
         public ApplicationjsonMediaType() {
@@ -27,21 +28,27 @@ public class Pet extends RequestBodySerializer {
         }
     }
 
-    public Pet() {
-        super(
-            Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType()),
-                new AbstractMap.SimpleEntry<>("application/xml", new ApplicationxmlMediaType())
-            ),
-            true
-        );
+    public static class Pet1 extends RequestBodySerializer<SealedRequestBody> {
+       public Pet1() {
+            super(
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType()),
+                    new AbstractMap.SimpleEntry<>("application/xml", new ApplicationxmlMediaType())
+                ),
+                true
+            );
+        }
+
+        public SerializedRequestBody serialize(SealedRequestBody requestBody) {
+            return null;
+        }
     }
 
-    public static abstract sealed class PetRequestBody permits PetApplicationjsonRequestBody, PetApplicationxmlRequestBody {}
-    public static final class PetApplicationjsonRequestBody extends PetRequestBody implements RequestBody<ApplicationjsonSchema.Pet1Boxed> {
+    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, ApplicationxmlRequestBody {}
+    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.Pet1Boxed> {
         private final String contentType;
         private final ApplicationjsonSchema.Pet1Boxed body;
-        public PetApplicationjsonRequestBody(ApplicationjsonSchema.Pet1Boxed body) {
+        public ApplicationjsonRequestBody(ApplicationjsonSchema.Pet1Boxed body) {
             contentType = "application/json";
             this.body = body;
         }
@@ -55,10 +62,10 @@ public class Pet extends RequestBodySerializer {
             return body;
         }
     }
-    public static final class PetApplicationxmlRequestBody extends PetRequestBody implements RequestBody<ApplicationxmlSchema.Pet1Boxed> {
+    public static final class ApplicationxmlRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationxmlSchema.Pet1Boxed> {
         private final String contentType;
         private final ApplicationxmlSchema.Pet1Boxed body;
-        public PetApplicationxmlRequestBody(ApplicationxmlSchema.Pet1Boxed body) {
+        public ApplicationxmlRequestBody(ApplicationxmlSchema.Pet1Boxed body) {
             contentType = "application/xml";
             this.body = body;
         }

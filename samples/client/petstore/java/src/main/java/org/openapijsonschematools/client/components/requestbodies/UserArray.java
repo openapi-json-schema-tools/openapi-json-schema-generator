@@ -5,14 +5,15 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
-import org.openapijsonschematools.client.requestbody.RequestBody;
+import org.openapijsonschematools.client.requestbody.GenericRequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.requestbodies.userarray.content.applicationjson.ApplicationjsonSchema;
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
-public class UserArray extends RequestBodySerializer {
+public class UserArray {
 
     public static class ApplicationjsonMediaType extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1> {
         public ApplicationjsonMediaType() {
@@ -20,20 +21,26 @@ public class UserArray extends RequestBodySerializer {
         }
     }
 
-    public UserArray() {
-        super(
-            Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
-            ),
-            true
-        );
+    public static class UserArray1 extends RequestBodySerializer<SealedRequestBody> {
+       public UserArray1() {
+            super(
+                Map.ofEntries(
+                    new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
+                ),
+                true
+            );
+        }
+
+        public SerializedRequestBody serialize(SealedRequestBody requestBody) {
+            return null;
+        }
     }
 
-    public static abstract sealed class UserArrayRequestBody permits UserArrayApplicationjsonRequestBody {}
-    public static final class UserArrayApplicationjsonRequestBody extends UserArrayRequestBody implements RequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
+    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody {}
+    public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
         private final String contentType;
         private final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
-        public UserArrayApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
+        public ApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
             contentType = "application/json";
             this.body = body;
         }

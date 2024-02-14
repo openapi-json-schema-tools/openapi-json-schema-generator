@@ -3868,10 +3868,6 @@ public class DefaultGenerator implements Generator {
             // #/paths/SomePath/get
             return;
         }
-        if (pathPieces[4].equals("requestBody")) {
-            // #/paths/somePath/get/requestBody
-            pathPieces[4] = requestBodyIdentifier;
-        }
         if (xParameters.contains(pathPieces[4])) {
             // #/paths/somePath/get/PathParameters
             // synthetic jsonPath
@@ -3955,7 +3951,13 @@ public class DefaultGenerator implements Generator {
                 // #/paths/somePath/get/parameters/0/schema -> length 7
                 pathPieces[6] = getSchemaFilename(jsonPath);
             }
-        } else if (pathPieces[4].equals(requestBodyIdentifier)) {
+        } else if (pathPieces[4].equals("requestBody")) {
+            if (pathPieces.length == 5) {
+                // #/paths/somePath/get/requestBody
+                pathPieces[4] = toRequestBodyFilename("requestBody", jsonPath);
+                return;
+            }
+            pathPieces[4] = requestBodyIdentifier;
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/get/requestBody/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
@@ -4783,7 +4785,8 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
 
-        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo);
+        String subpackage = getSubpackage(sourceJsonPath);
+        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }

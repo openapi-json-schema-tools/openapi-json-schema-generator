@@ -1,25 +1,26 @@
 {{> _helper_header }}
 
 {{#with requestBody}}
-package {{packageName}}.components.requestbodies;
+package {{packageName}}.{{subpackage}};
 
 {{#if refInfo}}
 
 public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {}
 {{else}}
 import {{packageName}}.requestbody.RequestBodySerializer;
-import {{packageName}}.requestbody.RequestBody;
+import {{packageName}}.requestbody.GenericRequestBody;
 import {{packageName}}.mediatype.MediaType;
     {{#each content}}
         {{#with schema}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/each}}
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
 
 import java.util.AbstractMap;
 import java.util.Map;
 
-public class {{jsonPathPiece.pascalCase}} extends RequestBodySerializer {
+public class {{jsonPathPiece.pascalCase}} {
     {{#each content}}
 
     public static class {{@key.pascalCase}}MediaType extends MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}> {
@@ -29,23 +30,29 @@ public class {{jsonPathPiece.pascalCase}} extends RequestBodySerializer {
     }
     {{/each}}
 
-    public {{jsonPathPiece.pascalCase}}() {
-        super(
-            Map.ofEntries(
-    {{#each content}}
-                new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
-    {{/each}}
-            ),
-            {{#if required}}true{{else}}false{{/if}}
-        );
+    public static class {{jsonPathPiece.pascalCase}}1 extends RequestBodySerializer<SealedRequestBody> {
+       public {{jsonPathPiece.pascalCase}}1() {
+            super(
+                Map.ofEntries(
+        {{#each content}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+        {{/each}}
+                ),
+                {{#if required}}true{{else}}false{{/if}}
+            );
+        }
+
+        public SerializedRequestBody serialize(SealedRequestBody requestBody) {
+            return null;
+        }
     }
 
-    public static abstract sealed class {{jsonPathPiece.pascalCase}}RequestBody permits {{#each content}}{{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody{{#unless @last}}, {{/unless}}{{/each}} {}
+    public static abstract sealed class SealedRequestBody permits {{#each content}}{{@key.pascalCase}}RequestBody{{#unless @last}}, {{/unless}}{{/each}} {}
     {{#each content}}
-    public static final class {{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody extends {{jsonPathPiece.pascalCase}}RequestBody implements RequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}}> {
+    public static final class {{@key.pascalCase}}RequestBody extends SealedRequestBody implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}}> {
         private final String contentType;
         private final {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body;
-        public {{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body) {
+        public {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body) {
             contentType = "{{{@key.original}}}";
             this.body = body;
         }

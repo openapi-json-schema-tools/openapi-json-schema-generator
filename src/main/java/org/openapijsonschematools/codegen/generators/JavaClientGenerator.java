@@ -735,9 +735,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "ApiConfiguration.java"));
         // requestbody
         supportingFiles.add(new SupportingFile(
-                "src/main/java/packagename/requestbody/RequestBody.hbs",
+                "src/main/java/packagename/requestbody/GenericRequestBody.hbs",
                 packagePath() + File.separatorChar + "requestbody",
-                "RequestBody.java"));
+                "GenericRequestBody.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/requestbody/RequestBodySerializer.hbs",
                 packagePath() + File.separatorChar + "requestbody",
