@@ -7,7 +7,7 @@ package org.openapijsonschematools.client.components.requestbodies;
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.paths.fakeadditionalpropertieswitharrayofenums.get.requestbody.content.applicationjson.ApplicationjsonSchema;
+import org.openapijsonschematools.client.components.schemas.AdditionalPropertiesWithArrayOfEnums;
 
 import java.util.AbstractMap;
 import java.util.Map;

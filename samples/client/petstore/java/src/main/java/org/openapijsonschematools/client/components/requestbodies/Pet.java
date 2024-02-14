@@ -7,8 +7,8 @@ package org.openapijsonschematools.client.components.requestbodies;
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationjson.ApplicationjsonSchema;
-import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationxml.ApplicationxmlSchema;
+import org.openapijsonschematools.client.components.schemas.Pet;
+import org.openapijsonschematools.client.components.schemas.Pet;
 
 import java.util.AbstractMap;
 import java.util.Map;

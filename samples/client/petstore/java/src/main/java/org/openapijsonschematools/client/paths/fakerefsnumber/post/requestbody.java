@@ -7,7 +7,7 @@ package org.openapijsonschematools.client.components.requestbodies;
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.paths.fakerefsnumber.post.requestbody.content.applicationjson.ApplicationjsonSchema;
+import org.openapijsonschematools.client.components.schemas.NumberWithValidations;
 
 import java.util.AbstractMap;
 import java.util.Map;
