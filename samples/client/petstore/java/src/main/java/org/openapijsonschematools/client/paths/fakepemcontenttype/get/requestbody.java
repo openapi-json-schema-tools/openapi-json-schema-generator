@@ -5,6 +5,7 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
+import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakepemcontenttype.get.requestbody.content.applicationxpemfile.ApplicationxpemfileSchema;
 
@@ -26,5 +27,15 @@ public class RequestBody extends RequestBodySerializer {
             ),
             false
         );
+    }
+
+    public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationxpemfileRequestBody {}
+    public static final class RequestBodyApplicationxpemfileRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationxpemfileSchema.ApplicationxpemfileSchema1Boxed> {
+        public final String contentType;
+        public final ApplicationxpemfileSchema.ApplicationxpemfileSchema1Boxed body;
+        public RequestBodyApplicationxpemfileRequestBody(ApplicationxpemfileSchema.ApplicationxpemfileSchema1Boxed body) {
+            contentType = "application/x-pem-file";
+            body = body;
+        }
     }
 }

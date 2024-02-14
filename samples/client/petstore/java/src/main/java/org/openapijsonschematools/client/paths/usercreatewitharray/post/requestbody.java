@@ -5,5 +5,4 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 
-import org.openapijsonschematools.client.components.requestbodies.UserArray;
-RequestBody = UserArray.UserArray
+public class RequestBody extends UserArray {}

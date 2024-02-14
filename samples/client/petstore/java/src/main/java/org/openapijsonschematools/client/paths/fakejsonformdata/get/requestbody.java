@@ -5,6 +5,7 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
+import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakejsonformdata.get.requestbody.content.applicationxwwwformurlencoded.ApplicationxwwwformurlencodedSchema;
 
@@ -26,5 +27,15 @@ public class RequestBody extends RequestBodySerializer {
             ),
             false
         );
+    }
+
+    public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationxwwwformurlencodedRequestBody {}
+    public static final class RequestBodyApplicationxwwwformurlencodedRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed> {
+        public final String contentType;
+        public final ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body;
+        public RequestBodyApplicationxwwwformurlencodedRequestBody(ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body) {
+            contentType = "application/x-www-form-urlencoded";
+            body = body;
+        }
     }
 }

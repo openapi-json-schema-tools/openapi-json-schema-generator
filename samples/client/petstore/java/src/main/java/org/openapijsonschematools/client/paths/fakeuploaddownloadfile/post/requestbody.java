@@ -5,6 +5,7 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
+import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.requestbody.content.applicationoctetstream.ApplicationoctetstreamSchema;
 
@@ -26,5 +27,15 @@ public class RequestBody extends RequestBodySerializer {
             ),
             true
         );
+    }
+
+    public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationoctetstreamRequestBody {}
+    public static final class RequestBodyApplicationoctetstreamRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed> {
+        public final String contentType;
+        public final ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed body;
+        public RequestBodyApplicationoctetstreamRequestBody(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed body) {
+            contentType = "application/octet-stream";
+            body = body;
+        }
     }
 }

@@ -5,6 +5,7 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
+import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.requestbodies.client.content.applicationjson.ApplicationjsonSchema;
 
@@ -26,5 +27,15 @@ public class Client extends RequestBodySerializer {
             ),
             true
         );
+    }
+
+    public static abstract sealed class ClientRequestBody permits ClientApplicationjsonRequestBody {}
+    public static final class ClientApplicationjsonRequestBody extends ClientRequestBody implements RequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
+        public final String contentType;
+        public final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
+        public ClientApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
+            contentType = "application/json";
+            body = body;
+        }
     }
 }

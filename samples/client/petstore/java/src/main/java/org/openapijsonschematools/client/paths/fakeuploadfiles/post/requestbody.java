@@ -5,6 +5,7 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
+import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakeuploadfiles.post.requestbody.content.multipartformdata.MultipartformdataSchema;
 
@@ -26,5 +27,15 @@ public class RequestBody extends RequestBodySerializer {
             ),
             false
         );
+    }
+
+    public static abstract sealed class RequestBodyRequestBody permits RequestBodyMultipartformdataRequestBody {}
+    public static final class RequestBodyMultipartformdataRequestBody extends RequestBodyRequestBody implements RequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
+        public final String contentType;
+        public final MultipartformdataSchema.MultipartformdataSchema1Boxed body;
+        public RequestBodyMultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) {
+            contentType = "multipart/form-data";
+            body = body;
+        }
     }
 }

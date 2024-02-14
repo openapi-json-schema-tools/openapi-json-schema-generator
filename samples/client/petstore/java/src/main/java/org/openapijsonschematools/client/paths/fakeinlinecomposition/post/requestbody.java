@@ -5,6 +5,7 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
+import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.requestbody.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.requestbody.content.multipartformdata.MultipartformdataSchema;
@@ -34,5 +35,23 @@ public class RequestBody extends RequestBodySerializer {
             ),
             false
         );
+    }
+
+    public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationjsonRequestBody, RequestBodyMultipartformdataRequestBody {}
+    public static final class RequestBodyApplicationjsonRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
+        public final String contentType;
+        public final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
+        public RequestBodyApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
+            contentType = "application/json";
+            body = body;
+        }
+    }
+    public static final class RequestBodyMultipartformdataRequestBody extends RequestBodyRequestBody implements RequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
+        public final String contentType;
+        public final MultipartformdataSchema.MultipartformdataSchema1Boxed body;
+        public RequestBodyMultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) {
+            contentType = "multipart/form-data";
+            body = body;
+        }
     }
 }

@@ -5,5 +5,4 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 
-import org.openapijsonschematools.client.components.requestbodies.Client;
-RequestBody = Client.Client
+public class RequestBody extends Client {}

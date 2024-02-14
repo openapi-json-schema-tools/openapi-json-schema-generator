@@ -5,6 +5,7 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
+import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
 import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationxml.ApplicationxmlSchema;
@@ -34,5 +35,23 @@ public class Pet extends RequestBodySerializer {
             ),
             true
         );
+    }
+
+    public static abstract sealed class PetRequestBody permits PetApplicationjsonRequestBody, PetApplicationxmlRequestBody {}
+    public static final class PetApplicationjsonRequestBody extends PetRequestBody implements RequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
+        public final String contentType;
+        public final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
+        public PetApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
+            contentType = "application/json";
+            body = body;
+        }
+    }
+    public static final class PetApplicationxmlRequestBody extends PetRequestBody implements RequestBody<ApplicationxmlSchema.ApplicationxmlSchema1Boxed> {
+        public final String contentType;
+        public final ApplicationxmlSchema.ApplicationxmlSchema1Boxed body;
+        public PetApplicationxmlRequestBody(ApplicationxmlSchema.ApplicationxmlSchema1Boxed body) {
+            contentType = "application/xml";
+            body = body;
+        }
     }
 }

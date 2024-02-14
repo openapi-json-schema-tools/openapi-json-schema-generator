@@ -4,13 +4,11 @@
 package {{packageName}}.components.requestbodies;
 
 {{#if refInfo}}
-    {{#if imports}}
 
-    {{/if}}
-{{> _helper_imports }}
-{{jsonPathPiece.pascalCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {}
 {{else}}
 import {{packageName}}.requestbody.RequestBodySerializer;
+import {{packageName}}.requestbody.RequestBody;
 import {{packageName}}.mediatype.MediaType;
     {{#each content}}
         {{#with schema}}
@@ -41,6 +39,18 @@ public class {{jsonPathPiece.pascalCase}} extends RequestBodySerializer {
             {{#if required}}true{{else}}false{{/if}}
         );
     }
+
+    public static abstract sealed class {{jsonPathPiece.pascalCase}}RequestBody permits {{#each content}}{{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody{{#unless @last}}, {{/unless}}{{/each}} {}
+    {{#each content}}
+    public static final class {{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody extends {{jsonPathPiece.pascalCase}}RequestBody implements RequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed{{/with}}{{/with}}> {
+        public final String contentType;
+        public final {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed{{/with}}{{/with}} body;
+        public {{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed{{/with}}{{/with}} body) {
+            contentType = "{{{@key.original}}}";
+            body = body;
+        }
+    }
+    {{/each}}
 }
 {{/if}}
 {{/with}}
