@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.components.headers.int32jsoncontenttyp
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 
-public class Int32JsonContentTypeHeaderSchema extends IntJsonSchema {
+public class Int32JsonContentTypeHeaderSchema extends Int32JsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

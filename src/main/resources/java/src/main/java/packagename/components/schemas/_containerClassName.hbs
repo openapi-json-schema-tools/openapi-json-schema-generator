@@ -40,7 +40,15 @@
                             {{#or (eq this "number") (eq this "integer") }}
                                 {{#or isSimpleInteger isSimpleNumber }}
                                     {{#if isSimpleInteger}}
+                                        {{#eq ../format "int32"}}
+{{containerJsonPathPiece.pascalCase}} extends Int32JsonSchema
+                                        {{~else}}
+                                            {{#eq ../format "int6"}}
+{{containerJsonPathPiece.pascalCase}} extends Int64JsonSchema
+                                            {{~else}}
 {{containerJsonPathPiece.pascalCase}} extends IntJsonSchema
+                                            {{~/eq}}
+                                        {{/eq}}
                                     {{~else}}
 {{containerJsonPathPiece.pascalCase}} extends NumberJsonSchema
                                     {{~/if}}

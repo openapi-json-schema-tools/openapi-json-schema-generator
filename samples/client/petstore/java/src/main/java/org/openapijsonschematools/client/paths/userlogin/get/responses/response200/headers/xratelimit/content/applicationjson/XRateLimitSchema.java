@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.userlogin.get.responses.response
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 
-public class XRateLimitSchema extends IntJsonSchema {
+public class XRateLimitSchema extends Int32JsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
