@@ -5,5 +5,5 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 
-import org.openapijsonschematools.client.components.requestbodies.userarray;
-RefUserArray = userarray.UserArray
+import org.openapijsonschematools.client.components.requestbodies.UserArray;
+RefUserArray = UserArray.UserArray

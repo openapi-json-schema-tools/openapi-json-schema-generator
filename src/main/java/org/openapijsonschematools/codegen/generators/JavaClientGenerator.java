@@ -843,9 +843,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String toRequestBodyFilename(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
-        if (pathPieces[1].equals("requestbodies") || pathPieces[1].equals("requestBodies")) {
-            if (pathPieces.length == 3) {
-                // #/requestBodies/SomeRequestBody
+        if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
+            if (pathPieces.length == 4) {
+                // #/components/requestBodies/SomeRequestBody
                 return toModelName(componentName, null);
             }
             return toModuleFilename(componentName, null);

@@ -5,5 +5,5 @@
 package org.openapijsonschematools.client.components.requestbodies;
 
 
-import org.openapijsonschematools.client.components.requestbodies.pet;
-RequestBody = pet.Pet
+import org.openapijsonschematools.client.components.requestbodies.Pet;
+RequestBody = Pet.Pet
