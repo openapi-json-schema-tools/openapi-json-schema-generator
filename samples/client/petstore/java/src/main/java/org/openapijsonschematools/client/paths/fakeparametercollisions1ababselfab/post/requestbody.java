@@ -31,11 +31,20 @@ public class RequestBody extends RequestBodySerializer {
 
     public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationjsonRequestBody {}
     public static final class RequestBodyApplicationjsonRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
+        private final String contentType;
+        private final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
         public RequestBodyApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
             contentType = "application/json";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationjsonSchema.ApplicationjsonSchema1Boxed body() {
+            return body;
         }
     }
 }

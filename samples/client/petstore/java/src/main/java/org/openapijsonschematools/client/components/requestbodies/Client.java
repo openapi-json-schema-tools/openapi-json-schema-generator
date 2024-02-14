@@ -7,7 +7,6 @@ package org.openapijsonschematools.client.components.requestbodies;
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.components.schemas.Client;
 import org.openapijsonschematools.client.components.requestbodies.client.content.applicationjson.ApplicationjsonSchema;
 
 import java.util.AbstractMap;
@@ -31,12 +30,21 @@ public class Client extends RequestBodySerializer {
     }
 
     public static abstract sealed class ClientRequestBody permits ClientApplicationjsonRequestBody {}
-    public static final class ClientApplicationjsonRequestBody extends ClientRequestBody implements RequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
-        public ClientApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
+    public static final class ClientApplicationjsonRequestBody extends ClientRequestBody implements RequestBody<ApplicationjsonSchema.Client1Boxed> {
+        private final String contentType;
+        private final ApplicationjsonSchema.Client1Boxed body;
+        public ClientApplicationjsonRequestBody(ApplicationjsonSchema.Client1Boxed body) {
             contentType = "application/json";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationjsonSchema.Client1Boxed body() {
+            return body;
         }
     }
 }

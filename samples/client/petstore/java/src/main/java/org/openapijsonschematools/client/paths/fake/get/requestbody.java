@@ -31,11 +31,20 @@ public class RequestBody extends RequestBodySerializer {
 
     public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationxwwwformurlencodedRequestBody {}
     public static final class RequestBodyApplicationxwwwformurlencodedRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body;
+        private final String contentType;
+        private final ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body;
         public RequestBodyApplicationxwwwformurlencodedRequestBody(ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body) {
             contentType = "application/x-www-form-urlencoded";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationxwwwformurlencodedSchema.ApplicationxwwwformurlencodedSchema1Boxed body() {
+            return body;
         }
     }
 }

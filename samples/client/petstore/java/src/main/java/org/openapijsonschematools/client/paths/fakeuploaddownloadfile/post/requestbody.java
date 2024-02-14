@@ -31,11 +31,20 @@ public class RequestBody extends RequestBodySerializer {
 
     public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationoctetstreamRequestBody {}
     public static final class RequestBodyApplicationoctetstreamRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed body;
+        private final String contentType;
+        private final ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed body;
         public RequestBodyApplicationoctetstreamRequestBody(ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed body) {
             contentType = "application/octet-stream";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationoctetstreamSchema.ApplicationoctetstreamSchema1Boxed body() {
+            return body;
         }
     }
 }

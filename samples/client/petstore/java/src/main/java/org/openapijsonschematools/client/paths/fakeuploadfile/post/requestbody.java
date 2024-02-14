@@ -31,11 +31,20 @@ public class RequestBody extends RequestBodySerializer {
 
     public static abstract sealed class RequestBodyRequestBody permits RequestBodyMultipartformdataRequestBody {}
     public static final class RequestBodyMultipartformdataRequestBody extends RequestBodyRequestBody implements RequestBody<MultipartformdataSchema.MultipartformdataSchema1Boxed> {
-        public final String contentType;
-        public final MultipartformdataSchema.MultipartformdataSchema1Boxed body;
+        private final String contentType;
+        private final MultipartformdataSchema.MultipartformdataSchema1Boxed body;
         public RequestBodyMultipartformdataRequestBody(MultipartformdataSchema.MultipartformdataSchema1Boxed body) {
             contentType = "multipart/form-data";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public MultipartformdataSchema.MultipartformdataSchema1Boxed body() {
+            return body;
         }
     }
 }

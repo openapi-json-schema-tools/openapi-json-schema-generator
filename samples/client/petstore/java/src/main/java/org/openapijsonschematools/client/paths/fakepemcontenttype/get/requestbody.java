@@ -31,11 +31,20 @@ public class RequestBody extends RequestBodySerializer {
 
     public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationxpemfileRequestBody {}
     public static final class RequestBodyApplicationxpemfileRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationxpemfileSchema.ApplicationxpemfileSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationxpemfileSchema.ApplicationxpemfileSchema1Boxed body;
+        private final String contentType;
+        private final ApplicationxpemfileSchema.ApplicationxpemfileSchema1Boxed body;
         public RequestBodyApplicationxpemfileRequestBody(ApplicationxpemfileSchema.ApplicationxpemfileSchema1Boxed body) {
             contentType = "application/x-pem-file";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationxpemfileSchema.ApplicationxpemfileSchema1Boxed body() {
+            return body;
         }
     }
 }

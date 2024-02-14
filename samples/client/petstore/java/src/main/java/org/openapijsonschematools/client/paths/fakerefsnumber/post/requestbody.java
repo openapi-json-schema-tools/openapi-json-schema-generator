@@ -7,7 +7,6 @@ package org.openapijsonschematools.client.components.requestbodies;
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.components.schemas.NumberWithValidations;
 import org.openapijsonschematools.client.paths.fakerefsnumber.post.requestbody.content.applicationjson.ApplicationjsonSchema;
 
 import java.util.AbstractMap;
@@ -31,12 +30,21 @@ public class RequestBody extends RequestBodySerializer {
     }
 
     public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationjsonRequestBody {}
-    public static final class RequestBodyApplicationjsonRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
-        public RequestBodyApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
+    public static final class RequestBodyApplicationjsonRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationjsonSchema.NumberWithValidations1Boxed> {
+        private final String contentType;
+        private final ApplicationjsonSchema.NumberWithValidations1Boxed body;
+        public RequestBodyApplicationjsonRequestBody(ApplicationjsonSchema.NumberWithValidations1Boxed body) {
             contentType = "application/json";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationjsonSchema.NumberWithValidations1Boxed body() {
+            return body;
         }
     }
 }

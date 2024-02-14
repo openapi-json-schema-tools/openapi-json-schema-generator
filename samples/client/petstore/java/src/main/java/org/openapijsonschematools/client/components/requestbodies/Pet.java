@@ -7,9 +7,7 @@ package org.openapijsonschematools.client.components.requestbodies;
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.components.schemas.Pet;
 import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationjson.ApplicationjsonSchema;
-import org.openapijsonschematools.client.components.schemas.Pet;
 import org.openapijsonschematools.client.components.requestbodies.pet.content.applicationxml.ApplicationxmlSchema;
 
 import java.util.AbstractMap;
@@ -40,20 +38,38 @@ public class Pet extends RequestBodySerializer {
     }
 
     public static abstract sealed class PetRequestBody permits PetApplicationjsonRequestBody, PetApplicationxmlRequestBody {}
-    public static final class PetApplicationjsonRequestBody extends PetRequestBody implements RequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationjsonSchema.ApplicationjsonSchema1Boxed body;
-        public PetApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body) {
+    public static final class PetApplicationjsonRequestBody extends PetRequestBody implements RequestBody<ApplicationjsonSchema.Pet1Boxed> {
+        private final String contentType;
+        private final ApplicationjsonSchema.Pet1Boxed body;
+        public PetApplicationjsonRequestBody(ApplicationjsonSchema.Pet1Boxed body) {
             contentType = "application/json";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationjsonSchema.Pet1Boxed body() {
+            return body;
         }
     }
-    public static final class PetApplicationxmlRequestBody extends PetRequestBody implements RequestBody<ApplicationxmlSchema.ApplicationxmlSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationxmlSchema.ApplicationxmlSchema1Boxed body;
-        public PetApplicationxmlRequestBody(ApplicationxmlSchema.ApplicationxmlSchema1Boxed body) {
+    public static final class PetApplicationxmlRequestBody extends PetRequestBody implements RequestBody<ApplicationxmlSchema.Pet1Boxed> {
+        private final String contentType;
+        private final ApplicationxmlSchema.Pet1Boxed body;
+        public PetApplicationxmlRequestBody(ApplicationxmlSchema.Pet1Boxed body) {
             contentType = "application/xml";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationxmlSchema.Pet1Boxed body() {
+            return body;
         }
     }
 }

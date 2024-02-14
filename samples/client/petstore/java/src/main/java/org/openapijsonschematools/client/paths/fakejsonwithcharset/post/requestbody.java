@@ -31,11 +31,20 @@ public class RequestBody extends RequestBodySerializer {
 
     public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationjsoncharsetutf8RequestBody {}
     public static final class RequestBodyApplicationjsoncharsetutf8RequestBody extends RequestBodyRequestBody implements RequestBody<Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1Boxed> {
-        public final String contentType;
-        public final Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1Boxed body;
+        private final String contentType;
+        private final Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1Boxed body;
         public RequestBodyApplicationjsoncharsetutf8RequestBody(Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1Boxed body) {
             contentType = "application/json; charset=utf-8";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public Applicationjsoncharsetutf8Schema.Applicationjsoncharsetutf8Schema1Boxed body() {
+            return body;
         }
     }
 }

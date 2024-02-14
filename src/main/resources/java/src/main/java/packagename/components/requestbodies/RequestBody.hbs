@@ -12,11 +12,6 @@ import {{packageName}}.requestbody.RequestBody;
 import {{packageName}}.mediatype.MediaType;
     {{#each content}}
         {{#with schema}}
-            {{#if refInfo}}
-                {{#with getDeepestRef}}
-import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
-                {{/with}}
-            {{/if}}
 import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
         {{/with}}
     {{/each}}
@@ -47,12 +42,21 @@ public class {{jsonPathPiece.pascalCase}} extends RequestBodySerializer {
 
     public static abstract sealed class {{jsonPathPiece.pascalCase}}RequestBody permits {{#each content}}{{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody{{#unless @last}}, {{/unless}}{{/each}} {}
     {{#each content}}
-    public static final class {{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody extends {{jsonPathPiece.pascalCase}}RequestBody implements RequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed{{/with}}{{/with}}> {
-        public final String contentType;
-        public final {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed{{/with}}{{/with}} body;
-        public {{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed{{/with}}{{/with}} body) {
+    public static final class {{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody extends {{jsonPathPiece.pascalCase}}RequestBody implements RequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}}> {
+        private final String contentType;
+        private final {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body;
+        public {{jsonPathPiece.pascalCase}}{{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body) {
             contentType = "{{{@key.original}}}";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{jsonPathPiece.pascalCase}}{{/with}}Boxed{{/with}}{{/with}} body() {
+            return body;
         }
     }
     {{/each}}

@@ -6,7 +6,7 @@ public class SerializedRequestBody {
     public final String contentType;
     public final HttpRequest.BodyPublisher bodyPublisher;
 
-    protected RequestBody(String contentType, HttpRequest.BodyPublisher bodyPublisher) {
+    protected SerializedRequestBody(String contentType, HttpRequest.BodyPublisher bodyPublisher) {
         this.contentType = contentType;
         this.bodyPublisher = bodyPublisher;
     }

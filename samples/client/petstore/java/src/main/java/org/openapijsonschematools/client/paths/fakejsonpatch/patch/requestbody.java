@@ -7,7 +7,6 @@ package org.openapijsonschematools.client.components.requestbodies;
 import org.openapijsonschematools.client.requestbody.RequestBodySerializer;
 import org.openapijsonschematools.client.requestbody.RequestBody;
 import org.openapijsonschematools.client.mediatype.MediaType;
-import org.openapijsonschematools.client.components.schemas.JSONPatchRequest;
 import org.openapijsonschematools.client.paths.fakejsonpatch.patch.requestbody.content.applicationjsonpatchjson.ApplicationjsonpatchjsonSchema;
 
 import java.util.AbstractMap;
@@ -31,12 +30,21 @@ public class RequestBody extends RequestBodySerializer {
     }
 
     public static abstract sealed class RequestBodyRequestBody permits RequestBodyApplicationjsonpatchjsonRequestBody {}
-    public static final class RequestBodyApplicationjsonpatchjsonRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1Boxed> {
-        public final String contentType;
-        public final ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1Boxed body;
-        public RequestBodyApplicationjsonpatchjsonRequestBody(ApplicationjsonpatchjsonSchema.ApplicationjsonpatchjsonSchema1Boxed body) {
+    public static final class RequestBodyApplicationjsonpatchjsonRequestBody extends RequestBodyRequestBody implements RequestBody<ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed> {
+        private final String contentType;
+        private final ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body;
+        public RequestBodyApplicationjsonpatchjsonRequestBody(ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body) {
             contentType = "application/json-patch+json";
-            body = body;
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public ApplicationjsonpatchjsonSchema.JSONPatchRequest1Boxed body() {
+            return body;
         }
     }
 }
