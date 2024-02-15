@@ -32,8 +32,8 @@ public class Client {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            ApplicationjsonRequestBody applicationJsonRequestBody = (ApplicationjsonRequestBody) requestBody;
-            return serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body().data);
+            ApplicationjsonRequestBody requestBody0 = (ApplicationjsonRequestBody) requestBody;
+            return serialize(requestBody0.contentType(), requestBody0.body().data());
         }
     }
 

@@ -26,6 +26,10 @@ public class BooleanJsonSchema {
         private BooleanJsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static class BooleanJsonSchema1 extends JsonSchema implements BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
         private static @Nullable BooleanJsonSchema1 instance = null;

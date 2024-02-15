@@ -48,22 +48,22 @@ public class {{jsonPathPiece.pascalCase}} {
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
     {{#eq content.size 1}}
         {{#each content}}
-            {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody = ({{@key.pascalCase}}RequestBody) requestBody;
-            return serialize({{@key.camelCase}}RequestBody.contentType(), {{@key.camelCase}}RequestBody.body().data);
+            {{@key.pascalCase}}RequestBody requestBody{{@index}} = ({{@key.pascalCase}}RequestBody) requestBody;
+            return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().data());
         {{/each}}
     {{else}}
         {{#each content}}
             {{#if @first}}
-            if (requestBody instanceof {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody) {
+            if (requestBody instanceof {{@key.pascalCase}}RequestBody requestBody{{@index}}) {
             {{else}}
                 {{#if @last}}
             } else  {
-                {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody = ({{@key.pascalCase}}RequestBody) requestBody;
+                {{@key.pascalCase}}RequestBody requestBody{{@index}} = ({{@key.pascalCase}}RequestBody) requestBody;
                 {{else}}
-            } else if (requestBody instanceof {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody) {
+            } else if (requestBody instanceof {{@key.pascalCase}}RequestBody requestBody{{@index}}) {
                 {{/if}}
             {{/if}}
-                return serialize({{@key.camelCase}}RequestBody.contentType(), {{@key.camelCase}}RequestBody.body().data());
+                return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().data());
         {{/each}}
             }
     {{/eq}}

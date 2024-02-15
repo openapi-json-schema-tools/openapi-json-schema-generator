@@ -32,8 +32,8 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            ApplicationxwwwformurlencodedRequestBody applicationXWwwFormUrlencodedRequestBody = (ApplicationxwwwformurlencodedRequestBody) requestBody;
-            return serialize(applicationXWwwFormUrlencodedRequestBody.contentType(), applicationXWwwFormUrlencodedRequestBody.body().data);
+            ApplicationxwwwformurlencodedRequestBody requestBody0 = (ApplicationxwwwformurlencodedRequestBody) requestBody;
+            return serialize(requestBody0.contentType(), requestBody0.body().data());
         }
     }
 

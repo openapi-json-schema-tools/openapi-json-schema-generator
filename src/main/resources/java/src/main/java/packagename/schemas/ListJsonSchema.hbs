@@ -29,6 +29,10 @@ public class ListJsonSchema {
         private ListJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class ListJsonSchema1 extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>, ListJsonSchema1BoxedList> {

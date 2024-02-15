@@ -26,6 +26,10 @@ public class DoubleJsonSchema {
         private DoubleJsonSchema1BoxedNumber(Number data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class DoubleJsonSchema1 extends JsonSchema implements NumberSchemaValidator<DoubleJsonSchema1BoxedNumber> {

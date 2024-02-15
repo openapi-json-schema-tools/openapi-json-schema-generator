@@ -39,11 +39,19 @@ public class AnyTypeJsonSchema {
         private AnyTypeJsonSchema1BoxedVoid(Void data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class AnyTypeJsonSchema1BoxedBoolean extends AnyTypeJsonSchema1Boxed {
         public final boolean data;
         private AnyTypeJsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static final class AnyTypeJsonSchema1BoxedNumber extends AnyTypeJsonSchema1Boxed {
@@ -51,11 +59,19 @@ public class AnyTypeJsonSchema {
         private AnyTypeJsonSchema1BoxedNumber(Number data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class AnyTypeJsonSchema1BoxedString extends AnyTypeJsonSchema1Boxed {
         public final String data;
         private AnyTypeJsonSchema1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static final class AnyTypeJsonSchema1BoxedList extends AnyTypeJsonSchema1Boxed {
@@ -63,11 +79,19 @@ public class AnyTypeJsonSchema {
         private AnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class AnyTypeJsonSchema1BoxedMap extends AnyTypeJsonSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
 

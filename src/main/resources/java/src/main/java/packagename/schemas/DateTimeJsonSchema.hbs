@@ -27,6 +27,10 @@ public class DateTimeJsonSchema {
         private DateTimeJsonSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class DateTimeJsonSchema1 extends JsonSchema implements StringSchemaValidator<DateTimeJsonSchema1BoxedString> {

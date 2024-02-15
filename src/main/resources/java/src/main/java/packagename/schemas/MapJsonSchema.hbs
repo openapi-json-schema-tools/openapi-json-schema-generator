@@ -30,6 +30,10 @@ public class MapJsonSchema {
         private MapJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class MapJsonSchema1 extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>, MapJsonSchema1BoxedMap> {

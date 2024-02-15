@@ -39,11 +39,19 @@ public class NotAnyTypeJsonSchema {
         private NotAnyTypeJsonSchema1BoxedVoid(Void data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class NotAnyTypeJsonSchema1BoxedBoolean extends NotAnyTypeJsonSchema1Boxed {
         public final boolean data;
         private NotAnyTypeJsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static final class NotAnyTypeJsonSchema1BoxedNumber extends NotAnyTypeJsonSchema1Boxed {
@@ -51,11 +59,19 @@ public class NotAnyTypeJsonSchema {
         private NotAnyTypeJsonSchema1BoxedNumber(Number data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class NotAnyTypeJsonSchema1BoxedString extends NotAnyTypeJsonSchema1Boxed {
         public final String data;
         private NotAnyTypeJsonSchema1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static final class NotAnyTypeJsonSchema1BoxedList extends NotAnyTypeJsonSchema1Boxed {
@@ -63,11 +79,19 @@ public class NotAnyTypeJsonSchema {
         private NotAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class NotAnyTypeJsonSchema1BoxedMap extends NotAnyTypeJsonSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private NotAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
 

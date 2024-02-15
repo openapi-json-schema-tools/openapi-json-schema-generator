@@ -26,6 +26,10 @@ public class FloatJsonSchema {
         private FloatJsonSchema1BoxedNumber(Number data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class FloatJsonSchema1 extends JsonSchema implements NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {

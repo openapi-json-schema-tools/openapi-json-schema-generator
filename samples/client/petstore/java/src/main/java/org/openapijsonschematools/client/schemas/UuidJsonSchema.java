@@ -27,6 +27,10 @@ public class UuidJsonSchema {
         private UuidJsonSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class UuidJsonSchema1 extends JsonSchema implements StringSchemaValidator<UuidJsonSchema1BoxedString> {

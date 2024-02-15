@@ -32,8 +32,8 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            ApplicationjsonpatchjsonRequestBody applicationJsonPatch+jsonRequestBody = (ApplicationjsonpatchjsonRequestBody) requestBody;
-            return serialize(applicationJsonPatch+jsonRequestBody.contentType(), applicationJsonPatch+jsonRequestBody.body().data);
+            ApplicationjsonpatchjsonRequestBody requestBody0 = (ApplicationjsonpatchjsonRequestBody) requestBody;
+            return serialize(requestBody0.contentType(), requestBody0.body().data());
         }
     }
 

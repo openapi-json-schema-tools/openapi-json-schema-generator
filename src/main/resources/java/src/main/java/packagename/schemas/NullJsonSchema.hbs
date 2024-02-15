@@ -26,6 +26,10 @@ public class NullJsonSchema {
         private NullJsonSchema1BoxedVoid(Void data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class NullJsonSchema1 extends JsonSchema implements NullSchemaValidator<NullJsonSchema1BoxedVoid> {

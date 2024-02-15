@@ -32,8 +32,8 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            Applicationjsoncharsetutf8RequestBody applicationJson; charset&#x3D;utf8RequestBody = (Applicationjsoncharsetutf8RequestBody) requestBody;
-            return serialize(applicationJson; charset&#x3D;utf8RequestBody.contentType(), applicationJson; charset&#x3D;utf8RequestBody.body().data);
+            Applicationjsoncharsetutf8RequestBody requestBody0 = (Applicationjsoncharsetutf8RequestBody) requestBody;
+            return serialize(requestBody0.contentType(), requestBody0.body().data());
         }
     }
 

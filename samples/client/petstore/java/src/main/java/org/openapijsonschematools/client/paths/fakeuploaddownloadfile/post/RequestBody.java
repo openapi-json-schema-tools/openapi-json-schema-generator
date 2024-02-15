@@ -32,8 +32,8 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            ApplicationoctetstreamRequestBody applicationOctetStreamRequestBody = (ApplicationoctetstreamRequestBody) requestBody;
-            return serialize(applicationOctetStreamRequestBody.contentType(), applicationOctetStreamRequestBody.body().data);
+            ApplicationoctetstreamRequestBody requestBody0 = (ApplicationoctetstreamRequestBody) requestBody;
+            return serialize(requestBody0.contentType(), requestBody0.body().data());
         }
     }
 

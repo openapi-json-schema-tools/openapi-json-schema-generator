@@ -40,11 +40,11 @@ public class Pet {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            if (requestBody instanceof ApplicationjsonRequestBody applicationJsonRequestBody) {
-                return serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body().data());
+            if (requestBody instanceof ApplicationjsonRequestBody requestBody0) {
+                return serialize(requestBody0.contentType(), requestBody0.body().data());
             } else  {
-                ApplicationxmlRequestBody applicationXmlRequestBody = (ApplicationxmlRequestBody) requestBody;
-                return serialize(applicationXmlRequestBody.contentType(), applicationXmlRequestBody.body().data());
+                ApplicationxmlRequestBody requestBody1 = (ApplicationxmlRequestBody) requestBody;
+                return serialize(requestBody1.contentType(), requestBody1.body().data());
             }
         }
     }

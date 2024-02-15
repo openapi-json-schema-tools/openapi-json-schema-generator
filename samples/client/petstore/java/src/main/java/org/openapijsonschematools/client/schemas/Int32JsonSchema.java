@@ -26,6 +26,10 @@ public class Int32JsonSchema {
         private Int32JsonSchema1BoxedNumber(Number data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class Int32JsonSchema1 extends JsonSchema implements NumberSchemaValidator<Int32JsonSchema1BoxedNumber> {

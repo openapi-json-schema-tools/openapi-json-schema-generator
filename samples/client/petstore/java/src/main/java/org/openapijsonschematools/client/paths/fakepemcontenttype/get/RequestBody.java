@@ -32,8 +32,8 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            ApplicationxpemfileRequestBody applicationXPemFileRequestBody = (ApplicationxpemfileRequestBody) requestBody;
-            return serialize(applicationXPemFileRequestBody.contentType(), applicationXPemFileRequestBody.body().data);
+            ApplicationxpemfileRequestBody requestBody0 = (ApplicationxpemfileRequestBody) requestBody;
+            return serialize(requestBody0.contentType(), requestBody0.body().data());
         }
     }
 

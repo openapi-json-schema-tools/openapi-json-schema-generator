@@ -26,6 +26,10 @@ public class DecimalJsonSchema {
         private DecimalJsonSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
 
     public static class DecimalJsonSchema1 extends JsonSchema implements StringSchemaValidator<DecimalJsonSchema1BoxedString> {

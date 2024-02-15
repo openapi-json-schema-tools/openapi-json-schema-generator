@@ -27,11 +27,19 @@ public class UnsetAnyTypeJsonSchema {
         private UnsetAnyTypeJsonSchema1BoxedVoid(Void data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class UnsetAnyTypeJsonSchema1BoxedBoolean extends UnsetAnyTypeJsonSchema1Boxed {
         public final boolean data;
         private UnsetAnyTypeJsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static final class UnsetAnyTypeJsonSchema1BoxedNumber extends UnsetAnyTypeJsonSchema1Boxed {
@@ -39,11 +47,19 @@ public class UnsetAnyTypeJsonSchema {
         private UnsetAnyTypeJsonSchema1BoxedNumber(Number data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class UnsetAnyTypeJsonSchema1BoxedString extends UnsetAnyTypeJsonSchema1Boxed {
         public final String data;
         private UnsetAnyTypeJsonSchema1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static final class UnsetAnyTypeJsonSchema1BoxedList extends UnsetAnyTypeJsonSchema1Boxed {
@@ -51,11 +67,19 @@ public class UnsetAnyTypeJsonSchema {
         private UnsetAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class UnsetAnyTypeJsonSchema1BoxedMap extends UnsetAnyTypeJsonSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UnsetAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static class UnsetAnyTypeJsonSchema1 extends JsonSchema implements NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean>, NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<UnsetAnyTypeJsonSchema1BoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UnsetAnyTypeJsonSchema1BoxedMap> {

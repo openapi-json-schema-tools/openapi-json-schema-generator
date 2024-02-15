@@ -29,6 +29,10 @@ public class StringJsonSchema {
         private StringJsonSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static class StringJsonSchema1 extends JsonSchema implements StringSchemaValidator<StringJsonSchema1BoxedString> {
         private static @Nullable StringJsonSchema1 instance = null;
