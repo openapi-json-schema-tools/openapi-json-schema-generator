@@ -34,7 +34,7 @@ public class {{jsonPathPiece.pascalCase}} {
     {{/each}}
 
     public static class {{jsonPathPiece.pascalCase}}1 extends RequestBodySerializer<SealedRequestBody> {
-       public {{jsonPathPiece.pascalCase}}1() {
+        public {{jsonPathPiece.pascalCase}}1() {
             super(
                 Map.ofEntries(
         {{#each content}}
@@ -46,11 +46,27 @@ public class {{jsonPathPiece.pascalCase}} {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return switch (requestBody) {
-    {{#each content}}
-                case {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody -> serialize({{@key.camelCase}}RequestBody.contentType(), {{@key.camelCase}}RequestBody.body());
-    {{/each}}
-            };
+    {{#eq content.size 1}}
+        {{#each content}}
+            {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody = ({{@key.pascalCase}}RequestBody) requestBody;
+            return serialize({{@key.camelCase}}RequestBody.contentType(), {{@key.camelCase}}RequestBody.body().data);
+        {{/each}}
+    {{else}}
+        {{#each content}}
+            {{#if @first}}
+            if (requestBody instanceof {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody) {
+            {{else}}
+                {{#if @last}}
+            } else  {
+                {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody = ({{@key.pascalCase}}RequestBody) requestBody;
+                {{else}}
+            } else if (requestBody instanceof {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody) {
+                {{/if}}
+            {{/if}}
+                return serialize({{@key.camelCase}}RequestBody.contentType(), {{@key.camelCase}}RequestBody.body().data());
+        {{/each}}
+            }
+    {{/eq}}
         }
     }
 

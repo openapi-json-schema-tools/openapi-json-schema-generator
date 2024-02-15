@@ -22,7 +22,7 @@ public class RequestBody {
     }
 
     public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
-       public RequestBody1() {
+        public RequestBody1() {
             super(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/x-pem-file", new ApplicationxpemfileMediaType())
@@ -32,9 +32,8 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return switch (requestBody) {
-                case ApplicationxpemfileRequestBody applicationXPemFileRequestBody -> serialize(applicationXPemFileRequestBody.contentType(), applicationXPemFileRequestBody.body());
-            }
+            ApplicationxpemfileRequestBody applicationXPemFileRequestBody = (ApplicationxpemfileRequestBody) requestBody;
+            return serialize(applicationXPemFileRequestBody.contentType(), applicationXPemFileRequestBody.body().data);
         }
     }
 

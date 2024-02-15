@@ -22,7 +22,7 @@ public class RequestBody {
     }
 
     public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
-       public RequestBody1() {
+        public RequestBody1() {
             super(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("multipart/form-data", new MultipartformdataMediaType())
@@ -32,9 +32,8 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return switch (requestBody) {
-                case MultipartformdataRequestBody multipartFormDataRequestBody -> serialize(multipartFormDataRequestBody.contentType(), multipartFormDataRequestBody.body());
-            }
+            MultipartformdataRequestBody multipartFormDataRequestBody = (MultipartformdataRequestBody) requestBody;
+            return serialize(multipartFormDataRequestBody.contentType(), multipartFormDataRequestBody.body().data);
         }
     }
 

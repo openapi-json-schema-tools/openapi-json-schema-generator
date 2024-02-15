@@ -22,7 +22,7 @@ public class RequestBody {
     }
 
     public static class RequestBody1 extends RequestBodySerializer<SealedRequestBody> {
-       public RequestBody1() {
+        public RequestBody1() {
             super(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/json; charset=utf-8", new Applicationjsoncharsetutf8MediaType())
@@ -32,9 +32,8 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return switch (requestBody) {
-                case Applicationjsoncharsetutf8RequestBody applicationJson; charset&#x3D;utf8RequestBody -> serialize(applicationJson; charset&#x3D;utf8RequestBody.contentType(), applicationJson; charset&#x3D;utf8RequestBody.body());
-            }
+            Applicationjsoncharsetutf8RequestBody applicationJson; charset&#x3D;utf8RequestBody = (Applicationjsoncharsetutf8RequestBody) requestBody;
+            return serialize(applicationJson; charset&#x3D;utf8RequestBody.contentType(), applicationJson; charset&#x3D;utf8RequestBody.body().data);
         }
     }
 

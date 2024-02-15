@@ -29,7 +29,7 @@ public class Pet {
     }
 
     public static class Pet1 extends RequestBodySerializer<SealedRequestBody> {
-       public Pet1() {
+        public Pet1() {
             super(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType()),
@@ -40,10 +40,16 @@ public class Pet {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return switch (requestBody) {
-                case ApplicationjsonRequestBody applicationJsonRequestBody -> serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body());
-                case ApplicationxmlRequestBody applicationXmlRequestBody -> serialize(applicationXmlRequestBody.contentType(), applicationXmlRequestBody.body());
-            };
+            if (requestBody instanceof  ApplicationjsonRequestBody applicationJsonRequestBody) {
+                var body = applicationJsonRequestBody.body();
+                if (body instanceof ApplicationjsonSchema.Pet1BoxedMap castBody) {
+                    castBody.data
+                }
+                return serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body().data);
+            } else {
+                ApplicationxmlRequestBody applicationXmlRequestBody = (ApplicationxmlRequestBody) requestBody;
+                return serialize(applicationXmlRequestBody.contentType(), applicationXmlRequestBody.body().data);
+            }
         }
     }
 

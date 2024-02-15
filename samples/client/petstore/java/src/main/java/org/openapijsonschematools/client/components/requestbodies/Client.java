@@ -22,7 +22,7 @@ public class Client {
     }
 
     public static class Client1 extends RequestBodySerializer<SealedRequestBody> {
-       public Client1() {
+        public Client1() {
             super(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())
@@ -32,9 +32,8 @@ public class Client {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return switch (requestBody) {
-                case ApplicationjsonRequestBody applicationJsonRequestBody -> serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body());
-            }
+            ApplicationjsonRequestBody applicationJsonRequestBody = (ApplicationjsonRequestBody) requestBody;
+            return serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body().data);
         }
     }
 
