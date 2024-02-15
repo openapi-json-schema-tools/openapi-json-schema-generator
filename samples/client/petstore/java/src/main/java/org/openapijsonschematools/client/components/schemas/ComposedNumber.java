@@ -31,12 +31,18 @@ public class ComposedNumber {
     }
     
     
-    public static abstract sealed class ComposedNumber1Boxed permits ComposedNumber1BoxedNumber {}
+    public static abstract sealed class ComposedNumber1Boxed permits ComposedNumber1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ComposedNumber1BoxedNumber extends ComposedNumber1Boxed {
         public final Number data;
         private ComposedNumber1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

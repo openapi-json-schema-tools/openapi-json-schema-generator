@@ -19,6 +19,7 @@ import java.util.Set;
 
 public class BooleanJsonSchema {
     public static abstract sealed class BooleanJsonSchema1Boxed permits BooleanJsonSchema1BoxedBoolean {
+        public abstract @Nullable Object data();
     }
     public static final class BooleanJsonSchema1BoxedBoolean extends BooleanJsonSchema1Boxed {
         public final boolean data;

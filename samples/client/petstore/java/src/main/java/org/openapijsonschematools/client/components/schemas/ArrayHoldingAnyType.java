@@ -107,12 +107,18 @@ public class ArrayHoldingAnyType {
     }
     
     
-    public static abstract sealed class ArrayHoldingAnyType1Boxed permits ArrayHoldingAnyType1BoxedList {}
+    public static abstract sealed class ArrayHoldingAnyType1Boxed permits ArrayHoldingAnyType1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayHoldingAnyType1BoxedList extends ArrayHoldingAnyType1Boxed {
         public final ArrayHoldingAnyTypeList data;
         private ArrayHoldingAnyType1BoxedList(ArrayHoldingAnyTypeList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

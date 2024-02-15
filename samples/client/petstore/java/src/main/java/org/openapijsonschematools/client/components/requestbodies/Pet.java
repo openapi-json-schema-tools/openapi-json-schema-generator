@@ -40,15 +40,11 @@ public class Pet {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            if (requestBody instanceof  ApplicationjsonRequestBody applicationJsonRequestBody) {
-                var body = applicationJsonRequestBody.body();
-                if (body instanceof ApplicationjsonSchema.Pet1BoxedMap castBody) {
-                    castBody.data
-                }
-                return serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body().data);
-            } else {
+            if (requestBody instanceof ApplicationjsonRequestBody applicationJsonRequestBody) {
+                return serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body().data());
+            } else  {
                 ApplicationxmlRequestBody applicationXmlRequestBody = (ApplicationxmlRequestBody) requestBody;
-                return serialize(applicationXmlRequestBody.contentType(), applicationXmlRequestBody.body().data);
+                return serialize(applicationXmlRequestBody.contentType(), applicationXmlRequestBody.body().data());
             }
         }
     }

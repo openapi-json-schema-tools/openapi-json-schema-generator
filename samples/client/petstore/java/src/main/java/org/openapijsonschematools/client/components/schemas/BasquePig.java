@@ -44,12 +44,18 @@ public class BasquePig {
     }
     
     
-    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {}
+    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ClassNameBoxedString extends ClassNameBoxed {
         public final String data;
         private ClassNameBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -192,12 +198,18 @@ public class BasquePig {
     }
     
     
-    public static abstract sealed class BasquePig1Boxed permits BasquePig1BoxedMap {}
+    public static abstract sealed class BasquePig1Boxed permits BasquePig1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class BasquePig1BoxedMap extends BasquePig1Boxed {
         public final BasquePigMap data;
         private BasquePig1BoxedMap(BasquePigMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

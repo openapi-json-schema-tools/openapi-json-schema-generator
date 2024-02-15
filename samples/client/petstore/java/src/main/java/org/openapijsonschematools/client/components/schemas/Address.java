@@ -109,12 +109,18 @@ public class Address {
     }
     
     
-    public static abstract sealed class Address1Boxed permits Address1BoxedMap {}
+    public static abstract sealed class Address1Boxed permits Address1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Address1BoxedMap extends Address1Boxed {
         public final AddressMap data;
         private Address1BoxedMap(AddressMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -89,12 +89,18 @@ public class ArrayOfNumberOnly {
     }
     
     
-    public static abstract sealed class ArrayNumberBoxed permits ArrayNumberBoxedList {}
+    public static abstract sealed class ArrayNumberBoxed permits ArrayNumberBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayNumberBoxedList extends ArrayNumberBoxed {
         public final ArrayNumberList data;
         private ArrayNumberBoxedList(ArrayNumberList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -236,12 +242,18 @@ public class ArrayOfNumberOnly {
     }
     
     
-    public static abstract sealed class ArrayOfNumberOnly1Boxed permits ArrayOfNumberOnly1BoxedMap {}
+    public static abstract sealed class ArrayOfNumberOnly1Boxed permits ArrayOfNumberOnly1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayOfNumberOnly1BoxedMap extends ArrayOfNumberOnly1Boxed {
         public final ArrayOfNumberOnlyMap data;
         private ArrayOfNumberOnly1BoxedMap(ArrayOfNumberOnlyMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

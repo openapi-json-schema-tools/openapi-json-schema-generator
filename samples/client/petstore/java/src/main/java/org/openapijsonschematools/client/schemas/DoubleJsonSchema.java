@@ -19,6 +19,7 @@ import java.util.Set;
 
 public class DoubleJsonSchema {
     public static abstract sealed class DoubleJsonSchema1Boxed permits DoubleJsonSchema1BoxedNumber {
+        public abstract @Nullable Object data();
     }
     public static final class DoubleJsonSchema1BoxedNumber extends DoubleJsonSchema1Boxed {
         public final Number data;

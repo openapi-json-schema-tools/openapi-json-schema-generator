@@ -20,6 +20,7 @@ import java.util.Set;
 
 public class DateTimeJsonSchema {
     public static abstract sealed class DateTimeJsonSchema1Boxed permits DateTimeJsonSchema1BoxedString {
+        public abstract @Nullable Object data();
     }
     public static final class DateTimeJsonSchema1BoxedString extends DateTimeJsonSchema1Boxed {
         public final String data;

@@ -19,12 +19,18 @@ public class IntegerMin15 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class IntegerMin151Boxed permits IntegerMin151BoxedNumber {}
+    public static abstract sealed class IntegerMin151Boxed permits IntegerMin151BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IntegerMin151BoxedNumber extends IntegerMin151Boxed {
         public final Number data;
         private IntegerMin151BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

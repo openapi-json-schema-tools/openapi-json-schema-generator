@@ -47,12 +47,18 @@ public class EnumArrays {
     }
     
     
-    public static abstract sealed class JustSymbolBoxed permits JustSymbolBoxedString {}
+    public static abstract sealed class JustSymbolBoxed permits JustSymbolBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class JustSymbolBoxedString extends JustSymbolBoxed {
         public final String data;
         private JustSymbolBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -129,12 +135,18 @@ public class EnumArrays {
     }
     
     
-    public static abstract sealed class ItemsBoxed permits ItemsBoxedString {}
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsBoxedString extends ItemsBoxed {
         public final String data;
         private ItemsBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -235,12 +247,18 @@ public class EnumArrays {
     }
     
     
-    public static abstract sealed class ArrayEnumBoxed permits ArrayEnumBoxedList {}
+    public static abstract sealed class ArrayEnumBoxed permits ArrayEnumBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayEnumBoxedList extends ArrayEnumBoxed {
         public final ArrayEnumList data;
         private ArrayEnumBoxedList(ArrayEnumList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -414,12 +432,18 @@ public class EnumArrays {
     }
     
     
-    public static abstract sealed class EnumArrays1Boxed permits EnumArrays1BoxedMap {}
+    public static abstract sealed class EnumArrays1Boxed permits EnumArrays1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumArrays1BoxedMap extends EnumArrays1Boxed {
         public final EnumArraysMap data;
         private EnumArrays1BoxedMap(EnumArraysMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

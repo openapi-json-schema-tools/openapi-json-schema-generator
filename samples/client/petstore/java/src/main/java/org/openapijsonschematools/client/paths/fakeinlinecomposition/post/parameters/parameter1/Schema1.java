@@ -37,12 +37,18 @@ public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Schema01Boxed permits Schema01BoxedString {}
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema01BoxedString extends Schema01Boxed {
         public final String data;
         private Schema01BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -98,12 +104,18 @@ public class Schema1 {
         }
     }    
     
-    public static abstract sealed class SomeProp1Boxed permits SomeProp1BoxedVoid, SomeProp1BoxedBoolean, SomeProp1BoxedNumber, SomeProp1BoxedString, SomeProp1BoxedList, SomeProp1BoxedMap {}
+    public static abstract sealed class SomeProp1Boxed permits SomeProp1BoxedVoid, SomeProp1BoxedBoolean, SomeProp1BoxedNumber, SomeProp1BoxedString, SomeProp1BoxedList, SomeProp1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class SomeProp1BoxedVoid extends SomeProp1Boxed {
         public final Void data;
         private SomeProp1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -112,12 +124,20 @@ public class Schema1 {
         private SomeProp1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomeProp1BoxedNumber extends SomeProp1Boxed {
         public final Number data;
         private SomeProp1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -126,6 +146,10 @@ public class Schema1 {
         private SomeProp1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomeProp1BoxedList extends SomeProp1Boxed {
@@ -133,12 +157,20 @@ public class Schema1 {
         private SomeProp1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomeProp1BoxedMap extends SomeProp1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private SomeProp1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -472,12 +504,18 @@ public class Schema1 {
     }
     
     
-    public static abstract sealed class Schema11Boxed permits Schema11BoxedMap {}
+    public static abstract sealed class Schema11Boxed permits Schema11BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema11BoxedMap extends Schema11Boxed {
         public final SchemaMap1 data;
         private Schema11BoxedMap(SchemaMap1 data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

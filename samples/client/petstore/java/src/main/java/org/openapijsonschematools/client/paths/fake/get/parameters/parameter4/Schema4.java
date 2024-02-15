@@ -81,12 +81,18 @@ public class Schema4 {
     }
     
     
-    public static abstract sealed class Schema41Boxed permits Schema41BoxedNumber {}
+    public static abstract sealed class Schema41Boxed permits Schema41BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema41BoxedNumber extends Schema41Boxed {
         public final Number data;
         private Schema41BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

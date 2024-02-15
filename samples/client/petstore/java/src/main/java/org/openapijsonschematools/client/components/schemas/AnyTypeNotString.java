@@ -47,12 +47,18 @@ public class AnyTypeNotString {
     }
     
     
-    public static abstract sealed class AnyTypeNotString1Boxed permits AnyTypeNotString1BoxedVoid, AnyTypeNotString1BoxedBoolean, AnyTypeNotString1BoxedNumber, AnyTypeNotString1BoxedString, AnyTypeNotString1BoxedList, AnyTypeNotString1BoxedMap {}
+    public static abstract sealed class AnyTypeNotString1Boxed permits AnyTypeNotString1BoxedVoid, AnyTypeNotString1BoxedBoolean, AnyTypeNotString1BoxedNumber, AnyTypeNotString1BoxedString, AnyTypeNotString1BoxedList, AnyTypeNotString1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AnyTypeNotString1BoxedVoid extends AnyTypeNotString1Boxed {
         public final Void data;
         private AnyTypeNotString1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class AnyTypeNotString {
         private AnyTypeNotString1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyTypeNotString1BoxedNumber extends AnyTypeNotString1Boxed {
         public final Number data;
         private AnyTypeNotString1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class AnyTypeNotString {
         private AnyTypeNotString1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyTypeNotString1BoxedList extends AnyTypeNotString1Boxed {
@@ -82,12 +100,20 @@ public class AnyTypeNotString {
         private AnyTypeNotString1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyTypeNotString1BoxedMap extends AnyTypeNotString1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AnyTypeNotString1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

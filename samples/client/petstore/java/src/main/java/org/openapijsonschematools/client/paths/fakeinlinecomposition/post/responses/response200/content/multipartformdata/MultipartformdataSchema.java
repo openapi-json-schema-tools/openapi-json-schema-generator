@@ -37,12 +37,18 @@ public class MultipartformdataSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Multipartformdata0Boxed permits Multipartformdata0BoxedString {}
+    public static abstract sealed class Multipartformdata0Boxed permits Multipartformdata0BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Multipartformdata0BoxedString extends Multipartformdata0Boxed {
         public final String data;
         private Multipartformdata0BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -98,12 +104,18 @@ public class MultipartformdataSchema {
         }
     }    
     
-    public static abstract sealed class MultipartformdataSomePropBoxed permits MultipartformdataSomePropBoxedVoid, MultipartformdataSomePropBoxedBoolean, MultipartformdataSomePropBoxedNumber, MultipartformdataSomePropBoxedString, MultipartformdataSomePropBoxedList, MultipartformdataSomePropBoxedMap {}
+    public static abstract sealed class MultipartformdataSomePropBoxed permits MultipartformdataSomePropBoxedVoid, MultipartformdataSomePropBoxedBoolean, MultipartformdataSomePropBoxedNumber, MultipartformdataSomePropBoxedString, MultipartformdataSomePropBoxedList, MultipartformdataSomePropBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MultipartformdataSomePropBoxedVoid extends MultipartformdataSomePropBoxed {
         public final Void data;
         private MultipartformdataSomePropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -112,12 +124,20 @@ public class MultipartformdataSchema {
         private MultipartformdataSomePropBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MultipartformdataSomePropBoxedNumber extends MultipartformdataSomePropBoxed {
         public final Number data;
         private MultipartformdataSomePropBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -126,6 +146,10 @@ public class MultipartformdataSchema {
         private MultipartformdataSomePropBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MultipartformdataSomePropBoxedList extends MultipartformdataSomePropBoxed {
@@ -133,12 +157,20 @@ public class MultipartformdataSchema {
         private MultipartformdataSomePropBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MultipartformdataSomePropBoxedMap extends MultipartformdataSomePropBoxed {
         public final FrozenMap<@Nullable Object> data;
         private MultipartformdataSomePropBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -472,12 +504,18 @@ public class MultipartformdataSchema {
     }
     
     
-    public static abstract sealed class MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {}
+    public static abstract sealed class MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MultipartformdataSchema1BoxedMap extends MultipartformdataSchema1Boxed {
         public final MultipartformdataSchemaMap data;
         private MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

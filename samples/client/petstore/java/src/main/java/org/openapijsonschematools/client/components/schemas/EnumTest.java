@@ -56,12 +56,18 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumStringBoxed permits EnumStringBoxedString {}
+    public static abstract sealed class EnumStringBoxed permits EnumStringBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumStringBoxedString extends EnumStringBoxed {
         public final String data;
         private EnumStringBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -140,12 +146,18 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {}
+    public static abstract sealed class EnumStringRequiredBoxed permits EnumStringRequiredBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumStringRequiredBoxedString extends EnumStringRequiredBoxed {
         public final String data;
         private EnumStringRequiredBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -262,12 +274,18 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumIntegerBoxed permits EnumIntegerBoxedNumber {}
+    public static abstract sealed class EnumIntegerBoxed permits EnumIntegerBoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumIntegerBoxedNumber extends EnumIntegerBoxed {
         public final Number data;
         private EnumIntegerBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -384,12 +402,18 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumNumberBoxed permits EnumNumberBoxedNumber {}
+    public static abstract sealed class EnumNumberBoxed permits EnumNumberBoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumNumberBoxedNumber extends EnumNumberBoxed {
         public final Number data;
         private EnumNumberBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -970,12 +994,18 @@ public class EnumTest {
     }
     
     
-    public static abstract sealed class EnumTest1Boxed permits EnumTest1BoxedMap {}
+    public static abstract sealed class EnumTest1Boxed permits EnumTest1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumTest1BoxedMap extends EnumTest1Boxed {
         public final EnumTestMap data;
         private EnumTest1BoxedMap(EnumTestMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

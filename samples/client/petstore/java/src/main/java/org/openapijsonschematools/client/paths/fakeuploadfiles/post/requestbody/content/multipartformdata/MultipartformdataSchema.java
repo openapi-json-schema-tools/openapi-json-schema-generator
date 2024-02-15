@@ -75,12 +75,18 @@ public class MultipartformdataSchema {
     }
     
     
-    public static abstract sealed class MultipartformdataFilesBoxed permits MultipartformdataFilesBoxedList {}
+    public static abstract sealed class MultipartformdataFilesBoxed permits MultipartformdataFilesBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MultipartformdataFilesBoxedList extends MultipartformdataFilesBoxed {
         public final MultipartformdataFilesList data;
         private MultipartformdataFilesBoxedList(MultipartformdataFilesList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -222,12 +228,18 @@ public class MultipartformdataSchema {
     }
     
     
-    public static abstract sealed class MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {}
+    public static abstract sealed class MultipartformdataSchema1Boxed permits MultipartformdataSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MultipartformdataSchema1BoxedMap extends MultipartformdataSchema1Boxed {
         public final MultipartformdataSchemaMap data;
         private MultipartformdataSchema1BoxedMap(MultipartformdataSchemaMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

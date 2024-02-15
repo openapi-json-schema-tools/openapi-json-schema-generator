@@ -20,6 +20,7 @@ import java.util.UUID;
 
 public class UnsetAnyTypeJsonSchema {
     public static abstract sealed class UnsetAnyTypeJsonSchema1Boxed permits UnsetAnyTypeJsonSchema1BoxedVoid, UnsetAnyTypeJsonSchema1BoxedBoolean, UnsetAnyTypeJsonSchema1BoxedNumber, UnsetAnyTypeJsonSchema1BoxedString, UnsetAnyTypeJsonSchema1BoxedList, UnsetAnyTypeJsonSchema1BoxedMap {
+        public abstract @Nullable Object data();
     }
     public static final class UnsetAnyTypeJsonSchema1BoxedVoid extends UnsetAnyTypeJsonSchema1Boxed {
         public final Void data;

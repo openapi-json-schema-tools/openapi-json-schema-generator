@@ -164,12 +164,18 @@ public class ObjectModelWithRefProps {
     }
     
     
-    public static abstract sealed class ObjectModelWithRefProps1Boxed permits ObjectModelWithRefProps1BoxedMap {}
+    public static abstract sealed class ObjectModelWithRefProps1Boxed permits ObjectModelWithRefProps1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectModelWithRefProps1BoxedMap extends ObjectModelWithRefProps1Boxed {
         public final ObjectModelWithRefPropsMap data;
         private ObjectModelWithRefProps1BoxedMap(ObjectModelWithRefPropsMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

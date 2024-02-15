@@ -175,12 +175,18 @@ public class ObjectModelWithArgAndArgsProperties {
     }
     
     
-    public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed permits ObjectModelWithArgAndArgsProperties1BoxedMap {}
+    public static abstract sealed class ObjectModelWithArgAndArgsProperties1Boxed permits ObjectModelWithArgAndArgsProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectModelWithArgAndArgsProperties1BoxedMap extends ObjectModelWithArgAndArgsProperties1Boxed {
         public final ObjectModelWithArgAndArgsPropertiesMap data;
         private ObjectModelWithArgAndArgsProperties1BoxedMap(ObjectModelWithArgAndArgsPropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

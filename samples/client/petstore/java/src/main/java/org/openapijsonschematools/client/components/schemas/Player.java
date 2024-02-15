@@ -132,12 +132,18 @@ public class Player {
     }
     
     
-    public static abstract sealed class Player1Boxed permits Player1BoxedMap {}
+    public static abstract sealed class Player1Boxed permits Player1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Player1BoxedMap extends Player1Boxed {
         public final PlayerMap data;
         private Player1BoxedMap(PlayerMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

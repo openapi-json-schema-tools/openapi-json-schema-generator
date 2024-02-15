@@ -57,12 +57,18 @@ public class ApplicationxmlSchema {
     }
     
     
-    public static abstract sealed class ApplicationxmlSchema1Boxed permits ApplicationxmlSchema1BoxedList {}
+    public static abstract sealed class ApplicationxmlSchema1Boxed permits ApplicationxmlSchema1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ApplicationxmlSchema1BoxedList extends ApplicationxmlSchema1Boxed {
         public final ApplicationxmlSchemaList data;
         private ApplicationxmlSchema1BoxedList(ApplicationxmlSchemaList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -19,6 +19,7 @@ import java.util.Set;
 
 public class Int64JsonSchema {
     public static abstract sealed class Int64JsonSchema1Boxed permits Int64JsonSchema1BoxedNumber {
+        public abstract @Nullable Object data();
     }
     public static final class Int64JsonSchema1BoxedNumber extends Int64JsonSchema1Boxed {
         public final Number data;

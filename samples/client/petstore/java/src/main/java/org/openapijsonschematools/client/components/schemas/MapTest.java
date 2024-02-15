@@ -95,12 +95,18 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {}
+    public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalPropertiesBoxedMap extends AdditionalPropertiesBoxed {
         public final AdditionalPropertiesMap data;
         private AdditionalPropertiesBoxedMap(AdditionalPropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -229,12 +235,18 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class MapMapOfStringBoxed permits MapMapOfStringBoxedMap {}
+    public static abstract sealed class MapMapOfStringBoxed permits MapMapOfStringBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MapMapOfStringBoxedMap extends MapMapOfStringBoxed {
         public final MapMapOfStringMap data;
         private MapMapOfStringBoxedMap(MapMapOfStringMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,12 +339,18 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {}
+    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalProperties2BoxedString extends AdditionalProperties2Boxed {
         public final String data;
         private AdditionalProperties2BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -452,12 +470,18 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {}
+    public static abstract sealed class MapOfEnumStringBoxed permits MapOfEnumStringBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MapOfEnumStringBoxedMap extends MapOfEnumStringBoxed {
         public final MapOfEnumStringMap data;
         private MapOfEnumStringBoxedMap(MapOfEnumStringMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -602,12 +626,18 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class DirectMapBoxed permits DirectMapBoxedMap {}
+    public static abstract sealed class DirectMapBoxed permits DirectMapBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DirectMapBoxedMap extends DirectMapBoxed {
         public final DirectMapMap data;
         private DirectMapBoxedMap(DirectMapMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -831,12 +861,18 @@ public class MapTest {
     }
     
     
-    public static abstract sealed class MapTest1Boxed permits MapTest1BoxedMap {}
+    public static abstract sealed class MapTest1Boxed permits MapTest1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MapTest1BoxedMap extends MapTest1Boxed {
         public final MapTestMap data;
         private MapTest1BoxedMap(MapTestMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -32,6 +32,7 @@ import java.util.UUID;
 
 public class NotAnyTypeJsonSchema {
     public static abstract sealed class NotAnyTypeJsonSchema1Boxed permits NotAnyTypeJsonSchema1BoxedVoid, NotAnyTypeJsonSchema1BoxedBoolean, NotAnyTypeJsonSchema1BoxedNumber, NotAnyTypeJsonSchema1BoxedString, NotAnyTypeJsonSchema1BoxedList, NotAnyTypeJsonSchema1BoxedMap {
+        public abstract @Nullable Object data();
     }
     public static final class NotAnyTypeJsonSchema1BoxedVoid extends NotAnyTypeJsonSchema1Boxed {
         public final Void data;

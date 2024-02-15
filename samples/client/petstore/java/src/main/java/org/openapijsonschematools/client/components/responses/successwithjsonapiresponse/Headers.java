@@ -423,12 +423,18 @@ public class Headers {
     }
     
     
-    public static abstract sealed class Headers1Boxed permits Headers1BoxedMap {}
+    public static abstract sealed class Headers1Boxed permits Headers1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Headers1BoxedMap extends Headers1Boxed {
         public final HeadersMap data;
         private Headers1BoxedMap(HeadersMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

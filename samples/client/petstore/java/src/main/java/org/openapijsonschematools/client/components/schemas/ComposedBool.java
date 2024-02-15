@@ -31,12 +31,18 @@ public class ComposedBool {
     }
     
     
-    public static abstract sealed class ComposedBool1Boxed permits ComposedBool1BoxedBoolean {}
+    public static abstract sealed class ComposedBool1Boxed permits ComposedBool1BoxedBoolean {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ComposedBool1BoxedBoolean extends ComposedBool1Boxed {
         public final boolean data;
         private ComposedBool1BoxedBoolean(boolean data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

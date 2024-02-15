@@ -291,12 +291,18 @@ public class Capitalization {
     }
     
     
-    public static abstract sealed class Capitalization1Boxed permits Capitalization1BoxedMap {}
+    public static abstract sealed class Capitalization1Boxed permits Capitalization1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Capitalization1BoxedMap extends Capitalization1Boxed {
         public final CapitalizationMap data;
         private Capitalization1BoxedMap(CapitalizationMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

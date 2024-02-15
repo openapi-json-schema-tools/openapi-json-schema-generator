@@ -19,6 +19,7 @@ import java.util.Set;
 
 public class FloatJsonSchema {
     public static abstract sealed class FloatJsonSchema1Boxed permits FloatJsonSchema1BoxedNumber {
+        public abstract @Nullable Object data();
     }
     public static final class FloatJsonSchema1BoxedNumber extends FloatJsonSchema1Boxed {
         public final Number data;

@@ -37,12 +37,18 @@ public class StringEnumWithDefaultValue {
     }
     
     
-    public static abstract sealed class StringEnumWithDefaultValue1Boxed permits StringEnumWithDefaultValue1BoxedString {}
+    public static abstract sealed class StringEnumWithDefaultValue1Boxed permits StringEnumWithDefaultValue1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class StringEnumWithDefaultValue1BoxedString extends StringEnumWithDefaultValue1Boxed {
         public final String data;
         private StringEnumWithDefaultValue1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

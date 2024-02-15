@@ -95,12 +95,18 @@ public class ApplicationjsonSchema {
     }
     
     
-    public static abstract sealed class ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedMap {}
+    public static abstract sealed class ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ApplicationjsonSchema1BoxedMap extends ApplicationjsonSchema1Boxed {
         public final ApplicationjsonSchemaMap data;
         private ApplicationjsonSchema1BoxedMap(ApplicationjsonSchemaMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

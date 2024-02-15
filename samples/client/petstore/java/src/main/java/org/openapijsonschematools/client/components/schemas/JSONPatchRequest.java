@@ -35,12 +35,18 @@ public class JSONPatchRequest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {}
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsBoxedVoid extends ItemsBoxed {
         public final Void data;
         private ItemsBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class JSONPatchRequest {
         private ItemsBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedNumber extends ItemsBoxed {
         public final Number data;
         private ItemsBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class JSONPatchRequest {
         private ItemsBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedList extends ItemsBoxed {
@@ -70,12 +88,20 @@ public class JSONPatchRequest {
         private ItemsBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedMap extends ItemsBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -375,12 +401,18 @@ public class JSONPatchRequest {
     }
     
     
-    public static abstract sealed class JSONPatchRequest1Boxed permits JSONPatchRequest1BoxedList {}
+    public static abstract sealed class JSONPatchRequest1Boxed permits JSONPatchRequest1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class JSONPatchRequest1BoxedList extends JSONPatchRequest1Boxed {
         public final JSONPatchRequestList data;
         private JSONPatchRequest1BoxedList(JSONPatchRequestList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

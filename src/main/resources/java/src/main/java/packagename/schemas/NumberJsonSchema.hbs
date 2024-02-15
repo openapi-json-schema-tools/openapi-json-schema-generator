@@ -19,6 +19,7 @@ import java.util.Set;
 
 public class NumberJsonSchema {
     public static abstract sealed class NumberJsonSchema1Boxed permits NumberJsonSchema1BoxedNumber {
+        public abstract @Nullable Object data();
     }
     public static final class NumberJsonSchema1BoxedNumber extends NumberJsonSchema1Boxed {
         public final Number data;

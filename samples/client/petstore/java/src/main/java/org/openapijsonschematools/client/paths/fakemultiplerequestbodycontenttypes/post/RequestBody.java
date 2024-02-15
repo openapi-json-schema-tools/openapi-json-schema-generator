@@ -40,10 +40,11 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            if (requestBody instanceof  ApplicationjsonRequestBody applicationJsonRequestBody) {
-                return serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body().data);
-            } else if (requestBody instanceof  MultipartformdataRequestBody multipartFormDataRequestBody) {
-                return serialize(multipartFormDataRequestBody.contentType(), multipartFormDataRequestBody.body().data);
+            if (requestBody instanceof ApplicationjsonRequestBody applicationJsonRequestBody) {
+                return serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body().data());
+            } else  {
+                MultipartformdataRequestBody multipartFormDataRequestBody = (MultipartformdataRequestBody) requestBody;
+                return serialize(multipartFormDataRequestBody.contentType(), multipartFormDataRequestBody.body().data());
             }
         }
     }

@@ -85,12 +85,18 @@ public class IntegerEnum {
     }
     
     
-    public static abstract sealed class IntegerEnum1Boxed permits IntegerEnum1BoxedNumber {}
+    public static abstract sealed class IntegerEnum1Boxed permits IntegerEnum1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IntegerEnum1BoxedNumber extends IntegerEnum1Boxed {
         public final Number data;
         private IntegerEnum1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -143,12 +143,18 @@ public class ObjectWithCollidingProperties {
     }
     
     
-    public static abstract sealed class ObjectWithCollidingProperties1Boxed permits ObjectWithCollidingProperties1BoxedMap {}
+    public static abstract sealed class ObjectWithCollidingProperties1Boxed permits ObjectWithCollidingProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectWithCollidingProperties1BoxedMap extends ObjectWithCollidingProperties1Boxed {
         public final ObjectWithCollidingPropertiesMap data;
         private ObjectWithCollidingProperties1BoxedMap(ObjectWithCollidingPropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

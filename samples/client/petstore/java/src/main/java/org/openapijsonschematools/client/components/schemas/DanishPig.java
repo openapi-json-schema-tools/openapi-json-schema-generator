@@ -44,12 +44,18 @@ public class DanishPig {
     }
     
     
-    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {}
+    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ClassNameBoxedString extends ClassNameBoxed {
         public final String data;
         private ClassNameBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -192,12 +198,18 @@ public class DanishPig {
     }
     
     
-    public static abstract sealed class DanishPig1Boxed permits DanishPig1BoxedMap {}
+    public static abstract sealed class DanishPig1Boxed permits DanishPig1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DanishPig1BoxedMap extends DanishPig1Boxed {
         public final DanishPigMap data;
         private DanishPig1BoxedMap(DanishPigMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

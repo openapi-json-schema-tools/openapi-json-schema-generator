@@ -31,12 +31,18 @@ public class ComposedString {
     }
     
     
-    public static abstract sealed class ComposedString1Boxed permits ComposedString1BoxedString {}
+    public static abstract sealed class ComposedString1Boxed permits ComposedString1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ComposedString1BoxedString extends ComposedString1Boxed {
         public final String data;
         private ComposedString1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

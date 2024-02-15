@@ -35,12 +35,18 @@ public class ApplicationjsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Applicationjson0Boxed permits Applicationjson0BoxedString {}
+    public static abstract sealed class Applicationjson0Boxed permits Applicationjson0BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Applicationjson0BoxedString extends Applicationjson0Boxed {
         public final String data;
         private Applicationjson0BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -96,12 +102,18 @@ public class ApplicationjsonSchema {
         }
     }    
     
-    public static abstract sealed class ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedVoid, ApplicationjsonSchema1BoxedBoolean, ApplicationjsonSchema1BoxedNumber, ApplicationjsonSchema1BoxedString, ApplicationjsonSchema1BoxedList, ApplicationjsonSchema1BoxedMap {}
+    public static abstract sealed class ApplicationjsonSchema1Boxed permits ApplicationjsonSchema1BoxedVoid, ApplicationjsonSchema1BoxedBoolean, ApplicationjsonSchema1BoxedNumber, ApplicationjsonSchema1BoxedString, ApplicationjsonSchema1BoxedList, ApplicationjsonSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ApplicationjsonSchema1BoxedVoid extends ApplicationjsonSchema1Boxed {
         public final Void data;
         private ApplicationjsonSchema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -110,12 +122,20 @@ public class ApplicationjsonSchema {
         private ApplicationjsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ApplicationjsonSchema1BoxedNumber extends ApplicationjsonSchema1Boxed {
         public final Number data;
         private ApplicationjsonSchema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -124,6 +144,10 @@ public class ApplicationjsonSchema {
         private ApplicationjsonSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ApplicationjsonSchema1BoxedList extends ApplicationjsonSchema1Boxed {
@@ -131,12 +155,20 @@ public class ApplicationjsonSchema {
         private ApplicationjsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ApplicationjsonSchema1BoxedMap extends ApplicationjsonSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ApplicationjsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

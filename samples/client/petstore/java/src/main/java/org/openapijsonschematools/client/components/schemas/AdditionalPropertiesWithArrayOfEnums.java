@@ -66,12 +66,18 @@ public class AdditionalPropertiesWithArrayOfEnums {
     }
     
     
-    public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedList {}
+    public static abstract sealed class AdditionalPropertiesBoxed permits AdditionalPropertiesBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalPropertiesBoxedList extends AdditionalPropertiesBoxed {
         public final AdditionalPropertiesList data;
         private AdditionalPropertiesBoxedList(AdditionalPropertiesList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -200,12 +206,18 @@ public class AdditionalPropertiesWithArrayOfEnums {
     }
     
     
-    public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed permits AdditionalPropertiesWithArrayOfEnums1BoxedMap {}
+    public static abstract sealed class AdditionalPropertiesWithArrayOfEnums1Boxed permits AdditionalPropertiesWithArrayOfEnums1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalPropertiesWithArrayOfEnums1BoxedMap extends AdditionalPropertiesWithArrayOfEnums1Boxed {
         public final AdditionalPropertiesWithArrayOfEnumsMap data;
         private AdditionalPropertiesWithArrayOfEnums1BoxedMap(AdditionalPropertiesWithArrayOfEnumsMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

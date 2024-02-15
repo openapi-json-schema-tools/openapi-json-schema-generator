@@ -55,12 +55,18 @@ public class SelfReferencingArrayModel {
     }
     
     
-    public static abstract sealed class SelfReferencingArrayModel1Boxed permits SelfReferencingArrayModel1BoxedList {}
+    public static abstract sealed class SelfReferencingArrayModel1Boxed permits SelfReferencingArrayModel1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class SelfReferencingArrayModel1BoxedList extends SelfReferencingArrayModel1Boxed {
         public final SelfReferencingArrayModelList data;
         private SelfReferencingArrayModel1BoxedList(SelfReferencingArrayModelList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

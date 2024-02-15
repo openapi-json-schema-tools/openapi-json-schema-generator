@@ -21,6 +21,10 @@ public static final class {{jsonPathPiece.pascalCase}}BoxedBoolean extends {{jso
     private {{jsonPathPiece.pascalCase}}BoxedBoolean(boolean data) {
         this.data = data;
     }
+    @Override
+    public @Nullable Object data() {
+        return data;
+    }
 }
 
 {{/if}}

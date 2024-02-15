@@ -235,12 +235,18 @@ public class ReqPropsFromUnsetAddProps {
     }
     
     
-    public static abstract sealed class ReqPropsFromUnsetAddProps1Boxed permits ReqPropsFromUnsetAddProps1BoxedMap {}
+    public static abstract sealed class ReqPropsFromUnsetAddProps1Boxed permits ReqPropsFromUnsetAddProps1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ReqPropsFromUnsetAddProps1BoxedMap extends ReqPropsFromUnsetAddProps1Boxed {
         public final ReqPropsFromUnsetAddPropsMap data;
         private ReqPropsFromUnsetAddProps1BoxedMap(ReqPropsFromUnsetAddPropsMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

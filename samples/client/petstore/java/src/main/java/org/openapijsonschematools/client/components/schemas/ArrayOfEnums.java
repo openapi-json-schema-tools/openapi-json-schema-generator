@@ -69,12 +69,18 @@ public class ArrayOfEnums {
     }
     
     
-    public static abstract sealed class ArrayOfEnums1Boxed permits ArrayOfEnums1BoxedList {}
+    public static abstract sealed class ArrayOfEnums1Boxed permits ArrayOfEnums1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayOfEnums1BoxedList extends ArrayOfEnums1Boxed {
         public final ArrayOfEnumsList data;
         private ArrayOfEnums1BoxedList(ArrayOfEnumsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

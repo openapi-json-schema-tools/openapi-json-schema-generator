@@ -38,12 +38,18 @@ public class ComposedObject {
     }
     
     
-    public static abstract sealed class ComposedObject1Boxed permits ComposedObject1BoxedMap {}
+    public static abstract sealed class ComposedObject1Boxed permits ComposedObject1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ComposedObject1BoxedMap extends ComposedObject1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ComposedObject1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

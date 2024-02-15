@@ -38,12 +38,18 @@ public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class AdditionalProperties3Boxed permits AdditionalProperties3BoxedVoid, AdditionalProperties3BoxedMap {}
+    public static abstract sealed class AdditionalProperties3Boxed permits AdditionalProperties3BoxedVoid, AdditionalProperties3BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalProperties3BoxedVoid extends AdditionalProperties3Boxed {
         public final Void data;
         private AdditionalProperties3BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -51,6 +57,10 @@ public class NullableClass {
         public final FrozenMap<@Nullable Object> data;
         private AdditionalProperties3BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -147,12 +157,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class IntegerPropBoxed permits IntegerPropBoxedVoid, IntegerPropBoxedNumber {}
+    public static abstract sealed class IntegerPropBoxed permits IntegerPropBoxedVoid, IntegerPropBoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IntegerPropBoxedVoid extends IntegerPropBoxed {
         public final Void data;
         private IntegerPropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -160,6 +176,10 @@ public class NullableClass {
         public final Number data;
         private IntegerPropBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -254,12 +274,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class NumberPropBoxed permits NumberPropBoxedVoid, NumberPropBoxedNumber {}
+    public static abstract sealed class NumberPropBoxed permits NumberPropBoxedVoid, NumberPropBoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NumberPropBoxedVoid extends NumberPropBoxed {
         public final Void data;
         private NumberPropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -267,6 +293,10 @@ public class NullableClass {
         public final Number data;
         private NumberPropBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -360,12 +390,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class BooleanPropBoxed permits BooleanPropBoxedVoid, BooleanPropBoxedBoolean {}
+    public static abstract sealed class BooleanPropBoxed permits BooleanPropBoxedVoid, BooleanPropBoxedBoolean {
+        public abstract @Nullable Object data();
+    }
     
     public static final class BooleanPropBoxedVoid extends BooleanPropBoxed {
         public final Void data;
         private BooleanPropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -373,6 +409,10 @@ public class NullableClass {
         public final boolean data;
         private BooleanPropBoxedBoolean(boolean data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -449,12 +489,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class StringPropBoxed permits StringPropBoxedVoid, StringPropBoxedString {}
+    public static abstract sealed class StringPropBoxed permits StringPropBoxedVoid, StringPropBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class StringPropBoxedVoid extends StringPropBoxed {
         public final Void data;
         private StringPropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -462,6 +508,10 @@ public class NullableClass {
         public final String data;
         private StringPropBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -536,12 +586,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class DatePropBoxed permits DatePropBoxedVoid, DatePropBoxedString {}
+    public static abstract sealed class DatePropBoxed permits DatePropBoxedVoid, DatePropBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DatePropBoxedVoid extends DatePropBoxed {
         public final Void data;
         private DatePropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -549,6 +605,10 @@ public class NullableClass {
         public final String data;
         private DatePropBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -624,12 +684,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class DatetimePropBoxed permits DatetimePropBoxedVoid, DatetimePropBoxedString {}
+    public static abstract sealed class DatetimePropBoxed permits DatetimePropBoxedVoid, DatetimePropBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DatetimePropBoxedVoid extends DatetimePropBoxed {
         public final Void data;
         private DatetimePropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -637,6 +703,10 @@ public class NullableClass {
         public final String data;
         private DatetimePropBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -755,12 +825,18 @@ public class NullableClass {
     }
     
     
-    public static abstract sealed class ArrayNullablePropBoxed permits ArrayNullablePropBoxedVoid, ArrayNullablePropBoxedList {}
+    public static abstract sealed class ArrayNullablePropBoxed permits ArrayNullablePropBoxedVoid, ArrayNullablePropBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayNullablePropBoxedVoid extends ArrayNullablePropBoxed {
         public final Void data;
         private ArrayNullablePropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -768,6 +844,10 @@ public class NullableClass {
         public final ArrayNullablePropList data;
         private ArrayNullablePropBoxedList(ArrayNullablePropList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -865,12 +945,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class Items1Boxed permits Items1BoxedVoid, Items1BoxedMap {}
+    public static abstract sealed class Items1Boxed permits Items1BoxedVoid, Items1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Items1BoxedVoid extends Items1Boxed {
         public final Void data;
         private Items1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -878,6 +964,10 @@ public class NullableClass {
         public final FrozenMap<@Nullable Object> data;
         private Items1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1011,12 +1101,18 @@ public class NullableClass {
     }
     
     
-    public static abstract sealed class ArrayAndItemsNullablePropBoxed permits ArrayAndItemsNullablePropBoxedVoid, ArrayAndItemsNullablePropBoxedList {}
+    public static abstract sealed class ArrayAndItemsNullablePropBoxed permits ArrayAndItemsNullablePropBoxedVoid, ArrayAndItemsNullablePropBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayAndItemsNullablePropBoxedVoid extends ArrayAndItemsNullablePropBoxed {
         public final Void data;
         private ArrayAndItemsNullablePropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1024,6 +1120,10 @@ public class NullableClass {
         public final ArrayAndItemsNullablePropList data;
         private ArrayAndItemsNullablePropBoxedList(ArrayAndItemsNullablePropList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1121,12 +1221,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class Items2Boxed permits Items2BoxedVoid, Items2BoxedMap {}
+    public static abstract sealed class Items2Boxed permits Items2BoxedVoid, Items2BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Items2BoxedVoid extends Items2Boxed {
         public final Void data;
         private Items2BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1134,6 +1240,10 @@ public class NullableClass {
         public final FrozenMap<@Nullable Object> data;
         private Items2BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1267,12 +1377,18 @@ public class NullableClass {
     }
     
     
-    public static abstract sealed class ArrayItemsNullableBoxed permits ArrayItemsNullableBoxedList {}
+    public static abstract sealed class ArrayItemsNullableBoxed permits ArrayItemsNullableBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayItemsNullableBoxedList extends ArrayItemsNullableBoxed {
         public final ArrayItemsNullableList data;
         private ArrayItemsNullableBoxedList(ArrayItemsNullableList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1408,12 +1524,18 @@ public class NullableClass {
     }
     
     
-    public static abstract sealed class ObjectNullablePropBoxed permits ObjectNullablePropBoxedVoid, ObjectNullablePropBoxedMap {}
+    public static abstract sealed class ObjectNullablePropBoxed permits ObjectNullablePropBoxedVoid, ObjectNullablePropBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectNullablePropBoxedVoid extends ObjectNullablePropBoxed {
         public final Void data;
         private ObjectNullablePropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1421,6 +1543,10 @@ public class NullableClass {
         public final ObjectNullablePropMap data;
         private ObjectNullablePropBoxedMap(ObjectNullablePropMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1521,12 +1647,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedMap {}
+    public static abstract sealed class AdditionalProperties1Boxed permits AdditionalProperties1BoxedVoid, AdditionalProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalProperties1BoxedVoid extends AdditionalProperties1Boxed {
         public final Void data;
         private AdditionalProperties1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1534,6 +1666,10 @@ public class NullableClass {
         public final FrozenMap<@Nullable Object> data;
         private AdditionalProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1686,12 +1822,18 @@ public class NullableClass {
     }
     
     
-    public static abstract sealed class ObjectAndItemsNullablePropBoxed permits ObjectAndItemsNullablePropBoxedVoid, ObjectAndItemsNullablePropBoxedMap {}
+    public static abstract sealed class ObjectAndItemsNullablePropBoxed permits ObjectAndItemsNullablePropBoxedVoid, ObjectAndItemsNullablePropBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectAndItemsNullablePropBoxedVoid extends ObjectAndItemsNullablePropBoxed {
         public final Void data;
         private ObjectAndItemsNullablePropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1699,6 +1841,10 @@ public class NullableClass {
         public final ObjectAndItemsNullablePropMap data;
         private ObjectAndItemsNullablePropBoxedMap(ObjectAndItemsNullablePropMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1799,12 +1945,18 @@ public class NullableClass {
         }
     }    
     
-    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedMap {}
+    public static abstract sealed class AdditionalProperties2Boxed permits AdditionalProperties2BoxedVoid, AdditionalProperties2BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalProperties2BoxedVoid extends AdditionalProperties2Boxed {
         public final Void data;
         private AdditionalProperties2BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1812,6 +1964,10 @@ public class NullableClass {
         public final FrozenMap<@Nullable Object> data;
         private AdditionalProperties2BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1964,12 +2120,18 @@ public class NullableClass {
     }
     
     
-    public static abstract sealed class ObjectItemsNullableBoxed permits ObjectItemsNullableBoxedMap {}
+    public static abstract sealed class ObjectItemsNullableBoxed permits ObjectItemsNullableBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectItemsNullableBoxedMap extends ObjectItemsNullableBoxed {
         public final ObjectItemsNullableMap data;
         private ObjectItemsNullableBoxedMap(ObjectItemsNullableMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -2520,12 +2682,18 @@ public class NullableClass {
     }
     
     
-    public static abstract sealed class NullableClass1Boxed permits NullableClass1BoxedMap {}
+    public static abstract sealed class NullableClass1Boxed permits NullableClass1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NullableClass1BoxedMap extends NullableClass1Boxed {
         public final NullableClassMap data;
         private NullableClass1BoxedMap(NullableClassMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

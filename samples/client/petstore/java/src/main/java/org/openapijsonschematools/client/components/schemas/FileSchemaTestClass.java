@@ -62,12 +62,18 @@ public class FileSchemaTestClass {
     }
     
     
-    public static abstract sealed class FilesBoxed permits FilesBoxedList {}
+    public static abstract sealed class FilesBoxed permits FilesBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FilesBoxedList extends FilesBoxed {
         public final FilesList data;
         private FilesBoxedList(FilesList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -235,12 +241,18 @@ public class FileSchemaTestClass {
     }
     
     
-    public static abstract sealed class FileSchemaTestClass1Boxed permits FileSchemaTestClass1BoxedMap {}
+    public static abstract sealed class FileSchemaTestClass1Boxed permits FileSchemaTestClass1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FileSchemaTestClass1BoxedMap extends FileSchemaTestClass1Boxed {
         public final FileSchemaTestClassMap data;
         private FileSchemaTestClass1BoxedMap(FileSchemaTestClassMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -175,12 +175,18 @@ public class BananaReq {
     }
     
     
-    public static abstract sealed class BananaReq1Boxed permits BananaReq1BoxedMap {}
+    public static abstract sealed class BananaReq1Boxed permits BananaReq1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class BananaReq1BoxedMap extends BananaReq1Boxed {
         public final BananaReqMap data;
         private BananaReq1BoxedMap(BananaReqMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

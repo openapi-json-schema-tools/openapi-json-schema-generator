@@ -19,12 +19,18 @@ public class NumberWithValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class NumberWithValidations1Boxed permits NumberWithValidations1BoxedNumber {}
+    public static abstract sealed class NumberWithValidations1Boxed permits NumberWithValidations1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NumberWithValidations1BoxedNumber extends NumberWithValidations1Boxed {
         public final Number data;
         private NumberWithValidations1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

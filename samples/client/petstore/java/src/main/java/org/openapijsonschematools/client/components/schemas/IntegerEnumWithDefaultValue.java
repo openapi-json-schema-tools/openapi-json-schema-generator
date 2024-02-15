@@ -86,12 +86,18 @@ public class IntegerEnumWithDefaultValue {
     }
     
     
-    public static abstract sealed class IntegerEnumWithDefaultValue1Boxed permits IntegerEnumWithDefaultValue1BoxedNumber {}
+    public static abstract sealed class IntegerEnumWithDefaultValue1Boxed permits IntegerEnumWithDefaultValue1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IntegerEnumWithDefaultValue1BoxedNumber extends IntegerEnumWithDefaultValue1Boxed {
         public final Number data;
         private IntegerEnumWithDefaultValue1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

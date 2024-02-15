@@ -166,12 +166,18 @@ public class ObjectWithOnlyOptionalProps {
     }
     
     
-    public static abstract sealed class ObjectWithOnlyOptionalProps1Boxed permits ObjectWithOnlyOptionalProps1BoxedMap {}
+    public static abstract sealed class ObjectWithOnlyOptionalProps1Boxed permits ObjectWithOnlyOptionalProps1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectWithOnlyOptionalProps1BoxedMap extends ObjectWithOnlyOptionalProps1Boxed {
         public final ObjectWithOnlyOptionalPropsMap data;
         private ObjectWithOnlyOptionalProps1BoxedMap(ObjectWithOnlyOptionalPropsMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

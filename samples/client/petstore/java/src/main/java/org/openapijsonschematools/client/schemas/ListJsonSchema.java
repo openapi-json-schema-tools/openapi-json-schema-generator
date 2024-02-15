@@ -22,6 +22,7 @@ import java.util.Set;
 
 public class ListJsonSchema {
     public static abstract sealed class ListJsonSchema1Boxed permits ListJsonSchema1BoxedList {
+        public abstract @Nullable Object data();
     }
     public static final class ListJsonSchema1BoxedList extends ListJsonSchema1Boxed {
         public final FrozenList<@Nullable Object> data;
