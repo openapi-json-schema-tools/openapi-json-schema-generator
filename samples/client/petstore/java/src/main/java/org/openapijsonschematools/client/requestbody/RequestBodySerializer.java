@@ -2,6 +2,9 @@ package org.openapijsonschematools.client.requestbody;
 
 import org.openapijsonschematools.client.mediatype.MediaType;
 
+import java.net.http.HttpRequest;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import java.util.Map;
 
 public abstract class RequestBodySerializer<T> {
@@ -23,6 +26,14 @@ public abstract class RequestBodySerializer<T> {
     public RequestBodySerializer(Map<String, MediaType<?>> content, boolean required) {
         this.content = content;
         this.required = required;
+    }
+
+    protected SerializedRequestBody serialize(String contentType, @Nullable Object body) {
+        // todo add implementation here
+        return new SerializedRequestBody(
+            contentType,
+            new HttpRequest.BodyPublishers.ofString("blah")
+        );
     }
 
     public abstract SerializedRequestBody serialize(T requestBody);
