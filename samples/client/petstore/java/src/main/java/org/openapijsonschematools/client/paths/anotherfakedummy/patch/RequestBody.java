@@ -4,5 +4,6 @@
 
 package org.openapijsonschematools.client.paths.anotherfakedummy.patch;
 
+import org.openapijsonschematools.client.components.requestbodies.Client;
 
 public class RequestBody extends Client {}

@@ -4,5 +4,6 @@
 
 package org.openapijsonschematools.client.paths.usercreatewithlist.post;
 
+import org.openapijsonschematools.client.components.requestbodies.RefUserArray;
 
 public class RequestBody extends RefUserArray {}

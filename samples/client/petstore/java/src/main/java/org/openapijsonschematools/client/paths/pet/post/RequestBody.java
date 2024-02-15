@@ -4,5 +4,6 @@
 
 package org.openapijsonschematools.client.paths.pet.post;
 
+import org.openapijsonschematools.client.components.requestbodies.Pet;
 
 public class RequestBody extends Pet {}

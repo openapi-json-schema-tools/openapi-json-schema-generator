@@ -4,6 +4,9 @@
 package {{packageName}}.{{subpackage}};
 
 {{#if refInfo}}
+    {{#neq subpackage refInfo.ref.subpackage}}
+import {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}};
+    {{/neq}}
 
 public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {}
 {{else}}

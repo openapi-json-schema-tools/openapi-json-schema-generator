@@ -4,5 +4,6 @@
 
 package org.openapijsonschematools.client.paths.fakeclassnametest.patch;
 
+import org.openapijsonschematools.client.components.requestbodies.Client;
 
 public class RequestBody extends Client {}
