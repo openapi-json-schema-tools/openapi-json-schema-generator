@@ -32,7 +32,9 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return null;
+            return switch (requestBody) {
+                case Applicationjsoncharsetutf8RequestBody applicationJson; charset&#x3D;utf8RequestBody -> serialize(applicationJson; charset&#x3D;utf8RequestBody.contentType(), applicationJson; charset&#x3D;utf8RequestBody.body());
+            }
         }
     }
 

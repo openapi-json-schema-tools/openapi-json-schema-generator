@@ -4868,6 +4868,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = camelize(usedKey, true);
                 pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":

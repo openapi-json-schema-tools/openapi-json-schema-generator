@@ -32,7 +32,9 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return null;
+            return switch (requestBody) {
+                case ApplicationjsonpatchjsonRequestBody applicationJsonPatch+jsonRequestBody -> serialize(applicationJsonPatch+jsonRequestBody.contentType(), applicationJsonPatch+jsonRequestBody.body());
+            }
         }
     }
 

@@ -40,7 +40,10 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return null;
+            return switch (requestBody) {
+                case ApplicationjsonRequestBody applicationJsonRequestBody -> serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body());
+                case MultipartformdataRequestBody multipartFormDataRequestBody -> serialize(multipartFormDataRequestBody.contentType(), multipartFormDataRequestBody.body());
+            }
         }
     }
 

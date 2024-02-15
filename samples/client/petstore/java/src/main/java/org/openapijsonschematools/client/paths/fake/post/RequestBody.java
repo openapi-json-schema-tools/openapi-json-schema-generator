@@ -32,7 +32,9 @@ public class RequestBody {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return null;
+            return switch (requestBody) {
+                case ApplicationxwwwformurlencodedRequestBody applicationXWwwFormUrlencodedRequestBody -> serialize(applicationXWwwFormUrlencodedRequestBody.contentType(), applicationXWwwFormUrlencodedRequestBody.body());
+            }
         }
     }
 

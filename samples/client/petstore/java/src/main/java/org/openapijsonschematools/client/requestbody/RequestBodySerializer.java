@@ -32,7 +32,7 @@ public abstract class RequestBodySerializer<T> {
         // todo add implementation here
         return new SerializedRequestBody(
             contentType,
-            new HttpRequest.BodyPublishers.ofString("blah")
+            HttpRequest.BodyPublishers.ofString("blah")
         );
     }
 

@@ -40,7 +40,10 @@ public class Pet {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return null;
+            return switch (requestBody) {
+                case ApplicationjsonRequestBody applicationJsonRequestBody -> serialize(applicationJsonRequestBody.contentType(), applicationJsonRequestBody.body());
+                case ApplicationxmlRequestBody applicationXmlRequestBody -> serialize(applicationXmlRequestBody.contentType(), applicationXmlRequestBody.body());
+            };
         }
     }
 

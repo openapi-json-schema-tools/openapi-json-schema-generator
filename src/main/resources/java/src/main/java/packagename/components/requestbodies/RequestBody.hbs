@@ -46,7 +46,11 @@ public class {{jsonPathPiece.pascalCase}} {
         }
 
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
-            return null;
+            return switch (requestBody) {
+    {{#each content}}
+                case {{@key.pascalCase}}RequestBody {{@key.camelCase}}RequestBody -> serialize({{@key.camelCase}}RequestBody.contentType(), {{@key.camelCase}}RequestBody.body());
+    {{/each}}
+            };
         }
     }
 
