@@ -6,4 +6,6 @@ package org.openapijsonschematools.client.paths.usercreatewitharray.post;
 
 import org.openapijsonschematools.client.components.requestbodies.UserArray;
 
-public class RequestBody extends UserArray {}
+public class RequestBody extends UserArray {
+    public static class RequestBody1 extends UserArray1 {}
+}

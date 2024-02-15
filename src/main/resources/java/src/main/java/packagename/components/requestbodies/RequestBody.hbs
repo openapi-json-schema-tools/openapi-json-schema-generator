@@ -8,7 +8,9 @@ package {{packageName}}.{{subpackage}};
 import {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}};
     {{/neq}}
 
-public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {}
+public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{refInfo.refModule}}1 {}
+}
 {{else}}
 import {{packageName}}.requestbody.RequestBodySerializer;
 import {{packageName}}.requestbody.GenericRequestBody;
