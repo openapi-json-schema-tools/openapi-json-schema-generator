@@ -3,7 +3,7 @@ RefUserArray.java
 
 public class RefUserArray extends [UserArray](../../components/requestbodies/UserArray.md)
 
-A class that contains necessary nested request body classes, extended from the $ref class
+A class (extended from the $ref class) that contains necessary nested request body classes
 - a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
 
 ## Nested Class Summary
