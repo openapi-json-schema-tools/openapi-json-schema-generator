@@ -120,7 +120,7 @@ ApplicationjsonSchema.ApplicationjsonSchemaList validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(List.class) |
-| Class<? extends JsonSchema> | items = [RefPet.RefPet1.class](../../../../../components/schemas/RefPet.md#refpet1) |
+| Class<? extends JsonSchema> | items = [RefPet.RefPet1.class](../../../../../../components/schemas/RefPet.md#refpet1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [ObjectModelWithRefProps.ObjectModelWithRefProps1](../../../../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops1)
+extends [ObjectModelWithRefProps.ObjectModelWithRefProps1](../../../../../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops1)
 
 A schema class that validates payloads

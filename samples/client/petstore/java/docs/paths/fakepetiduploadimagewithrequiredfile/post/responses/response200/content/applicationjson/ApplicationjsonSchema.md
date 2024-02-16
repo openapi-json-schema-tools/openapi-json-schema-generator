@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [ApiResponseSchema.ApiResponseSchema1](../../../../../../../../components/schemas/ApiResponseSchema.md#apiresponseschema1)
+extends [ApiResponseSchema.ApiResponseSchema1](../../../../../../../../../components/schemas/ApiResponseSchema.md#apiresponseschema1)
 
 A schema class that validates payloads

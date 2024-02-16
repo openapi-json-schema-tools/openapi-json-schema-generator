@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonpatchjsonSchema1
 public static class ApplicationjsonpatchjsonSchema1<br>
-extends [JSONPatchRequest.JSONPatchRequest1](../../../../../../components/schemas/JSONPatchRequest.md#jsonpatchrequest1)
+extends [JSONPatchRequest.JSONPatchRequest1](../../../../../../../components/schemas/JSONPatchRequest.md#jsonpatchrequest1)
 
 A schema class that validates payloads

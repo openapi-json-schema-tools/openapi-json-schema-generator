@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [StringWithValidation.StringWithValidation1](../../../../../components/schemas/StringWithValidation.md#stringwithvalidation1)
+extends [StringWithValidation.StringWithValidation1](../../../../../../components/schemas/StringWithValidation.md#stringwithvalidation1)
 
 A schema class that validates payloads

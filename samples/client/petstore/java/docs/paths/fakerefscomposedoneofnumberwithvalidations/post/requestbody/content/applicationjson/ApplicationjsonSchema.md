@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](../../../../../../components/schemas/ComposedOneOfDifferentTypes.md#composedoneofdifferenttypes1)
+extends [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](../../../../../../../components/schemas/ComposedOneOfDifferentTypes.md#composedoneofdifferenttypes1)
 
 A schema class that validates payloads

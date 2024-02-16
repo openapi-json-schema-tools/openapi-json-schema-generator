@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [StringEnum.StringEnum1](../../../../../../components/schemas/StringEnum.md#stringenum1)
+extends [StringEnum.StringEnum1](../../../../../../../components/schemas/StringEnum.md#stringenum1)
 
 A schema class that validates payloads

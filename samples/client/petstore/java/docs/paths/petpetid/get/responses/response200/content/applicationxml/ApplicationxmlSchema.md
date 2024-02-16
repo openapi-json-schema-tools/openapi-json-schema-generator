@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationxmlSchema1
 public static class ApplicationxmlSchema1<br>
-extends [Pet.Pet1](../../../../../../../../components/schemas/Pet.md#pet1)
+extends [Pet.Pet1](../../../../../../../../../components/schemas/Pet.md#pet1)
 
 A schema class that validates payloads

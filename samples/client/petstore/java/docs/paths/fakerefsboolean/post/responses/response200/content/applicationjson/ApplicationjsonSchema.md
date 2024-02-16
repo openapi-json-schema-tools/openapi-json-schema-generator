@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [BooleanSchema.BooleanSchema1](../../../../../../../../components/schemas/BooleanSchema.md#booleanschema1)
+extends [BooleanSchema.BooleanSchema1](../../../../../../../../../components/schemas/BooleanSchema.md#booleanschema1)
 
 A schema class that validates payloads

@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationxmlSchema1
 public static class ApplicationxmlSchema1<br>
-extends [Order.Order1](../../../../../../../../components/schemas/Order.md#order1)
+extends [Order.Order1](../../../../../../../../../components/schemas/Order.md#order1)
 
 A schema class that validates payloads

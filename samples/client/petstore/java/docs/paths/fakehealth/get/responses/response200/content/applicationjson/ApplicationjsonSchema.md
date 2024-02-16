@@ -13,6 +13,6 @@ A class that contains necessary nested
 
 ## ApplicationjsonSchema1
 public static class ApplicationjsonSchema1<br>
-extends [HealthCheckResult.HealthCheckResult1](../../../../../../../../components/schemas/HealthCheckResult.md#healthcheckresult1)
+extends [HealthCheckResult.HealthCheckResult1](../../../../../../../../../components/schemas/HealthCheckResult.md#healthcheckresult1)
 
 A schema class that validates payloads
