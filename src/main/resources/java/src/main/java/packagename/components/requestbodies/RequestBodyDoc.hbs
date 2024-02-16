@@ -11,7 +11,7 @@
 {{#if refInfo}}
 | Ref Class | Description |
 | --------- | ----------- |
-| [{{refInfo.refClass}}](../../components/requestbodies/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}}
+| [{{refInfo.refClass}}](../../components/requestbodies/{{refInfo.refClass}}.md) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}}
 {{else}}
 
 public class {{jsonPathPiece.pascalCase}}
