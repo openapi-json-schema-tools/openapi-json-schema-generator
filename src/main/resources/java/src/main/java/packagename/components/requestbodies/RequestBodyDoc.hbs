@@ -9,14 +9,25 @@
 {{/if}}
 
 {{#if refInfo}}
-| Ref Class | Description |
-| --------- | ----------- |
-| [{{refInfo.refClass}}](../../components/requestbodies/{{refInfo.refClass}}.md) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}}
-{{else}}
+public class {{jsonPathPiece.pascalCase}} extends [{{refInfo.refClass}}](../../components/requestbodies/{{refInfo.refClass}}.md)
 
+A class (extended from the $ref class) that contains necessary nested request body classes
+- a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br> class that serializes request bodies |
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
+public static class {{jsonPathPiece.pascalCase}}1 extends [{{refInfo.refClass}}](../../components/requestbodies/{{refInfo.refClass}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}}1)<br>
+
+a class that serializes SealedRequestBody request bodies, extended from the $ref class
+
+{{else}}
 public class {{jsonPathPiece.pascalCase}}
 
-A class that contains necessary nested
+A class that contains necessary nested request body classes
 - SealedRequestBody class, an abstract sealed class which contains all the contentType/schema input types
 - final classes which extend SealedRequestBody, the concrete request body types
 - a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances

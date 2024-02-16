@@ -1,10 +1,9 @@
 # Pet
 Pet.java
 
-
 public class Pet
 
-A class that contains necessary nested
+A class that contains necessary nested request body classes
 - SealedRequestBody class, an abstract sealed class which contains all the contentType/schema input types
 - final classes which extend SealedRequestBody, the concrete request body types
 - a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
