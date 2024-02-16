@@ -64,19 +64,19 @@ abstract sealed class that stores request contentType + validated schema data
 ## ApplicationjsonRequestBody
 public static final class ApplicationjsonRequestBody<br>
 extends [SealedRequestBody](#sealedrequestbody)<br>
-implements GenericRequestBody<ApplicationjsonSchema.ApplicationjsonSchema1Boxed><br>
+implements GenericRequestBody<ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../components/requestbodies/userarray/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed)><br>
 
 A final class to store request body input for contentType="application/json"
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationjsonRequestBody(ApplicationjsonSchema.ApplicationjsonSchema1Boxed body)<br>Creates an instance |
+| ApplicationjsonRequestBody(ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../components/requestbodies/userarray/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | contentType()<br>always returns "application/json" |
-| ApplicationjsonSchema.ApplicationjsonSchema1Boxed | body()<br>returns the body passed in in the constructor |
+| ApplicationjsonSchema.[ApplicationjsonSchema1Boxed](../../components/requestbodies/userarray/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1boxed) | body()<br>returns the body passed in in the constructor |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

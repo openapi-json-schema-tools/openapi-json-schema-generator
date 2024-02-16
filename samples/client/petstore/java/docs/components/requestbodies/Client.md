@@ -64,19 +64,19 @@ abstract sealed class that stores request contentType + validated schema data
 ## ApplicationjsonRequestBody
 public static final class ApplicationjsonRequestBody<br>
 extends [SealedRequestBody](#sealedrequestbody)<br>
-implements GenericRequestBody<ApplicationjsonSchema.Client1Boxed><br>
+implements GenericRequestBody<ApplicationjsonSchema.[Client1Boxed](../../components/schemas/Client.md#client1boxed)><br>
 
 A final class to store request body input for contentType="application/json"
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationjsonRequestBody(ApplicationjsonSchema.Client1Boxed body)<br>Creates an instance |
+| ApplicationjsonRequestBody(ApplicationjsonSchema.[Client1Boxed](../../components/schemas/Client.md#client1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | contentType()<br>always returns "application/json" |
-| ApplicationjsonSchema.Client1Boxed | body()<br>returns the body passed in in the constructor |
+| ApplicationjsonSchema.[Client1Boxed](../../components/schemas/Client.md#client1boxed) | body()<br>returns the body passed in in the constructor |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

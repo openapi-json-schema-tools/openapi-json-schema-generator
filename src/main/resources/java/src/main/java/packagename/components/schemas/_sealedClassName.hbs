@@ -1,5 +1,9 @@
 {{#if isCustomSchema}}
+    {{#if forDocs}}
+[{{jsonPathPiece.pascalCase}}Boxed]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}boxed)
+    {{~else}}
 {{jsonPathPiece.pascalCase}}Boxed
+    {{~/if}}
 {{~else}}
     {{#or isBooleanSchemaTrue isSimpleAnyType}}
 AnyTypeJsonSchema1Boxed

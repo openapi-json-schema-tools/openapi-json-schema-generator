@@ -97,20 +97,20 @@ abstract sealed class that stores request contentType + validated schema data
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "RequestBody" "")) }}
 public static final class {{@key.pascalCase}}RequestBody<br>
 extends [SealedRequestBody](#sealedrequestbody)<br>
-implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}}><br>
+implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}}><br>
 
 A final class to store request body input for contentType="{{{@key.original}}}"
 
 {{headerSize}}## Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body)<br>Creates an instance |
+| {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}} body)<br>Creates an instance |
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | contentType()<br>always returns "{{{@key.original}}}" |
-| {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} | body()<br>returns the body passed in in the constructor |
+| {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}} | body()<br>returns the body passed in in the constructor |
 {{/each}}
 {{/if}}
 {{#if componentModule}}
