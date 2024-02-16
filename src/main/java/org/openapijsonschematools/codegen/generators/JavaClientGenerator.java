@@ -746,6 +746,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/requestbody/SerializedRequestBody.hbs",
                 packagePath() + File.separatorChar + "requestbody",
                 "SerializedRequestBody.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/requestbody/RequestBodySerializerTest.hbs",
+                testPackagePath() + File.separatorChar + "requestbody",
+                "RequestBodySerializerTest.java"));
+
         // mediatype
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/mediatype/MediaType.hbs",
