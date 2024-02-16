@@ -48,7 +48,7 @@ A class that contains necessary nested request body classes
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "MediaType" "")) }}
 public static class {{@key.pascalCase}}MediaType<br>
-extends MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}>
+extends MediaType<{{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}}>
 
 class storing schema info for a specific contentType
 
@@ -60,7 +60,7 @@ class storing schema info for a specific contentType
 {{headerSize}}## Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}} | schema<br>the schema for this MediaType |
+| {{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}} | schema<br>the schema for this MediaType |
 {{/each}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}

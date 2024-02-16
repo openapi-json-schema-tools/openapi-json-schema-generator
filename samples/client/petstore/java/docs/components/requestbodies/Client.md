@@ -19,7 +19,7 @@ A class that contains necessary nested request body classes
 
 ## ApplicationjsonMediaType
 public static class ApplicationjsonMediaType<br>
-extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1>
+extends MediaType<[ApplicationjsonSchema.ApplicationjsonSchema1](../../components/requestbodies/client/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1)>
 
 class storing schema info for a specific contentType
 
@@ -31,7 +31,7 @@ class storing schema info for a specific contentType
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| ApplicationjsonSchema.ApplicationjsonSchema1 | schema<br>the schema for this MediaType |
+| [ApplicationjsonSchema.ApplicationjsonSchema1](../../components/requestbodies/client/content/applicationjson/ApplicationjsonSchema.md#applicationjsonschema1) | schema<br>the schema for this MediaType |
 
 ## Client1
 public static class Client1<br>
