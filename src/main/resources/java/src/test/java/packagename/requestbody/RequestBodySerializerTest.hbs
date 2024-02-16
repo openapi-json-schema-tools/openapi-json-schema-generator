@@ -61,10 +61,8 @@ public final class RequestBodySerializerTest {
         public SerializedRequestBody serialize(SealedRequestBody requestBody) {
             if (requestBody instanceof ApplicationjsonRequestBody requestBody0) {
                 return serialize(requestBody0.contentType(), requestBody0.body());
-            } else {
-                ApplicationgeojsonRequestBody requestBody1 = (ApplicationgeojsonRequestBody) requestBody;
-                return serialize(requestBody1.contentType(), requestBody1.body());
             }
+            throw new RuntimeException("Serialization has not yet been implemented for contentType="+contentType+". If you need it please file a PR");
         }
     }
 

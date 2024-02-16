@@ -39,10 +39,7 @@ public abstract class RequestBodySerializer<T> {
         if (contentTypeIsJson(contentType)) {
             return serializeJson(contentType, body);
         }
-        return new SerializedRequestBody(
-            contentType,
-            HttpRequest.BodyPublishers.ofString("blah")
-        );
+        throw new RuntimeException("Serialization has not yet been implemented for contentType="+contentType+". If you need it please file a PR");
     }
 
     public abstract SerializedRequestBody serialize(T requestBody);
