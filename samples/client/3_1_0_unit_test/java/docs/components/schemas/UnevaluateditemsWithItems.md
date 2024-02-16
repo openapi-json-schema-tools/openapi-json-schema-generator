@@ -1,6 +1,6 @@
 # UnevaluateditemsWithItems
 org.openapijsonschematools.client.components.schemas.UnevaluateditemsWithItems.java
-public class UnevaluateditemsWithItems
+public class UnevaluateditemsWithItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -35,12 +35,18 @@ public class IdnHostnameFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class IdnHostnameFormat1Boxed permits IdnHostnameFormat1BoxedVoid, IdnHostnameFormat1BoxedBoolean, IdnHostnameFormat1BoxedNumber, IdnHostnameFormat1BoxedString, IdnHostnameFormat1BoxedList, IdnHostnameFormat1BoxedMap {}
+    public static abstract sealed class IdnHostnameFormat1Boxed permits IdnHostnameFormat1BoxedVoid, IdnHostnameFormat1BoxedBoolean, IdnHostnameFormat1BoxedNumber, IdnHostnameFormat1BoxedString, IdnHostnameFormat1BoxedList, IdnHostnameFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IdnHostnameFormat1BoxedVoid extends IdnHostnameFormat1Boxed {
         public final Void data;
         private IdnHostnameFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class IdnHostnameFormat {
         private IdnHostnameFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IdnHostnameFormat1BoxedNumber extends IdnHostnameFormat1Boxed {
         public final Number data;
         private IdnHostnameFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class IdnHostnameFormat {
         private IdnHostnameFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IdnHostnameFormat1BoxedList extends IdnHostnameFormat1Boxed {
@@ -70,12 +88,20 @@ public class IdnHostnameFormat {
         private IdnHostnameFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IdnHostnameFormat1BoxedMap extends IdnHostnameFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IdnHostnameFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

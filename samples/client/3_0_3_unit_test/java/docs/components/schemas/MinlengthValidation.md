@@ -1,6 +1,6 @@
 # MinlengthValidation
 org.openapijsonschematools.client.components.schemas.MinlengthValidation.java
-public class MinlengthValidation
+public class MinlengthValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

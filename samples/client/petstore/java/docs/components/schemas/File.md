@@ -1,6 +1,6 @@
 # File
 org.openapijsonschematools.client.components.schemas.File.java
-public class File
+public class File<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # DependentSchemasDependenciesWithEscapedCharacters
 org.openapijsonschematools.client.components.schemas.DependentSchemasDependenciesWithEscapedCharacters.java
-public class DependentSchemasDependenciesWithEscapedCharacters
+public class DependentSchemasDependenciesWithEscapedCharacters<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

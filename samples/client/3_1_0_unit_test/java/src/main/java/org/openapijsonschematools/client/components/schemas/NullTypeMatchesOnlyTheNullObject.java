@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.components.schemas;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 
-public class NullTypeMatchesOnlyTheNullObject {
+public class NullTypeMatchesOnlyTheNullObject extends NullJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

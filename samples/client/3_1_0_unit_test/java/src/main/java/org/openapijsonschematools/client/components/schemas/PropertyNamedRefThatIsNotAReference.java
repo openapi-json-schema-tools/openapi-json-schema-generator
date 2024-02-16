@@ -105,12 +105,18 @@ public class PropertyNamedRefThatIsNotAReference {
     }
     
     
-    public static abstract sealed class PropertyNamedRefThatIsNotAReference1Boxed permits PropertyNamedRefThatIsNotAReference1BoxedVoid, PropertyNamedRefThatIsNotAReference1BoxedBoolean, PropertyNamedRefThatIsNotAReference1BoxedNumber, PropertyNamedRefThatIsNotAReference1BoxedString, PropertyNamedRefThatIsNotAReference1BoxedList, PropertyNamedRefThatIsNotAReference1BoxedMap {}
+    public static abstract sealed class PropertyNamedRefThatIsNotAReference1Boxed permits PropertyNamedRefThatIsNotAReference1BoxedVoid, PropertyNamedRefThatIsNotAReference1BoxedBoolean, PropertyNamedRefThatIsNotAReference1BoxedNumber, PropertyNamedRefThatIsNotAReference1BoxedString, PropertyNamedRefThatIsNotAReference1BoxedList, PropertyNamedRefThatIsNotAReference1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PropertyNamedRefThatIsNotAReference1BoxedVoid extends PropertyNamedRefThatIsNotAReference1Boxed {
         public final Void data;
         private PropertyNamedRefThatIsNotAReference1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -119,12 +125,20 @@ public class PropertyNamedRefThatIsNotAReference {
         private PropertyNamedRefThatIsNotAReference1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertyNamedRefThatIsNotAReference1BoxedNumber extends PropertyNamedRefThatIsNotAReference1Boxed {
         public final Number data;
         private PropertyNamedRefThatIsNotAReference1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -133,6 +147,10 @@ public class PropertyNamedRefThatIsNotAReference {
         private PropertyNamedRefThatIsNotAReference1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertyNamedRefThatIsNotAReference1BoxedList extends PropertyNamedRefThatIsNotAReference1Boxed {
@@ -140,12 +158,20 @@ public class PropertyNamedRefThatIsNotAReference {
         private PropertyNamedRefThatIsNotAReference1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertyNamedRefThatIsNotAReference1BoxedMap extends PropertyNamedRefThatIsNotAReference1Boxed {
         public final PropertyNamedRefThatIsNotAReferenceMap data;
         private PropertyNamedRefThatIsNotAReference1BoxedMap(PropertyNamedRefThatIsNotAReferenceMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

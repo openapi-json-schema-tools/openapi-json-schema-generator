@@ -3,7 +3,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
-public class ObjectTypeMatchesObjects {
+public class ObjectTypeMatchesObjects extends MapJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

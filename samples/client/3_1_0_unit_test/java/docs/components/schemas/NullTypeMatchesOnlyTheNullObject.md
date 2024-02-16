@@ -1,6 +1,6 @@
 # NullTypeMatchesOnlyTheNullObject
 org.openapijsonschematools.client.components.schemas.NullTypeMatchesOnlyTheNullObject.java
-public class NullTypeMatchesOnlyTheNullObject
+public class NullTypeMatchesOnlyTheNullObject<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

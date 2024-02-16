@@ -1,6 +1,6 @@
 # Money
 org.openapijsonschematools.client.components.schemas.Money.java
-public class Money
+public class Money<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # ReqPropsFromExplicitAddProps
 org.openapijsonschematools.client.components.schemas.ReqPropsFromExplicitAddProps.java
-public class ReqPropsFromExplicitAddProps
+public class ReqPropsFromExplicitAddProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

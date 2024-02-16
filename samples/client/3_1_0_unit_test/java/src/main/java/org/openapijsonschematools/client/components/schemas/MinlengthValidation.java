@@ -35,12 +35,18 @@ public class MinlengthValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MinlengthValidation1Boxed permits MinlengthValidation1BoxedVoid, MinlengthValidation1BoxedBoolean, MinlengthValidation1BoxedNumber, MinlengthValidation1BoxedString, MinlengthValidation1BoxedList, MinlengthValidation1BoxedMap {}
+    public static abstract sealed class MinlengthValidation1Boxed permits MinlengthValidation1BoxedVoid, MinlengthValidation1BoxedBoolean, MinlengthValidation1BoxedNumber, MinlengthValidation1BoxedString, MinlengthValidation1BoxedList, MinlengthValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MinlengthValidation1BoxedVoid extends MinlengthValidation1Boxed {
         public final Void data;
         private MinlengthValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MinlengthValidation {
         private MinlengthValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinlengthValidation1BoxedNumber extends MinlengthValidation1Boxed {
         public final Number data;
         private MinlengthValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MinlengthValidation {
         private MinlengthValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinlengthValidation1BoxedList extends MinlengthValidation1Boxed {
@@ -70,12 +88,20 @@ public class MinlengthValidation {
         private MinlengthValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinlengthValidation1BoxedMap extends MinlengthValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MinlengthValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

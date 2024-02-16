@@ -1,6 +1,6 @@
 # NullableClass
 org.openapijsonschematools.client.components.schemas.NullableClass.java
-public class NullableClass
+public class NullableClass<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

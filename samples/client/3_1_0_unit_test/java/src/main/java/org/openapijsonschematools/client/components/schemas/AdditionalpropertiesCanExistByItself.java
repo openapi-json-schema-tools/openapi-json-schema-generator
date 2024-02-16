@@ -93,12 +93,18 @@ public class AdditionalpropertiesCanExistByItself {
     }
     
     
-    public static abstract sealed class AdditionalpropertiesCanExistByItself1Boxed permits AdditionalpropertiesCanExistByItself1BoxedMap {}
+    public static abstract sealed class AdditionalpropertiesCanExistByItself1Boxed permits AdditionalpropertiesCanExistByItself1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalpropertiesCanExistByItself1BoxedMap extends AdditionalpropertiesCanExistByItself1Boxed {
         public final AdditionalpropertiesCanExistByItselfMap data;
         private AdditionalpropertiesCanExistByItself1BoxedMap(AdditionalpropertiesCanExistByItselfMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

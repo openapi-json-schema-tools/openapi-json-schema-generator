@@ -119,12 +119,18 @@ public class PrefixitemsWithNullInstanceElements {
     }
     
     
-    public static abstract sealed class PrefixitemsWithNullInstanceElements1Boxed permits PrefixitemsWithNullInstanceElements1BoxedVoid, PrefixitemsWithNullInstanceElements1BoxedBoolean, PrefixitemsWithNullInstanceElements1BoxedNumber, PrefixitemsWithNullInstanceElements1BoxedString, PrefixitemsWithNullInstanceElements1BoxedList, PrefixitemsWithNullInstanceElements1BoxedMap {}
+    public static abstract sealed class PrefixitemsWithNullInstanceElements1Boxed permits PrefixitemsWithNullInstanceElements1BoxedVoid, PrefixitemsWithNullInstanceElements1BoxedBoolean, PrefixitemsWithNullInstanceElements1BoxedNumber, PrefixitemsWithNullInstanceElements1BoxedString, PrefixitemsWithNullInstanceElements1BoxedList, PrefixitemsWithNullInstanceElements1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PrefixitemsWithNullInstanceElements1BoxedVoid extends PrefixitemsWithNullInstanceElements1Boxed {
         public final Void data;
         private PrefixitemsWithNullInstanceElements1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -133,12 +139,20 @@ public class PrefixitemsWithNullInstanceElements {
         private PrefixitemsWithNullInstanceElements1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PrefixitemsWithNullInstanceElements1BoxedNumber extends PrefixitemsWithNullInstanceElements1Boxed {
         public final Number data;
         private PrefixitemsWithNullInstanceElements1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -147,6 +161,10 @@ public class PrefixitemsWithNullInstanceElements {
         private PrefixitemsWithNullInstanceElements1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PrefixitemsWithNullInstanceElements1BoxedList extends PrefixitemsWithNullInstanceElements1Boxed {
@@ -154,12 +172,20 @@ public class PrefixitemsWithNullInstanceElements {
         private PrefixitemsWithNullInstanceElements1BoxedList(PrefixitemsWithNullInstanceElementsList data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PrefixitemsWithNullInstanceElements1BoxedMap extends PrefixitemsWithNullInstanceElements1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private PrefixitemsWithNullInstanceElements1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

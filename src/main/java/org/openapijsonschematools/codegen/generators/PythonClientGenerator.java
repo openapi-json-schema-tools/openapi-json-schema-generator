@@ -1769,8 +1769,11 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String toRequestBodyFilename(String componentName) {
-        return toModuleFilename("request_body_" + componentName, null);
+    public String toRequestBodyFilename(String componentName, String jsonPath) {
+        if (jsonPath.startsWith("#/components")) {
+            return toModuleFilename("request_body_" + componentName, null);
+        }
+        return toModuleFilename("request_body", null);
     }
 
     public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename("header_" + componentName, null); }

@@ -1,6 +1,6 @@
 # PaginatedResultMyObjectDto
 org.openapijsonschematools.client.components.schemas.PaginatedResultMyObjectDto.java
-public class PaginatedResultMyObjectDto
+public class PaginatedResultMyObjectDto<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

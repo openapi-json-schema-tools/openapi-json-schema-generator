@@ -37,12 +37,18 @@ public class ObjectWithInlineCompositionProperty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedString {}
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema0BoxedString extends Schema0Boxed {
         public final String data;
         private Schema0BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -98,12 +104,18 @@ public class ObjectWithInlineCompositionProperty {
         }
     }    
     
-    public static abstract sealed class SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {}
+    public static abstract sealed class SomePropBoxed permits SomePropBoxedVoid, SomePropBoxedBoolean, SomePropBoxedNumber, SomePropBoxedString, SomePropBoxedList, SomePropBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class SomePropBoxedVoid extends SomePropBoxed {
         public final Void data;
         private SomePropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -112,12 +124,20 @@ public class ObjectWithInlineCompositionProperty {
         private SomePropBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomePropBoxedNumber extends SomePropBoxed {
         public final Number data;
         private SomePropBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -126,6 +146,10 @@ public class ObjectWithInlineCompositionProperty {
         private SomePropBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomePropBoxedList extends SomePropBoxed {
@@ -133,12 +157,20 @@ public class ObjectWithInlineCompositionProperty {
         private SomePropBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomePropBoxedMap extends SomePropBoxed {
         public final FrozenMap<@Nullable Object> data;
         private SomePropBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -472,12 +504,18 @@ public class ObjectWithInlineCompositionProperty {
     }
     
     
-    public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed permits ObjectWithInlineCompositionProperty1BoxedMap {}
+    public static abstract sealed class ObjectWithInlineCompositionProperty1Boxed permits ObjectWithInlineCompositionProperty1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectWithInlineCompositionProperty1BoxedMap extends ObjectWithInlineCompositionProperty1Boxed {
         public final ObjectWithInlineCompositionPropertyMap data;
         private ObjectWithInlineCompositionProperty1BoxedMap(ObjectWithInlineCompositionPropertyMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

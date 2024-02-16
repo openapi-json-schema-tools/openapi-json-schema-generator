@@ -299,6 +299,15 @@ allowed input and output types.
 | [Whale.Whale1](docs/components/schemas/Whale.md#whale1) | |
 | [Zebra.Zebra1](docs/components/schemas/Zebra.md#zebra1) | |
 
+## Component RequestBodies
+
+Class | Description
+----- | ------------
+[Client.Client1](docs/components/requestbodies/Client.md#client1) | client model
+[Pet.Pet1](docs/components/requestbodies/Pet.md#pet1) | Pet object that needs to be added to the store, multiple content types
+[RefUserArray.RefUserArray1](docs/components/requestbodies/RefUserArray.md#refuserarray1) |
+[UserArray.UserArray1](docs/components/requestbodies/UserArray.md#userarray1) | List of user object
+
 ## Component SecuritySchemes
 
 | Class | Description |

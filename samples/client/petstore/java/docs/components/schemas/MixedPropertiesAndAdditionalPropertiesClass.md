@@ -1,6 +1,6 @@
 # MixedPropertiesAndAdditionalPropertiesClass
 org.openapijsonschematools.client.components.schemas.MixedPropertiesAndAdditionalPropertiesClass.java
-public class MixedPropertiesAndAdditionalPropertiesClass
+public class MixedPropertiesAndAdditionalPropertiesClass<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

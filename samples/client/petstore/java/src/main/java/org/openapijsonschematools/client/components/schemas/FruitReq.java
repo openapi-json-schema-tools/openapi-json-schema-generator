@@ -47,12 +47,18 @@ public class FruitReq {
     }
     
     
-    public static abstract sealed class FruitReq1Boxed permits FruitReq1BoxedVoid, FruitReq1BoxedBoolean, FruitReq1BoxedNumber, FruitReq1BoxedString, FruitReq1BoxedList, FruitReq1BoxedMap {}
+    public static abstract sealed class FruitReq1Boxed permits FruitReq1BoxedVoid, FruitReq1BoxedBoolean, FruitReq1BoxedNumber, FruitReq1BoxedString, FruitReq1BoxedList, FruitReq1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FruitReq1BoxedVoid extends FruitReq1Boxed {
         public final Void data;
         private FruitReq1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class FruitReq {
         private FruitReq1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FruitReq1BoxedNumber extends FruitReq1Boxed {
         public final Number data;
         private FruitReq1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class FruitReq {
         private FruitReq1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FruitReq1BoxedList extends FruitReq1Boxed {
@@ -82,12 +100,20 @@ public class FruitReq {
         private FruitReq1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FruitReq1BoxedMap extends FruitReq1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private FruitReq1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

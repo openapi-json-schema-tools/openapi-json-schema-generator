@@ -1,6 +1,6 @@
 # StringWithValidation
 org.openapijsonschematools.client.components.schemas.StringWithValidation.java
-public class StringWithValidation
+public class StringWithValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

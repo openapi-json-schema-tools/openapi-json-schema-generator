@@ -1,6 +1,6 @@
 # IdnHostnameFormat
 org.openapijsonschematools.client.components.schemas.IdnHostnameFormat.java
-public class IdnHostnameFormat
+public class IdnHostnameFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

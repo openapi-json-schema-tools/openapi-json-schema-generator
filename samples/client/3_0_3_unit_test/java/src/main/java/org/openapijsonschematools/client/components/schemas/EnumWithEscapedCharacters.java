@@ -35,12 +35,18 @@ public class EnumWithEscapedCharacters {
     }
     
     
-    public static abstract sealed class EnumWithEscapedCharacters1Boxed permits EnumWithEscapedCharacters1BoxedString {}
+    public static abstract sealed class EnumWithEscapedCharacters1Boxed permits EnumWithEscapedCharacters1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumWithEscapedCharacters1BoxedString extends EnumWithEscapedCharacters1Boxed {
         public final String data;
         private EnumWithEscapedCharacters1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

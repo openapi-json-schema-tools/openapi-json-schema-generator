@@ -1,6 +1,6 @@
 # NullableString
 org.openapijsonschematools.client.components.schemas.NullableString.java
-public class NullableString
+public class NullableString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

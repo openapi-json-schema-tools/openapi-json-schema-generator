@@ -142,12 +142,18 @@ public class User {
     }
     
     
-    public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {}
+    public static abstract sealed class ObjectWithNoDeclaredPropsNullableBoxed permits ObjectWithNoDeclaredPropsNullableBoxedVoid, ObjectWithNoDeclaredPropsNullableBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectWithNoDeclaredPropsNullableBoxedVoid extends ObjectWithNoDeclaredPropsNullableBoxed {
         public final Void data;
         private ObjectWithNoDeclaredPropsNullableBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -155,6 +161,10 @@ public class User {
         public final FrozenMap<@Nullable Object> data;
         private ObjectWithNoDeclaredPropsNullableBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -273,12 +283,18 @@ public class User {
     }
     
     
-    public static abstract sealed class AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {}
+    public static abstract sealed class AnyTypeExceptNullPropBoxed permits AnyTypeExceptNullPropBoxedVoid, AnyTypeExceptNullPropBoxedBoolean, AnyTypeExceptNullPropBoxedNumber, AnyTypeExceptNullPropBoxedString, AnyTypeExceptNullPropBoxedList, AnyTypeExceptNullPropBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AnyTypeExceptNullPropBoxedVoid extends AnyTypeExceptNullPropBoxed {
         public final Void data;
         private AnyTypeExceptNullPropBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -287,12 +303,20 @@ public class User {
         private AnyTypeExceptNullPropBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyTypeExceptNullPropBoxedNumber extends AnyTypeExceptNullPropBoxed {
         public final Number data;
         private AnyTypeExceptNullPropBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -301,6 +325,10 @@ public class User {
         private AnyTypeExceptNullPropBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyTypeExceptNullPropBoxedList extends AnyTypeExceptNullPropBoxed {
@@ -308,12 +336,20 @@ public class User {
         private AnyTypeExceptNullPropBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyTypeExceptNullPropBoxedMap extends AnyTypeExceptNullPropBoxed {
         public final FrozenMap<@Nullable Object> data;
         private AnyTypeExceptNullPropBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1082,12 +1118,18 @@ public class User {
     }
     
     
-    public static abstract sealed class User1Boxed permits User1BoxedMap {}
+    public static abstract sealed class User1Boxed permits User1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class User1BoxedMap extends User1Boxed {
         public final UserMap data;
         private User1BoxedMap(UserMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

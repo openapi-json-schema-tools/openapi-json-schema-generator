@@ -1,6 +1,6 @@
 # ValidateAgainstCorrectBranchThenVsElse
 org.openapijsonschematools.client.components.schemas.ValidateAgainstCorrectBranchThenVsElse.java
-public class ValidateAgainstCorrectBranchThenVsElse
+public class ValidateAgainstCorrectBranchThenVsElse<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

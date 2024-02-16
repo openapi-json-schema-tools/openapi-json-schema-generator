@@ -21,6 +21,10 @@ public static final class {{jsonPathPiece.pascalCase}}BoxedList extends {{jsonPa
     private {{jsonPathPiece.pascalCase}}BoxedList({{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}} data) {
         this.data = data;
     }
+    @Override
+    public @Nullable Object data() {
+        return data;
+    }
 }
 
 {{/if}}

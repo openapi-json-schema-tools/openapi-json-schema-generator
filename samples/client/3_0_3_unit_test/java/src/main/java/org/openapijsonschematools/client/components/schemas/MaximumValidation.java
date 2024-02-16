@@ -35,12 +35,18 @@ public class MaximumValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MaximumValidation1Boxed permits MaximumValidation1BoxedVoid, MaximumValidation1BoxedBoolean, MaximumValidation1BoxedNumber, MaximumValidation1BoxedString, MaximumValidation1BoxedList, MaximumValidation1BoxedMap {}
+    public static abstract sealed class MaximumValidation1Boxed permits MaximumValidation1BoxedVoid, MaximumValidation1BoxedBoolean, MaximumValidation1BoxedNumber, MaximumValidation1BoxedString, MaximumValidation1BoxedList, MaximumValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MaximumValidation1BoxedVoid extends MaximumValidation1Boxed {
         public final Void data;
         private MaximumValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MaximumValidation {
         private MaximumValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaximumValidation1BoxedNumber extends MaximumValidation1Boxed {
         public final Number data;
         private MaximumValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MaximumValidation {
         private MaximumValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaximumValidation1BoxedList extends MaximumValidation1Boxed {
@@ -70,12 +88,20 @@ public class MaximumValidation {
         private MaximumValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaximumValidation1BoxedMap extends MaximumValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MaximumValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

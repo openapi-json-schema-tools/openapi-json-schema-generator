@@ -1,6 +1,6 @@
 # EnumsInProperties
 org.openapijsonschematools.client.components.schemas.EnumsInProperties.java
-public class EnumsInProperties
+public class EnumsInProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

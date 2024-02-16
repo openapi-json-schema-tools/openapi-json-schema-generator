@@ -94,12 +94,18 @@ public class Foo {
     }
     
     
-    public static abstract sealed class Foo1Boxed permits Foo1BoxedMap {}
+    public static abstract sealed class Foo1Boxed permits Foo1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Foo1BoxedMap extends Foo1Boxed {
         public final FooMap data;
         private Foo1BoxedMap(FooMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

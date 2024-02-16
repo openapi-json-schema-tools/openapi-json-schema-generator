@@ -1,6 +1,6 @@
 # ChildCat
 org.openapijsonschematools.client.components.schemas.ChildCat.java
-public class ChildCat
+public class ChildCat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

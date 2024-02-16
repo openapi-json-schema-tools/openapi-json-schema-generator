@@ -1,6 +1,6 @@
 # RegexFormat
 org.openapijsonschematools.client.components.schemas.RegexFormat.java
-public class RegexFormat
+public class RegexFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

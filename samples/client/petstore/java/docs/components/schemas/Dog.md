@@ -1,6 +1,6 @@
 # Dog
 org.openapijsonschematools.client.components.schemas.Dog.java
-public class Dog
+public class Dog<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

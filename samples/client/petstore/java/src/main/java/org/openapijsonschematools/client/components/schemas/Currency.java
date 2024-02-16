@@ -35,12 +35,18 @@ public class Currency {
     }
     
     
-    public static abstract sealed class Currency1Boxed permits Currency1BoxedString {}
+    public static abstract sealed class Currency1Boxed permits Currency1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Currency1BoxedString extends Currency1Boxed {
         public final String data;
         private Currency1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

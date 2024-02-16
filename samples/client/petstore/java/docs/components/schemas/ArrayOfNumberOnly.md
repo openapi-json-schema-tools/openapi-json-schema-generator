@@ -1,6 +1,6 @@
 # ArrayOfNumberOnly
 org.openapijsonschematools.client.components.schemas.ArrayOfNumberOnly.java
-public class ArrayOfNumberOnly
+public class ArrayOfNumberOnly<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

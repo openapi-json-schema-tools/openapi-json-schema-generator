@@ -1,6 +1,6 @@
 # SmallMultipleOfLargeInteger
 org.openapijsonschematools.client.components.schemas.SmallMultipleOfLargeInteger.java
-public class SmallMultipleOfLargeInteger
+public class SmallMultipleOfLargeInteger<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

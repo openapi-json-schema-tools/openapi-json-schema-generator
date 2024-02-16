@@ -1,6 +1,6 @@
 # StringTypeMatchesStrings
 org.openapijsonschematools.client.components.schemas.StringTypeMatchesStrings.java
-public class StringTypeMatchesStrings
+public class StringTypeMatchesStrings<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

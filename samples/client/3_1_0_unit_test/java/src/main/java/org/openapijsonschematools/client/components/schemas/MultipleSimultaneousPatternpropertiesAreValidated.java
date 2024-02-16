@@ -49,12 +49,18 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
     }
     
     
-    public static abstract sealed class AaaBoxed permits AaaBoxedVoid, AaaBoxedBoolean, AaaBoxedNumber, AaaBoxedString, AaaBoxedList, AaaBoxedMap {}
+    public static abstract sealed class AaaBoxed permits AaaBoxedVoid, AaaBoxedBoolean, AaaBoxedNumber, AaaBoxedString, AaaBoxedList, AaaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AaaBoxedVoid extends AaaBoxed {
         public final Void data;
         private AaaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,12 +69,20 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
         private AaaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AaaBoxedNumber extends AaaBoxed {
         public final Number data;
         private AaaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -77,6 +91,10 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
         private AaaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AaaBoxedList extends AaaBoxed {
@@ -84,12 +102,20 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
         private AaaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AaaBoxedMap extends AaaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private AaaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -313,12 +339,18 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
         }
     }    
     
-    public static abstract sealed class MultipleSimultaneousPatternpropertiesAreValidated1Boxed permits MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid, MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean, MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber, MultipleSimultaneousPatternpropertiesAreValidated1BoxedString, MultipleSimultaneousPatternpropertiesAreValidated1BoxedList, MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap {}
+    public static abstract sealed class MultipleSimultaneousPatternpropertiesAreValidated1Boxed permits MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid, MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean, MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber, MultipleSimultaneousPatternpropertiesAreValidated1BoxedString, MultipleSimultaneousPatternpropertiesAreValidated1BoxedList, MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
         public final Void data;
         private MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,12 +359,20 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
         private MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
         public final Number data;
         private MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -341,6 +381,10 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
         private MultipleSimultaneousPatternpropertiesAreValidated1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedList extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
@@ -348,12 +392,20 @@ public class MultipleSimultaneousPatternpropertiesAreValidated {
         private MultipleSimultaneousPatternpropertiesAreValidated1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap extends MultipleSimultaneousPatternpropertiesAreValidated1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

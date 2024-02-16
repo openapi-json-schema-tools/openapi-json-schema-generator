@@ -1,6 +1,6 @@
 # DependentSchemasSingleDependency
 org.openapijsonschematools.client.components.schemas.DependentSchemasSingleDependency.java
-public class DependentSchemasSingleDependency
+public class DependentSchemasSingleDependency<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

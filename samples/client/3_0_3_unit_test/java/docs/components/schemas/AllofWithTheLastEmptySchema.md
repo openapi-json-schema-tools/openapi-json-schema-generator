@@ -1,6 +1,6 @@
 # AllofWithTheLastEmptySchema
 org.openapijsonschematools.client.components.schemas.AllofWithTheLastEmptySchema.java
-public class AllofWithTheLastEmptySchema
+public class AllofWithTheLastEmptySchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

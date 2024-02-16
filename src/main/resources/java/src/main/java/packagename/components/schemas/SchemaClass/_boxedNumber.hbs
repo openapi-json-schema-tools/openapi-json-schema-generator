@@ -21,6 +21,10 @@ public static final class {{jsonPathPiece.pascalCase}}BoxedNumber extends {{json
     private {{jsonPathPiece.pascalCase}}BoxedNumber(Number data) {
         this.data = data;
     }
+    @Override
+    public @Nullable Object data() {
+        return data;
+    }
 }
 
 {{/if}}

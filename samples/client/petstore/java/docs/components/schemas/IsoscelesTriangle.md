@@ -1,6 +1,6 @@
 # IsoscelesTriangle
 org.openapijsonschematools.client.components.schemas.IsoscelesTriangle.java
-public class IsoscelesTriangle
+public class IsoscelesTriangle<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # TriangleInterface
 org.openapijsonschematools.client.components.schemas.TriangleInterface.java
-public class TriangleInterface
+public class TriangleInterface<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

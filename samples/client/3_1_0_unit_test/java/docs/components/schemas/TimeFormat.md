@@ -1,6 +1,6 @@
 # TimeFormat
 org.openapijsonschematools.client.components.schemas.TimeFormat.java
-public class TimeFormat
+public class TimeFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

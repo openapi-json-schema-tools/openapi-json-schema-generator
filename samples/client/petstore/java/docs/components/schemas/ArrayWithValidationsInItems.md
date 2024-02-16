@@ -1,6 +1,6 @@
 # ArrayWithValidationsInItems
 org.openapijsonschematools.client.components.schemas.ArrayWithValidationsInItems.java
-public class ArrayWithValidationsInItems
+public class ArrayWithValidationsInItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

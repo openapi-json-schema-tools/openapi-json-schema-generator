@@ -35,12 +35,18 @@ public class MinpropertiesValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MinpropertiesValidation1Boxed permits MinpropertiesValidation1BoxedVoid, MinpropertiesValidation1BoxedBoolean, MinpropertiesValidation1BoxedNumber, MinpropertiesValidation1BoxedString, MinpropertiesValidation1BoxedList, MinpropertiesValidation1BoxedMap {}
+    public static abstract sealed class MinpropertiesValidation1Boxed permits MinpropertiesValidation1BoxedVoid, MinpropertiesValidation1BoxedBoolean, MinpropertiesValidation1BoxedNumber, MinpropertiesValidation1BoxedString, MinpropertiesValidation1BoxedList, MinpropertiesValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MinpropertiesValidation1BoxedVoid extends MinpropertiesValidation1Boxed {
         public final Void data;
         private MinpropertiesValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MinpropertiesValidation {
         private MinpropertiesValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinpropertiesValidation1BoxedNumber extends MinpropertiesValidation1Boxed {
         public final Number data;
         private MinpropertiesValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MinpropertiesValidation {
         private MinpropertiesValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinpropertiesValidation1BoxedList extends MinpropertiesValidation1Boxed {
@@ -70,12 +88,20 @@ public class MinpropertiesValidation {
         private MinpropertiesValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinpropertiesValidation1BoxedMap extends MinpropertiesValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MinpropertiesValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

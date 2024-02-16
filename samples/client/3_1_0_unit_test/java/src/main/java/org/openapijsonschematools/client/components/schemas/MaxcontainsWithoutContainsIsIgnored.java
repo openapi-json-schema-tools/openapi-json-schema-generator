@@ -35,12 +35,18 @@ public class MaxcontainsWithoutContainsIsIgnored {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MaxcontainsWithoutContainsIsIgnored1Boxed permits MaxcontainsWithoutContainsIsIgnored1BoxedVoid, MaxcontainsWithoutContainsIsIgnored1BoxedBoolean, MaxcontainsWithoutContainsIsIgnored1BoxedNumber, MaxcontainsWithoutContainsIsIgnored1BoxedString, MaxcontainsWithoutContainsIsIgnored1BoxedList, MaxcontainsWithoutContainsIsIgnored1BoxedMap {}
+    public static abstract sealed class MaxcontainsWithoutContainsIsIgnored1Boxed permits MaxcontainsWithoutContainsIsIgnored1BoxedVoid, MaxcontainsWithoutContainsIsIgnored1BoxedBoolean, MaxcontainsWithoutContainsIsIgnored1BoxedNumber, MaxcontainsWithoutContainsIsIgnored1BoxedString, MaxcontainsWithoutContainsIsIgnored1BoxedList, MaxcontainsWithoutContainsIsIgnored1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MaxcontainsWithoutContainsIsIgnored1BoxedVoid extends MaxcontainsWithoutContainsIsIgnored1Boxed {
         public final Void data;
         private MaxcontainsWithoutContainsIsIgnored1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MaxcontainsWithoutContainsIsIgnored {
         private MaxcontainsWithoutContainsIsIgnored1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxcontainsWithoutContainsIsIgnored1BoxedNumber extends MaxcontainsWithoutContainsIsIgnored1Boxed {
         public final Number data;
         private MaxcontainsWithoutContainsIsIgnored1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MaxcontainsWithoutContainsIsIgnored {
         private MaxcontainsWithoutContainsIsIgnored1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxcontainsWithoutContainsIsIgnored1BoxedList extends MaxcontainsWithoutContainsIsIgnored1Boxed {
@@ -70,12 +88,20 @@ public class MaxcontainsWithoutContainsIsIgnored {
         private MaxcontainsWithoutContainsIsIgnored1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxcontainsWithoutContainsIsIgnored1BoxedMap extends MaxcontainsWithoutContainsIsIgnored1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MaxcontainsWithoutContainsIsIgnored1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

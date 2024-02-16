@@ -162,12 +162,18 @@ public class Tag {
     }
     
     
-    public static abstract sealed class Tag1Boxed permits Tag1BoxedMap {}
+    public static abstract sealed class Tag1Boxed permits Tag1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Tag1BoxedMap extends Tag1Boxed {
         public final TagMap data;
         private Tag1BoxedMap(TagMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

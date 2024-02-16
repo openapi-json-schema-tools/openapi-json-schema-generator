@@ -34,12 +34,18 @@ public class NulCharactersInStrings {
     }
     
     
-    public static abstract sealed class NulCharactersInStrings1Boxed permits NulCharactersInStrings1BoxedString {}
+    public static abstract sealed class NulCharactersInStrings1Boxed permits NulCharactersInStrings1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NulCharactersInStrings1BoxedString extends NulCharactersInStrings1Boxed {
         public final String data;
         private NulCharactersInStrings1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

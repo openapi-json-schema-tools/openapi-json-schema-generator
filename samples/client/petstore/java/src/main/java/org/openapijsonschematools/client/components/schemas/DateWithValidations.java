@@ -21,12 +21,18 @@ public class DateWithValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class DateWithValidations1Boxed permits DateWithValidations1BoxedString {}
+    public static abstract sealed class DateWithValidations1Boxed permits DateWithValidations1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DateWithValidations1BoxedString extends DateWithValidations1Boxed {
         public final String data;
         private DateWithValidations1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

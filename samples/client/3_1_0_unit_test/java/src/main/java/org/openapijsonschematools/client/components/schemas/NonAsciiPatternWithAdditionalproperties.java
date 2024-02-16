@@ -79,12 +79,18 @@ public class NonAsciiPatternWithAdditionalproperties {
     }
     
     
-    public static abstract sealed class NonAsciiPatternWithAdditionalproperties1Boxed permits NonAsciiPatternWithAdditionalproperties1BoxedMap {}
+    public static abstract sealed class NonAsciiPatternWithAdditionalproperties1Boxed permits NonAsciiPatternWithAdditionalproperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NonAsciiPatternWithAdditionalproperties1BoxedMap extends NonAsciiPatternWithAdditionalproperties1Boxed {
         public final NonAsciiPatternWithAdditionalpropertiesMap data;
         private NonAsciiPatternWithAdditionalproperties1BoxedMap(NonAsciiPatternWithAdditionalpropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

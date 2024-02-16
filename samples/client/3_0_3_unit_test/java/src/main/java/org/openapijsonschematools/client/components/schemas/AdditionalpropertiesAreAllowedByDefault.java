@@ -236,12 +236,18 @@ public class AdditionalpropertiesAreAllowedByDefault {
     }
     
     
-    public static abstract sealed class AdditionalpropertiesAreAllowedByDefault1Boxed permits AdditionalpropertiesAreAllowedByDefault1BoxedVoid, AdditionalpropertiesAreAllowedByDefault1BoxedBoolean, AdditionalpropertiesAreAllowedByDefault1BoxedNumber, AdditionalpropertiesAreAllowedByDefault1BoxedString, AdditionalpropertiesAreAllowedByDefault1BoxedList, AdditionalpropertiesAreAllowedByDefault1BoxedMap {}
+    public static abstract sealed class AdditionalpropertiesAreAllowedByDefault1Boxed permits AdditionalpropertiesAreAllowedByDefault1BoxedVoid, AdditionalpropertiesAreAllowedByDefault1BoxedBoolean, AdditionalpropertiesAreAllowedByDefault1BoxedNumber, AdditionalpropertiesAreAllowedByDefault1BoxedString, AdditionalpropertiesAreAllowedByDefault1BoxedList, AdditionalpropertiesAreAllowedByDefault1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalpropertiesAreAllowedByDefault1BoxedVoid extends AdditionalpropertiesAreAllowedByDefault1Boxed {
         public final Void data;
         private AdditionalpropertiesAreAllowedByDefault1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -250,12 +256,20 @@ public class AdditionalpropertiesAreAllowedByDefault {
         private AdditionalpropertiesAreAllowedByDefault1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalpropertiesAreAllowedByDefault1BoxedNumber extends AdditionalpropertiesAreAllowedByDefault1Boxed {
         public final Number data;
         private AdditionalpropertiesAreAllowedByDefault1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -264,6 +278,10 @@ public class AdditionalpropertiesAreAllowedByDefault {
         private AdditionalpropertiesAreAllowedByDefault1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalpropertiesAreAllowedByDefault1BoxedList extends AdditionalpropertiesAreAllowedByDefault1Boxed {
@@ -271,12 +289,20 @@ public class AdditionalpropertiesAreAllowedByDefault {
         private AdditionalpropertiesAreAllowedByDefault1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalpropertiesAreAllowedByDefault1BoxedMap extends AdditionalpropertiesAreAllowedByDefault1Boxed {
         public final AdditionalpropertiesAreAllowedByDefaultMap data;
         private AdditionalpropertiesAreAllowedByDefault1BoxedMap(AdditionalpropertiesAreAllowedByDefaultMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

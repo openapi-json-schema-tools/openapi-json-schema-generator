@@ -66,12 +66,18 @@ public class Schema4 {
     }
     
     
-    public static abstract sealed class Schema41Boxed permits Schema41BoxedList {}
+    public static abstract sealed class Schema41Boxed permits Schema41BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema41BoxedList extends Schema41Boxed {
         public final SchemaList4 data;
         private Schema41BoxedList(SchemaList4 data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

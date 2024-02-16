@@ -1,6 +1,6 @@
 # ArrayTest
 org.openapijsonschematools.client.components.schemas.ArrayTest.java
-public class ArrayTest
+public class ArrayTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

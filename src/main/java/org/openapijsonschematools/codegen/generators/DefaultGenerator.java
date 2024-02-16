@@ -3763,7 +3763,7 @@ public class DefaultGenerator implements Generator {
                 pathPieces[4] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
-            pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
+            pathPieces[3] = toRequestBodyFilename(pathPieces[3], jsonPath);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
@@ -3868,10 +3868,6 @@ public class DefaultGenerator implements Generator {
             // #/paths/SomePath/get
             return;
         }
-        if (pathPieces[4].equals("requestBody")) {
-            // #/paths/somePath/get/requestBody
-            pathPieces[4] = requestBodyIdentifier;
-        }
         if (xParameters.contains(pathPieces[4])) {
             // #/paths/somePath/get/PathParameters
             // synthetic jsonPath
@@ -3955,7 +3951,13 @@ public class DefaultGenerator implements Generator {
                 // #/paths/somePath/get/parameters/0/schema -> length 7
                 pathPieces[6] = getSchemaFilename(jsonPath);
             }
-        } else if (pathPieces[4].equals(requestBodyIdentifier)) {
+        } else if (pathPieces[4].equals("requestBody")) {
+            if (pathPieces.length == 5) {
+                // #/paths/somePath/get/requestBody
+                pathPieces[4] = toRequestBodyFilename("requestBody", jsonPath);
+                return;
+            }
+            pathPieces[4] = requestBodyIdentifier;
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/get/requestBody/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
@@ -4571,8 +4573,8 @@ public class DefaultGenerator implements Generator {
         return cmtContent;
     }
 
-    public String toRequestBodyFilename(String componentName) {
-        return toModuleFilename(componentName, null);
+    public String toRequestBodyFilename(String componentName, String jsonPath) {
+        return toModuleFilename(componentName, jsonPath);
     }
 
     protected String toRefModule(String ref, String sourceJsonPath, String expectedComponentType) {
@@ -4598,7 +4600,7 @@ public class DefaultGenerator implements Generator {
         }
         switch (expectedComponentType) {
             case "requestBodies":
-                return toRequestBodyFilename(refPieces[3]);
+                return toRequestBodyFilename(refPieces[3], ref);
             case "responses":
                 return toResponseModuleName(refPieces[3], ref);
             case "headers":
@@ -4783,7 +4785,8 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
 
-        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo);
+        String subpackage = getSubpackage(sourceJsonPath);
+        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo, subpackage);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
@@ -4876,7 +4879,8 @@ public class DefaultGenerator implements Generator {
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toRequestBodyFilename(usedKey);
+                snakeCaseName = toRequestBodyFilename(usedKey, sourceJsonPath);
+                // todo add getPascalCaseRequestBody()
                 pascalCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":

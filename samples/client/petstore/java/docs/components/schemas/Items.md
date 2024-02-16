@@ -1,6 +1,6 @@
 # Items
 org.openapijsonschematools.client.components.schemas.Items.java
-public class Items
+public class Items<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

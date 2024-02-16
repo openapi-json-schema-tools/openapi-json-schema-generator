@@ -21,6 +21,10 @@ public static final class {{jsonPathPiece.pascalCase}}BoxedString extends {{json
     private {{jsonPathPiece.pascalCase}}BoxedString(String data) {
         this.data = data;
     }
+    @Override
+    public @Nullable Object data() {
+        return data;
+    }
 }
 
 {{/if}}

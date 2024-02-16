@@ -1,6 +1,6 @@
 # RefInProperty
 org.openapijsonschematools.client.components.schemas.RefInProperty.java
-public class RefInProperty
+public class RefInProperty<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

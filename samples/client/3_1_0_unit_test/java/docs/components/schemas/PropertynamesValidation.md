@@ -1,6 +1,6 @@
 # PropertynamesValidation
 org.openapijsonschematools.client.components.schemas.PropertynamesValidation.java
-public class PropertynamesValidation
+public class PropertynamesValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

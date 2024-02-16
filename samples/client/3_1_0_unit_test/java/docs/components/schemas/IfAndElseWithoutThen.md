@@ -1,6 +1,6 @@
 # IfAndElseWithoutThen
 org.openapijsonschematools.client.components.schemas.IfAndElseWithoutThen.java
-public class IfAndElseWithoutThen
+public class IfAndElseWithoutThen<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -185,7 +185,7 @@ public interface Generator {
 
     String toModuleFilename(String name, String jsonPath);
 
-    String toRequestBodyFilename(String componentName);
+    String toRequestBodyFilename(String componentName, String jsonPath);
 
     String toHeaderFilename(String componentName, String jsonPath);
 

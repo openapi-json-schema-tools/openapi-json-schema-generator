@@ -38,12 +38,18 @@ public class SingleDependency {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class SingleDependency1Boxed permits SingleDependency1BoxedVoid, SingleDependency1BoxedBoolean, SingleDependency1BoxedNumber, SingleDependency1BoxedString, SingleDependency1BoxedList, SingleDependency1BoxedMap {}
+    public static abstract sealed class SingleDependency1Boxed permits SingleDependency1BoxedVoid, SingleDependency1BoxedBoolean, SingleDependency1BoxedNumber, SingleDependency1BoxedString, SingleDependency1BoxedList, SingleDependency1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class SingleDependency1BoxedVoid extends SingleDependency1Boxed {
         public final Void data;
         private SingleDependency1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -52,12 +58,20 @@ public class SingleDependency {
         private SingleDependency1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SingleDependency1BoxedNumber extends SingleDependency1Boxed {
         public final Number data;
         private SingleDependency1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -66,6 +80,10 @@ public class SingleDependency {
         private SingleDependency1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SingleDependency1BoxedList extends SingleDependency1Boxed {
@@ -73,12 +91,20 @@ public class SingleDependency {
         private SingleDependency1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SingleDependency1BoxedMap extends SingleDependency1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private SingleDependency1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

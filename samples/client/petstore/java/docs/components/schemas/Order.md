@@ -1,6 +1,6 @@
 # Order
 org.openapijsonschematools.client.components.schemas.Order.java
-public class Order
+public class Order<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

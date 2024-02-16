@@ -1,6 +1,6 @@
 # DependentSchemasDependentSubschemaIncompatibleWithRoot
 org.openapijsonschematools.client.components.schemas.DependentSchemasDependentSubschemaIncompatibleWithRoot.java
-public class DependentSchemasDependentSubschemaIncompatibleWithRoot
+public class DependentSchemasDependentSubschemaIncompatibleWithRoot<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

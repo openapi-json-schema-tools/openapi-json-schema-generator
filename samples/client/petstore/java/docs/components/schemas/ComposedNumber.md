@@ -1,6 +1,6 @@
 # ComposedNumber
 org.openapijsonschematools.client.components.schemas.ComposedNumber.java
-public class ComposedNumber
+public class ComposedNumber<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

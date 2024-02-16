@@ -1,6 +1,6 @@
 # Tag
 org.openapijsonschematools.client.components.schemas.Tag.java
-public class Tag
+public class Tag<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

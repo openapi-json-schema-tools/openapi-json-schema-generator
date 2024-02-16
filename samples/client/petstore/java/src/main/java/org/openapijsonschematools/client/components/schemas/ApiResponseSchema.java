@@ -187,12 +187,18 @@ public class ApiResponseSchema {
     }
     
     
-    public static abstract sealed class ApiResponseSchema1Boxed permits ApiResponseSchema1BoxedMap {}
+    public static abstract sealed class ApiResponseSchema1Boxed permits ApiResponseSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ApiResponseSchema1BoxedMap extends ApiResponseSchema1Boxed {
         public final ApiResponseMap data;
         private ApiResponseSchema1BoxedMap(ApiResponseMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

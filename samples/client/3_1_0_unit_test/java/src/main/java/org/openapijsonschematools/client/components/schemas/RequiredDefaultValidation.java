@@ -157,12 +157,18 @@ public class RequiredDefaultValidation {
     }
     
     
-    public static abstract sealed class RequiredDefaultValidation1Boxed permits RequiredDefaultValidation1BoxedVoid, RequiredDefaultValidation1BoxedBoolean, RequiredDefaultValidation1BoxedNumber, RequiredDefaultValidation1BoxedString, RequiredDefaultValidation1BoxedList, RequiredDefaultValidation1BoxedMap {}
+    public static abstract sealed class RequiredDefaultValidation1Boxed permits RequiredDefaultValidation1BoxedVoid, RequiredDefaultValidation1BoxedBoolean, RequiredDefaultValidation1BoxedNumber, RequiredDefaultValidation1BoxedString, RequiredDefaultValidation1BoxedList, RequiredDefaultValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RequiredDefaultValidation1BoxedVoid extends RequiredDefaultValidation1Boxed {
         public final Void data;
         private RequiredDefaultValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -171,12 +177,20 @@ public class RequiredDefaultValidation {
         private RequiredDefaultValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredDefaultValidation1BoxedNumber extends RequiredDefaultValidation1Boxed {
         public final Number data;
         private RequiredDefaultValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -185,6 +199,10 @@ public class RequiredDefaultValidation {
         private RequiredDefaultValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredDefaultValidation1BoxedList extends RequiredDefaultValidation1Boxed {
@@ -192,12 +210,20 @@ public class RequiredDefaultValidation {
         private RequiredDefaultValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredDefaultValidation1BoxedMap extends RequiredDefaultValidation1Boxed {
         public final RequiredDefaultValidationMap data;
         private RequiredDefaultValidation1BoxedMap(RequiredDefaultValidationMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

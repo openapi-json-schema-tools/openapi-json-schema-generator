@@ -1,0 +1,98 @@
+{{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
+    {{#if isBooleanSchemaTrue}}
+{{containerJsonPathPiece.pascalCase}} extends AnyTypeJsonSchema
+    {{~else}}
+{{containerJsonPathPiece.pascalCase}} extends NotAnyTypeJsonSchema
+    {{~/if}}
+{{else}}
+    {{#eq types null }}
+        {{#if isSimpleAnyType }}
+{{containerJsonPathPiece.pascalCase}} extends AnyTypeJsonSchema
+        {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+        {{~/if}}
+    {{else}}
+        {{! types exist }}
+        {{#eq types.size 1}}
+            {{! one type }}
+            {{#each types}}
+                {{#eq this "object"}}
+                    {{#if isSimpleObject }}
+{{containerJsonPathPiece.pascalCase}} extends MapJsonSchema
+                    {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                    {{~/if}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#if isSimpleArray }}
+{{containerJsonPathPiece.pascalCase}} extends ListJsonSchema
+                        {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                        {{~/if}}
+                    {{else}}
+                        {{#eq this "boolean"}}
+                            {{#if isSimpleBoolean }}
+{{containerJsonPathPiece.pascalCase}} extends BooleanJsonSchema
+                            {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                            {{~/if}}
+                        {{else}}
+                            {{#or (eq this "number") (eq this "integer") }}
+                                {{#or isSimpleInteger isSimpleNumber }}
+                                    {{#if isSimpleInteger}}
+                                        {{#eq ../format "int32"}}
+{{containerJsonPathPiece.pascalCase}} extends Int32JsonSchema
+                                        {{~else}}
+                                            {{#eq ../format "int64"}}
+{{containerJsonPathPiece.pascalCase}} extends Int64JsonSchema
+                                            {{~else}}
+{{containerJsonPathPiece.pascalCase}} extends IntJsonSchema
+                                            {{~/eq}}
+                                        {{/eq}}
+                                    {{~else}}
+{{containerJsonPathPiece.pascalCase}} extends NumberJsonSchema
+                                    {{~/if}}
+                                {{else}}
+{{containerJsonPathPiece.pascalCase}}
+                                {{~/or}}
+                            {{else}}
+                                {{#eq this "string"}}
+                                    {{#if isSimpleString}}
+                                        {{#eq ../format "date"}}
+{{containerJsonPathPiece.pascalCase}} extends DateJsonSchema
+                                        {{~else}}
+                                            {{#eq ../format "date-time"}}
+{{containerJsonPathPiece.pascalCase}} extends DateTimeJsonSchema
+                                            {{~else}}
+                                                {{#eq ../format "number"}}
+{{containerJsonPathPiece.pascalCase}} extends DecimalJsonSchema
+                                                {{~else}}
+                                                    {{#eq ../format "uuid"}}
+{{containerJsonPathPiece.pascalCase}} extends UuidJsonSchema
+                                                    {{~else}}
+{{containerJsonPathPiece.pascalCase}} extends StringJsonSchema
+                                                    {{~/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{else}}
+{{containerJsonPathPiece.pascalCase}}
+                                    {{~/if}}
+                                {{else}}
+                                    {{#if isSimpleNull }}
+{{containerJsonPathPiece.pascalCase}} extends NullJsonSchema
+                                    {{~else}}
+{{containerJsonPathPiece.pascalCase}}
+                                    {{~/if}}
+                                {{/eq}}
+                            {{/or}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{else}}
+            {{! multiple types }}
+{{containerJsonPathPiece.pascalCase}}
+        {{~/eq}}
+    {{/eq}}
+{{/or}}

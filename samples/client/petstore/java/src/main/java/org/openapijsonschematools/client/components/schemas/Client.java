@@ -106,12 +106,18 @@ public class Client {
     }
     
     
-    public static abstract sealed class Client1Boxed permits Client1BoxedMap {}
+    public static abstract sealed class Client1Boxed permits Client1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Client1BoxedMap extends Client1Boxed {
         public final ClientMap data;
         private Client1BoxedMap(ClientMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # UnevaluateditemsWithNullInstanceElements
 org.openapijsonschematools.client.components.schemas.UnevaluateditemsWithNullInstanceElements.java
-public class UnevaluateditemsWithNullInstanceElements
+public class UnevaluateditemsWithNullInstanceElements<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

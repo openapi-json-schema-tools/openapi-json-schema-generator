@@ -47,12 +47,18 @@ public class Not {
     }
     
     
-    public static abstract sealed class Not1Boxed permits Not1BoxedVoid, Not1BoxedBoolean, Not1BoxedNumber, Not1BoxedString, Not1BoxedList, Not1BoxedMap {}
+    public static abstract sealed class Not1Boxed permits Not1BoxedVoid, Not1BoxedBoolean, Not1BoxedNumber, Not1BoxedString, Not1BoxedList, Not1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Not1BoxedVoid extends Not1Boxed {
         public final Void data;
         private Not1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class Not {
         private Not1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Not1BoxedNumber extends Not1Boxed {
         public final Number data;
         private Not1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class Not {
         private Not1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Not1BoxedList extends Not1Boxed {
@@ -82,12 +100,20 @@ public class Not {
         private Not1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Not1BoxedMap extends Not1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Not1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

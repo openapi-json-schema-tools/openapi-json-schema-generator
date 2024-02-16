@@ -1,6 +1,6 @@
 # Currency
 org.openapijsonschematools.client.components.schemas.Currency.java
-public class Currency
+public class Currency<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

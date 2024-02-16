@@ -1,6 +1,6 @@
 # AnyTypeNotString
 org.openapijsonschematools.client.components.schemas.AnyTypeNotString.java
-public class AnyTypeNotString
+public class AnyTypeNotString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

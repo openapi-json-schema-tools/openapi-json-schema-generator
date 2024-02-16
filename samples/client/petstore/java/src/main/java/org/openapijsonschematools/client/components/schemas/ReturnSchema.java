@@ -111,12 +111,18 @@ public class ReturnSchema {
     }
     
     
-    public static abstract sealed class ReturnSchema1Boxed permits ReturnSchema1BoxedVoid, ReturnSchema1BoxedBoolean, ReturnSchema1BoxedNumber, ReturnSchema1BoxedString, ReturnSchema1BoxedList, ReturnSchema1BoxedMap {}
+    public static abstract sealed class ReturnSchema1Boxed permits ReturnSchema1BoxedVoid, ReturnSchema1BoxedBoolean, ReturnSchema1BoxedNumber, ReturnSchema1BoxedString, ReturnSchema1BoxedList, ReturnSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ReturnSchema1BoxedVoid extends ReturnSchema1Boxed {
         public final Void data;
         private ReturnSchema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -125,12 +131,20 @@ public class ReturnSchema {
         private ReturnSchema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ReturnSchema1BoxedNumber extends ReturnSchema1Boxed {
         public final Number data;
         private ReturnSchema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -139,6 +153,10 @@ public class ReturnSchema {
         private ReturnSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ReturnSchema1BoxedList extends ReturnSchema1Boxed {
@@ -146,12 +164,20 @@ public class ReturnSchema {
         private ReturnSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ReturnSchema1BoxedMap extends ReturnSchema1Boxed {
         public final ReturnMap data;
         private ReturnSchema1BoxedMap(ReturnMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

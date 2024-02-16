@@ -1,6 +1,6 @@
 # IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence
 org.openapijsonschematools.client.components.schemas.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.java
-public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence
+public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

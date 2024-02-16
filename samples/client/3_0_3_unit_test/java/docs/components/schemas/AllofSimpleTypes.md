@@ -1,6 +1,6 @@
 # AllofSimpleTypes
 org.openapijsonschematools.client.components.schemas.AllofSimpleTypes.java
-public class AllofSimpleTypes
+public class AllofSimpleTypes<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

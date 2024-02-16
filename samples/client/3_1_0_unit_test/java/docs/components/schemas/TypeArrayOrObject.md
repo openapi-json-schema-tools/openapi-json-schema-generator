@@ -1,6 +1,6 @@
 # TypeArrayOrObject
 org.openapijsonschematools.client.components.schemas.TypeArrayOrObject.java
-public class TypeArrayOrObject
+public class TypeArrayOrObject<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

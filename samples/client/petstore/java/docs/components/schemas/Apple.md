@@ -1,6 +1,6 @@
 # Apple
 org.openapijsonschematools.client.components.schemas.Apple.java
-public class Apple
+public class Apple<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

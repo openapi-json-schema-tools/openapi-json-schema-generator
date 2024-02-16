@@ -35,12 +35,18 @@ public class RefInAllof {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class RefInAllof1Boxed permits RefInAllof1BoxedVoid, RefInAllof1BoxedBoolean, RefInAllof1BoxedNumber, RefInAllof1BoxedString, RefInAllof1BoxedList, RefInAllof1BoxedMap {}
+    public static abstract sealed class RefInAllof1Boxed permits RefInAllof1BoxedVoid, RefInAllof1BoxedBoolean, RefInAllof1BoxedNumber, RefInAllof1BoxedString, RefInAllof1BoxedList, RefInAllof1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RefInAllof1BoxedVoid extends RefInAllof1Boxed {
         public final Void data;
         private RefInAllof1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class RefInAllof {
         private RefInAllof1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RefInAllof1BoxedNumber extends RefInAllof1Boxed {
         public final Number data;
         private RefInAllof1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class RefInAllof {
         private RefInAllof1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RefInAllof1BoxedList extends RefInAllof1Boxed {
@@ -70,12 +88,20 @@ public class RefInAllof {
         private RefInAllof1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RefInAllof1BoxedMap extends RefInAllof1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private RefInAllof1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

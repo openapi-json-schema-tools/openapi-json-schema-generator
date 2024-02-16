@@ -47,12 +47,18 @@ public class NestedAnyofToCheckValidationSemantics {
     }
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {}
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema0BoxedVoid extends Schema0Boxed {
         public final Void data;
         private Schema0BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class NestedAnyofToCheckValidationSemantics {
         private Schema0BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedNumber extends Schema0Boxed {
         public final Number data;
         private Schema0BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class NestedAnyofToCheckValidationSemantics {
         private Schema0BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedList extends Schema0Boxed {
@@ -82,12 +100,20 @@ public class NestedAnyofToCheckValidationSemantics {
         private Schema0BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedMap extends Schema0Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema0BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -313,12 +339,18 @@ public class NestedAnyofToCheckValidationSemantics {
         }
     }    
     
-    public static abstract sealed class NestedAnyofToCheckValidationSemantics1Boxed permits NestedAnyofToCheckValidationSemantics1BoxedVoid, NestedAnyofToCheckValidationSemantics1BoxedBoolean, NestedAnyofToCheckValidationSemantics1BoxedNumber, NestedAnyofToCheckValidationSemantics1BoxedString, NestedAnyofToCheckValidationSemantics1BoxedList, NestedAnyofToCheckValidationSemantics1BoxedMap {}
+    public static abstract sealed class NestedAnyofToCheckValidationSemantics1Boxed permits NestedAnyofToCheckValidationSemantics1BoxedVoid, NestedAnyofToCheckValidationSemantics1BoxedBoolean, NestedAnyofToCheckValidationSemantics1BoxedNumber, NestedAnyofToCheckValidationSemantics1BoxedString, NestedAnyofToCheckValidationSemantics1BoxedList, NestedAnyofToCheckValidationSemantics1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NestedAnyofToCheckValidationSemantics1BoxedVoid extends NestedAnyofToCheckValidationSemantics1Boxed {
         public final Void data;
         private NestedAnyofToCheckValidationSemantics1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,12 +359,20 @@ public class NestedAnyofToCheckValidationSemantics {
         private NestedAnyofToCheckValidationSemantics1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NestedAnyofToCheckValidationSemantics1BoxedNumber extends NestedAnyofToCheckValidationSemantics1Boxed {
         public final Number data;
         private NestedAnyofToCheckValidationSemantics1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -341,6 +381,10 @@ public class NestedAnyofToCheckValidationSemantics {
         private NestedAnyofToCheckValidationSemantics1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NestedAnyofToCheckValidationSemantics1BoxedList extends NestedAnyofToCheckValidationSemantics1Boxed {
@@ -348,12 +392,20 @@ public class NestedAnyofToCheckValidationSemantics {
         private NestedAnyofToCheckValidationSemantics1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NestedAnyofToCheckValidationSemantics1BoxedMap extends NestedAnyofToCheckValidationSemantics1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private NestedAnyofToCheckValidationSemantics1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

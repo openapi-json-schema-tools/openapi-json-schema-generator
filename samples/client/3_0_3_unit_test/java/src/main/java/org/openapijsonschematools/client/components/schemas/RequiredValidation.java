@@ -247,12 +247,18 @@ public class RequiredValidation {
     }
     
     
-    public static abstract sealed class RequiredValidation1Boxed permits RequiredValidation1BoxedVoid, RequiredValidation1BoxedBoolean, RequiredValidation1BoxedNumber, RequiredValidation1BoxedString, RequiredValidation1BoxedList, RequiredValidation1BoxedMap {}
+    public static abstract sealed class RequiredValidation1Boxed permits RequiredValidation1BoxedVoid, RequiredValidation1BoxedBoolean, RequiredValidation1BoxedNumber, RequiredValidation1BoxedString, RequiredValidation1BoxedList, RequiredValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RequiredValidation1BoxedVoid extends RequiredValidation1Boxed {
         public final Void data;
         private RequiredValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -261,12 +267,20 @@ public class RequiredValidation {
         private RequiredValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredValidation1BoxedNumber extends RequiredValidation1Boxed {
         public final Number data;
         private RequiredValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -275,6 +289,10 @@ public class RequiredValidation {
         private RequiredValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredValidation1BoxedList extends RequiredValidation1Boxed {
@@ -282,12 +300,20 @@ public class RequiredValidation {
         private RequiredValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredValidation1BoxedMap extends RequiredValidation1Boxed {
         public final RequiredValidationMap data;
         private RequiredValidation1BoxedMap(RequiredValidationMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

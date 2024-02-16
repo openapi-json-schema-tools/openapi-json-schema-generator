@@ -1,6 +1,6 @@
 # RequiredWithEmptyArray
 org.openapijsonschematools.client.components.schemas.RequiredWithEmptyArray.java
-public class RequiredWithEmptyArray
+public class RequiredWithEmptyArray<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

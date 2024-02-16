@@ -158,12 +158,18 @@ public class ObjectWithDecimalProperties {
     }
     
     
-    public static abstract sealed class ObjectWithDecimalProperties1Boxed permits ObjectWithDecimalProperties1BoxedMap {}
+    public static abstract sealed class ObjectWithDecimalProperties1Boxed permits ObjectWithDecimalProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectWithDecimalProperties1BoxedMap extends ObjectWithDecimalProperties1Boxed {
         public final ObjectWithDecimalPropertiesMap data;
         private ObjectWithDecimalProperties1BoxedMap(ObjectWithDecimalPropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

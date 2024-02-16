@@ -1,6 +1,6 @@
 # SimpleQuadrilateral
 org.openapijsonschematools.client.components.schemas.SimpleQuadrilateral.java
-public class SimpleQuadrilateral
+public class SimpleQuadrilateral<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

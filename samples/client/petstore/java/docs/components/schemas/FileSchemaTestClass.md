@@ -1,6 +1,6 @@
 # FileSchemaTestClass
 org.openapijsonschematools.client.components.schemas.FileSchemaTestClass.java
-public class FileSchemaTestClass
+public class FileSchemaTestClass<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

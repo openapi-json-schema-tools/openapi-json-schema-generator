@@ -55,12 +55,18 @@ public class StringEnum {
     }
     
     
-    public static abstract sealed class StringEnum1Boxed permits StringEnum1BoxedVoid, StringEnum1BoxedString {}
+    public static abstract sealed class StringEnum1Boxed permits StringEnum1BoxedVoid, StringEnum1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class StringEnum1BoxedVoid extends StringEnum1Boxed {
         public final Void data;
         private StringEnum1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -68,6 +74,10 @@ public class StringEnum {
         public final String data;
         private StringEnum1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

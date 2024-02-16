@@ -35,12 +35,18 @@ public class Schema1 {
     }
     
     
-    public static abstract sealed class Schema11Boxed permits Schema11BoxedString {}
+    public static abstract sealed class Schema11Boxed permits Schema11BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema11BoxedString extends Schema11Boxed {
         public final String data;
         private Schema11BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

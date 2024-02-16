@@ -184,6 +184,12 @@ src/main/java/org/openapijsonschematools/client/exceptions/InvalidAdditionalProp
 src/main/java/org/openapijsonschematools/client/exceptions/InvalidTypeException.java
 src/main/java/org/openapijsonschematools/client/exceptions/UnsetPropertyException.java
 src/main/java/org/openapijsonschematools/client/exceptions/ValidationException.java
+src/main/java/org/openapijsonschematools/client/mediatype/Encoding.java
+src/main/java/org/openapijsonschematools/client/mediatype/MediaType.java
+src/main/java/org/openapijsonschematools/client/parameter/ParameterStyle.java
+src/main/java/org/openapijsonschematools/client/requestbody/GenericRequestBody.java
+src/main/java/org/openapijsonschematools/client/requestbody/RequestBodySerializer.java
+src/main/java/org/openapijsonschematools/client/requestbody/SerializedRequestBody.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java
@@ -285,6 +291,7 @@ src/main/java/org/openapijsonschematools/client/servers/ServerProvider.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
+src/test/java/org/openapijsonschematools/client/requestbody/RequestBodySerializerTest.java
 src/test/java/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/client/schemas/BooleanSchemaTest.java

@@ -35,12 +35,18 @@ public class MinimumValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MinimumValidation1Boxed permits MinimumValidation1BoxedVoid, MinimumValidation1BoxedBoolean, MinimumValidation1BoxedNumber, MinimumValidation1BoxedString, MinimumValidation1BoxedList, MinimumValidation1BoxedMap {}
+    public static abstract sealed class MinimumValidation1Boxed permits MinimumValidation1BoxedVoid, MinimumValidation1BoxedBoolean, MinimumValidation1BoxedNumber, MinimumValidation1BoxedString, MinimumValidation1BoxedList, MinimumValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MinimumValidation1BoxedVoid extends MinimumValidation1Boxed {
         public final Void data;
         private MinimumValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MinimumValidation {
         private MinimumValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinimumValidation1BoxedNumber extends MinimumValidation1Boxed {
         public final Number data;
         private MinimumValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MinimumValidation {
         private MinimumValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinimumValidation1BoxedList extends MinimumValidation1Boxed {
@@ -70,12 +88,20 @@ public class MinimumValidation {
         private MinimumValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinimumValidation1BoxedMap extends MinimumValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MinimumValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # AdditionalItemsAreAllowedByDefault
 org.openapijsonschematools.client.components.schemas.AdditionalItemsAreAllowedByDefault.java
-public class AdditionalItemsAreAllowedByDefault
+public class AdditionalItemsAreAllowedByDefault<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

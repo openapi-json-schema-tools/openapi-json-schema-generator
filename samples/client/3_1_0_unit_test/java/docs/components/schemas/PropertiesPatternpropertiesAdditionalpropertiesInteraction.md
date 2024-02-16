@@ -1,6 +1,6 @@
 # PropertiesPatternpropertiesAdditionalpropertiesInteraction
 org.openapijsonschematools.client.components.schemas.PropertiesPatternpropertiesAdditionalpropertiesInteraction.java
-public class PropertiesPatternpropertiesAdditionalpropertiesInteraction
+public class PropertiesPatternpropertiesAdditionalpropertiesInteraction<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

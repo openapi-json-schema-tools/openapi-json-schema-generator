@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttyp
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 
-public class Schema0 {
+public class Schema0 extends AnyTypeJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

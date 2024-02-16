@@ -1,6 +1,6 @@
 # QuadrilateralInterface
 org.openapijsonschematools.client.components.schemas.QuadrilateralInterface.java
-public class QuadrilateralInterface
+public class QuadrilateralInterface<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

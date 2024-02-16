@@ -38,12 +38,18 @@ public class InvalidStringValueForDefault {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class BarBoxed permits BarBoxedString {}
+    public static abstract sealed class BarBoxed permits BarBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class BarBoxedString extends BarBoxed {
         public final String data;
         private BarBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -172,12 +178,18 @@ public class InvalidStringValueForDefault {
     }
     
     
-    public static abstract sealed class InvalidStringValueForDefault1Boxed permits InvalidStringValueForDefault1BoxedVoid, InvalidStringValueForDefault1BoxedBoolean, InvalidStringValueForDefault1BoxedNumber, InvalidStringValueForDefault1BoxedString, InvalidStringValueForDefault1BoxedList, InvalidStringValueForDefault1BoxedMap {}
+    public static abstract sealed class InvalidStringValueForDefault1Boxed permits InvalidStringValueForDefault1BoxedVoid, InvalidStringValueForDefault1BoxedBoolean, InvalidStringValueForDefault1BoxedNumber, InvalidStringValueForDefault1BoxedString, InvalidStringValueForDefault1BoxedList, InvalidStringValueForDefault1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class InvalidStringValueForDefault1BoxedVoid extends InvalidStringValueForDefault1Boxed {
         public final Void data;
         private InvalidStringValueForDefault1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -186,12 +198,20 @@ public class InvalidStringValueForDefault {
         private InvalidStringValueForDefault1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class InvalidStringValueForDefault1BoxedNumber extends InvalidStringValueForDefault1Boxed {
         public final Number data;
         private InvalidStringValueForDefault1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -200,6 +220,10 @@ public class InvalidStringValueForDefault {
         private InvalidStringValueForDefault1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class InvalidStringValueForDefault1BoxedList extends InvalidStringValueForDefault1Boxed {
@@ -207,12 +231,20 @@ public class InvalidStringValueForDefault {
         private InvalidStringValueForDefault1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class InvalidStringValueForDefault1BoxedMap extends InvalidStringValueForDefault1Boxed {
         public final InvalidStringValueForDefaultMap data;
         private InvalidStringValueForDefault1BoxedMap(InvalidStringValueForDefaultMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

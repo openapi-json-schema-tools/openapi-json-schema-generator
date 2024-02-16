@@ -1,6 +1,6 @@
 # SomeObject
 org.openapijsonschematools.client.components.schemas.SomeObject.java
-public class SomeObject
+public class SomeObject<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

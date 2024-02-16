@@ -35,12 +35,18 @@ public class SomeObject {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class SomeObject1Boxed permits SomeObject1BoxedVoid, SomeObject1BoxedBoolean, SomeObject1BoxedNumber, SomeObject1BoxedString, SomeObject1BoxedList, SomeObject1BoxedMap {}
+    public static abstract sealed class SomeObject1Boxed permits SomeObject1BoxedVoid, SomeObject1BoxedBoolean, SomeObject1BoxedNumber, SomeObject1BoxedString, SomeObject1BoxedList, SomeObject1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class SomeObject1BoxedVoid extends SomeObject1Boxed {
         public final Void data;
         private SomeObject1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class SomeObject {
         private SomeObject1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomeObject1BoxedNumber extends SomeObject1Boxed {
         public final Number data;
         private SomeObject1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class SomeObject {
         private SomeObject1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomeObject1BoxedList extends SomeObject1Boxed {
@@ -70,12 +88,20 @@ public class SomeObject {
         private SomeObject1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class SomeObject1BoxedMap extends SomeObject1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private SomeObject1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -77,12 +77,18 @@ public class IntegerEnumOneValue {
     }
     
     
-    public static abstract sealed class IntegerEnumOneValue1Boxed permits IntegerEnumOneValue1BoxedNumber {}
+    public static abstract sealed class IntegerEnumOneValue1Boxed permits IntegerEnumOneValue1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IntegerEnumOneValue1BoxedNumber extends IntegerEnumOneValue1Boxed {
         public final Number data;
         private IntegerEnumOneValue1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

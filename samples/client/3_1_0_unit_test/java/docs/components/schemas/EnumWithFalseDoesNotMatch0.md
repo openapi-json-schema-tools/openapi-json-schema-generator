@@ -1,6 +1,6 @@
 # EnumWithFalseDoesNotMatch0
 org.openapijsonschematools.client.components.schemas.EnumWithFalseDoesNotMatch0.java
-public class EnumWithFalseDoesNotMatch0
+public class EnumWithFalseDoesNotMatch0<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

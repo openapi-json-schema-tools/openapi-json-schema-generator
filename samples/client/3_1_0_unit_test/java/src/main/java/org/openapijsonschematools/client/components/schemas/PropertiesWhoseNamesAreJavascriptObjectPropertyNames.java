@@ -127,12 +127,18 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static abstract sealed class ToStringSchemaBoxed permits ToStringSchemaBoxedVoid, ToStringSchemaBoxedBoolean, ToStringSchemaBoxedNumber, ToStringSchemaBoxedString, ToStringSchemaBoxedList, ToStringSchemaBoxedMap {}
+    public static abstract sealed class ToStringSchemaBoxed permits ToStringSchemaBoxedVoid, ToStringSchemaBoxedBoolean, ToStringSchemaBoxedNumber, ToStringSchemaBoxedString, ToStringSchemaBoxedList, ToStringSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ToStringSchemaBoxedVoid extends ToStringSchemaBoxed {
         public final Void data;
         private ToStringSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -141,12 +147,20 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private ToStringSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ToStringSchemaBoxedNumber extends ToStringSchemaBoxed {
         public final Number data;
         private ToStringSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -155,6 +169,10 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private ToStringSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ToStringSchemaBoxedList extends ToStringSchemaBoxed {
@@ -162,12 +180,20 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private ToStringSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ToStringSchemaBoxedMap extends ToStringSchemaBoxed {
         public final ToStringMap data;
         private ToStringSchemaBoxedMap(ToStringMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -586,12 +612,18 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static abstract sealed class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed permits PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap {}
+    public static abstract sealed class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed permits PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         public final Void data;
         private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -600,12 +632,20 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         public final Number data;
         private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -614,6 +654,10 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
@@ -621,12 +665,20 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap extends PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         public final PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data;
         private PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap(PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # DurationFormat
 org.openapijsonschematools.client.components.schemas.DurationFormat.java
-public class DurationFormat
+public class DurationFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

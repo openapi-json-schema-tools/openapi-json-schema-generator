@@ -53,12 +53,18 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     
-    public static abstract sealed class FoBoxed permits FoBoxedVoid, FoBoxedBoolean, FoBoxedNumber, FoBoxedString, FoBoxedList, FoBoxedMap {}
+    public static abstract sealed class FoBoxed permits FoBoxedVoid, FoBoxedBoolean, FoBoxedNumber, FoBoxedString, FoBoxedList, FoBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FoBoxedVoid extends FoBoxed {
         public final Void data;
         private FoBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -67,12 +73,20 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         private FoBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FoBoxedNumber extends FoBoxed {
         public final Number data;
         private FoBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -81,6 +95,10 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         private FoBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FoBoxedList extends FoBoxed {
@@ -88,12 +106,20 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         private FoBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FoBoxedMap extends FoBoxed {
         public final FrozenMap<@Nullable Object> data;
         private FoBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -317,12 +343,18 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
     }    
     
-    public static abstract sealed class FooBoxed permits FooBoxedList {}
+    public static abstract sealed class FooBoxed permits FooBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FooBoxedList extends FooBoxed {
         public final FrozenList<@Nullable Object> data;
         private FooBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -535,12 +567,18 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     
-    public static abstract sealed class PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed permits PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap {}
+    public static abstract sealed class PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed permits PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap extends PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed {
         public final PropertiesPatternpropertiesAdditionalpropertiesInteractionMap data;
         private PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap(PropertiesPatternpropertiesAdditionalpropertiesInteractionMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

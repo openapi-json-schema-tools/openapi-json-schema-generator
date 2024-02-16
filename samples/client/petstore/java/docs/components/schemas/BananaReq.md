@@ -1,6 +1,6 @@
 # BananaReq
 org.openapijsonschematools.client.components.schemas.BananaReq.java
-public class BananaReq
+public class BananaReq<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

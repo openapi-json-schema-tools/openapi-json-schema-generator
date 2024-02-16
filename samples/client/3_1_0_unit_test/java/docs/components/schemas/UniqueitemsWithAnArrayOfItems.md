@@ -1,6 +1,6 @@
 # UniqueitemsWithAnArrayOfItems
 org.openapijsonschematools.client.components.schemas.UniqueitemsWithAnArrayOfItems.java
-public class UniqueitemsWithAnArrayOfItems
+public class UniqueitemsWithAnArrayOfItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

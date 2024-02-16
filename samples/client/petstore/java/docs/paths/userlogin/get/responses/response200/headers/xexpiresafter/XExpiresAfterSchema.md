@@ -1,5 +1,5 @@
 # XExpiresAfterSchema
-public class XExpiresAfterSchema
+public class XExpiresAfterSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

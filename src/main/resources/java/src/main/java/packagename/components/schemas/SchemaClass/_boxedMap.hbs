@@ -21,5 +21,9 @@ public static final class {{jsonPathPiece.pascalCase}}BoxedMap extends {{jsonPat
     private {{jsonPathPiece.pascalCase}}BoxedMap({{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} data) {
         this.data = data;
     }
+    @Override
+    public @Nullable Object data() {
+        return data;
+    }
 }
 {{/if}}

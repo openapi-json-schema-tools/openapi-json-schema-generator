@@ -89,12 +89,18 @@ public class ArrayOfArrayOfNumberOnly {
     }
     
     
-    public static abstract sealed class ItemsBoxed permits ItemsBoxedList {}
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsBoxedList extends ItemsBoxed {
         public final ItemsList data;
         private ItemsBoxedList(ItemsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -202,12 +208,18 @@ public class ArrayOfArrayOfNumberOnly {
     }
     
     
-    public static abstract sealed class ArrayArrayNumberBoxed permits ArrayArrayNumberBoxedList {}
+    public static abstract sealed class ArrayArrayNumberBoxed permits ArrayArrayNumberBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayArrayNumberBoxedList extends ArrayArrayNumberBoxed {
         public final ArrayArrayNumberList data;
         private ArrayArrayNumberBoxedList(ArrayArrayNumberList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -349,12 +361,18 @@ public class ArrayOfArrayOfNumberOnly {
     }
     
     
-    public static abstract sealed class ArrayOfArrayOfNumberOnly1Boxed permits ArrayOfArrayOfNumberOnly1BoxedMap {}
+    public static abstract sealed class ArrayOfArrayOfNumberOnly1Boxed permits ArrayOfArrayOfNumberOnly1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayOfArrayOfNumberOnly1BoxedMap extends ArrayOfArrayOfNumberOnly1Boxed {
         public final ArrayOfArrayOfNumberOnlyMap data;
         private ArrayOfArrayOfNumberOnly1BoxedMap(ArrayOfArrayOfNumberOnlyMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

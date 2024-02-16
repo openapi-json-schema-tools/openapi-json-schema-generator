@@ -49,12 +49,18 @@ public class IgnoreElseWithoutIf {
     }
     
     
-    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {}
+    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ElseSchemaBoxedVoid extends ElseSchemaBoxed {
         public final Void data;
         private ElseSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,12 +69,20 @@ public class IgnoreElseWithoutIf {
         private ElseSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedNumber extends ElseSchemaBoxed {
         public final Number data;
         private ElseSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -77,6 +91,10 @@ public class IgnoreElseWithoutIf {
         private ElseSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedList extends ElseSchemaBoxed {
@@ -84,12 +102,20 @@ public class IgnoreElseWithoutIf {
         private ElseSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedMap extends ElseSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -313,12 +339,18 @@ public class IgnoreElseWithoutIf {
         }
     }    
     
-    public static abstract sealed class IgnoreElseWithoutIf1Boxed permits IgnoreElseWithoutIf1BoxedVoid, IgnoreElseWithoutIf1BoxedBoolean, IgnoreElseWithoutIf1BoxedNumber, IgnoreElseWithoutIf1BoxedString, IgnoreElseWithoutIf1BoxedList, IgnoreElseWithoutIf1BoxedMap {}
+    public static abstract sealed class IgnoreElseWithoutIf1Boxed permits IgnoreElseWithoutIf1BoxedVoid, IgnoreElseWithoutIf1BoxedBoolean, IgnoreElseWithoutIf1BoxedNumber, IgnoreElseWithoutIf1BoxedString, IgnoreElseWithoutIf1BoxedList, IgnoreElseWithoutIf1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IgnoreElseWithoutIf1BoxedVoid extends IgnoreElseWithoutIf1Boxed {
         public final Void data;
         private IgnoreElseWithoutIf1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,12 +359,20 @@ public class IgnoreElseWithoutIf {
         private IgnoreElseWithoutIf1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IgnoreElseWithoutIf1BoxedNumber extends IgnoreElseWithoutIf1Boxed {
         public final Number data;
         private IgnoreElseWithoutIf1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -341,6 +381,10 @@ public class IgnoreElseWithoutIf {
         private IgnoreElseWithoutIf1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IgnoreElseWithoutIf1BoxedList extends IgnoreElseWithoutIf1Boxed {
@@ -348,12 +392,20 @@ public class IgnoreElseWithoutIf {
         private IgnoreElseWithoutIf1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IgnoreElseWithoutIf1BoxedMap extends IgnoreElseWithoutIf1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IgnoreElseWithoutIf1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

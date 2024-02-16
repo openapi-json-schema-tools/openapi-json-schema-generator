@@ -107,12 +107,18 @@ public class ArrayTypeMatchesArrays {
     }
     
     
-    public static abstract sealed class ArrayTypeMatchesArrays1Boxed permits ArrayTypeMatchesArrays1BoxedList {}
+    public static abstract sealed class ArrayTypeMatchesArrays1Boxed permits ArrayTypeMatchesArrays1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayTypeMatchesArrays1BoxedList extends ArrayTypeMatchesArrays1Boxed {
         public final ArrayTypeMatchesArraysList data;
         private ArrayTypeMatchesArrays1BoxedList(ArrayTypeMatchesArraysList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

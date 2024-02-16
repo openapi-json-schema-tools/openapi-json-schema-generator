@@ -1,6 +1,6 @@
 # ObjectWithNonIntersectingValues
 org.openapijsonschematools.client.components.schemas.ObjectWithNonIntersectingValues.java
-public class ObjectWithNonIntersectingValues
+public class ObjectWithNonIntersectingValues<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

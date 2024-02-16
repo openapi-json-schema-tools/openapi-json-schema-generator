@@ -1,6 +1,6 @@
 # Client
 org.openapijsonschematools.client.components.schemas.Client.java
-public class Client
+public class Client<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

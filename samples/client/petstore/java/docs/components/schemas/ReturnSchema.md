@@ -1,6 +1,6 @@
 # ReturnSchema
 org.openapijsonschematools.client.components.schemas.ReturnSchema.java
-public class ReturnSchema
+public class ReturnSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

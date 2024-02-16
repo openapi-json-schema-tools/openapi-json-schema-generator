@@ -104,12 +104,18 @@ public class MyObjectDto {
     }
     
     
-    public static abstract sealed class MyObjectDto1Boxed permits MyObjectDto1BoxedMap {}
+    public static abstract sealed class MyObjectDto1Boxed permits MyObjectDto1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MyObjectDto1BoxedMap extends MyObjectDto1Boxed {
         public final MyObjectDtoMap data;
         private MyObjectDto1BoxedMap(MyObjectDtoMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

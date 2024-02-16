@@ -31,12 +31,18 @@ public class Apple {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class CultivarBoxed permits CultivarBoxedString {}
+    public static abstract sealed class CultivarBoxed permits CultivarBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class CultivarBoxedString extends CultivarBoxed {
         public final String data;
         private CultivarBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -94,12 +100,18 @@ public class Apple {
         }
     }    
     
-    public static abstract sealed class OriginBoxed permits OriginBoxedString {}
+    public static abstract sealed class OriginBoxed permits OriginBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class OriginBoxedString extends OriginBoxed {
         public final String data;
         private OriginBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -259,12 +271,18 @@ public class Apple {
     }
     
     
-    public static abstract sealed class Apple1Boxed permits Apple1BoxedVoid, Apple1BoxedMap {}
+    public static abstract sealed class Apple1Boxed permits Apple1BoxedVoid, Apple1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Apple1BoxedVoid extends Apple1Boxed {
         public final Void data;
         private Apple1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -272,6 +290,10 @@ public class Apple {
         public final AppleMap data;
         private Apple1BoxedMap(AppleMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

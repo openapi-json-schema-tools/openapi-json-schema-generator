@@ -88,12 +88,18 @@ public class AdditionalpropertiesWithNullValuedInstanceProperties {
     }
     
     
-    public static abstract sealed class AdditionalpropertiesWithNullValuedInstanceProperties1Boxed permits AdditionalpropertiesWithNullValuedInstanceProperties1BoxedMap {}
+    public static abstract sealed class AdditionalpropertiesWithNullValuedInstanceProperties1Boxed permits AdditionalpropertiesWithNullValuedInstanceProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalpropertiesWithNullValuedInstanceProperties1BoxedMap extends AdditionalpropertiesWithNullValuedInstanceProperties1Boxed {
         public final AdditionalpropertiesWithNullValuedInstancePropertiesMap data;
         private AdditionalpropertiesWithNullValuedInstanceProperties1BoxedMap(AdditionalpropertiesWithNullValuedInstancePropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

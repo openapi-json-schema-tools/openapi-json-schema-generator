@@ -199,12 +199,18 @@ public class ObjectWithDifficultlyNamedProps {
     }
     
     
-    public static abstract sealed class ObjectWithDifficultlyNamedProps1Boxed permits ObjectWithDifficultlyNamedProps1BoxedMap {}
+    public static abstract sealed class ObjectWithDifficultlyNamedProps1Boxed permits ObjectWithDifficultlyNamedProps1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectWithDifficultlyNamedProps1BoxedMap extends ObjectWithDifficultlyNamedProps1Boxed {
         public final ObjectWithDifficultlyNamedPropsMap data;
         private ObjectWithDifficultlyNamedProps1BoxedMap(ObjectWithDifficultlyNamedPropsMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

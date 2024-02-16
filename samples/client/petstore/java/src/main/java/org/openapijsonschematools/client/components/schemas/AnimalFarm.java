@@ -56,12 +56,18 @@ public class AnimalFarm {
     }
     
     
-    public static abstract sealed class AnimalFarm1Boxed permits AnimalFarm1BoxedList {}
+    public static abstract sealed class AnimalFarm1Boxed permits AnimalFarm1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AnimalFarm1BoxedList extends AnimalFarm1Boxed {
         public final AnimalFarmList data;
         private AnimalFarm1BoxedList(AnimalFarmList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

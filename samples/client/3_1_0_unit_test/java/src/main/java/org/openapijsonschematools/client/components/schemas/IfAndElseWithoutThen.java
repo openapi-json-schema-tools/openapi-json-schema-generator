@@ -36,12 +36,18 @@ public class IfAndElseWithoutThen {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {}
+    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ElseSchemaBoxedVoid extends ElseSchemaBoxed {
         public final Void data;
         private ElseSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -50,12 +56,20 @@ public class IfAndElseWithoutThen {
         private ElseSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedNumber extends ElseSchemaBoxed {
         public final Number data;
         private ElseSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -64,6 +78,10 @@ public class IfAndElseWithoutThen {
         private ElseSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedList extends ElseSchemaBoxed {
@@ -71,12 +89,20 @@ public class IfAndElseWithoutThen {
         private ElseSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedMap extends ElseSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -300,12 +326,18 @@ public class IfAndElseWithoutThen {
         }
     }    
     
-    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {}
+    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IfSchemaBoxedVoid extends IfSchemaBoxed {
         public final Void data;
         private IfSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -314,12 +346,20 @@ public class IfAndElseWithoutThen {
         private IfSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedNumber extends IfSchemaBoxed {
         public final Number data;
         private IfSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -328,6 +368,10 @@ public class IfAndElseWithoutThen {
         private IfSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedList extends IfSchemaBoxed {
@@ -335,12 +379,20 @@ public class IfAndElseWithoutThen {
         private IfSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedMap extends IfSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -564,12 +616,18 @@ public class IfAndElseWithoutThen {
         }
     }    
     
-    public static abstract sealed class IfAndElseWithoutThen1Boxed permits IfAndElseWithoutThen1BoxedVoid, IfAndElseWithoutThen1BoxedBoolean, IfAndElseWithoutThen1BoxedNumber, IfAndElseWithoutThen1BoxedString, IfAndElseWithoutThen1BoxedList, IfAndElseWithoutThen1BoxedMap {}
+    public static abstract sealed class IfAndElseWithoutThen1Boxed permits IfAndElseWithoutThen1BoxedVoid, IfAndElseWithoutThen1BoxedBoolean, IfAndElseWithoutThen1BoxedNumber, IfAndElseWithoutThen1BoxedString, IfAndElseWithoutThen1BoxedList, IfAndElseWithoutThen1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IfAndElseWithoutThen1BoxedVoid extends IfAndElseWithoutThen1Boxed {
         public final Void data;
         private IfAndElseWithoutThen1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -578,12 +636,20 @@ public class IfAndElseWithoutThen {
         private IfAndElseWithoutThen1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfAndElseWithoutThen1BoxedNumber extends IfAndElseWithoutThen1Boxed {
         public final Number data;
         private IfAndElseWithoutThen1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -592,6 +658,10 @@ public class IfAndElseWithoutThen {
         private IfAndElseWithoutThen1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfAndElseWithoutThen1BoxedList extends IfAndElseWithoutThen1Boxed {
@@ -599,12 +669,20 @@ public class IfAndElseWithoutThen {
         private IfAndElseWithoutThen1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfAndElseWithoutThen1BoxedMap extends IfAndElseWithoutThen1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IfAndElseWithoutThen1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

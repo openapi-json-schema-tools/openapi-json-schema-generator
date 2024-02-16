@@ -1,5 +1,5 @@
 # Int32JsonContentTypeHeaderSchema
-public class Int32JsonContentTypeHeaderSchema
+public class Int32JsonContentTypeHeaderSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

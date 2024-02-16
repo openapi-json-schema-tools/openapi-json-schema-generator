@@ -1,6 +1,6 @@
 # Category
 org.openapijsonschematools.client.components.schemas.Category.java
-public class Category
+public class Category<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

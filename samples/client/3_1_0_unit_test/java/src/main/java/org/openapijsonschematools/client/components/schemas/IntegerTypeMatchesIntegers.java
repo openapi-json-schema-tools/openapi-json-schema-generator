@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.components.schemas;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 
-public class IntegerTypeMatchesIntegers {
+public class IntegerTypeMatchesIntegers extends IntJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

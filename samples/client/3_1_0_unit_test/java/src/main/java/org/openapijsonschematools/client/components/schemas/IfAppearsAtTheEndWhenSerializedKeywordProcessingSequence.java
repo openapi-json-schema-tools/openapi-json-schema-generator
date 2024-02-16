@@ -49,12 +49,18 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     }
     
     
-    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {}
+    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ElseSchemaBoxedVoid extends ElseSchemaBoxed {
         public final Void data;
         private ElseSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,12 +69,20 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private ElseSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedNumber extends ElseSchemaBoxed {
         public final Number data;
         private ElseSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -77,6 +91,10 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private ElseSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedList extends ElseSchemaBoxed {
@@ -84,12 +102,20 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private ElseSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedMap extends ElseSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -313,12 +339,18 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         }
     }    
     
-    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {}
+    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IfSchemaBoxedVoid extends IfSchemaBoxed {
         public final Void data;
         private IfSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,12 +359,20 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private IfSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedNumber extends IfSchemaBoxed {
         public final Number data;
         private IfSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -341,6 +381,10 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private IfSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedList extends IfSchemaBoxed {
@@ -348,12 +392,20 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private IfSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedMap extends IfSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -589,12 +641,18 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     }
     
     
-    public static abstract sealed class ThenBoxed permits ThenBoxedVoid, ThenBoxedBoolean, ThenBoxedNumber, ThenBoxedString, ThenBoxedList, ThenBoxedMap {}
+    public static abstract sealed class ThenBoxed permits ThenBoxedVoid, ThenBoxedBoolean, ThenBoxedNumber, ThenBoxedString, ThenBoxedList, ThenBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ThenBoxedVoid extends ThenBoxed {
         public final Void data;
         private ThenBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -603,12 +661,20 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private ThenBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ThenBoxedNumber extends ThenBoxed {
         public final Number data;
         private ThenBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -617,6 +683,10 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private ThenBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ThenBoxedList extends ThenBoxed {
@@ -624,12 +694,20 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private ThenBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ThenBoxedMap extends ThenBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ThenBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -853,12 +931,18 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         }
     }    
     
-    public static abstract sealed class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed permits IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedVoid, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedBoolean, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedNumber, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedString, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedList, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedMap {}
+    public static abstract sealed class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed permits IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedVoid, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedBoolean, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedNumber, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedString, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedList, IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedVoid extends IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed {
         public final Void data;
         private IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -867,12 +951,20 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedNumber extends IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed {
         public final Number data;
         private IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -881,6 +973,10 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedList extends IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed {
@@ -888,12 +984,20 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         private IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedMap extends IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

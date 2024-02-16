@@ -1,6 +1,6 @@
 # ObjectModelWithArgAndArgsProperties
 org.openapijsonschematools.client.components.schemas.ObjectModelWithArgAndArgsProperties.java
-public class ObjectModelWithArgAndArgsProperties
+public class ObjectModelWithArgAndArgsProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

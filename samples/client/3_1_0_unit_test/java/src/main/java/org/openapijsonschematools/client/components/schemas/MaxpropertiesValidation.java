@@ -35,12 +35,18 @@ public class MaxpropertiesValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MaxpropertiesValidation1Boxed permits MaxpropertiesValidation1BoxedVoid, MaxpropertiesValidation1BoxedBoolean, MaxpropertiesValidation1BoxedNumber, MaxpropertiesValidation1BoxedString, MaxpropertiesValidation1BoxedList, MaxpropertiesValidation1BoxedMap {}
+    public static abstract sealed class MaxpropertiesValidation1Boxed permits MaxpropertiesValidation1BoxedVoid, MaxpropertiesValidation1BoxedBoolean, MaxpropertiesValidation1BoxedNumber, MaxpropertiesValidation1BoxedString, MaxpropertiesValidation1BoxedList, MaxpropertiesValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MaxpropertiesValidation1BoxedVoid extends MaxpropertiesValidation1Boxed {
         public final Void data;
         private MaxpropertiesValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MaxpropertiesValidation {
         private MaxpropertiesValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxpropertiesValidation1BoxedNumber extends MaxpropertiesValidation1Boxed {
         public final Number data;
         private MaxpropertiesValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MaxpropertiesValidation {
         private MaxpropertiesValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxpropertiesValidation1BoxedList extends MaxpropertiesValidation1Boxed {
@@ -70,12 +88,20 @@ public class MaxpropertiesValidation {
         private MaxpropertiesValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxpropertiesValidation1BoxedMap extends MaxpropertiesValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MaxpropertiesValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

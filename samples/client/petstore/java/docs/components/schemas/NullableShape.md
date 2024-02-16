@@ -1,6 +1,6 @@
 # NullableShape
 org.openapijsonschematools.client.components.schemas.NullableShape.java
-public class NullableShape
+public class NullableShape<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

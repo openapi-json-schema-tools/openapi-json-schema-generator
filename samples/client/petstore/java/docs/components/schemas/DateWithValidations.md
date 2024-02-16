@@ -1,6 +1,6 @@
 # DateWithValidations
 org.openapijsonschematools.client.components.schemas.DateWithValidations.java
-public class DateWithValidations
+public class DateWithValidations<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

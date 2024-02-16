@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.components.headers.stringheader;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
-public class StringHeaderSchema {
+public class StringHeaderSchema extends StringJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

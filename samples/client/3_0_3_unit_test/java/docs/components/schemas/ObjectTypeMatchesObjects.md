@@ -1,6 +1,6 @@
 # ObjectTypeMatchesObjects
 org.openapijsonschematools.client.components.schemas.ObjectTypeMatchesObjects.java
-public class ObjectTypeMatchesObjects
+public class ObjectTypeMatchesObjects<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

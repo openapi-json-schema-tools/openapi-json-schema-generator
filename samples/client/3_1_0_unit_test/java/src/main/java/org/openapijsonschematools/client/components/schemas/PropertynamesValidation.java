@@ -35,12 +35,18 @@ public class PropertynamesValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class PropertyNamesBoxed permits PropertyNamesBoxedString {}
+    public static abstract sealed class PropertyNamesBoxed permits PropertyNamesBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PropertyNamesBoxedString extends PropertyNamesBoxed {
         public final String data;
         private PropertyNamesBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -96,12 +102,18 @@ public class PropertynamesValidation {
         }
     }    
     
-    public static abstract sealed class PropertynamesValidation1Boxed permits PropertynamesValidation1BoxedVoid, PropertynamesValidation1BoxedBoolean, PropertynamesValidation1BoxedNumber, PropertynamesValidation1BoxedString, PropertynamesValidation1BoxedList, PropertynamesValidation1BoxedMap {}
+    public static abstract sealed class PropertynamesValidation1Boxed permits PropertynamesValidation1BoxedVoid, PropertynamesValidation1BoxedBoolean, PropertynamesValidation1BoxedNumber, PropertynamesValidation1BoxedString, PropertynamesValidation1BoxedList, PropertynamesValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PropertynamesValidation1BoxedVoid extends PropertynamesValidation1Boxed {
         public final Void data;
         private PropertynamesValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -110,12 +122,20 @@ public class PropertynamesValidation {
         private PropertynamesValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertynamesValidation1BoxedNumber extends PropertynamesValidation1Boxed {
         public final Number data;
         private PropertynamesValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -124,6 +144,10 @@ public class PropertynamesValidation {
         private PropertynamesValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertynamesValidation1BoxedList extends PropertynamesValidation1Boxed {
@@ -131,12 +155,20 @@ public class PropertynamesValidation {
         private PropertynamesValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertynamesValidation1BoxedMap extends PropertynamesValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private PropertynamesValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

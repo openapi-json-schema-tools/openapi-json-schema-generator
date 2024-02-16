@@ -31,12 +31,18 @@ public class ComposedNone {
     }
     
     
-    public static abstract sealed class ComposedNone1Boxed permits ComposedNone1BoxedVoid {}
+    public static abstract sealed class ComposedNone1Boxed permits ComposedNone1BoxedVoid {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ComposedNone1BoxedVoid extends ComposedNone1Boxed {
         public final Void data;
         private ComposedNone1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

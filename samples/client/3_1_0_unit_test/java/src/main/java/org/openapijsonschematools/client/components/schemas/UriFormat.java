@@ -35,12 +35,18 @@ public class UriFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UriFormat1Boxed permits UriFormat1BoxedVoid, UriFormat1BoxedBoolean, UriFormat1BoxedNumber, UriFormat1BoxedString, UriFormat1BoxedList, UriFormat1BoxedMap {}
+    public static abstract sealed class UriFormat1Boxed permits UriFormat1BoxedVoid, UriFormat1BoxedBoolean, UriFormat1BoxedNumber, UriFormat1BoxedString, UriFormat1BoxedList, UriFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UriFormat1BoxedVoid extends UriFormat1Boxed {
         public final Void data;
         private UriFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class UriFormat {
         private UriFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriFormat1BoxedNumber extends UriFormat1Boxed {
         public final Number data;
         private UriFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class UriFormat {
         private UriFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriFormat1BoxedList extends UriFormat1Boxed {
@@ -70,12 +88,20 @@ public class UriFormat {
         private UriFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriFormat1BoxedMap extends UriFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UriFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

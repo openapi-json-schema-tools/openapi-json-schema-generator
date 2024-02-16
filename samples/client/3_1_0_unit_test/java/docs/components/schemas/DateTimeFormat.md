@@ -1,6 +1,6 @@
 # DateTimeFormat
 org.openapijsonschematools.client.components.schemas.DateTimeFormat.java
-public class DateTimeFormat
+public class DateTimeFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

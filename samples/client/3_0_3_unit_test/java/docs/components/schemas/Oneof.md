@@ -1,6 +1,6 @@
 # Oneof
 org.openapijsonschematools.client.components.schemas.Oneof.java
-public class Oneof
+public class Oneof<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

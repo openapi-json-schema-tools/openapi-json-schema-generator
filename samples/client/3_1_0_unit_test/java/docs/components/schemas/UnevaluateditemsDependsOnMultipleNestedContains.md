@@ -1,6 +1,6 @@
 # UnevaluateditemsDependsOnMultipleNestedContains
 org.openapijsonschematools.client.components.schemas.UnevaluateditemsDependsOnMultipleNestedContains.java
-public class UnevaluateditemsDependsOnMultipleNestedContains
+public class UnevaluateditemsDependsOnMultipleNestedContains<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

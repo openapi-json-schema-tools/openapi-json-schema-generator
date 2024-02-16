@@ -1,6 +1,6 @@
 # RefInAdditionalproperties
 org.openapijsonschematools.client.components.schemas.RefInAdditionalproperties.java
-public class RefInAdditionalproperties
+public class RefInAdditionalproperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -27,12 +27,18 @@ public class UnevaluatedpropertiesSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UnevaluatedPropertiesBoxed permits UnevaluatedPropertiesBoxedString {}
+    public static abstract sealed class UnevaluatedPropertiesBoxed permits UnevaluatedPropertiesBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UnevaluatedPropertiesBoxedString extends UnevaluatedPropertiesBoxed {
         public final String data;
         private UnevaluatedPropertiesBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -88,12 +94,18 @@ public class UnevaluatedpropertiesSchema {
         }
     }    
     
-    public static abstract sealed class UnevaluatedpropertiesSchema1Boxed permits UnevaluatedpropertiesSchema1BoxedMap {}
+    public static abstract sealed class UnevaluatedpropertiesSchema1Boxed permits UnevaluatedpropertiesSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UnevaluatedpropertiesSchema1BoxedMap extends UnevaluatedpropertiesSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UnevaluatedpropertiesSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

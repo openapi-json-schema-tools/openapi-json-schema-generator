@@ -1,6 +1,6 @@
 # EquilateralTriangle
 org.openapijsonschematools.client.components.schemas.EquilateralTriangle.java
-public class EquilateralTriangle
+public class EquilateralTriangle<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

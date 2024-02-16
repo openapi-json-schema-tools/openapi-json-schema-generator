@@ -35,12 +35,18 @@ public class NotMultipleTypes {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class NotBoxed permits NotBoxedNumber, NotBoxedBoolean {}
+    public static abstract sealed class NotBoxed permits NotBoxedNumber, NotBoxedBoolean {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NotBoxedNumber extends NotBoxed {
         public final Number data;
         private NotBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -48,6 +54,10 @@ public class NotMultipleTypes {
         public final boolean data;
         private NotBoxedBoolean(boolean data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -144,12 +154,18 @@ public class NotMultipleTypes {
         }
     }    
     
-    public static abstract sealed class NotMultipleTypes1Boxed permits NotMultipleTypes1BoxedVoid, NotMultipleTypes1BoxedBoolean, NotMultipleTypes1BoxedNumber, NotMultipleTypes1BoxedString, NotMultipleTypes1BoxedList, NotMultipleTypes1BoxedMap {}
+    public static abstract sealed class NotMultipleTypes1Boxed permits NotMultipleTypes1BoxedVoid, NotMultipleTypes1BoxedBoolean, NotMultipleTypes1BoxedNumber, NotMultipleTypes1BoxedString, NotMultipleTypes1BoxedList, NotMultipleTypes1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NotMultipleTypes1BoxedVoid extends NotMultipleTypes1Boxed {
         public final Void data;
         private NotMultipleTypes1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -158,12 +174,20 @@ public class NotMultipleTypes {
         private NotMultipleTypes1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NotMultipleTypes1BoxedNumber extends NotMultipleTypes1Boxed {
         public final Number data;
         private NotMultipleTypes1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -172,6 +196,10 @@ public class NotMultipleTypes {
         private NotMultipleTypes1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NotMultipleTypes1BoxedList extends NotMultipleTypes1Boxed {
@@ -179,12 +207,20 @@ public class NotMultipleTypes {
         private NotMultipleTypes1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NotMultipleTypes1BoxedMap extends NotMultipleTypes1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private NotMultipleTypes1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # ContainsKeywordValidation
 org.openapijsonschematools.client.components.schemas.ContainsKeywordValidation.java
-public class ContainsKeywordValidation
+public class ContainsKeywordValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

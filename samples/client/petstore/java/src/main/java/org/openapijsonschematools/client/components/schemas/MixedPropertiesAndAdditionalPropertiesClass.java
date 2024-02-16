@@ -102,12 +102,18 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class MapSchemaBoxed permits MapSchemaBoxedMap {}
+    public static abstract sealed class MapSchemaBoxed permits MapSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MapSchemaBoxedMap extends MapSchemaBoxed {
         public final MapMap data;
         private MapSchemaBoxedMap(MapMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -285,12 +291,18 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     }
     
     
-    public static abstract sealed class MixedPropertiesAndAdditionalPropertiesClass1Boxed permits MixedPropertiesAndAdditionalPropertiesClass1BoxedMap {}
+    public static abstract sealed class MixedPropertiesAndAdditionalPropertiesClass1Boxed permits MixedPropertiesAndAdditionalPropertiesClass1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MixedPropertiesAndAdditionalPropertiesClass1BoxedMap extends MixedPropertiesAndAdditionalPropertiesClass1Boxed {
         public final MixedPropertiesAndAdditionalPropertiesClassMap data;
         private MixedPropertiesAndAdditionalPropertiesClass1BoxedMap(MixedPropertiesAndAdditionalPropertiesClassMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

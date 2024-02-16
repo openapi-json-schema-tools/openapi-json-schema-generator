@@ -52,12 +52,18 @@ public class ScaleneTriangle {
     }
     
     
-    public static abstract sealed class TriangleTypeBoxed permits TriangleTypeBoxedString {}
+    public static abstract sealed class TriangleTypeBoxed permits TriangleTypeBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class TriangleTypeBoxedString extends TriangleTypeBoxed {
         public final String data;
         private TriangleTypeBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -192,12 +198,18 @@ public class ScaleneTriangle {
     }
     
     
-    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -276,12 +288,18 @@ public class ScaleneTriangle {
     }
     
     
-    public static abstract sealed class ScaleneTriangle1Boxed permits ScaleneTriangle1BoxedVoid, ScaleneTriangle1BoxedBoolean, ScaleneTriangle1BoxedNumber, ScaleneTriangle1BoxedString, ScaleneTriangle1BoxedList, ScaleneTriangle1BoxedMap {}
+    public static abstract sealed class ScaleneTriangle1Boxed permits ScaleneTriangle1BoxedVoid, ScaleneTriangle1BoxedBoolean, ScaleneTriangle1BoxedNumber, ScaleneTriangle1BoxedString, ScaleneTriangle1BoxedList, ScaleneTriangle1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ScaleneTriangle1BoxedVoid extends ScaleneTriangle1Boxed {
         public final Void data;
         private ScaleneTriangle1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -290,12 +308,20 @@ public class ScaleneTriangle {
         private ScaleneTriangle1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ScaleneTriangle1BoxedNumber extends ScaleneTriangle1Boxed {
         public final Number data;
         private ScaleneTriangle1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -304,6 +330,10 @@ public class ScaleneTriangle {
         private ScaleneTriangle1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ScaleneTriangle1BoxedList extends ScaleneTriangle1Boxed {
@@ -311,12 +341,20 @@ public class ScaleneTriangle {
         private ScaleneTriangle1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ScaleneTriangle1BoxedMap extends ScaleneTriangle1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ScaleneTriangle1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

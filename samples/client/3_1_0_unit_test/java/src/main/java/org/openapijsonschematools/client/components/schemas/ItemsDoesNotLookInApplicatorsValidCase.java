@@ -35,12 +35,18 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {}
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsBoxedVoid extends ItemsBoxed {
         public final Void data;
         private ItemsBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
         private ItemsBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedNumber extends ItemsBoxed {
         public final Number data;
         private ItemsBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
         private ItemsBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedList extends ItemsBoxed {
@@ -70,12 +88,20 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
         private ItemsBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedMap extends ItemsBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -371,12 +397,18 @@ public class ItemsDoesNotLookInApplicatorsValidCase {
     }
     
     
-    public static abstract sealed class ItemsDoesNotLookInApplicatorsValidCase1Boxed permits ItemsDoesNotLookInApplicatorsValidCase1BoxedList {}
+    public static abstract sealed class ItemsDoesNotLookInApplicatorsValidCase1Boxed permits ItemsDoesNotLookInApplicatorsValidCase1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsDoesNotLookInApplicatorsValidCase1BoxedList extends ItemsDoesNotLookInApplicatorsValidCase1Boxed {
         public final ItemsDoesNotLookInApplicatorsValidCaseList data;
         private ItemsDoesNotLookInApplicatorsValidCase1BoxedList(ItemsDoesNotLookInApplicatorsValidCaseList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

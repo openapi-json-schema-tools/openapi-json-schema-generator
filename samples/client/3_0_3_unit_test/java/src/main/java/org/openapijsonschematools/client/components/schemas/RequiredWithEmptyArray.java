@@ -157,12 +157,18 @@ public class RequiredWithEmptyArray {
     }
     
     
-    public static abstract sealed class RequiredWithEmptyArray1Boxed permits RequiredWithEmptyArray1BoxedVoid, RequiredWithEmptyArray1BoxedBoolean, RequiredWithEmptyArray1BoxedNumber, RequiredWithEmptyArray1BoxedString, RequiredWithEmptyArray1BoxedList, RequiredWithEmptyArray1BoxedMap {}
+    public static abstract sealed class RequiredWithEmptyArray1Boxed permits RequiredWithEmptyArray1BoxedVoid, RequiredWithEmptyArray1BoxedBoolean, RequiredWithEmptyArray1BoxedNumber, RequiredWithEmptyArray1BoxedString, RequiredWithEmptyArray1BoxedList, RequiredWithEmptyArray1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RequiredWithEmptyArray1BoxedVoid extends RequiredWithEmptyArray1Boxed {
         public final Void data;
         private RequiredWithEmptyArray1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -171,12 +177,20 @@ public class RequiredWithEmptyArray {
         private RequiredWithEmptyArray1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredWithEmptyArray1BoxedNumber extends RequiredWithEmptyArray1Boxed {
         public final Number data;
         private RequiredWithEmptyArray1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -185,6 +199,10 @@ public class RequiredWithEmptyArray {
         private RequiredWithEmptyArray1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredWithEmptyArray1BoxedList extends RequiredWithEmptyArray1Boxed {
@@ -192,12 +210,20 @@ public class RequiredWithEmptyArray {
         private RequiredWithEmptyArray1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredWithEmptyArray1BoxedMap extends RequiredWithEmptyArray1Boxed {
         public final RequiredWithEmptyArrayMap data;
         private RequiredWithEmptyArray1BoxedMap(RequiredWithEmptyArrayMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

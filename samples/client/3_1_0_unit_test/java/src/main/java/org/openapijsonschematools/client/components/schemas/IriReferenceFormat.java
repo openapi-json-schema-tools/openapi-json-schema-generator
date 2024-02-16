@@ -35,12 +35,18 @@ public class IriReferenceFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class IriReferenceFormat1Boxed permits IriReferenceFormat1BoxedVoid, IriReferenceFormat1BoxedBoolean, IriReferenceFormat1BoxedNumber, IriReferenceFormat1BoxedString, IriReferenceFormat1BoxedList, IriReferenceFormat1BoxedMap {}
+    public static abstract sealed class IriReferenceFormat1Boxed permits IriReferenceFormat1BoxedVoid, IriReferenceFormat1BoxedBoolean, IriReferenceFormat1BoxedNumber, IriReferenceFormat1BoxedString, IriReferenceFormat1BoxedList, IriReferenceFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IriReferenceFormat1BoxedVoid extends IriReferenceFormat1Boxed {
         public final Void data;
         private IriReferenceFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class IriReferenceFormat {
         private IriReferenceFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IriReferenceFormat1BoxedNumber extends IriReferenceFormat1Boxed {
         public final Number data;
         private IriReferenceFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class IriReferenceFormat {
         private IriReferenceFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IriReferenceFormat1BoxedList extends IriReferenceFormat1Boxed {
@@ -70,12 +88,20 @@ public class IriReferenceFormat {
         private IriReferenceFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IriReferenceFormat1BoxedMap extends IriReferenceFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IriReferenceFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

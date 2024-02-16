@@ -49,12 +49,18 @@ public class ConstNulCharactersInStrings {
     }
     
     
-    public static abstract sealed class ConstNulCharactersInStrings1Boxed permits ConstNulCharactersInStrings1BoxedVoid, ConstNulCharactersInStrings1BoxedBoolean, ConstNulCharactersInStrings1BoxedNumber, ConstNulCharactersInStrings1BoxedString, ConstNulCharactersInStrings1BoxedList, ConstNulCharactersInStrings1BoxedMap {}
+    public static abstract sealed class ConstNulCharactersInStrings1Boxed permits ConstNulCharactersInStrings1BoxedVoid, ConstNulCharactersInStrings1BoxedBoolean, ConstNulCharactersInStrings1BoxedNumber, ConstNulCharactersInStrings1BoxedString, ConstNulCharactersInStrings1BoxedList, ConstNulCharactersInStrings1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ConstNulCharactersInStrings1BoxedVoid extends ConstNulCharactersInStrings1Boxed {
         public final Void data;
         private ConstNulCharactersInStrings1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,12 +69,20 @@ public class ConstNulCharactersInStrings {
         private ConstNulCharactersInStrings1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ConstNulCharactersInStrings1BoxedNumber extends ConstNulCharactersInStrings1Boxed {
         public final Number data;
         private ConstNulCharactersInStrings1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -77,6 +91,10 @@ public class ConstNulCharactersInStrings {
         private ConstNulCharactersInStrings1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ConstNulCharactersInStrings1BoxedList extends ConstNulCharactersInStrings1Boxed {
@@ -84,12 +102,20 @@ public class ConstNulCharactersInStrings {
         private ConstNulCharactersInStrings1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ConstNulCharactersInStrings1BoxedMap extends ConstNulCharactersInStrings1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ConstNulCharactersInStrings1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

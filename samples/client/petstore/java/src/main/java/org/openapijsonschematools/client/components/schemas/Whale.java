@@ -67,12 +67,18 @@ public class Whale {
     }
     
     
-    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {}
+    public static abstract sealed class ClassNameBoxed permits ClassNameBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ClassNameBoxedString extends ClassNameBoxed {
         public final String data;
         private ClassNameBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -268,12 +274,18 @@ public class Whale {
     }
     
     
-    public static abstract sealed class Whale1Boxed permits Whale1BoxedMap {}
+    public static abstract sealed class Whale1Boxed permits Whale1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Whale1BoxedMap extends Whale1Boxed {
         public final WhaleMap data;
         private Whale1BoxedMap(WhaleMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

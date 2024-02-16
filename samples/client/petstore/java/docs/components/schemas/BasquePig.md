@@ -1,6 +1,6 @@
 # BasquePig
 org.openapijsonschematools.client.components.schemas.BasquePig.java
-public class BasquePig
+public class BasquePig<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

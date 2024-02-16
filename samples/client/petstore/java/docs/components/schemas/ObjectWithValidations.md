@@ -1,6 +1,6 @@
 # ObjectWithValidations
 org.openapijsonschematools.client.components.schemas.ObjectWithValidations.java
-public class ObjectWithValidations
+public class ObjectWithValidations<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

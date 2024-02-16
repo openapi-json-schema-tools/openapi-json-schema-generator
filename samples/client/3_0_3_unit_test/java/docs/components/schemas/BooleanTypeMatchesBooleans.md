@@ -1,6 +1,6 @@
 # BooleanTypeMatchesBooleans
 org.openapijsonschematools.client.components.schemas.BooleanTypeMatchesBooleans.java
-public class BooleanTypeMatchesBooleans
+public class BooleanTypeMatchesBooleans<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

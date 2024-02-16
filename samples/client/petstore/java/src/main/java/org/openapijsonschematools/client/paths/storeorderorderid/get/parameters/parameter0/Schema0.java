@@ -19,12 +19,18 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Schema01Boxed permits Schema01BoxedNumber {}
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema01BoxedNumber extends Schema01Boxed {
         public final Number data;
         private Schema01BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

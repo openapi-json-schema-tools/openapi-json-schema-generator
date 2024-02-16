@@ -52,12 +52,18 @@ public class ComplexQuadrilateral {
     }
     
     
-    public static abstract sealed class QuadrilateralTypeBoxed permits QuadrilateralTypeBoxedString {}
+    public static abstract sealed class QuadrilateralTypeBoxed permits QuadrilateralTypeBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class QuadrilateralTypeBoxedString extends QuadrilateralTypeBoxed {
         public final String data;
         private QuadrilateralTypeBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -192,12 +198,18 @@ public class ComplexQuadrilateral {
     }
     
     
-    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -276,12 +288,18 @@ public class ComplexQuadrilateral {
     }
     
     
-    public static abstract sealed class ComplexQuadrilateral1Boxed permits ComplexQuadrilateral1BoxedVoid, ComplexQuadrilateral1BoxedBoolean, ComplexQuadrilateral1BoxedNumber, ComplexQuadrilateral1BoxedString, ComplexQuadrilateral1BoxedList, ComplexQuadrilateral1BoxedMap {}
+    public static abstract sealed class ComplexQuadrilateral1Boxed permits ComplexQuadrilateral1BoxedVoid, ComplexQuadrilateral1BoxedBoolean, ComplexQuadrilateral1BoxedNumber, ComplexQuadrilateral1BoxedString, ComplexQuadrilateral1BoxedList, ComplexQuadrilateral1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ComplexQuadrilateral1BoxedVoid extends ComplexQuadrilateral1Boxed {
         public final Void data;
         private ComplexQuadrilateral1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -290,12 +308,20 @@ public class ComplexQuadrilateral {
         private ComplexQuadrilateral1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ComplexQuadrilateral1BoxedNumber extends ComplexQuadrilateral1Boxed {
         public final Number data;
         private ComplexQuadrilateral1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -304,6 +330,10 @@ public class ComplexQuadrilateral {
         private ComplexQuadrilateral1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ComplexQuadrilateral1BoxedList extends ComplexQuadrilateral1Boxed {
@@ -311,12 +341,20 @@ public class ComplexQuadrilateral {
         private ComplexQuadrilateral1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ComplexQuadrilateral1BoxedMap extends ComplexQuadrilateral1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ComplexQuadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

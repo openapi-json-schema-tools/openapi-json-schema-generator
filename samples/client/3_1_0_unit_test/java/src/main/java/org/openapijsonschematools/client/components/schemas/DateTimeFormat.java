@@ -35,12 +35,18 @@ public class DateTimeFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class DateTimeFormat1Boxed permits DateTimeFormat1BoxedVoid, DateTimeFormat1BoxedBoolean, DateTimeFormat1BoxedNumber, DateTimeFormat1BoxedString, DateTimeFormat1BoxedList, DateTimeFormat1BoxedMap {}
+    public static abstract sealed class DateTimeFormat1Boxed permits DateTimeFormat1BoxedVoid, DateTimeFormat1BoxedBoolean, DateTimeFormat1BoxedNumber, DateTimeFormat1BoxedString, DateTimeFormat1BoxedList, DateTimeFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DateTimeFormat1BoxedVoid extends DateTimeFormat1Boxed {
         public final Void data;
         private DateTimeFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class DateTimeFormat {
         private DateTimeFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DateTimeFormat1BoxedNumber extends DateTimeFormat1Boxed {
         public final Number data;
         private DateTimeFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class DateTimeFormat {
         private DateTimeFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DateTimeFormat1BoxedList extends DateTimeFormat1Boxed {
@@ -70,12 +88,20 @@ public class DateTimeFormat {
         private DateTimeFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DateTimeFormat1BoxedMap extends DateTimeFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private DateTimeFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -101,12 +101,18 @@ public class Pet {
     }
     
     
-    public static abstract sealed class PhotoUrlsBoxed permits PhotoUrlsBoxedList {}
+    public static abstract sealed class PhotoUrlsBoxed permits PhotoUrlsBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PhotoUrlsBoxedList extends PhotoUrlsBoxed {
         public final PhotoUrlsList data;
         private PhotoUrlsBoxedList(PhotoUrlsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -196,12 +202,18 @@ public class Pet {
     }
     
     
-    public static abstract sealed class StatusBoxed permits StatusBoxedString {}
+    public static abstract sealed class StatusBoxed permits StatusBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class StatusBoxedString extends StatusBoxed {
         public final String data;
         private StatusBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -298,12 +310,18 @@ public class Pet {
     }
     
     
-    public static abstract sealed class TagsBoxed permits TagsBoxedList {}
+    public static abstract sealed class TagsBoxed permits TagsBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class TagsBoxedList extends TagsBoxed {
         public final TagsList data;
         private TagsBoxedList(TagsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -632,12 +650,18 @@ public class Pet {
     }
     
     
-    public static abstract sealed class Pet1Boxed permits Pet1BoxedMap {}
+    public static abstract sealed class Pet1Boxed permits Pet1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Pet1BoxedMap extends Pet1Boxed {
         public final PetMap data;
         private Pet1BoxedMap(PetMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

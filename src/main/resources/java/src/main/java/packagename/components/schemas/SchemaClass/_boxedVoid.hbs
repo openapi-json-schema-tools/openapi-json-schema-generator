@@ -21,6 +21,10 @@ public static final class {{jsonPathPiece.pascalCase}}BoxedVoid extends {{jsonPa
     private {{jsonPathPiece.pascalCase}}BoxedVoid(Void data) {
         this.data = data;
     }
+    @Override
+    public @Nullable Object data() {
+        return data;
+    }
 }
 
 {{/if}}

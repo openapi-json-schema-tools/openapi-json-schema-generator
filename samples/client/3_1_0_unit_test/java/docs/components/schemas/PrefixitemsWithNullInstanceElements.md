@@ -1,6 +1,6 @@
 # PrefixitemsWithNullInstanceElements
 org.openapijsonschematools.client.components.schemas.PrefixitemsWithNullInstanceElements.java
-public class PrefixitemsWithNullInstanceElements
+public class PrefixitemsWithNullInstanceElements<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

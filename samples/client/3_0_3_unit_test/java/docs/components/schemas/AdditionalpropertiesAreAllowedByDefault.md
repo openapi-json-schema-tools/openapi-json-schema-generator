@@ -1,6 +1,6 @@
 # AdditionalpropertiesAreAllowedByDefault
 org.openapijsonschematools.client.components.schemas.AdditionalpropertiesAreAllowedByDefault.java
-public class AdditionalpropertiesAreAllowedByDefault
+public class AdditionalpropertiesAreAllowedByDefault<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

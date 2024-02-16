@@ -1,6 +1,6 @@
 # JSONPatchRequestAddReplaceTest
 org.openapijsonschematools.client.components.schemas.JSONPatchRequestAddReplaceTest.java
-public class JSONPatchRequestAddReplaceTest
+public class JSONPatchRequestAddReplaceTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

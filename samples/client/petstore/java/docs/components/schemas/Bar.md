@@ -1,6 +1,6 @@
 # Bar
 org.openapijsonschematools.client.components.schemas.Bar.java
-public class Bar
+public class Bar<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

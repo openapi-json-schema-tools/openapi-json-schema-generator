@@ -34,12 +34,18 @@ public class EnumWithTrueDoesNotMatch1 {
     }
     
     
-    public static abstract sealed class EnumWithTrueDoesNotMatch11Boxed permits EnumWithTrueDoesNotMatch11BoxedBoolean {}
+    public static abstract sealed class EnumWithTrueDoesNotMatch11Boxed permits EnumWithTrueDoesNotMatch11BoxedBoolean {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumWithTrueDoesNotMatch11BoxedBoolean extends EnumWithTrueDoesNotMatch11Boxed {
         public final boolean data;
         private EnumWithTrueDoesNotMatch11BoxedBoolean(boolean data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

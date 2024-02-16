@@ -38,12 +38,18 @@ public class EmptyDependents {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class EmptyDependents1Boxed permits EmptyDependents1BoxedVoid, EmptyDependents1BoxedBoolean, EmptyDependents1BoxedNumber, EmptyDependents1BoxedString, EmptyDependents1BoxedList, EmptyDependents1BoxedMap {}
+    public static abstract sealed class EmptyDependents1Boxed permits EmptyDependents1BoxedVoid, EmptyDependents1BoxedBoolean, EmptyDependents1BoxedNumber, EmptyDependents1BoxedString, EmptyDependents1BoxedList, EmptyDependents1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EmptyDependents1BoxedVoid extends EmptyDependents1Boxed {
         public final Void data;
         private EmptyDependents1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -52,12 +58,20 @@ public class EmptyDependents {
         private EmptyDependents1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class EmptyDependents1BoxedNumber extends EmptyDependents1Boxed {
         public final Number data;
         private EmptyDependents1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -66,6 +80,10 @@ public class EmptyDependents {
         private EmptyDependents1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class EmptyDependents1BoxedList extends EmptyDependents1Boxed {
@@ -73,12 +91,20 @@ public class EmptyDependents {
         private EmptyDependents1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class EmptyDependents1BoxedMap extends EmptyDependents1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private EmptyDependents1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # NumberTypeMatchesNumbers
 org.openapijsonschematools.client.components.schemas.NumberTypeMatchesNumbers.java
-public class NumberTypeMatchesNumbers
+public class NumberTypeMatchesNumbers<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -278,7 +278,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         DocumentationFeature.Readme,
                         DocumentationFeature.Servers,
                         DocumentationFeature.ComponentSchemas,
-                        DocumentationFeature.ComponentSecuritySchemes
+                        DocumentationFeature.ComponentSecuritySchemes,
+                        DocumentationFeature.ComponentRequestBodies
                 )
                 .includeGlobalFeatures(
                         GlobalFeature.Components,
@@ -287,7 +288,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 )
                 .includeComponentsFeatures(
                         ComponentsFeature.schemas,
-                        ComponentsFeature.securitySchemes
+                        ComponentsFeature.securitySchemes,
+                        ComponentsFeature.requestBodies
                 )
                 .includeSecurityFeatures(
                         SecurityFeature.ApiKey,
@@ -733,7 +735,53 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/configurations/ApiConfiguration.hbs",
                 packagePath() + File.separatorChar + "configurations",
                 "ApiConfiguration.java"));
+        // requestbody
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/requestbody/GenericRequestBody.hbs",
+                packagePath() + File.separatorChar + "requestbody",
+                "GenericRequestBody.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/requestbody/RequestBodySerializer.hbs",
+                packagePath() + File.separatorChar + "requestbody",
+                "RequestBodySerializer.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/requestbody/SerializedRequestBody.hbs",
+                packagePath() + File.separatorChar + "requestbody",
+                "SerializedRequestBody.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/packagename/requestbody/RequestBodySerializerTest.hbs",
+                testPackagePath() + File.separatorChar + "requestbody",
+                "RequestBodySerializerTest.java"));
 
+        // mediatype
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/mediatype/MediaType.hbs",
+                packagePath() + File.separatorChar + "mediatype",
+                "MediaType.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/mediatype/Encoding.hbs",
+                packagePath() + File.separatorChar + "mediatype",
+                "Encoding.java"));
+        // parameter
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/parameter/ParameterStyle.hbs",
+                packagePath() + File.separatorChar + "parameter",
+                "ParameterStyle.java"));
+
+        // requestbodies
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/requestbodies/RequestBody.hbs", ".java");
+                }}
+        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
+                new HashMap<>() {{
+                    put("src/main/java/packagename/components/requestbodies/RequestBodyDoc.hbs", ".md");
+                }}
+        );
+        // schema
         HashMap<String, String> schemaTemplates = new HashMap<>();
         schemaTemplates.put("src/main/java/packagename/components/schemas/Schema.hbs", ".java");
         jsonPathTemplateFiles.put(
@@ -803,6 +851,23 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String toSecuritySchemeFilename(String basename, String jsonPath) {
         return toModelName(basename, jsonPath);
+    }
+
+    @Override
+    public String toRequestBodyFilename(String componentName, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
+            if (pathPieces.length == 4) {
+                // #/components/requestBodies/Pet (can collide with component schema Pet import)
+                return toModelName( componentName, null);
+            }
+            return toModuleFilename(componentName, null);
+        }
+        if (pathPieces.length == 5) {
+            // #/paths/somePath/verb/requestBody
+            return toModelName(componentName, null);
+        }
+        return toModuleFilename(componentName, null);
     }
 
     @Override
@@ -884,9 +949,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         - header schemas could also be refed
         - so all header schemas must be named by their header name to prevent collisions
          */
+        String[] pathPieces = sourceJsonPath.split("/");
         if (sourceJsonPath.endsWith("/schema")) {
             if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
-                String[] pathPieces = sourceJsonPath.split("/");
                 if (pathPieces[3].equals("parameters")) {
                     // #/paths/path/parameters/0/Schema -> PathParamSchema0
                     usedKey = "PathParam" + camelize(usedKey) + pathPieces[4]; // PathParamSchema0
@@ -899,7 +964,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     sourceJsonPath.startsWith("#/components/headers/") ||
                     (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/"))
                 ) {
-                String[] pathPieces = sourceJsonPath.split("/");
                 if (pathPieces[2].equals("headers")) {
                     // #/components/headers/someHeader/schema -> SomeHeaderSchema
                     usedKey =  camelize(pathPieces[3])+ camelize(usedKey);
@@ -910,6 +974,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     // #/paths/path/verb/responses/SomeResponse/headers/someHeader/schema
                     usedKey =  camelize(pathPieces[7])+ camelize(usedKey);
                 }
+            } else if (pathPieces[pathPieces.length-3].equals("content")) {
+                // #/requestBodies/SomeRequestBody/content/application-json/schema
+                String prefix = ModelUtils.decodeSlashes(pathPieces[pathPieces.length-2]);
+                prefix = sanitizeName(prefix, "[^a-zA-Z0-9]+");
+                prefix = camelize(prefix);
+                usedKey = prefix + camelize(usedKey);
             }
         }
 
@@ -2188,6 +2258,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
 
         String nameWithPrefixSuffix = sanitizeName(name);
+
         if (!StringUtils.isEmpty(modelNamePrefix)) {
             // add '_' so that model name can be camelized correctly
             nameWithPrefixSuffix = modelNamePrefix + "_" + nameWithPrefixSuffix;

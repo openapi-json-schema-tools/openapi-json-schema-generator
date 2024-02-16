@@ -35,12 +35,18 @@ public class RegexFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class RegexFormat1Boxed permits RegexFormat1BoxedVoid, RegexFormat1BoxedBoolean, RegexFormat1BoxedNumber, RegexFormat1BoxedString, RegexFormat1BoxedList, RegexFormat1BoxedMap {}
+    public static abstract sealed class RegexFormat1Boxed permits RegexFormat1BoxedVoid, RegexFormat1BoxedBoolean, RegexFormat1BoxedNumber, RegexFormat1BoxedString, RegexFormat1BoxedList, RegexFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RegexFormat1BoxedVoid extends RegexFormat1Boxed {
         public final Void data;
         private RegexFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class RegexFormat {
         private RegexFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RegexFormat1BoxedNumber extends RegexFormat1Boxed {
         public final Number data;
         private RegexFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class RegexFormat {
         private RegexFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RegexFormat1BoxedList extends RegexFormat1Boxed {
@@ -70,12 +88,20 @@ public class RegexFormat {
         private RegexFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RegexFormat1BoxedMap extends RegexFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private RegexFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

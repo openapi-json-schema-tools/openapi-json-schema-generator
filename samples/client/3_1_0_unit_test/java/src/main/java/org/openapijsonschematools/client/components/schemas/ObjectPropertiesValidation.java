@@ -171,12 +171,18 @@ public class ObjectPropertiesValidation {
     }
     
     
-    public static abstract sealed class ObjectPropertiesValidation1Boxed permits ObjectPropertiesValidation1BoxedVoid, ObjectPropertiesValidation1BoxedBoolean, ObjectPropertiesValidation1BoxedNumber, ObjectPropertiesValidation1BoxedString, ObjectPropertiesValidation1BoxedList, ObjectPropertiesValidation1BoxedMap {}
+    public static abstract sealed class ObjectPropertiesValidation1Boxed permits ObjectPropertiesValidation1BoxedVoid, ObjectPropertiesValidation1BoxedBoolean, ObjectPropertiesValidation1BoxedNumber, ObjectPropertiesValidation1BoxedString, ObjectPropertiesValidation1BoxedList, ObjectPropertiesValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ObjectPropertiesValidation1BoxedVoid extends ObjectPropertiesValidation1Boxed {
         public final Void data;
         private ObjectPropertiesValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -185,12 +191,20 @@ public class ObjectPropertiesValidation {
         private ObjectPropertiesValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ObjectPropertiesValidation1BoxedNumber extends ObjectPropertiesValidation1Boxed {
         public final Number data;
         private ObjectPropertiesValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -199,6 +213,10 @@ public class ObjectPropertiesValidation {
         private ObjectPropertiesValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ObjectPropertiesValidation1BoxedList extends ObjectPropertiesValidation1Boxed {
@@ -206,12 +224,20 @@ public class ObjectPropertiesValidation {
         private ObjectPropertiesValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ObjectPropertiesValidation1BoxedMap extends ObjectPropertiesValidation1Boxed {
         public final ObjectPropertiesValidationMap data;
         private ObjectPropertiesValidation1BoxedMap(ObjectPropertiesValidationMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

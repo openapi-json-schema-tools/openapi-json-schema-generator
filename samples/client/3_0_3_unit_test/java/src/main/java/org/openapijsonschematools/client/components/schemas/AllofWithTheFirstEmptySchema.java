@@ -59,12 +59,18 @@ public class AllofWithTheFirstEmptySchema {
     }
     
     
-    public static abstract sealed class AllofWithTheFirstEmptySchema1Boxed permits AllofWithTheFirstEmptySchema1BoxedVoid, AllofWithTheFirstEmptySchema1BoxedBoolean, AllofWithTheFirstEmptySchema1BoxedNumber, AllofWithTheFirstEmptySchema1BoxedString, AllofWithTheFirstEmptySchema1BoxedList, AllofWithTheFirstEmptySchema1BoxedMap {}
+    public static abstract sealed class AllofWithTheFirstEmptySchema1Boxed permits AllofWithTheFirstEmptySchema1BoxedVoid, AllofWithTheFirstEmptySchema1BoxedBoolean, AllofWithTheFirstEmptySchema1BoxedNumber, AllofWithTheFirstEmptySchema1BoxedString, AllofWithTheFirstEmptySchema1BoxedList, AllofWithTheFirstEmptySchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AllofWithTheFirstEmptySchema1BoxedVoid extends AllofWithTheFirstEmptySchema1Boxed {
         public final Void data;
         private AllofWithTheFirstEmptySchema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -73,12 +79,20 @@ public class AllofWithTheFirstEmptySchema {
         private AllofWithTheFirstEmptySchema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AllofWithTheFirstEmptySchema1BoxedNumber extends AllofWithTheFirstEmptySchema1Boxed {
         public final Number data;
         private AllofWithTheFirstEmptySchema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -87,6 +101,10 @@ public class AllofWithTheFirstEmptySchema {
         private AllofWithTheFirstEmptySchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AllofWithTheFirstEmptySchema1BoxedList extends AllofWithTheFirstEmptySchema1Boxed {
@@ -94,12 +112,20 @@ public class AllofWithTheFirstEmptySchema {
         private AllofWithTheFirstEmptySchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AllofWithTheFirstEmptySchema1BoxedMap extends AllofWithTheFirstEmptySchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AllofWithTheFirstEmptySchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

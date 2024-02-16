@@ -348,12 +348,18 @@ public class PropertiesWithEscapedCharacters {
     }
     
     
-    public static abstract sealed class PropertiesWithEscapedCharacters1Boxed permits PropertiesWithEscapedCharacters1BoxedVoid, PropertiesWithEscapedCharacters1BoxedBoolean, PropertiesWithEscapedCharacters1BoxedNumber, PropertiesWithEscapedCharacters1BoxedString, PropertiesWithEscapedCharacters1BoxedList, PropertiesWithEscapedCharacters1BoxedMap {}
+    public static abstract sealed class PropertiesWithEscapedCharacters1Boxed permits PropertiesWithEscapedCharacters1BoxedVoid, PropertiesWithEscapedCharacters1BoxedBoolean, PropertiesWithEscapedCharacters1BoxedNumber, PropertiesWithEscapedCharacters1BoxedString, PropertiesWithEscapedCharacters1BoxedList, PropertiesWithEscapedCharacters1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PropertiesWithEscapedCharacters1BoxedVoid extends PropertiesWithEscapedCharacters1Boxed {
         public final Void data;
         private PropertiesWithEscapedCharacters1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -362,12 +368,20 @@ public class PropertiesWithEscapedCharacters {
         private PropertiesWithEscapedCharacters1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWithEscapedCharacters1BoxedNumber extends PropertiesWithEscapedCharacters1Boxed {
         public final Number data;
         private PropertiesWithEscapedCharacters1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -376,6 +390,10 @@ public class PropertiesWithEscapedCharacters {
         private PropertiesWithEscapedCharacters1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWithEscapedCharacters1BoxedList extends PropertiesWithEscapedCharacters1Boxed {
@@ -383,12 +401,20 @@ public class PropertiesWithEscapedCharacters {
         private PropertiesWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWithEscapedCharacters1BoxedMap extends PropertiesWithEscapedCharacters1Boxed {
         public final PropertiesWithEscapedCharactersMap data;
         private PropertiesWithEscapedCharacters1BoxedMap(PropertiesWithEscapedCharactersMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

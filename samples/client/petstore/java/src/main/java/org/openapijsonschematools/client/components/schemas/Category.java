@@ -42,12 +42,18 @@ public class Category {
     }
     
     
-    public static abstract sealed class NameBoxed permits NameBoxedString {}
+    public static abstract sealed class NameBoxed permits NameBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NameBoxedString extends NameBoxed {
         public final String data;
         private NameBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -228,12 +234,18 @@ public class Category {
     }
     
     
-    public static abstract sealed class Category1Boxed permits Category1BoxedMap {}
+    public static abstract sealed class Category1Boxed permits Category1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Category1BoxedMap extends Category1Boxed {
         public final CategoryMap data;
         private Category1BoxedMap(CategoryMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

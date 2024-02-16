@@ -1,6 +1,6 @@
 # PatternpropertiesWithNullValuedInstanceProperties
 org.openapijsonschematools.client.components.schemas.PatternpropertiesWithNullValuedInstanceProperties.java
-public class PatternpropertiesWithNullValuedInstanceProperties
+public class PatternpropertiesWithNullValuedInstanceProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

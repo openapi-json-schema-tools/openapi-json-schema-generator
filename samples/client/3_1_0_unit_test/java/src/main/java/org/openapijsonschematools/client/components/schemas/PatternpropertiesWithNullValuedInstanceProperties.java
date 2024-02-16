@@ -49,12 +49,18 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
     }
     
     
-    public static abstract sealed class PatternpropertiesWithNullValuedInstanceProperties1Boxed permits PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid, PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean, PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber, PatternpropertiesWithNullValuedInstanceProperties1BoxedString, PatternpropertiesWithNullValuedInstanceProperties1BoxedList, PatternpropertiesWithNullValuedInstanceProperties1BoxedMap {}
+    public static abstract sealed class PatternpropertiesWithNullValuedInstanceProperties1Boxed permits PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid, PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean, PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber, PatternpropertiesWithNullValuedInstanceProperties1BoxedString, PatternpropertiesWithNullValuedInstanceProperties1BoxedList, PatternpropertiesWithNullValuedInstanceProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         public final Void data;
         private PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,12 +69,20 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
         private PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         public final Number data;
         private PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -77,6 +91,10 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
         private PatternpropertiesWithNullValuedInstanceProperties1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedList extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
@@ -84,12 +102,20 @@ public class PatternpropertiesWithNullValuedInstanceProperties {
         private PatternpropertiesWithNullValuedInstanceProperties1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternpropertiesWithNullValuedInstanceProperties1BoxedMap extends PatternpropertiesWithNullValuedInstanceProperties1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private PatternpropertiesWithNullValuedInstanceProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # Pig
 org.openapijsonschematools.client.components.schemas.Pig.java
-public class Pig
+public class Pig<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

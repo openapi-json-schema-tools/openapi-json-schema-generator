@@ -1,6 +1,6 @@
 # MultipleSimultaneousPatternpropertiesAreValidated
 org.openapijsonschematools.client.components.schemas.MultipleSimultaneousPatternpropertiesAreValidated.java
-public class MultipleSimultaneousPatternpropertiesAreValidated
+public class MultipleSimultaneousPatternpropertiesAreValidated<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # ByNumber
 org.openapijsonschematools.client.components.schemas.ByNumber.java
-public class ByNumber
+public class ByNumber<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

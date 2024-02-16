@@ -1,6 +1,6 @@
 # OneofWithRequired
 org.openapijsonschematools.client.components.schemas.OneofWithRequired.java
-public class OneofWithRequired
+public class OneofWithRequired<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

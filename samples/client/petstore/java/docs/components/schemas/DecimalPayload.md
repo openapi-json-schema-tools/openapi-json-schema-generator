@@ -1,6 +1,6 @@
 # DecimalPayload
 org.openapijsonschematools.client.components.schemas.DecimalPayload.java
-public class DecimalPayload
+public class DecimalPayload<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

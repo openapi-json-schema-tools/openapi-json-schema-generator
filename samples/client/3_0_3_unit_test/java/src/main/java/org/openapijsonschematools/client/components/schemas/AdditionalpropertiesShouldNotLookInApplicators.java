@@ -170,12 +170,18 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     }
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {}
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema0BoxedVoid extends Schema0Boxed {
         public final Void data;
         private Schema0BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -184,12 +190,20 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         private Schema0BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedNumber extends Schema0Boxed {
         public final Number data;
         private Schema0BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -198,6 +212,10 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         private Schema0BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedList extends Schema0Boxed {
@@ -205,12 +223,20 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         private Schema0BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedMap extends Schema0Boxed {
         public final Schema0Map data;
         private Schema0BoxedMap(Schema0Map data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -490,12 +516,18 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     }
     
     
-    public static abstract sealed class AdditionalpropertiesShouldNotLookInApplicators1Boxed permits AdditionalpropertiesShouldNotLookInApplicators1BoxedVoid, AdditionalpropertiesShouldNotLookInApplicators1BoxedBoolean, AdditionalpropertiesShouldNotLookInApplicators1BoxedNumber, AdditionalpropertiesShouldNotLookInApplicators1BoxedString, AdditionalpropertiesShouldNotLookInApplicators1BoxedList, AdditionalpropertiesShouldNotLookInApplicators1BoxedMap {}
+    public static abstract sealed class AdditionalpropertiesShouldNotLookInApplicators1Boxed permits AdditionalpropertiesShouldNotLookInApplicators1BoxedVoid, AdditionalpropertiesShouldNotLookInApplicators1BoxedBoolean, AdditionalpropertiesShouldNotLookInApplicators1BoxedNumber, AdditionalpropertiesShouldNotLookInApplicators1BoxedString, AdditionalpropertiesShouldNotLookInApplicators1BoxedList, AdditionalpropertiesShouldNotLookInApplicators1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalpropertiesShouldNotLookInApplicators1BoxedVoid extends AdditionalpropertiesShouldNotLookInApplicators1Boxed {
         public final Void data;
         private AdditionalpropertiesShouldNotLookInApplicators1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -504,12 +536,20 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         private AdditionalpropertiesShouldNotLookInApplicators1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalpropertiesShouldNotLookInApplicators1BoxedNumber extends AdditionalpropertiesShouldNotLookInApplicators1Boxed {
         public final Number data;
         private AdditionalpropertiesShouldNotLookInApplicators1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -518,6 +558,10 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         private AdditionalpropertiesShouldNotLookInApplicators1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalpropertiesShouldNotLookInApplicators1BoxedList extends AdditionalpropertiesShouldNotLookInApplicators1Boxed {
@@ -525,12 +569,20 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         private AdditionalpropertiesShouldNotLookInApplicators1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalpropertiesShouldNotLookInApplicators1BoxedMap extends AdditionalpropertiesShouldNotLookInApplicators1Boxed {
         public final AdditionalpropertiesShouldNotLookInApplicatorsMap data;
         private AdditionalpropertiesShouldNotLookInApplicators1BoxedMap(AdditionalpropertiesShouldNotLookInApplicatorsMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

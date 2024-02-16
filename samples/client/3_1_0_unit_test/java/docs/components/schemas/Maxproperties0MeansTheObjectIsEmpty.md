@@ -1,6 +1,6 @@
 # Maxproperties0MeansTheObjectIsEmpty
 org.openapijsonschematools.client.components.schemas.Maxproperties0MeansTheObjectIsEmpty.java
-public class Maxproperties0MeansTheObjectIsEmpty
+public class Maxproperties0MeansTheObjectIsEmpty<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

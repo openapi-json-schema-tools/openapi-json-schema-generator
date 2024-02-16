@@ -44,12 +44,18 @@ public class EnumsInProperties {
     }
     
     
-    public static abstract sealed class FooBoxed permits FooBoxedString {}
+    public static abstract sealed class FooBoxed permits FooBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FooBoxedString extends FooBoxed {
         public final String data;
         private FooBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -124,12 +130,18 @@ public class EnumsInProperties {
     }
     
     
-    public static abstract sealed class BarBoxed permits BarBoxedString {}
+    public static abstract sealed class BarBoxed permits BarBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class BarBoxedString extends BarBoxed {
         public final String data;
         private BarBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -305,12 +317,18 @@ public class EnumsInProperties {
     }
     
     
-    public static abstract sealed class EnumsInProperties1Boxed permits EnumsInProperties1BoxedMap {}
+    public static abstract sealed class EnumsInProperties1Boxed permits EnumsInProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumsInProperties1BoxedMap extends EnumsInProperties1Boxed {
         public final EnumsInPropertiesMap data;
         private EnumsInProperties1BoxedMap(EnumsInPropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

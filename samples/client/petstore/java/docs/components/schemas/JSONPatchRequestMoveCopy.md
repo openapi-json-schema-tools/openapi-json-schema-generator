@@ -1,6 +1,6 @@
 # JSONPatchRequestMoveCopy
 org.openapijsonschematools.client.components.schemas.JSONPatchRequestMoveCopy.java
-public class JSONPatchRequestMoveCopy
+public class JSONPatchRequestMoveCopy<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

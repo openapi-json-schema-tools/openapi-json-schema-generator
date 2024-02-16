@@ -1,6 +1,6 @@
 # TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 org.openapijsonschematools.client.components.schemas.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.java
-public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
+public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

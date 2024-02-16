@@ -1,6 +1,6 @@
 # ObjectModelWithRefProps
 org.openapijsonschematools.client.components.schemas.ObjectModelWithRefProps.java
-public class ObjectModelWithRefProps
+public class ObjectModelWithRefProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

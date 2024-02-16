@@ -1,6 +1,6 @@
 # ItemsContains
 org.openapijsonschematools.client.components.schemas.ItemsContains.java
-public class ItemsContains
+public class ItemsContains<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

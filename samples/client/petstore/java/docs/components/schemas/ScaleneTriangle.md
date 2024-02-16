@@ -1,6 +1,6 @@
 # ScaleneTriangle
 org.openapijsonschematools.client.components.schemas.ScaleneTriangle.java
-public class ScaleneTriangle
+public class ScaleneTriangle<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

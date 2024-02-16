@@ -1,6 +1,6 @@
 # MincontainsWithoutContainsIsIgnored
 org.openapijsonschematools.client.components.schemas.MincontainsWithoutContainsIsIgnored.java
-public class MincontainsWithoutContainsIsIgnored
+public class MincontainsWithoutContainsIsIgnored<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

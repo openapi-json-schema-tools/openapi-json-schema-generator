@@ -1,6 +1,6 @@
 # GmFruit
 org.openapijsonschematools.client.components.schemas.GmFruit.java
-public class GmFruit
+public class GmFruit<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

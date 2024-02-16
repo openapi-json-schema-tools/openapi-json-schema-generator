@@ -1,6 +1,6 @@
 # ComposedNone
 org.openapijsonschematools.client.components.schemas.ComposedNone.java
-public class ComposedNone
+public class ComposedNone<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

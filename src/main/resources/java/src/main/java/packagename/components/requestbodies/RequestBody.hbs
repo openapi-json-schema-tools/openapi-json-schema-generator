@@ -1,0 +1,97 @@
+{{> _helper_header }}
+
+{{#with requestBody}}
+package {{packageName}}.{{subpackage}};
+
+{{#if refInfo}}
+    {{#neq subpackage refInfo.ref.subpackage}}
+import {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}};
+    {{/neq}}
+
+public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{refInfo.refModule}}1 {}
+}
+{{else}}
+import {{packageName}}.requestbody.RequestBodySerializer;
+import {{packageName}}.requestbody.GenericRequestBody;
+import {{packageName}}.mediatype.MediaType;
+    {{#each content}}
+        {{#with schema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+        {{/with}}
+    {{/each}}
+import org.openapijsonschematools.client.requestbody.SerializedRequestBody;
+
+import java.util.AbstractMap;
+import java.util.Map;
+
+public class {{jsonPathPiece.pascalCase}} {
+    {{#each content}}
+
+    public static class {{@key.pascalCase}}MediaType extends MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}> {
+        public {{@key.pascalCase}}MediaType() {
+            super({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+        }
+    }
+    {{/each}}
+
+    public static class {{jsonPathPiece.pascalCase}}1 extends RequestBodySerializer<SealedRequestBody> {
+        public {{jsonPathPiece.pascalCase}}1() {
+            super(
+                Map.ofEntries(
+        {{#each content}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+        {{/each}}
+                ),
+                {{#if required}}true{{else}}false{{/if}}
+            );
+        }
+
+        public SerializedRequestBody serialize(SealedRequestBody requestBody) {
+    {{#eq content.size 1}}
+        {{#each content}}
+            {{@key.pascalCase}}RequestBody requestBody{{@index}} = ({{@key.pascalCase}}RequestBody) requestBody;
+            return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().data());
+        {{/each}}
+    {{else}}
+        {{#each content}}
+            {{#if @first}}
+            if (requestBody instanceof {{@key.pascalCase}}RequestBody requestBody{{@index}}) {
+            {{else}}
+                {{#if @last}}
+            } else  {
+                {{@key.pascalCase}}RequestBody requestBody{{@index}} = ({{@key.pascalCase}}RequestBody) requestBody;
+                {{else}}
+            } else if (requestBody instanceof {{@key.pascalCase}}RequestBody requestBody{{@index}}) {
+                {{/if}}
+            {{/if}}
+                return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().data());
+        {{/each}}
+            }
+    {{/eq}}
+        }
+    }
+
+    public static abstract sealed class SealedRequestBody permits {{#each content}}{{@key.pascalCase}}RequestBody{{#unless @last}}, {{/unless}}{{/each}} {}
+    {{#each content}}
+    public static final class {{@key.pascalCase}}RequestBody extends SealedRequestBody implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}}> {
+        private final String contentType;
+        private final {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body;
+        public {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body) {
+            contentType = "{{{@key.original}}}";
+            this.body = body;
+        }
+        @Override
+        public String contentType() {
+            return contentType;
+        }
+
+        @Override
+        public {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body() {
+            return body;
+        }
+    }
+    {{/each}}
+}
+{{/if}}
+{{/with}}

@@ -93,12 +93,18 @@ public class UnevaluateditemsWithItems {
     }
     
     
-    public static abstract sealed class UnevaluateditemsWithItems1Boxed permits UnevaluateditemsWithItems1BoxedList {}
+    public static abstract sealed class UnevaluateditemsWithItems1Boxed permits UnevaluateditemsWithItems1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UnevaluateditemsWithItems1BoxedList extends UnevaluateditemsWithItems1Boxed {
         public final UnevaluateditemsWithItemsList data;
         private UnevaluateditemsWithItems1BoxedList(UnevaluateditemsWithItemsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

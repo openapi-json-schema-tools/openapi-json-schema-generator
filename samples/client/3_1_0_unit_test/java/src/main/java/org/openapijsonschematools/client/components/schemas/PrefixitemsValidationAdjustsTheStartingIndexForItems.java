@@ -98,12 +98,18 @@ public class PrefixitemsValidationAdjustsTheStartingIndexForItems {
     }
     
     
-    public static abstract sealed class PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed permits PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList {}
+    public static abstract sealed class PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed permits PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList extends PrefixitemsValidationAdjustsTheStartingIndexForItems1Boxed {
         public final PrefixitemsValidationAdjustsTheStartingIndexForItemsList data;
         private PrefixitemsValidationAdjustsTheStartingIndexForItems1BoxedList(PrefixitemsValidationAdjustsTheStartingIndexForItemsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

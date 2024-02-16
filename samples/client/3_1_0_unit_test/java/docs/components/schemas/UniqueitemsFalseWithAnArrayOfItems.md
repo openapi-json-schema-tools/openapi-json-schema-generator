@@ -1,6 +1,6 @@
 # UniqueitemsFalseWithAnArrayOfItems
 org.openapijsonschematools.client.components.schemas.UniqueitemsFalseWithAnArrayOfItems.java
-public class UniqueitemsFalseWithAnArrayOfItems
+public class UniqueitemsFalseWithAnArrayOfItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

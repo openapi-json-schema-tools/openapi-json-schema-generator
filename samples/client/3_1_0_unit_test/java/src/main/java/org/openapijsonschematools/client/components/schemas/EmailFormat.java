@@ -35,12 +35,18 @@ public class EmailFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class EmailFormat1Boxed permits EmailFormat1BoxedVoid, EmailFormat1BoxedBoolean, EmailFormat1BoxedNumber, EmailFormat1BoxedString, EmailFormat1BoxedList, EmailFormat1BoxedMap {}
+    public static abstract sealed class EmailFormat1Boxed permits EmailFormat1BoxedVoid, EmailFormat1BoxedBoolean, EmailFormat1BoxedNumber, EmailFormat1BoxedString, EmailFormat1BoxedList, EmailFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EmailFormat1BoxedVoid extends EmailFormat1Boxed {
         public final Void data;
         private EmailFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class EmailFormat {
         private EmailFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class EmailFormat1BoxedNumber extends EmailFormat1Boxed {
         public final Number data;
         private EmailFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class EmailFormat {
         private EmailFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class EmailFormat1BoxedList extends EmailFormat1Boxed {
@@ -70,12 +88,20 @@ public class EmailFormat {
         private EmailFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class EmailFormat1BoxedMap extends EmailFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private EmailFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

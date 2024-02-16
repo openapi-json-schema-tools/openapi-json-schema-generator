@@ -36,12 +36,18 @@ public class NonInterferenceAcrossCombinedSchemas {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {}
+    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IfSchemaBoxedVoid extends IfSchemaBoxed {
         public final Void data;
         private IfSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -50,12 +56,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private IfSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedNumber extends IfSchemaBoxed {
         public final Number data;
         private IfSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -64,6 +78,10 @@ public class NonInterferenceAcrossCombinedSchemas {
         private IfSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedList extends IfSchemaBoxed {
@@ -71,12 +89,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private IfSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedMap extends IfSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -300,12 +326,18 @@ public class NonInterferenceAcrossCombinedSchemas {
         }
     }    
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {}
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema0BoxedVoid extends Schema0Boxed {
         public final Void data;
         private Schema0BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -314,12 +346,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema0BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedNumber extends Schema0Boxed {
         public final Number data;
         private Schema0BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -328,6 +368,10 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema0BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedList extends Schema0Boxed {
@@ -335,12 +379,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema0BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedMap extends Schema0Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema0BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -564,12 +616,18 @@ public class NonInterferenceAcrossCombinedSchemas {
         }
     }    
     
-    public static abstract sealed class ThenBoxed permits ThenBoxedVoid, ThenBoxedBoolean, ThenBoxedNumber, ThenBoxedString, ThenBoxedList, ThenBoxedMap {}
+    public static abstract sealed class ThenBoxed permits ThenBoxedVoid, ThenBoxedBoolean, ThenBoxedNumber, ThenBoxedString, ThenBoxedList, ThenBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ThenBoxedVoid extends ThenBoxed {
         public final Void data;
         private ThenBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -578,12 +636,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private ThenBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ThenBoxedNumber extends ThenBoxed {
         public final Number data;
         private ThenBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -592,6 +658,10 @@ public class NonInterferenceAcrossCombinedSchemas {
         private ThenBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ThenBoxedList extends ThenBoxed {
@@ -599,12 +669,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private ThenBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ThenBoxedMap extends ThenBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ThenBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -828,12 +906,18 @@ public class NonInterferenceAcrossCombinedSchemas {
         }
     }    
     
-    public static abstract sealed class Schema1Boxed permits Schema1BoxedVoid, Schema1BoxedBoolean, Schema1BoxedNumber, Schema1BoxedString, Schema1BoxedList, Schema1BoxedMap {}
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedVoid, Schema1BoxedBoolean, Schema1BoxedNumber, Schema1BoxedString, Schema1BoxedList, Schema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema1BoxedVoid extends Schema1Boxed {
         public final Void data;
         private Schema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -842,12 +926,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedNumber extends Schema1Boxed {
         public final Number data;
         private Schema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -856,6 +948,10 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedList extends Schema1Boxed {
@@ -863,12 +959,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1092,12 +1196,18 @@ public class NonInterferenceAcrossCombinedSchemas {
         }
     }    
     
-    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {}
+    public static abstract sealed class ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ElseSchemaBoxedVoid extends ElseSchemaBoxed {
         public final Void data;
         private ElseSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1106,12 +1216,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private ElseSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedNumber extends ElseSchemaBoxed {
         public final Number data;
         private ElseSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1120,6 +1238,10 @@ public class NonInterferenceAcrossCombinedSchemas {
         private ElseSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedList extends ElseSchemaBoxed {
@@ -1127,12 +1249,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private ElseSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ElseSchemaBoxedMap extends ElseSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1356,12 +1486,18 @@ public class NonInterferenceAcrossCombinedSchemas {
         }
     }    
     
-    public static abstract sealed class Schema2Boxed permits Schema2BoxedVoid, Schema2BoxedBoolean, Schema2BoxedNumber, Schema2BoxedString, Schema2BoxedList, Schema2BoxedMap {}
+    public static abstract sealed class Schema2Boxed permits Schema2BoxedVoid, Schema2BoxedBoolean, Schema2BoxedNumber, Schema2BoxedString, Schema2BoxedList, Schema2BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema2BoxedVoid extends Schema2Boxed {
         public final Void data;
         private Schema2BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1370,12 +1506,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema2BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema2BoxedNumber extends Schema2Boxed {
         public final Number data;
         private Schema2BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1384,6 +1528,10 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema2BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema2BoxedList extends Schema2Boxed {
@@ -1391,12 +1539,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private Schema2BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema2BoxedMap extends Schema2Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema2BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1620,12 +1776,18 @@ public class NonInterferenceAcrossCombinedSchemas {
         }
     }    
     
-    public static abstract sealed class NonInterferenceAcrossCombinedSchemas1Boxed permits NonInterferenceAcrossCombinedSchemas1BoxedVoid, NonInterferenceAcrossCombinedSchemas1BoxedBoolean, NonInterferenceAcrossCombinedSchemas1BoxedNumber, NonInterferenceAcrossCombinedSchemas1BoxedString, NonInterferenceAcrossCombinedSchemas1BoxedList, NonInterferenceAcrossCombinedSchemas1BoxedMap {}
+    public static abstract sealed class NonInterferenceAcrossCombinedSchemas1Boxed permits NonInterferenceAcrossCombinedSchemas1BoxedVoid, NonInterferenceAcrossCombinedSchemas1BoxedBoolean, NonInterferenceAcrossCombinedSchemas1BoxedNumber, NonInterferenceAcrossCombinedSchemas1BoxedString, NonInterferenceAcrossCombinedSchemas1BoxedList, NonInterferenceAcrossCombinedSchemas1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NonInterferenceAcrossCombinedSchemas1BoxedVoid extends NonInterferenceAcrossCombinedSchemas1Boxed {
         public final Void data;
         private NonInterferenceAcrossCombinedSchemas1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1634,12 +1796,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private NonInterferenceAcrossCombinedSchemas1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NonInterferenceAcrossCombinedSchemas1BoxedNumber extends NonInterferenceAcrossCombinedSchemas1Boxed {
         public final Number data;
         private NonInterferenceAcrossCombinedSchemas1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1648,6 +1818,10 @@ public class NonInterferenceAcrossCombinedSchemas {
         private NonInterferenceAcrossCombinedSchemas1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NonInterferenceAcrossCombinedSchemas1BoxedList extends NonInterferenceAcrossCombinedSchemas1Boxed {
@@ -1655,12 +1829,20 @@ public class NonInterferenceAcrossCombinedSchemas {
         private NonInterferenceAcrossCombinedSchemas1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NonInterferenceAcrossCombinedSchemas1BoxedMap extends NonInterferenceAcrossCombinedSchemas1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private NonInterferenceAcrossCombinedSchemas1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -35,12 +35,18 @@ public class ExclusiveminimumValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ExclusiveminimumValidation1Boxed permits ExclusiveminimumValidation1BoxedVoid, ExclusiveminimumValidation1BoxedBoolean, ExclusiveminimumValidation1BoxedNumber, ExclusiveminimumValidation1BoxedString, ExclusiveminimumValidation1BoxedList, ExclusiveminimumValidation1BoxedMap {}
+    public static abstract sealed class ExclusiveminimumValidation1Boxed permits ExclusiveminimumValidation1BoxedVoid, ExclusiveminimumValidation1BoxedBoolean, ExclusiveminimumValidation1BoxedNumber, ExclusiveminimumValidation1BoxedString, ExclusiveminimumValidation1BoxedList, ExclusiveminimumValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ExclusiveminimumValidation1BoxedVoid extends ExclusiveminimumValidation1Boxed {
         public final Void data;
         private ExclusiveminimumValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class ExclusiveminimumValidation {
         private ExclusiveminimumValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ExclusiveminimumValidation1BoxedNumber extends ExclusiveminimumValidation1Boxed {
         public final Number data;
         private ExclusiveminimumValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class ExclusiveminimumValidation {
         private ExclusiveminimumValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ExclusiveminimumValidation1BoxedList extends ExclusiveminimumValidation1Boxed {
@@ -70,12 +88,20 @@ public class ExclusiveminimumValidation {
         private ExclusiveminimumValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ExclusiveminimumValidation1BoxedMap extends ExclusiveminimumValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ExclusiveminimumValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # IdnEmailFormat
 org.openapijsonschematools.client.components.schemas.IdnEmailFormat.java
-public class IdnEmailFormat
+public class IdnEmailFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

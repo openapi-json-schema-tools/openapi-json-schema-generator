@@ -41,12 +41,18 @@ public class Schema0 {
     }
     
     
-    public static abstract sealed class Items0Boxed permits Items0BoxedString {}
+    public static abstract sealed class Items0Boxed permits Items0BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Items0BoxedString extends Items0Boxed {
         public final String data;
         private Items0BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -155,12 +161,18 @@ public class Schema0 {
     }
     
     
-    public static abstract sealed class Schema01Boxed permits Schema01BoxedList {}
+    public static abstract sealed class Schema01Boxed permits Schema01BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema01BoxedList extends Schema01Boxed {
         public final SchemaList0 data;
         private Schema01BoxedList(SchemaList0 data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -21,12 +21,18 @@ public class MultipleTypesCanBeSpecifiedInAnArray {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MultipleTypesCanBeSpecifiedInAnArray1Boxed permits MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber, MultipleTypesCanBeSpecifiedInAnArray1BoxedString {}
+    public static abstract sealed class MultipleTypesCanBeSpecifiedInAnArray1Boxed permits MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber, MultipleTypesCanBeSpecifiedInAnArray1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber extends MultipleTypesCanBeSpecifiedInAnArray1Boxed {
         public final Number data;
         private MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -34,6 +40,10 @@ public class MultipleTypesCanBeSpecifiedInAnArray {
         public final String data;
         private MultipleTypesCanBeSpecifiedInAnArray1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

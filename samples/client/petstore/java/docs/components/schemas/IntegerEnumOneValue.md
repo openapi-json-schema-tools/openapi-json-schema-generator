@@ -1,6 +1,6 @@
 # IntegerEnumOneValue
 org.openapijsonschematools.client.components.schemas.IntegerEnumOneValue.java
-public class IntegerEnumOneValue
+public class IntegerEnumOneValue<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

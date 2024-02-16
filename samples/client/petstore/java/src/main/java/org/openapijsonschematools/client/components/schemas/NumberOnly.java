@@ -124,12 +124,18 @@ public class NumberOnly {
     }
     
     
-    public static abstract sealed class NumberOnly1Boxed permits NumberOnly1BoxedMap {}
+    public static abstract sealed class NumberOnly1Boxed permits NumberOnly1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NumberOnly1BoxedMap extends NumberOnly1Boxed {
         public final NumberOnlyMap data;
         private NumberOnly1BoxedMap(NumberOnlyMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

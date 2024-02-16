@@ -1,6 +1,6 @@
 # AdditionalPropertiesWithArrayOfEnums
 org.openapijsonschematools.client.components.schemas.AdditionalPropertiesWithArrayOfEnums.java
-public class AdditionalPropertiesWithArrayOfEnums
+public class AdditionalPropertiesWithArrayOfEnums<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

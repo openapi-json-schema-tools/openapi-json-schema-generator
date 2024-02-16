@@ -1,6 +1,6 @@
 # PrefixitemsValidationAdjustsTheStartingIndexForItems
 org.openapijsonschematools.client.components.schemas.PrefixitemsValidationAdjustsTheStartingIndexForItems.java
-public class PrefixitemsValidationAdjustsTheStartingIndexForItems
+public class PrefixitemsValidationAdjustsTheStartingIndexForItems<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

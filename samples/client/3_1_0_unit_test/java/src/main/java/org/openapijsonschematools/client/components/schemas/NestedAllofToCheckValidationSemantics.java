@@ -47,12 +47,18 @@ public class NestedAllofToCheckValidationSemantics {
     }
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {}
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema0BoxedVoid extends Schema0Boxed {
         public final Void data;
         private Schema0BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class NestedAllofToCheckValidationSemantics {
         private Schema0BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedNumber extends Schema0Boxed {
         public final Number data;
         private Schema0BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class NestedAllofToCheckValidationSemantics {
         private Schema0BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedList extends Schema0Boxed {
@@ -82,12 +100,20 @@ public class NestedAllofToCheckValidationSemantics {
         private Schema0BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedMap extends Schema0Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema0BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -313,12 +339,18 @@ public class NestedAllofToCheckValidationSemantics {
         }
     }    
     
-    public static abstract sealed class NestedAllofToCheckValidationSemantics1Boxed permits NestedAllofToCheckValidationSemantics1BoxedVoid, NestedAllofToCheckValidationSemantics1BoxedBoolean, NestedAllofToCheckValidationSemantics1BoxedNumber, NestedAllofToCheckValidationSemantics1BoxedString, NestedAllofToCheckValidationSemantics1BoxedList, NestedAllofToCheckValidationSemantics1BoxedMap {}
+    public static abstract sealed class NestedAllofToCheckValidationSemantics1Boxed permits NestedAllofToCheckValidationSemantics1BoxedVoid, NestedAllofToCheckValidationSemantics1BoxedBoolean, NestedAllofToCheckValidationSemantics1BoxedNumber, NestedAllofToCheckValidationSemantics1BoxedString, NestedAllofToCheckValidationSemantics1BoxedList, NestedAllofToCheckValidationSemantics1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NestedAllofToCheckValidationSemantics1BoxedVoid extends NestedAllofToCheckValidationSemantics1Boxed {
         public final Void data;
         private NestedAllofToCheckValidationSemantics1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,12 +359,20 @@ public class NestedAllofToCheckValidationSemantics {
         private NestedAllofToCheckValidationSemantics1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NestedAllofToCheckValidationSemantics1BoxedNumber extends NestedAllofToCheckValidationSemantics1Boxed {
         public final Number data;
         private NestedAllofToCheckValidationSemantics1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -341,6 +381,10 @@ public class NestedAllofToCheckValidationSemantics {
         private NestedAllofToCheckValidationSemantics1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NestedAllofToCheckValidationSemantics1BoxedList extends NestedAllofToCheckValidationSemantics1Boxed {
@@ -348,12 +392,20 @@ public class NestedAllofToCheckValidationSemantics {
         private NestedAllofToCheckValidationSemantics1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NestedAllofToCheckValidationSemantics1BoxedMap extends NestedAllofToCheckValidationSemantics1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private NestedAllofToCheckValidationSemantics1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

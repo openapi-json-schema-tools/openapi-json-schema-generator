@@ -35,12 +35,18 @@ public class TimeFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class TimeFormat1Boxed permits TimeFormat1BoxedVoid, TimeFormat1BoxedBoolean, TimeFormat1BoxedNumber, TimeFormat1BoxedString, TimeFormat1BoxedList, TimeFormat1BoxedMap {}
+    public static abstract sealed class TimeFormat1Boxed permits TimeFormat1BoxedVoid, TimeFormat1BoxedBoolean, TimeFormat1BoxedNumber, TimeFormat1BoxedString, TimeFormat1BoxedList, TimeFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class TimeFormat1BoxedVoid extends TimeFormat1Boxed {
         public final Void data;
         private TimeFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class TimeFormat {
         private TimeFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class TimeFormat1BoxedNumber extends TimeFormat1Boxed {
         public final Number data;
         private TimeFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class TimeFormat {
         private TimeFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class TimeFormat1BoxedList extends TimeFormat1Boxed {
@@ -70,12 +88,20 @@ public class TimeFormat {
         private TimeFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class TimeFormat1BoxedMap extends TimeFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private TimeFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

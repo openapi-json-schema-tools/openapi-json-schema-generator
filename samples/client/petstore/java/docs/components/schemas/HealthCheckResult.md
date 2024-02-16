@@ -1,6 +1,6 @@
 # HealthCheckResult
 org.openapijsonschematools.client.components.schemas.HealthCheckResult.java
-public class HealthCheckResult
+public class HealthCheckResult<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

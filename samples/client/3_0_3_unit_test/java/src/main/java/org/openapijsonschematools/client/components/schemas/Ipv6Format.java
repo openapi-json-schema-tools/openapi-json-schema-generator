@@ -35,12 +35,18 @@ public class Ipv6Format {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Ipv6Format1Boxed permits Ipv6Format1BoxedVoid, Ipv6Format1BoxedBoolean, Ipv6Format1BoxedNumber, Ipv6Format1BoxedString, Ipv6Format1BoxedList, Ipv6Format1BoxedMap {}
+    public static abstract sealed class Ipv6Format1Boxed permits Ipv6Format1BoxedVoid, Ipv6Format1BoxedBoolean, Ipv6Format1BoxedNumber, Ipv6Format1BoxedString, Ipv6Format1BoxedList, Ipv6Format1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Ipv6Format1BoxedVoid extends Ipv6Format1Boxed {
         public final Void data;
         private Ipv6Format1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class Ipv6Format {
         private Ipv6Format1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Ipv6Format1BoxedNumber extends Ipv6Format1Boxed {
         public final Number data;
         private Ipv6Format1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class Ipv6Format {
         private Ipv6Format1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Ipv6Format1BoxedList extends Ipv6Format1Boxed {
@@ -70,12 +88,20 @@ public class Ipv6Format {
         private Ipv6Format1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Ipv6Format1BoxedMap extends Ipv6Format1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Ipv6Format1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

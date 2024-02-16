@@ -1,6 +1,6 @@
 # InvalidStringValueForDefault
 org.openapijsonschematools.client.components.schemas.InvalidStringValueForDefault.java
-public class InvalidStringValueForDefault
+public class InvalidStringValueForDefault<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

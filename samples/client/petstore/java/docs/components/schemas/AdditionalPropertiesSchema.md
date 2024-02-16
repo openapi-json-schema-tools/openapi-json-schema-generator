@@ -1,6 +1,6 @@
 # AdditionalPropertiesSchema
 org.openapijsonschematools.client.components.schemas.AdditionalPropertiesSchema.java
-public class AdditionalPropertiesSchema
+public class AdditionalPropertiesSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

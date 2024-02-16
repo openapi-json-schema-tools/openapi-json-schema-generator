@@ -1,6 +1,6 @@
 # Name
 org.openapijsonschematools.client.components.schemas.Name.java
-public class Name
+public class Name<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

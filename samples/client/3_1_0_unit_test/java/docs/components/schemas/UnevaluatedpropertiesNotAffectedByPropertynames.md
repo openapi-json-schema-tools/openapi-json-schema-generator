@@ -1,6 +1,6 @@
 # UnevaluatedpropertiesNotAffectedByPropertynames
 org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesNotAffectedByPropertynames.java
-public class UnevaluatedpropertiesNotAffectedByPropertynames
+public class UnevaluatedpropertiesNotAffectedByPropertynames<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # UnevaluatedpropertiesWithNullValuedInstanceProperties
 org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesWithNullValuedInstanceProperties.java
-public class UnevaluatedpropertiesWithNullValuedInstanceProperties
+public class UnevaluatedpropertiesWithNullValuedInstanceProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

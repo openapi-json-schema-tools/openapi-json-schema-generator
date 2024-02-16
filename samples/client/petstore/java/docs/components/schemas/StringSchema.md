@@ -1,6 +1,6 @@
 # StringSchema
 org.openapijsonschematools.client.components.schemas.StringSchema.java
-public class StringSchema
+public class StringSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

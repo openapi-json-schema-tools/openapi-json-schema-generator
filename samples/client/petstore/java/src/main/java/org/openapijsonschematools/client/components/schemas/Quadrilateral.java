@@ -35,12 +35,18 @@ public class Quadrilateral {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Quadrilateral1Boxed permits Quadrilateral1BoxedVoid, Quadrilateral1BoxedBoolean, Quadrilateral1BoxedNumber, Quadrilateral1BoxedString, Quadrilateral1BoxedList, Quadrilateral1BoxedMap {}
+    public static abstract sealed class Quadrilateral1Boxed permits Quadrilateral1BoxedVoid, Quadrilateral1BoxedBoolean, Quadrilateral1BoxedNumber, Quadrilateral1BoxedString, Quadrilateral1BoxedList, Quadrilateral1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Quadrilateral1BoxedVoid extends Quadrilateral1Boxed {
         public final Void data;
         private Quadrilateral1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class Quadrilateral {
         private Quadrilateral1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Quadrilateral1BoxedNumber extends Quadrilateral1Boxed {
         public final Number data;
         private Quadrilateral1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class Quadrilateral {
         private Quadrilateral1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Quadrilateral1BoxedList extends Quadrilateral1Boxed {
@@ -70,12 +88,20 @@ public class Quadrilateral {
         private Quadrilateral1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Quadrilateral1BoxedMap extends Quadrilateral1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Quadrilateral1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

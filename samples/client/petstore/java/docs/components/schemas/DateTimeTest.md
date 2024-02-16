@@ -1,6 +1,6 @@
 # DateTimeTest
 org.openapijsonschematools.client.components.schemas.DateTimeTest.java
-public class DateTimeTest
+public class DateTimeTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

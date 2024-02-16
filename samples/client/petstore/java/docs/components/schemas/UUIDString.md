@@ -1,6 +1,6 @@
 # UUIDString
 org.openapijsonschematools.client.components.schemas.UUIDString.java
-public class UUIDString
+public class UUIDString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

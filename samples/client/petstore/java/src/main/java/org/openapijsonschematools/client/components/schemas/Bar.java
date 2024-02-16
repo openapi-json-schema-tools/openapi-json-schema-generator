@@ -20,12 +20,18 @@ public class Bar {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Bar1Boxed permits Bar1BoxedString {}
+    public static abstract sealed class Bar1Boxed permits Bar1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Bar1BoxedString extends Bar1Boxed {
         public final String data;
         private Bar1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

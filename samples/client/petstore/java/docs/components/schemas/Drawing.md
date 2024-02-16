@@ -1,6 +1,6 @@
 # Drawing
 org.openapijsonschematools.client.components.schemas.Drawing.java
-public class Drawing
+public class Drawing<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

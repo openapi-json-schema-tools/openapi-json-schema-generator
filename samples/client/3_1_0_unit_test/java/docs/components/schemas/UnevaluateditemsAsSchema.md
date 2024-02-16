@@ -1,6 +1,6 @@
 # UnevaluateditemsAsSchema
 org.openapijsonschematools.client.components.schemas.UnevaluateditemsAsSchema.java
-public class UnevaluateditemsAsSchema
+public class UnevaluateditemsAsSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

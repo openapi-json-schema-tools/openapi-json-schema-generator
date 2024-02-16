@@ -181,7 +181,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |responses|✗|OAS3
 |parameters|✗|OAS3
 |examples|✗|OAS3
-|requestBodies|✗|OAS3
+|requestBodies|✓|OAS3
 |headers|✗|OAS3
 |securitySchemes|✓|OAS3
 |links|✗|OAS3
@@ -222,7 +222,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |ComponentSchemas|✓|OAS3
 |ComponentResponses|✗|OAS3
 |ComponentParameters|✗|OAS3
-|ComponentRequestBodies|✗|OAS3
+|ComponentRequestBodies|✓|OAS3
 |ComponentHeaders|✗|OAS3
 |ComponentSecuritySchemes|✓|OAS3
 |ComponentLinks|✗|OAS3

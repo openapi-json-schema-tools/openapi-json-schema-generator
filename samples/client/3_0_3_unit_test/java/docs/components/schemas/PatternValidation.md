@@ -1,6 +1,6 @@
 # PatternValidation
 org.openapijsonschematools.client.components.schemas.PatternValidation.java
-public class PatternValidation
+public class PatternValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

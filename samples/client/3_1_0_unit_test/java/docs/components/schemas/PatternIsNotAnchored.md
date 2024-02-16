@@ -1,6 +1,6 @@
 # PatternIsNotAnchored
 org.openapijsonschematools.client.components.schemas.PatternIsNotAnchored.java
-public class PatternIsNotAnchored
+public class PatternIsNotAnchored<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

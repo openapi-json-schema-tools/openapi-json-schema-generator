@@ -1,6 +1,6 @@
 # ShapeOrNull
 org.openapijsonschematools.client.components.schemas.ShapeOrNull.java
-public class ShapeOrNull
+public class ShapeOrNull<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

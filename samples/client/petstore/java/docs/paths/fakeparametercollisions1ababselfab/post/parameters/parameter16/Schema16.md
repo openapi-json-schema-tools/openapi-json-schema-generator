@@ -1,5 +1,5 @@
 # Schema16
-public class Schema16
+public class Schema16<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # NumberOnly
 org.openapijsonschematools.client.components.schemas.NumberOnly.java
-public class NumberOnly
+public class NumberOnly<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

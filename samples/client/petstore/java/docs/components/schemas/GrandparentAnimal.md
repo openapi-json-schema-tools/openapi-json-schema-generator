@@ -1,6 +1,6 @@
 # GrandparentAnimal
 org.openapijsonschematools.client.components.schemas.GrandparentAnimal.java
-public class GrandparentAnimal
+public class GrandparentAnimal<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

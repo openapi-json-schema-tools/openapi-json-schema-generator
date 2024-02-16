@@ -49,12 +49,18 @@ public class IgnoreIfWithoutThenOrElse {
     }
     
     
-    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {}
+    public static abstract sealed class IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IfSchemaBoxedVoid extends IfSchemaBoxed {
         public final Void data;
         private IfSchemaBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,12 +69,20 @@ public class IgnoreIfWithoutThenOrElse {
         private IfSchemaBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedNumber extends IfSchemaBoxed {
         public final Number data;
         private IfSchemaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -77,6 +91,10 @@ public class IgnoreIfWithoutThenOrElse {
         private IfSchemaBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedList extends IfSchemaBoxed {
@@ -84,12 +102,20 @@ public class IgnoreIfWithoutThenOrElse {
         private IfSchemaBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IfSchemaBoxedMap extends IfSchemaBoxed {
         public final FrozenMap<@Nullable Object> data;
         private IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -313,12 +339,18 @@ public class IgnoreIfWithoutThenOrElse {
         }
     }    
     
-    public static abstract sealed class IgnoreIfWithoutThenOrElse1Boxed permits IgnoreIfWithoutThenOrElse1BoxedVoid, IgnoreIfWithoutThenOrElse1BoxedBoolean, IgnoreIfWithoutThenOrElse1BoxedNumber, IgnoreIfWithoutThenOrElse1BoxedString, IgnoreIfWithoutThenOrElse1BoxedList, IgnoreIfWithoutThenOrElse1BoxedMap {}
+    public static abstract sealed class IgnoreIfWithoutThenOrElse1Boxed permits IgnoreIfWithoutThenOrElse1BoxedVoid, IgnoreIfWithoutThenOrElse1BoxedBoolean, IgnoreIfWithoutThenOrElse1BoxedNumber, IgnoreIfWithoutThenOrElse1BoxedString, IgnoreIfWithoutThenOrElse1BoxedList, IgnoreIfWithoutThenOrElse1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IgnoreIfWithoutThenOrElse1BoxedVoid extends IgnoreIfWithoutThenOrElse1Boxed {
         public final Void data;
         private IgnoreIfWithoutThenOrElse1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,12 +359,20 @@ public class IgnoreIfWithoutThenOrElse {
         private IgnoreIfWithoutThenOrElse1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IgnoreIfWithoutThenOrElse1BoxedNumber extends IgnoreIfWithoutThenOrElse1Boxed {
         public final Number data;
         private IgnoreIfWithoutThenOrElse1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -341,6 +381,10 @@ public class IgnoreIfWithoutThenOrElse {
         private IgnoreIfWithoutThenOrElse1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IgnoreIfWithoutThenOrElse1BoxedList extends IgnoreIfWithoutThenOrElse1Boxed {
@@ -348,12 +392,20 @@ public class IgnoreIfWithoutThenOrElse {
         private IgnoreIfWithoutThenOrElse1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IgnoreIfWithoutThenOrElse1BoxedMap extends IgnoreIfWithoutThenOrElse1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IgnoreIfWithoutThenOrElse1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

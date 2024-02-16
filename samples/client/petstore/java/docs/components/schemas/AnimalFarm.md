@@ -1,6 +1,6 @@
 # AnimalFarm
 org.openapijsonschematools.client.components.schemas.AnimalFarm.java
-public class AnimalFarm
+public class AnimalFarm<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

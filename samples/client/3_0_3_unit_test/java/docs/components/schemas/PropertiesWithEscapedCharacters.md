@@ -1,6 +1,6 @@
 # PropertiesWithEscapedCharacters
 org.openapijsonschematools.client.components.schemas.PropertiesWithEscapedCharacters.java
-public class PropertiesWithEscapedCharacters
+public class PropertiesWithEscapedCharacters<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

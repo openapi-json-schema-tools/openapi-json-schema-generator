@@ -1,6 +1,6 @@
 # ExclusivemaximumValidation
 org.openapijsonschematools.client.components.schemas.ExclusivemaximumValidation.java
-public class ExclusivemaximumValidation
+public class ExclusivemaximumValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

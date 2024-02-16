@@ -35,12 +35,18 @@ public class MinimumValidationWithSignedInteger {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MinimumValidationWithSignedInteger1Boxed permits MinimumValidationWithSignedInteger1BoxedVoid, MinimumValidationWithSignedInteger1BoxedBoolean, MinimumValidationWithSignedInteger1BoxedNumber, MinimumValidationWithSignedInteger1BoxedString, MinimumValidationWithSignedInteger1BoxedList, MinimumValidationWithSignedInteger1BoxedMap {}
+    public static abstract sealed class MinimumValidationWithSignedInteger1Boxed permits MinimumValidationWithSignedInteger1BoxedVoid, MinimumValidationWithSignedInteger1BoxedBoolean, MinimumValidationWithSignedInteger1BoxedNumber, MinimumValidationWithSignedInteger1BoxedString, MinimumValidationWithSignedInteger1BoxedList, MinimumValidationWithSignedInteger1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MinimumValidationWithSignedInteger1BoxedVoid extends MinimumValidationWithSignedInteger1Boxed {
         public final Void data;
         private MinimumValidationWithSignedInteger1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MinimumValidationWithSignedInteger {
         private MinimumValidationWithSignedInteger1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinimumValidationWithSignedInteger1BoxedNumber extends MinimumValidationWithSignedInteger1Boxed {
         public final Number data;
         private MinimumValidationWithSignedInteger1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MinimumValidationWithSignedInteger {
         private MinimumValidationWithSignedInteger1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinimumValidationWithSignedInteger1BoxedList extends MinimumValidationWithSignedInteger1Boxed {
@@ -70,12 +88,20 @@ public class MinimumValidationWithSignedInteger {
         private MinimumValidationWithSignedInteger1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MinimumValidationWithSignedInteger1BoxedMap extends MinimumValidationWithSignedInteger1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MinimumValidationWithSignedInteger1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

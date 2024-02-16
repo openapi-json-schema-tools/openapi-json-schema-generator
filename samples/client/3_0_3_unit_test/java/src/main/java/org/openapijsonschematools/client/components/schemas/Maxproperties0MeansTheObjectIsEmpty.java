@@ -35,12 +35,18 @@ public class Maxproperties0MeansTheObjectIsEmpty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Maxproperties0MeansTheObjectIsEmpty1Boxed permits Maxproperties0MeansTheObjectIsEmpty1BoxedVoid, Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean, Maxproperties0MeansTheObjectIsEmpty1BoxedNumber, Maxproperties0MeansTheObjectIsEmpty1BoxedString, Maxproperties0MeansTheObjectIsEmpty1BoxedList, Maxproperties0MeansTheObjectIsEmpty1BoxedMap {}
+    public static abstract sealed class Maxproperties0MeansTheObjectIsEmpty1Boxed permits Maxproperties0MeansTheObjectIsEmpty1BoxedVoid, Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean, Maxproperties0MeansTheObjectIsEmpty1BoxedNumber, Maxproperties0MeansTheObjectIsEmpty1BoxedString, Maxproperties0MeansTheObjectIsEmpty1BoxedList, Maxproperties0MeansTheObjectIsEmpty1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedVoid extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
         public final Void data;
         private Maxproperties0MeansTheObjectIsEmpty1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         private Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedNumber extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
         public final Number data;
         private Maxproperties0MeansTheObjectIsEmpty1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         private Maxproperties0MeansTheObjectIsEmpty1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedList extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
@@ -70,12 +88,20 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         private Maxproperties0MeansTheObjectIsEmpty1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Maxproperties0MeansTheObjectIsEmpty1BoxedMap extends Maxproperties0MeansTheObjectIsEmpty1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Maxproperties0MeansTheObjectIsEmpty1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

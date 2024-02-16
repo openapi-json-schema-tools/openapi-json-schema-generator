@@ -35,12 +35,18 @@ public class DurationFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class DurationFormat1Boxed permits DurationFormat1BoxedVoid, DurationFormat1BoxedBoolean, DurationFormat1BoxedNumber, DurationFormat1BoxedString, DurationFormat1BoxedList, DurationFormat1BoxedMap {}
+    public static abstract sealed class DurationFormat1Boxed permits DurationFormat1BoxedVoid, DurationFormat1BoxedBoolean, DurationFormat1BoxedNumber, DurationFormat1BoxedString, DurationFormat1BoxedList, DurationFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DurationFormat1BoxedVoid extends DurationFormat1Boxed {
         public final Void data;
         private DurationFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class DurationFormat {
         private DurationFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DurationFormat1BoxedNumber extends DurationFormat1Boxed {
         public final Number data;
         private DurationFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class DurationFormat {
         private DurationFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DurationFormat1BoxedList extends DurationFormat1Boxed {
@@ -70,12 +88,20 @@ public class DurationFormat {
         private DurationFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DurationFormat1BoxedMap extends DurationFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private DurationFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

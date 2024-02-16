@@ -1,6 +1,6 @@
 # ParentPet
 org.openapijsonschematools.client.components.schemas.ParentPet.java
-public class ParentPet
+public class ParentPet<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

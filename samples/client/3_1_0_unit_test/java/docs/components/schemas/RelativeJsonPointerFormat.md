@@ -1,6 +1,6 @@
 # RelativeJsonPointerFormat
 org.openapijsonschematools.client.components.schemas.RelativeJsonPointerFormat.java
-public class RelativeJsonPointerFormat
+public class RelativeJsonPointerFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

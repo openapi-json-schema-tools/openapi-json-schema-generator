@@ -19,12 +19,18 @@ public class NumberWithExclusiveMinMax {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class NumberWithExclusiveMinMax1Boxed permits NumberWithExclusiveMinMax1BoxedNumber {}
+    public static abstract sealed class NumberWithExclusiveMinMax1Boxed permits NumberWithExclusiveMinMax1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NumberWithExclusiveMinMax1BoxedNumber extends NumberWithExclusiveMinMax1Boxed {
         public final Number data;
         private NumberWithExclusiveMinMax1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

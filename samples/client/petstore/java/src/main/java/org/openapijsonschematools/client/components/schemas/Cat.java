@@ -115,12 +115,18 @@ public class Cat {
     }
     
     
-    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {}
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -199,12 +205,18 @@ public class Cat {
     }
     
     
-    public static abstract sealed class Cat1Boxed permits Cat1BoxedVoid, Cat1BoxedBoolean, Cat1BoxedNumber, Cat1BoxedString, Cat1BoxedList, Cat1BoxedMap {}
+    public static abstract sealed class Cat1Boxed permits Cat1BoxedVoid, Cat1BoxedBoolean, Cat1BoxedNumber, Cat1BoxedString, Cat1BoxedList, Cat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Cat1BoxedVoid extends Cat1Boxed {
         public final Void data;
         private Cat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -213,12 +225,20 @@ public class Cat {
         private Cat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Cat1BoxedNumber extends Cat1Boxed {
         public final Number data;
         private Cat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -227,6 +247,10 @@ public class Cat {
         private Cat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Cat1BoxedList extends Cat1Boxed {
@@ -234,12 +258,20 @@ public class Cat {
         private Cat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Cat1BoxedMap extends Cat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Cat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

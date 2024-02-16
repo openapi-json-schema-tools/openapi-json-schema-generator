@@ -1,6 +1,6 @@
 # AdditionalpropertiesShouldNotLookInApplicators
 org.openapijsonschematools.client.components.schemas.AdditionalpropertiesShouldNotLookInApplicators.java
-public class AdditionalpropertiesShouldNotLookInApplicators
+public class AdditionalpropertiesShouldNotLookInApplicators<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

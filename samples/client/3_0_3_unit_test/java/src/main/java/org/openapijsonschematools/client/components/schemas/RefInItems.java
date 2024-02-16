@@ -95,12 +95,18 @@ public class RefInItems {
     }
     
     
-    public static abstract sealed class RefInItems1Boxed permits RefInItems1BoxedList {}
+    public static abstract sealed class RefInItems1Boxed permits RefInItems1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RefInItems1BoxedList extends RefInItems1Boxed {
         public final RefInItemsList data;
         private RefInItems1BoxedList(RefInItemsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

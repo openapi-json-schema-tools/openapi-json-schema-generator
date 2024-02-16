@@ -1,6 +1,6 @@
 # NumberWithValidations
 org.openapijsonschematools.client.components.schemas.NumberWithValidations.java
-public class NumberWithValidations
+public class NumberWithValidations<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

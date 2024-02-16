@@ -255,12 +255,18 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     }
     
     
-    public static abstract sealed class AdditionalpropertiesAllowsASchemaWhichShouldValidate1Boxed permits AdditionalpropertiesAllowsASchemaWhichShouldValidate1BoxedMap {}
+    public static abstract sealed class AdditionalpropertiesAllowsASchemaWhichShouldValidate1Boxed permits AdditionalpropertiesAllowsASchemaWhichShouldValidate1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalpropertiesAllowsASchemaWhichShouldValidate1BoxedMap extends AdditionalpropertiesAllowsASchemaWhichShouldValidate1Boxed {
         public final AdditionalpropertiesAllowsASchemaWhichShouldValidateMap data;
         private AdditionalpropertiesAllowsASchemaWhichShouldValidate1BoxedMap(AdditionalpropertiesAllowsASchemaWhichShouldValidateMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

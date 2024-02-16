@@ -75,12 +75,18 @@ public class ArrayTest {
     }
     
     
-    public static abstract sealed class ArrayOfStringBoxed permits ArrayOfStringBoxedList {}
+    public static abstract sealed class ArrayOfStringBoxed permits ArrayOfStringBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayOfStringBoxedList extends ArrayOfStringBoxed {
         public final ArrayOfStringList data;
         private ArrayOfStringBoxedList(ArrayOfStringList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -214,12 +220,18 @@ public class ArrayTest {
     }
     
     
-    public static abstract sealed class Items1Boxed permits Items1BoxedList {}
+    public static abstract sealed class Items1Boxed permits Items1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Items1BoxedList extends Items1Boxed {
         public final ItemsList data;
         private Items1BoxedList(ItemsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,12 +339,18 @@ public class ArrayTest {
     }
     
     
-    public static abstract sealed class ArrayArrayOfIntegerBoxed permits ArrayArrayOfIntegerBoxedList {}
+    public static abstract sealed class ArrayArrayOfIntegerBoxed permits ArrayArrayOfIntegerBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayArrayOfIntegerBoxedList extends ArrayArrayOfIntegerBoxed {
         public final ArrayArrayOfIntegerList data;
         private ArrayArrayOfIntegerBoxedList(ArrayArrayOfIntegerList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -440,12 +458,18 @@ public class ArrayTest {
     }
     
     
-    public static abstract sealed class Items3Boxed permits Items3BoxedList {}
+    public static abstract sealed class Items3Boxed permits Items3BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Items3BoxedList extends Items3Boxed {
         public final ItemsList1 data;
         private Items3BoxedList(ItemsList1 data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -553,12 +577,18 @@ public class ArrayTest {
     }
     
     
-    public static abstract sealed class ArrayArrayOfModelBoxed permits ArrayArrayOfModelBoxedList {}
+    public static abstract sealed class ArrayArrayOfModelBoxed permits ArrayArrayOfModelBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayArrayOfModelBoxedList extends ArrayArrayOfModelBoxed {
         public final ArrayArrayOfModelList data;
         private ArrayArrayOfModelBoxedList(ArrayArrayOfModelList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -752,12 +782,18 @@ public class ArrayTest {
     }
     
     
-    public static abstract sealed class ArrayTest1Boxed permits ArrayTest1BoxedMap {}
+    public static abstract sealed class ArrayTest1Boxed permits ArrayTest1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ArrayTest1BoxedMap extends ArrayTest1Boxed {
         public final ArrayTestMap data;
         private ArrayTest1BoxedMap(ArrayTestMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
