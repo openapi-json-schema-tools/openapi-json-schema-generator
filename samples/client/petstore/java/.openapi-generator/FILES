@@ -768,6 +768,7 @@ src/main/java/org/openapijsonschematools/client/paths/userusername/put/requestbo
 src/main/java/org/openapijsonschematools/client/requestbody/GenericRequestBody.java
 src/main/java/org/openapijsonschematools/client/requestbody/RequestBodySerializer.java
 src/main/java/org/openapijsonschematools/client/requestbody/SerializedRequestBody.java
+src/main/java/org/openapijsonschematools/client/response/ApiResponse.java
 src/main/java/org/openapijsonschematools/client/schemas/AnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/BooleanJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/DateJsonSchema.java

@@ -752,7 +752,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/test/java/packagename/requestbody/RequestBodySerializerTest.hbs",
                 testPackagePath() + File.separatorChar + "requestbody",
                 "RequestBodySerializerTest.java"));
-
         // mediatype
         supportingFiles.add(new SupportingFile(
                 "src/main/java/packagename/mediatype/MediaType.hbs",
@@ -767,7 +766,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 "src/main/java/packagename/parameter/ParameterStyle.hbs",
                 packagePath() + File.separatorChar + "parameter",
                 "ParameterStyle.java"));
+        // response
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/packagename/response/ApiResponse.hbs",
+                packagePath() + File.separatorChar + "response",
+                "ApiResponse.java"));
 
+        // jsonPaths
         // requestbodies
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY,
