@@ -38,10 +38,10 @@ src/this_package/paths/__init__.py
 src/this_package/paths/operators/__init__.py
 src/this_package/paths/operators/post/__init__.py
 src/this_package/paths/operators/post/operation.py
+src/this_package/paths/operators/post/request_body/__init__.py
 src/this_package/paths/operators/post/request_body/content/__init__.py
 src/this_package/paths/operators/post/request_body/content/application_json/__init__.py
 src/this_package/paths/operators/post/request_body/content/application_json/schema.py
-src/this_package/paths/operators/post/request_body_request_body/__init__.py
 src/this_package/paths/operators/post/responses/__init__.py
 src/this_package/paths/operators/post/responses/response_200/__init__.py
 src/this_package/py.typed
