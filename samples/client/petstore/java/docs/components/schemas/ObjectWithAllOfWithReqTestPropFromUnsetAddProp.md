@@ -1,6 +1,6 @@
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 org.openapijsonschematools.client.components.schemas.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.java
-public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp
+public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

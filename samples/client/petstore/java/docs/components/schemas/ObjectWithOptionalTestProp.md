@@ -1,6 +1,6 @@
 # ObjectWithOptionalTestProp
 org.openapijsonschematools.client.components.schemas.ObjectWithOptionalTestProp.java
-public class ObjectWithOptionalTestProp
+public class ObjectWithOptionalTestProp<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

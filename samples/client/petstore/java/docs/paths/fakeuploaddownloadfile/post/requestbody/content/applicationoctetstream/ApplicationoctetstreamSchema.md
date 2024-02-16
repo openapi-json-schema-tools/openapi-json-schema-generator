@@ -1,5 +1,5 @@
 # ApplicationoctetstreamSchema
-public class ApplicationoctetstreamSchema
+public class ApplicationoctetstreamSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

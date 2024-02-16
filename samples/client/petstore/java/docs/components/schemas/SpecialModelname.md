@@ -1,6 +1,6 @@
 # SpecialModelname
 org.openapijsonschematools.client.components.schemas.SpecialModelname.java
-public class SpecialModelname
+public class SpecialModelname<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

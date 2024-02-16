@@ -1,5 +1,6 @@
 # ApplicationjsonSchema
-public class ApplicationjsonSchema
+public class ApplicationjsonSchema<br>
+extends [StringEnum1](../../../../../../../components/schemas/StringEnum.md#stringenum)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

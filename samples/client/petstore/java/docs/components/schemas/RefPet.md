@@ -1,6 +1,7 @@
 # RefPet
 org.openapijsonschematools.client.components.schemas.RefPet.java
-public class RefPet
+public class RefPet<br>
+extends [Pet1](../../components/schemas/Pet.md#pet)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

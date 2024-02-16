@@ -1,6 +1,6 @@
 # NumberSchema
 org.openapijsonschematools.client.components.schemas.NumberSchema.java
-public class NumberSchema
+public class NumberSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # IntegerEnum
 org.openapijsonschematools.client.components.schemas.IntegerEnum.java
-public class IntegerEnum
+public class IntegerEnum<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

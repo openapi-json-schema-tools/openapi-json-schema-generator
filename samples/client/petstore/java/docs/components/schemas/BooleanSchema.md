@@ -1,6 +1,6 @@
 # BooleanSchema
 org.openapijsonschematools.client.components.schemas.BooleanSchema.java
-public class BooleanSchema
+public class BooleanSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

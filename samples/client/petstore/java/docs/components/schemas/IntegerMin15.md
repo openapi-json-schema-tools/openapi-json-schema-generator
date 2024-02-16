@@ -1,6 +1,6 @@
 # IntegerMin15
 org.openapijsonschematools.client.components.schemas.IntegerMin15.java
-public class IntegerMin15
+public class IntegerMin15<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

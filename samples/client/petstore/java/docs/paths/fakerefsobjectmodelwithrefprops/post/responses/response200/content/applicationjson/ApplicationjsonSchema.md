@@ -1,5 +1,6 @@
 # ApplicationjsonSchema
-public class ApplicationjsonSchema
+public class ApplicationjsonSchema<br>
+extends [ObjectModelWithRefProps1](../../../../../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

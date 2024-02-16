@@ -1,6 +1,6 @@
 # NumberWithExclusiveMinMax
 org.openapijsonschematools.client.components.schemas.NumberWithExclusiveMinMax.java
-public class NumberWithExclusiveMinMax
+public class NumberWithExclusiveMinMax<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # JSONPatchRequest
 org.openapijsonschematools.client.components.schemas.JSONPatchRequest.java
-public class JSONPatchRequest
+public class JSONPatchRequest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

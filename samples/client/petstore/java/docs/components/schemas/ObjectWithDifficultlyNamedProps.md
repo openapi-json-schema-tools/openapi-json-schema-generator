@@ -1,6 +1,6 @@
 # ObjectWithDifficultlyNamedProps
 org.openapijsonschematools.client.components.schemas.ObjectWithDifficultlyNamedProps.java
-public class ObjectWithDifficultlyNamedProps
+public class ObjectWithDifficultlyNamedProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

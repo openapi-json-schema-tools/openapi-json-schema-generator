@@ -1,6 +1,6 @@
 # ReadOnlyFirst
 org.openapijsonschematools.client.components.schemas.ReadOnlyFirst.java
-public class ReadOnlyFirst
+public class ReadOnlyFirst<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

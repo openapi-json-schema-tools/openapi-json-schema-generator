@@ -7,7 +7,10 @@
 {{#if componentModule}}
 {{moduleLocation}}.java
 {{/if}}
-public class {{containerJsonPathPiece.pascalCase}}
+public class {{containerJsonPathPiece.pascalCase}}<br>
+{{#if refInfo}}
+extends [{{refInfo.refClass}}]({{docRoot}}{{#with refInfo.ref}}{{pathFromDocRoot}}.md#{{containerJsonPathPiece.kebabCase}}{{/with}})
+{{/if}}
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

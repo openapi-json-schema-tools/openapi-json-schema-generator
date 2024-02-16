@@ -1,5 +1,6 @@
 # ApplicationjsonSchema
-public class ApplicationjsonSchema
+public class ApplicationjsonSchema<br>
+extends [StringSchema1](../../../../../../../../../components/schemas/StringSchema.md#stringschema)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,5 +1,6 @@
 # ApplicationxmlSchema
-public class ApplicationxmlSchema
+public class ApplicationxmlSchema<br>
+extends [Order1](../../../../../../../../../components/schemas/Order.md#order)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

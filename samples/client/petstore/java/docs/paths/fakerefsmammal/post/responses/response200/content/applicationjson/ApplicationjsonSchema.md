@@ -1,5 +1,6 @@
 # ApplicationjsonSchema
-public class ApplicationjsonSchema
+public class ApplicationjsonSchema<br>
+extends [Mammal1](../../../../../../../../../components/schemas/Mammal.md#mammal)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

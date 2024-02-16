@@ -1,6 +1,6 @@
 # MyObjectDto
 org.openapijsonschematools.client.components.schemas.MyObjectDto.java
-public class MyObjectDto
+public class MyObjectDto<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

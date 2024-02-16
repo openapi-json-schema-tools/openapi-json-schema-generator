@@ -1,6 +1,6 @@
 # AbstractStepMessage
 org.openapijsonschematools.client.components.schemas.AbstractStepMessage.java
-public class AbstractStepMessage
+public class AbstractStepMessage<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

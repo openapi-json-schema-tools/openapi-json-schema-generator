@@ -1,6 +1,6 @@
 # Cat
 org.openapijsonschematools.client.components.schemas.Cat.java
-public class Cat
+public class Cat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

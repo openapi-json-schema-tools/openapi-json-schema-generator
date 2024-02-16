@@ -1,5 +1,6 @@
 # ApplicationjsonSchema
-public class ApplicationjsonSchema
+public class ApplicationjsonSchema<br>
+extends [AdditionalPropertiesWithArrayOfEnums1](../../../../../../../../../components/schemas/AdditionalPropertiesWithArrayOfEnums.md#additionalpropertieswitharrayofenums)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # HasOnlyReadOnly
 org.openapijsonschematools.client.components.schemas.HasOnlyReadOnly.java
-public class HasOnlyReadOnly
+public class HasOnlyReadOnly<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

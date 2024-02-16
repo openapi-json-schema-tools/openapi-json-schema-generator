@@ -1,6 +1,6 @@
 # FormatTest
 org.openapijsonschematools.client.components.schemas.FormatTest.java
-public class FormatTest
+public class FormatTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # ComposedAnyOfDifferentTypesNoValidations
 org.openapijsonschematools.client.components.schemas.ComposedAnyOfDifferentTypesNoValidations.java
-public class ComposedAnyOfDifferentTypesNoValidations
+public class ComposedAnyOfDifferentTypesNoValidations<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

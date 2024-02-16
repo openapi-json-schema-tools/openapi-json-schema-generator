@@ -1,5 +1,6 @@
 # ApplicationjsonSchema
-public class ApplicationjsonSchema
+public class ApplicationjsonSchema<br>
+extends [RefPet1](../../../../../../../../../components/schemas/RefPet.md#refpet)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # ComposedBool
 org.openapijsonschematools.client.components.schemas.ComposedBool.java
-public class ComposedBool
+public class ComposedBool<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

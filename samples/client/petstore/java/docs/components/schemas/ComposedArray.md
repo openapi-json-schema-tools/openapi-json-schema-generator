@@ -1,6 +1,6 @@
 # ComposedArray
 org.openapijsonschematools.client.components.schemas.ComposedArray.java
-public class ComposedArray
+public class ComposedArray<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,5 +1,5 @@
 # XRateLimitSchema
-public class XRateLimitSchema
+public class XRateLimitSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

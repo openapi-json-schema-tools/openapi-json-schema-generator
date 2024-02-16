@@ -1,6 +1,6 @@
 # User
 org.openapijsonschematools.client.components.schemas.User.java
-public class User
+public class User<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

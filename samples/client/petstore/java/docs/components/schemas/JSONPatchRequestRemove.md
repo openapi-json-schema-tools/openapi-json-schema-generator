@@ -1,6 +1,6 @@
 # JSONPatchRequestRemove
 org.openapijsonschematools.client.components.schemas.JSONPatchRequestRemove.java
-public class JSONPatchRequestRemove
+public class JSONPatchRequestRemove<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

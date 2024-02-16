@@ -1,6 +1,6 @@
 # IntegerEnumWithDefaultValue
 org.openapijsonschematools.client.components.schemas.IntegerEnumWithDefaultValue.java
-public class IntegerEnumWithDefaultValue
+public class IntegerEnumWithDefaultValue<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

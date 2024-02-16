@@ -1,6 +1,6 @@
 # AnyTypeAndFormat
 org.openapijsonschematools.client.components.schemas.AnyTypeAndFormat.java
-public class AnyTypeAndFormat
+public class AnyTypeAndFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # Schema200Response
 org.openapijsonschematools.client.components.schemas.Schema200Response.java
-public class Schema200Response
+public class Schema200Response<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

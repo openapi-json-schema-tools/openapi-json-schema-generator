@@ -1,6 +1,6 @@
 # MapTest
 org.openapijsonschematools.client.components.schemas.MapTest.java
-public class MapTest
+public class MapTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

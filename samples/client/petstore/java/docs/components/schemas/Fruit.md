@@ -1,6 +1,6 @@
 # Fruit
 org.openapijsonschematools.client.components.schemas.Fruit.java
-public class Fruit
+public class Fruit<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # ComposedOneOfDifferentTypes
 org.openapijsonschematools.client.components.schemas.ComposedOneOfDifferentTypes.java
-public class ComposedOneOfDifferentTypes
+public class ComposedOneOfDifferentTypes<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

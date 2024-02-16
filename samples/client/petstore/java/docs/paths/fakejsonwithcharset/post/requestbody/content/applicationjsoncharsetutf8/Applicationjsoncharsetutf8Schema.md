@@ -1,5 +1,5 @@
 # Applicationjsoncharsetutf8Schema
-public class Applicationjsoncharsetutf8Schema
+public class Applicationjsoncharsetutf8Schema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

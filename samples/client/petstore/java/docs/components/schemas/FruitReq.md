@@ -1,6 +1,6 @@
 # FruitReq
 org.openapijsonschematools.client.components.schemas.FruitReq.java
-public class FruitReq
+public class FruitReq<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

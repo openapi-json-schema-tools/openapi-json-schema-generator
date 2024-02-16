@@ -1,6 +1,6 @@
 # Whale
 org.openapijsonschematools.client.components.schemas.Whale.java
-public class Whale
+public class Whale<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

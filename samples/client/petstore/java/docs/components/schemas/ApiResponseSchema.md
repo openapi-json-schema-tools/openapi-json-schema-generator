@@ -1,6 +1,6 @@
 # ApiResponseSchema
 org.openapijsonschematools.client.components.schemas.ApiResponseSchema.java
-public class ApiResponseSchema
+public class ApiResponseSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

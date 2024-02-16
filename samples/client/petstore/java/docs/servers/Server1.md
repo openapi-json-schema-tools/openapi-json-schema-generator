@@ -20,7 +20,7 @@ The local server
 | [Variables.VariablesMap](#variablesmap) | variables |
 
 ## Variables
-public class Variables
+public class Variables<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

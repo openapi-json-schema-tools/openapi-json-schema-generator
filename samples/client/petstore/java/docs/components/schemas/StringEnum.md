@@ -1,6 +1,6 @@
 # StringEnum
 org.openapijsonschematools.client.components.schemas.StringEnum.java
-public class StringEnum
+public class StringEnum<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

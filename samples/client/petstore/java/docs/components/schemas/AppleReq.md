@@ -1,6 +1,6 @@
 # AppleReq
 org.openapijsonschematools.client.components.schemas.AppleReq.java
-public class AppleReq
+public class AppleReq<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

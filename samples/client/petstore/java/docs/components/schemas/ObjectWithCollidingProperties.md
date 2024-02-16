@@ -1,6 +1,6 @@
 # ObjectWithCollidingProperties
 org.openapijsonschematools.client.components.schemas.ObjectWithCollidingProperties.java
-public class ObjectWithCollidingProperties
+public class ObjectWithCollidingProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

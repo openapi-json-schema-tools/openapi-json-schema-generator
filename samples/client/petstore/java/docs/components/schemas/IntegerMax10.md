@@ -1,6 +1,6 @@
 # IntegerMax10
 org.openapijsonschematools.client.components.schemas.IntegerMax10.java
-public class IntegerMax10
+public class IntegerMax10<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

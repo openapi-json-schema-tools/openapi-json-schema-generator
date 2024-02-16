@@ -1,6 +1,6 @@
 # EnumClass
 org.openapijsonschematools.client.components.schemas.EnumClass.java
-public class EnumClass
+public class EnumClass<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

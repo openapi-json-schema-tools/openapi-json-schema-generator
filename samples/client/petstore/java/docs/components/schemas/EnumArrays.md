@@ -1,6 +1,6 @@
 # EnumArrays
 org.openapijsonschematools.client.components.schemas.EnumArrays.java
-public class EnumArrays
+public class EnumArrays<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

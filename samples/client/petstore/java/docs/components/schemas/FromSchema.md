@@ -1,6 +1,6 @@
 # FromSchema
 org.openapijsonschematools.client.components.schemas.FromSchema.java
-public class FromSchema
+public class FromSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

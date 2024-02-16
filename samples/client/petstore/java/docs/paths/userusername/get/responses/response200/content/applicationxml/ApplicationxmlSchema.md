@@ -1,5 +1,6 @@
 # ApplicationxmlSchema
-public class ApplicationxmlSchema
+public class ApplicationxmlSchema<br>
+extends [User1](../../../../../../../../../components/schemas/User.md#user)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

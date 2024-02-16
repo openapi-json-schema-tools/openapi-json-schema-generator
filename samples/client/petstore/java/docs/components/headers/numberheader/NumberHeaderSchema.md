@@ -1,5 +1,5 @@
 # NumberHeaderSchema
-public class NumberHeaderSchema
+public class NumberHeaderSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

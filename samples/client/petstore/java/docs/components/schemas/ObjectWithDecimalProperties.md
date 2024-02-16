@@ -1,6 +1,6 @@
 # ObjectWithDecimalProperties
 org.openapijsonschematools.client.components.schemas.ObjectWithDecimalProperties.java
-public class ObjectWithDecimalProperties
+public class ObjectWithDecimalProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

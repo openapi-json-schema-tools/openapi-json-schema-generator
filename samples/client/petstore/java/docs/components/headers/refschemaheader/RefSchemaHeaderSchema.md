@@ -1,5 +1,6 @@
 # RefSchemaHeaderSchema
-public class RefSchemaHeaderSchema
+public class RefSchemaHeaderSchema<br>
+extends [StringWithValidation1](../../../components/schemas/StringWithValidation.md#stringwithvalidation)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

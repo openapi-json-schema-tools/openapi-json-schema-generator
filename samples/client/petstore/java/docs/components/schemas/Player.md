@@ -1,6 +1,6 @@
 # Player
 org.openapijsonschematools.client.components.schemas.Player.java
-public class Player
+public class Player<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

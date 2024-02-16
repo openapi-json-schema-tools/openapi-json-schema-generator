@@ -1,5 +1,6 @@
 # Schema0
-public class Schema0
+public class Schema0<br>
+extends [Foo1](../../../components/schemas/Foo.md#foo)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # StringEnumWithDefaultValue
 org.openapijsonschematools.client.components.schemas.StringEnumWithDefaultValue.java
-public class StringEnumWithDefaultValue
+public class StringEnumWithDefaultValue<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

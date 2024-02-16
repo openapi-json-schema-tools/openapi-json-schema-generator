@@ -1,6 +1,6 @@
 # DanishPig
 org.openapijsonschematools.client.components.schemas.DanishPig.java
-public class DanishPig
+public class DanishPig<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # ArrayOfEnums
 org.openapijsonschematools.client.components.schemas.ArrayOfEnums.java
-public class ArrayOfEnums
+public class ArrayOfEnums<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

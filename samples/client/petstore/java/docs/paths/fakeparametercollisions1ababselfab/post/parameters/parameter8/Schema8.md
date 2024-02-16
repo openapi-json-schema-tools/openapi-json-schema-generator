@@ -1,5 +1,5 @@
 # Schema8
-public class Schema8
+public class Schema8<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

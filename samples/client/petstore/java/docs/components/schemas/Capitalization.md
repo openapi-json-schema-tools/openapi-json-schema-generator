@@ -1,6 +1,6 @@
 # Capitalization
 org.openapijsonschematools.client.components.schemas.Capitalization.java
-public class Capitalization
+public class Capitalization<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

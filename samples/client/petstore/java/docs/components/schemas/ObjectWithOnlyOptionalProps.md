@@ -1,6 +1,6 @@
 # ObjectWithOnlyOptionalProps
 org.openapijsonschematools.client.components.schemas.ObjectWithOnlyOptionalProps.java
-public class ObjectWithOnlyOptionalProps
+public class ObjectWithOnlyOptionalProps<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

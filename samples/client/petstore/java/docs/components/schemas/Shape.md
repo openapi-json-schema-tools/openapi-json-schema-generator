@@ -1,6 +1,6 @@
 # Shape
 org.openapijsonschematools.client.components.schemas.Shape.java
-public class Shape
+public class Shape<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

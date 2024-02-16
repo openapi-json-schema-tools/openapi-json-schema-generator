@@ -1,6 +1,6 @@
 # Zebra
 org.openapijsonschematools.client.components.schemas.Zebra.java
-public class Zebra
+public class Zebra<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

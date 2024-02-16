@@ -1,6 +1,6 @@
 # ComposedString
 org.openapijsonschematools.client.components.schemas.ComposedString.java
-public class ComposedString
+public class ComposedString<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

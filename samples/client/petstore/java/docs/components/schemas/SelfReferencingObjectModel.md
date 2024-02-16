@@ -1,6 +1,6 @@
 # SelfReferencingObjectModel
 org.openapijsonschematools.client.components.schemas.SelfReferencingObjectModel.java
-public class SelfReferencingObjectModel
+public class SelfReferencingObjectModel<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

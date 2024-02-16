@@ -1,6 +1,6 @@
 # Pet
 org.openapijsonschematools.client.components.schemas.Pet.java
-public class Pet
+public class Pet<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

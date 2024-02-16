@@ -1,6 +1,6 @@
 # Mammal
 org.openapijsonschematools.client.components.schemas.Mammal.java
-public class Mammal
+public class Mammal<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

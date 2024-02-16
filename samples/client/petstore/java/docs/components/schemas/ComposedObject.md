@@ -1,6 +1,6 @@
 # ComposedObject
 org.openapijsonschematools.client.components.schemas.ComposedObject.java
-public class ComposedObject
+public class ComposedObject<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

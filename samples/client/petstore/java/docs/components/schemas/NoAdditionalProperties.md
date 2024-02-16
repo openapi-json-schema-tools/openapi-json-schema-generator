@@ -1,6 +1,6 @@
 # NoAdditionalProperties
 org.openapijsonschematools.client.components.schemas.NoAdditionalProperties.java
-public class NoAdditionalProperties
+public class NoAdditionalProperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

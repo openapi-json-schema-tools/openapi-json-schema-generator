@@ -1,6 +1,6 @@
 # ObjWithRequiredPropsBase
 org.openapijsonschematools.client.components.schemas.ObjWithRequiredPropsBase.java
-public class ObjWithRequiredPropsBase
+public class ObjWithRequiredPropsBase<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,5 +1,6 @@
 # ApplicationjsonpatchjsonSchema
-public class ApplicationjsonpatchjsonSchema
+public class ApplicationjsonpatchjsonSchema<br>
+extends [JSONPatchRequest1](../../../../../../../components/schemas/JSONPatchRequest.md#jsonpatchrequest)
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

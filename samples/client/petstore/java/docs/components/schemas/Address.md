@@ -1,6 +1,6 @@
 # Address
 org.openapijsonschematools.client.components.schemas.Address.java
-public class Address
+public class Address<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

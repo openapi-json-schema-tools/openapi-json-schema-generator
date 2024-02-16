@@ -1,6 +1,6 @@
 # EnumTest
 org.openapijsonschematools.client.components.schemas.EnumTest.java
-public class EnumTest
+public class EnumTest<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

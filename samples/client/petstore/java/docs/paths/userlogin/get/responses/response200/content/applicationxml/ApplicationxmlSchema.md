@@ -1,5 +1,5 @@
 # ApplicationxmlSchema
-public class ApplicationxmlSchema
+public class ApplicationxmlSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # ObjectInterface
 org.openapijsonschematools.client.components.schemas.ObjectInterface.java
-public class ObjectInterface
+public class ObjectInterface<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

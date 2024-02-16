@@ -1,6 +1,6 @@
 # Triangle
 org.openapijsonschematools.client.components.schemas.Triangle.java
-public class Triangle
+public class Triangle<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

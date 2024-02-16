@@ -1,6 +1,6 @@
 # ClassModel
 org.openapijsonschematools.client.components.schemas.ClassModel.java
-public class ClassModel
+public class ClassModel<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

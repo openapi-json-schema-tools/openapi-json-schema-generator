@@ -1,6 +1,6 @@
 # PublicKey
 org.openapijsonschematools.client.components.schemas.PublicKey.java
-public class PublicKey
+public class PublicKey<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # ObjectWithInlineCompositionProperty
 org.openapijsonschematools.client.components.schemas.ObjectWithInlineCompositionProperty.java
-public class ObjectWithInlineCompositionProperty
+public class ObjectWithInlineCompositionProperty<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
