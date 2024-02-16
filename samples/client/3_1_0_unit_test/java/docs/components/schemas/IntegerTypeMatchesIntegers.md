@@ -1,6 +1,6 @@
 # IntegerTypeMatchesIntegers
 org.openapijsonschematools.client.components.schemas.IntegerTypeMatchesIntegers.java
-public class IntegerTypeMatchesIntegers
+public class IntegerTypeMatchesIntegers<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

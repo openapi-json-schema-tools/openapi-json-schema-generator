@@ -37,12 +37,18 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class FootbarBoxed permits FootbarBoxedVoid, FootbarBoxedBoolean, FootbarBoxedNumber, FootbarBoxedString, FootbarBoxedList, FootbarBoxedMap {}
+    public static abstract sealed class FootbarBoxed permits FootbarBoxedVoid, FootbarBoxedBoolean, FootbarBoxedNumber, FootbarBoxedString, FootbarBoxedList, FootbarBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FootbarBoxedVoid extends FootbarBoxed {
         public final Void data;
         private FootbarBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -51,12 +57,20 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private FootbarBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FootbarBoxedNumber extends FootbarBoxed {
         public final Number data;
         private FootbarBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -65,6 +79,10 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private FootbarBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FootbarBoxedList extends FootbarBoxed {
@@ -72,12 +90,20 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private FootbarBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FootbarBoxedMap extends FootbarBoxed {
         public final FrozenMap<@Nullable Object> data;
         private FootbarBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -415,12 +441,18 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
     }
     
     
-    public static abstract sealed class FoobarBoxed permits FoobarBoxedVoid, FoobarBoxedBoolean, FoobarBoxedNumber, FoobarBoxedString, FoobarBoxedList, FoobarBoxedMap {}
+    public static abstract sealed class FoobarBoxed permits FoobarBoxedVoid, FoobarBoxedBoolean, FoobarBoxedNumber, FoobarBoxedString, FoobarBoxedList, FoobarBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FoobarBoxedVoid extends FoobarBoxed {
         public final Void data;
         private FoobarBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -429,12 +461,20 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private FoobarBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FoobarBoxedNumber extends FoobarBoxed {
         public final Number data;
         private FoobarBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -443,6 +483,10 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private FoobarBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FoobarBoxedList extends FoobarBoxed {
@@ -450,12 +494,20 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private FoobarBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FoobarBoxedMap extends FoobarBoxed {
         public final FoobarMap data;
         private FoobarBoxedMap(FoobarMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -681,12 +733,18 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         }
     }    
     
-    public static abstract sealed class DependentSchemasDependenciesWithEscapedCharacters1Boxed permits DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid, DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean, DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber, DependentSchemasDependenciesWithEscapedCharacters1BoxedString, DependentSchemasDependenciesWithEscapedCharacters1BoxedList, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap {}
+    public static abstract sealed class DependentSchemasDependenciesWithEscapedCharacters1Boxed permits DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid, DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean, DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber, DependentSchemasDependenciesWithEscapedCharacters1BoxedString, DependentSchemasDependenciesWithEscapedCharacters1BoxedList, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         public final Void data;
         private DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -695,12 +753,20 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         public final Number data;
         private DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -709,6 +775,10 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private DependentSchemasDependenciesWithEscapedCharacters1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedList extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
@@ -716,12 +786,20 @@ public class DependentSchemasDependenciesWithEscapedCharacters {
         private DependentSchemasDependenciesWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasDependenciesWithEscapedCharacters1BoxedMap extends DependentSchemasDependenciesWithEscapedCharacters1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private DependentSchemasDependenciesWithEscapedCharacters1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # ArrayTypeMatchesArrays
 org.openapijsonschematools.client.components.schemas.ArrayTypeMatchesArrays.java
-public class ArrayTypeMatchesArrays
+public class ArrayTypeMatchesArrays<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

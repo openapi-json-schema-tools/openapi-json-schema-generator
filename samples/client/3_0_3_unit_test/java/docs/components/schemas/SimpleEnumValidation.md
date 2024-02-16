@@ -1,6 +1,6 @@
 # SimpleEnumValidation
 org.openapijsonschematools.client.components.schemas.SimpleEnumValidation.java
-public class SimpleEnumValidation
+public class SimpleEnumValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

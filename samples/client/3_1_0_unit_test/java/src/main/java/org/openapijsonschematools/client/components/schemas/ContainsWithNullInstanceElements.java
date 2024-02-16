@@ -47,12 +47,18 @@ public class ContainsWithNullInstanceElements {
     }
     
     
-    public static abstract sealed class ContainsWithNullInstanceElements1Boxed permits ContainsWithNullInstanceElements1BoxedVoid, ContainsWithNullInstanceElements1BoxedBoolean, ContainsWithNullInstanceElements1BoxedNumber, ContainsWithNullInstanceElements1BoxedString, ContainsWithNullInstanceElements1BoxedList, ContainsWithNullInstanceElements1BoxedMap {}
+    public static abstract sealed class ContainsWithNullInstanceElements1Boxed permits ContainsWithNullInstanceElements1BoxedVoid, ContainsWithNullInstanceElements1BoxedBoolean, ContainsWithNullInstanceElements1BoxedNumber, ContainsWithNullInstanceElements1BoxedString, ContainsWithNullInstanceElements1BoxedList, ContainsWithNullInstanceElements1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ContainsWithNullInstanceElements1BoxedVoid extends ContainsWithNullInstanceElements1Boxed {
         public final Void data;
         private ContainsWithNullInstanceElements1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class ContainsWithNullInstanceElements {
         private ContainsWithNullInstanceElements1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsWithNullInstanceElements1BoxedNumber extends ContainsWithNullInstanceElements1Boxed {
         public final Number data;
         private ContainsWithNullInstanceElements1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class ContainsWithNullInstanceElements {
         private ContainsWithNullInstanceElements1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsWithNullInstanceElements1BoxedList extends ContainsWithNullInstanceElements1Boxed {
@@ -82,12 +100,20 @@ public class ContainsWithNullInstanceElements {
         private ContainsWithNullInstanceElements1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsWithNullInstanceElements1BoxedMap extends ContainsWithNullInstanceElements1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ContainsWithNullInstanceElements1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

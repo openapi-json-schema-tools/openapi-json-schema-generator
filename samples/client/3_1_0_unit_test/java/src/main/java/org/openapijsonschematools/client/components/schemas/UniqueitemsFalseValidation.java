@@ -35,12 +35,18 @@ public class UniqueitemsFalseValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UniqueitemsFalseValidation1Boxed permits UniqueitemsFalseValidation1BoxedVoid, UniqueitemsFalseValidation1BoxedBoolean, UniqueitemsFalseValidation1BoxedNumber, UniqueitemsFalseValidation1BoxedString, UniqueitemsFalseValidation1BoxedList, UniqueitemsFalseValidation1BoxedMap {}
+    public static abstract sealed class UniqueitemsFalseValidation1Boxed permits UniqueitemsFalseValidation1BoxedVoid, UniqueitemsFalseValidation1BoxedBoolean, UniqueitemsFalseValidation1BoxedNumber, UniqueitemsFalseValidation1BoxedString, UniqueitemsFalseValidation1BoxedList, UniqueitemsFalseValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UniqueitemsFalseValidation1BoxedVoid extends UniqueitemsFalseValidation1Boxed {
         public final Void data;
         private UniqueitemsFalseValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class UniqueitemsFalseValidation {
         private UniqueitemsFalseValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsFalseValidation1BoxedNumber extends UniqueitemsFalseValidation1Boxed {
         public final Number data;
         private UniqueitemsFalseValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class UniqueitemsFalseValidation {
         private UniqueitemsFalseValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsFalseValidation1BoxedList extends UniqueitemsFalseValidation1Boxed {
@@ -70,12 +88,20 @@ public class UniqueitemsFalseValidation {
         private UniqueitemsFalseValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsFalseValidation1BoxedMap extends UniqueitemsFalseValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UniqueitemsFalseValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

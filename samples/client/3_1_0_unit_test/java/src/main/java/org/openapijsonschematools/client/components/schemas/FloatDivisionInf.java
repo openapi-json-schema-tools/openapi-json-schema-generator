@@ -20,12 +20,18 @@ public class FloatDivisionInf {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class FloatDivisionInf1Boxed permits FloatDivisionInf1BoxedNumber {}
+    public static abstract sealed class FloatDivisionInf1Boxed permits FloatDivisionInf1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FloatDivisionInf1BoxedNumber extends FloatDivisionInf1Boxed {
         public final Number data;
         private FloatDivisionInf1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

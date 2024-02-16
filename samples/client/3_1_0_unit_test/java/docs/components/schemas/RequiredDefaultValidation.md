@@ -1,6 +1,6 @@
 # RequiredDefaultValidation
 org.openapijsonschematools.client.components.schemas.RequiredDefaultValidation.java
-public class RequiredDefaultValidation
+public class RequiredDefaultValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

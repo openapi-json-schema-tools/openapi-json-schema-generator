@@ -1,6 +1,6 @@
 # AllofCombinedWithAnyofOneof
 org.openapijsonschematools.client.components.schemas.AllofCombinedWithAnyofOneof.java
-public class AllofCombinedWithAnyofOneof
+public class AllofCombinedWithAnyofOneof<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

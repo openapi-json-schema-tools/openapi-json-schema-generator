@@ -1,6 +1,6 @@
 # AllofWithOneEmptySchema
 org.openapijsonschematools.client.components.schemas.AllofWithOneEmptySchema.java
-public class AllofWithOneEmptySchema
+public class AllofWithOneEmptySchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

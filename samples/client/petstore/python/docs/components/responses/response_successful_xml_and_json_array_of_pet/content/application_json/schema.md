@@ -28,7 +28,7 @@ type: typing.Union[
 ```
 List/Tuple Item Type | Description | Notes
 -------------------- | ------------- | -------------
-[pet.PetDictInput](../../../../../components/schema/pet.md#petdictinput), [pet.PetDict](../../../../../components/schema/pet.md#petdict) |  |
+[pet.PetDictInput](../../../../../../components/schema/pet.md#petdictinput), [pet.PetDict](../../../../../../components/schema/pet.md#petdict) |  |
 
 ## SchemaTuple
 ```
@@ -46,4 +46,4 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [pet.PetDict](../../../../../components/schema/pet.md#petdict) | This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [pet.PetDict](../../../../../../components/schema/pet.md#petdict) | This method is used under the hood when instance[0] is called

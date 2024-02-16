@@ -35,12 +35,18 @@ public class UriReferenceFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UriReferenceFormat1Boxed permits UriReferenceFormat1BoxedVoid, UriReferenceFormat1BoxedBoolean, UriReferenceFormat1BoxedNumber, UriReferenceFormat1BoxedString, UriReferenceFormat1BoxedList, UriReferenceFormat1BoxedMap {}
+    public static abstract sealed class UriReferenceFormat1Boxed permits UriReferenceFormat1BoxedVoid, UriReferenceFormat1BoxedBoolean, UriReferenceFormat1BoxedNumber, UriReferenceFormat1BoxedString, UriReferenceFormat1BoxedList, UriReferenceFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UriReferenceFormat1BoxedVoid extends UriReferenceFormat1Boxed {
         public final Void data;
         private UriReferenceFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class UriReferenceFormat {
         private UriReferenceFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriReferenceFormat1BoxedNumber extends UriReferenceFormat1Boxed {
         public final Number data;
         private UriReferenceFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class UriReferenceFormat {
         private UriReferenceFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriReferenceFormat1BoxedList extends UriReferenceFormat1Boxed {
@@ -70,12 +88,20 @@ public class UriReferenceFormat {
         private UriReferenceFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriReferenceFormat1BoxedMap extends UriReferenceFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UriReferenceFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # MinpropertiesValidation
 org.openapijsonschematools.client.components.schemas.MinpropertiesValidation.java
-public class MinpropertiesValidation
+public class MinpropertiesValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

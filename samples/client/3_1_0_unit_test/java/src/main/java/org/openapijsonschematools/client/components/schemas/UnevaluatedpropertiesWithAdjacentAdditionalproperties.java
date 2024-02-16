@@ -199,12 +199,18 @@ public class UnevaluatedpropertiesWithAdjacentAdditionalproperties {
     }
     
     
-    public static abstract sealed class UnevaluatedpropertiesWithAdjacentAdditionalproperties1Boxed permits UnevaluatedpropertiesWithAdjacentAdditionalproperties1BoxedMap {}
+    public static abstract sealed class UnevaluatedpropertiesWithAdjacentAdditionalproperties1Boxed permits UnevaluatedpropertiesWithAdjacentAdditionalproperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UnevaluatedpropertiesWithAdjacentAdditionalproperties1BoxedMap extends UnevaluatedpropertiesWithAdjacentAdditionalproperties1Boxed {
         public final UnevaluatedpropertiesWithAdjacentAdditionalpropertiesMap data;
         private UnevaluatedpropertiesWithAdjacentAdditionalproperties1BoxedMap(UnevaluatedpropertiesWithAdjacentAdditionalpropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

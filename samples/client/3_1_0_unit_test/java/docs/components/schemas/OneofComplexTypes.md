@@ -1,6 +1,6 @@
 # OneofComplexTypes
 org.openapijsonschematools.client.components.schemas.OneofComplexTypes.java
-public class OneofComplexTypes
+public class OneofComplexTypes<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

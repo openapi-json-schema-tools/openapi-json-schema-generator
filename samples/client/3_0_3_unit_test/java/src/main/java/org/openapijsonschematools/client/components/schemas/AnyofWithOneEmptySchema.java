@@ -59,12 +59,18 @@ public class AnyofWithOneEmptySchema {
     }
     
     
-    public static abstract sealed class AnyofWithOneEmptySchema1Boxed permits AnyofWithOneEmptySchema1BoxedVoid, AnyofWithOneEmptySchema1BoxedBoolean, AnyofWithOneEmptySchema1BoxedNumber, AnyofWithOneEmptySchema1BoxedString, AnyofWithOneEmptySchema1BoxedList, AnyofWithOneEmptySchema1BoxedMap {}
+    public static abstract sealed class AnyofWithOneEmptySchema1Boxed permits AnyofWithOneEmptySchema1BoxedVoid, AnyofWithOneEmptySchema1BoxedBoolean, AnyofWithOneEmptySchema1BoxedNumber, AnyofWithOneEmptySchema1BoxedString, AnyofWithOneEmptySchema1BoxedList, AnyofWithOneEmptySchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AnyofWithOneEmptySchema1BoxedVoid extends AnyofWithOneEmptySchema1Boxed {
         public final Void data;
         private AnyofWithOneEmptySchema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -73,12 +79,20 @@ public class AnyofWithOneEmptySchema {
         private AnyofWithOneEmptySchema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyofWithOneEmptySchema1BoxedNumber extends AnyofWithOneEmptySchema1Boxed {
         public final Number data;
         private AnyofWithOneEmptySchema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -87,6 +101,10 @@ public class AnyofWithOneEmptySchema {
         private AnyofWithOneEmptySchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyofWithOneEmptySchema1BoxedList extends AnyofWithOneEmptySchema1Boxed {
@@ -94,12 +112,20 @@ public class AnyofWithOneEmptySchema {
         private AnyofWithOneEmptySchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AnyofWithOneEmptySchema1BoxedMap extends AnyofWithOneEmptySchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AnyofWithOneEmptySchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

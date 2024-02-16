@@ -30,12 +30,18 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class AlphaBoxed permits AlphaBoxedNumber {}
+    public static abstract sealed class AlphaBoxed permits AlphaBoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AlphaBoxedNumber extends AlphaBoxed {
         public final Number data;
         private AlphaBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -195,12 +201,18 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     }
     
     
-    public static abstract sealed class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1Boxed permits TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1BoxedMap {}
+    public static abstract sealed class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1Boxed permits TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1BoxedMap extends TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1Boxed {
         public final TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap data;
         private TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1BoxedMap(TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

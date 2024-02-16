@@ -1,6 +1,6 @@
 # MaximumValidationWithUnsignedInteger
 org.openapijsonschematools.client.components.schemas.MaximumValidationWithUnsignedInteger.java
-public class MaximumValidationWithUnsignedInteger
+public class MaximumValidationWithUnsignedInteger<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

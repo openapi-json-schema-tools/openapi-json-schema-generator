@@ -1,6 +1,6 @@
 # PropertyNamedRefThatIsNotAReference
 org.openapijsonschematools.client.components.schemas.PropertyNamedRefThatIsNotAReference.java
-public class PropertyNamedRefThatIsNotAReference
+public class PropertyNamedRefThatIsNotAReference<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

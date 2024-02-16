@@ -1,6 +1,6 @@
 # Allof
 org.openapijsonschematools.client.components.schemas.Allof.java
-public class Allof
+public class Allof<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

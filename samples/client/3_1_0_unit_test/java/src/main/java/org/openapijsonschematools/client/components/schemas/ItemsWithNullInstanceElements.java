@@ -66,12 +66,18 @@ public class ItemsWithNullInstanceElements {
     }
     
     
-    public static abstract sealed class ItemsWithNullInstanceElements1Boxed permits ItemsWithNullInstanceElements1BoxedList {}
+    public static abstract sealed class ItemsWithNullInstanceElements1Boxed permits ItemsWithNullInstanceElements1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsWithNullInstanceElements1BoxedList extends ItemsWithNullInstanceElements1Boxed {
         public final ItemsWithNullInstanceElementsList data;
         private ItemsWithNullInstanceElements1BoxedList(ItemsWithNullInstanceElementsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

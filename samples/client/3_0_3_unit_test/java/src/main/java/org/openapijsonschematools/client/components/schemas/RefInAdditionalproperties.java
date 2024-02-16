@@ -132,12 +132,18 @@ public class RefInAdditionalproperties {
     }
     
     
-    public static abstract sealed class RefInAdditionalproperties1Boxed permits RefInAdditionalproperties1BoxedMap {}
+    public static abstract sealed class RefInAdditionalproperties1Boxed permits RefInAdditionalproperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RefInAdditionalproperties1BoxedMap extends RefInAdditionalproperties1Boxed {
         public final RefInAdditionalpropertiesMap data;
         private RefInAdditionalproperties1BoxedMap(RefInAdditionalpropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -36,12 +36,18 @@ public class BySmallNumber {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class BySmallNumber1Boxed permits BySmallNumber1BoxedVoid, BySmallNumber1BoxedBoolean, BySmallNumber1BoxedNumber, BySmallNumber1BoxedString, BySmallNumber1BoxedList, BySmallNumber1BoxedMap {}
+    public static abstract sealed class BySmallNumber1Boxed permits BySmallNumber1BoxedVoid, BySmallNumber1BoxedBoolean, BySmallNumber1BoxedNumber, BySmallNumber1BoxedString, BySmallNumber1BoxedList, BySmallNumber1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class BySmallNumber1BoxedVoid extends BySmallNumber1Boxed {
         public final Void data;
         private BySmallNumber1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -50,12 +56,20 @@ public class BySmallNumber {
         private BySmallNumber1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class BySmallNumber1BoxedNumber extends BySmallNumber1Boxed {
         public final Number data;
         private BySmallNumber1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -64,6 +78,10 @@ public class BySmallNumber {
         private BySmallNumber1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class BySmallNumber1BoxedList extends BySmallNumber1Boxed {
@@ -71,12 +89,20 @@ public class BySmallNumber {
         private BySmallNumber1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class BySmallNumber1BoxedMap extends BySmallNumber1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private BySmallNumber1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

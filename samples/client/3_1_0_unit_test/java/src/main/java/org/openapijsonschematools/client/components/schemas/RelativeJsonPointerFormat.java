@@ -35,12 +35,18 @@ public class RelativeJsonPointerFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class RelativeJsonPointerFormat1Boxed permits RelativeJsonPointerFormat1BoxedVoid, RelativeJsonPointerFormat1BoxedBoolean, RelativeJsonPointerFormat1BoxedNumber, RelativeJsonPointerFormat1BoxedString, RelativeJsonPointerFormat1BoxedList, RelativeJsonPointerFormat1BoxedMap {}
+    public static abstract sealed class RelativeJsonPointerFormat1Boxed permits RelativeJsonPointerFormat1BoxedVoid, RelativeJsonPointerFormat1BoxedBoolean, RelativeJsonPointerFormat1BoxedNumber, RelativeJsonPointerFormat1BoxedString, RelativeJsonPointerFormat1BoxedList, RelativeJsonPointerFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RelativeJsonPointerFormat1BoxedVoid extends RelativeJsonPointerFormat1Boxed {
         public final Void data;
         private RelativeJsonPointerFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class RelativeJsonPointerFormat {
         private RelativeJsonPointerFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RelativeJsonPointerFormat1BoxedNumber extends RelativeJsonPointerFormat1Boxed {
         public final Number data;
         private RelativeJsonPointerFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class RelativeJsonPointerFormat {
         private RelativeJsonPointerFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RelativeJsonPointerFormat1BoxedList extends RelativeJsonPointerFormat1Boxed {
@@ -70,12 +88,20 @@ public class RelativeJsonPointerFormat {
         private RelativeJsonPointerFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RelativeJsonPointerFormat1BoxedMap extends RelativeJsonPointerFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private RelativeJsonPointerFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # RegexesAreNotAnchoredByDefaultAndAreCaseSensitive
 org.openapijsonschematools.client.components.schemas.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.java
-public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive
+public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

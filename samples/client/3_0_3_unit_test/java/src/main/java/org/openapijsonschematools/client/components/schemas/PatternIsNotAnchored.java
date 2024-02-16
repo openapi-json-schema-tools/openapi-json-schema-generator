@@ -36,12 +36,18 @@ public class PatternIsNotAnchored {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class PatternIsNotAnchored1Boxed permits PatternIsNotAnchored1BoxedVoid, PatternIsNotAnchored1BoxedBoolean, PatternIsNotAnchored1BoxedNumber, PatternIsNotAnchored1BoxedString, PatternIsNotAnchored1BoxedList, PatternIsNotAnchored1BoxedMap {}
+    public static abstract sealed class PatternIsNotAnchored1Boxed permits PatternIsNotAnchored1BoxedVoid, PatternIsNotAnchored1BoxedBoolean, PatternIsNotAnchored1BoxedNumber, PatternIsNotAnchored1BoxedString, PatternIsNotAnchored1BoxedList, PatternIsNotAnchored1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PatternIsNotAnchored1BoxedVoid extends PatternIsNotAnchored1Boxed {
         public final Void data;
         private PatternIsNotAnchored1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -50,12 +56,20 @@ public class PatternIsNotAnchored {
         private PatternIsNotAnchored1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternIsNotAnchored1BoxedNumber extends PatternIsNotAnchored1Boxed {
         public final Number data;
         private PatternIsNotAnchored1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -64,6 +78,10 @@ public class PatternIsNotAnchored {
         private PatternIsNotAnchored1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternIsNotAnchored1BoxedList extends PatternIsNotAnchored1Boxed {
@@ -71,12 +89,20 @@ public class PatternIsNotAnchored {
         private PatternIsNotAnchored1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternIsNotAnchored1BoxedMap extends PatternIsNotAnchored1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private PatternIsNotAnchored1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

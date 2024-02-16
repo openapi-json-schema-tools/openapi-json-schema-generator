@@ -47,12 +47,18 @@ public class UnevaluateditemsWithNullInstanceElements {
     }
     
     
-    public static abstract sealed class UnevaluateditemsWithNullInstanceElements1Boxed permits UnevaluateditemsWithNullInstanceElements1BoxedVoid, UnevaluateditemsWithNullInstanceElements1BoxedBoolean, UnevaluateditemsWithNullInstanceElements1BoxedNumber, UnevaluateditemsWithNullInstanceElements1BoxedString, UnevaluateditemsWithNullInstanceElements1BoxedList, UnevaluateditemsWithNullInstanceElements1BoxedMap {}
+    public static abstract sealed class UnevaluateditemsWithNullInstanceElements1Boxed permits UnevaluateditemsWithNullInstanceElements1BoxedVoid, UnevaluateditemsWithNullInstanceElements1BoxedBoolean, UnevaluateditemsWithNullInstanceElements1BoxedNumber, UnevaluateditemsWithNullInstanceElements1BoxedString, UnevaluateditemsWithNullInstanceElements1BoxedList, UnevaluateditemsWithNullInstanceElements1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UnevaluateditemsWithNullInstanceElements1BoxedVoid extends UnevaluateditemsWithNullInstanceElements1Boxed {
         public final Void data;
         private UnevaluateditemsWithNullInstanceElements1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class UnevaluateditemsWithNullInstanceElements {
         private UnevaluateditemsWithNullInstanceElements1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluateditemsWithNullInstanceElements1BoxedNumber extends UnevaluateditemsWithNullInstanceElements1Boxed {
         public final Number data;
         private UnevaluateditemsWithNullInstanceElements1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class UnevaluateditemsWithNullInstanceElements {
         private UnevaluateditemsWithNullInstanceElements1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluateditemsWithNullInstanceElements1BoxedList extends UnevaluateditemsWithNullInstanceElements1Boxed {
@@ -82,12 +100,20 @@ public class UnevaluateditemsWithNullInstanceElements {
         private UnevaluateditemsWithNullInstanceElements1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluateditemsWithNullInstanceElements1BoxedMap extends UnevaluateditemsWithNullInstanceElements1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UnevaluateditemsWithNullInstanceElements1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -20,12 +20,18 @@ public class SmallMultipleOfLargeInteger {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class SmallMultipleOfLargeInteger1Boxed permits SmallMultipleOfLargeInteger1BoxedNumber {}
+    public static abstract sealed class SmallMultipleOfLargeInteger1Boxed permits SmallMultipleOfLargeInteger1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class SmallMultipleOfLargeInteger1BoxedNumber extends SmallMultipleOfLargeInteger1Boxed {
         public final Number data;
         private SmallMultipleOfLargeInteger1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

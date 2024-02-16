@@ -1,6 +1,6 @@
 # EmptyDependents
 org.openapijsonschematools.client.components.schemas.EmptyDependents.java
-public class EmptyDependents
+public class EmptyDependents<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

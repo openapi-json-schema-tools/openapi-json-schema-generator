@@ -130,12 +130,18 @@ public class UniqueitemsFalseWithAnArrayOfItems {
     }
     
     
-    public static abstract sealed class UniqueitemsFalseWithAnArrayOfItems1Boxed permits UniqueitemsFalseWithAnArrayOfItems1BoxedVoid, UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean, UniqueitemsFalseWithAnArrayOfItems1BoxedNumber, UniqueitemsFalseWithAnArrayOfItems1BoxedString, UniqueitemsFalseWithAnArrayOfItems1BoxedList, UniqueitemsFalseWithAnArrayOfItems1BoxedMap {}
+    public static abstract sealed class UniqueitemsFalseWithAnArrayOfItems1Boxed permits UniqueitemsFalseWithAnArrayOfItems1BoxedVoid, UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean, UniqueitemsFalseWithAnArrayOfItems1BoxedNumber, UniqueitemsFalseWithAnArrayOfItems1BoxedString, UniqueitemsFalseWithAnArrayOfItems1BoxedList, UniqueitemsFalseWithAnArrayOfItems1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedVoid extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
         public final Void data;
         private UniqueitemsFalseWithAnArrayOfItems1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -144,12 +150,20 @@ public class UniqueitemsFalseWithAnArrayOfItems {
         private UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedNumber extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
         public final Number data;
         private UniqueitemsFalseWithAnArrayOfItems1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -158,6 +172,10 @@ public class UniqueitemsFalseWithAnArrayOfItems {
         private UniqueitemsFalseWithAnArrayOfItems1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedList extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
@@ -165,12 +183,20 @@ public class UniqueitemsFalseWithAnArrayOfItems {
         private UniqueitemsFalseWithAnArrayOfItems1BoxedList(UniqueitemsFalseWithAnArrayOfItemsList data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsFalseWithAnArrayOfItems1BoxedMap extends UniqueitemsFalseWithAnArrayOfItems1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UniqueitemsFalseWithAnArrayOfItems1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

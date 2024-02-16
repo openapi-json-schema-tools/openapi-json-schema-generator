@@ -85,12 +85,18 @@ public class SimpleEnumValidation {
     }
     
     
-    public static abstract sealed class SimpleEnumValidation1Boxed permits SimpleEnumValidation1BoxedNumber {}
+    public static abstract sealed class SimpleEnumValidation1Boxed permits SimpleEnumValidation1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class SimpleEnumValidation1BoxedNumber extends SimpleEnumValidation1Boxed {
         public final Number data;
         private SimpleEnumValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

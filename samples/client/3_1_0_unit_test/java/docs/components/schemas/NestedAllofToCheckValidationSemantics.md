@@ -1,6 +1,6 @@
 # NestedAllofToCheckValidationSemantics
 org.openapijsonschematools.client.components.schemas.NestedAllofToCheckValidationSemantics.java
-public class NestedAllofToCheckValidationSemantics
+public class NestedAllofToCheckValidationSemantics<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

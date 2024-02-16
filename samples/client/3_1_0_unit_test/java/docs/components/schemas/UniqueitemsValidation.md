@@ -1,6 +1,6 @@
 # UniqueitemsValidation
 org.openapijsonschematools.client.components.schemas.UniqueitemsValidation.java
-public class UniqueitemsValidation
+public class UniqueitemsValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

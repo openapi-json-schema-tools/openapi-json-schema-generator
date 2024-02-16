@@ -35,12 +35,18 @@ public class MincontainsWithoutContainsIsIgnored {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MincontainsWithoutContainsIsIgnored1Boxed permits MincontainsWithoutContainsIsIgnored1BoxedVoid, MincontainsWithoutContainsIsIgnored1BoxedBoolean, MincontainsWithoutContainsIsIgnored1BoxedNumber, MincontainsWithoutContainsIsIgnored1BoxedString, MincontainsWithoutContainsIsIgnored1BoxedList, MincontainsWithoutContainsIsIgnored1BoxedMap {}
+    public static abstract sealed class MincontainsWithoutContainsIsIgnored1Boxed permits MincontainsWithoutContainsIsIgnored1BoxedVoid, MincontainsWithoutContainsIsIgnored1BoxedBoolean, MincontainsWithoutContainsIsIgnored1BoxedNumber, MincontainsWithoutContainsIsIgnored1BoxedString, MincontainsWithoutContainsIsIgnored1BoxedList, MincontainsWithoutContainsIsIgnored1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MincontainsWithoutContainsIsIgnored1BoxedVoid extends MincontainsWithoutContainsIsIgnored1Boxed {
         public final Void data;
         private MincontainsWithoutContainsIsIgnored1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MincontainsWithoutContainsIsIgnored {
         private MincontainsWithoutContainsIsIgnored1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MincontainsWithoutContainsIsIgnored1BoxedNumber extends MincontainsWithoutContainsIsIgnored1Boxed {
         public final Number data;
         private MincontainsWithoutContainsIsIgnored1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MincontainsWithoutContainsIsIgnored {
         private MincontainsWithoutContainsIsIgnored1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MincontainsWithoutContainsIsIgnored1BoxedList extends MincontainsWithoutContainsIsIgnored1Boxed {
@@ -70,12 +88,20 @@ public class MincontainsWithoutContainsIsIgnored {
         private MincontainsWithoutContainsIsIgnored1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MincontainsWithoutContainsIsIgnored1BoxedMap extends MincontainsWithoutContainsIsIgnored1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MincontainsWithoutContainsIsIgnored1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

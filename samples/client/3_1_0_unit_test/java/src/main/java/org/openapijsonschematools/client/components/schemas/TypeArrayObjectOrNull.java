@@ -29,12 +29,18 @@ public class TypeArrayObjectOrNull {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class TypeArrayObjectOrNull1Boxed permits TypeArrayObjectOrNull1BoxedList, TypeArrayObjectOrNull1BoxedMap, TypeArrayObjectOrNull1BoxedVoid {}
+    public static abstract sealed class TypeArrayObjectOrNull1Boxed permits TypeArrayObjectOrNull1BoxedList, TypeArrayObjectOrNull1BoxedMap, TypeArrayObjectOrNull1BoxedVoid {
+        public abstract @Nullable Object data();
+    }
     
     public static final class TypeArrayObjectOrNull1BoxedList extends TypeArrayObjectOrNull1Boxed {
         public final FrozenList<@Nullable Object> data;
         private TypeArrayObjectOrNull1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -43,11 +49,19 @@ public class TypeArrayObjectOrNull {
         private TypeArrayObjectOrNull1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class TypeArrayObjectOrNull1BoxedVoid extends TypeArrayObjectOrNull1Boxed {
         public final Void data;
         private TypeArrayObjectOrNull1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -119,12 +119,18 @@ public class AdditionalItemsAreAllowedByDefault {
     }
     
     
-    public static abstract sealed class AdditionalItemsAreAllowedByDefault1Boxed permits AdditionalItemsAreAllowedByDefault1BoxedVoid, AdditionalItemsAreAllowedByDefault1BoxedBoolean, AdditionalItemsAreAllowedByDefault1BoxedNumber, AdditionalItemsAreAllowedByDefault1BoxedString, AdditionalItemsAreAllowedByDefault1BoxedList, AdditionalItemsAreAllowedByDefault1BoxedMap {}
+    public static abstract sealed class AdditionalItemsAreAllowedByDefault1Boxed permits AdditionalItemsAreAllowedByDefault1BoxedVoid, AdditionalItemsAreAllowedByDefault1BoxedBoolean, AdditionalItemsAreAllowedByDefault1BoxedNumber, AdditionalItemsAreAllowedByDefault1BoxedString, AdditionalItemsAreAllowedByDefault1BoxedList, AdditionalItemsAreAllowedByDefault1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalItemsAreAllowedByDefault1BoxedVoid extends AdditionalItemsAreAllowedByDefault1Boxed {
         public final Void data;
         private AdditionalItemsAreAllowedByDefault1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -133,12 +139,20 @@ public class AdditionalItemsAreAllowedByDefault {
         private AdditionalItemsAreAllowedByDefault1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalItemsAreAllowedByDefault1BoxedNumber extends AdditionalItemsAreAllowedByDefault1Boxed {
         public final Number data;
         private AdditionalItemsAreAllowedByDefault1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -147,6 +161,10 @@ public class AdditionalItemsAreAllowedByDefault {
         private AdditionalItemsAreAllowedByDefault1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalItemsAreAllowedByDefault1BoxedList extends AdditionalItemsAreAllowedByDefault1Boxed {
@@ -154,12 +172,20 @@ public class AdditionalItemsAreAllowedByDefault {
         private AdditionalItemsAreAllowedByDefault1BoxedList(AdditionalItemsAreAllowedByDefaultList data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AdditionalItemsAreAllowedByDefault1BoxedMap extends AdditionalItemsAreAllowedByDefault1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AdditionalItemsAreAllowedByDefault1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

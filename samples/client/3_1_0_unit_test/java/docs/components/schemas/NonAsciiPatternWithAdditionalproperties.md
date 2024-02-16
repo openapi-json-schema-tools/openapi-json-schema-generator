@@ -1,6 +1,6 @@
 # NonAsciiPatternWithAdditionalproperties
 org.openapijsonschematools.client.components.schemas.NonAsciiPatternWithAdditionalproperties.java
-public class NonAsciiPatternWithAdditionalproperties
+public class NonAsciiPatternWithAdditionalproperties<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

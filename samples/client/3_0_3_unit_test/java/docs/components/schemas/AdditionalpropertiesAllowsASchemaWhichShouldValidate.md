@@ -1,6 +1,6 @@
 # AdditionalpropertiesAllowsASchemaWhichShouldValidate
 org.openapijsonschematools.client.components.schemas.AdditionalpropertiesAllowsASchemaWhichShouldValidate.java
-public class AdditionalpropertiesAllowsASchemaWhichShouldValidate
+public class AdditionalpropertiesAllowsASchemaWhichShouldValidate<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

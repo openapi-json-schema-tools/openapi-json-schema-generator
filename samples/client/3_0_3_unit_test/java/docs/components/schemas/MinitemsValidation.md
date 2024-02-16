@@ -1,6 +1,6 @@
 # MinitemsValidation
 org.openapijsonschematools.client.components.schemas.MinitemsValidation.java
-public class MinitemsValidation
+public class MinitemsValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

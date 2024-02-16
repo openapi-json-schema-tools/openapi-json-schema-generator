@@ -1,6 +1,6 @@
 # RefInAnyof
 org.openapijsonschematools.client.components.schemas.RefInAnyof.java
-public class RefInAnyof
+public class RefInAnyof<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

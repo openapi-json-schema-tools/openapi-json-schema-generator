@@ -35,12 +35,18 @@ public class IriFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class IriFormat1Boxed permits IriFormat1BoxedVoid, IriFormat1BoxedBoolean, IriFormat1BoxedNumber, IriFormat1BoxedString, IriFormat1BoxedList, IriFormat1BoxedMap {}
+    public static abstract sealed class IriFormat1Boxed permits IriFormat1BoxedVoid, IriFormat1BoxedBoolean, IriFormat1BoxedNumber, IriFormat1BoxedString, IriFormat1BoxedList, IriFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IriFormat1BoxedVoid extends IriFormat1Boxed {
         public final Void data;
         private IriFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class IriFormat {
         private IriFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IriFormat1BoxedNumber extends IriFormat1Boxed {
         public final Number data;
         private IriFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class IriFormat {
         private IriFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IriFormat1BoxedList extends IriFormat1Boxed {
@@ -70,12 +88,20 @@ public class IriFormat {
         private IriFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IriFormat1BoxedMap extends IriFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IriFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

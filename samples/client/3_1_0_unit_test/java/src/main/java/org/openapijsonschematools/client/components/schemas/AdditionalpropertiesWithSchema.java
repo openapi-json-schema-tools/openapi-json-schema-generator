@@ -255,12 +255,18 @@ public class AdditionalpropertiesWithSchema {
     }
     
     
-    public static abstract sealed class AdditionalpropertiesWithSchema1Boxed permits AdditionalpropertiesWithSchema1BoxedMap {}
+    public static abstract sealed class AdditionalpropertiesWithSchema1Boxed permits AdditionalpropertiesWithSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AdditionalpropertiesWithSchema1BoxedMap extends AdditionalpropertiesWithSchema1Boxed {
         public final AdditionalpropertiesWithSchemaMap data;
         private AdditionalpropertiesWithSchema1BoxedMap(AdditionalpropertiesWithSchemaMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

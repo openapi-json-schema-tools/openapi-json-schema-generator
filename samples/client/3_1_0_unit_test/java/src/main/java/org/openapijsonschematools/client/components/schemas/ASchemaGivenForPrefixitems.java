@@ -131,12 +131,18 @@ public class ASchemaGivenForPrefixitems {
     }
     
     
-    public static abstract sealed class ASchemaGivenForPrefixitems1Boxed permits ASchemaGivenForPrefixitems1BoxedVoid, ASchemaGivenForPrefixitems1BoxedBoolean, ASchemaGivenForPrefixitems1BoxedNumber, ASchemaGivenForPrefixitems1BoxedString, ASchemaGivenForPrefixitems1BoxedList, ASchemaGivenForPrefixitems1BoxedMap {}
+    public static abstract sealed class ASchemaGivenForPrefixitems1Boxed permits ASchemaGivenForPrefixitems1BoxedVoid, ASchemaGivenForPrefixitems1BoxedBoolean, ASchemaGivenForPrefixitems1BoxedNumber, ASchemaGivenForPrefixitems1BoxedString, ASchemaGivenForPrefixitems1BoxedList, ASchemaGivenForPrefixitems1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ASchemaGivenForPrefixitems1BoxedVoid extends ASchemaGivenForPrefixitems1Boxed {
         public final Void data;
         private ASchemaGivenForPrefixitems1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -145,12 +151,20 @@ public class ASchemaGivenForPrefixitems {
         private ASchemaGivenForPrefixitems1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ASchemaGivenForPrefixitems1BoxedNumber extends ASchemaGivenForPrefixitems1Boxed {
         public final Number data;
         private ASchemaGivenForPrefixitems1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -159,6 +173,10 @@ public class ASchemaGivenForPrefixitems {
         private ASchemaGivenForPrefixitems1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ASchemaGivenForPrefixitems1BoxedList extends ASchemaGivenForPrefixitems1Boxed {
@@ -166,12 +184,20 @@ public class ASchemaGivenForPrefixitems {
         private ASchemaGivenForPrefixitems1BoxedList(ASchemaGivenForPrefixitemsList data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ASchemaGivenForPrefixitems1BoxedMap extends ASchemaGivenForPrefixitems1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ASchemaGivenForPrefixitems1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

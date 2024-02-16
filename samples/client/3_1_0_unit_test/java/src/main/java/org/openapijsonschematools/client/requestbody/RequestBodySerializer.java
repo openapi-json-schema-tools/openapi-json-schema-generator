@@ -1,0 +1,56 @@
+package org.openapijsonschematools.client.requestbody;
+
+import org.openapijsonschematools.client.mediatype.MediaType;
+
+import java.net.http.HttpRequest;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import com.google.gson.Gson;
+
+import java.util.Map;
+import java.util.regex.Pattern;
+
+public abstract class RequestBodySerializer<T> {
+    /*
+    * Describes a single request body
+    * content: contentType to MediaType schema info
+    */
+    public final Map<String, MediaType<?>> content;
+    public final boolean required;
+    private static final Pattern jsonContentTypePattern = Pattern.compile(
+            "application/[^+]*[+]?(json);?.*"
+    );
+    private static final Gson gson = new Gson();
+    private static final String textPlainContentType = "text/plain";
+
+    public RequestBodySerializer(Map<String, MediaType<?>> content, boolean required) {
+        this.content = content;
+        this.required = required;
+    }
+
+    protected static boolean contentTypeIsJson(String contentType) {
+        return jsonContentTypePattern.matcher(contentType).find();
+    }
+
+    private SerializedRequestBody serializeJson(String contentType, @Nullable Object body) {
+        String jsonText = gson.toJson(body);
+        return new SerializedRequestBody(contentType, HttpRequest.BodyPublishers.ofString(jsonText));
+    }
+
+    private SerializedRequestBody serializeTextPlain(String contentType, @Nullable Object body) {
+        if (body instanceof String stringBody) {
+            return new SerializedRequestBody(contentType, HttpRequest.BodyPublishers.ofString(stringBody));
+        }
+        throw new RuntimeException("Invalid non-string data type of "+body.getClass().getName()+" for text/plain body serialization");
+    }
+
+    protected SerializedRequestBody serialize(String contentType, @Nullable Object body) {
+        if (contentTypeIsJson(contentType)) {
+            return serializeJson(contentType, body);
+        } else if (contentType.equals(textPlainContentType)) {
+            return serializeTextPlain(contentType, body);
+        }
+        throw new RuntimeException("Serialization has not yet been implemented for contentType="+contentType+". If you need it please file a PR");
+    }
+
+    public abstract SerializedRequestBody serialize(T requestBody);
+}

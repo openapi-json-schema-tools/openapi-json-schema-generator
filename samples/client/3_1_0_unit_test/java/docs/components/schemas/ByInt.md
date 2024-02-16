@@ -1,6 +1,6 @@
 # ByInt
 org.openapijsonschematools.client.components.schemas.ByInt.java
-public class ByInt
+public class ByInt<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

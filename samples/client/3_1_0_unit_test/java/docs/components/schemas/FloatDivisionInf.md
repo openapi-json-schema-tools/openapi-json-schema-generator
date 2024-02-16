@@ -1,6 +1,6 @@
 # FloatDivisionInf
 org.openapijsonschematools.client.components.schemas.FloatDivisionInf.java
-public class FloatDivisionInf
+public class FloatDivisionInf<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

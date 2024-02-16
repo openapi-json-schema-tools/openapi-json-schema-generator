@@ -1,6 +1,6 @@
 # TypeAsArrayWithOneItem
 org.openapijsonschematools.client.components.schemas.TypeAsArrayWithOneItem.java
-public class TypeAsArrayWithOneItem
+public class TypeAsArrayWithOneItem<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

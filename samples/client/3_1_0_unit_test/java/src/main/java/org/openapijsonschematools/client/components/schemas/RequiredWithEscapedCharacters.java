@@ -1648,12 +1648,18 @@ public class RequiredWithEscapedCharacters {
     }
     
     
-    public static abstract sealed class RequiredWithEscapedCharacters1Boxed permits RequiredWithEscapedCharacters1BoxedVoid, RequiredWithEscapedCharacters1BoxedBoolean, RequiredWithEscapedCharacters1BoxedNumber, RequiredWithEscapedCharacters1BoxedString, RequiredWithEscapedCharacters1BoxedList, RequiredWithEscapedCharacters1BoxedMap {}
+    public static abstract sealed class RequiredWithEscapedCharacters1Boxed permits RequiredWithEscapedCharacters1BoxedVoid, RequiredWithEscapedCharacters1BoxedBoolean, RequiredWithEscapedCharacters1BoxedNumber, RequiredWithEscapedCharacters1BoxedString, RequiredWithEscapedCharacters1BoxedList, RequiredWithEscapedCharacters1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RequiredWithEscapedCharacters1BoxedVoid extends RequiredWithEscapedCharacters1Boxed {
         public final Void data;
         private RequiredWithEscapedCharacters1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1662,12 +1668,20 @@ public class RequiredWithEscapedCharacters {
         private RequiredWithEscapedCharacters1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredWithEscapedCharacters1BoxedNumber extends RequiredWithEscapedCharacters1Boxed {
         public final Number data;
         private RequiredWithEscapedCharacters1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -1676,6 +1690,10 @@ public class RequiredWithEscapedCharacters {
         private RequiredWithEscapedCharacters1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredWithEscapedCharacters1BoxedList extends RequiredWithEscapedCharacters1Boxed {
@@ -1683,12 +1701,20 @@ public class RequiredWithEscapedCharacters {
         private RequiredWithEscapedCharacters1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredWithEscapedCharacters1BoxedMap extends RequiredWithEscapedCharacters1Boxed {
         public final RequiredWithEscapedCharactersMap data;
         private RequiredWithEscapedCharacters1BoxedMap(RequiredWithEscapedCharactersMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

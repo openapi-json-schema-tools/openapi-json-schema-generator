@@ -32,11 +32,16 @@ import java.util.UUID;
 
 public class NotAnyTypeJsonSchema {
     public static abstract sealed class NotAnyTypeJsonSchema1Boxed permits NotAnyTypeJsonSchema1BoxedVoid, NotAnyTypeJsonSchema1BoxedBoolean, NotAnyTypeJsonSchema1BoxedNumber, NotAnyTypeJsonSchema1BoxedString, NotAnyTypeJsonSchema1BoxedList, NotAnyTypeJsonSchema1BoxedMap {
+        public abstract @Nullable Object data();
     }
     public static final class NotAnyTypeJsonSchema1BoxedVoid extends NotAnyTypeJsonSchema1Boxed {
         public final Void data;
         private NotAnyTypeJsonSchema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static final class NotAnyTypeJsonSchema1BoxedBoolean extends NotAnyTypeJsonSchema1Boxed {
@@ -44,11 +49,19 @@ public class NotAnyTypeJsonSchema {
         private NotAnyTypeJsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class NotAnyTypeJsonSchema1BoxedNumber extends NotAnyTypeJsonSchema1Boxed {
         public final Number data;
         private NotAnyTypeJsonSchema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static final class NotAnyTypeJsonSchema1BoxedString extends NotAnyTypeJsonSchema1Boxed {
@@ -56,17 +69,29 @@ public class NotAnyTypeJsonSchema {
         private NotAnyTypeJsonSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class NotAnyTypeJsonSchema1BoxedList extends NotAnyTypeJsonSchema1Boxed {
         public final FrozenList<@Nullable Object> data;
         private NotAnyTypeJsonSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     public static final class NotAnyTypeJsonSchema1BoxedMap extends NotAnyTypeJsonSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private NotAnyTypeJsonSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
 
@@ -266,11 +291,11 @@ public class NotAnyTypeJsonSchema {
 
         @Override
         public NotAnyTypeJsonSchema1BoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-            return null;
+            return new NotAnyTypeJsonSchema1BoxedVoid(validate(arg, configuration));
         }
         @Override
         public NotAnyTypeJsonSchema1BoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-            return null;
+            return new NotAnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration));
         }
         @Override
         public NotAnyTypeJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

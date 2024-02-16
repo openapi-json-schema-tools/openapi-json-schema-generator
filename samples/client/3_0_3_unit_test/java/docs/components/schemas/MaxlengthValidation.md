@@ -1,6 +1,6 @@
 # MaxlengthValidation
 org.openapijsonschematools.client.components.schemas.MaxlengthValidation.java
-public class MaxlengthValidation
+public class MaxlengthValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

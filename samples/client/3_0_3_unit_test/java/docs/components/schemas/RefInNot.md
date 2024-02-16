@@ -1,6 +1,6 @@
 # RefInNot
 org.openapijsonschematools.client.components.schemas.RefInNot.java
-public class RefInNot
+public class RefInNot<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

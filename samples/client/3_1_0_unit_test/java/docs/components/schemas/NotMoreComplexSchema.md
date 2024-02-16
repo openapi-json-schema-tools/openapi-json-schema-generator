@@ -1,6 +1,6 @@
 # NotMoreComplexSchema
 org.openapijsonschematools.client.components.schemas.NotMoreComplexSchema.java
-public class NotMoreComplexSchema
+public class NotMoreComplexSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

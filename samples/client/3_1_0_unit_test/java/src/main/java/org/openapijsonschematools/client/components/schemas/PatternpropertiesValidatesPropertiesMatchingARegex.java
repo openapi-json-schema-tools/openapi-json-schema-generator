@@ -49,12 +49,18 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
     }
     
     
-    public static abstract sealed class PatternpropertiesValidatesPropertiesMatchingARegex1Boxed permits PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap {}
+    public static abstract sealed class PatternpropertiesValidatesPropertiesMatchingARegex1Boxed permits PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         public final Void data;
         private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,12 +69,20 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
         private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         public final Number data;
         private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -77,6 +91,10 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
         private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
@@ -84,12 +102,20 @@ public class PatternpropertiesValidatesPropertiesMatchingARegex {
         private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap extends PatternpropertiesValidatesPropertiesMatchingARegex1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

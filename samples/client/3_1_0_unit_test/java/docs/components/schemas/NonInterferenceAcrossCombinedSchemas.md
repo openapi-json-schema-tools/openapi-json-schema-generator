@@ -1,6 +1,6 @@
 # NonInterferenceAcrossCombinedSchemas
 org.openapijsonschematools.client.components.schemas.NonInterferenceAcrossCombinedSchemas.java
-public class NonInterferenceAcrossCombinedSchemas
+public class NonInterferenceAcrossCombinedSchemas<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

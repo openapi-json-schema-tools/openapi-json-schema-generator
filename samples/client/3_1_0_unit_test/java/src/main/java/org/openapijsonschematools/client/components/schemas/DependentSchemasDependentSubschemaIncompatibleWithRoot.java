@@ -162,12 +162,18 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
     }
     
     
-    public static abstract sealed class Foo1Boxed permits Foo1BoxedMap {}
+    public static abstract sealed class Foo1Boxed permits Foo1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Foo1BoxedMap extends Foo1Boxed {
         public final FooMap data;
         private Foo1BoxedMap(FooMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -366,12 +372,18 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
     }
     
     
-    public static abstract sealed class DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed permits DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap {}
+    public static abstract sealed class DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed permits DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
         public final Void data;
         private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -380,12 +392,20 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
         private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
         public final Number data;
         private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -394,6 +414,10 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
         private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
@@ -401,12 +425,20 @@ public class DependentSchemasDependentSubschemaIncompatibleWithRoot {
         private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap extends DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed {
         public final DependentSchemasDependentSubschemaIncompatibleWithRootMap data;
         private DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap(DependentSchemasDependentSubschemaIncompatibleWithRootMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

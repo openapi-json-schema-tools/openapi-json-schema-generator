@@ -1,6 +1,6 @@
 # ContainsWithNullInstanceElements
 org.openapijsonschematools.client.components.schemas.ContainsWithNullInstanceElements.java
-public class ContainsWithNullInstanceElements
+public class ContainsWithNullInstanceElements<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

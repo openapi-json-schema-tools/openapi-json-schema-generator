@@ -1,6 +1,6 @@
 # ConstNulCharactersInStrings
 org.openapijsonschematools.client.components.schemas.ConstNulCharactersInStrings.java
-public class ConstNulCharactersInStrings
+public class ConstNulCharactersInStrings<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -1,6 +1,6 @@
 # Not
 org.openapijsonschematools.client.components.schemas.Not.java
-public class Not
+public class Not<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

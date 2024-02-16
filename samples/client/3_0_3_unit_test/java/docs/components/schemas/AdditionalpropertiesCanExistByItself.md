@@ -1,6 +1,6 @@
 # AdditionalpropertiesCanExistByItself
 org.openapijsonschematools.client.components.schemas.AdditionalpropertiesCanExistByItself.java
-public class AdditionalpropertiesCanExistByItself
+public class AdditionalpropertiesCanExistByItself<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

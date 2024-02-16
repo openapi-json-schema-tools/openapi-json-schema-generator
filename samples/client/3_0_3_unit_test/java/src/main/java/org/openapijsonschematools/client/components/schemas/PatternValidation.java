@@ -36,12 +36,18 @@ public class PatternValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class PatternValidation1Boxed permits PatternValidation1BoxedVoid, PatternValidation1BoxedBoolean, PatternValidation1BoxedNumber, PatternValidation1BoxedString, PatternValidation1BoxedList, PatternValidation1BoxedMap {}
+    public static abstract sealed class PatternValidation1Boxed permits PatternValidation1BoxedVoid, PatternValidation1BoxedBoolean, PatternValidation1BoxedNumber, PatternValidation1BoxedString, PatternValidation1BoxedList, PatternValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PatternValidation1BoxedVoid extends PatternValidation1Boxed {
         public final Void data;
         private PatternValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -50,12 +56,20 @@ public class PatternValidation {
         private PatternValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternValidation1BoxedNumber extends PatternValidation1Boxed {
         public final Number data;
         private PatternValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -64,6 +78,10 @@ public class PatternValidation {
         private PatternValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternValidation1BoxedList extends PatternValidation1Boxed {
@@ -71,12 +89,20 @@ public class PatternValidation {
         private PatternValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PatternValidation1BoxedMap extends PatternValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private PatternValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

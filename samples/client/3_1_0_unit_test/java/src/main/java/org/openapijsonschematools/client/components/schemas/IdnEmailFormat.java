@@ -35,12 +35,18 @@ public class IdnEmailFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class IdnEmailFormat1Boxed permits IdnEmailFormat1BoxedVoid, IdnEmailFormat1BoxedBoolean, IdnEmailFormat1BoxedNumber, IdnEmailFormat1BoxedString, IdnEmailFormat1BoxedList, IdnEmailFormat1BoxedMap {}
+    public static abstract sealed class IdnEmailFormat1Boxed permits IdnEmailFormat1BoxedVoid, IdnEmailFormat1BoxedBoolean, IdnEmailFormat1BoxedNumber, IdnEmailFormat1BoxedString, IdnEmailFormat1BoxedList, IdnEmailFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class IdnEmailFormat1BoxedVoid extends IdnEmailFormat1Boxed {
         public final Void data;
         private IdnEmailFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class IdnEmailFormat {
         private IdnEmailFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IdnEmailFormat1BoxedNumber extends IdnEmailFormat1Boxed {
         public final Number data;
         private IdnEmailFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class IdnEmailFormat {
         private IdnEmailFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IdnEmailFormat1BoxedList extends IdnEmailFormat1Boxed {
@@ -70,12 +88,20 @@ public class IdnEmailFormat {
         private IdnEmailFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class IdnEmailFormat1BoxedMap extends IdnEmailFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private IdnEmailFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

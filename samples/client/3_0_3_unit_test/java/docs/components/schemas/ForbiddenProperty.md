@@ -1,6 +1,6 @@
 # ForbiddenProperty
 org.openapijsonschematools.client.components.schemas.ForbiddenProperty.java
-public class ForbiddenProperty
+public class ForbiddenProperty<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

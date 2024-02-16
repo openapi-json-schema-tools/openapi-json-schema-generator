@@ -35,12 +35,18 @@ public class OneofWithBaseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {}
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema0BoxedVoid extends Schema0Boxed {
         public final Void data;
         private Schema0BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class OneofWithBaseSchema {
         private Schema0BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedNumber extends Schema0Boxed {
         public final Number data;
         private Schema0BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class OneofWithBaseSchema {
         private Schema0BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedList extends Schema0Boxed {
@@ -70,12 +88,20 @@ public class OneofWithBaseSchema {
         private Schema0BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedMap extends Schema0Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema0BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -299,12 +325,18 @@ public class OneofWithBaseSchema {
         }
     }    
     
-    public static abstract sealed class Schema1Boxed permits Schema1BoxedVoid, Schema1BoxedBoolean, Schema1BoxedNumber, Schema1BoxedString, Schema1BoxedList, Schema1BoxedMap {}
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedVoid, Schema1BoxedBoolean, Schema1BoxedNumber, Schema1BoxedString, Schema1BoxedList, Schema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema1BoxedVoid extends Schema1Boxed {
         public final Void data;
         private Schema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -313,12 +345,20 @@ public class OneofWithBaseSchema {
         private Schema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedNumber extends Schema1Boxed {
         public final Number data;
         private Schema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,6 +367,10 @@ public class OneofWithBaseSchema {
         private Schema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedList extends Schema1Boxed {
@@ -334,12 +378,20 @@ public class OneofWithBaseSchema {
         private Schema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Schema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -563,12 +615,18 @@ public class OneofWithBaseSchema {
         }
     }    
     
-    public static abstract sealed class OneofWithBaseSchema1Boxed permits OneofWithBaseSchema1BoxedString {}
+    public static abstract sealed class OneofWithBaseSchema1Boxed permits OneofWithBaseSchema1BoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class OneofWithBaseSchema1BoxedString extends OneofWithBaseSchema1Boxed {
         public final String data;
         private OneofWithBaseSchema1BoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

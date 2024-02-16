@@ -35,12 +35,18 @@ public class ContainsKeywordValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ContainsBoxed permits ContainsBoxedVoid, ContainsBoxedBoolean, ContainsBoxedNumber, ContainsBoxedString, ContainsBoxedList, ContainsBoxedMap {}
+    public static abstract sealed class ContainsBoxed permits ContainsBoxedVoid, ContainsBoxedBoolean, ContainsBoxedNumber, ContainsBoxedString, ContainsBoxedList, ContainsBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ContainsBoxedVoid extends ContainsBoxed {
         public final Void data;
         private ContainsBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class ContainsKeywordValidation {
         private ContainsBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsBoxedNumber extends ContainsBoxed {
         public final Number data;
         private ContainsBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class ContainsKeywordValidation {
         private ContainsBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsBoxedList extends ContainsBoxed {
@@ -70,12 +88,20 @@ public class ContainsKeywordValidation {
         private ContainsBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsBoxedMap extends ContainsBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ContainsBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -299,12 +325,18 @@ public class ContainsKeywordValidation {
         }
     }    
     
-    public static abstract sealed class ContainsKeywordValidation1Boxed permits ContainsKeywordValidation1BoxedVoid, ContainsKeywordValidation1BoxedBoolean, ContainsKeywordValidation1BoxedNumber, ContainsKeywordValidation1BoxedString, ContainsKeywordValidation1BoxedList, ContainsKeywordValidation1BoxedMap {}
+    public static abstract sealed class ContainsKeywordValidation1Boxed permits ContainsKeywordValidation1BoxedVoid, ContainsKeywordValidation1BoxedBoolean, ContainsKeywordValidation1BoxedNumber, ContainsKeywordValidation1BoxedString, ContainsKeywordValidation1BoxedList, ContainsKeywordValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ContainsKeywordValidation1BoxedVoid extends ContainsKeywordValidation1Boxed {
         public final Void data;
         private ContainsKeywordValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -313,12 +345,20 @@ public class ContainsKeywordValidation {
         private ContainsKeywordValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsKeywordValidation1BoxedNumber extends ContainsKeywordValidation1Boxed {
         public final Number data;
         private ContainsKeywordValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -327,6 +367,10 @@ public class ContainsKeywordValidation {
         private ContainsKeywordValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsKeywordValidation1BoxedList extends ContainsKeywordValidation1Boxed {
@@ -334,12 +378,20 @@ public class ContainsKeywordValidation {
         private ContainsKeywordValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsKeywordValidation1BoxedMap extends ContainsKeywordValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ContainsKeywordValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -35,12 +35,18 @@ public class HostnameFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class HostnameFormat1Boxed permits HostnameFormat1BoxedVoid, HostnameFormat1BoxedBoolean, HostnameFormat1BoxedNumber, HostnameFormat1BoxedString, HostnameFormat1BoxedList, HostnameFormat1BoxedMap {}
+    public static abstract sealed class HostnameFormat1Boxed permits HostnameFormat1BoxedVoid, HostnameFormat1BoxedBoolean, HostnameFormat1BoxedNumber, HostnameFormat1BoxedString, HostnameFormat1BoxedList, HostnameFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class HostnameFormat1BoxedVoid extends HostnameFormat1Boxed {
         public final Void data;
         private HostnameFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class HostnameFormat {
         private HostnameFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class HostnameFormat1BoxedNumber extends HostnameFormat1Boxed {
         public final Number data;
         private HostnameFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class HostnameFormat {
         private HostnameFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class HostnameFormat1BoxedList extends HostnameFormat1Boxed {
@@ -70,12 +88,20 @@ public class HostnameFormat {
         private HostnameFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class HostnameFormat1BoxedMap extends HostnameFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private HostnameFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

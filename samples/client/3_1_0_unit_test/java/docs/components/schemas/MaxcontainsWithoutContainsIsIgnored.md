@@ -1,6 +1,6 @@
 # MaxcontainsWithoutContainsIsIgnored
 org.openapijsonschematools.client.components.schemas.MaxcontainsWithoutContainsIsIgnored.java
-public class MaxcontainsWithoutContainsIsIgnored
+public class MaxcontainsWithoutContainsIsIgnored<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

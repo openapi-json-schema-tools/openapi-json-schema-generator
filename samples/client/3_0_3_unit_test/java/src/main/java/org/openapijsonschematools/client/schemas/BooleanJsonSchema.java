@@ -19,11 +19,16 @@ import java.util.Set;
 
 public class BooleanJsonSchema {
     public static abstract sealed class BooleanJsonSchema1Boxed permits BooleanJsonSchema1BoxedBoolean {
+        public abstract @Nullable Object data();
     }
     public static final class BooleanJsonSchema1BoxedBoolean extends BooleanJsonSchema1Boxed {
         public final boolean data;
         private BooleanJsonSchema1BoxedBoolean(boolean data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     public static class BooleanJsonSchema1 extends JsonSchema implements BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {

@@ -1,6 +1,6 @@
 # ItemsDoesNotLookInApplicatorsValidCase
 org.openapijsonschematools.client.components.schemas.ItemsDoesNotLookInApplicatorsValidCase.java
-public class ItemsDoesNotLookInApplicatorsValidCase
+public class ItemsDoesNotLookInApplicatorsValidCase<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

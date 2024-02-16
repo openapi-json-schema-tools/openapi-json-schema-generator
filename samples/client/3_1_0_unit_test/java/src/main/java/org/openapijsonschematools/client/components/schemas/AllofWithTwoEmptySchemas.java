@@ -58,12 +58,18 @@ public class AllofWithTwoEmptySchemas {
     }
     
     
-    public static abstract sealed class AllofWithTwoEmptySchemas1Boxed permits AllofWithTwoEmptySchemas1BoxedVoid, AllofWithTwoEmptySchemas1BoxedBoolean, AllofWithTwoEmptySchemas1BoxedNumber, AllofWithTwoEmptySchemas1BoxedString, AllofWithTwoEmptySchemas1BoxedList, AllofWithTwoEmptySchemas1BoxedMap {}
+    public static abstract sealed class AllofWithTwoEmptySchemas1Boxed permits AllofWithTwoEmptySchemas1BoxedVoid, AllofWithTwoEmptySchemas1BoxedBoolean, AllofWithTwoEmptySchemas1BoxedNumber, AllofWithTwoEmptySchemas1BoxedString, AllofWithTwoEmptySchemas1BoxedList, AllofWithTwoEmptySchemas1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class AllofWithTwoEmptySchemas1BoxedVoid extends AllofWithTwoEmptySchemas1Boxed {
         public final Void data;
         private AllofWithTwoEmptySchemas1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -72,12 +78,20 @@ public class AllofWithTwoEmptySchemas {
         private AllofWithTwoEmptySchemas1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AllofWithTwoEmptySchemas1BoxedNumber extends AllofWithTwoEmptySchemas1Boxed {
         public final Number data;
         private AllofWithTwoEmptySchemas1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -86,6 +100,10 @@ public class AllofWithTwoEmptySchemas {
         private AllofWithTwoEmptySchemas1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AllofWithTwoEmptySchemas1BoxedList extends AllofWithTwoEmptySchemas1Boxed {
@@ -93,12 +111,20 @@ public class AllofWithTwoEmptySchemas {
         private AllofWithTwoEmptySchemas1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class AllofWithTwoEmptySchemas1BoxedMap extends AllofWithTwoEmptySchemas1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private AllofWithTwoEmptySchemas1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

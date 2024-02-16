@@ -1,6 +1,6 @@
 # UnevaluatedpropertiesSchema
 org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesSchema.java
-public class UnevaluatedpropertiesSchema
+public class UnevaluatedpropertiesSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

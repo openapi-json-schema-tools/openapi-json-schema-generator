@@ -142,12 +142,18 @@ public class Allof {
     }
     
     
-    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {}
+    public static abstract sealed class Schema0Boxed permits Schema0BoxedVoid, Schema0BoxedBoolean, Schema0BoxedNumber, Schema0BoxedString, Schema0BoxedList, Schema0BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema0BoxedVoid extends Schema0Boxed {
         public final Void data;
         private Schema0BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -156,12 +162,20 @@ public class Allof {
         private Schema0BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedNumber extends Schema0Boxed {
         public final Number data;
         private Schema0BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -170,6 +184,10 @@ public class Allof {
         private Schema0BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedList extends Schema0Boxed {
@@ -177,12 +195,20 @@ public class Allof {
         private Schema0BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema0BoxedMap extends Schema0Boxed {
         public final Schema0Map data;
         private Schema0BoxedMap(Schema0Map data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -496,12 +522,18 @@ public class Allof {
     }
     
     
-    public static abstract sealed class Schema1Boxed permits Schema1BoxedVoid, Schema1BoxedBoolean, Schema1BoxedNumber, Schema1BoxedString, Schema1BoxedList, Schema1BoxedMap {}
+    public static abstract sealed class Schema1Boxed permits Schema1BoxedVoid, Schema1BoxedBoolean, Schema1BoxedNumber, Schema1BoxedString, Schema1BoxedList, Schema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Schema1BoxedVoid extends Schema1Boxed {
         public final Void data;
         private Schema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -510,12 +542,20 @@ public class Allof {
         private Schema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedNumber extends Schema1Boxed {
         public final Number data;
         private Schema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -524,6 +564,10 @@ public class Allof {
         private Schema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedList extends Schema1Boxed {
@@ -531,12 +575,20 @@ public class Allof {
         private Schema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Schema1BoxedMap extends Schema1Boxed {
         public final Schema1Map data;
         private Schema1BoxedMap(Schema1Map data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -765,12 +817,18 @@ public class Allof {
         }
     }    
     
-    public static abstract sealed class Allof1Boxed permits Allof1BoxedVoid, Allof1BoxedBoolean, Allof1BoxedNumber, Allof1BoxedString, Allof1BoxedList, Allof1BoxedMap {}
+    public static abstract sealed class Allof1Boxed permits Allof1BoxedVoid, Allof1BoxedBoolean, Allof1BoxedNumber, Allof1BoxedString, Allof1BoxedList, Allof1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Allof1BoxedVoid extends Allof1Boxed {
         public final Void data;
         private Allof1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -779,12 +837,20 @@ public class Allof {
         private Allof1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Allof1BoxedNumber extends Allof1Boxed {
         public final Number data;
         private Allof1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -793,6 +859,10 @@ public class Allof {
         private Allof1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Allof1BoxedList extends Allof1Boxed {
@@ -800,12 +870,20 @@ public class Allof {
         private Allof1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class Allof1BoxedMap extends Allof1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private Allof1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

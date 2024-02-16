@@ -1,6 +1,6 @@
 # MultipleTypesCanBeSpecifiedInAnArray
 org.openapijsonschematools.client.components.schemas.MultipleTypesCanBeSpecifiedInAnArray.java
-public class MultipleTypesCanBeSpecifiedInAnArray
+public class MultipleTypesCanBeSpecifiedInAnArray<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

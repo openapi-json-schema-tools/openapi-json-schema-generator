@@ -1,6 +1,6 @@
 # PropertiesWhoseNamesAreJavascriptObjectPropertyNames
 org.openapijsonschematools.client.components.schemas.PropertiesWhoseNamesAreJavascriptObjectPropertyNames.java
-public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames
+public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

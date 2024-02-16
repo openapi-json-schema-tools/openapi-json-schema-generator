@@ -81,12 +81,18 @@ public class NestedItems {
     }
     
     
-    public static abstract sealed class Items2Boxed permits Items2BoxedList {}
+    public static abstract sealed class Items2Boxed permits Items2BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Items2BoxedList extends Items2Boxed {
         public final ItemsList data;
         private Items2BoxedList(ItemsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -194,12 +200,18 @@ public class NestedItems {
     }
     
     
-    public static abstract sealed class Items1Boxed permits Items1BoxedList {}
+    public static abstract sealed class Items1Boxed permits Items1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class Items1BoxedList extends Items1Boxed {
         public final ItemsList1 data;
         private Items1BoxedList(ItemsList1 data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -307,12 +319,18 @@ public class NestedItems {
     }
     
     
-    public static abstract sealed class ItemsBoxed permits ItemsBoxedList {}
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsBoxedList extends ItemsBoxed {
         public final ItemsList2 data;
         private ItemsBoxedList(ItemsList2 data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -420,12 +438,18 @@ public class NestedItems {
     }
     
     
-    public static abstract sealed class NestedItems1Boxed permits NestedItems1BoxedList {}
+    public static abstract sealed class NestedItems1Boxed permits NestedItems1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NestedItems1BoxedList extends NestedItems1Boxed {
         public final NestedItemsList data;
         private NestedItems1BoxedList(NestedItemsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

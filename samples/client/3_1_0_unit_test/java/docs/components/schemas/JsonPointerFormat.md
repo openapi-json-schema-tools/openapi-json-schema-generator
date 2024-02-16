@@ -1,6 +1,6 @@
 # JsonPointerFormat
 org.openapijsonschematools.client.components.schemas.JsonPointerFormat.java
-public class JsonPointerFormat
+public class JsonPointerFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

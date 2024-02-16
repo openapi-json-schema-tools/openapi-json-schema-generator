@@ -1,6 +1,6 @@
 # TypeArrayObjectOrNull
 org.openapijsonschematools.client.components.schemas.TypeArrayObjectOrNull.java
-public class TypeArrayObjectOrNull
+public class TypeArrayObjectOrNull<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

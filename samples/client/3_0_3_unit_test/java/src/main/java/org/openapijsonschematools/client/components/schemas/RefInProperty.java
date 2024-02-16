@@ -151,12 +151,18 @@ public class RefInProperty {
     }
     
     
-    public static abstract sealed class RefInProperty1Boxed permits RefInProperty1BoxedVoid, RefInProperty1BoxedBoolean, RefInProperty1BoxedNumber, RefInProperty1BoxedString, RefInProperty1BoxedList, RefInProperty1BoxedMap {}
+    public static abstract sealed class RefInProperty1Boxed permits RefInProperty1BoxedVoid, RefInProperty1BoxedBoolean, RefInProperty1BoxedNumber, RefInProperty1BoxedString, RefInProperty1BoxedList, RefInProperty1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RefInProperty1BoxedVoid extends RefInProperty1Boxed {
         public final Void data;
         private RefInProperty1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -165,12 +171,20 @@ public class RefInProperty {
         private RefInProperty1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RefInProperty1BoxedNumber extends RefInProperty1Boxed {
         public final Number data;
         private RefInProperty1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -179,6 +193,10 @@ public class RefInProperty {
         private RefInProperty1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RefInProperty1BoxedList extends RefInProperty1Boxed {
@@ -186,12 +204,20 @@ public class RefInProperty {
         private RefInProperty1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RefInProperty1BoxedMap extends RefInProperty1Boxed {
         public final RefInPropertyMap data;
         private RefInProperty1BoxedMap(RefInPropertyMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

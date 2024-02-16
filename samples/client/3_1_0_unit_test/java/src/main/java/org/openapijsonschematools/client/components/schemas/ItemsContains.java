@@ -36,12 +36,18 @@ public class ItemsContains {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ContainsBoxed permits ContainsBoxedVoid, ContainsBoxedBoolean, ContainsBoxedNumber, ContainsBoxedString, ContainsBoxedList, ContainsBoxedMap {}
+    public static abstract sealed class ContainsBoxed permits ContainsBoxedVoid, ContainsBoxedBoolean, ContainsBoxedNumber, ContainsBoxedString, ContainsBoxedList, ContainsBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ContainsBoxedVoid extends ContainsBoxed {
         public final Void data;
         private ContainsBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -50,12 +56,20 @@ public class ItemsContains {
         private ContainsBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsBoxedNumber extends ContainsBoxed {
         public final Number data;
         private ContainsBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -64,6 +78,10 @@ public class ItemsContains {
         private ContainsBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsBoxedList extends ContainsBoxed {
@@ -71,12 +89,20 @@ public class ItemsContains {
         private ContainsBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ContainsBoxedMap extends ContainsBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ContainsBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -300,12 +326,18 @@ public class ItemsContains {
         }
     }    
     
-    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {}
+    public static abstract sealed class ItemsBoxed permits ItemsBoxedVoid, ItemsBoxedBoolean, ItemsBoxedNumber, ItemsBoxedString, ItemsBoxedList, ItemsBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsBoxedVoid extends ItemsBoxed {
         public final Void data;
         private ItemsBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -314,12 +346,20 @@ public class ItemsContains {
         private ItemsBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedNumber extends ItemsBoxed {
         public final Number data;
         private ItemsBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -328,6 +368,10 @@ public class ItemsContains {
         private ItemsBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedList extends ItemsBoxed {
@@ -335,12 +379,20 @@ public class ItemsContains {
         private ItemsBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ItemsBoxedMap extends ItemsBoxed {
         public final FrozenMap<@Nullable Object> data;
         private ItemsBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -636,12 +688,18 @@ public class ItemsContains {
     }
     
     
-    public static abstract sealed class ItemsContains1Boxed permits ItemsContains1BoxedList {}
+    public static abstract sealed class ItemsContains1Boxed permits ItemsContains1BoxedList {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ItemsContains1BoxedList extends ItemsContains1Boxed {
         public final ItemsContainsList data;
         private ItemsContains1BoxedList(ItemsContainsList data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

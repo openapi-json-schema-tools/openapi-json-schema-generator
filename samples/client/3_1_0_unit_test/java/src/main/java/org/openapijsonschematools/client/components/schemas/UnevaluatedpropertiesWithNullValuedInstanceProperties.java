@@ -47,12 +47,18 @@ public class UnevaluatedpropertiesWithNullValuedInstanceProperties {
     }
     
     
-    public static abstract sealed class UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed permits UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedVoid, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedBoolean, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedNumber, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedString, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedList, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedMap {}
+    public static abstract sealed class UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed permits UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedVoid, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedBoolean, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedNumber, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedString, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedList, UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedVoid extends UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed {
         public final Void data;
         private UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class UnevaluatedpropertiesWithNullValuedInstanceProperties {
         private UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedNumber extends UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed {
         public final Number data;
         private UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class UnevaluatedpropertiesWithNullValuedInstanceProperties {
         private UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedList extends UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed {
@@ -82,12 +100,20 @@ public class UnevaluatedpropertiesWithNullValuedInstanceProperties {
         private UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedMap extends UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

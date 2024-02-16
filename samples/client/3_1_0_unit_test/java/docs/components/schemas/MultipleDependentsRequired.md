@@ -1,6 +1,6 @@
 # MultipleDependentsRequired
 org.openapijsonschematools.client.components.schemas.MultipleDependentsRequired.java
-public class MultipleDependentsRequired
+public class MultipleDependentsRequired<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

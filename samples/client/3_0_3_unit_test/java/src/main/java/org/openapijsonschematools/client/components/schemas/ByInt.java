@@ -36,12 +36,18 @@ public class ByInt {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class ByInt1Boxed permits ByInt1BoxedVoid, ByInt1BoxedBoolean, ByInt1BoxedNumber, ByInt1BoxedString, ByInt1BoxedList, ByInt1BoxedMap {}
+    public static abstract sealed class ByInt1Boxed permits ByInt1BoxedVoid, ByInt1BoxedBoolean, ByInt1BoxedNumber, ByInt1BoxedString, ByInt1BoxedList, ByInt1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ByInt1BoxedVoid extends ByInt1Boxed {
         public final Void data;
         private ByInt1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -50,12 +56,20 @@ public class ByInt {
         private ByInt1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ByInt1BoxedNumber extends ByInt1Boxed {
         public final Number data;
         private ByInt1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -64,6 +78,10 @@ public class ByInt {
         private ByInt1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ByInt1BoxedList extends ByInt1Boxed {
@@ -71,12 +89,20 @@ public class ByInt {
         private ByInt1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ByInt1BoxedMap extends ByInt1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private ByInt1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

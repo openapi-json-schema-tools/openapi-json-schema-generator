@@ -20,12 +20,18 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed permits InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber {}
+    public static abstract sealed class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed permits InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber extends InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed {
         public final Number data;
         private InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # Ipv6Format
 org.openapijsonschematools.client.components.schemas.Ipv6Format.java
-public class Ipv6Format
+public class Ipv6Format<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

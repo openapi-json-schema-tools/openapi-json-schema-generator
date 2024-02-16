@@ -1,6 +1,6 @@
 # IriReferenceFormat
 org.openapijsonschematools.client.components.schemas.IriReferenceFormat.java
-public class IriReferenceFormat
+public class IriReferenceFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

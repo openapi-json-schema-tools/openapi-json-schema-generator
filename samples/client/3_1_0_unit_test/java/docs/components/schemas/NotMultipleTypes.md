@@ -1,6 +1,6 @@
 # NotMultipleTypes
 org.openapijsonschematools.client.components.schemas.NotMultipleTypes.java
-public class NotMultipleTypes
+public class NotMultipleTypes<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

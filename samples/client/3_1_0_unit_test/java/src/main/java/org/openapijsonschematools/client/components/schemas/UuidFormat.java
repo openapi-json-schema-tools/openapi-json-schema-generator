@@ -35,12 +35,18 @@ public class UuidFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UuidFormat1Boxed permits UuidFormat1BoxedVoid, UuidFormat1BoxedBoolean, UuidFormat1BoxedNumber, UuidFormat1BoxedString, UuidFormat1BoxedList, UuidFormat1BoxedMap {}
+    public static abstract sealed class UuidFormat1Boxed permits UuidFormat1BoxedVoid, UuidFormat1BoxedBoolean, UuidFormat1BoxedNumber, UuidFormat1BoxedString, UuidFormat1BoxedList, UuidFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UuidFormat1BoxedVoid extends UuidFormat1Boxed {
         public final Void data;
         private UuidFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class UuidFormat {
         private UuidFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UuidFormat1BoxedNumber extends UuidFormat1Boxed {
         public final Number data;
         private UuidFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class UuidFormat {
         private UuidFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UuidFormat1BoxedList extends UuidFormat1Boxed {
@@ -70,12 +88,20 @@ public class UuidFormat {
         private UuidFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UuidFormat1BoxedMap extends UuidFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UuidFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

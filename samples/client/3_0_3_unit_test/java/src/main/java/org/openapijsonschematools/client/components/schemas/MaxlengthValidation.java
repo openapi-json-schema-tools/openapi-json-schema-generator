@@ -35,12 +35,18 @@ public class MaxlengthValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class MaxlengthValidation1Boxed permits MaxlengthValidation1BoxedVoid, MaxlengthValidation1BoxedBoolean, MaxlengthValidation1BoxedNumber, MaxlengthValidation1BoxedString, MaxlengthValidation1BoxedList, MaxlengthValidation1BoxedMap {}
+    public static abstract sealed class MaxlengthValidation1Boxed permits MaxlengthValidation1BoxedVoid, MaxlengthValidation1BoxedBoolean, MaxlengthValidation1BoxedNumber, MaxlengthValidation1BoxedString, MaxlengthValidation1BoxedList, MaxlengthValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class MaxlengthValidation1BoxedVoid extends MaxlengthValidation1Boxed {
         public final Void data;
         private MaxlengthValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class MaxlengthValidation {
         private MaxlengthValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxlengthValidation1BoxedNumber extends MaxlengthValidation1Boxed {
         public final Number data;
         private MaxlengthValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class MaxlengthValidation {
         private MaxlengthValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxlengthValidation1BoxedList extends MaxlengthValidation1Boxed {
@@ -70,12 +88,20 @@ public class MaxlengthValidation {
         private MaxlengthValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class MaxlengthValidation1BoxedMap extends MaxlengthValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private MaxlengthValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

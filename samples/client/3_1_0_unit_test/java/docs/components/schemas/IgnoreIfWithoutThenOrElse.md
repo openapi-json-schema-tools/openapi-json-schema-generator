@@ -1,6 +1,6 @@
 # IgnoreIfWithoutThenOrElse
 org.openapijsonschematools.client.components.schemas.IgnoreIfWithoutThenOrElse.java
-public class IgnoreIfWithoutThenOrElse
+public class IgnoreIfWithoutThenOrElse<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

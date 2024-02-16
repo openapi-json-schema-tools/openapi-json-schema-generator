@@ -115,12 +115,18 @@ public class PropertiesWithNullValuedInstanceProperties {
     }
     
     
-    public static abstract sealed class PropertiesWithNullValuedInstanceProperties1Boxed permits PropertiesWithNullValuedInstanceProperties1BoxedVoid, PropertiesWithNullValuedInstanceProperties1BoxedBoolean, PropertiesWithNullValuedInstanceProperties1BoxedNumber, PropertiesWithNullValuedInstanceProperties1BoxedString, PropertiesWithNullValuedInstanceProperties1BoxedList, PropertiesWithNullValuedInstanceProperties1BoxedMap {}
+    public static abstract sealed class PropertiesWithNullValuedInstanceProperties1Boxed permits PropertiesWithNullValuedInstanceProperties1BoxedVoid, PropertiesWithNullValuedInstanceProperties1BoxedBoolean, PropertiesWithNullValuedInstanceProperties1BoxedNumber, PropertiesWithNullValuedInstanceProperties1BoxedString, PropertiesWithNullValuedInstanceProperties1BoxedList, PropertiesWithNullValuedInstanceProperties1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PropertiesWithNullValuedInstanceProperties1BoxedVoid extends PropertiesWithNullValuedInstanceProperties1Boxed {
         public final Void data;
         private PropertiesWithNullValuedInstanceProperties1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -129,12 +135,20 @@ public class PropertiesWithNullValuedInstanceProperties {
         private PropertiesWithNullValuedInstanceProperties1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWithNullValuedInstanceProperties1BoxedNumber extends PropertiesWithNullValuedInstanceProperties1Boxed {
         public final Number data;
         private PropertiesWithNullValuedInstanceProperties1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -143,6 +157,10 @@ public class PropertiesWithNullValuedInstanceProperties {
         private PropertiesWithNullValuedInstanceProperties1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWithNullValuedInstanceProperties1BoxedList extends PropertiesWithNullValuedInstanceProperties1Boxed {
@@ -150,12 +168,20 @@ public class PropertiesWithNullValuedInstanceProperties {
         private PropertiesWithNullValuedInstanceProperties1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class PropertiesWithNullValuedInstanceProperties1BoxedMap extends PropertiesWithNullValuedInstanceProperties1Boxed {
         public final PropertiesWithNullValuedInstancePropertiesMap data;
         private PropertiesWithNullValuedInstanceProperties1BoxedMap(PropertiesWithNullValuedInstancePropertiesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

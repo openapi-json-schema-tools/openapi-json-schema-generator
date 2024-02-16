@@ -1,6 +1,6 @@
 # UriReferenceFormat
 org.openapijsonschematools.client.components.schemas.UriReferenceFormat.java
-public class UriReferenceFormat
+public class UriReferenceFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

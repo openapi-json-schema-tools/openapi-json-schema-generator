@@ -1,6 +1,6 @@
 # HostnameFormat
 org.openapijsonschematools.client.components.schemas.HostnameFormat.java
-public class HostnameFormat
+public class HostnameFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

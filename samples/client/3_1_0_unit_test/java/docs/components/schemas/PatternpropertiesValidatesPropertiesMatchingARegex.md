@@ -1,6 +1,6 @@
 # PatternpropertiesValidatesPropertiesMatchingARegex
 org.openapijsonschematools.client.components.schemas.PatternpropertiesValidatesPropertiesMatchingARegex.java
-public class PatternpropertiesValidatesPropertiesMatchingARegex
+public class PatternpropertiesValidatesPropertiesMatchingARegex<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

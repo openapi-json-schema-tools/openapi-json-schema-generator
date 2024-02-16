@@ -369,12 +369,18 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static abstract sealed class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed permits RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap {}
+    public static abstract sealed class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed permits RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList, RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid extends RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         public final Void data;
         private RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -383,12 +389,20 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber extends RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         public final Number data;
         private RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -397,6 +411,10 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList extends RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
@@ -404,12 +422,20 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         private RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap extends RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed {
         public final RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data;
         private RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap(RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

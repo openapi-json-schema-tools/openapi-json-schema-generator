@@ -1,6 +1,6 @@
 # RequiredValidation
 org.openapijsonschematools.client.components.schemas.RequiredValidation.java
-public class RequiredValidation
+public class RequiredValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

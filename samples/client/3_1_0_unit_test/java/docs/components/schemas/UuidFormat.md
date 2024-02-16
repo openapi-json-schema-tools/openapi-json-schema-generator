@@ -1,6 +1,6 @@
 # UuidFormat
 org.openapijsonschematools.client.components.schemas.UuidFormat.java
-public class UuidFormat
+public class UuidFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

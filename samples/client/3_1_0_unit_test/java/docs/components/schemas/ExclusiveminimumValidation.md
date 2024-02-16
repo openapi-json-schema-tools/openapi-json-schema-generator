@@ -1,6 +1,6 @@
 # ExclusiveminimumValidation
 org.openapijsonschematools.client.components.schemas.ExclusiveminimumValidation.java
-public class ExclusiveminimumValidation
+public class ExclusiveminimumValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

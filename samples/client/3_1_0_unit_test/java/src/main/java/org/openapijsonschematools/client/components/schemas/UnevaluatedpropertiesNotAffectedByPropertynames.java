@@ -36,12 +36,18 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class PropertyNamesBoxed permits PropertyNamesBoxedString {}
+    public static abstract sealed class PropertyNamesBoxed permits PropertyNamesBoxedString {
+        public abstract @Nullable Object data();
+    }
     
     public static final class PropertyNamesBoxedString extends PropertyNamesBoxed {
         public final String data;
         private PropertyNamesBoxedString(String data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -108,12 +114,18 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
     }
     
     
-    public static abstract sealed class UnevaluatedpropertiesNotAffectedByPropertynames1Boxed permits UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap {}
+    public static abstract sealed class UnevaluatedpropertiesNotAffectedByPropertynames1Boxed permits UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList, UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         public final Void data;
         private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -122,12 +134,20 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
         private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         public final Number data;
         private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -136,6 +156,10 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
         private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
@@ -143,12 +167,20 @@ public class UnevaluatedpropertiesNotAffectedByPropertynames {
         private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap extends UnevaluatedpropertiesNotAffectedByPropertynames1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

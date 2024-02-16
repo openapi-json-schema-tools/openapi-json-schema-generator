@@ -49,12 +49,18 @@ public class ForbiddenProperty {
     }
     
     
-    public static abstract sealed class FooBoxed permits FooBoxedVoid, FooBoxedBoolean, FooBoxedNumber, FooBoxedString, FooBoxedList, FooBoxedMap {}
+    public static abstract sealed class FooBoxed permits FooBoxedVoid, FooBoxedBoolean, FooBoxedNumber, FooBoxedString, FooBoxedList, FooBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class FooBoxedVoid extends FooBoxed {
         public final Void data;
         private FooBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,12 +69,20 @@ public class ForbiddenProperty {
         private FooBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FooBoxedNumber extends FooBoxed {
         public final Number data;
         private FooBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -77,6 +91,10 @@ public class ForbiddenProperty {
         private FooBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FooBoxedList extends FooBoxed {
@@ -84,12 +102,20 @@ public class ForbiddenProperty {
         private FooBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class FooBoxedMap extends FooBoxed {
         public final FrozenMap<@Nullable Object> data;
         private FooBoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -421,12 +447,18 @@ public class ForbiddenProperty {
     }
     
     
-    public static abstract sealed class ForbiddenProperty1Boxed permits ForbiddenProperty1BoxedVoid, ForbiddenProperty1BoxedBoolean, ForbiddenProperty1BoxedNumber, ForbiddenProperty1BoxedString, ForbiddenProperty1BoxedList, ForbiddenProperty1BoxedMap {}
+    public static abstract sealed class ForbiddenProperty1Boxed permits ForbiddenProperty1BoxedVoid, ForbiddenProperty1BoxedBoolean, ForbiddenProperty1BoxedNumber, ForbiddenProperty1BoxedString, ForbiddenProperty1BoxedList, ForbiddenProperty1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class ForbiddenProperty1BoxedVoid extends ForbiddenProperty1Boxed {
         public final Void data;
         private ForbiddenProperty1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -435,12 +467,20 @@ public class ForbiddenProperty {
         private ForbiddenProperty1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ForbiddenProperty1BoxedNumber extends ForbiddenProperty1Boxed {
         public final Number data;
         private ForbiddenProperty1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -449,6 +489,10 @@ public class ForbiddenProperty {
         private ForbiddenProperty1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ForbiddenProperty1BoxedList extends ForbiddenProperty1Boxed {
@@ -456,12 +500,20 @@ public class ForbiddenProperty {
         private ForbiddenProperty1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class ForbiddenProperty1BoxedMap extends ForbiddenProperty1Boxed {
         public final ForbiddenPropertyMap data;
         private ForbiddenProperty1BoxedMap(ForbiddenPropertyMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

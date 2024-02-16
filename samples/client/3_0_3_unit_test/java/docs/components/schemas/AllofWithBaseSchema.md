@@ -1,6 +1,6 @@
 # AllofWithBaseSchema
 org.openapijsonschematools.client.components.schemas.AllofWithBaseSchema.java
-public class AllofWithBaseSchema
+public class AllofWithBaseSchema<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

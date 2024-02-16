@@ -35,12 +35,18 @@ public class UniqueitemsValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UniqueitemsValidation1Boxed permits UniqueitemsValidation1BoxedVoid, UniqueitemsValidation1BoxedBoolean, UniqueitemsValidation1BoxedNumber, UniqueitemsValidation1BoxedString, UniqueitemsValidation1BoxedList, UniqueitemsValidation1BoxedMap {}
+    public static abstract sealed class UniqueitemsValidation1Boxed permits UniqueitemsValidation1BoxedVoid, UniqueitemsValidation1BoxedBoolean, UniqueitemsValidation1BoxedNumber, UniqueitemsValidation1BoxedString, UniqueitemsValidation1BoxedList, UniqueitemsValidation1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UniqueitemsValidation1BoxedVoid extends UniqueitemsValidation1Boxed {
         public final Void data;
         private UniqueitemsValidation1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class UniqueitemsValidation {
         private UniqueitemsValidation1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsValidation1BoxedNumber extends UniqueitemsValidation1Boxed {
         public final Number data;
         private UniqueitemsValidation1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class UniqueitemsValidation {
         private UniqueitemsValidation1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsValidation1BoxedList extends UniqueitemsValidation1Boxed {
@@ -70,12 +88,20 @@ public class UniqueitemsValidation {
         private UniqueitemsValidation1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UniqueitemsValidation1BoxedMap extends UniqueitemsValidation1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UniqueitemsValidation1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

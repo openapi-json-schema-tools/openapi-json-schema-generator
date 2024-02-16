@@ -3,7 +3,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.schemas.ListJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 
-public class ArrayTypeMatchesArrays {
+public class ArrayTypeMatchesArrays extends ListJsonSchema {
     // nest classes so all schemas and input/output classes can be public
     
     

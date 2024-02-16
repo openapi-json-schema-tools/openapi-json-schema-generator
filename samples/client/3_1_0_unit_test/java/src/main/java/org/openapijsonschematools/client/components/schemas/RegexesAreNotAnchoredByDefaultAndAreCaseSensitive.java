@@ -61,12 +61,18 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
     }
     
     
-    public static abstract sealed class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed permits RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap {}
+    public static abstract sealed class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed permits RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         public final Void data;
         private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,12 +81,20 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
         private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         public final Number data;
         private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -89,6 +103,10 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
         private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
@@ -96,12 +114,20 @@ public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
         private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap extends RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

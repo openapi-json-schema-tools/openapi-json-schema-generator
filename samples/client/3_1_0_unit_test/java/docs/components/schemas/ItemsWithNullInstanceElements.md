@@ -1,6 +1,6 @@
 # ItemsWithNullInstanceElements
 org.openapijsonschematools.client.components.schemas.ItemsWithNullInstanceElements.java
-public class ItemsWithNullInstanceElements
+public class ItemsWithNullInstanceElements<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

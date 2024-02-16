@@ -188,12 +188,18 @@ public class DependentSchemasSingleDependency {
     }
     
     
-    public static abstract sealed class BarBoxed permits BarBoxedVoid, BarBoxedBoolean, BarBoxedNumber, BarBoxedString, BarBoxedList, BarBoxedMap {}
+    public static abstract sealed class BarBoxed permits BarBoxedVoid, BarBoxedBoolean, BarBoxedNumber, BarBoxedString, BarBoxedList, BarBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class BarBoxedVoid extends BarBoxed {
         public final Void data;
         private BarBoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -202,12 +208,20 @@ public class DependentSchemasSingleDependency {
         private BarBoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class BarBoxedNumber extends BarBoxed {
         public final Number data;
         private BarBoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -216,6 +230,10 @@ public class DependentSchemasSingleDependency {
         private BarBoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class BarBoxedList extends BarBoxed {
@@ -223,12 +241,20 @@ public class DependentSchemasSingleDependency {
         private BarBoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class BarBoxedMap extends BarBoxed {
         public final BarMap data;
         private BarBoxedMap(BarMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -455,12 +481,18 @@ public class DependentSchemasSingleDependency {
         }
     }    
     
-    public static abstract sealed class DependentSchemasSingleDependency1Boxed permits DependentSchemasSingleDependency1BoxedVoid, DependentSchemasSingleDependency1BoxedBoolean, DependentSchemasSingleDependency1BoxedNumber, DependentSchemasSingleDependency1BoxedString, DependentSchemasSingleDependency1BoxedList, DependentSchemasSingleDependency1BoxedMap {}
+    public static abstract sealed class DependentSchemasSingleDependency1Boxed permits DependentSchemasSingleDependency1BoxedVoid, DependentSchemasSingleDependency1BoxedBoolean, DependentSchemasSingleDependency1BoxedNumber, DependentSchemasSingleDependency1BoxedString, DependentSchemasSingleDependency1BoxedList, DependentSchemasSingleDependency1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class DependentSchemasSingleDependency1BoxedVoid extends DependentSchemasSingleDependency1Boxed {
         public final Void data;
         private DependentSchemasSingleDependency1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -469,12 +501,20 @@ public class DependentSchemasSingleDependency {
         private DependentSchemasSingleDependency1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasSingleDependency1BoxedNumber extends DependentSchemasSingleDependency1Boxed {
         public final Number data;
         private DependentSchemasSingleDependency1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -483,6 +523,10 @@ public class DependentSchemasSingleDependency {
         private DependentSchemasSingleDependency1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasSingleDependency1BoxedList extends DependentSchemasSingleDependency1Boxed {
@@ -490,12 +534,20 @@ public class DependentSchemasSingleDependency {
         private DependentSchemasSingleDependency1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class DependentSchemasSingleDependency1BoxedMap extends DependentSchemasSingleDependency1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private DependentSchemasSingleDependency1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

@@ -1,6 +1,6 @@
 # Anyof
 org.openapijsonschematools.client.components.schemas.Anyof.java
-public class Anyof
+public class Anyof<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

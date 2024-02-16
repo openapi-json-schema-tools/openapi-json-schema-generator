@@ -1,6 +1,6 @@
 # MaxitemsValidation
 org.openapijsonschematools.client.components.schemas.MaxitemsValidation.java
-public class MaxitemsValidation
+public class MaxitemsValidation<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

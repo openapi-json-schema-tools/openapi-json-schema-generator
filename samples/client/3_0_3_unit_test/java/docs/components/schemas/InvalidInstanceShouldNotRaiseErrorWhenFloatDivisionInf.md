@@ -1,6 +1,6 @@
 # InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 org.openapijsonschematools.client.components.schemas.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.java
-public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
+public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

@@ -115,12 +115,18 @@ public class NotMoreComplexSchema {
     }
     
     
-    public static abstract sealed class NotBoxed permits NotBoxedMap {}
+    public static abstract sealed class NotBoxed permits NotBoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NotBoxedMap extends NotBoxed {
         public final NotMap data;
         private NotBoxedMap(NotMap data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -199,12 +205,18 @@ public class NotMoreComplexSchema {
     }
     
     
-    public static abstract sealed class NotMoreComplexSchema1Boxed permits NotMoreComplexSchema1BoxedVoid, NotMoreComplexSchema1BoxedBoolean, NotMoreComplexSchema1BoxedNumber, NotMoreComplexSchema1BoxedString, NotMoreComplexSchema1BoxedList, NotMoreComplexSchema1BoxedMap {}
+    public static abstract sealed class NotMoreComplexSchema1Boxed permits NotMoreComplexSchema1BoxedVoid, NotMoreComplexSchema1BoxedBoolean, NotMoreComplexSchema1BoxedNumber, NotMoreComplexSchema1BoxedString, NotMoreComplexSchema1BoxedList, NotMoreComplexSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class NotMoreComplexSchema1BoxedVoid extends NotMoreComplexSchema1Boxed {
         public final Void data;
         private NotMoreComplexSchema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -213,12 +225,20 @@ public class NotMoreComplexSchema {
         private NotMoreComplexSchema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NotMoreComplexSchema1BoxedNumber extends NotMoreComplexSchema1Boxed {
         public final Number data;
         private NotMoreComplexSchema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -227,6 +247,10 @@ public class NotMoreComplexSchema {
         private NotMoreComplexSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NotMoreComplexSchema1BoxedList extends NotMoreComplexSchema1Boxed {
@@ -234,12 +258,20 @@ public class NotMoreComplexSchema {
         private NotMoreComplexSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class NotMoreComplexSchema1BoxedMap extends NotMoreComplexSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private NotMoreComplexSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

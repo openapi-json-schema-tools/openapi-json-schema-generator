@@ -1,6 +1,6 @@
 # RequiredWithEscapedCharacters
 org.openapijsonschematools.client.components.schemas.RequiredWithEscapedCharacters.java
-public class RequiredWithEscapedCharacters
+public class RequiredWithEscapedCharacters<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

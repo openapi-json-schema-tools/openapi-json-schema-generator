@@ -77,12 +77,18 @@ public class EnumWith1DoesNotMatchTrue {
     }
     
     
-    public static abstract sealed class EnumWith1DoesNotMatchTrue1Boxed permits EnumWith1DoesNotMatchTrue1BoxedNumber {}
+    public static abstract sealed class EnumWith1DoesNotMatchTrue1Boxed permits EnumWith1DoesNotMatchTrue1BoxedNumber {
+        public abstract @Nullable Object data();
+    }
     
     public static final class EnumWith1DoesNotMatchTrue1BoxedNumber extends EnumWith1DoesNotMatchTrue1Boxed {
         public final Number data;
         private EnumWith1DoesNotMatchTrue1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

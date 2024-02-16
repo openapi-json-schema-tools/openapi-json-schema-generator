@@ -35,12 +35,18 @@ public class UriTemplateFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static abstract sealed class UriTemplateFormat1Boxed permits UriTemplateFormat1BoxedVoid, UriTemplateFormat1BoxedBoolean, UriTemplateFormat1BoxedNumber, UriTemplateFormat1BoxedString, UriTemplateFormat1BoxedList, UriTemplateFormat1BoxedMap {}
+    public static abstract sealed class UriTemplateFormat1Boxed permits UriTemplateFormat1BoxedVoid, UriTemplateFormat1BoxedBoolean, UriTemplateFormat1BoxedNumber, UriTemplateFormat1BoxedString, UriTemplateFormat1BoxedList, UriTemplateFormat1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UriTemplateFormat1BoxedVoid extends UriTemplateFormat1Boxed {
         public final Void data;
         private UriTemplateFormat1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -49,12 +55,20 @@ public class UriTemplateFormat {
         private UriTemplateFormat1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriTemplateFormat1BoxedNumber extends UriTemplateFormat1Boxed {
         public final Number data;
         private UriTemplateFormat1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -63,6 +77,10 @@ public class UriTemplateFormat {
         private UriTemplateFormat1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriTemplateFormat1BoxedList extends UriTemplateFormat1Boxed {
@@ -70,12 +88,20 @@ public class UriTemplateFormat {
         private UriTemplateFormat1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UriTemplateFormat1BoxedMap extends UriTemplateFormat1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UriTemplateFormat1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     

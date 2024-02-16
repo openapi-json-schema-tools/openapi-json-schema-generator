@@ -1,6 +1,6 @@
 # BySmallNumber
 org.openapijsonschematools.client.components.schemas.BySmallNumber.java
-public class BySmallNumber
+public class BySmallNumber<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

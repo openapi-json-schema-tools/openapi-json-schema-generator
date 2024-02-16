@@ -1,6 +1,6 @@
 # EmailFormat
 org.openapijsonschematools.client.components.schemas.EmailFormat.java
-public class EmailFormat
+public class EmailFormat<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema

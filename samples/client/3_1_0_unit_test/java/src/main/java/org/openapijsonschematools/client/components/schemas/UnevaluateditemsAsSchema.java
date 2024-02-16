@@ -47,12 +47,18 @@ public class UnevaluateditemsAsSchema {
     }
     
     
-    public static abstract sealed class UnevaluateditemsAsSchema1Boxed permits UnevaluateditemsAsSchema1BoxedVoid, UnevaluateditemsAsSchema1BoxedBoolean, UnevaluateditemsAsSchema1BoxedNumber, UnevaluateditemsAsSchema1BoxedString, UnevaluateditemsAsSchema1BoxedList, UnevaluateditemsAsSchema1BoxedMap {}
+    public static abstract sealed class UnevaluateditemsAsSchema1Boxed permits UnevaluateditemsAsSchema1BoxedVoid, UnevaluateditemsAsSchema1BoxedBoolean, UnevaluateditemsAsSchema1BoxedNumber, UnevaluateditemsAsSchema1BoxedString, UnevaluateditemsAsSchema1BoxedList, UnevaluateditemsAsSchema1BoxedMap {
+        public abstract @Nullable Object data();
+    }
     
     public static final class UnevaluateditemsAsSchema1BoxedVoid extends UnevaluateditemsAsSchema1Boxed {
         public final Void data;
         private UnevaluateditemsAsSchema1BoxedVoid(Void data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -61,12 +67,20 @@ public class UnevaluateditemsAsSchema {
         private UnevaluateditemsAsSchema1BoxedBoolean(boolean data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluateditemsAsSchema1BoxedNumber extends UnevaluateditemsAsSchema1Boxed {
         public final Number data;
         private UnevaluateditemsAsSchema1BoxedNumber(Number data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
@@ -75,6 +89,10 @@ public class UnevaluateditemsAsSchema {
         private UnevaluateditemsAsSchema1BoxedString(String data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluateditemsAsSchema1BoxedList extends UnevaluateditemsAsSchema1Boxed {
@@ -82,12 +100,20 @@ public class UnevaluateditemsAsSchema {
         private UnevaluateditemsAsSchema1BoxedList(FrozenList<@Nullable Object> data) {
             this.data = data;
         }
+        @Override
+        public @Nullable Object data() {
+            return data;
+        }
     }
     
     public static final class UnevaluateditemsAsSchema1BoxedMap extends UnevaluateditemsAsSchema1Boxed {
         public final FrozenMap<@Nullable Object> data;
         private UnevaluateditemsAsSchema1BoxedMap(FrozenMap<@Nullable Object> data) {
             this.data = data;
+        }
+        @Override
+        public @Nullable Object data() {
+            return data;
         }
     }
     
