@@ -17,7 +17,7 @@ import java.util.concurrent.Flow;
 
 public final class RequestBodySerializerTest {
 
-    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, ApplicationgeojsonRequestBody {}
+    public static abstract sealed class SealedRequestBody permits ApplicationjsonRequestBody, TextplainRequestBody {}
     public static final class ApplicationjsonRequestBody extends SealedRequestBody implements GenericRequestBody<@Nullable Object> {
         private final String contentType;
         private final @Nullable Object body;
@@ -35,11 +35,11 @@ public final class RequestBodySerializerTest {
             return body;
         }
     }
-    public static final class ApplicationgeojsonRequestBody extends SealedRequestBody implements GenericRequestBody<@Nullable Object> {
+    public static final class TextplainRequestBody extends SealedRequestBody implements GenericRequestBody<@Nullable Object> {
         private final String contentType;
         private final @Nullable Object body;
-        public ApplicationgeojsonRequestBody(@Nullable Object body) {
-            contentType = "application/json";
+        public TextplainRequestBody(@Nullable Object body) {
+            contentType = "text/plain";
             this.body = body;
         }
         @Override
@@ -62,7 +62,7 @@ public final class RequestBodySerializerTest {
             if (requestBody instanceof ApplicationjsonRequestBody requestBody0) {
                 return serialize(requestBody0.contentType(), requestBody0.body());
             } else {
-                ApplicationgeojsonRequestBody requestBody1 = (ApplicationgeojsonRequestBody) requestBody;
+                TextplainRequestBody requestBody1 = (TextplainRequestBody) requestBody;
                 return serialize(requestBody1.contentType(), requestBody1.body());
             }
         }
@@ -97,10 +97,7 @@ public final class RequestBodySerializerTest {
         public void onComplete() { wrapped.onComplete(); }
     }
 
-    private String getJsonBody(MyRequestBodySerializer serializer, SealedRequestBody body) {
-        SerializedRequestBody requestBody = serializer.serialize(body);
-        Assert.assertEquals(requestBody.contentType, "application/json");
-
+    private String getJsonBody(SerializedRequestBody requestBody) {
         var bodySubscriber = HttpResponse.BodySubscribers.ofString(StandardCharsets.UTF_8);
         var flowSubscriber = new StringSubscriber(bodySubscriber);
         requestBody.bodyPublisher.subscribe(flowSubscriber);
@@ -109,44 +106,58 @@ public final class RequestBodySerializerTest {
     }
 
     @Test
-    public void testSerialize() {
+    public void testSerializeApplicationJson() {
         var serializer = new MyRequestBodySerializer();
         String jsonBody;
-        jsonBody = getJsonBody(
-                serializer,
-                new ApplicationgeojsonRequestBody(1));
+        SerializedRequestBody requestBody = serializer.serialize(new ApplicationjsonRequestBody(1));
+        Assert.assertEquals("application/json", requestBody.contentType);
+        jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "1");
-        jsonBody = getJsonBody(
-                serializer,
-                new ApplicationgeojsonRequestBody(3.14));
+
+        requestBody = serializer.serialize(new ApplicationjsonRequestBody(3.14));
+        jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "3.14");
-        jsonBody = getJsonBody(
-                serializer,
-                new ApplicationgeojsonRequestBody(null));
+
+        requestBody = serializer.serialize(new ApplicationjsonRequestBody(null));
+        jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "null");
-        jsonBody = getJsonBody(
-                serializer,
-                new ApplicationgeojsonRequestBody(true));
+
+        requestBody = serializer.serialize(new ApplicationjsonRequestBody(true));
+        jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "true");
-        jsonBody = getJsonBody(
-                serializer,
-                new ApplicationgeojsonRequestBody(false));
+
+        requestBody = serializer.serialize(new ApplicationjsonRequestBody(false));
+        jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "false");
-        jsonBody = getJsonBody(
-                serializer,
-                new ApplicationgeojsonRequestBody(List.of()));
+
+
+        requestBody = serializer.serialize(new ApplicationjsonRequestBody(List.of()));
+        jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "[]");
-        jsonBody = getJsonBody(
-                serializer,
-                new ApplicationgeojsonRequestBody(Map.of()));
+
+        requestBody = serializer.serialize(new ApplicationjsonRequestBody(Map.of()));
+        jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "{}");
 
         SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
         MapJsonSchema.MapJsonSchema1 mapJsonSchema = MapJsonSchema.MapJsonSchema1.getInstance();
         var frozenMap = mapJsonSchema.validate(Map.of("k1", "v1", "k2", "v2"), configuration);
-        jsonBody = getJsonBody(
-                serializer,
-                new ApplicationgeojsonRequestBody(frozenMap));
+        requestBody = serializer.serialize(new ApplicationjsonRequestBody(frozenMap));
+        jsonBody = getJsonBody(requestBody);
         Assert.assertEquals(jsonBody, "{\"k2\":\"v2\",\"k1\":\"v1\"}");
+    }
+
+    @Test
+    public void testSerializeTextPlain() {
+        var serializer = new MyRequestBodySerializer();
+        SerializedRequestBody requestBody = serializer.serialize(new TextplainRequestBody("a"));
+        Assert.assertEquals("text/plain", requestBody.contentType);
+        String textBody = getJsonBody(requestBody);
+        Assert.assertEquals(textBody, "a");
+
+        Assert.assertThrows(
+                RuntimeException.class,
+                () -> serializer.serialize(new TextplainRequestBody(null))
+        );
     }
 }
