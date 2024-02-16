@@ -12,9 +12,26 @@ A class that contains necessary nested request body classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
+| static class | [Client.ApplicationjsonMediaType](#applicationjsonmediatype)<br>class storing schema info for a specific contentType |
 | static class | [Client.Client1](#client1)<br>class that serializes request bodies |
 | static class | [Client.SealedRequestBody](#sealedrequestbody)<br>abstract sealed request body class |
 | static class | [Client.ApplicationjsonRequestBody](#applicationjsonrequestbody)<br>implementing sealed class to store request body input |
+
+## ApplicationjsonMediaType
+public static class ApplicationjsonMediaType<br>
+extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1>
+
+class storing schema info for a specific contentType
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ApplicationjsonMediaType()<br>Creates an instance |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| ApplicationjsonSchema.ApplicationjsonSchema1 | schema<br>the schema for this MediaType |
 
 ## Client1
 public static class Client1<br>
@@ -30,7 +47,7 @@ a class that serializes SealedRequestBody request bodies
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | boolean | required = true<br>whether the request body is required |
-| Map<String, MediaType<?>> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType())<br>)<br>the contentType to schema info |
+| Map<String, MediaType<?>> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/json", new [ApplicationjsonMediaType](#applicationjsonmediatype)())<br>)<br>the contentType to schema info |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

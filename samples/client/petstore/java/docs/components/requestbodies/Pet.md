@@ -12,10 +12,44 @@ A class that contains necessary nested request body classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
+| static class | [Pet.ApplicationjsonMediaType](#applicationjsonmediatype)<br>class storing schema info for a specific contentType |
+| static class | [Pet.ApplicationxmlMediaType](#applicationxmlmediatype)<br>class storing schema info for a specific contentType |
 | static class | [Pet.Pet1](#pet1)<br>class that serializes request bodies |
 | static class | [Pet.SealedRequestBody](#sealedrequestbody)<br>abstract sealed request body class |
 | static class | [Pet.ApplicationjsonRequestBody](#applicationjsonrequestbody)<br>implementing sealed class to store request body input |
 | static class | [Pet.ApplicationxmlRequestBody](#applicationxmlrequestbody)<br>implementing sealed class to store request body input |
+
+## ApplicationjsonMediaType
+public static class ApplicationjsonMediaType<br>
+extends MediaType<ApplicationjsonSchema.ApplicationjsonSchema1>
+
+class storing schema info for a specific contentType
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ApplicationjsonMediaType()<br>Creates an instance |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| ApplicationjsonSchema.ApplicationjsonSchema1 | schema<br>the schema for this MediaType |
+
+## ApplicationxmlMediaType
+public static class ApplicationxmlMediaType<br>
+extends MediaType<ApplicationxmlSchema.ApplicationxmlSchema1>
+
+class storing schema info for a specific contentType
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ApplicationxmlMediaType()<br>Creates an instance |
+
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| ApplicationxmlSchema.ApplicationxmlSchema1 | schema<br>the schema for this MediaType |
 
 ## Pet1
 public static class Pet1<br>
@@ -31,7 +65,7 @@ a class that serializes SealedRequestBody request bodies
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | boolean | required = true<br>whether the request body is required |
-| Map<String, MediaType<?>> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/json", new ApplicationjsonMediaType()),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/xml", new ApplicationxmlMediaType())<br>)<br>the contentType to schema info |
+| Map<String, MediaType<?>> | content =  Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/json", new [ApplicationjsonMediaType](#applicationjsonmediatype)()),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("application/xml", new [ApplicationxmlMediaType](#applicationxmlmediatype)())<br>)<br>the contentType to schema info |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
