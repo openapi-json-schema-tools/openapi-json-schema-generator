@@ -7,6 +7,10 @@ docs/components/headers/stringheader/StringHeaderSchema.md
 docs/components/parameters/componentrefschemastringwithvalidation/content/applicationjson/ApplicationjsonSchema.md
 docs/components/parameters/pathusername/Schema.md
 docs/components/parameters/refschemastringwithvalidation/Schema.md
+docs/components/requestbodies/Client.md
+docs/components/requestbodies/Pet.md
+docs/components/requestbodies/RefUserArray.md
+docs/components/requestbodies/UserArray.md
 docs/components/requestbodies/client/content/applicationjson/ApplicationjsonSchema.md
 docs/components/requestbodies/pet/content/applicationjson/ApplicationjsonSchema.md
 docs/components/requestbodies/pet/content/applicationxml/ApplicationxmlSchema.md

@@ -1,0 +1,47 @@
+{{#with requestBody}}
+{{#eq identifierPieces.size 0}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{else}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces }}
+{{/eq}}
+{{#if componentModule}}
+{{jsonPathPiece.pascalCase}}.java
+{{/if}}
+
+{{#if refInfo}}
+| Ref Class | Description |
+| --------- | ----------- |
+| [{{refInfo.refClass}}](../../components/requestbodies/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}}
+{{else}}
+
+public class {{jsonPathPiece.pascalCase}}
+
+A class that contains necessary nested
+- SealedRequestBody class, an abstract sealed class which contains all the contentType/schema input types
+- final classes which extend SealedRequestBody, the concrete request body types
+- a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
+- supporting XMediaType classes which store the openapi request body contentType to schema information
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br> class that serializes request bodies |
+| static class | [{{jsonPathPiece.pascalCase}}.SealedRequestBody](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedrequestbody") }})<br> abstract sealed request body class |
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
+public static class {{jsonPathPiece.pascalCase}}1<br>
+
+a class that serializes SealedRequestBody request bodies
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "SealedRequestBody") }}
+public static abstract sealed class SealedRequestBody<br>
+permits<br>
+
+abstract sealed class that stores request contentType + validated schema data
+
+{{/if}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" requestBodiesLink=true}}
+{{/if}}
+{{/with}}

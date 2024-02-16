@@ -173,6 +173,30 @@ allowed input and output types.
     {{/with}}
 {{/each}}
 {{/if}}
+{{#if schemas}}
+
+## Component Schemas
+
+| Class | Description |
+| ----- | ----------- |
+{{#each schemas}}
+    {{#with this}}
+| [{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](docs/components/schemas/{{containerJsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}) |{{#if description}} {{description.originalWithBr}}{{/if}} |
+    {{/with}}
+{{/each}}
+{{/if}}
+{{#if requestBodies}}
+
+## Component RequestBodies
+
+Class | Description
+----- | ------------
+{{#each requestBodies}}
+    {{#with this}}
+[{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](docs/components/requestbodies/{{jsonPathPiece.pascalCase}}.md#{{jsonPathPiece.kebabCase}}1) |{{#if description}} {{description.originalWithBr}}{{/if}}
+    {{/with}}
+{{/each}}
+{{/if}}
 {{#if securitySchemes}}
 
 ## Component SecuritySchemes
