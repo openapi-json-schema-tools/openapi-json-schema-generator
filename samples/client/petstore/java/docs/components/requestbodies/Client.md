@@ -12,8 +12,9 @@ A class that contains necessary nested request body classes
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [Client.Client1](#client1)<br> class that serializes request bodies |
-| static class | [Client.SealedRequestBody](#sealedrequestbody)<br> abstract sealed request body class |
+| static class | [Client.Client1](#client1)<br>class that serializes request bodies |
+| static class | [Client.SealedRequestBody](#sealedrequestbody)<br>abstract sealed request body class |
+| static class | [Client.ApplicationjsonRequestBody](#applicationjsonrequestbody)<br>implementing sealed class to store request body input |
 
 ## Client1
 public static class Client1<br>
@@ -39,9 +40,26 @@ a class that serializes SealedRequestBody request bodies
 ## SealedRequestBody
 public static abstract sealed class SealedRequestBody<br>
 permits<br>
-[ApplicationjsonRequestBody]()
+[ApplicationjsonRequestBody](#applicationjsonrequestbody)
 
 abstract sealed class that stores request contentType + validated schema data
 
+## ApplicationjsonRequestBody
+public static final class ApplicationjsonRequestBody<br>
+extends [SealedRequestBody](#sealedrequestbody)<br>
+implements GenericRequestBody<ApplicationjsonSchema.Client1Boxed><br>
+
+A final class to store request body input for contentType="application/json"
+
+### Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| ApplicationjsonRequestBody(ApplicationjsonSchema.Client1Boxed body)<br>Creates an instance |
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| String | contentType()<br>always returns "application/json" |
+| ApplicationjsonSchema.Client1Boxed | body()<br>returns the body passed in in the constructor |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

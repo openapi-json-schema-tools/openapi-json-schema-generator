@@ -36,8 +36,11 @@ A class that contains necessary nested request body classes
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
-| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br> class that serializes request bodies |
-| static class | [{{jsonPathPiece.pascalCase}}.SealedRequestBody](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedrequestbody") }})<br> abstract sealed request body class |
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br>class that serializes request bodies |
+| static class | [{{jsonPathPiece.pascalCase}}.SealedRequestBody](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedrequestbody") }})<br>abstract sealed request body class |
+{{#each content}}
+| static class | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody)<br>implementing sealed class to store request body input |
+{{/each}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
 public static class {{jsonPathPiece.pascalCase}}1<br>
@@ -64,11 +67,30 @@ a class that serializes SealedRequestBody request bodies
 public static abstract sealed class SealedRequestBody<br>
 permits<br>
 {{#each content}}
-[{{@key.pascalCase}}RequestBody](){{#unless @last}},{{/unless}}
+[{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody){{#unless @last}},{{/unless}}
 {{/each}}
 
 abstract sealed class that stores request contentType + validated schema data
 
+{{#each content}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "RequestBody" "")) }}
+public static final class {{@key.pascalCase}}RequestBody<br>
+extends [SealedRequestBody](#sealedrequestbody)<br>
+implements GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}}><br>
+
+A final class to store request body input for contentType="{{{@key.original}}}"
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body)<br>Creates an instance |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| String | contentType()<br>always returns "{{{@key.original}}}" |
+| {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/java/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} | body()<br>returns the body passed in in the constructor |
+{{/each}}
 {{/if}}
 {{#if componentModule}}
 
