@@ -20,14 +20,14 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass> {
             "application/[^+]*[+]?(json);?.*"
     );
     private static final Gson gson = new Gson();
-    private static final String textPlainContentType = "text/plain";
+    protected static final String textPlainContentType = "text/plain";
 
     public ResponseDeserializer(@Nullable Map<String, MediaType<?>> content) {
         this.content = content;
         this.headers = null;
     }
 
-    public abstract SealedBodyClass getBody(String contentType, @Nullable Object body);
+    public abstract SealedBodyClass getBody(String contentType, byte[] body, SchemaConfiguration configuration);
     public abstract HeaderClass getHeaders(HttpHeaders headers);
 
     protected @Nullable Object deserializeJson(byte[] body) {
@@ -56,8 +56,8 @@ public abstract class ResponseDeserializer<SealedBodyClass, HeaderClass> {
             );
         }
         byte[] bodyBytes = response.body();
-        SealedBodyClass body = getBody(contentType, bodyBytes);
+        SealedBodyClass body = getBody(contentType, bodyBytes, configuration);
         HeaderClass headers = getHeaders(response.headers());
-        return new ApiResponse<>(response, body, headers);
+        return new DeserializedApiResponse<>(response, body, headers);
 	}
 }
